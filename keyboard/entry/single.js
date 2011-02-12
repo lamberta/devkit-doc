@@ -1,8 +1,8 @@
 "use import";
 
-import timestep.KeyListener2 as KeyListener;
+import timestep.KeyListener;
 
-TeaLeaf.ui.init();
+TeaLeaf.ui.createApp();
 
 var mainView = TeaLeaf.ui.getView();
 var keyListener = new timestep.KeyListener();

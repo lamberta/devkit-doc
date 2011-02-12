@@ -1,10 +1,10 @@
 "use import";
 import timestep.TiledView;
 import timestep.JsonTileSource;
-import timestep.KeyListener2 as KeyListener;
+import timestep.KeyListener;
 import maps;
 
-TeaLeaf.ui.init();
+TeaLeaf.ui.createApp();
 
 
 var mainView = TeaLeaf.ui.getView();

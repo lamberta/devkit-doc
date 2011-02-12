@@ -1,5 +1,5 @@
 
-TeaLeaf.ui.init();
+TeaLeaf.ui.createApp();
 
 var mainView = TeaLeaf.ui.getView();
 

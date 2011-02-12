@@ -3,12 +3,12 @@
 import timestep.View;
 import timestep.ImageView;
 
-import timestep.KeyListener2;
+import timestep.KeyListener;
 
 var LEFT = 37;
 var RIGHT = 39;
 
-TeaLeaf.ui.init();
+TeaLeaf.ui.createApp();
 
 /****************************************************************************
  * Views are the basic building block of timestep applications.  They can be
