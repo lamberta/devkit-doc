@@ -2,9 +2,10 @@
 
 import timestep.KeyListener;
 
-TeaLeaf.ui.createApp();
+var app = new GCApp();
 
-var mainView = TeaLeaf.ui.getView();
+var mainView = app.getView();
+
 var keyListener = new timestep.KeyListener();
 
 mainView.tick = function(dt) {

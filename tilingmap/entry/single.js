@@ -3,11 +3,9 @@ import timestep.TiledView;
 import timestep.JsonTileSource;
 import timestep.KeyListener;
 import maps;
+var app = new GCApp();
+var mainView = app.getView();
 
-TeaLeaf.ui.createApp();
-
-
-var mainView = TeaLeaf.ui.getView();
 var keyListener = new KeyListener();
 
 var dataSource = new timestep.JsonTileSource({

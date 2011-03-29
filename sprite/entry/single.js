@@ -5,9 +5,8 @@
  ******************************************/
 import timestep.Sprite;
 import timestep.KeyListener;
-
-TeaLeaf.ui.createApp();
-var mainView = TeaLeaf.ui.getView();
+var app = new GCApp();
+var mainView = app.getView();
 var keyListener = new KeyListener();
 
 var x = mainView.style.width/2 -64;

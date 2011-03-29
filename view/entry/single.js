@@ -8,7 +8,7 @@ import timestep.KeyListener;
 var LEFT = 37;
 var RIGHT = 39;
 
-TeaLeaf.ui.createApp();
+var app = new GCApp();
 
 /****************************************************************************
  * Views are the basic building block of timestep applications.  They can be
@@ -16,9 +16,9 @@ TeaLeaf.ui.createApp();
  *
  ****************************************************************************/
  
- //TeaLeaf.ui.getView() returns the base view of the application
- var mainView = TeaLeaf.ui.getView();
- var keyListener = new timestep.KeyListener2();
+//GCApp.getView() returns the base view of the application
+var mainView = app.getView();
+var keyListener = new timestep.KeyListener2();
  
  //Creating a new view:
  

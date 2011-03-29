@@ -3,7 +3,7 @@
 import timestep.View;
 import timestep.animate;
 
-TeaLeaf.ui.init();
+var app = new GCApp();
 
 TeaLeaf.game.onStart = function() {
 
@@ -84,7 +84,7 @@ var Player = Class(timestep.View, function(supr) {
 TeaLeaf.game.event_init = function(evt) {
 	var state = evt.state,
 		usernames = evt.usernames,
-		mainView = TeaLeaf.ui.getView();
+		mainView = app.getView();
 	
 	for (var i = 0, u; u = usernames[i]; ++i) {
 		logger.log('init:' + u);

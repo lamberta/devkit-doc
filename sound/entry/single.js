@@ -12,13 +12,11 @@ var app = new GCApp();
 
 var mainView = app.getView();
 
-
 SoundManager.play({
 	src: 'sounds/background.ogg',
 	loop:true,
 	volume:0.4
 });
-
 
 mainView.onInputSelect = function(evt, pt) {
 	SoundManager.play({

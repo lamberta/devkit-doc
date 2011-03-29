@@ -1,6 +1,6 @@
-TeaLeaf.ui.createApp();
+var app = new GCApp();
 
-var mainView = TeaLeaf.ui.getView();
+var mainView = app.getView();
 
 //onInputSelect is called whenever the view is clicked on.
 //pt is the x and y coordinates of the click

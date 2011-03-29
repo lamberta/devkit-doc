@@ -1,7 +1,8 @@
 
-TeaLeaf.ui.createApp();
+var app = new GCApp();
 
-var mainView = TeaLeaf.ui.getView();
+var mainView = app.getView();
+
 
 // You can get raw access to the canvas of a view
 // by overriding its render function
