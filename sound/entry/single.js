@@ -8,9 +8,9 @@
  ************************************/
 import timestep.SoundManager as SoundManager;
 
-TeaLeaf.ui.createApp();
+var app = new GCApp();
 
-var mainView = TeaLeaf.ui.getView();
+var mainView = app.getView();
 
 
 SoundManager.play({
