@@ -8,7 +8,7 @@ import timestep.Sprite;
 var app = new GCApp();
 var mainView = app.getView();
 
-var keyListener = app.getkeyListener();
+var keyListener = app.getKeyListener();
 
 var x = mainView.style.width/2 -64;
 var y = mainView.style.height/2 -64;
