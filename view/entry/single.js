@@ -3,12 +3,8 @@
 import timestep.View;
 import timestep.ImageView;
 
-import timestep.KeyListener;
-
-var LEFT = 37;
-var RIGHT = 39;
-
 var app = new GCApp();
+var keyListener = app.getKeyListener();
 
 /****************************************************************************
  * Views are the basic building block of timestep applications.  They can be
@@ -18,7 +14,6 @@ var app = new GCApp();
  
 //GCApp.getView() returns the base view of the application
 var mainView = app.getView();
-var keyListener = new timestep.KeyListener2();
  
  //Creating a new view:
  
@@ -65,9 +60,9 @@ mainView.tick = function(dt) {
 	var events = keyListener.popEvents();
 	for (var i = 0; i < events.length; i++) {
 		var event = events[i];
-		if (event.code == LEFT) {
+		if (event.code == keyListener.LEFT) {
 			robotView.style.x += 10;
-		} else if (event.code == RIGHT) {
+		} else if (event.code == keyListener.RIGHT) {
 			redView.style.x +=10;
 		}
 	}

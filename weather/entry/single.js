@@ -1,9 +1,8 @@
-jsio('import timestep.Application');
 jsio('import shared.clouds.AnimatedCloudView as AnimatedCloudView');
 
 // Blue Sky
-mainView = TeaLeaf.ui.getView();
-
+var app = new GCApp();
+var mainView = app.getView();
 
 
 
@@ -61,5 +60,4 @@ var levelImage = new timestep.ImageView({
 }
 */
 
-var app = timestep.Application.get();
 app._opts.dtFixed = 20;
