@@ -4,10 +4,11 @@
  * opengameart.org
  ******************************************/
 import timestep.Sprite;
-import timestep.KeyListener;
+
 var app = new GCApp();
 var mainView = app.getView();
-var keyListener = new KeyListener();
+
+var keyListener = app.getkeyListener();
 
 var x = mainView.style.width/2 -64;
 var y = mainView.style.height/2 -64;
@@ -22,7 +23,7 @@ var ship = new timestep.Sprite({
 		left: {
 			width: 128,
 			height: 128,
-			imageUrl: 'images/spaceship.png',
+			imageURL: 'images/spaceship.png',
 			frameRate: 7,
 			frames: [ 
 				[384,0], 
@@ -37,7 +38,7 @@ var ship = new timestep.Sprite({
 		right: {
 			width: 128,
 			height: 128,
-			imageUrl: 'images/spaceship.png',
+			imageURL: 'images/spaceship.png',
 			frameRate: 7,
 			frames: [ 
 				[384, 0], 
@@ -52,7 +53,7 @@ var ship = new timestep.Sprite({
 		rest: {
 			width:128,
 			height:128,
-			imageUrl: 'images/spaceship.png',
+			imageURL: 'images/spaceship.png',
 			frameRate:1,
 			frames: [[384, 0]]
 		}
@@ -68,9 +69,9 @@ mainView.tick = function(dt) {
 	var events = keyListener.popEvents();
 	for (var i = 0; i < events.length; i++) {
 		var event = events[i];
-		if (event.code == KeyListener.LEFT && event.lifted) {
+		if (event.code == keyListener.LEFT && event.lifted) {
 			ship.startAnimation('left', {iterations:1});
-		} else if (event.code == KeyListener.RIGHT && event.lifted) {
+		} else if (event.code == keyListener.RIGHT && event.lifted) {
 			ship.startAnimation('right', {iterations:1});
 		}
 	}
