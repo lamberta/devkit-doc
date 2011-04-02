@@ -1,12 +1,11 @@
 "use import";
 import timestep.TiledView;
 import timestep.JsonTileSource;
-import timestep.KeyListener;
 import maps;
 var app = new GCApp();
 var mainView = app.getView();
 
-var keyListener = new KeyListener();
+var keyListener = app.getKeyListener();
 
 var dataSource = new timestep.JsonTileSource({
 	imageUrl: 'images/grasstiles.png',
@@ -36,16 +35,16 @@ mainView.tick = function(ctx) {
 	var keys = keyListener.getPressed();
 	var moveX = 0;
 	var moveY = 0;
-	if (keys[KeyListener.LEFT]) {
+	if (keys[keyListener.LEFT]) {
 		moveX-=1;		
 	}
-	if (keys[KeyListener.RIGHT]) {
+	if (keys[keyListener.RIGHT]) {
 		moveX += 1;	
 	}
-	if (keys[KeyListener.UP]) {
+	if (keys[keyListener.UP]) {
 		moveY -=1;
 	}
-	if (keys[KeyListener.DOWN]) {
+	if (keys[keyListener.DOWN]) {
 		moveY +=1;
 	}
 	tiledView.moveBy(moveX * 10, moveY * 10);

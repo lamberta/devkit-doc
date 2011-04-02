@@ -6,8 +6,9 @@ import timestep.View;
 //necessary comment
 // jsio('import frameworks.turnbased.Framework');
 TeaLeaf.useFramework('turnbased');
-TeaLeaf.ui.createApp();
-mainView = TeaLeaf.ui.getView();
+
+var app = new GCApp();
+var mainView = app.getView();
 
 mainView.onInputScroll = function(evt, pt) {
 		logger.log('a click', pt);
