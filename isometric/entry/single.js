@@ -82,8 +82,8 @@ characterOpts = {
 		}
 	},
 	position: {
-		i: 2,
-		j: 2
+		i: 10,
+		j: 10
 	},
 	boundingCircle: {
 		x: 16,
