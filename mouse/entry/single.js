@@ -29,9 +29,8 @@ var app = new GCApp({
 
 mainView = app.getView();
 
-var console = new timestep.ui.Console({x: 25});
-logger.setListener(console); // where does logger go?
-mainView.addSubview(console);
+var console = new timestep.ui.Console({x: 25, parent: mainView});
+logger.setListener(bind(console, 'log'));
 
 // onInputScroll is called whenver the mouse wheel is scrolled on
 // the view.  pt is the x and y coordinates of the mouse when it was 
