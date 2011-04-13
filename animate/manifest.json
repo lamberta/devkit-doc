@@ -1,0 +1,42 @@
+{
+    "defaultLaunch": "multi", 
+    "launch": {
+        "intro": {
+            "clients": [
+                {
+                    "device": "iphone", 
+                    "entry": "entry.single", 
+                    "id": "bob", 
+                    "rotation": 1
+                }
+            ]
+        }, 
+        "multi": {
+            "clients": [
+                {
+                    "device": "ipad", 
+                    "entry": "entry.multi", 
+                    "rotation": 1, 
+                    "username": "bob"
+                }, 
+                {
+                    "device": "iphone", 
+                    "entry": "entry.multi", 
+                    "rotation": 1, 
+                    "username": "joe"
+                }
+            ]
+        }, 
+        "single": {
+            "clients": [
+                {
+                    "device": "iphone", 
+                    "entry": "entry.single", 
+                    "rotation": 1, 
+                    "username": "bob"
+                }
+            ]
+        }
+    }, 
+    "name": ""
+}
