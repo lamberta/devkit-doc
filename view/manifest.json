@@ -1,3 +1,51 @@
 {
-	'name': ''
+    "defaultLaunch": "multi", 
+    "launch": {
+        "intro": {
+            "clients": [
+                {
+                    "device": "browser", 
+                    "displayName": "woot", 
+                    "entry": "single", 
+                    "rotation": 0
+                }
+            ], 
+            "id": "intro", 
+            "isSelected": true, 
+            "numClients": 1
+        }, 
+        "multi": {
+            "clients": [
+                {
+                    "device": "ipad", 
+                    "entry": "multi", 
+                    "rotation": 1, 
+                    "username": "bob"
+                }, 
+                {
+                    "device": "iphone", 
+                    "entry": "multi", 
+                    "rotation": 1, 
+                    "username": "joe"
+                }
+            ], 
+            "id": "multi", 
+            "isSelected": false, 
+            "numClients": 2
+        }, 
+        "single": {
+            "clients": [
+                {
+                    "device": "iphone", 
+                    "entry": "single", 
+                    "rotation": 1, 
+                    "username": "bob"
+                }
+            ], 
+            "id": "single", 
+            "isSelected": false, 
+            "numClients": 1
+        }
+    }, 
+    "name": "view"
 }

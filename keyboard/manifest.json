@@ -5,37 +5,40 @@
             "clients": [
                 {
                     "device": "iphone", 
-                    "entry": "entry.single", 
+                    "entry": "single", 
                     "id": "bob", 
                     "rotation": 1
                 }
-            ]
+            ], 
+            "numClients": 1
         }, 
         "multi": {
             "clients": [
                 {
                     "device": "ipad", 
-                    "entry": "entry.multi", 
+                    "entry": "multi", 
                     "rotation": 1, 
                     "username": "bob"
                 }, 
                 {
                     "device": "iphone", 
-                    "entry": "entry.multi", 
+                    "entry": "multi", 
                     "rotation": 1, 
                     "username": "joe"
                 }
-            ]
+            ], 
+            "numClients": 2
         }, 
         "single": {
             "clients": [
                 {
                     "device": "iphone", 
-                    "entry": "entry.single", 
+                    "entry": "single", 
                     "rotation": 1, 
                     "username": "bob"
                 }
-            ]
+            ], 
+            "numClients": 1
         }
     }, 
     "name": "keyboard"
