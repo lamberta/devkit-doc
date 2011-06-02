@@ -20,6 +20,7 @@ mainView.tick = function(dt) {
 		// log the key up/down events
 		for (var i = 0; i < keyEvents.length; i++) {
 			var evt = keyEvents[i];
+			logger.log(evt.code);
 			// evt.code is the keycode of the key that raised the event
 			if (evt.code == keyListener.LEFT) {
 				//if evt.lifted is true, it means that the evt is for
