@@ -1,0 +1,57 @@
+{
+    "defaultLaunch": "multi", 
+    "launch": {
+        "intro": {
+            "clients": [
+                {
+                    "device": "ipad", 
+                    "displayName": "woot", 
+                    "entry": "single", 
+                    "rotation": 0
+                }, 
+                {
+                    "device": "browser", 
+                    "displayName": "marty", 
+                    "entry": "single", 
+                    "rotation": 0
+                }
+            ], 
+            "id": "intro", 
+            "isSelected": false, 
+            "numClients": 1
+        }, 
+        "multi": {
+            "clients": [
+                {
+                    "device": "ipad", 
+                    "displayName": "marty", 
+                    "entry": "multi", 
+                    "rotation": 0
+                }, 
+                {
+                    "device": "iphone", 
+                    "displayName": "wellington", 
+                    "entry": "multi", 
+                    "rotation": 0
+                }
+            ], 
+            "id": "multi", 
+            "isSelected": false, 
+            "numClients": 2
+        }, 
+        "single": {
+            "clients": [
+                {
+                    "device": "browser", 
+                    "displayName": "hope", 
+                    "entry": "single", 
+                    "rotation": 0
+                }
+            ], 
+            "id": "single", 
+            "isSelected": true, 
+            "numClients": 1
+        }
+    }, 
+    "name": "Space Demo"
+}
