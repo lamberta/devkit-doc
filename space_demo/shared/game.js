@@ -3,6 +3,7 @@
 import math.util;
 import timestep.util as util;
 import timestep.Sprite as Sprite;
+import timestep.TextView as TextView;
 
 import shared.Player as Player;
 import shared.Enemy as Enemy;
@@ -41,7 +42,19 @@ var Game = exports = Class(function () {
 		this._enemyCooldown = 0;
 		this._enemyInterval = 200;
 
+		this._kills = 0;
+
 		this._initPlayer();
+
+		this._killCounter = new TextView({
+			parent: this.view,
+			x: 10,
+			y: (this.view.style.height - 30),
+			zIndex: 10,
+			bgcolor: "rgba(0, 0, 0, 0)",
+			color: "rgb(255, 255, 255)",
+			string: "Enemies Killed: 0"
+		});
 
 	};
 
@@ -95,6 +108,7 @@ var Game = exports = Class(function () {
 				rocket.alive = false;
 				actor.health -= 1;
 				if (actor.health <= 0) {
+					++this._kills;
 					actor.alive = false;
 					this._spawnExplosion(actor);
 				}
@@ -221,6 +235,8 @@ var Game = exports = Class(function () {
 			}
 
 		}
+
+		this._killCounter._string = "Enemies Killed: " + this._kills;
 
 	};
 
