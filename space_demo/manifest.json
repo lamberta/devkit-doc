@@ -4,20 +4,14 @@
         "intro": {
             "clients": [
                 {
-                    "device": "ipad", 
-                    "displayName": "woot", 
-                    "entry": "single", 
-                    "rotation": 0
-                }, 
-                {
                     "device": "browser", 
-                    "displayName": "marty", 
-                    "entry": "single", 
+                    "displayName": "woot", 
+                    "entry": "intro", 
                     "rotation": 0
                 }
             ], 
             "id": "intro", 
-            "isSelected": false, 
+            "isSelected": true, 
             "numClients": 1
         }, 
         "multi": {
@@ -49,7 +43,7 @@
                 }
             ], 
             "id": "single", 
-            "isSelected": true, 
+            "isSelected": false, 
             "numClients": 1
         }
     }, 

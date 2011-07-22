@@ -2,6 +2,7 @@
 
 import shared.Actor as Actor;
 import timestep.util as util;
+import math2D.Point as Point;
 
 var Enemy = exports = Class(Actor, function (supr) {
 
@@ -31,10 +32,18 @@ var Enemy = exports = Class(Actor, function (supr) {
 			this.behaviorInit();
 		}
 
+		/*
+		this.sprite.render = function (ctx) {
+			ctx.fillStyle = "rgb(255, 0, 0)";
+			ctx.fillRect(0, 0, this.style.width, this.style.height);
+		};
+		*/
+
 	};
 
 	this._getSpriteOpts = function () {
 		return {
+			//origin: new Point(this.width / 2, this.height / 2),
 			zIndex: 1,
 			animations: {
 				idle: {
