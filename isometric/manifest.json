@@ -1,51 +1,41 @@
 {
-    "defaultLaunch": "multi", 
-    "launch": {
-        "intro": {
-            "clients": [
-                {
-                    "device": "browser", 
-                    "displayName": "woot", 
-                    "entry": "single", 
-                    "rotation": 0
-                }
-            ], 
-            "id": "intro", 
-            "isSelected": true, 
-            "numClients": 1
+    "appID": "658d84db95b34c529897bb4eea898350", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
         }, 
-        "multi": {
-            "clients": [
-                {
-                    "device": "ipad", 
-                    "entry": "multi", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }, 
-                {
-                    "device": "iphone", 
-                    "entry": "multi", 
-                    "rotation": 1, 
-                    "username": "joe"
-                }
-            ], 
-            "id": "multi", 
-            "isSelected": false, 
-            "numClients": 2
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
         }, 
-        "single": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "single", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }
-            ], 
-            "id": "single", 
-            "isSelected": false, 
-            "numClients": 1
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
         }
     }, 
-    "name": "isometric"
+    "title": "isometric tutorial"
 }
