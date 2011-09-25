@@ -1,45 +1,41 @@
 {
-    "defaultLaunch": "multi", 
-    "launch": {
-        "intro": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "single", 
-                    "id": "bob", 
-                    "rotation": 1
-                }
-            ], 
-            "numClients": 1
+    "appID": "536de1e1b14c4a90b410793c62bffcf4", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {},
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
         }, 
-        "multi": {
-            "clients": [
-                {
-                    "device": "ipad", 
-                    "entry": "multi", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }, 
-                {
-                    "device": "iphone", 
-                    "entry": "multi", 
-                    "rotation": 1, 
-                    "username": "joe"
-                }
-            ], 
-            "numClients": 2
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
         }, 
-        "single": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "single", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }
-            ], 
-            "numClients": 1
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
         }
     }, 
-    "name": "mouse"
+    "title": "Mouse tutorial"
 }
