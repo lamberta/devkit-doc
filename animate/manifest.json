@@ -1,42 +1,41 @@
 {
-    "defaultLaunch": "multi", 
-    "launch": {
-        "intro": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "entry.single", 
-                    "id": "bob", 
-                    "rotation": 1
-                }
-            ]
+    "appID": "00c6ab9ca0524ea3ab8a9b1f4bb89e50", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
         }, 
-        "multi": {
-            "clients": [
-                {
-                    "device": "ipad", 
-                    "entry": "entry.multi", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }, 
-                {
-                    "device": "iphone", 
-                    "entry": "entry.multi", 
-                    "rotation": 1, 
-                    "username": "joe"
-                }
-            ]
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
         }, 
-        "single": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "entry.single", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }
-            ]
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
         }
     }, 
-    "name": ""
+    "title": "Tutorial: View Animation"
 }
