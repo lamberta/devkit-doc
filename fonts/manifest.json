@@ -1,0 +1,41 @@
+{
+    "appID": "ba5339d8933145499d6b862d57c2f268", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
+        }, 
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
+        }, 
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
+        }
+    }, 
+    "title": "empty project"
+}
