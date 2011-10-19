@@ -1,6 +1,8 @@
 "use import";
 
 import GC;
+import util.ajax as ajax;
+import timestep.tiled.TiledMap as TiledMap;
 import timestep.tiled.TiledMapScrollView as TiledMapScrollView;
 
 exports = Class(GC.Application, function (supr) {
@@ -27,11 +29,15 @@ exports = Class(GC.Application, function (supr) {
 			ctx.fillRect(0, 0, this.style.width, this.style.height);
 		};
 
+		this._map = new TiledMap();
+
 		// Init the scrolling Tiled map view
 		this._mapView = new TiledMapScrollView({
-			parent: this._view
+			parent: this._view,
+			drag: true
 		});
-		this._mapView.loadMap("media/maps/cave.tmx");
+
+		this._initMap("media/maps/cave.tmx");
 
 	};
 
@@ -41,6 +47,15 @@ exports = Class(GC.Application, function (supr) {
 
 	this.launchSinglePlayerGame = function () {
 		logger.info("launchSinglePlayerGame");
+	};
+
+	this._initMap = function (file) {
+		ajax.get({
+			url: file
+		}, bind(this, function (err, content) {
+			this._map.loadTMX(file, content);
+			this._mapView.setMap(this._map);
+		}));
 	};
 
 });
