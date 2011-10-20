@@ -1,0 +1,68 @@
+{
+    "appID": "tiled_demo", 
+    "facebookEnabled": false, 
+    "groups": {
+        "all": {
+            "name": "all", 
+            "resources": [
+                "media/images/cave.png"
+            ], 
+            "targets": [
+                "ios", 
+                "facebook", 
+                "desktop", 
+                "android", 
+                "native-mobile", 
+                "native-tablet"
+            ]
+        }
+    }, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": [
+                "media/maps/cave.tmx"
+            ]
+        }, 
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": [
+                "media/maps/cave.tmx"
+            ]
+        }, 
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": [
+                "media/maps/cave.tmx"
+            ]
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": [
+                "media/maps/cave.tmx"
+            ]
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": [
+                "media/maps/cave.tmx"
+            ]
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": [
+                "media/maps/cave.tmx"
+            ]
+        }
+    }, 
+    "title": "Tiled Demo"
+}

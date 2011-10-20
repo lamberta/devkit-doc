@@ -3,7 +3,7 @@
     "facebookEnabled": false, 
     "groups": {}, 
     "handshakeEnabled": false, 
-    "icons": {},
+    "icons": {}, 
     "resources": {}, 
     "targets": {
         "android": {

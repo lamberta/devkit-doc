@@ -1,45 +1,42 @@
 {
-    "defaultLaunch": "multi", 
-    "launch": {
-        "intro": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "single", 
-                    "id": "bob", 
-                    "rotation": 1
-                }
-            ], 
-            "numClients": 1
+    "appID": "ccac567a0caa4206a1d0676c04b57f34", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "name": "keyboard", 
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
         }, 
-        "multi": {
-            "clients": [
-                {
-                    "device": "ipad", 
-                    "entry": "multi", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }, 
-                {
-                    "device": "iphone", 
-                    "entry": "multi", 
-                    "rotation": 1, 
-                    "username": "joe"
-                }
-            ], 
-            "numClients": 2
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
         }, 
-        "single": {
-            "clients": [
-                {
-                    "device": "iphone", 
-                    "entry": "single", 
-                    "rotation": 1, 
-                    "username": "bob"
-                }
-            ], 
-            "numClients": 1
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
         }
     }, 
-    "name": "keyboard"
+    "title": ""
 }
