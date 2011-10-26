@@ -1,51 +1,44 @@
 {
-    "defaultLaunch": "multi", 
-    "launch": {
-        "intro": {
-            "clients": [
-                {
-                    "device": "browser", 
-                    "displayName": "woot", 
-                    "entry": "intro", 
-                    "rotation": 0
-                }
-            ], 
-            "id": "intro", 
-            "isSelected": true, 
-            "numClients": 1
+    "appID": "space-demo", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {
+        "64": "media/images/icons/space_demo_icon_64x64.png"
+    }, 
+    "name": "Space Demo", 
+    "resources": {}, 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
         }, 
-        "multi": {
-            "clients": [
-                {
-                    "device": "ipad", 
-                    "displayName": "marty", 
-                    "entry": "multi", 
-                    "rotation": 0
-                }, 
-                {
-                    "device": "iphone", 
-                    "displayName": "wellington", 
-                    "entry": "multi", 
-                    "rotation": 0
-                }
-            ], 
-            "id": "multi", 
-            "isSelected": false, 
-            "numClients": 2
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
         }, 
-        "single": {
-            "clients": [
-                {
-                    "device": "browser", 
-                    "displayName": "hope", 
-                    "entry": "single", 
-                    "rotation": 0
-                }
-            ], 
-            "id": "single", 
-            "isSelected": false, 
-            "numClients": 1
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
         }
     }, 
-    "name": "Space Demo"
+    "title": "Space Demo"
 }
