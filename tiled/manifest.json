@@ -1,5 +1,11 @@
 {
     "appID": "tiled_demo", 
+    "dev_sdk": {
+        "branch": "develop", 
+        "submodules": {
+            "timestep": "master"
+        }
+    }, 
     "facebookEnabled": false, 
     "groups": {
         "all": {
@@ -25,42 +31,46 @@
             "embed": [], 
             "name": "android", 
             "upload": [
-                "media/maps/cave.tmx"
+                "media/maps/cave.json"
             ]
         }, 
         "desktop": {
             "embed": [], 
             "name": "desktop", 
             "upload": [
-                "media/maps/cave.tmx"
+                "media/maps/cave.json"
             ]
         }, 
         "facebook": {
             "embed": [], 
             "name": "facebook", 
             "upload": [
-                "media/maps/cave.tmx"
+                "media/maps/cave.json"
             ]
         }, 
         "ios": {
             "embed": [], 
             "name": "ios", 
             "upload": [
-                "media/maps/cave.tmx"
+                "media/maps/cave.json"
             ]
         }, 
         "native-mobile": {
-            "embed": [], 
+            "embed": [
+                "media/maps/cave.json"
+            ], 
             "name": "native-mobile", 
             "upload": [
-                "media/maps/cave.tmx"
+                "media/maps/cave.json"
             ]
         }, 
         "native-tablet": {
-            "embed": [], 
+            "embed": [
+                "media/maps/cave.json"
+            ], 
             "name": "native-tablet", 
             "upload": [
-                "media/maps/cave.tmx"
+                "media/maps/cave.json"
             ]
         }
     }, 

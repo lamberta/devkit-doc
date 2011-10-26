@@ -2,6 +2,7 @@
 
 import GC;
 import util.ajax as ajax;
+import util.path as path;
 import timestep.tiled.TiledMap as TiledMap;
 import timestep.tiled.TiledMapScrollView as TiledMapScrollView;
 
@@ -21,7 +22,14 @@ exports = Class(GC.Application, function (supr) {
 	};
 
 	this.initUI = function () {
-		logger.info("initUI");
+
+		if (GLOBAL.NATIVE) {
+			NATIVE.onResume = bind(this, function () {
+				// Flush the Tiled map view buffer when native resumes
+				logger.info("Native onResume: Flushing map buffer...");
+				this._mapView.flushBuffer();
+			});
+		}
 
 		// Paint the screen black
 		this._view.render = function (ctx) {
@@ -37,7 +45,7 @@ exports = Class(GC.Application, function (supr) {
 			drag: true
 		});
 
-		this._initMap("media/maps/cave.tmx");
+		this._initMap("media/maps/cave.json");
 
 	};
 
@@ -53,7 +61,11 @@ exports = Class(GC.Application, function (supr) {
 		ajax.get({
 			url: file
 		}, bind(this, function (err, content) {
-			this._map.loadTMX(file, content);
+			// Set the base path so we know where to load external images from
+			this._map.basePath = path.join(file, "../");
+			// Load JSON data source
+			this._map.loadJSON(content);
+			// Finally, attach the map object to the renderer
 			this._mapView.setMap(this._map);
 		}));
 	};
