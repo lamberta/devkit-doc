@@ -4,7 +4,7 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 
 ---
 
-<img src="https://github.com/gameclosure/intro/raw/master/logo.png" height="150" alt="Game Closure Laboratories" title="Game Closure Laboratories" align="right">
+<img src="https://github.com/gameclosure/intro/raw/master/logo.png" height="200" alt="Game Closure Laboratories" title="Game Closure Laboratories" align="right">
 
 1. [Intro](https://github.com/gameclosure/intro/blob/master/README.md)
 2. [Respecting The Environment](https://github.com/gameclosure/intro/blob/master/ENVIRONMENT.md)
@@ -13,3 +13,6 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 	3. Git
 	4. Node
 	5. Android tools
+3. [Developmental Psychology](https://github.com/gameclosure/intro/blob/master/SDK.md)
+	1. android
+	2. dev_sdk
