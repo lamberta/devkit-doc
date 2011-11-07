@@ -1,11 +1,28 @@
 {
-    "appID": "7af1408c4f3541c79bde12900071f9d7", 
+    "android": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "appID": "4a66ef30376841de8753218f9a415e92", 
     "facebookEnabled": false, 
     "groups": {}, 
     "handshakeEnabled": false, 
     "icons": {}, 
-    "name": "canvas tutorial", 
+    "ios": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
     "resources": {}, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
     "targets": {
         "android": {
             "embed": [], 

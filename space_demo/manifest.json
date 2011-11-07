@@ -1,4 +1,12 @@
 {
+    "android": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
     "appID": "space-demo", 
     "facebookEnabled": false, 
     "groups": {}, 
@@ -6,8 +14,17 @@
     "icons": {
         "64": "media/images/icons/space_demo_icon_64x64.png"
     }, 
-    "name": "Space Demo", 
+    "ios": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
     "resources": {}, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
     "targets": {
         "android": {
             "embed": [], 

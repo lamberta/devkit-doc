@@ -1,10 +1,28 @@
 {
-    "appID": "00c6ab9ca0524ea3ab8a9b1f4bb89e50", 
+    "android": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "appID": "19a03a093456437583338e2e3a9e93b5", 
     "facebookEnabled": false, 
     "groups": {}, 
     "handshakeEnabled": false, 
     "icons": {}, 
+    "ios": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
     "resources": {}, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
     "targets": {
         "android": {
             "embed": [], 
@@ -37,5 +55,5 @@
             "upload": []
         }
     }, 
-    "title": "Tutorial: View Animation"
+    "title": "Animation Tutorial"
 }

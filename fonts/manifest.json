@@ -1,10 +1,28 @@
 {
-    "appID": "ba5339d8933145499d6b862d57c2f268", 
+    "android": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "appID": "ba6b8beb2f714ffa91237ebf4d2d5eb4", 
     "facebookEnabled": false, 
     "groups": {}, 
     "handshakeEnabled": false, 
     "icons": {}, 
+    "ios": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
     "resources": {}, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
     "targets": {
         "android": {
             "embed": [], 
@@ -37,5 +55,5 @@
             "upload": []
         }
     }, 
-    "title": "empty project"
+    "title": "Font tutorial"
 }
