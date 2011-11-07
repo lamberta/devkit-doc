@@ -11,7 +11,7 @@ The Game Closure tools! You'll probably want to put everything in a `~/Code/Game
 3. `$ git checkout develop`
 
 
-**dev_sdk** - Contains everything ever, including **TeaLeaf**, **jsio**, **timestep*, and the **native runtime**.
+**dev_sdk** - Contains everything ever, including **TeaLeaf**, **jsio**, **timestep**, and the **native runtime**.
 
 1. `$ git clone git@github.com:gameclosure/dev_sdk.git`
 2. `$ cd dev_sdk`
