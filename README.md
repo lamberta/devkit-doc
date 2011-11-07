@@ -1,6 +1,6 @@
 Welcome to **Game Closure**! We hope you enjoy your stay with us. To help accelerate the assimilation processes, we have created a guide outlining the recommended way of doing things regarding development. On completion of the tests, you will receive cake.
 
-Ready to dive in? Start with *[Respecting The Environment](ENVIRONMENT.md)*.
+Ready to dive in? Start with *[Respecting The Environment](https://github.com/gameclosure/intro/blob/master/ENVIRONMENT.md)*.
 
 ---
 
