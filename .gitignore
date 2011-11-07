@@ -1,3 +1,5 @@
+.DS_Store
+
 .tealeaf_sdk
 sdk
-.DS_Store
+build

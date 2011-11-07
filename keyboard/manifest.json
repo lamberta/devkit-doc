@@ -1,11 +1,28 @@
 {
-    "appID": "ccac567a0caa4206a1d0676c04b57f34", 
+    "android": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "appID": "f1ce63e3f7ef4bf2940b79ee4ed5b768", 
     "facebookEnabled": false, 
     "groups": {}, 
     "handshakeEnabled": false, 
     "icons": {}, 
-    "name": "keyboard", 
+    "ios": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
     "resources": {}, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
     "targets": {
         "android": {
             "embed": [], 
@@ -38,5 +55,5 @@
             "upload": []
         }
     }, 
-    "title": ""
+    "title": "Keyboard tutorial"
 }
