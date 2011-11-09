@@ -25,12 +25,20 @@ Various tools recommended for development. Skip anything you've already done, wh
 2. `$ brew install git`
 3. Follow the instructions on [help.github.com](http://help.github.com/mac-set-up-git/) to configure it.
 
+
 **Node** - Needed for the SDK. You can also test JavaScript or run, say, a level generator with it.
 
 1. `$ brew install node`
 
 
-<!-- probably a bunch of python stuff, so pip/virtualenv/etc. -->
+**pip** - Package manager for python, used for installing `virtualenv`.
+
+1. `$ sudo easy_install pip`
+
+
+**virtualenv** - Virtual Python Environment builder, used in TeaLeaf.
+
+1. `$ sudo pip install virtualenv`
 
 
 **Android tools** - Android DKs needed for building android stuff.

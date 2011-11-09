@@ -16,4 +16,5 @@ The Game Closure tools! You'll probably want to put everything in a `~/Code/Game
 1. `$ git clone git@github.com:gameclosure/dev_sdk.git`
 2. `$ cd dev_sdk`
 3. `$ git checkout develop`
+4. `$ git submodule update --init`
 4. `$ sudo ./dev_install.sh`
