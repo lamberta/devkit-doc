@@ -9,7 +9,15 @@ The Game Closure tools! You'll probably want to put everything in a `~/Code/Game
 1. `$ git clone git@github.com:gameclosure/android.git`
 2. `$ cd android`
 3. `$ git checkout develop`
-
+3. `$ git submodule update --init`
+3. `$ cd TeaLeaf`
+3. `ndk-build`
+4. Download Eclipse - "Eclipse IDE for Java Developers" from http://www.eclipse.org/downloads/
+5. Install ADT.  From Eclipse, select `Help -> Install new software...`.  Press `Add...` and use the download URL https://dl-ssl.google.com/android/eclipse/.  Select and install `Developer Tools`.
+5. Create the projects.  Select `File -> New Project ... -> Android -> Android Project`.  
+6. Choose `Create project from existing source` and pick the `/android/TeaLeaf/` folder from the git clone.
+7. Right click the `TeaLeaf` project in the left column and select `Properties`.  Under `Java Build Path -> Libraries` select `Add JARs...` and select all JAR files in the `TeaLeaf/lib/` folder.
+8. Repeat steps 5-7 for `/android/test_app`.
 
 **dev_sdk** - Contains everything ever, including **TeaLeaf**, **jsio**, **timestep**, and the **native runtime**.
 
