@@ -16,3 +16,8 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 3. [Developmental Psychology](https://github.com/gameclosure/intro/blob/master/SDK.md)
 	1. android
 	2. dev_sdk
+	3. Updating
+4. [Quantum Projection](https://github.com/gameclosure/intro/blob/master/PROJECT.md)
+	1. Creating a project
+	2. Physical layout
+	3. Application.js

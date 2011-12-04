@@ -1,7 +1,7 @@
 # Intro
 Here at Game Closure, we respect the environment. To help educate our new employees on the correct mindset regarding relevant issues, we have created this list of resources to go through. After completion, please proceed to *[Developmental Psychology](SDK.md)*.
 
-**Notes**
+**Notes**<br>
 Various tools recommended for development. Skip anything you've already done, which is probably most of it, but read through to make sure.
 
 
@@ -39,7 +39,7 @@ A jsio-compatible REPL is included in [etc/repl.js](etc/repl.js).
 
 
 ## pip
-Package manager for python, currently only required for installing `virtualenv`.
+Package manager for Python, currently only required for installing `virtualenv`.
 
 1. `$ sudo easy_install pip`
 
