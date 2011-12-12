@@ -16,7 +16,6 @@ Contains everything ever, including **TeaLeaf**, **jsio**, **timestep**, and the
 
 1. Clone the repo: `$ git clone git@github.com:gameclosure/dev_sdk.git`
 2. `$ cd dev_sdk`
-3. Check out the **develop** branch: `$ git checkout develop`
 4. Initialize and clone the submodules: `$ git submodule update --init`
 5. Set up the Python virtual environment: `$ sudo ./dev_install.sh`
 
