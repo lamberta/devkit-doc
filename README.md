@@ -9,10 +9,11 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 1. [Intro](https://github.com/gameclosure/intro/blob/master/README.md)
 2. [Respecting The Environment](https://github.com/gameclosure/intro/blob/master/ENVIRONMENT.md)
 	1. Xcode
-	2. Homebrew
-	3. Git
-	4. Node
-	5. Android tools
+	2. Eclipse
+	3. Homebrew
+	4. Git
+	5. Node
+	6. Android tools
 3. [Developmental Psychology](https://github.com/gameclosure/intro/blob/master/SDK.md)
 	1. android
 	2. dev_sdk
