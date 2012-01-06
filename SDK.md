@@ -1,5 +1,5 @@
 # Intro
-Here at Game Closure, we understand the importance of developmental psychology. This is why we have contributed a record $3 trillion to various top research and outreach programs. Additionally, since it is such a large focus externally, we provide a comprehensive education program, specifically designed to provide knowledge on the subject to our employees. After completion of the course materials, move on to [Quantum Projection](PROJECT.md).
+Here at Game Closure, we understand the importance of developmental psychology. This is why we have contributed a record $3 trillion to various top research and outreach programs. Additionally, since it is such a large focus externally, we provide a comprehensive education program, specifically designed to provide knowledge on the subject to our employees. After completion of the course materials, move on to *[Quantum Projection](PROJECT.md)*.
 
 **Notes**<br>
 The Game Closure tools! You'll probably want to put everything in a `~/Code/GameClosure` directory (or something similar), so `cd` there before cloning things.
