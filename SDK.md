@@ -23,7 +23,7 @@ If you installed Eclipse, you'll want to add TeaLeaf and test_app to it.
 1. Create the projects. Select `File > New Project ... > Android > Android Project`.
 2. Choose `Create project from existing source` and pick the `TeaLeaf/` directory in the android repo.
 3. Right click the `TeaLeaf` project in the left column and select `Properties`. Under `Java Build Path > Libraries` select `Add JARs...` and select all JAR files in the `TeaLeaf/lib/` folder.
-4. Repeat steps 1-3 for the `test_app` directory in the android repo.
+4. Repeat steps 1-3 for the `test_app/` directory in the android repo.
 
 
 ## dev_sdk

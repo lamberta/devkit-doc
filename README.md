@@ -6,7 +6,7 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 
 ---
 
-<img src="https://github.com/gameclosure/intro/raw/master/etc/logo.png" height="320" alt="Game Closure Laboratories" title="Game Closure Laboratories" align="right">
+<img src="https://github.com/gameclosure/intro/raw/master/etc/logo.png" height="260" alt="Game Closure Laboratories" title="Game Closure Laboratories" align="right">
 
 1. [Intro](https://github.com/gameclosure/intro/blob/master/README.md)
 2. [Respecting The Environment](https://github.com/gameclosure/intro/blob/master/ENVIRONMENT.md)
@@ -15,13 +15,16 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 	3. Homebrew
 	4. Git
 	5. Node
-	6. Android tools
+	6. pip
+	7. virtualenv
+	8. Android tools
 3. [Developmental Psychology](https://github.com/gameclosure/intro/blob/master/SDK.md)
 	1. intro
 	2. android
 	3. dev_sdk
 	4. Updating
 4. [Quantum Projection](https://github.com/gameclosure/intro/blob/master/PROJECT.md)
-	1. Creating a project
-	2. Physical layout
-	3. Application.js
+	1. Physical layout
+	2. Creating a project
+	3. manifest.json
+	4. Application.js
