@@ -13,6 +13,15 @@ Apple's IDE. You'll need this for Homebrew and building stuff on iOS.
 Also comes with a few other goodies including a `.plist` editor.
 
 
+## Eclipse (optional)
+Java IDE. Completely optional, but it has some powerful Android debugging tools. Talk to Martin or someone on the native team if you're not sure whether you need it or not.
+
+1. Download "Eclipse IDE for Java Developers" from http://www.eclipse.org/downloads/.
+2. Install ADT. From Eclipse, select `Help > Install new software...`. Press `Add...` and use the download URL https://dl-ssl.google.com/android/eclipse/. Select and install `Developer Tools`.
+
+Make sure to occasionally check for updates. For usage instructions talk to Martin and the native team.
+
+
 ## Homebrew
 An awesome package manager for OS X, with a huge up to date selection including core UNIX utilities (`wget`) and even full programs (`wine`). You'll also need it for `git`, `node`, etc. Other options exist but this is highly preferred.
 

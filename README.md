@@ -4,7 +4,7 @@ Ready to dive in? Start with *[Respecting The Environment](https://github.com/ga
 
 ---
 
-<img src="https://github.com/gameclosure/intro/raw/master/logo.png" height="320" alt="Game Closure Laboratories" title="Game Closure Laboratories" align="right">
+<img src="https://github.com/gameclosure/intro/raw/master/etc/logo.png" height="320" alt="Game Closure Laboratories" title="Game Closure Laboratories" align="right">
 
 1. [Intro](https://github.com/gameclosure/intro/blob/master/README.md)
 2. [Respecting The Environment](https://github.com/gameclosure/intro/blob/master/ENVIRONMENT.md)
