@@ -16,10 +16,12 @@ Included in this project is [sk3letr0n/](sk3letr0n), which contains all the base
 
 
 ## Creating a project
-Nothing special is required to create a project, just add all the required files or copy them over, then serve them with TeaLeaf and it'll automatically add the defaults to manifest.json and create the ignored files and directories.
+Nothing special is needed to create a project, just add all the required files or copy them over, then serve them with TeaLeaf and it'll automatically add the defaults to manifest.json and create the gitignored files and directories.
 
 
 ## manifest.json
+Project settings! You'll rarely want to edit it manually; that requires re-serving to pick up the changes. A lot of the lists can simply be managed in the SDK interface, such as images and sounds. <!-- stuff about preload, icons, appID, title -->
 
 
 ## Application.js
+This is the root/init JS file, which loads and initializes all other scripts and content.
