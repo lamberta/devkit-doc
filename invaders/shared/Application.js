@@ -1,7 +1,7 @@
 "use import";
 
 import GC;
-import timestep.TextView;
+import timestep.ImageView as ImageView;
 
 exports = Class(GC.Application, function() {
 
@@ -12,10 +12,20 @@ exports = Class(GC.Application, function() {
 
 	this.initUI = function() {
 
-		this._foo = new timestep.TextView({
+		this._player = new ImageView({
 			parent: this.view,
-			text: "INVADERS!",
-			color: "white"
+			image: "media/images/player.png",
+			x: this.view.style.width / 2 - 32,
+			y: this.view.style.height - 64,
+			width: 64,
+			height: 64
+		});
+
+		this._enemy1 = new ImageView({
+			parent: this.view,
+			image: "media/images/enemy1.png",
+			width: 64,
+			height: 64
 		});
 
 	};
