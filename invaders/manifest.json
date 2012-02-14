@@ -1,0 +1,67 @@
+{
+    "android": {
+        "entryPoint": "runtimeNative.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "animations": [], 
+    "appID": "ed1ae868b7de4518a46991d4e7079f9d", 
+    "facebookEnabled": false, 
+    "fonts": [], 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "ios": {
+        "entryPoint": "runtimeNative.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
+    "resources": {}, 
+    "shortName": "invaders", 
+    "supportedOrientations": [
+        "portrait"
+    ], 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
+        }, 
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
+        }, 
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
+        }
+    }, 
+    "tileConfig": {
+        "images": [], 
+        "tileHeight": 64, 
+        "tileWidth": 64
+    }, 
+    "title": "Invaders!"
+}
