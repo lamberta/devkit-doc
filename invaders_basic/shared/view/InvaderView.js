@@ -5,7 +5,8 @@ import timestep.ImageView;
 
 var invaderImages = [
 	"media/images/enemy1.png",
-	"media/images/enemy2.png"
+	"media/images/enemy2.png",
+	"media/images/enemy3.png"
 ];
 
 exports = Class(timestep.ImageView, function (supr) {
