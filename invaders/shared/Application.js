@@ -7,6 +7,8 @@ import timestep.ImageView as ImageView;
 import timestep.TextView as TextView;
 import timestep.animate as animate;
 
+import .view.PlayerView as PlayerView;
+import .view.BulletView as BulletView;
 import .view.InvaderView as InvaderView;
 
 exports = Class(GC.Application, function() {
@@ -18,25 +20,23 @@ exports = Class(GC.Application, function() {
 
 	this.initUI = function() {
 
-		// Setup the player
-		this._player = new ImageView({
-			parent: this.view,
-			image: "media/images/player.png",
-			x: this.view.style.width / 2 - 32,
-			y: this.view.style.height - 64,
-			width: 64,
-			height: 64,
-			zIndex: 200
-		});
-
+		// Keep track of the player's score
 		this._score = 0;
 
+		// Use a TextView to display the player's score on the screen
 		this._scoreView = new TextView({
 			parent: this.view,
-			text: "Invaders killed: 0",
+			text: "Score: 0",
 			color: "white",
 			fontSize: 20,
 			height: 20
+		});
+
+		// Setup the player
+		this._player = new PlayerView({
+			parent: this.view,
+			x: this.view.style.width / 2 - 32,
+			y: this.view.style.height - 64,
 		});
 
 		// Timers
@@ -47,7 +47,7 @@ exports = Class(GC.Application, function() {
 		this.view.subscribe("InputStart", this, "_onInputStart");
 		this.view.subscribe("InputMove", this, "_onInputMove");
 
-		// Hook into the root view's tick for game update loop
+		// Hook into the root view's tick for game loop updates
 		this.view.tick = bind(this, "_update");
 
 	};
@@ -64,64 +64,37 @@ exports = Class(GC.Application, function() {
 		// Player auto-fires every so often
 		this._playerAttackTimer += dt;
 		if (this._playerAttackTimer > 750) {
-			this._playerAttack();
+			this._player.fire();
 			this._playerAttackTimer = 0;
 		}
 
 		// Check collision
+		// Loop over all the subviews and for each BulletView
+		// found, check collision against the other subviews
 		var subviews = this.view._subviews;
 		for (var i = 0, j = subviews.length; i < j; ++i) {
 			var view = subviews[i];
-			if (view && view.type == "bullet") {
-				this._checkCollision(view);
+			if (view && view instanceof BulletView) {
+				var kills = view.checkCollision(subviews);
+				this._incrementScore(kills * 100);
 			}
 		}
 
 	};
 
-	this._checkCollision = function (bullet) {
-		var subviews = this.view._subviews;
-		for (var i = 0, j = subviews.length; i < j; ++i) {
-			var view = subviews[i];
-			if (
-				view instanceof InvaderView &&
-				intersect.rectAndRect(view.style, bullet.style)
-			) {
-				// Collision!
-				this._incrementScore();
-				view.removeFromSuperview();
-				delete view;
-				bullet.removeFromSuperview();
-				delete bullet;
-			}
+	this._incrementScore = function (amount) {
+		if (amount > 0) {
+			this._score += amount;
+			this._scoreView.setText("Score: " + this._score);
 		}
 	};
 
 	this._onInputStart = function (e, pt) {
-		this._movePlayer(pt);
+		this._player.move(pt);
 	};
 
 	this._onInputMove = function (e, pt) {
-		this._movePlayer(pt);
-	};
-
-	this._movePlayer = function (pt) {
-		// Clear out any old animations
-		var anim = this._player.animate();
-		anim.finishNow();
-
-		// Ensure player view doesn't leave the viewable screen
-		var halfWidth = (this._player.style.width / 2);
-		pt.x = math.util.clip(pt.x, halfWidth, this.view.style.width - halfWidth);
-
-		// Animate to the new point
-		var pixelsPerSecond = 300;
-		var playerCenterX = this._player.style.x + halfWidth;
-		var distance = Math.abs(playerCenterX - pt.x);
-		var duration = (distance / pixelsPerSecond) * 1000;
-		anim.now({
-			x: pt.x - halfWidth
-		}, duration, animate.linear);
+		this._player.move(pt);
 	};
 
 	this._spawnInvader = function () {
@@ -154,38 +127,6 @@ exports = Class(GC.Application, function() {
 			delete invader;
 		}));
 
-	};
-
-	this._playerAttack = function () {
-
-		var bullet = new ImageView({
-			parent: this.view,
-			image: "media/images/player_bullet.png",
-			x: this._player.style.x + this._player.style.width / 2 - 4,
-			y: this._player.style.y + this._player.style.height / 2 - 4,
-			width: 8,
-			height: 8
-		});
-
-		// HACK!
-		bullet.type = "bullet";
-
-		var anim = animate(bullet);
-
-		anim.now({
-			y: -8,
-		}, 3000, animate.linear);
-
-		anim.then(bind(this, function () {
-			bullet.removeFromSuperview();
-			delete bullet;
-		}));
-
-	};
-
-	this._incrementScore = function () {
-		++this._score;
-		this._scoreView.setText("Invaders killed: " + this._score);
 	};
 
 });
