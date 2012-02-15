@@ -26,12 +26,44 @@ exports = Class(GC.Application, function() {
 			height: 64
 		});
 
+		// Respond to user input
+		this.view.subscribe("InputStart", this, "_onInputStart");
+		this.view.subscribe("InputMove", this, "_onInputMove");
+
 		// Spawn an invader every so often
 		this._spawnHandle = setInterval(bind(this, "_spawnInvader"), 2000);
 
 		// Spawn an invader right away
 		this._spawnInvader();
 
+	};
+
+	this._onInputStart = function (e, pt) {
+		this._movePlayer(pt);
+	};
+
+	this._onInputMove = function (e, pt) {
+		this._movePlayer(pt);
+	};
+
+	this._movePlayer = function (pt) {
+logger.log('movePlayer', pt.x, pt.y);
+		// Clear out any old animations
+		var anim = this._player.animate();
+		anim.finishNow();
+
+		// Ensure player view doesn't leave the viewable screen
+		var halfWidth = (this._player.style.width / 2);
+		pt.x = math.util.clip(pt.x, halfWidth, this.view.style.width - halfWidth);
+
+		// Animate to the new point
+		var pixelsPerSecond = 300;
+		var playerCenterX = this._player.style.x + halfWidth;
+		var distance = Math.abs(playerCenterX - pt.x);
+		var duration = (distance / pixelsPerSecond) * 1000;
+		anim.now({
+			x: pt.x - halfWidth
+		}, duration, animate.linear);
 	};
 
 	this._spawnInvader = function () {

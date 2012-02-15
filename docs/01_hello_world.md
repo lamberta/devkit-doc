@@ -90,18 +90,16 @@ That's all we need for our "hello world" example. Next go back into your project
 
 You should see some log messages that look something like this:
 
-	============================================================
-										 {{ Game Closure SDK }}
-												Beer & Yoghurt.
-	------------------------------------------------------------
+	======================
+	{{ Game Closure SDK }}
+	 	Beer & Yoghurt.
+	----------------------
 
 And near the end of the output, a notification telling you which port the server is running on, such as:
 
 	(15695) wsgi starting up on http://0.0.0.0:8000/
 
-Go ahead and pull up [http://0.0.0.0:8000/](http://0.0.0.0:8000/) in your browser. This is the browser-based SDK. In the upper-right corner, you should see a "Launch" button. Go ahead and press it.
-
-This will open your game running in a new tab. You should see your "Hello World!" text inside of an image of a mobile device.
+Go ahead and pull up [http://0.0.0.0:8000/](http://0.0.0.0:8000/) in your browser. This is the browser-based SDK. In the upper-right corner, you should see a "Launch" button. Pressing it will open your game running in a new tab. You should see your "Hello World!" text inside of an image of a mobile device!
 
 [1]: https://github.com/gameclosure/gc_sdk
 [2]: https://github.com/gameclosure/kickstart/tree/master/hello_world
