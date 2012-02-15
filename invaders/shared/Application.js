@@ -4,6 +4,7 @@ import GC;
 import math.util;
 import math2D.intersect as intersect;
 import timestep.ImageView as ImageView;
+import timestep.TextView as TextView;
 import timestep.animate as animate;
 
 import .view.InvaderView as InvaderView;
@@ -26,6 +27,16 @@ exports = Class(GC.Application, function() {
 			width: 64,
 			height: 64,
 			zIndex: 200
+		});
+
+		this._score = 0;
+
+		this._scoreView = new TextView({
+			parent: this.view,
+			text: "Invaders killed: 0",
+			color: "white",
+			fontSize: 20,
+			height: 20
 		});
 
 		// Respond to user input
@@ -63,6 +74,7 @@ exports = Class(GC.Application, function() {
 				intersect.rectAndRect(view.style, bullet.style)
 			) {
 				// Collision!
+				this._incrementScore();
 				view.removeFromSuperview();
 				delete view;
 				bullet.removeFromSuperview();
@@ -155,6 +167,11 @@ exports = Class(GC.Application, function() {
 			delete bullet;
 		}));
 
+	};
+
+	this._incrementScore = function () {
+		++this._score;
+		this._scoreView.setText("Invaders killed: " + this._score);
 	};
 
 });
