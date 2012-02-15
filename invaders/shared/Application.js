@@ -47,7 +47,6 @@ exports = Class(GC.Application, function() {
 	};
 
 	this._movePlayer = function (pt) {
-logger.log('movePlayer', pt.x, pt.y);
 		// Clear out any old animations
 		var anim = this._player.animate();
 		anim.finishNow();
