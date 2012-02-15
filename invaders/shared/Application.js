@@ -2,6 +2,7 @@
 
 import GC;
 import math.util;
+import math2D.intersect as intersect;
 import timestep.ImageView as ImageView;
 import timestep.animate as animate;
 
@@ -23,7 +24,8 @@ exports = Class(GC.Application, function() {
 			x: this.view.style.width / 2 - 32,
 			y: this.view.style.height - 64,
 			width: 64,
-			height: 64
+			height: 64,
+			zIndex: 200
 		});
 
 		// Respond to user input
@@ -31,11 +33,42 @@ exports = Class(GC.Application, function() {
 		this.view.subscribe("InputMove", this, "_onInputMove");
 
 		// Spawn an invader every so often
+		// HACKS! Use tick
 		this._spawnHandle = setInterval(bind(this, "_spawnInvader"), 2000);
+		this._shootHandle = setInterval(bind(this, "_playerAttack"), 1500);
 
 		// Spawn an invader right away
 		this._spawnInvader();
 
+		this.view.tick = bind(this, "_update");
+
+	};
+
+	this._update = function (dt) {
+		var subviews = this.view._subviews;
+		for (var i = 0, j = subviews.length; i < j; ++i) {
+			var view = subviews[i];
+			if (view && view.type == "bullet") {
+				this._checkCollision(view);
+			}
+		}
+	};
+
+	this._checkCollision = function (bullet) {
+		var subviews = this.view._subviews;
+		for (var i = 0, j = subviews.length; i < j; ++i) {
+			var view = subviews[i];
+			if (
+				view instanceof InvaderView &&
+				intersect.rectAndRect(view.style, bullet.style)
+			) {
+				// Collision!
+				view.removeFromSuperview();
+				delete view;
+				bullet.removeFromSuperview();
+				delete bullet;
+			}
+		}
 	};
 
 	this._onInputStart = function (e, pt) {
@@ -47,7 +80,6 @@ exports = Class(GC.Application, function() {
 	};
 
 	this._movePlayer = function (pt) {
-logger.log('movePlayer', pt.x, pt.y);
 		// Clear out any old animations
 		var anim = this._player.animate();
 		anim.finishNow();
@@ -75,7 +107,8 @@ logger.log('movePlayer', pt.x, pt.y);
 		var invader = new InvaderView({
 			parent: this.view,
 			x: spawnX,
-			y: -64
+			y: -64,
+			zIndex: 100
 		});
 
 		// Vary the speed at which the invaders fall
@@ -93,6 +126,33 @@ logger.log('movePlayer', pt.x, pt.y);
 		anim.then(bind(this, function () {
 			invader.removeFromSuperview();
 			delete invader;
+		}));
+
+	};
+
+	this._playerAttack = function () {
+
+		var bullet = new ImageView({
+			parent: this.view,
+			image: "media/images/player_bullet.png",
+			x: this._player.style.x + this._player.style.width / 2 - 4,
+			y: this._player.style.y + this._player.style.height / 2 - 4,
+			width: 8,
+			height: 8
+		});
+
+		// HACK!
+		bullet.type = "bullet";
+
+		var anim = animate(bullet);
+
+		anim.now({
+			y: -8,
+		}, 3000, animate.linear);
+
+		anim.then(bind(this, function () {
+			bullet.removeFromSuperview();
+			delete bullet;
 		}));
 
 	};
