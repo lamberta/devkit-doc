@@ -39,23 +39,36 @@ exports = Class(GC.Application, function() {
 			height: 20
 		});
 
+		// Timers
+		this._invaderSpawnTimer = 0;
+		this._playerAttackTimer = 0;
+
 		// Respond to user input
 		this.view.subscribe("InputStart", this, "_onInputStart");
 		this.view.subscribe("InputMove", this, "_onInputMove");
 
-		// Spawn an invader every so often
-		// HACKS! Use tick
-		this._spawnHandle = setInterval(bind(this, "_spawnInvader"), 2000);
-		this._shootHandle = setInterval(bind(this, "_playerAttack"), 1500);
-
-		// Spawn an invader right away
-		this._spawnInvader();
-
+		// Hook into the root view's tick for game update loop
 		this.view.tick = bind(this, "_update");
 
 	};
 
 	this._update = function (dt) {
+
+		// Spawn invaders every so often
+		this._invaderSpawnTimer += dt;
+		if (this._invaderSpawnTimer > 800) {
+			this._spawnInvader();
+			this._invaderSpawnTimer = 0;
+		}
+
+		// Player auto-fires every so often
+		this._playerAttackTimer += dt;
+		if (this._playerAttackTimer > 750) {
+			this._playerAttack();
+			this._playerAttackTimer = 0;
+		}
+
+		// Check collision
 		var subviews = this.view._subviews;
 		for (var i = 0, j = subviews.length; i < j; ++i) {
 			var view = subviews[i];
@@ -63,6 +76,7 @@ exports = Class(GC.Application, function() {
 				this._checkCollision(view);
 			}
 		}
+
 	};
 
 	this._checkCollision = function (bullet) {
