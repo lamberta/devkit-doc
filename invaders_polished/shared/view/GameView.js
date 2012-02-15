@@ -16,6 +16,8 @@ exports = Class(View, function (supr) {
 
 		supr(this, "init", [opts]);
 
+		this._score = 0;
+
 		// Use a TextView to display the player's score on the screen
 		this._scoreView = new TextView({
 			parent: this,
