@@ -33,7 +33,7 @@ exports = Class(GC.Application, function() {
 		this._gameOverView = new GameOverView({
 			parent: this.view,
 			visible: false
-		}).subscribe("GameOver", this, "_onGameOver");
+		}).subscribe("OKButtonPressed", this, "_onOKButtonPressed");
 
 	};
 
@@ -50,12 +50,21 @@ exports = Class(GC.Application, function() {
 		localStorage.setItem("highScore", highScore);
 	};
 
-	this._onGameOver = function() {
-		this._gameView.hide();
-		this._gameOverView.show();
+	this._onGameOver = function(score) {
+		this._gameView.hide(bind(this, function () {
+			this._gameOverView.score = score;
+			this._gameOverView.highScore = this.getHighScore();
+			this._gameOverView.show();
+		}));
+	};
+
+	this._onOKButtonPressed = function() {
+		this._gameOverView.hide();
+		this._titleView.show();
 	};
 
 	this._onPlayButtonPressed = function() {
+		this._titleView.hide();
 		this._gameView.show();
 	};
 

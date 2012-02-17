@@ -11,6 +11,12 @@ var invaderImages = [
 	"media/images/enemy3.png"
 ];
 
+var invaderSpeeds = [
+	3000,
+	4000,
+	5000
+];
+
 exports = Class(timestep.ImageView, function (supr) {
 
 	this.init = function (opts) {
@@ -29,6 +35,7 @@ exports = Class(timestep.ImageView, function (supr) {
 		supr(this, "init", [opts]);
 
 		this.alive = true;
+		this.speed = invaderSpeeds[imageIndex];
 
 	};
 
