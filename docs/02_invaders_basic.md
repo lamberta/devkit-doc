@@ -123,6 +123,90 @@ Since we'll have many instances of `InvaderView` and `BulletView` on the screen 
 
 ## Spawning and animating enemies
 
+To keep things simple, we'll be spawning new enemies at the top of the screen every 800 milliseconds. After spawning an enemy we'll animate it to the bottom of the screen at a randomized speed.
+
+The very first thing we need is a timer which will track when enemies need to be spawned. Additionally, we'll keep track of this timer by hooking into our root view's `tick` function. The `tick` function fires on each frame with the amount of time passed since last frame as the first parameter.
+
+We prefer to keep things clean by calling a "private" method (prefixed with an underscore) `_update`. We'll also want to define a variable to keep track of our spawn timer. Add the following code to your `initUI` function in `shared/Application.js`:
+
+	// Number of milliseconds since last spawn
+	this._invaderSpawnTimer = 0;
+	
+	// Hook into the root view's "tick"
+	this.view.tick = bind(this, "_update");
+
+The `bind` function is another built-in GCSDK function which executes a given function within the specified context. In this case we want the function attached to `this.view.tick` executes within the context of `this` (which is your Application class).
+
+We'll also need to create an `_update` function to be called each tick. Inside our update we'll perform the following:
+
+* Increment our spawn timer with time passed since last frame
+* If our timer is greater than our spawn interval, spawn an enemy and reset the timer
+
+Add the following method to `shared/Application.js`:
+
+	this._update = function (dt) {
+
+		// dt is the amount of milliseconds which have passed since last frame
+
+		// Increment our spawn timer
+		this._invaderSpawnTimer += dt;
+
+		// Check to see if enough time has passed
+		if (this._invaderSpawnTimer >= 800) {
+
+			// Spawn an invader!
+			this._spawnInvader();
+
+			// Reset our timer
+			this._invaderSpawnTimer = 0;
+
+		}
+
+	};
+
+Pretty straight forward. You'll notice that we also need to define a `_spawnInvader` function. Let's do that now:
+
+	this._spawnInvader = function () {
+
+		// Spawn the invaders at random locations along the X axis
+		var spawnX = math.util.random(0, this.view.style.width - 64);
+
+		// Create a new InvaderView
+		var invader = new InvaderView({
+			parent: this.view,
+			x: spawnX,
+			y: -64,
+			zIndex: 100
+		});
+
+		// Vary the speed at which the invaders fall
+		var delay = math.util.randomInclusive(3000, 5000);
+
+		// Animate the invader!
+		var anim = animate(invader);
+
+		// Move towards the bottom of the screen using the random delay
+		anim.now({
+			y: this.view.style.height
+		}, delay, animate.linear);
+
+		// Remove the invader once it's off the screen
+		anim.then(bind(this, function () {
+			invader.removeFromSuperview();
+			delete invader;
+		}));
+
+	};
+
+Don't forget to `import math.util;` in order to be able to use the `math.util.random*` functions. You'll also notice that after spawning each invader we animate it to the bottom of the screen over an amount of time between 3 and 5 seconds. Once the animation has completed, we remove the invader from our view hierarchy.
+
+Check out your game, at this point you should have the following:
+
+* Player image drawn to the bottom, center of the screen
+* Enemies spawning every 800ms from the top of the screen at random x coordinates and animating down to the bottom
+
+# Capturing user input and animating the player
+
 
 
 [1]: https://github.com/gameclosure/kickstart/tree/master/invaders_basic
