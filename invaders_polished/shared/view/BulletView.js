@@ -26,6 +26,7 @@ exports = Class(ImageView, function (supr) {
 			if (
 				view &&
 				view instanceof InvaderView &&
+				view.alive &&
 				intersect.rectAndRect(this.style, view.style)
 			) {
 				// We found an Invader colliding with this Bullet!

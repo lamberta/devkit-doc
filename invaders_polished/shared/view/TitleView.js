@@ -5,6 +5,7 @@ import timestep.TextView as TextView;
 import timestep.animate as animate;
 
 import .ButtonView;
+import .polish;
 
 exports = Class(View, function (supr) {
 
@@ -74,6 +75,12 @@ exports = Class(View, function (supr) {
 			this._pressing = false; // OK to press the button again
 			this.publish("PlayButtonPressed");
 		});
+	};
+
+	this.show = function () {
+		this.style.opacity = 0;
+		supr(this, "show");
+		polish.fadeIn(this);
 	};
 
 });

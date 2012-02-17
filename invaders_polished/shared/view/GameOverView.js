@@ -5,6 +5,7 @@ import timestep.TextView as TextView;
 import timestep.animate as animate;
 
 import .ButtonView;
+import .polish;
 
 exports = Class(View, function (supr) {
 
@@ -23,8 +24,28 @@ exports = Class(View, function (supr) {
 			y: 20
 		});
 
+		// Your score
+		new TextView({
+			parent: this,
+			text: "Your score:",
+			color: "rgb(255, 255, 255)",
+			fontSize: 16,
+			textAlign: "center",
+			verticalAlign: "top",
+			y: (this.style.height * 0.25) - 24
+		});
+
+		this._scoreView = new TextView({
+			parent: this,
+			color: "rgb(255, 255, 255)",
+			fontSize: 16,
+			textAlign: "center",
+			verticalAlign: "top",
+			y: this.style.height * 0.25
+		});
+
 		// High score
-		this._highScoreView = new TextView({
+		new TextView({
 			parent: this,
 			text: "High score:",
 			color: "rgb(255, 255, 255)",
@@ -36,7 +57,6 @@ exports = Class(View, function (supr) {
 
 		this._highScoreView = new TextView({
 			parent: this,
-			text: opts.highScore,
 			color: "rgb(255, 255, 255)",
 			fontSize: 16,
 			textAlign: "center",
@@ -47,12 +67,16 @@ exports = Class(View, function (supr) {
 		// OK button
 		this._playButtonView = new ButtonView({
 			parent: this,
-			text: "Play",
+			text: "OK",
 			verticalAlign: "top",
 			y: this.style.height * 0.75
 		}).subscribe("Pressed", this, "_onOKPressed");
 
 	};
+
+	this.__defineSetter__("score", function (score) {
+		this._scoreView.setText(score);
+	});
 
 	this.__defineSetter__("highScore", function (highScore) {
 		this._highScoreView.setText(highScore);
@@ -74,6 +98,17 @@ exports = Class(View, function (supr) {
 			this._pressing = false; // OK to press the button again
 			this.publish("OKButtonPressed");
 		});
+	};
+
+	this.show = function () {
+		this.style.opacity = 1;
+		supr(this, "show");
+	};
+
+	this.hide = function () {
+		polish.fadeOut(this, 500, bind(this, function () {
+			supr(this, "hide");
+		}));
 	};
 
 });

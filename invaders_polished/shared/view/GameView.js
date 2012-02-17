@@ -10,6 +10,7 @@ import .LivesView;
 import .PlayerView;
 import .BulletView;
 import .InvaderView;
+import .polish;
 
 exports = Class(View, function (supr) {
 
@@ -27,20 +28,22 @@ exports = Class(View, function (supr) {
 			fontSize: 20,
 			textAlign: "left",
 			x: 10,
-			height: 20
+			height: 20,
+			zIndex: 101 // Just above the invaders and bulletse
 		});
 
 		// Use a TextView to display the player's score on the screen
 		this._livesView = new LivesView({
 			parent: this,
 			x: 238,
-			y: 10
+			y: 10,
+			zIndex: 101 // Also just above the invaders and bulletse
 		});
 
 		// Setup the player
 		this._player = new PlayerView({
 			parent: this,
-			x: this.style.width / 2 - 32,
+			x: (this.style.width / 2) - 32,
 			y: this.style.height - 64,
 		});
 
@@ -55,7 +58,8 @@ exports = Class(View, function (supr) {
 	};
 
 	this._gameOver = function () {
-		logger.log('gameOver...');
+		this._active = false;
+		this.publish("GameOver", this._score);
 	};
 
 	this.tick = function (dt) {
@@ -111,7 +115,18 @@ exports = Class(View, function (supr) {
 		supr(this, "show");
 
 		this._active = true;
+		this._player.style.x = (this.style.width / 2) - 32;
+		this.style.opacity = 1;
+
 		this._livesView.reset();
+		this._scoreView.setText("Score: 0");
+	};
+
+	this.hide = function (callback) {
+		polish.fadeOut(this, 500, bind(this, function () {
+			supr(this, "hide");
+			callback && callback();
+		}));
 	};
 
 	this._spawnInvader = function () {
@@ -128,7 +143,7 @@ exports = Class(View, function (supr) {
 		});
 
 		// Vary the speed at which the invaders fall
-		var delay = math.util.randomInclusive(3000, 5000);
+		var delay = invader.speed;
 
 		// Animate the invader!
 		var anim = animate(invader);
@@ -143,9 +158,12 @@ exports = Class(View, function (supr) {
 			invader.removeFromSuperview();
 			delete invader;
 
-			this._livesView.damage();
-			if (this._livesView.lives === 0) {
-				this._gameOver();
+			// Damage the player. Out of lives? Game over!
+			if (this._active) {
+				this._livesView.damage();
+				if (this._livesView.lives === 0) {
+					this._gameOver();
+				}
 			}
 		}));
 
