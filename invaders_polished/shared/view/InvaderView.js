@@ -3,6 +3,8 @@
 import math.util;
 import timestep.ImageView;
 
+import .polish;
+
 var invaderImages = [
 	"media/images/enemy1.png",
 	"media/images/enemy2.png",
@@ -18,12 +20,25 @@ exports = Class(timestep.ImageView, function (supr) {
 
 		opts = merge(opts, {
 			image: invaderImages[imageIndex],
+			anchorX: 32,
+			anchorY: 32,
 			width: 64,
 			height: 64
 		});
 
 		supr(this, "init", [opts]);
 
+		this.alive = true;
+
+	};
+
+	this.kill = function () {
+		if (!this.alive) { return; }
+		this.alive = false;
+
+		polish.kill(this, bind(this, function () {
+			this.removeFromSuperview();
+		}));
 	};
 
 });

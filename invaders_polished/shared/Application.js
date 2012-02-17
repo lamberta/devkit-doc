@@ -12,19 +12,35 @@ exports = Class(GC.Application, function() {
 		showFPS: window.DEV_MODE
 	};
 
+	var DEFAULT_HIGH_SCORE = 1000;
+
 	this.initUI = function() {
 
 		// Keep track of the player's score
 		this._score = 0;
 
 		this._titleView = new TitleView({
-			parent: this.view
+			parent: this.view,
+			highScore: this.getHighScore()
 		}).subscribe("PlayButtonPressed", this, "_onPlayButtonPressed");
 		this._gameView = new GameView({
 			parent: this.view,
 			visible: false
 		});
 
+	};
+
+	this.getHighScore = function() {
+		var highScore = localStorage.getItem("highScore");
+		if (highScore === null) {
+			highScore = DEFAULT_HIGH_SCORE;
+			this.setHighScore(highScore);
+		}
+		return highScore;
+	};
+
+	this.setHighScore = function(highScore) {
+		localStorage.setItem("highScore", highScore);
 	};
 
 	this._onPlayButtonPressed = function() {

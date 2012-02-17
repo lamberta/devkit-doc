@@ -26,7 +26,17 @@ exports = Class(View, function (supr) {
 		// High score
 		this._highScoreView = new TextView({
 			parent: this,
-			text: "TODO",
+			text: "High score:",
+			color: "rgb(255, 255, 255)",
+			fontSize: 16,
+			textAlign: "center",
+			verticalAlign: "top",
+			y: (this.style.height / 2) - 24
+		});
+
+		this._highScoreView = new TextView({
+			parent: this,
+			text: opts.highScore,
 			color: "rgb(255, 255, 255)",
 			fontSize: 16,
 			textAlign: "center",
@@ -43,6 +53,10 @@ exports = Class(View, function (supr) {
 		}).subscribe("Pressed", this, "_onPlayButtonPressed");
 
 	};
+
+	this.__defineSetter__("highScore", function (highScore) {
+		this._highScoreView.setText(highScore);
+	});
 
 	this._onPlayButtonPressed = function () {
 		// Ensure the button doesn't get pressed again mid-press

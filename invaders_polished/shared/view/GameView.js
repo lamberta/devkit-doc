@@ -24,6 +24,8 @@ exports = Class(View, function (supr) {
 			text: "Score: 0",
 			color: "white",
 			fontSize: 20,
+			textAlign: "left",
+			x: 10,
 			height: 20
 		});
 
@@ -81,7 +83,7 @@ exports = Class(View, function (supr) {
 	this._incrementScore = function (amount) {
 		if (amount > 0) {
 			this._score += amount;
-			this._scoreView.setText("Score: " + this._score); // TODO undefined
+			this._scoreView.setText("Score: " + this._score);
 		}
 	};
 
@@ -96,7 +98,6 @@ exports = Class(View, function (supr) {
 	this.show = function () {
 		supr(this, "show");
 
-		logger.log('shown!');
 		this._active = true;
 	};
 

@@ -32,7 +32,7 @@ exports = Class(ImageView, function (supr) {
 				// Increment the kill count and remove both the invader
 				// and the bullet
 				++kills;
-				view.removeFromSuperview();
+				view.kill();
 				this.removeFromSuperview();
 				break;
 			}
