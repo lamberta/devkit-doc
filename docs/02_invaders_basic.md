@@ -207,6 +207,53 @@ Check out your game, at this point you should have the following:
 
 # Capturing user input and animating the player
 
+While drawing images to the screen is great, we really need some user input to make this more of an actual game.
+
+Our goal for this section is to capture and respond to user events and move the `PlayerView` accordingly.
+
+First, let's begin by giving `PlayerView` a `move` method which takes a point on the screen as a parameter. We're only concerning ourselves with the x axis of the player as we won't allow the user to move the player along the y axis for this game.
+
+	this.move = function (pt) {
+
+		var anim = this.animate();
+
+		// Manually complete any current animations
+		// so that the player starts moving to the new
+		// location right away
+		anim.finishNow();
+
+		// Ensure player view doesn't leave the viewable screen
+		var halfWidth = (this.style.width / 2);
+		pt.x = math.util.clip(pt.x, halfWidth, this.getSuperview().style.width - halfWidth);
+
+		// Animate to the new point
+		var pixelsPerSecond = 300;
+		var playerCenterX = this.style.x + halfWidth;
+		var distance = Math.abs(playerCenterX - pt.x);
+		var duration = (distance / pixelsPerSecond) * 1000;
+		anim.now({
+			x: pt.x - halfWidth
+		}, duration, animate.linear);
+
+	};
+
+Next, we'll capture input on the entire screen so that the user can touch or click anywhere. Add the following code to `shared/Application.js`.
+
+In the `init` function, override the `onInputStart` and `onInputMove` functions of your root view, `this.view`. These functions are called when the user first touches the screen and whenever the user's touch moves.
+
+	// Respond to user input
+	this.view.subscribe("InputStart", this, "_onInputStart");
+	this.view.subscribe("InputMove", this, "_onInputMove");
+
+Of course we'll need to create the `_onInputStart` and `_onInputMove` functions as well:
+
+	this._onInputStart = function (e, pt) {
+		this._player.move(pt);
+	};
+
+	this._onInputMove = function (e, pt) {
+		this._player.move(pt);
+	};
 
 
 [1]: https://github.com/gameclosure/kickstart/tree/master/invaders_basic
