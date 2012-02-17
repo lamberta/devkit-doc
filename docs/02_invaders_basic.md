@@ -237,6 +237,8 @@ First, let's begin by giving `PlayerView` a `move` method which takes a point on
 
 	};
 
+Again, don't forget to `import math.util;` in `PlayerView` to support the use of `math.util.random`!
+
 Next, we'll capture input on the entire screen so that the user can touch or click anywhere. Add the following code to `shared/Application.js`.
 
 In the `init` function, override the `onInputStart` and `onInputMove` functions of your root view, `this.view`. These functions are called when the user first touches the screen and whenever the user's touch moves.
@@ -254,6 +256,9 @@ Of course we'll need to create the `_onInputStart` and `_onInputMove` functions 
 	this._onInputMove = function (e, pt) {
 		this._player.move(pt);
 	};
+
+With any luck you should be able to launch your game and move your player around! Next up, we'll code up support for firing bullets and checking collision with enemies!
+
 
 
 [1]: https://github.com/gameclosure/kickstart/tree/master/invaders_basic
