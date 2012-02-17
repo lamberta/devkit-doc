@@ -6,6 +6,7 @@ import timestep.View as View;
 import timestep.TextView as TextView;
 import timestep.animate as animate;
 
+import .LivesView;
 import .PlayerView;
 import .BulletView;
 import .InvaderView;
@@ -27,6 +28,13 @@ exports = Class(View, function (supr) {
 			textAlign: "left",
 			x: 10,
 			height: 20
+		});
+
+		// Use a TextView to display the player's score on the screen
+		this._livesView = new LivesView({
+			parent: this,
+			x: 238,
+			y: 10
 		});
 
 		// Setup the player
@@ -99,6 +107,7 @@ exports = Class(View, function (supr) {
 		supr(this, "show");
 
 		this._active = true;
+		this._livesView.reset();
 	};
 
 	this._spawnInvader = function () {
