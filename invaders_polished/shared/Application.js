@@ -4,6 +4,7 @@ import GC;
 
 import .view.TitleView as TitleView;
 import .view.GameView as GameView;
+import .view.GameOverView as GameOverView;
 
 exports = Class(GC.Application, function() {
 
@@ -23,10 +24,16 @@ exports = Class(GC.Application, function() {
 			parent: this.view,
 			highScore: this.getHighScore()
 		}).subscribe("PlayButtonPressed", this, "_onPlayButtonPressed");
+
 		this._gameView = new GameView({
 			parent: this.view,
 			visible: false
-		});
+		}).subscribe("GameOver", this, "_onGameOver");
+
+		this._gameOverView = new GameOverView({
+			parent: this.view,
+			visible: false
+		}).subscribe("GameOver", this, "_onGameOver");
 
 	};
 
@@ -41,6 +48,11 @@ exports = Class(GC.Application, function() {
 
 	this.setHighScore = function(highScore) {
 		localStorage.setItem("highScore", highScore);
+	};
+
+	this._onGameOver = function() {
+		this._gameView.hide();
+		this._gameOverView.show();
 	};
 
 	this._onPlayButtonPressed = function() {

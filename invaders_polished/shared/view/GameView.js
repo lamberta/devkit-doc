@@ -54,6 +54,10 @@ exports = Class(View, function (supr) {
 
 	};
 
+	this._gameOver = function () {
+		logger.log('gameOver...');
+	};
+
 	this.tick = function (dt) {
 
 		if (!this._active) {
@@ -131,13 +135,18 @@ exports = Class(View, function (supr) {
 
 		// Move towards the bottom of the screen using the random delay
 		anim.now({
-			y: this.style.height
+			y: this.style.height - invader.style.height
 		}, delay, animate.linear);
 
-		// Remove the invader once it's off the screen
+		// Have the invader attack (and disappear) when it hits the bottom
 		anim.then(bind(this, function () {
 			invader.removeFromSuperview();
 			delete invader;
+
+			this._livesView.damage();
+			if (this._livesView.lives === 0) {
+				this._gameOver();
+			}
 		}));
 
 	};

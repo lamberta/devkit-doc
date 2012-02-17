@@ -6,6 +6,7 @@ exports = {
 
 	kill: function (view, callback) {
 		var anim = animate(view);
+		anim.finishNow();
 		anim.now({
 			scale: 1.5
 		}, 100, animate.linear);
