@@ -101,7 +101,6 @@ exports = Class(View, function (supr) {
 	};
 
 	this.show = function () {
-logger.log('gameOverView.show');
 		this.style.opacity = 1;
 		supr(this, "show");
 	};
