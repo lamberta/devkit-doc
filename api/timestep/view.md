@@ -4,101 +4,101 @@
 
 ### Scene Graph
 
-* __`getSubviews`__ ---Returns children. Defined in `timestep.canvas.View`.
+* __getSubviews__ ---Returns children. Defined in `timestep.canvas.View`.
 
 	@return `{array}`
 
-* __`getSubview (i)`__ ---Returns the child view at a given index.
+* __getSubview (i)__ ---Returns the child view at a given index.
 
 	@param `{number} i` ---Index.<br/>
 	@return `{View}`
 
-* __`addSubview (view)`__ ---Add a child view. Defined on `timestep.canvas.View`.
+* __addSubview (view)__ ---Add a child view. Defined on `timestep.canvas.View`.
 
 	@param `{View}` view<br/>
 	@return `{View}`
 
-* __`removeSubview (view)`__ ---Remove a child view. Defined in `timestep.canvas.View`.
+* __removeSubview (view)__ ---Remove a child view. Defined in `timestep.canvas.View`.
   
 	@param `{View}` view
 
-* __`removeAllSubviews`__ ---Removes all children.
+* __removeAllSubviews__ ---Removes all children.
 
 
-* __`getSuperview`__ ---Returns parent view. Defined in `timestep.canvas.View`.
+* __getSuperview__ ---Returns parent view. Defined in `timestep.canvas.View`.
 
 	@return `{View}` The parent view.
 
-* __`removeFromSuperview`__ ---Remove this view from parent.
+* __removeFromSuperview__ ---Remove this view from parent.
 
 
-* __`getParents`__ ---Returns parent and all relatives to the top of the scene graph.
+* __getParents__ ---Returns parent and all relatives to the top of the scene graph.
 
 	@return `{array}`
 
-* __`getApp`__ ---Returns `GC.app.engine`.
+* __getApp__ ---Returns `GC.app.engine`.
 
 	@return `{View}`
 
 
 ### (Don't call them) Events
 
-* __`getInput`__ ---
+* __getInput__ ---
 
-* __`isInputOver`__ ---
+* __isInputOver__ ---
 
 	@return {boolean}
 
-* __`onEventPropagate (evt, pt, atTarget)`__ ---Should be private. Allows construction of meta-events. ??
+* __onEventPropagate (evt, pt, atTarget)__ ---Should be private. Allows construction of meta-events. ??
   
 	@param `{event} evt`<br/>
 	@param `{point} pt`<br/>
 	@param `{boolean} atTarget`
 
-* __`canHandleEvents (handleEventsp)`__ ---Set if a view can handle events. Odd name.
+* __canHandleEvents (handleEventsp)__ ---Set if a view can handle events. Odd name.
   
 	@param `{boolean} handleEventsp`
 
-* __`startDrag`__ ---
+* __startDrag__ ---
 
-* __`isDragging`__ ---
+* __isDragging__ ---
 
 	@return `{boolean}`
 
-* __`focus`__ ---
+* __focus__ ---
 
 	@return `{thisObj}`
 
-* __`blur`__ ---
+* __blur__ ---
 
 	@return `{thisObj}`
 
-* __`onFocus`__ ---
+* __onFocus__ ---
 
-* __`onBlur`__ ---
+* __onBlur__ ---
 
 
 ### Geometry
 
-* __`containsLocalPt (pt)`__ ---
+* __containsLocalPt (pt)__ ---
 
 	@param `{point} pt` ---Object containing x and y properties.<br/>
 	@return `{boolean}`
 
-* __`localizePt (pt)`__ ---
+* __localizePt (pt)__ ---
 
 	@param `{point} pt`
 
-* __`getPosition (relativeTo)`__ ---
+* __getPosition (relativeTo)__ ---
 
 	@param `{View=} relativeTo`<br/>
 	@return `{Rect}`
 
-* __`getBoundingShape`__ ---
+* __getBoundingShape__ ---
 
 	@return `{Rect|Circle}`
 
-* __`getRelativeRegion (region, parent)`__ ---Return location or rectangle in parent space.
+* __getRelativeRegion (region, parent)__ ---Return location or rectangle in parent space.
 
 	@param `{Rect} region`<br/>
 	@param `{view} parent`<br/>
@@ -107,26 +107,26 @@
 
 ### Filters
 
-* __`getFilters`__ ---
+* __getFilters__ ---
 
 	@return `{object}`
 
-* __`addFilter (filter)`__ ---
+* __addFilter (filter)__ ---
 
 	@param `{} filter`
 
-* __`removeFilter (type)`__ ---
+* __removeFilter (type)__ ---
 
 	@param `{} type`
 
 
 ### Animations
 
-* __`animate (style, duration, easing)`__ ---
+* __animate (style, duration, easing)__ ---
 
 	@return ---Calls `getAnimation`.
 
-* __`getAnimation (groupID)`__ ---
+* __getAnimation (groupID)__ ---
 
 	@param `{} groupID`<br/>
 	@return ---An animation object?
@@ -134,60 +134,60 @@
 
 ### Misc.
 
-* __`show`__ ---
+* __show__ ---
 
-* __`hide`__ ---
+* __hide__ ---
 
-* __`toString`__ ---Defined in `timestep.canvas.View`.
+* __toString__ ---Defined in `timestep.canvas.View`.
 
 	@return `{string}`
 
-* __`getTag`__ ---
+* __getTag__ ---
 
 	@return `{string}`
 
 
 ### Properties
 
-* __`uid {string}`__ ---
+* __uid__ `{string}` ---
 
-* __`style {timestep.canvas.ViewStyle}`__ ---
+* __style__ `{timestep.canvas.ViewStyle}` ---
 
-* __`tick {function}`__ ---A function that is called every tick.
+* __tick__ `{function}` ---A function that is called every tick.
   
-* __`render {function}`__ ---Allows a custom rendering function for a view.
+* __render__ `{function}` ---Allows a custom rendering function for a view.
 
-* __`buildView {function}`__ ---Called just before the first render call.
+* __buildView__ `{function}` ---Called just before the first render call.
 
-* __`needsRepaint {boolean}`__ ---
+* __needsRepaint__ `{boolean}` ---
 
-* __`needsSort {boolean}`__ ---
+* __needsSort__ `{boolean}` ---
 
-* __`needsReflow {boolean}`__ ---
+* __needsReflow__ `{boolean}` ---
 
 
 ## Inherits from `lib.PubSub` [js.io]
 
 ### Methods
 
-* __`publish (signal)`__ ---
+* __publish (signal)__ ---
 
 	@param `{string} signal`<br/>
 	@return `{this}`
 
-* __`subscribe (signal, thisObj, method)`__ ---
+* __subscribe (signal, thisObj, method)__ ---
 
 	@param `{string} signal`<br/>
 	@param `{object=} thisObj`<br/>
 	@param `{function|string} method`
 
-* __`subscribeOnce (signal, thisObj, method)`__ ---
+* __subscribeOnce (signal, thisObj, method)__ ---
 
 	@param `{string} signal`<br/>
 	@param `{object=} thisObj`<br/>
 	@param `{function|string} method`
 
-* __`unsubscribe (signal, thisObj, method)`__ ---
+* __unsubscribe (signal, thisObj, method)__ ---
 
 	@param `{string} signal`<br/>
 	@param `{object=} thisObj`<br/>
@@ -198,61 +198,62 @@
 
 ### Properties
 
-* __`x`__ ---Defaults to 0.
+* __x__ ---Defaults to 0.
 
-* __`y`__ ---Defaults to 0.
+* __y__ ---Defaults to 0.
 
-* __`anchorX`__ ---Defaults to 0.
+* __anchorX__ ---Defaults to 0.
 
-* __`anchorY`__ ---Defaults to 0.
+* __anchorY__ ---Defaults to 0.
 
-* __`width`__ ---Defaults to `__onResize` value.
+* __width__ ---Defaults to `__onResize` value.
 
-* __`height`__ ---Defaults to `__onResize` value.
+* __height__ ---Defaults to `__onResize` value.
 
-* __`widthPercentage`__ ---Defaults to `__onResize` value.
+* __widthPercentage__ ---Defaults to `__onResize` value.
 
-* __`heightPercentage`__ ---Defaults to `__onResize` value.
+* __heightPercentage__ ---Defaults to `__onResize` value.
 
-* __`scale`__ ---Defaults to 1.
+* __scale__ ---Defaults to 1.
 
-* __`r`__ ---Rotation. Bad name. Defaults to 0.
+* __r__ ---Rotation. Bad name. Defaults to 0.
 
-* __`radius`__ --- [Read only]
+* __radius__ --- [Read only]
 
-* __`visible`__ ---Defaults to `true`.
+* __visible__ ---Defaults to `true`.
 
-* __`clip`__ ---View and children get clipped to parent. Defaults to `false`.
+* __clip__ ---View and children get clipped to parent. Defaults to `false`.
 
-* __`opacity`__ ---Defaults to 1.
+* __opacity__ ---Defaults to 1.
 
-* __`zIndex`__ ---Defaults to 0.
+* __zIndex__ ---Defaults to 0.
 
-* __`backgroundColor`__ ---Defaults to `undefined`.
+* __backgroundColor__ ---Defaults to `undefined`.
 
-* __`shadowColor`__ ---Defaults to `'black'`.
+* __shadowColor__ ---Defaults to `'black'`.
 
 
 ### Methods
 
-* __`update (style)`__ ---Set the view's style.
+* __update (style)__ ---Set the view's style.
 
 	@param `{ViewStyle}`
 
-* __`copy`__ ---Returns a copy of the current style.
+* __copy__ ---Returns a copy of the current style.
 
 	@return `{ViewStyle}`
 
-* __`updateRadius`__ ---Private??
+* __updateRadius__ ---Private??
 
 	@return `{number}`
 
-* __`clearCache`__ ---Clears the style cache.
+* __clearCache__ ---Clears the style cache.
 
-* __`setAddedAt (addedAt)`__ ---??
+* __setAddedAt (addedAt)__ ---??
 
-* __`setSortKey`__ ---??
+* __setSortKey__ ---??
+
 
 ### Class Properties
 
-* __`keys`__ ---Object containing the supported style properties.
+* __keys__ ---Object containing the supported style properties.
