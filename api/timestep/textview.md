@@ -1,4 +1,4 @@
-# `timestep.TextView` inherits from `[timestep.View](./view.md)`
+# `timestep.TextView` inherits from [`timestep.View`](./view.md).
 
 To use: `textview = new TextView(options)`.
 

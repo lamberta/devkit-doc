@@ -1,4 +1,4 @@
-# `timestep.StackView` extends `[timestep.ui.UIView](./ui/uiview.md)`
+# `timestep.StackView` extends [`timestep.ui.UIView`](./ui/uiview.md).
 
 ## Methods
 

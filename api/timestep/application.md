@@ -1,4 +1,4 @@
-# `timestep.Application` inherits from `[lib.PubSub](../lib/pubsub.md)`
+# `timestep.Application` inherits from [`lib.PubSub`](../lib/pubsub.md)
 
 `GC.app.engine` is an instance of `timestep.Application` and
 controls the view hierarchy at `GC.app.view`.
