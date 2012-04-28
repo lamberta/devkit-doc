@@ -1,7 +1,26 @@
-# `timestep.TextView` inherits from `timestep.View`
+# `timestep.TextView` inherits from `[timestep.View](./view.md)`
 
-To use: `textview = new TextView(options)`, where `options`
-are defined in the `opts` property below.
+To use: `textview = new TextView(options)`.
+
+## Options
+
+* `text {string}`: ''
+* `fontSize {number}`: 12
+* `fontFamily {string}`: `timestep.device.defaultFontFamily`
+* `color {string}`: 'black'
+* `backgroundColor {string}`: null
+* `horizontalPadding {number}`: 0
+* `verticalPadding {number}`: 0
+* `lineHeight {number}`: 1.2
+* `textAlign {string}`: 'center' ---Options: 'left', 'right', 'center'
+* `verticalAlign {string}`: 'middle' --Options: 'top', 'bottom', 'middle'
+* `multiline {boolean}`: true
+* `fontWeight {string}`: ''
+* `strokeStyle {}`: null
+* `lineWidth {number}`: 2
+* `shadow {boolean}`: false
+* `shadowColor {string}`: 'black'
+
 
 ## Methods
 
@@ -27,25 +46,3 @@ are defined in the `opts` property below.
 * __updateOpts (opts)__ ---Update text options.
 
 	@param `{object}` opts
-
-
-## Properties
-
-* __opts__ `{object}` ---Why don't all views have this?
-
-	* `text {string}`: ''
-	* `fontSize {number}`: 12
-	* `fontFamily {string}`: `timestep.device.defaultFontFamily`
-	* `color {string}`: 'black'
-	* `backgroundColor {string}`: null
-	* `horizontalPadding {number}`: 0
-	* `verticalPadding {number}`: 0
-	* `lineHeight {number}`: 1.2
-	* `textAlign {string}`: 'center' ---Options: 'left', 'right', 'center'
-	* `verticalAlign {string}`: 'middle' --Options: 'top', 'bottom', 'middle'
-	* `multiline {boolean}`: true
-	* `fontWeight {string}`: ''
-	* `strokeStyle {}`: null
-	* `lineWidth {number}`: 2
-	* `shadow {boolean}`: false
-	* `shadowColor {string}`: 'black'

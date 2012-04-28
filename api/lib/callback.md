@@ -24,5 +24,5 @@
 
 * __chain (id)__ ---
 
-	@param {} id<br/>
-	@return {function}
+	@param `{}` id<br/>
+	@return `{function}`

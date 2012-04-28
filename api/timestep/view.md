@@ -1,4 +1,4 @@
-# `timestep.View`
+# `timestep.View` inherits from `[lib.PubSub](../lib/pubsub.md)`
 
 ## Methods
 
