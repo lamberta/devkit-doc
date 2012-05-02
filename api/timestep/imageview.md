@@ -1,6 +1,11 @@
-# `timestep.ImageView` inherits from [`timestep.View`](./view.md).
+# `timestep.ImageView`.
 
 To use: `imageview = new ImageView(options)`.
+
+## Inheritence
+
+1. [timestep.View](./view.md)
+2. [lib.PubSub](../lib/pubsub.md)
 
 ## Options
 

@@ -1,4 +1,9 @@
-# `timestep.Sprite` inherits from [`timestep.View`](./view.md).
+# `timestep.Sprite`
+
+## Inheritence
+
+1. [timestep.View](./view.md)
+2. [lib.PubSub](../lib/pubsub.md)
 
 ## Options
 

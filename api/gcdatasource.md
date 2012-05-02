@@ -1,5 +1,12 @@
-# `GCDataSource` wraps `squill.models.DataSource` (shown here) which inherits from
-  [`squill.models.BasicSource`](./squill/models/basicdatasource.md).
+# `GCDataSource`
+
+This class is an alias for `squill.models.DataSource`.
+
+## Inheritence
+
+1. squill.models.DataSource
+2. [squill.models.BasicDataSource](./squill/models/basicdatasource.md)
+3. [lib.PubSub](./lib/pubsub.md)
 
 ## Options
 

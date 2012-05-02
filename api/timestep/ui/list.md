@@ -1,5 +1,10 @@
-# `timestep.ui.List` inherits from [`timestep.ScrollView`](../scrollview.md).
+# `timestep.ui.List`
 
+## Inheritence
+
+1. [timestep.ScrollView](../scrollview.md)
+2. [timestep.View](../view.md)
+3. [lib.PubSub](../../lib/pubsub.md)
 
 ## Options
 

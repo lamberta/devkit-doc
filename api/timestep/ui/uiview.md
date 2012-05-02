@@ -1,4 +1,9 @@
-# `timestep.UIView` extends `[timestep.View](../view.md)`
+# `timestep.ui.UIView`
+
+## Inheritence
+
+1. [timestep.View](../view.md)
+2. [lib.PubSub](../../lib/pubsub.md)
 
 ## Options
 

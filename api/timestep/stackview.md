@@ -1,4 +1,10 @@
-# `timestep.StackView` extends [`timestep.ui.UIView`](./ui/uiview.md).
+# `timestep.StackView`
+
+## Inheritence
+
+1. [timestep.ui.UIView](./ui/uiview.md)
+2. [timestep.View](./view.md)
+3. [lib.PubSub](../lib/pubsub.md)
 
 ## Methods
 
