@@ -1,0 +1,61 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * @namespace
+<span class='line'>  3</span>  */</span><span class="WHIT">
+<span class='line'>  4</span> </span><span class="NAME">exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>  5</span> </span><span class="WHIT">	</span><span class="NAME">BACKSPACE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">8</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>  6</span> </span><span class="WHIT">	</span><span class="NAME">TAB</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">9</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>  7</span> </span><span class="WHIT">	</span><span class="NAME">ENTER</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">13</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>  8</span> </span><span class="WHIT">	</span><span class="NAME">SHIFT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">16</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>  9</span> </span><span class="WHIT">	</span><span class="NAME">CTRL</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">17</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 10</span> </span><span class="WHIT">	</span><span class="NAME">ALT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">18</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 11</span> </span><span class="WHIT">	</span><span class="NAME">PAUSE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">19</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 12</span> </span><span class="WHIT">	</span><span class="NAME">BREAK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">19</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 13</span> </span><span class="WHIT">	</span><span class="NAME">CAPS</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">20</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 14</span> </span><span class="WHIT">	</span><span class="NAME">CAPS_LOCK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">20</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 15</span> </span><span class="WHIT">	</span><span class="NAME">ESCAPE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">27</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 16</span> </span><span class="WHIT">	</span><span class="NAME">SPACE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">32</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 17</span> </span><span class="WHIT">	</span><span class="NAME">PAGE_UP</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">33</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 18</span> </span><span class="WHIT">	</span><span class="NAME">PAGE_DOWN</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">34</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 19</span> </span><span class="WHIT">	</span><span class="NAME">END</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">35</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="WHIT">	</span><span class="NAME">HOME</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">36</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 21</span> </span><span class="WHIT">	</span><span class="NAME">LEFT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">37</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 22</span> </span><span class="WHIT">	</span><span class="NAME">UP</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">38</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="WHIT">	</span><span class="NAME">RIGHT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">39</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">	</span><span class="NAME">DOWN</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">40</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">	</span><span class="NAME">PRINT_SCREEN</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">44</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">	</span><span class="NAME">INSERT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">45</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">	</span><span class="NAME">DELETE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">46</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">	</span><span class="NAME">META_LEFT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">91</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">	</span><span class="NAME">WIN_LEFT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">91</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">	</span><span class="NAME">META_RIGHT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">92</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">	</span><span class="NAME">WIN_RIGHT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">92</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">	</span><span class="NAME">SELECT</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">93</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">	</span><span class="NAME">EQUAL</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">187</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="WHIT">	</span><span class="NAME">MINUS</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">189</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="WHIT">	</span><span class="NAME">F1</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">112</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="WHIT">	</span><span class="NAME">F2</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">113</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">	</span><span class="NAME">F3</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">114</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">	</span><span class="NAME">F4</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">115</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="WHIT">	</span><span class="NAME">F5</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">116</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">	</span><span class="NAME">F6</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">117</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">	</span><span class="NAME">F7</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">118</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">	</span><span class="NAME">F8</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">119</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">	</span><span class="NAME">F9</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">120</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">	</span><span class="NAME">F10</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">121</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">	</span><span class="NAME">F11</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">122</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">	</span><span class="NAME">F12</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">123</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">	</span><span class="NAME">MUTE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">173</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="WHIT">	</span><span class="NAME">VOL_DOWN</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">174</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">	</span><span class="NAME">VOL_UP</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">175</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">	</span><span class="NAME">FORWARD</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">176</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">	</span><span class="NAME">BACK</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">177</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">	</span><span class="NAME">STOP</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">178</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="WHIT">	</span><span class="NAME">PLAY_PAUSE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">179</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>
