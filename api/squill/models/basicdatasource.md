@@ -1,4 +1,8 @@
-# `squill.models.BasicDataSource` inherits from [`lib.PubSub`](../../lib/pubsub.md).
+# `squill.models.BasicDataSource`
+
+## Inheritence
+
+1. [lib.PubSub](../../lib/pubsub.md)
 
 ## Options
 

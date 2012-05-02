@@ -1,4 +1,9 @@
-# `timestep.ScrollView` inherits from [`timestep.View`](./view.md)
+# `timestep.ScrollView`
+
+## Inheritence
+
+1. [timestep.View](./view.md)
+2. [lib.PubSub](../lib/pubsub.md)
 
 ## Options
 

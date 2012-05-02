@@ -1,4 +1,6 @@
-## `lib.PubSub` is in the js.io project.
+## `lib.PubSub`
+
+This class is in the js.io project.
 
 ### Methods
 

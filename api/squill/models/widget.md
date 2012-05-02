@@ -1,4 +1,8 @@
-# `squill.models.Widget` inherits from [`lib.PubSub`](../../lib/pubsub.md).
+# `squill.models.Widget`.
+
+## Inheritence
+
+1. [lib.PubSub](../../lib/pubsub.md)
 
 ## Options
 

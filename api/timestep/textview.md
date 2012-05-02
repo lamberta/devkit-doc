@@ -1,6 +1,11 @@
-# `timestep.TextView` inherits from [`timestep.View`](./view.md).
+# `timestep.TextView`
 
 To use: `textview = new TextView(options)`.
+
+## Inheritence
+
+1. [timestep.View](./view.md)
+2. [lib.PubSub](../lib/pubsub.md)
 
 ## Options
 
