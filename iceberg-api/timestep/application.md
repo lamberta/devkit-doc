@@ -1,37 +1,34 @@
 # `timestep.Application`
 
-`GC.app.engine` is an instance of `timestep.Application` and
-controls the view hierarchy at `GC.app.view`.
-
 ## Inheritence
 
 1. [lib.PubSub](../lib/pubsub.md)
 
 ## Options
 
-* __width__: `device.width`
+* __width__: `[device.width]`
 
-* __height__: `device.width`
+* __height__: `[device.width]`
 
-* __alwaysRepaint__: `false`
+* __alwaysRepaint__: `[false]`
 
-* __clearEachFrame__: `false`
+* __clearEachFrame__: `[false]`
 
-* __view__: `null`
+* __view__: `[null]`
 
-* __showFPS__: `false`
+* __showFPS__: `[false]`
 
-* __dtFixed__: `0`
+* __dtFixed__: `[0]`
 
-* __dtMinimum__: `0`
+* __dtMinimum__: `[0]`
 
-* __keyListenerEnabled__: `true`
+* __keyListenerEnabled__: `[true]`
 
-* __continuousInputCheck__: `true` (if on mobile)
+* __continuousInputCheck__: `[true]` (if on mobile)
 
-* __repaintOnEvent__: `true`
+* __repaintOnEvent__: `[true]`
 
-* __mergeMoveEvents__: `false`
+* __mergeMoveEvents__: `[false]`
 
 
 ## Methods
