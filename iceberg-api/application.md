@@ -23,21 +23,21 @@ Setting options are added to a `_settings` object within an
 instance of `GC.Application`. This should be set before the
 `initUI` and `launchUI` methods are called.
 
-* __logsEnabled__ `{boolean}`
-* __noTimestep__ `{boolean}`
-* __showFPS__ `{boolean}`
-* __alwaysRepaint__ `{boolean}`
-* __repaintOnEvent__ `{boolean}`
-* __clearEachFrame__ `{boolean}`
-* __continuousInputCheck__ `{boolean}`
-* __keyListenerEnabled__ `{boolean}`
-* __mergeMoveEvents__ `{boolean}`
-* __view__
-* __width__ `{number}`
-* __height__ `{number}`
-* __dtFixed__ `{number}` `[0]`
-* __dtMinimum__ `{number}` `[0]`
-* __preload__ `{array}` ---Preload resource groups.
+* __logsEnabled__ `{boolean}` ---show the logs in the console.
+* __noTimestep__ `{boolean}` ---(Deprecated) don't load timestep.
+* __showFPS__ `{boolean}` ---show the frames per second display in the top left corner.
+* __alwaysRepaint__ `{boolean}` ---always redraw on each frame. Defaults to `false` but for real-time games should be `true`.
+* __repaintOnEvent__ `{boolean}` ---only redraw when a user event occurs such as touch/click.
+* __clearEachFrame__ `{boolean}` ---clear the screen on each frame. Defaults to `true`.
+* __continuousInputCheck__ `{boolean}` ---keep triggering the previous input event for more responsive input (on each tick)
+* __keyListenerEnabled__ `{boolean}` ---enable the keyboard listener. Defaults to `true`.
+* __mergeMoveEvents__ `{boolean}` ---multiple move events in a tick/frame are merged by taking the last event
+* __view__ `[{timestep.View}]()` ---root view
+* __width__ `{number}` ---width of application view
+* __height__ `{number}` ---height of application view
+* __dtFixed__ `{number}` `[0]` ---fixed delta time
+* __dtMinimum__ `{number}` `[0]` ---nevermind (not used)
+* __preload__ `{array}` ---preload resource groups.
 
 
 ## Methods
