@@ -37,7 +37,7 @@ instance of `GC.Application`. This should be set before the
 * __height__ `{number}`
 * __dtFixed__ `{number}` `[0]`
 * __dtMinimum__ `{number}` `[0]`
-* __preload__ `{array}` ---??
+* __preload__ `{array}` ---Preload resource groups.
 
 
 ## Methods
@@ -67,6 +67,8 @@ when the screen looses and regains focus.
 
 ## Usage
 
+`window.DEV_MODE` defaults to `true`.
+
 ~~~
 exports = Class(GC.Application, function () {
   this._settings = {
@@ -78,6 +80,8 @@ exports = Class(GC.Application, function () {
 
   this.initUI = function () {};
 
-  this.launchUI = function () {};
+  this.launchUI = function () {
+    // let's go! ...
+  };
 });
 ~~~
