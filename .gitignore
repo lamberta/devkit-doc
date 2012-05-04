@@ -3,3 +3,6 @@
 .tealeaf_sdk
 sdk
 build
+titanicJS/jsdoc-toolkit/LOG
+titanicJS/jsdoc-toolkit/debug
+titanicJS/jsdoc-toolkit/out

@@ -49,6 +49,7 @@ function parseMarkdown(path, name) {
 		var content = IO.readFile(path);
 		var start = 0, stop = 0, current, count = 0;
 		var lines = content.split("\n");
+		log("Lines in " + path + ": " + lines.length);
 		
 		//loop over all the lines
 		for(var i = 0; i < lines.length; i++) {
@@ -80,6 +81,9 @@ function parseMarkdown(path, name) {
 	
 	//nothing found in external block
 	if(!cache[path][name]) {
+		if(name === "timestep.Sprite") {
+			log("No timestep Sprite: ");
+		}
 		log("Couldnt find " + name + " in " + path);
 		return;
 	}
