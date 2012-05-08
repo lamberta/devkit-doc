@@ -4,6 +4,7 @@ import GC;
 
 import .ViewUsage;
 import .TextUsage;
+import .ImageUsage;
 
 exports = Class(GC.Application, function() {
 
@@ -19,7 +20,7 @@ exports = Class(GC.Application, function() {
 	}
 
 	this.launchUI = function() {
-		new TextUsage({parent: this.view});		
+		new ImageUsage({parent: this.view});		
 	}
 
 	this.launchSinglePlayerGame = function() {

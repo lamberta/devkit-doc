@@ -9,11 +9,12 @@ To use: `imageview = new ImageView(options)`.
 
 ## Options
 
-* __image__ ---Defaults to `false`.
+* __image__ {string|timestep.Image} --- Image to render. Defaults to `false`.
 
-* __autoSize__ ---Defaults to `false`.
+* __autoSize__ {boolean} ---Stretch the image to the View dimensions if `false`. Use the image
+dimensions if `true`. Defaults to `false`.
 
-* __scaleMethod__ ---Defaults to `false`.
+* __scaleMethod__ {string} ---Defaults to `false`.
 
 
 ## Methods
@@ -25,7 +26,7 @@ To use: `imageview = new ImageView(options)`.
 * __setImage (img, opts)__ ---
 
 	@param `{string|timestep.Image}` img<br/>
-	@param `{object}` opts
+	@param `{object}` opts ---See above Options
 
 * __doOnLoad__ ---
 
@@ -103,3 +104,7 @@ To use: `imageview = new ImageView(options)`.
 * __setImageData__ ---
 
 * __destroy__
+
+## Usage
+
+

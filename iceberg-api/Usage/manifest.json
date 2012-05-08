@@ -7,6 +7,7 @@
         "tapjoyKey": "", 
         "versionCode": 1
     }, 
+    "animations": [], 
     "appID": "c1136e531e65450a8d98b97160ac4e18", 
     "description": "Game description", 
     "facebookEnabled": false, 
