@@ -8,7 +8,7 @@
 ## Options
 
 * __defaultAnimation__ --The go to animation after other iterations have completed.
-* __animations__`{object}`
+* __animations__`{object}` ---See Animation options below
 * __defaultWidth__ `{number}` ---Defaults to 64.
 * __defaultHeight__ `{number}` ---Defaults to 64.
 * __offsetX__
@@ -33,8 +33,9 @@
 		* __iterations__ `{number}` ---Run the animation a
           number of times before reverting back to the default animation.
 		* __callback__ `{function}` --Executed after the iteration switch.
-		* __mirrorHorizontal__
-		* __mirrorVertical__
+		* __mirrorHorizontal__ `{boolean}` ---Mirror the sprite animation horizontally.
+		* __mirrorVertical__ `{boolean}` ---Mirror the sprite animation vertically.
+
 
 * __isCurrentAnimation (name)__
 
@@ -59,21 +60,23 @@ The `animations` object is a collection of `SpriteAnimation`
 objects, each representing a single animation sequence, or
 and array of `timestep.Image` objects. This can be part of
 the `Sprite` parameters during installation, or added with
-its `addAnimation` method.
+its `addAnimation` method. In the constructor animations object,
+the key is the name of the animation and the value is a
+`SpriteAnimation` object.
 
 * __frameRate__ `{number}` ---Defaults to `10`.
 * __imageURL__ `{string}` ---Defaults to `'about:blank'`.
-* __width__
-* __height__
-* __spritesWidth__
-* __spritesHeight__
-* __sheetWidth__
-* __sheetHeight__
-* __start__
-* __end__
-* __step__
-* __frames__ `{array}` ---Defaults to `[]`.
-* __front__ `{number}` ---Defaults to `0`.
+* __width__ `{number}` ---Width of the sprite.
+* __height__ `{number}` ---Height of the sprite.
+* __spritesWide__ `{number}` ---Amount of sprites make up the width (`sheetWidth / width`).
+* __spritesHigh__ `{number}` ---Amount of sprites make up the height (`sheetHeight / height`).
+* __sheetWidth__ `{number}` ---Full width of the sprite sheet.
+* __sheetHeight__ `{number}` ---Full height of the sprite sheet.
+* __start__ `{number}` ---Index of the sprite to start the animation (from left to right, top to bottom).
+* __end__ `{number}` ---Index of the sprite to end the animation.
+* __step__ `{number}` ---Amount of ticks or frames inbetween sprite frames.
+* __frames__ `{array}` ---Array of frames. Frames are an array of 2 elements: `[sourceX, sourceY]`. Defaults to `[]`.
+* __front__ `{number}` ---Defaults to `0`. Does nothing?
 * __autoframes__ `{boolean}` ---Defaults to `false`, does nothing?
 
 
@@ -99,37 +102,36 @@ its `addAnimation` method.
 
 ## Usage
 
-~~~
-import timestep.Sprite as Sprite;
+	"use import";
 
-var sprite = new Sprite({
-  parent: GC.app.view,
-  x: 0,
-  y: 0,
-  width: 50,
-  height: 50,
-  defaultAnimation: 'default',
-  animations: {
-	'default': {
-	  imageURL: 'resources/img/luigi-sheet.png',
-	  sheetWidth: 400,
-	  sheetHight: 200,
-	  spritesWide: 8,
-	  spritesHigh: 4,
-	  start: 0,
-	  end: 7
-	},
-	'another': {
-	  imageURL: 'resources/img/luigi-sheet.png',
-	  sheetWidth: 400,
-	  sheetHight: 200,
-	  spritesWide: 8,
-	  spritesHigh: 4,
-	  start: 8,
-	  end: 15
-	}
-  }
-});
+	import timestep.View as View;
+	import timestep.Sprite as Sprite;
 
-sprite.startAnimation('another', {iterations: 2});
-~~~
+	exports = Class(View, function(supr) {
+		this.init = function(opts) {
+			supr(this, "init", arguments);
+
+			var runner = new Sprite({
+				parent: this,
+				defaultAnimation: "idle",
+				width: 34, 
+				height: 86, 
+
+				//sprite animation definitions
+				animations: {
+					//main idle sprite animation
+					idle: {
+						imageURL: "resources/character.png",
+						spritesWide: 6,
+						spritesHigh: 4,
+						start: 12, 
+						end: 17, 
+						width: 34, 
+						height: 86
+					}   
+				}   
+			}); 
+
+			runner.startAnimation("idle");
+		}   
+	});
