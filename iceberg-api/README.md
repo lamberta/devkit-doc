@@ -6,7 +6,9 @@ serve as an entry point into the SDK and are not the
 "official" documentation. If you understand how these
 classes work together, well, that's something I guess.
 
-#
+<div class="note">
+If you are an absolute beginner, checkout the [Getting Started Guide](../getting-started.md).
+</div>
 
 The classes here can be divided into a few sections:
 

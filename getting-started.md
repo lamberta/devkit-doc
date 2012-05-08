@@ -84,8 +84,8 @@ Create a file called `World.js`:
 	this.init = function() {
 	    //create a TextView with this View as the parent
 	    var text = new TextView({
-		text: "Hello World!",
-		parent: this
+			text: "Hello World!",
+			parent: this
 	    });
 	}
     });
