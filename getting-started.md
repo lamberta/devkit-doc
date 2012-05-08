@@ -80,15 +80,21 @@ Create a file called `World.js`:
     import timestep.TextView as TextView;
 
     exports = Class(View, function(supr) {
-	//class contructor
-	this.init = function() {
-	    //create a TextView with this View as the parent
-	    var text = new TextView({
-			text: "Hello World!",
-			parent: this
-	    });
-	}
+		//class contructor
+		this.init = function() {
+			supr(this, "init", arguments);
+
+			//create a TextView with this View as the parent
+			var text = new TextView({
+				text: "Hello World!",
+				parent: this
+			});
+		}
     });
+
+Now we need to be able to reference it in `Application.js`. Add this line after `"use import";`.
+
+	import .World;
 
 Horray, now we have a cross browser, cross device implementation of 
 Hello World!

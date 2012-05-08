@@ -202,39 +202,70 @@
 
 ### Properties
 
-* __x__ ---Defaults to 0. 
+* __x__ {number} ---Defaults to 0. 
 
-* __y__ ---Defaults to 0.
+* __y__ {number} ---Defaults to 0.
 
-* __anchorX__ ---Defaults to 0.
+* __anchorX__ {number} ---Defaults to 0.
 
-* __anchorY__ ---Defaults to 0.
+* __anchorY__ {number} ---Defaults to 0.
 
-* __width__ ---Defaults to `__onResize` value.
+* __width__ {number} ---Defaults to `__onResize` value.
 
-* __height__ ---Defaults to `__onResize` value.
+* __height__ {number} ---Defaults to `__onResize` value.
 
-* __widthPercentage__ ---Defaults to `__onResize` value.
+* __widthPercentage__ {number} ---Defaults to `__onResize` value.
 
-* __heightPercentage__ ---Defaults to `__onResize` value.
+* __heightPercentage__ {number} ---Defaults to `__onResize` value.
 
-* __scale__ ---Defaults to 1.
+* __scale__ {number} ---Defaults to 1.
 
-* __r__ ---Rotation. Bad name. Defaults to 0.
+* __r__ {number} ---Rotation. Bad name. Defaults to 0.
 
-* __radius__ --- (Read only)
+* __radius__ {number} --- (Read only)
 
-* __visible__ ---Defaults to `true`.
+* __visible__ {boolean} ---Defaults to `true`.
 
-* __clip__ ---View and children get clipped to parent. Defaults to `false`.
+* __clip__ {boolean} ---View and children get clipped to parent. Defaults to `false`.
 
-* __opacity__ ---Defaults to 1.
+* __opacity__ {number} ---Defaults to 1.
 
-* __zIndex__ ---Defaults to 0.
+* __zIndex__ {number} ---Defaults to 0.
 
-* __backgroundColor__ ---Defaults to `undefined`.
+* __backgroundColor__ {string} ---Defaults to `undefined`.
 
-* __shadowColor__ ---Defaults to `'black'`.
+* __shadowColor__ {string} ---Defaults to `'black'`.
+
+### Usage
+
+	"use import";
+
+	import timestep.View as View;
+
+	exports = Class(View, function(supr) {
+		this.init = function(opts) {
+			supr(this, "init", arguments);
+
+			//draw me a red rectangle!
+			var redRect = new View({
+				parent: this,
+				opacity: 0.5,
+				background: "#FF0000",
+				width: 100,
+				height: 100
+			});
+
+			//draw me a green rectangle!
+			var greenRect = new View({
+				parent: this,
+				opacity: 0.8,
+				background: "#00FF00",
+				width: 100,
+				height: 100,
+				x: 200
+			});
+		}
+	});
 
 
 ### Methods
