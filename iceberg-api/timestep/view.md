@@ -250,24 +250,24 @@
 			var redRect = new View({
 				parent: this,
 				opacity: 0.5,
-				background: "#FF0000",
+				backgroundColor: "#FF0000",
 				width: 100,
-				height: 100
-			});
+				height: 100,
+				zIndex: 2
+			}); 
 
 			//draw me a green rectangle!
 			var greenRect = new View({
 				parent: this,
 				opacity: 0.8,
-				background: "#00FF00",
+				backgroundColor: "#00FF00",
 				width: 100,
 				height: 100,
-				x: 200
-			});
-		}
+				x: 80
+			}); 
+		}   
 	});
-
-
+	
 ### Methods
 
 * __update (style)__ ---Set the view's style.
