@@ -20,7 +20,9 @@ We got here through `desktop.html`, which calls
 
 * __buildApp (entry)__ ---This is where the user's
   `shared.Application` is instantiated and its entry point
-  os called (?). In launchClient.js this is called as `GC.buildApp('launchUI')`.
+  is called, because it inherits from `client/Application`,
+  which runs the `entry` after all the preloading. In
+  launchClient.js this is called as `GC.buildApp('launchUI')`.
 
 	@param `{}` entry
 	@return `{}` --returns `this.app`
