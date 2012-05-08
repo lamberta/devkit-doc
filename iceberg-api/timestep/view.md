@@ -202,7 +202,7 @@
 
 ### Properties
 
-* __x__ ---Defaults to 0.
+* __x__ ---Defaults to 0. 
 
 * __y__ ---Defaults to 0.
 
@@ -222,7 +222,7 @@
 
 * __r__ ---Rotation. Bad name. Defaults to 0.
 
-* __radius__ --- [Read only]
+* __radius__ --- (Read only)
 
 * __visible__ ---Defaults to `true`.
 
@@ -252,11 +252,6 @@
 	@return `{number}`
 
 * __clearCache__ ---Clears the style cache.
-
-* __setAddedAt (addedAt)__ ---??
-
-* __setSortKey__ ---??
-
 
 ### Class Properties
 
