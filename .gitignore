@@ -6,3 +6,4 @@ build
 titanicJS/jsdoc-toolkit/LOG
 titanicJS/jsdoc-toolkit/debug
 titanicJS/jsdoc-toolkit/out
+*.swp
