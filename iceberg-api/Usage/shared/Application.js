@@ -5,6 +5,8 @@ import GC;
 import .ViewUsage;
 import .TextUsage;
 import .ImageUsage;
+import .SpriteUsage;
+import .ScrollUsage;
 
 exports = Class(GC.Application, function() {
 
@@ -20,7 +22,7 @@ exports = Class(GC.Application, function() {
 	}
 
 	this.launchUI = function() {
-		new ImageUsage({parent: this.view});		
+		new ScrollUsage({parent: this.view});		
 	}
 
 	this.launchSinglePlayerGame = function() {

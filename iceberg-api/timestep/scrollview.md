@@ -7,28 +7,33 @@
 
 ## Options
 
-* __fullWidth__: `0`
+* __fullWidth__ `{number}`: `0` ---Does nothing?
 
-* __fullHeight__: `0`
+* __fullHeight__ `{number}`: `0` ---Does nothing?
 
-* __offsetX__: `0`
+* __offsetX__ `{number}`: `0` ---offset X position
 
-* __offsetY__: `0`
+* __offsetY__ `{number}`: `0` ---offset Y position
 
-* __scrollX__: `true`
+* __scrollX__ `{boolean}`: `true` ---scroll along the X axis
 
-* __scrollY__: `true`
+* __scrollY__ `{boolean}`: `true` ---scroll along the Y axis
 
-* __clip__: `true`
+* __clip__ `{boolean}`: `true`
 
-* __bounce__: `true`
+* __bounce__ `{boolean}`: `true`
 
-* __drag__: `true`
+* __drag__ `{boolean}`: `true` ---allow the user to drag the view around
 
-* __inertia__: `true`
+* __inertia__ `{boolean}`: `true` ---inertia scrolling
 
-* __dragRadius__: `10`
+* __dragRadius__ `{number}`: `10` ---radius between dragging start and move
 
+* __scrollBounds__ `{object}`: ---boundary of scroll:
+	* __minX__ `{number}`: ---minimum X position.
+	* __minY__ `{number}`: ---minimum Y position.
+	* __maxX__ `{number}`: ---maximum X position.
+	* __maxY__ `{number}`: ---maximum Y position.
 
 ## Methods
 
@@ -109,6 +114,32 @@
 	@param `{number}` duration
 	@param `{function}` callback
 
+## Usage
+
+	"use import";
+
+	import timestep.ImageView as ImageView;
+	import timestep.ScrollView as ScrollView;
+
+	exports = Class(ScrollView, function(supr) {
+		this.init = function(opts) {
+			merge(opts, {
+				scrollBounds: {
+					minX: -100,
+					maxX: 200,
+					minY: -100,
+					maxY: 200 
+				},  
+			}); 
+
+			supr(this, "init", arguments);
+
+			var ducky = new ImageView({
+				image: "resources/duck.png",
+				parent: this
+			}); 
+		}   
+	});
 
 ## Messages
 
