@@ -38,10 +38,11 @@
 
 ### Events
 
-* __getInput__ ---
+* __getInput__ ---Grab the InputEvent instance.
+	* @return `{timestep.input.InputEvent}`
 
-* __isInputOver__ ---
-	* @return {boolean}
+* __isInputOver__ ---If the mouse is over the view.
+	* @return `{boolean}`
 
 * __onEventPropagate (evt, pt, atTarget)__ ---Should be private. Allows construction of meta-events. ??
 	* @param `{event} evt`
@@ -51,15 +52,14 @@
 * __canHandleEvents (handleEventsp)__ ---Set if a view can handle events. Odd name.
 	* @param `{boolean} handleEventsp`
 
-* __startDrag__ ---
+* __startDrag__ ---Start the drag by assigning event handlers on the views.
+	* @param `{object} opts` 
+		* @param `{timestep.input.InputEvent} opts.inputStartEvent` ---Event that triggers the starts the drag.
 
-* __isDragging__ ---
+* __isDragging__ ---Is the view currently being dragged.
 	* @return `{boolean}`
 
-* __focus__	
-	* @return `{thisObj}`
-
-* __blur__ 	
+* __focus__ ---Change the focus to this view. Will execute the `onBlur` event on the current focused view and the `onFocus` event on the new focused view.	
 	* @return `{thisObj}`
 
 * __onFocus__ ---Called when the whole application is focused.
@@ -70,18 +70,18 @@
 
 ### Geometry
 
-* __containsLocalPt (pt)__ ---
+* __containsLocalPt (pt)__ ---Determine if the given point is contained by the view.
 	* @param `{point} pt` ---Object containing x and y properties.
 	* @return `{boolean}`
 
-* __localizePt (pt)__ ---
-	* @param `{point} pt`
+* __localizePt (pt)__ ---Convert a point to it's local position relative to this view.
+	* @param `{point} pt` ---Point to localize.
 
-* __getPosition (relativeTo)__ ---
-	* @param `{View} relativeTo`
+* __getPosition (relativeTo)__ ---Get position of the view relative a superview or by default the top-most superview (rootview).
+	* @param `{View} relativeTo` ---Get position relative to a specific superview.
 	* @return `{Rect}`
 
-* __getBoundingShape__ ---
+* __getBoundingShape__ ---Return a Shape object that represents the view.
 	* @return `{Rect|Circle}`
 
 * __getRelativeRegion (region, parent)__ ---Return location or rectangle in parent space.
