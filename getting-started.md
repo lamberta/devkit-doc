@@ -127,4 +127,45 @@ You may also alias the module as an easy to use name by using `as`:
 
 That way you can reference it as `View` instead of `timestep.View`.
 
+##Alternative Classes
 
+We don't want to force an unwanted methodology when developers have their own
+ideas about objects, structure and organization. That's why you may choose
+not to use the internal class system as long as you include some bridge code.
+
+We will create a basic red rectangle class that turns blue when a mouse is
+down or touch has started (on the view) then green when the mouse is up or
+touch has ended.
+
+~~~
+"use import";
+
+import timestep.View as View;
+
+//a custom red rectangle class
+function RedRect(opts) {
+    this.init.apply(this, arguments);
+    this.style.backgroundColor = "#FF0000";
+
+    this.onInputSelect = function() {
+        this.style.backgroundColor = "#00FF00";
+    }
+}
+
+//inherit the View prototype
+exports = inherit(RedRect, View);
+
+//custom prototype function
+RedRect.prototype.onInputStart = function() {
+    this.style.backgroundColor = "#0000FF";
+}
+
+
+/**
+ * Utility to inherit the prototype chain
+ */
+function inherit(ctor, superCtor) {
+    ctor.prototype = superCtor.prototype;
+    return ctor;
+};
+~~~

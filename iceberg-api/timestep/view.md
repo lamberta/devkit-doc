@@ -237,16 +237,19 @@ Style definitions in `view.style`.
 
 ## Usage
 
-	"use import";
+~~~
 
-	import timestep.View as View;
+"use import";
 
-	exports = Class(View, function(supr) {
-		this.init = function(opts) {
-			supr(this, "init", arguments);
+import timestep.View as View;
 
-			//modify the ViewStyle properties
-			this.style.backgroundColor = "#0000FF";
-			this.style.scale = 0.5;
-		}   
-	});
+exports = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", arguments);
+
+		//modify the ViewStyle properties
+		this.style.backgroundColor = "#0000FF";
+		this.style.scale = 0.5;
+	}   
+});
+~~~
