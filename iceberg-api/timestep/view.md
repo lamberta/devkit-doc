@@ -13,14 +13,14 @@
 
 * __getSubview (i)__ ---Returns the child view at a given index.
 	* @param `{number} i` ---Index.
-	* @return `{View}`
+	* @return `{View}` ---Index.
 
 * __addSubview (view)__ ---Add a child view. (Defined on `timestep.canvas.View`.)
-	* @param `{View}` view
+	* @param `{View} view`
 	* @return `{View}`
 
 * __removeSubview (view)__ ---Remove a child view. (Defined in `timestep.canvas.View`.)
-	* @param `{View}` view
+	* @param `{View} view`
 
 * __removeAllSubviews__ ---Removes all children.
 
@@ -56,15 +56,16 @@
 * __isDragging__ ---
 	* @return `{boolean}`
 
-* __focus__ ---
+* __focus__	
 	* @return `{thisObj}`
 
-* __blur__ ---
+* __blur__ 	
 	* @return `{thisObj}`
 
-* __onFocus__ ---
+* __onFocus__ ---Called when the whole application is focused.
 
-* __onBlur__ ---
+* __onBlur__ ---Called when the application loses focus.
+
 
 
 ### Geometry
@@ -77,7 +78,7 @@
 	* @param `{point} pt`
 
 * __getPosition (relativeTo)__ ---
-	* @param `{View=} relativeTo`
+	* @param `{View} relativeTo`
 	* @return `{Rect}`
 
 * __getBoundingShape__ ---
@@ -113,22 +114,22 @@
 
 ### Misc.
 
-* __show__ ---
+* __show__ ---Make the view visible.
 
-* __hide__ ---
+* __hide__ ---Make the view hidden.
 
-* __toString__ ---(Defined in `timestep.canvas.View`.)
+* __toString__ ---Defined in `timestep.canvas.View`.
 	* @return `{string}`
 
 * __getTag__ ---
 	* @return `{string}`
 
 
-### Properties
+## Properties
 
-* __uid__ `{string}` ---
+* __uid__ `{string}` ---Unique identifier. Used internally
 
-* __style__ `{timestep.canvas.ViewStyle}` ---
+* __style__ `{timestep.canvas.ViewStyle}` ---All style properties belong here. See `ViewStyle` below.
 
 * __tick__ `{function}` ---A function that is called every tick.
   
@@ -136,77 +137,15 @@
 
 * __buildView__ `{function}` ---Called just before the first render call.
 
-* __needsRepaint__ `{boolean}` ---
+* __needsRepaint__ `{boolean}` ---Notifies the renderer that the view needs to be repainted next tick.
 
-* __needsSort__ `{boolean}` ---
+* __needsSort__ `{boolean}` ---Notifies the need for sorting views.
 
-* __needsReflow__ `{boolean}` ---
+* __needsReflow__ `{boolean}` ---Notifies the need for repositioning.
 
-
-# `timestep.canvas.ViewStyle`
-
-Style definitions in `view.style`.
-
-## Properties
-
-* __x__ {number} ---Defaults to 0. 
-
-* __y__ {number} ---Defaults to 0.
-
-* __anchorX__ {number} ---Defaults to 0.
-
-* __anchorY__ {number} ---Defaults to 0.
-
-* __width__ {number} ---Defaults to `__onResize` value.
-
-* __height__ {number} ---Defaults to `__onResize` value.
-
-* __widthPercentage__ {number} ---Defaults to `__onResize` value.
-
-* __heightPercentage__ {number} ---Defaults to `__onResize` value.
-
-* __scale__ {number} ---Defaults to 1.
-
-* __r__ {number} ---Rotation. Bad name. Defaults to 0.
-
-* __radius__ {number} --- (Read only)
-
-* __visible__ {boolean} ---Defaults to `true`.
-
-* __clip__ {boolean} ---View and children get clipped to parent. Defaults to `false`.
-
-* __opacity__ {number} ---Defaults to 1.
-
-* __zIndex__ {number} ---Defaults to 0.
-
-* __backgroundColor__ {string} ---Defaults to `undefined`.
-
-* __shadowColor__ {string} ---Defaults to `'black'`.
-
-	
-## Methods
-
-* __update (style)__ ---Set the view's style.
-
-	@param `{ViewStyle}`
-
-* __copy__ ---Returns a copy of the current style.
-
-	@return `{ViewStyle}`
-
-* __updateRadius__ ---Private??
-
-	@return `{number}`
-
-* __clearCache__ ---Clears the style cache.
-
-### Class Properties
-
-* __keys__ ---Object containing the supported style properties.
-
-
-# Usage
+## Usage
 ~~~
+
 "use import";
 
 import timestep.View as View;
@@ -237,3 +176,77 @@ exports = Class(View, function(supr) {
 	}   
 });
 ~~~
+
+# `timestep.canvas.ViewStyle`
+
+Style definitions in `view.style`.
+
+## Properties
+
+* __x__ `{number} = 0` 
+
+* __y__ `{number} = 0`
+
+* __anchorX__ `{number} = 0` ---X position of the anchor point for rotation.
+
+* __anchorY__ `{number} = 0` ---Y position of the anchor point.
+
+* __width__ `{number}` ---Defaults to parent `width` value.
+
+* __height__ `{number}` ---Defaults to parent `height` value.
+
+* __widthPercentage__ `{number}` ---Defaults to `__onResize` value.
+
+* __heightPercentage__ `{number}` ---Defaults to `__onResize` value.
+
+* __scale__ `{number} = 1` ---Increase or decrease the size of the view.
+
+* __r__ `{number} = 0` ---Rotation. Bad name.
+
+* __radius__ `{number}` ---*Read only*
+
+* __visible__ `{boolean} = true` ---If the view is shown or hidden.
+
+* __clip__ `{boolean} = false` ---View and children get clipped to parent.
+
+* __opacity__ `{number} = 1` ---Transparency of the view.
+
+* __zIndex__ `{number} = 0` ---The higher the number the closer to the top.
+
+* __backgroundColor__ `{string}` ---Background color of the view.
+
+* __shadowColor__ `{string} = 'black'` ---Shadow color of the view.
+
+	
+## Methods
+
+* __update (style)__ ---Set the view's style.
+	* @param `{ViewStyle} style`
+
+* __copy__ ---Returns a copy of the current style.
+	* @return `{ViewStyle}`
+
+* __updateRadius__ ---Private??
+	* @return `{number}`
+
+* __clearCache__ ---Clears the style cache.
+
+### Class Properties
+
+* __keys__ `{object}` ---Object containing the supported style properties.
+
+## Usage
+
+	"use import";
+
+	import timestep.View as View;
+
+	exports = Class(View, function(supr) {
+		this.init = function(opts) {
+			supr(this, "init", arguments);
+
+			//modify the ViewStyle properties
+			this.style.backgroundColor = "#0000FF";
+			this.style.scale = 0.5;
+		}   
+	});
