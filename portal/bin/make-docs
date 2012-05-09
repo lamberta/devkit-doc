@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+function print_help {
+		echo "Usage: $(basename $0) [options] -f file"
+		echo " -i=file  Input Markdown source file."
+		echo " -o=file  Output HTML file."
+		echo " -h       Print this help."
+}
+
+ROOT_DIR=$(cd -P $(dirname "$0") && cd .. && pwd)
+OUTPUT_DIR="$ROOT_DIR/output"
+
+# Parse command-line args ...
+
+while getopts "i:o:h" opt; do
+    case $opt in
+				i) SRC_FILE="$OPTARG";;
+				o) OUT_FILE="$OPTARG";;
+				h) print_help; exit 0;;
+        \?) print_help; exit 0;;
+    esac
+done
+
+# Check some params ...
+
+if ! which pandoc > /dev/null; then
+		echo "Error: Requires pandoc to build."
+		exit 1
+fi
+
+if ! which m4 > /dev/null; then
+		echo "Error: Requires m4 to build."
+		exit 1
+fi
+
+if [ ! -f "$SRC_FILE" ]; then
+		echo "Error: Source file is not valid."
+		exit 1
+fi
+
+if [ -z "$OUT_FILE" ]; then
+		echo "Error: Output file must be specified."
+		exit 1
+fi
+
+if [ ! -d "$OUTPUT_DIR" ]; then
+		echo "Error: Output directory is not valid."
+		exit 1
+fi
+
+# Off we go ...
+
+## Add sidebar navigation to template file
+m4 -P -D sidebar_nav="$ROOT_DIR/templates/sidebar-nav.html" \
+		"$ROOT_DIR/templates/tmpl.html" > "$ROOT_DIR/templates/tmpl.tmp"
+
+## Covert markdown to html using our template
+if pandoc -f markdown -t html5 --smart \
+		--standalone --template "$ROOT_DIR/templates/tmpl.tmp" \
+		--css "../templates/style.css" \
+		--output "$OUT_FILE" "$SRC_FILE"; then
+		echo "  Generated $OUT_FILE"
+else
+		echo "Error generating $OUT_FILE"
+		exit 1
+fi
+
+
+## Cleanup
+if [ -f "$ROOT_DIR/templates/tmpl.tmp" ]; then
+		rm "$ROOT_DIR/templates/tmpl.tmp"
+fi
