@@ -1,7 +1,7 @@
 /* CSS reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite,
+a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 ol, ul {
 	list-style: none;
 }
-/*
+
 blockquote, q {
 	quotes: none;
 }
@@ -38,26 +38,59 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-*/
+
 /* end reset */
 
 body {
   margin: 0 auto;
   width: 940px;
-	font-family: 'Open Sans', serif;
+	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	line-height: 1.2em;
   background: #f0f0f0;
 }
 
-b, h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', serif;
+b, strong, h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
+h1, h2 {
+	line-height: 2em;
+}
 
+code {
+	font-family: 'Inconsolata', monospace;
+}
 
-body a {
-	color: #00f;
+a {
+	color: #000;
+}
+
+nav {
+  float: left;
+  width: 240px;
+}
+
+nav ul {
+	margin-top: 10px;
+}
+
+nav ul ul {
+	margin: 0;
+}
+
+nav h1 {
+	display: inline;
+	padding: 4px;
+	color: #000;
+	background-color: #bbb;
+}
+
+nav ul li {
+	padding-left: 10px;
+}
+
+footer {
+	clear: both;
 }
 
 #main {
@@ -65,20 +98,36 @@ body a {
 	width: 700px;
 }
 
-nav {
-  float: left;
-  width: 240px;
-	padding: 0 0 0 0px;
+/* class name */
+#main h1 {
+	font-size: 1.5em;
 }
 
-nav ul {
-	
+/* methods, properties */
+#main h2 {
+	margin: 20px 0;
+	padding-left: 10px;
+	color: #000;
+	background-color: #bbb;
 }
 
-nav li {
-	list-style-type: none;
+/* method grouping */
+#main h3 {
+	text-align: right;
+	color: #555;
 }
 
-footer {
-	clear: both;
+/* sections */
+#main ul {
+	padding: 10px 0 10px 0;
+}
+
+/* properties */
+#main li {
+	padding: 10px 0;
+}
+
+/* method parameters */
+#main ul ul li {
+	padding: 2px 20px;
 }
