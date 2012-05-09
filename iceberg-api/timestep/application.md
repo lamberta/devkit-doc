@@ -2,7 +2,7 @@
 
 ## Inheritence
 
-1. [lib.PubSub](../lib/pubsub.md)
+1. [lib.PubSub](../lib/pubsub.html)
 
 ## Options
 
@@ -34,50 +34,39 @@
 ## Methods
 
 * __updateOpts (opts)__
-
-	@param `{object}`
+	* @param `{object}`
 
 * __supports (key)__
-
-	@param `{}` key
-	@return `{}`
+	* @param `{}` key
+	* @return `{}`
 
 * __getInput__
-
-	@return `{}`
+	* @return `{}`
 
 * __getEvents__
-
-	@return `{}`
+	* @return `{}`
 
 * __getKeyListener__
-
-	@return `{}`
+	* @return `{}`
 
 * __getCanvas__
-
-	@return `{}`
+	* @return `{}`
 
 * __getViewCtor__
-
-	@return `{View}` --Returns the actual timestep.View constructor.
+	* @return `{View}` --Returns the actual timestep.View constructor.
 
 * __getView__
-
-	@return `{View}` ---This view
+	* @return `{View}` ---This view
 
 * __setView (view)__
-
-	@param `{}` view
-	@return `{this}`
+	* @param `{}` view
+	* @return `{this}`
 
 * __show__
-
-	@return `{this}`
+	* @return `{this}`
 
 * __hide__
-
-	@return `{this}`
+	* @return `{this}`
 
 * __pause__
 
@@ -86,13 +75,11 @@
 * __startLoop__
 
 * __stopLoop (dtMin)__
-
-	@param `{number}` dtMin
-	@return `{this}`
+	* @param `{number}` dtMin
+	* @return `{this}`
 
 * __doOnTick (callback)__
-
-	@param `{function}` callback
+	* @param `{function}` callback
 
 * __render__
 
@@ -104,12 +91,10 @@
 ### Publish
 
 * `'Tick'` ---Emitted each `Timer.onTick`.
-
-	@param `{number}` dt
+	* @param `{number}` dt
 
 
 ## Class Methods
 
 * `get` ---Returns the instance of `GC.app.engine`
-
-	@return `{Application}`
+	* @return `{Application}`

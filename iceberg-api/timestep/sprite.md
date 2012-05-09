@@ -18,41 +18,35 @@
 ## Methods
 
 * __getName__
-
-	@return `{string}`
+	* @return `{string}`
 
 * __getFront (width)__
 
 * __addAnimation (name, args)__
 
 * __startAnimation (name, opts)__
-
-	@param `{string}` name
-	@param `{object}` opts
-	
+	* @param `{string}` name
+	* @param `{object}` opts
 		* __iterations__ `{number}` ---Run the animation a
           number of times before reverting back to the default animation.
 		* __callback__ `{function}` --Executed after the iteration switch.
 		* __mirrorHorizontal__ `{boolean}` ---Mirror the sprite animation horizontally.
 		* __mirrorVertical__ `{boolean}` ---Mirror the sprite animation vertically.
 
-
 * __isCurrentAnimation (name)__
-
-	@param `{string}` name
-	@return `{boolean}`
+	* @param `{string}` name
+	* @return `{boolean}`
 
 * __pauseAnimation__
 
 * __setPaused (isPaused)__
-
-	@param `{boolean}` isPaused
-	@return `{boolean}`
+	* @param `{boolean}` isPaused
+	* @return `{boolean}`
 
 * __stopAnimation__
 
 
-## Uses `SpriteAnimation`
+# `SpriteAnimation`
 
 ## Animation Options
 
@@ -85,22 +79,19 @@ the key is the name of the animation and the value is a
 * __getFront (width)__
 
 * __render (thisArg, view)__
-
-	@param `{}` thisArg
-	@param `{}` view
+	* @param `{}` thisArg
+	* @param `{}` view
 
 * __reset (frame, dt)__
-
-	@param `{number}` frame
-	@param `{number}` dt
+	* @param `{number}` frame
+	* @param `{number}` dt
 
 * __tick (dt)__
+	* @param `{number}` dt
+	* @return `{number}`
 
-	@param `{number}` dt
-	@return `{number}`
 
-
-## Usage
+# Usage
 
 	"use import";
 

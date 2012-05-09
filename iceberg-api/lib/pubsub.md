@@ -4,25 +4,21 @@ This class is in the js.io project.
 
 ### Methods
 
-* __`publish (signal)`__ ---
+* __publish (signal)__ ---
+	* @param `{string} signal`
+	* @return `{this}`
 
-	@param `{string} signal`<br/>
-	@return `{this}`
+* __subscribe (signal, thisObj, method)__ ---
+	* @param `{string} signal`
+	* @param `{object=} thisObj`
+	* @param `{function|string} method`
 
-* __`subscribe (signal, thisObj, method)`__ ---
+* __subscribeOnce (signal, thisObj, method)__ ---
+	* @param `{string} signal`
+	* @param `{object=} thisObj`
+	* @param `{function|string} method`
 
-	@param `{string} signal`<br/>
-	@param `{object=} thisObj`<br/>
-	@param `{function|string} method`
-
-* __`subscribeOnce (signal, thisObj, method)`__ ---
-
-	@param `{string} signal`<br/>
-	@param `{object=} thisObj`<br/>
-	@param `{function|string} method`
-
-* __`unsubscribe (signal, thisObj, method)`__ ---
-
-	@param `{string} signal`<br/>
-	@param `{object=} thisObj`<br/>
-	@param `{function|string} method`
+* __unsubscribe (signal, thisObj, method)__ ---
+	* @param `{string} signal`
+	* @param `{object=} thisObj`
+	* @param `{function|string} method`

@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [squill.models.Widget](./widget.md)
-2. [lib.PubSub](../../lib/pubsub.md)
+1. [squill.models.Widget](./widget.html)
+2. [lib.PubSub](../../lib/pubsub.html)
 
 ## Options
 
@@ -25,20 +25,17 @@
 * __setSelected (data)__
 
 * __getSelected__
-
-	@return `{}`
+	* @return `{}`
 
 * __setCellGetter (getCell)__
 
 * __getCellById (id)__
-
-	@return `{}`
+	* @return `{}`
 
 * __setSorter (sorter)__
 
 * __getRenderOpts__
-
-	@return {}
+	* @return {}
 
 * __renderVariable (viewport)__
 
@@ -55,4 +52,4 @@
 The data source at `this._dataSource` subscribes to
 `'Update'` and `'Remove'`.
 
-## Usage
+# Usage

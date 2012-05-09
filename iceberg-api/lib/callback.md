@@ -13,16 +13,14 @@
 * __forward (args)__ ---
 
 * __run (thisArg, method)__ ---
-
-	@param `{thisArg}` thisArg<br/>
-	@param `{method}` method<br/>
-	@return `{thisCallback}`
+	* @param `{thisArg}` thisArg
+	* @param `{method}` method
+	* @return `{thisCallback}`
 
 * __runOrTimeout (onFire, onTimeout, duration)__ ---
 
 * __fire__ ---
 
 * __chain (id)__ ---
-
-	@param `{}` id<br/>
-	@return `{function}`
+	* @param `{}` id
+	* @return `{function}`

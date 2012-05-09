@@ -2,7 +2,7 @@
 
 ## Inheritence
 
-1. [lib.PubSub](../../lib/pubsub.md)
+1. [lib.PubSub](../../lib/pubsub.html)
 
 ## Options
 

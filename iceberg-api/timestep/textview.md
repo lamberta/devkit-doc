@@ -1,11 +1,9 @@
 # `timestep.TextView`
 
-To use: `textview = new TextView(options)`.
-
 ## Inheritence
 
-1. [timestep.View](./view.md)
-2. [lib.PubSub](../lib/pubsub.md)
+1. [timestep.View](./view.html)
+2. [lib.PubSub](../lib/pubsub.html)
 
 ## Options
 
@@ -30,29 +28,24 @@ To use: `textview = new TextView(options)`.
 ## Methods
 
 * __setText (text)__ --- Set the display text.
-
-	@param `{string}` text
+	* @param `{string}` text
 
 * __getText__ --- Return the display text.
-
-	@return `{string}`
+	* @return `{string}`
 
 * __getCharacterWidth (ctx)__
-
-	@param `{CanvasRenderingContext2D}` ctx<br/>
-	@return `{number}`
+	* @param `{CanvasRenderingContext2D}` ctx
+	* @return `{number}`
 
 * __getLineWidth (ctx, line)__
-
-	@param `{CanvasRenderingContext2D}` ctx<br/>
-	@param `{string}` line
-	@return `{number}`
+	* @param `{CanvasRenderingContext2D}` ctx
+	* @param `{string}` line
+	* @return `{number}`
 
 * __updateOpts (opts)__ ---Update text options.
+	* @param `{object}` opts
 
-	@param `{object}` opts
-
-## Usage
+# Usage
 
 	"use import";
 

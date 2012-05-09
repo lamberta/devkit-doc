@@ -1,9 +1,6 @@
 # `timestep.animate` is a namespace.
 
-To use:
 
-    var anim = animate(obj);
-	anim.now({x: 100}, duration, animate.linear);
 
 
 * __animate (obj, groupId)__ ---
@@ -143,3 +140,11 @@ Actually, it *is* a `Frame`; it's a frame that does nothing.
 ## `ObjectFrame` inherits from `Frame`
 
 ## `ViewStyleFrame` inherits from `Frame`
+
+
+# Usage
+
+~~~
+var anim = animate(obj);
+anim.now({x: 100}, duration, animate.linear);
+~~~

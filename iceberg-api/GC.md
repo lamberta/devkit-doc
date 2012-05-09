@@ -8,7 +8,7 @@ We got here through `desktop.html`, which calls
 ## Inheritence
 
 1. `shared.Common` ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
-2. [lib.PubSub](./lib/pubsub.md)
+2. [lib.PubSub](./lib/pubsub.html)
 
 ## Methods
 
@@ -22,41 +22,34 @@ We got here through `desktop.html`, which calls
   `shared.Application` is instantiated and its entry point
   is called, because it inherits from `client/Application`,
   which runs the `entry` after all the preloading. In
-  launchClient.js this is called as `GC.buildApp('launchUI')`.
-
-	@param `{}` entry
-	@return `{}` --returns `this.app`
+  launchClient.js this is called as
+  `GC.buildApp('launchUI')`.
+	* @param `{}` entry
+	* @return `{}` --returns `this.app`
 
 * __isServer__
-
-	@return `{boolean}` ---Hardcoded to return `false` ??
+	* @return `{boolean}` ---Hardcoded to return `false` ??
 
 * __isClient__
-
-	@return `{boolean}` ---Hardcoded to return `true` ??
+	* @return `{boolean}` ---Hardcoded to return `true` ??
 
 * __isConnected__
-
-	@return `{}`
+	* @return `{}`
 
 * __getConnection__
-
-	@return `{}`
+	* @return `{}`
 
 * __startMultiplayerGame (opts, cb)__ ---Async call.
-
-	@param `{object}` opts
-	@param `{function(err, reponse}` cb ---Not sure if the callback is always passed these.
+	* @param `{object}` opts
+	* @param `{function(err, reponse}` cb ---Not sure if the callback is always passed these.
 
 * __clearServerTimeout (timeoutID, cb)__
-
-	@param `{}` timeoutID
-	@param `{function}`  cb
+	* @param `{}` timeoutID
+	* @param `{function}`  cb
 
 * __clearServerTimeout (timeoutID, cb__
-
-	@param `{}` timeoutID
-	@param `{function}`  cb
+	* @param `{}` timeoutID
+	* @param `{function}`  cb
 
 * __startNativeUpsell__ ---Uses `track`, which I thought was deprecated.
 
@@ -113,7 +106,9 @@ We got here through `desktop.html`, which calls
   then if that isn't handled, published this one.
 
 
-# Inherits from `shared.Common`
+# `shared.Common`
+
+This is not a public class.
 
 ## Properties
 

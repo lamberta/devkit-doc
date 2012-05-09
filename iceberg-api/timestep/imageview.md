@@ -1,7 +1,5 @@
 # `timestep.ImageView`.
 
-To use: `imageview = new ImageView(options)`.
-
 ## Inheritence
 
 1. [timestep.View](./view.md)
@@ -20,31 +18,25 @@ dimensions if `true`. Defaults to `false`.
 ## Methods
 
 * __getImage__ ---
-
-	@return `{timestep.Image}`
+	* @return `{timestep.Image}`
 
 * __setImage (img, opts)__ ---
-
-	@param `{string|timestep.Image}` img<br/>
-	@param `{object}` opts ---See above Options
+	* @param `{string|timestep.Image}` img
+	* @param `{object}` opts ---See above Options
 
 * __doOnLoad__ ---
 
 * __autoSize (method, url, width, height)__ ---
-
-	@param `{string`} method ---Options: 'none', 'fit', 'proportional', 'resize'<br/>
-	@param `{string}` url<br/>
-	@param `{number}` width<br/>
-	@param `{number}` height
+	* @param `{string`} method ---Options: 'none', 'fit', 'proportional', 'resize'<br/>
+	* @param `{string}` url<br/>
+	* @param `{number}` width<br/>
+	* @param `{number}` height
 
 * __getOrigW__ ---
-
-	@return `{number}` ---The image width.
+	* @return `{number}` ---The image width.
 
 * __getOrigH__ ---
-
-	@return `{number}` ---The image height.
-
+	* @return `{number}` ---The image height.
 
 
 # `timestep.Image`
@@ -105,21 +97,23 @@ dimensions if `true`. Defaults to `false`.
 
 * __destroy__
 
-## Usage
+# Usage
 
-	"use import";
+~~~
+"use import";
 
-	import timestep.View as View;
-	import timestep.ImageView as ImageView;
+import timestep.View as View;
+import timestep.ImageView as ImageView;
 
-	exports = Class(View, function(supr) {
-		this.init = function(opts) {
-			supr(this, "init", arguments);
+exports = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", arguments);
 		
-			var myImage = new ImageView({
-				image: "resources/duck.png",
-				autoSize: true,
-				parent: this        
-			}); 
-		}   
-	});
+		var myImage = new ImageView({
+			image: "resources/duck.png",
+			autoSize: true,
+			parent: this        
+		}); 
+	}
+});
+~~~

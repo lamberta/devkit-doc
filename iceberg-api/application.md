@@ -1,3 +1,5 @@
+# `Application`
+
 `GC.app` is an instance of the user's `shared/Application.js` file,
 which inherits of the sdk's `_api/client/Application.js`. Inits the `initUI` function.
 
@@ -5,23 +7,17 @@ which inherits of the sdk's `_api/client/Application.js`. Inits the `initUI` fun
 its view hierarchy is at `GC.app.view`. It controls the tick
 and the rendering.
 
-`GC.app.view === GC.app.engine._view`
+`GC.app.view` is a shortcut to `GC.app.engine._view`
 
 `GC.app.initUI` is run after the `GC.app.engine` and
 `GC.app.view` have been created.
 
 
-Gc.app is an instace of your application file.
-tc.app,engine is an instance of the timeset.App
-gc.app.view is a shortcut to GC.app.engine views
-
-# `Application`
-
 ## Inheritence
 
 1. `shared/Application.js`
 2. `sdk/_api/client/Application.js`
-3. [lib.PubSub](../lib/pubsub.md)
+3. [lib.PubSub](../lib/pubsub.html)
 
 
 ## Settings
@@ -50,8 +46,7 @@ instance of `GC.Application`. This should be set before the
 ## Methods
 
 * __getCanvas__
-
-	@return `{HTMLCanvasElement}`
+	* @return `{HTMLCanvasElement}`
 
 * __run__ ---Displays the `GC.app.engine` hierarchy and starts the animation loop.
 

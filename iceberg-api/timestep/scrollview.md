@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](./view.md)
-2. [lib.PubSub](../lib/pubsub.md)
+1. [timestep.View](./view.html)
+2. [lib.PubSub](../lib/pubsub.html)
 
 ## Options
 
@@ -38,83 +38,77 @@
 ## Methods
 
 * __getStyleBounds__
-
-	@return `{object}` --Object contains properties `minX`, `maxX`, `minY`, `maxY`
+	* @return `{object}` --Object contains properties `minX`, `maxX`, `minY`, `maxY`
 
 * __getOffset__
-
-	@return `{math2D.Point}`
+	* @return `{math2D.Point}`
 
 * __setOffset (x, y)__
-
-	@param `{number}` x
-	@param `{number}` y
+	* @param `{number}` x
+	* @param `{number}` y
 
 * __isScrolling__
-
-	@return `{boolean}`
+	* @return `{boolean}`
 
 * __stopScrolling__
 
 * __onInputStart (evt, pt)__
-
-	@param `{InputEvent}` evt
-	@param `{point}` pt
+	* @param `{InputEvent}` evt
+	* @param `{point}` pt
 
 * __onDragStart__
 
 * __onDrag (dragEvt, moveEvt, delta)__
-
-	@param `{}` dragEvt
-	@param `{}` moveEvt
-	@param `{point}` delta ---Object containing `x` and `y` properties.
+	* @param `{}` dragEvt
+	* @param `{}` moveEvt
+	* @param `{point}` delta ---Object containing `x` and `y` properties.
 
 * __onDragStop (dragEvt, selectEvt)__
-
-	@param `{}` dragEvt
-	@param `{}` selectEvt
+	* @param `{}` dragEvt
+	* @param `{}` selectEvt
 
 * __startBounce__
 
 * __endBounce__
 
 * __setScrollBounds (bounds)__
-
-	@param `{object}` bounds ---Object contains properties `minX`, `maxX`, `minY`, `maxY`w
+	* @param `{object}` bounds ---Object contains properties `minX`, `maxX`, `minY`, `maxY`w
 
 * __getScrollBounds__
-
-	@return `{bounds}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`
+	* @return `{bounds}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`
 
 * __addOffset (x, y)__
-
-	@param `{number}` x
-	@param `{number}` y
+	* @param `{number}` x
+	* @param `{number}` y
 
 * __getContentView__
-
-	@return `{View}`
+	* @return `{View}`
 
 * __getFullWidth__
-
-	@return `{number}`
+	* @return `{number}`
 
 * __getFullHeight__
-
-	@return `{number}`
+	* @return `{number}`
 
 * __onInputScroll (evt)__
-
-	@param `{Event}` evt
+	* @param `{Event}` evt
 
 * __scrollTo (x, y, duration, callback)__
+	* @param `{number}` x
+	* @param `{number}` y
+	* @param `{number}` duration
+	* @param `{function}` callback
 
-	@param `{number}` x
-	@param `{number}` y
-	@param `{number}` duration
-	@param `{function}` callback
 
-## Usage
+## Messages
+
+### Published
+
+* `'Scrolled'` ---Pubslished in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.
+	* @param `{point}` delta
+
+
+# Usage
 
 	"use import";
 
@@ -140,11 +134,4 @@
 			}); 
 		}   
 	});
-
-## Messages
-
-### Published
-
-* `'Scrolled'` ---Pubslished in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.
-
-	@param `{point}` delta
+	

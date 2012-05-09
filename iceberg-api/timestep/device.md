@@ -1,29 +1,26 @@
-# `timestep.device` is a namespace.
+# `timestep.device`
 
+This is a namespace object.
 On an undefined platform, `timestep.device` is `{isUnknown: true}`.
 
 ## Functions
 
 * __registerDevice (name, path)__
-
-	@param `{string}` name
-	@param `{string}` path
+	* @param `{string}` name
+	* @param `{string}` path
 
 * __get (module)__ ---Internal? Dynamically use jsio to import a platform-specific module.
-
-	@param {} module
-	@return {}
+	* @param `{}` module
+	* @return `{}`
 
 * __importUI (module)__ ---Internal? Dynamically use jsio to import a platform-specific module.
-
-	@param {} module
+	* @param `{}` module
 
 * __hideAddressBar__ ---Seems to be empty.
 
 * __getDimensions (isLandscape)__
-
-	@param `{boolean}` isLandscape ---Defaults to `false`.
-	@return `{object}` ---Returns object with properties `width` and `height`.
+	* @param `{boolean}` isLandscape ---Defaults to `false`.
+	* @return `{object}` ---Returns object with properties `width` and `height`.
 
 ## Properties
 
@@ -36,22 +33,13 @@ On an undefined platform, `timestep.device` is `{isUnknown: true}`.
 * __isMobile__ `{boolean}`
 
 * __screen__ `{lib.PubSub}`: --Contains the following properties:
-
 	* __width__ `{number}`
-	
 	* __height__ `{number}`
-	
 	* __orientation__ `{string}`
-	
-	* __defaultOrientation__ `{string}` --This doesn't seem
-      to be set all the time.
-	
+	* __defaultOrientation__ `{string}` --This doesn't seem to be set all the time.
 	* __isPortrait__ `{boolean}`
-	
 	* __isLandscape__ `{boolean}`
-	
 	* __browserChrome__ `{object}` ---Not always there, but contains the properties:
- 
 		* __portrait__ `{object}` --- `{top: 0, bottom: 0}`
 		* __landscape__ `{object}` --- `{top: 0, bottom: 0}`
 
@@ -60,11 +48,8 @@ On an undefined platform, `timestep.device` is `{isUnknown: true}`.
 * __defaultFontFamily__ `{string}` ---Defaults to `'Helvetica'`
 
 * __events__ `{object}` --Contains the following properties:
-
 	* __start__ `{string}` ---Defaults to `'touchstart'` or `'mousedown'`
-	
 	* __move__ `{string}` ---Defaults to `'touchmove'` or `'mousemove'`
-	
 	* __end__ `{string}` ---Defaults to `'touchend'` or `'mouseup'`
 
 * __onReady__ `{lib.Callback}`

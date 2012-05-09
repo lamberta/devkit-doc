@@ -2,29 +2,25 @@
 
 ## Inheritence
 
-1. [timestep.View](../view.md)
-2. [lib.PubSub](../../lib/pubsub.md)
+1. [timestep.View](../view.html)
+2. [lib.PubSub](../../lib/pubsub.html)
 
 ## Methods
 
 * __remove__
 
 * __getHeight__
-
-	@return `{number}` ---Returns `this.style.height`.
+	* @return `{number}` ---Returns `this.style.height`.
 
 * __getWidth__
-
-	@return `{number}` ---Returns `this.style.width`.
+	* @return `{number}` ---Returns `this.style.width`.
 
 * __setData (data)__ ---This needs to be redefined if you
   want to use this data in your view.
-
-	@param `{object}` data
+	* @param `{object}` data
 
 * __setPosition (pos)__
-
-	@param `{}` pos
+	* @param `{}` pos
 
 
 ## Properties

@@ -5,8 +5,8 @@ This class is an alias for `squill.models.DataSource`.
 ## Inheritence
 
 1. squill.models.DataSource
-2. [squill.models.BasicDataSource](./squill/models/basicdatasource.md)
-3. [lib.PubSub](./lib/pubsub.md)
+2. [squill.models.BasicDataSource](./squill/models/basicdatasource.html)
+3. [lib.PubSub](./lib/pubsub.html)
 
 ## Options
 
@@ -19,74 +19,58 @@ This class is an alias for `squill.models.DataSource`.
 ## Methods
 
 * __onMessage (data)__
-
-	@param `{object}` data ---`data.type` can be `'UPDATE'` or `'REMOVE'`.
+	* @param `{object}` data ---`data.type` can be `'UPDATE'` or `'REMOVE'`.
 
 * __signalUpdate (type, iten, id)__
-
-	@param `{string}` type ---Can be `'UPDATE'` or `'REMOVE'`.
-	
-	@param  `{}` item
-	
-	@param `{}` id
+	* @param `{string}` type ---Can be `'UPDATE'` or `'REMOVE'`.
+	* @param  `{}` item
+	* @param `{}` id
 
 * __add (item)__
-
-	@param `{object}` item
-	@return `{this}`
+	* @param `{object}` item
+	* @return `{this}`
 
 * __remove (id)__
-
-	@param `{}` id
-	@return `{this}`
+	* @param `{}` id
+	* @return `{this}`
 
 * __keepOnly (list)__
-
-	@param `{}` list
+	* @param `{}` list
 
 * __clear__
 
 * __getCount__
-
-	@return `{number}` ---Return `this.length`.
+	* @return `{number}` ---Return `this.length`.
 
 * __setSorter (sorter)__
-
-	@return `{this}`
+	* @return `{this}`
 
 * __contains (id)__
-
-	@paramn `{string}` id
-	@return `{boolean}`
+	* @paramn `{string}` id
+	* @return `{boolean}`
 
 * __getKey__
-
-	@return `{}`
+	* @return `{}`
 
 * __get (id)__
-
-	@param `{string}` id
-	@return `{object|null}`
+	* @param `{string}` id
+	* @return `{object|null}`
 
 * __getItemForIndex (index)__
-
-	@param `{number}` index
-	@return `{object|null}`
+	* @param `{number}` index
+	* @return `{object|null}`
 
 * __sort__
 
 * __forEach (callback, thisArg)__
-
-	@param `{function}` callback(object, number)
-	@param `{object}` thisArg
+	* @param `{function}` callback(object, number)
+	* @param `{object}` thisArg
 
 * __toJSON__
-
-	@return `{object}` ---Not sure how this is JSON, should be a string.
+	* @return `{object}` ---Not sure how this is JSON, should be a string.
 
 * __fromJSON (data)__
-
-	@param `{object}` data
+	* @param `{object}` data
 
 * __beginChanges__
 
@@ -98,9 +82,7 @@ This class is an alias for `squill.models.DataSource`.
 ## Messages
 
 * `'Update'`
-
 * `'Remove'`
-
 * `'Remote'`
 
 ## Usage

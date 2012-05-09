@@ -2,18 +2,17 @@
 
 ## Inheritence
 
-1. [timestep.ScrollView](../scrollview.md)
-2. [timestep.View](../view.md)
-3. [lib.PubSub](../../lib/pubsub.md)
+1. [timestep.ScrollView](../scrollview.html)
+2. [timestep.View](../view.html)
+3. [lib.PubSub](../../lib/pubsub.html)
 
 ## Options
 
 * __scrollBounds__ `{object}` ---Includes the properties:
-
-	@param `{number}` minX
-	@param `{number}` minY
-	@param `{number}` maxX
-	@param `{number}` maxY
+	* @param `{number}` minX
+	* @param `{number}` minY
+	* @param `{number}` maxX
+	* @param `{number}` maxY
 
 * __isFixedSize__ `{boolean}`
 
@@ -32,22 +31,20 @@ These options are passed along to the `List` created at property `model`:
 ## Methods
 
 * __addCell (cellView)__
-
-	@param `{timestep.ui.Cell}` cellView
+	* @param `{timestep.ui.Cell}` cellView
 
 * __setMaxY (maxY)__
-
-	@param `{number}` maxY
+	* @param `{number}` maxY
 
 
 ## Properties
 
-* __model__ `{squill.models.List}` --From [squill.models.List](../../squill/models/list.md)
+* __model__ `{squill.models.List}` --From [squill.models.List](../../squill/models/list.html)
 
 * __selection__ `{}`
 
 
-## Usage:
+# Usage:
 
 Requires a DataSource and Cell.
 

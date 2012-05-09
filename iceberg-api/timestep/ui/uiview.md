@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](../view.md)
-2. [lib.PubSub](../../lib/pubsub.md)
+1. [timestep.View](../view.html)
+2. [lib.PubSub](../../lib/pubsub.html)
 
 ## Options
 
@@ -25,11 +25,9 @@
 * __wrapReflow__
 
 * __computeWidth (parentWidth)__
-
-	@param `{number}` parentWidth
-	@return `{number}`
+	* @param `{number}` parentWidth
+	* @return `{number}`
 
 * __computeHeight (parentHeight)__
-
-	@param `{number}` parentHeight
-	@return `{number}`
+	* @param `{number}` parentHeight
+	* @return `{number}`
