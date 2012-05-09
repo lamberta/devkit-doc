@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		$if(quotes)$
+		<style type="text/css">
+			q { quotes: "“" "”" "‘" "’"; }
+		</style>
+		$endif$
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300">
+		<link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">
+		$for(css)$
+		<link rel="stylesheet" href="$css$">
+		$endfor$
+
+		$for(header-includes)$
+		$header-includes$
+		$endfor$
+	</head>
+
+  <body>
+		$for(include-before)$
+		$include-before$
+		$endfor$
+
+		<header>
+			$if(title)$
+			<h1 class="title">$title$</h1>
+			$endif$
+		</header>
+
+		m4_include(sidebar_nav)m4_dnl
+
+		<div id="main">
+		$body$
+		$for(include-after)$
+		$include-after$
+		$endfor$
+		</div>
+		
+		<footer>
+			&copy; Game Closure
+		</footer>
+
+		<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+		<script>
+			window.onload = function () {
+				var tags = document.getElementsByTagName('pre');
+				for (var i = 0; i < tags.length; ++i) {
+					tags[i].setAttribute('class', 'prettyprint');
+				}
+				prettyPrint();
+			};
+		</script>
+  </body>
+</html>
