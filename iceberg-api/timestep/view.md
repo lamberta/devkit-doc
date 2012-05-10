@@ -1,4 +1,4 @@
-# `timestep.View`.
+# `timestep.View`
 
 ## Inheritence
 
@@ -177,7 +177,7 @@ exports = Class(View, function(supr) {
 });
 ~~~
 
-# `timestep.canvas.ViewStyle`
+# `timestep.ViewStyle`
 
 Style definitions in `view.style`.
 

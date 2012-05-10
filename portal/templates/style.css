@@ -41,6 +41,8 @@ q:before, q:after {
 
 /* end reset */
 
+/* width: 940 => 160 | 620 | 160 */
+
 body {
   margin: 0 auto;
   width: 940px;
@@ -50,7 +52,7 @@ body {
 }
 
 b, strong, h1, h2, h3, h4, h5, h6 {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 i, em {
@@ -71,7 +73,7 @@ a {
 
 nav {
   float: left;
-  width: 240px;
+  width: 160px;
 }
 
 nav ul {
@@ -94,13 +96,41 @@ nav ul li {
 	padding-left: 10px;
 }
 
+/* total width: 160px */
+#quicknav {
+	float: right;
+	width: 130px;
+	margin: 0 0 0 20px;
+	padding: 5px;
+	font-size: 0.8em;
+	background-color: #ccc;
+	//position: fixed;
+}
+
+#quicknav h1 {
+	font-weight: 600;
+	color: #fff;
+}
+
+#quicknav li [indent='H1'] {
+	font-weight: 600;
+}
+
+#quicknav li [indent='H3'] {
+	padding-left: 0.8em;
+}
+
+#quicknav li [indent='H4'] {
+	padding-left: 1.5em;
+}
+
 footer {
 	clear: both;
 }
 
 #main {
-	float: right;
-	width: 700px;
+	float: left;
+	width: 620px;
 }
 
 /* class name */
