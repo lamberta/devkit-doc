@@ -144,6 +144,10 @@
 * __needsReflow__ `{boolean}` ---Notifies the need for repositioning.
 
 ## Usage
+
+Create two rectangles, one red half transparent and one green fully opaque. Make
+the red rectangle sit on top of the green using `zIndex`.
+
 ~~~
 
 "use import";
@@ -236,6 +240,8 @@ Style definitions in `view.style`.
 * __keys__ `{object}` ---Object containing the supported style properties.
 
 ## Usage
+
+Create a view and change the background to blue. Scale it to half the original size.
 
 ~~~
 
