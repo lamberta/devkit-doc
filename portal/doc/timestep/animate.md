@@ -1,4 +1,6 @@
-# `timestep.animate` is a function.
+# `timestep.animate`
+
+Is a function to animate Views or objects. It interpolates number properties over a given duration and with easing functions.
 
 * __animate (obj, groupId)__ ---
 	* @param `{object} obj`
@@ -90,24 +92,16 @@ exports = Class(View, function(supr) {
 * __commit__ ---
 	* @return `{thisAnimator}`
 
-* __onTick (dt)__ ---
-	* @param `{number}` dt
-
 * __next__ ---
 
-## Properties
-
-* __subject__
-
-
 # `ViewAnimator` 
+
+For dealing with views as animation subjects.
 
 ## Inheritence
 
 1. [Animator](#animator)
 2. [lib.PubSub](./lib-pubsub.html)
-
-For dealing with views as animation subjects.
 
 # `Group` 
 
@@ -118,22 +112,18 @@ For dealing with views as animation subjects.
 ## Methods
 
 * __get (id)__ ---
-
-	@param `{number}` id
-	@return `{}`
+	* @param `{number} id`
+	* @return `{}`
 
 * __add (id, q)__ ---
-
-	@param {} id<br/>
-	@param {} q<br/>
-	@return {} q ---?
+	* @param `{} id`
+	* @param `{} q`
+	* @return `{} q` ---?
 
 * __isActive__ ---
-
-	@return {boolean}
+	* @return `{boolean}`
 
 * __onAnimateFinish (anim)__ --- Deletes the animation and publishes a `'Finish'` event.
-
 
 # `Frame`
 
@@ -156,21 +146,29 @@ For dealing with views as animation subjects.
 * __transition__
 
 
-## `CallbackFrame` inherits from `Frame`
+# `CallbackFrame` 
 
-## `WaitFrame` inherits from `Frame`
+## Inheritence
 
-Actually, it *is* a `Frame`; it's a frame that does nothing.
+1. [Frame](#frame)
 
-## `ObjectFrame` inherits from `Frame`
+# `WaitFrame` 
 
-## `ViewStyleFrame` inherits from `Frame`
+Actually, it *is* a `Frame`. It's a frame that does nothing.
 
+## Inheritence
 
-# Usage
+1. [Frame](#frame)
 
-~~~
+# `ObjectFrame` 
 
-var anim = animate(obj);
-anim.now({x: 100}, duration, animate.linear);
-~~~
+## Inheritence
+
+1. [Frame](#frame)
+
+# `ViewStyleFrame` 
+
+## Inheritence
+
+1. [Frame](#frame)
+

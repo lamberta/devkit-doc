@@ -45,7 +45,7 @@
 * __updateOpts (opts)__ ---Update text options.
 	* @param `{object}` opts
 
-# Usage
+## Usage
 ~~~
 
 "use import";
