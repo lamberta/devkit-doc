@@ -76,8 +76,7 @@ if [ ! -d "$DOC_ROOT" ]; then
 fi
 
 if [ ! -d "$OUT_ROOT" ]; then
-		echo "Error: Output directory is not valid."
-		exit 1
+		mkdir -p "$OUT_ROOT"
 fi
 
 # Off we go ...
