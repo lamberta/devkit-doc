@@ -48,8 +48,8 @@ body {
   width: 940px;
 	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	line-height: 1.2em;
-	//background-color: #FBFCD0;
-	background-color: #D2E7E5;
+	background-color: #eee;
+	//background-color: #D2E7E5;
 }
 
 b, strong, h1, h2, h3, h4, h5, h6 {
@@ -165,7 +165,7 @@ footer {
 	padding-left: 10px;
 	color: #000;
 	//background-color: #bbb;
-	background-color: #5C8BB4;
+	background-color: #aaaaff;
 }
 
 /* method grouping */
@@ -177,6 +177,11 @@ footer {
 }
 
 /* inheritence list */
+#main ol {
+	list-style-type: decimal;
+	padding-left: 30px;
+}
+
 #main ol li {
 	padding: 4px 0;
 }
