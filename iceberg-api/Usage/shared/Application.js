@@ -3,10 +3,14 @@
 import GC;
 
 import .ViewUsage;
+import .ViewStyleUsage;
 import .TextUsage;
 import .ImageUsage;
 import .SpriteUsage;
 import .ScrollUsage;
+import .CameraUsage;
+import .CustomClassUsage;
+import .AnimateUsage;
 
 exports = Class(GC.Application, function() {
 
@@ -22,7 +26,7 @@ exports = Class(GC.Application, function() {
 	}
 
 	this.launchUI = function() {
-		new ScrollUsage({parent: this.view});		
+		new AnimateUsage({parent: this.view});		
 	}
 
 	this.launchSinglePlayerGame = function() {
