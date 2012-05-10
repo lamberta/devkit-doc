@@ -1,14 +1,9 @@
-# `timestep.animate` is a namespace.
-
-
-
+# `timestep.animate` is a function.
 
 * __animate (obj, groupId)__ ---
-
-	@param `{object}` obj<br/>
-	@param `{number}` groupId<br/>
-	@return `{Animator|ViewAnimator}`
-
+	* @param `{object} obj`
+	* @param `{number} groupID`
+	* @return `{Animator|ViewAnimator}`
 
 
 ## Namespace Functions
@@ -16,21 +11,20 @@
 * __setViewAnimator (ctor)__ ---
 
 * __getGroup (i)__ ---
+	* @param `{number} i`
+	* @return `{Group}`
 
-	@param {number} i<br/>
-	@return {Group}
+## Properties
 
-## Namespace Properties
+* __linear__ `{number} = 1` ---Animation has the same speed from start to finish.
 
-* __linear__ `{number}`: 1
+* __easeIn__ `{number} = 2` ---Animation has a slow start.
 
-* __easeIn__ `{number}`: 2
+* __easeOut__ `{number} = 3` ---Animation has a slow end.
 
-* __easeOut__ `{number}`: 3
+* __easeInOut__ `{number} = 4` ---Animation has both slow start and slow end.
 
-* __easeInOut__ `{number}`: 4
-
-* __bounce__ `{number}`: 5
+* __bounce__ `{number} = 5` ---Animation overshoots target and animates back to simulate bouncing.
 
 ## Usage
 
@@ -59,62 +53,67 @@ exports = Class(View, function(supr) {
 });
 ~~~
 
-# `Animator` inherits from `lib.PubSub`
+# `Animator` 
+
+## Inheritence
+
+1. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 
-* __clear__ ---
+* __clear__ ---Clear the current animations scheduled.
+	* @return `{this}` ---This instance of Animator.
 
-	@return `{this}` ---This instance of Animator.
+* __pause__ ---Pause the animation.
 
-* __pause__ ---
-
-* __isPaused__ ---
-
-	@return `{boolean}`
+* __isPaused__ ---Is the animation paused.
+	* @return `{boolean}`
 
 * __wait (duration)__
+	* @param `{number} duration` ---I assume it's a number.
 
-	@param `{number}` duration --I assume it's a number.
+* __resume__ ---Resume the animation if paused.
 
-* __resume__ ---
+* __hasFrames__ ---If there are any frames to animate.
 
-* __hasFrames__ ---
+* __now (target, duration, transition, onTick)__ ---Start an animation straight away.
+	* @param `{View|object} target` ---Will interpolate the appropriate number values of the provided object.
+	* @param `{number} duration` ---Duration of the animation in milliseconds.
+	* @param `{number} transition` ---Type of animation transition. See [`animate` properties](#properties).
+	* @param `{function} onTick` ---
 
-* __buildFrame (opts)__
-
-	@param `{object}` opts ---Frame options.<br/>
-	@return `{CallbackFrame|ObjectFrame|WaitFrame}`
-
-* __now (target, duration, transition, onTick)__
-
-* __then (target, duration, transition, onTick)__
+* __then (target, duration, transition, onTick)__ --Same as `now()` but will animate after the previous animation is over.
 
 * __debug__ --- Set `_debug` to `true`.
-
-	@return `{thisAnimator}`
+	* @return `{thisAnimator}`
 
 * __commit__ ---
-
-	@return `{thisAnimator}`
+	* @return `{thisAnimator}`
 
 * __onTick (dt)__ ---
-
-	@param `{number}` dt
+	* @param `{number}` dt
 
 * __next__ ---
-
 
 ## Properties
 
 * __subject__
 
 
-# `ViewAnimator` inherits from `Animator`
+# `ViewAnimator` 
+
+## Inheritence
+
+1. [Animator](#animator)
+2. [lib.PubSub](./lib-pubsub.html)
 
 For dealing with views as animation subjects.
 
-# `Group` inherits from `lib.PubSub`
+# `Group` 
+
+## Inheritence
+
+1. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 
