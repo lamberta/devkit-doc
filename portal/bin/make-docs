@@ -1,75 +1,64 @@
 #!/usr/bin/env bash
 
+#defaults
+SCRIPT_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
+DOC_ROOT="$SCRIPT_ROOT/doc"
+OUT_ROOT="$SCRIPT_ROOT/build"
+REMOTE_PATH="doc.gameclosure.com:/srv/www/docs.gameclosure.com/public_html"
+CONF_ROOT="$SCRIPT_ROOT/conf"
+INCLUDE_ROOT="$CONF_ROOT/include"
+
+
 function print_help {
 		echo "Usage: $(basename $0) [options]"
-		echo " -d=dir   Set the output directory."
-#		echo " -i=file  Input Markdown source file."
-#		echo " -o=file  Output HTML file."
+		echo " -D       Deploy to remote."
+		echo " -P=path  Remote path. Default: $REMOTE_PATH"
+		echo " -i=dir   Input directory. Default $DOC_ROOT"
+		echo " -o=dir   Output directory. Default: $OUT_ROOT"
 		echo " -h       Print this help."
 }
 
-ROOT_DIR=$(cd -P $(dirname "$0") && cd .. && pwd)
-OUTPUT_DIR="$ROOT_DIR/output"
-MD_ROOT=$(cd "$ROOT_DIR/../iceberg-api" && pwd)
-
-declare -a FILES=(
-		"gc/application.md"
-		"timestep/device.md"
-		"timestep/view.md"
-		"timestep/imageview.md"
-		"timestep/textview.md"
-		"timestep/scrollview.md"
-		"timestep/sprite.md"
-		"timestep/ui/list.md"
-		"lib/pubsub.md"
-)
-
-#associate a src path with a namespace (used for the html file name)
-declare -A PATHS
-
-function determine_file_paths {
-		for file in "${FILES[@]}"; do
-				if [ ! -f "$MD_ROOT/$file" ]; then
-						echo "Error: $MD_ROOT/$file is not a valid file."
-						exit 1
-				fi
-
-				local ns=$(basename $(echo "$file" | tr '/' '-') '.md')
-				PATHS["$ns"]="$MD_ROOT/$file"
-		done
-}
-
-function convert_to_markdown {
-		local out_file="$OUT_DIR/$1.html" src_file="$2"
+# markdown to html, add doc_root to output file
+function convert_file {
+		local in_file="$1" out_file="$OUT_ROOT/$2.html" 
 
 		## Covert markdown to html using our template
 		if pandoc -f markdown -t html5 --smart \
-				--standalone --template "$ROOT_DIR/templates/tmpl.tmp" \
-				--output "$out_file" "$src_file"; then
+				--standalone --template "$CONF_ROOT/template.html.tmp" \
+				--output "$out_file" "$in_file"; then
 				echo "  Generated $out_file"
 		else
-				echo "Error generating from $src_file"
+				echo "Error generating from $in_file"
 				exit 1
 		fi
 }
 
-# Parse command-line args ...
-if [ "$#" -eq 0 ]; then
-		print_help
-		exit 1
-fi
+# output file name is the complete namespace, determined by directory
+function convert_directory {
+		while read path; do
+				#remove doc_root and beginning slash
+				local ns="${path##$DOC_ROOT}"
+				ns="${ns#/}"
+				#create namespace file name: name-space-file
+				ns=$(basename $(echo "$ns" | tr '/' '-') '.md')
+				
+				convert_file "$path" "$ns"
+				
+		done < <(find "$DOC_ROOT" -type f -name '*.md' | grep -v -i 'readme')
+}
 
-while getopts "d:i:o:h" opt; do
+while getopts "DP:i:o:h" opt; do
     case $opt in
-				d) OUT_DIR="$OPTARG";;
-				i) SRC_FILE="$OPTARG";;
-				o) OUT_FILE="$OPTARG";;
+				D) DEPLOY_FLAG=1;;
+				P) REMOTE_PATH="$OPTARG";;
+				i) DOC_ROOT="$OPTARG";;
+				o) OUT_ROOT="$OPTARG";;
 				h) print_help; exit 0;;
         \?) print_help; exit 0;;
     esac
 done
 
-# Check some params ...
+# Check some stuff ...
 
 if ! which pandoc > /dev/null; then
 		echo "Error: Requires pandoc to build."
@@ -81,24 +70,29 @@ if ! which m4 > /dev/null; then
 		exit 1
 fi
 
-if [ ! -d "$OUTPUT_DIR" ]; then
+if [ ! -d "$DOC_ROOT" ]; then
+		echo "Error: Document directory is not valid."
+		exit 1
+fi
+
+if [ ! -d "$OUT_ROOT" ]; then
 		echo "Error: Output directory is not valid."
 		exit 1
 fi
 
 # Off we go ...
 
-determine_file_paths
+echo "  Copying include files ..."
+cp -r "$INCLUDE_ROOT" "$OUT_ROOT"
 
 ## Add sidebar navigation to template file
-m4 -P -D sidebar_nav="$ROOT_DIR/templates/sidebar-nav.html" \
-		"$ROOT_DIR/templates/tmpl.html" > "$ROOT_DIR/templates/tmpl.tmp"
+m4 -P -D sidebar_nav="$CONF_ROOT/sidebar-nav.html" \
+		"$CONF_ROOT/template.html" > "$CONF_ROOT/template.html.tmp"
 
-for ns in "${!PATHS[@]}"; do
-		convert_to_markdown "$ns" "${PATHS[$ns]}"
-done
+convert_directory
 
-## Cleanup
-if [ -f "$ROOT_DIR/templates/tmpl.tmp" ]; then
-		rm "$ROOT_DIR/templates/tmpl.tmp"
+
+## Cleanup ...
+if [ -f "$CONF_ROOT/template.html.tmp" ]; then
+		rm "$CONF_ROOT/template.html.tmp"
 fi
