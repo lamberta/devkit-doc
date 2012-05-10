@@ -41,6 +41,11 @@
 		$include-after$
 		$endfor$
 		</div>
+
+		<aside id="quicknav">
+			<h1>QuickNav</h1>
+			<ul></ul>
+		</aside>
 		
 		<footer>
 			&copy; Game Closure
@@ -54,6 +59,23 @@
 					tags[i].setAttribute('class', 'prettyprint');
 				}
 				prettyPrint();
+
+				//create category menu
+				var quicknav = document.querySelectorAll('#quicknav ul')[0],
+						nav_elements = document.querySelectorAll('#main h1, #main h2, #main h3');
+
+				Array.prototype.slice.call(nav_elements).forEach(function (h) {
+
+					var li = document.createElement('li'),
+							a = document.createElement('a');
+
+					a.innerText = h.innerText;
+					a.setAttribute('href', '#' + h.getAttribute('id'));
+					a.setAttribute('indent', h.tagName);
+					
+					li.appendChild(a);
+					quicknav.appendChild(li)
+				});
 			};
 		</script>
   </body>
