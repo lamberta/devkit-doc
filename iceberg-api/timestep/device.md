@@ -57,7 +57,9 @@ On an undefined platform, `timestep.device` is `{isUnknown: true}`.
 
 * __useDOM__ `{boolean} = false` ---Internal flag to use DOM.
 
-### These properties are dependant upon the user-agent, some may be there, some may not.
+### User-Agents
+
+These properties are dependant upon the user-agent, may, or may not, be there.
 
 * __isIOS__ `{boolean}`
 

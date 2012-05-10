@@ -2,9 +2,9 @@
 
 ## Inheritence
 
-1. [timestep.ui.UIView](./ui/uiview.html)
-2. [timestep.View](./view.html)
-3. [lib.PubSub](../lib/pubsub.html)
+1. [timestep.ui.UIView](./timestep-ui-uiview.html)
+2. [timestep.View](./timestep-view.html)
+3. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 

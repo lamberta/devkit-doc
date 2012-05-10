@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](../view.html)
-2. [lib.PubSub](../../lib/pubsub.html)
+1. [timestep.View](./timestep-view.html)
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Options
 

@@ -1,9 +1,9 @@
-# `timestep.ImageView`.
+# `timestep.ImageView`
 
 ## Inheritence
 
-1. [timestep.View](./view.md)
-2. [lib.PubSub](../lib/pubsub.md)
+1. [timestep.View](./timestep-view.html)
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Options
 
@@ -100,6 +100,7 @@ dimensions if `true`. Defaults to `false`.
 # Usage
 
 ~~~
+
 "use import";
 
 import timestep.View as View;

@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](./view.html)
-2. [lib.PubSub](../lib/pubsub.html)
+1. [timestep.View](./timestep-view.html)
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Options
 
@@ -46,32 +46,34 @@
 	* @param `{object}` opts
 
 # Usage
+~~~
 
-	"use import";
+"use import";
 
-	import timestep.View as View;
-	import timestep.TextView as TextView;
+import timestep.View as View;
+import timestep.TextView as TextView;
 
-	exports = Class(View, function(supr) {
-		this.init = function(opts) {
-			supr(this, "init", arguments);
+exports = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", arguments);
 
-			//show a big heading
-			var titleText = new TextView({
-				text: "Welcome to the TextView",
-				color: "white",
-				fontSize: 26, 
-				verticalAlign: "top",
-				y: 100,
-				parent: this
-			}); 
+		//show a big heading
+		var titleText = new TextView({
+			text: "Welcome to the TextView",
+			color: "white",
+			fontSize: 26, 
+			verticalAlign: "top",
+			y: 100,
+			parent: this
+		}); 
 
-			//show a smaller subheading
-			var subText = new TextView({
-				text: "The best TextView in the depths of Timestep",
-				color: "#CCCCCC",
-				fontSize: 14, 
-				parent: this
-			}); 
-		}   
-	});
+		//show a smaller subheading
+		var subText = new TextView({
+			text: "The best TextView in the depths of Timestep",
+			color: "#CCCCCC",
+			fontSize: 14, 
+			parent: this
+		}); 
+	}   
+});
+~~~

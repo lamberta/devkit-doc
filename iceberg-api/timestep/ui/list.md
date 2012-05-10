@@ -2,9 +2,9 @@
 
 ## Inheritence
 
-1. [timestep.ScrollView](../scrollview.html)
-2. [timestep.View](../view.html)
-3. [lib.PubSub](../../lib/pubsub.html)
+1. [timestep.ScrollView](./timestep-scrollview.html)
+2. [timestep.View](./timestep-view.html)
+3. [lib.PubSub](./lib-pubsub.html)
 
 ## Options
 
@@ -39,7 +39,7 @@ These options are passed along to the `List` created at property `model`:
 
 ## Properties
 
-* __model__ `{squill.models.List}` --From [squill.models.List](../../squill/models/list.html)
+* __model__ `{squill.models.List}` --From [squill.models.List](./squill-models-list.html)
 
 * __selection__ `{}`
 
@@ -49,6 +49,7 @@ These options are passed along to the `List` created at property `model`:
 Requires a DataSource and Cell.
 
 ~~~
+
 var list = new timestep.ui.List({
 	parent: this.view,
 	dataSource: GC.contacts.getDataSource(),

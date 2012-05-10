@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](../view.html)
-2. [lib.PubSub](../../lib/pubsub.html)
+1. [timestep.View](./timestep-view.html)
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 
@@ -25,7 +25,7 @@
 
 ## Properties
 
-* __model__ `{squill.models.Cell}` ---[`squill.models.Cell`](../../squill/models/cell.md).
+* __model__ `{squill.models.Cell}` ---[`squill.models.Cell`](./squill-models-cell.html).
 
 
 ## Messages

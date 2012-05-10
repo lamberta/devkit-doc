@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](./view.md)
-2. [lib.PubSub](../lib/pubsub.md)
+1. [timestep.View](./timestep-view.md)
+2. [lib.PubSub](./lib-pubsub.md)
 
 ## Options
 
@@ -93,36 +93,39 @@ the key is the name of the animation and the value is a
 
 # Usage
 
-	"use import";
+~~~
 
-	import timestep.View as View;
-	import timestep.Sprite as Sprite;
+"use import";
 
-	exports = Class(View, function(supr) {
-		this.init = function(opts) {
-			supr(this, "init", arguments);
+import timestep.View as View;
+import timestep.Sprite as Sprite;
 
-			var runner = new Sprite({
-				parent: this,
-				defaultAnimation: "idle",
-				width: 34, 
-				height: 86, 
+exports = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", arguments);
 
-				//sprite animation definitions
-				animations: {
-					//main idle sprite animation
-					idle: {
-						imageURL: "resources/character.png",
-						spritesWide: 6,
-						spritesHigh: 4,
-						start: 12, 
-						end: 17, 
-						width: 34, 
-						height: 86
-					}   
+		var runner = new Sprite({
+			parent: this,
+			defaultAnimation: "idle",
+			width: 34, 
+			height: 86, 
+
+			//sprite animation definitions
+			animations: {
+				//main idle sprite animation
+				idle: {
+					imageURL: "resources/character.png",
+					spritesWide: 6,
+					spritesHigh: 4,
+					start: 12, 
+					end: 17, 
+					width: 34, 
+					height: 86
 				}   
-			}); 
+			}   
+		}); 
 
-			runner.startAnimation("idle");
-		}   
-	});
+		runner.startAnimation("idle");
+	}   
+});
+~~~

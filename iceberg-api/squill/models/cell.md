@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [squill.models.Widget](./widget.html)
-2. [lib.PubSub](../../lib/pubsub.html)
+1. [squill.models.Widget](./squill-models-widget.html)
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 

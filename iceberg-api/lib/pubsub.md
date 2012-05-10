@@ -1,8 +1,8 @@
-## `lib.PubSub`
+# `lib.PubSub`
 
 This class is in the js.io project.
 
-### Methods
+## Methods
 
 * __publish (signal)__ ---
 	* @param `{string} signal`

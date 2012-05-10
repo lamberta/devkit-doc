@@ -2,8 +2,8 @@
 
 ## Inheritence
 
-1. [timestep.View](./view.html)
-2. [lib.PubSub](../lib/pubsub.html)
+1. [timestep.View](./timestep-view.html)
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Options
 
@@ -110,28 +110,30 @@
 
 # Usage
 
-	"use import";
+~~~
 
-	import timestep.ImageView as ImageView;
-	import timestep.ScrollView as ScrollView;
+"use import";
 
-	exports = Class(ScrollView, function(supr) {
-		this.init = function(opts) {
-			merge(opts, {
-				scrollBounds: {
-					minX: -100,
-					maxX: 200,
-					minY: -100,
-					maxY: 200 
-				},  
-			}); 
+import timestep.ImageView as ImageView;
+import timestep.ScrollView as ScrollView;
 
-			supr(this, "init", arguments);
+exports = Class(ScrollView, function(supr) {
+    this.init = function(opts) {
+		merge(opts, {
+			scrollBounds: {
+				minX: -100,
+				maxX: 200,
+				minY: -100,
+				maxY: 200 
+			},  
+		}); 
 
-			var ducky = new ImageView({
-				image: "resources/duck.png",
-				parent: this
-			}); 
-		}   
-	});
-	
+		supr(this, "init", arguments);
+
+		var ducky = new ImageView({
+			image: "resources/duck.png",
+			parent: this
+		}); 
+	}   
+});
+~~~

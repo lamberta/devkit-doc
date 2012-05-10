@@ -19,6 +19,7 @@ declare -a FILES=(
 		"timestep/imageview.md"
 		"timestep/textview.md"
 		"timestep/scrollview.md"
+		"timestep/sprite.md"
 		"timestep/ui/list.md"
 		"lib/pubsub.md"
 )

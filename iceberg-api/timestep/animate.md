@@ -145,6 +145,7 @@ Actually, it *is* a `Frame`; it's a frame that does nothing.
 # Usage
 
 ~~~
+
 var anim = animate(obj);
 anim.now({x: 100}, duration, animate.linear);
 ~~~

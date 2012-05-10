@@ -1,23 +1,21 @@
-# `Application`
+# `GC.Application`
 
 `GC.app` is an instance of the user's `shared/Application.js` file,
-which inherits of the sdk's `_api/client/Application.js`. Inits the `initUI` function.
-
+which inherits of the sdk's
+`_api/client/Application.js` ---which executes the `initUI` function.
 `GC.app.engine` is an instance of `timestep.Application` and
-its view hierarchy is at `GC.app.view`. It controls the tick
+its view hierarchy is at `GC.app.view`; it controls the tick
 and the rendering.
-
-`GC.app.view` is a shortcut to `GC.app.engine._view`
-
+`GC.app.view` is a shortcut to `GC.app.engine._view`.
 `GC.app.initUI` is run after the `GC.app.engine` and
 `GC.app.view` have been created.
 
 
 ## Inheritence
 
-1. `shared/Application.js`
-2. `sdk/_api/client/Application.js`
-3. [lib.PubSub](../lib/pubsub.html)
+1. shared/Application.js
+2. sdk/_api/client/Application.js
+3. [lib.PubSub](./lib-pubsub.html)
 
 
 ## Settings

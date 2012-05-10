@@ -2,7 +2,7 @@
 
 ## Inheritence
 
-1. [lib.PubSub](../lib/pubsub.html)
+1. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 
