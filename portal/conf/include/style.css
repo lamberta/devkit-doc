@@ -48,7 +48,8 @@ body {
   width: 940px;
 	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	line-height: 1.2em;
-  background: #f0f0f0;
+	//background-color: #FBFCD0;
+	background-color: #D2E7E5;
 }
 
 b, strong, h1, h2, h3, h4, h5, h6 {
@@ -73,7 +74,14 @@ a {
 
 nav {
   float: left;
-  width: 160px;
+  width: 140px;
+	margin-right: 10px;
+	padding: 0 10px 10px 10px;
+	background-color: #63668B;
+}
+
+nav a {
+	color: #D2E7E5;
 }
 
 nav ul {
@@ -87,24 +95,37 @@ nav ul ul {
 /* nav sections: api, tutorials */
 nav h1 {
 	display: inline;
-	padding: 2px 6px;
-	color: #000;
-	background-color: #bbb;
+	//padding: 2px 6px;
+	color: #fff;
+	//background-color: #7AA7D6;
 }
 
-nav ul li {
+/* second level indentation */
+nav ul li ul li {
 	padding-left: 10px;
 }
 
 /* total width: 160px */
 #quicknav {
 	float: right;
-	width: 130px;
-	margin: 0 0 0 20px;
+	width: 140px;
+	margin: 0 0 0 10px;
 	padding: 5px;
-	font-size: 0.8em;
-	background-color: #ccc;
+	font-size: 0.9em;
+	background-color: #6A4162;
+	//background-color: #E65540;
+	
 	//position: fixed;
+}
+
+#quicknav a {
+	text-decoration: none;
+	//color: #D2E7E5;
+	color: #FBFCD0;
+}
+
+#quicknav a:hover {
+	text-decoration: underline;
 }
 
 #quicknav h1 {
@@ -130,7 +151,7 @@ footer {
 
 #main {
 	float: left;
-	width: 620px;
+	width: 610px;
 }
 
 /* class name */
@@ -143,14 +164,15 @@ footer {
 	margin: 20px 0;
 	padding-left: 10px;
 	color: #000;
-	background-color: #bbb;
+	//background-color: #bbb;
+	background-color: #5C8BB4;
 }
 
 /* method grouping */
 #main h3 {
 	font-style: italic;
 	text-align: right;
-	color: #555;
+	color: #63668B;
 	border-bottom: 1px solid #aaa;
 }
 
