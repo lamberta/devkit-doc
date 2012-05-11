@@ -7,7 +7,7 @@
 
 ## Options
 
-* __defaultAnimation__ --The go to animation after other iterations have completed.
+* __defaultAnimation__ `{string}` ---The go to animation after other iterations have completed.
 * __animations__`{object}` ---See Animation options below
 * __defaultWidth__ `{number}` ---Defaults to 64.
 * __defaultHeight__ `{number}` ---Defaults to 64.
@@ -25,25 +25,25 @@
 * __addAnimation (name, args)__
 
 * __startAnimation (name, opts)__
-	* @param `{string}` name
-	* @param `{object}` opts
-		* __iterations__ `{number}` ---Run the animation a
+	* @param `{string} name`
+	* @param `{object} opts`
+		* __iterations__ ` {number}` ---Run the animation a
           number of times before reverting back to the default animation.
-		* __callback__ `{function}` --Executed after the iteration switch.
+		* __callback__ `{function}` ---Executed after the iteration switch.
 		* __mirrorHorizontal__ `{boolean}` ---Mirror the sprite animation horizontally.
 		* __mirrorVertical__ `{boolean}` ---Mirror the sprite animation vertically.
 
-* __isCurrentAnimation (name)__
-	* @param `{string}` name
+* __isCurrentAnimation (name)__ ---Determine if the provided animation is the one running.
+	* @param `{string} name`
 	* @return `{boolean}`
 
 * __pauseAnimation__
 
-* __setPaused (isPaused)__
-	* @param `{boolean}` isPaused
+* __setPaused (isPaused)__ ---Set the paused state.
+	* @param `{boolean} isPaused`
 	* @return `{boolean}`
 
-* __stopAnimation__
+* __stopAnimation__ ---Stop the running animation.
 
 
 # `SpriteAnimation`
