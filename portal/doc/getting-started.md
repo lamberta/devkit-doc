@@ -42,6 +42,7 @@ the Application file with game code. My convention is to create a generic
 View called `World`. For now let''s start with `Application.js`.
 
 ~~~
+
 //use the SDK import system
 "use import";
 
@@ -72,12 +73,13 @@ exports = Class(GC.Application, function() {
 In our Application file we created an instance of the `World` class I mentioned
 earlier. Though there are a few problems:
 
-	1. The class doesn''t exist yet
-	2. We didn''t import it so the SDK won''t be able to find it
+1. The class doesn''t exist yet
+2. We didn''t import it so the SDK won''t be able to find it
 
 Create a file called `World.js`:
 
 ~~~
+
 "use import";
 
 import timestep.View as View;
@@ -100,14 +102,14 @@ exports = Class(View, function(supr) {
 
 Now we need to be able to reference it in `Application.js`. Add this line after `"use import";`.
 
-	import .World;
+		import .World;
 
 Horray, now we have a cross browser, cross device implementation of 
 Hello World!
 
 The View heirarchy looks something like this:
 
-	Application (root view) -> World -> TextView
+		Application (root view) -> World -> TextView
 
 ##Import system
 
@@ -124,6 +126,7 @@ Ommiting a leading dot indicates an __absolute__ path. This is required for
 internal modules such as those under the `timestep` namespace.
 
 ~~~
+
 .ui.View -> ./ui/View.js
 .index   -> ./index.js
 ..foo    -> ../foo.js
@@ -132,7 +135,7 @@ internal modules such as those under the `timestep` namespace.
 
 You may also alias the module as an easy to use name by using `as`:
 
-    import timestep.View as View;
+	    import timestep.View as View;
 
 That way you can reference it as `View` instead of `timestep.View`.
 
@@ -147,6 +150,7 @@ down or touch has started (on the view) then green when the mouse is up or
 touch has ended.
 
 ~~~
+
 "use import";
 
 import timestep.View as View;
