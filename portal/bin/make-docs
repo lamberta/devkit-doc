@@ -49,7 +49,7 @@ function convert_directory {
 		done < <(find "$DOC_ROOT" -type f -name '*.md' | grep -v -i 'readme')
 }
 
-while getopts "DR:i:o:h" opt; do
+while getopts "DR:U:i:o:h" opt; do
     case $opt in
 				D) DEPLOY_FLAG=1;;
 				U) REMOTE_USER="$OPTARG";;
