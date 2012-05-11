@@ -49,7 +49,6 @@ body {
 	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	line-height: 1.2em;
 	background-color: #eee;
-	//background-color: #D2E7E5;
 }
 
 b, strong, h1, h2, h3, h4, h5, h6 {
@@ -77,11 +76,12 @@ nav {
   width: 140px;
 	margin-right: 10px;
 	padding: 0 10px 10px 10px;
-	background-color: #63668B;
+	//background-color: #99ccff;
+	background-color: #aaaaff;
 }
 
 nav a {
-	color: #D2E7E5;
+	color: #000;
 }
 
 nav ul {
@@ -112,16 +112,13 @@ nav ul li ul li {
 	margin: 0 0 0 10px;
 	padding: 5px;
 	font-size: 0.9em;
-	background-color: #6A4162;
-	//background-color: #E65540;
-	
-	//position: fixed;
+	background-color: #ffdd75;
 }
 
 #quicknav a {
 	text-decoration: none;
 	//color: #D2E7E5;
-	color: #FBFCD0;
+	color: #000;
 }
 
 #quicknav a:hover {
@@ -130,7 +127,7 @@ nav ul li ul li {
 
 #quicknav h1 {
 	font-weight: 600;
-	color: #fff;
+	color: #ff800d;
 }
 
 #quicknav li [indent='H1'] {
@@ -164,8 +161,7 @@ footer {
 	margin: 20px 0;
 	padding-left: 10px;
 	color: #000;
-	//background-color: #bbb;
-	background-color: #aaaaff;
+	background-color: #bbb;
 }
 
 /* method grouping */
