@@ -4,17 +4,12 @@
 SCRIPT_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
 DOC_ROOT="$SCRIPT_ROOT/doc"
 OUT_ROOT="$SCRIPT_ROOT/build"
-REMOTE_USER=$(whoami)
-REMOTE_PATH="doc.gameclosure.com:/srv/www/docs.gameclosure.com/public_html/"
 CONF_ROOT="$SCRIPT_ROOT/conf"
 INCLUDE_ROOT="$CONF_ROOT/include"
 
 
 function print_help {
 		echo "Usage: $(basename $0) [options]"
-		echo " -D       Deploy to remote."
-		echo " -U=name  Set the remote user name; use with -D. Default: $REMOTE_USER"
-		echo " -R=path  Set the remote path; use with -D. Default: $REMOTE_PATH"
 		echo " -i=dir   Input directory. Default $DOC_ROOT"
 		echo " -o=dir   Output directory. Default: $OUT_ROOT"
 		echo " -h       Print this help."
@@ -49,11 +44,8 @@ function convert_directory {
 		done < <(find "$DOC_ROOT" -type f -name '*.md' | grep -v -i 'readme')
 }
 
-while getopts "DR:U:i:o:h" opt; do
+while getopts "i:o:h" opt; do
     case $opt in
-				D) DEPLOY_FLAG=1;;
-				U) REMOTE_USER="$OPTARG";;
-				R) REMOTE_PATH="$OPTARG";;
 				i) DOC_ROOT="$OPTARG";;
 				o) OUT_ROOT="$OPTARG";;
 				h) print_help; exit 0;;
@@ -93,17 +85,6 @@ m4 -P -D sidebar_nav="$CONF_ROOT/sidebar-nav.html" \
 
 ## Convert files from markdown to html and output ...
 convert_directory
-
-## Sync with remote ...
-if [ -n "$DEPLOY_FLAG" ]; then
-		if ! which rsync > /dev/null; then
-				echo "Error: Unable to locate rsync, no remote deployment."
-		else
-				#requires traling slash
-				echo "Syncing with remote directory ..."
-				rsync -rzvh --omit-dir-times --archive --delete "$OUT_ROOT/" "$REMOTE_USER@$REMOTE_PATH"
-		fi
-fi
 
 ## Cleanup ...
 if [ -f "$CONF_ROOT/template.html.tmp" ]; then
