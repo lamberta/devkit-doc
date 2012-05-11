@@ -20,7 +20,7 @@ function convert_file {
 		local in_file="$1" out_file="$OUT_ROOT/$2.html" 
 
 		## Covert markdown to html using our template
-		if pandoc -f markdown -t html --smart \
+		if pandoc -f markdown -t html5 --smart \
 				--standalone --template "$CONF_ROOT/template.html.tmp" \
 				--output "$out_file" "$in_file"; then
 				echo "  Generated $out_file"
