@@ -6,7 +6,7 @@
 
 ## Options
 
-* __path__ `{string}` ---
+* __path__ `{string}` ---Directory where the sound files exist. This builds the path to the sound files.
 
 * __map__ `{object}` ---Map where key is the sound name and the value is an object of options.
 	
