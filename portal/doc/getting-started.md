@@ -1,6 +1,7 @@
-#Getting Started with Game Closure SDK
+#Getting Started with the Game Closure SDK
 
 ##In the beginning
+
 The entry point into your game is the method `launchUI()` in the generated file 
 `Application.js`. Think of it as the `main` function.
 
@@ -40,57 +41,62 @@ would be to create another View as the container rather than bloat
 the Application file with game code. My convention is to create a generic
 View called `World`. For now let''s start with `Application.js`.
 
-    //use the SDK import system
-    "use import";
+~~~
+//use the SDK import system
+"use import";
 
-    //import the GC namespace
-    import GC;
+//import the GC namespace
+import GC;
 
-    exports = Class(GC.Application, function() {
+exports = Class(GC.Application, function() {
 
-        this._settings = {
-            logsEnabled: window.DEV_MODE,
-            noTimestep: false,
-            showFPS: window.DEV_MODE,
-            alwaysRepaint: true
-        };
+	this._settings = {
+		logsEnabled: window.DEV_MODE,
+		noTimestep: false,
+		showFPS: window.DEV_MODE,
+		alwaysRepaint: true
+	};
 
-        this.initUI = function() {
-            //do stuff
-        }
+	this.initUI = function() {
+		//do stuff
+	}
 
-        this.launchUI = function() {
-            //create the container view for the Game
-            //pass the root view as an option to be the parent
-            this.world = new World({parent: this.view});
-        }
-    });
+	this.launchUI = function() {
+		//create the container view for the Game
+		//pass the root view as an option to be the parent
+		this.world = new World({parent: this.view});
+	}
+});
+~~~
 
 In our Application file we created an instance of the `World` class I mentioned
 earlier. Though there are a few problems:
 
-1. The class doesn''t exist yet
-2. We didn''t import it so the SDK won''t be able to find it
+	1. The class doesn''t exist yet
+	2. We didn''t import it so the SDK won''t be able to find it
 
 Create a file called `World.js`:
 
-    "use import";
+~~~
+"use import";
 
-    import timestep.View as View;
-    import timestep.TextView as TextView;
+import timestep.View as View;
+import timestep.TextView as TextView;
 
-    exports = Class(View, function(supr) {
-		//class contructor
-		this.init = function() {
-			supr(this, "init", arguments);
+exports = Class(View, function(supr) {
+	//class contructor
+	this.init = function() {
+		supr(this, "init", arguments);
 
-			//create a TextView with this View as the parent
-			var text = new TextView({
-				text: "Hello World!",
-				parent: this
-			});
-		}
-    });
+		//create a TextView with this View as the parent
+		var text = new TextView({
+			text: "Hello World!",
+			parent: this
+		});
+	}
+});
+
+~~~
 
 Now we need to be able to reference it in `Application.js`. Add this line after `"use import";`.
 
@@ -100,7 +106,8 @@ Horray, now we have a cross browser, cross device implementation of
 Hello World!
 
 The View heirarchy looks something like this:
-    Application (root view) -> World -> TextView
+
+	Application (root view) -> World -> TextView
 
 ##Import system
 
@@ -116,10 +123,12 @@ file. Consecutive dots indicate the __parent__ directory.
 Ommiting a leading dot indicates an __absolute__ path. This is required for
 internal modules such as those under the `timestep` namespace.
 
-    .ui.View -> ./ui/View.js
-    .index   -> ./index.js
-    ..foo    -> ../foo.js
-    ...foo   -> ../../foo.js
+~~~
+.ui.View -> ./ui/View.js
+.index   -> ./index.js
+..foo    -> ../foo.js
+...foo   -> ../../foo.js
+~~~
 
 You may also alias the module as an easy to use name by using `as`:
 
