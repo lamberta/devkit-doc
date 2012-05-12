@@ -1,5 +1,8 @@
 # `timestep.ScrollView`
 
+View to scroll itself and subviews. Supports
+drag through user input.
+
 ## Inheritence
 
 1. [timestep.View](./timestep-view.html)
@@ -37,63 +40,49 @@
 
 ## Methods
 
-* __getStyleBounds__
+* __getStyleBounds__ ---Return the style boundary object.
 	* @return `{object}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`
 
-* __getOffset__
+* __getOffset__ ---Returns a point of the Scroll offset.
 	* @return `{math2D.Point}`
 
-* __setOffset (x, y)__
+* __setOffset (x, y)__ ---Set the offset to manually scroll views.
 	* @param `{number} x`
 	* @param `{number} y`
 
-* __isScrolling__
+* __isScrolling__ ---If View is currently scrolling.
 	* @return `{boolean}`
 
-* __stopScrolling__
+* __stopScrolling__ ---Stop View from scrolling.
 
-* __onInputStart (evt, pt)__
-	* @param `{InputEvent} evt`
-	* @param `{point} pt`
+* __startBounce__ ---Set the ability to bounce when scrolling.
 
-* __onDragStart__
+* __endBounce__ ---Remove the ability to bounce when scrolling.
 
-* __onDrag (dragEvt, moveEvt, delta)__
-	* @param `{} dragEvt`
-	* @param `{} moveEvt`
-	* @param `{point} delta` ---Object containing `x` and `y` properties.
+* __setScrollBounds (bounds)__ ---Set the scroll boundary.
+	* @param `{object} bounds`
+		* @param `{number} minX`
+		* @param `{number} maxX`
+		* @param `{number} minY`
+		* @param `{number} maxY`
 
-* __onDragStop (dragEvt, selectEvt)__
-	* @param `{} dragEvt`
-	* @param `{} selectEvt`
+* __getScrollBounds__ ---Return the scroll boundary object.
+	* @return `{bounds}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`.
 
-* __startBounce__
-
-* __endBounce__
-
-* __setScrollBounds (bounds)__
-	* @param `{object} bounds` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`w
-
-* __getScrollBounds__
-	* @return `{bounds}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`
-
-* __addOffset (x, y)__
+* __addOffset (x, y)__ ---Add the values to the current offset.
 	* @param `{number} x`
 	* @param `{number} y`
 
-* __getContentView__
+* __getContentView__ ---Return the generated View that becomes the container View.
 	* @return `{View}`
 
-* __getFullWidth__
+* __getFullWidth__ ---Return the full width.
 	* @return `{number}`
 
-* __getFullHeight__
+* __getFullHeight__ ---Return the full height.
 	* @return `{number}`
 
-* __onInputScroll (evt)__
-	* @param `{Event} evt`
-
-* __scrollTo (x, y, duration, callback)__
+* __scrollTo (x, y, duration, callback)__ ---Smoothly scroll to a specific position.
 	* @param `{number} x`
 	* @param `{number} y`
 	* @param `{number} duration`
@@ -109,6 +98,9 @@
 
 
 ## Usage
+
+Add an image to a ScrollView as a subview and
+allow the user to scroll through drag.
 
 ~~~
 
