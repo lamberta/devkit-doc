@@ -26,6 +26,9 @@ since the last tick.
 Bind to a tick event to increase a counter. Bind to a large tick to reset the counter.
 
 ~~~
+
+"use import";
+
 import timestep.Timer as Timer;
 
 exports = Class(function() {
