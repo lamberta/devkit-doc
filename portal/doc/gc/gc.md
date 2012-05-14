@@ -7,8 +7,8 @@ We got here through `desktop.html`, which calls
 
 ## Inheritence
 
-1. `shared.Common` ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
-2. [lib.PubSub](./lib/pubsub.html)
+1. [shared.Common](#shared.Common) ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
+2. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 
@@ -22,7 +22,7 @@ We got here through `desktop.html`, which calls
   `shared.Application` is instantiated and its entry point
   is called, because it inherits from `client/Application`,
   which runs the `entry` after all the preloading. In
-  launchClient.js this is called as
+  `launchClient.js` this is called as
   `GC.buildApp('launchUI')`.
 	* @param `{}` entry
 	* @return `{}` --returns `this.app`
