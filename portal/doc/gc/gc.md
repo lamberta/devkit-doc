@@ -7,7 +7,7 @@ We got here through `desktop.html`, which calls
 
 ## Inheritence
 
-1. [shared.Common](#shared.Common) ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
+1. [shared.Common](#shared.common) ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
 2. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
