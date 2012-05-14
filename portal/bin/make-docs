@@ -6,7 +6,7 @@ DOC_ROOT="$SCRIPT_ROOT/doc"
 OUT_ROOT="$SCRIPT_ROOT/build"
 CONF_ROOT="$SCRIPT_ROOT/conf"
 INCLUDE_ROOT="$CONF_ROOT/include"
-
+INCLUDE_GUIDES="$SCRIPT_ROOT/../guides" #the guides live outside the portal dir, but in the repo
 
 function print_help {
 		echo "Usage: $(basename $0) [options]"
@@ -31,7 +31,7 @@ function convert_file {
 }
 
 # output file name is the complete namespace, determined by directory
-function convert_directory {
+function convert_api_directory {
 		while read path; do
 				#remove doc_root and beginning slash
 				local ns="${path##$DOC_ROOT}"
@@ -42,6 +42,13 @@ function convert_directory {
 				convert_file "$path" "$ns"
 				
 		done < <(find "$DOC_ROOT" -type f -name '*.md' | grep -v -i 'readme')
+}
+
+function convert_guides_directory {
+		while read path; do
+				local name=$(basename "$path" '.md')
+				convert_file "$path" "guides/$name"
+		done < <(find "$INCLUDE_GUIDES" -type f -name '*.md' | grep -v -i 'readme')
 }
 
 while getopts "i:o:h" opt; do
@@ -83,8 +90,12 @@ cp -r "$INCLUDE_ROOT" "$OUT_ROOT"
 m4 -P -D sidebar_nav="$CONF_ROOT/sidebar-nav.html" \
 		"$CONF_ROOT/template.html" > "$CONF_ROOT/template.html.tmp"
 
-## Convert files from markdown to html and output ...
-convert_directory
+## Convert api files from markdown to html and output ...
+convert_api_directory
+
+## Copy guides
+mkdir "$OUT_ROOT/guides"
+convert_guides_directory
 
 ## Cleanup ...
 if [ -f "$CONF_ROOT/template.html.tmp" ]; then
