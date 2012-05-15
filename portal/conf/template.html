@@ -28,6 +28,7 @@
 		$endfor$
 
 		<header>
+			<p style="color:#f00;">See a problem? Want to add more detail? Please do <a href="https://github.com/gameclosure/doc/tree/master/portal/doc" target="_blank">here</a>! (Don't worry, we'll clean it up.)</p>
 			$if(title)$
 			<h1 class="title">$title$</h1>
 			$endif$
@@ -70,7 +71,7 @@
 							a = document.createElement('a');
 
 					a.innerText = h.innerText;
-					a.setAttribute('href', '#' + h.getAttribute('id'));
+					a.setAttribute('href', window.location.href + '#' + h.getAttribute('id'));
 					a.setAttribute('indent', h.tagName);
 					
 					li.appendChild(a);
