@@ -20,8 +20,8 @@ dimensions if `true`. Defaults to `false`.
 * __getImage__ ---
 	* @return `{timestep.Image}`
 
-* __setImage (img, opts)__ ---
-	* @param `{string|timestep.Image}` img
+* __setImage (img, opts)__ ---Set the image for the ImageView.
+	* @param `{string|timestep.Image} img` ---If a string is passed, it will create a new `Image` instance. Otherwise it will use the `Image` passed.
 	* @param `{object}` opts ---See above Options
 
 * __doOnLoad__ ---
@@ -43,17 +43,17 @@ dimensions if `true`. Defaults to `false`.
 
 ## Options
 
-* __scale__ ---Defaults to `false`.
+* __scale__ `{boolean} = false` ---
 
-* __sourceW__ ---Defaults to `-1`.
+* __sourceW__ `{number} = -1` ---
 
-* __sourceH__ ---Defaults to `-1`.
+* __sourceH__ `{number} = -1` ---
 
-* __sourceX__ ---Defaults to `0`.
+* __sourceX__ `{number} = 0` ---
 
-* __sourceY__ ---Defaults to `0`.
+* __sourceY__ `{number} = 0` ---
 
-* __url__ ---Defaults to `''`.
+* __url__ `{string} = ''` ---
 
 ## Methods
 

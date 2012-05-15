@@ -7,7 +7,7 @@
 
 ## Methods
 
-* __remove__
+* __remove__ ---Remove this View from the superview.
 
 * __getHeight__
 	* @return `{number}` ---Returns `this.style.height`.
@@ -17,10 +17,10 @@
 
 * __setData (data)__ ---This needs to be redefined if you
   want to use this data in your view.
-	* @param `{object}` data
+	* @param `{object} data`
 
 * __setPosition (pos)__
-	* @param `{}` pos
+	* @param `{object} pos` ---Object with `x` and `y` properties.
 
 
 ## Properties

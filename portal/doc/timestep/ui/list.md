@@ -8,17 +8,9 @@
 
 ## Options
 
-* __scrollBounds__ `{object}` ---Includes the properties:
-	* @param `{number}` minX
-	* @param `{number}` minY
-	* @param `{number}` maxX
-	* @param `{number}` maxY
-
 * __isFixedSize__ `{boolean}`
 
 * __isTiled__ `{boolean}`
-
-These options are passed along to the `List` created at property `model`:
 
 * __getCell__
 
@@ -44,7 +36,7 @@ These options are passed along to the `List` created at property `model`:
 * __selection__ `{}`
 
 
-# Usage:
+## Usage
 
 Requires a DataSource and Cell.
 
