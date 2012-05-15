@@ -84,7 +84,7 @@ fi
 # And off we go ...
 
 echo "  Copying include files ..."
-cp -r "$INCLUDE_ROOT" "$OUT_ROOT"
+cp -a "$INCLUDE_ROOT" "$OUT_ROOT"
 
 ## Add sidebar navigation to template file
 m4 -P -D sidebar_nav="$CONF_ROOT/sidebar-nav.html" \
@@ -94,7 +94,13 @@ m4 -P -D sidebar_nav="$CONF_ROOT/sidebar-nav.html" \
 convert_api_directory
 
 ## Copy guides
-mkdir "$OUT_ROOT/guides"
+echo "Generating guides ..."
+if [ ! -d "$OUT_ROOT/guides" ]; then
+		mkdir "$OUT_ROOT/guides"
+fi
+if [ -d "$INCLUDE_GUIDES/assets" ]; then
+		cp -a "$INCLUDE_GUIDES/assets" "$OUT_ROOT/assets"
+fi
 convert_guides_directory
 
 ## Cleanup ...
