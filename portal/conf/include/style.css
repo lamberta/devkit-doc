@@ -134,6 +134,10 @@ nav ul li ul li {
 	color: #ff800d;
 }
 
+#quicknav ul li {
+	padding-bottom: 8px;
+}
+
 #quicknav li [indent='H1'] {
 	font-weight: 600;
 }
