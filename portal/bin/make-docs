@@ -98,9 +98,7 @@ echo "Generating guides ..."
 if [ ! -d "$OUT_ROOT/guides" ]; then
 		mkdir "$OUT_ROOT/guides"
 fi
-if [ -d "$INCLUDE_GUIDES/assets" ]; then
-		cp -a "$INCLUDE_GUIDES/assets" "$OUT_ROOT/assets"
-fi
+
 convert_guides_directory
 
 ## Cleanup ...
