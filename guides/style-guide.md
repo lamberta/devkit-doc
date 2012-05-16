@@ -7,6 +7,7 @@ Important classes should have it's own `.md` file. If a class file creates a pri
 ### Heading
 
 Use a heading 1 for class names and wrap them in backticks. Include the full path that the user would need to import them as.
+	
 
 	# `my.class.name`
 
@@ -25,6 +26,7 @@ Next you want to list the chain of inheritence of the class under a heading 2. T
 be in an *ordered* list and should link to it's corresponding class definition page in the docs (if it
 exists).
 
+	
 	## Inheritence
 
 	1. [timestep.View](./timestep-view.html)
