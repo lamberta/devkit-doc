@@ -92,9 +92,9 @@ Include a small description about the code example after a heading 2. Wrap the c
 
 This is a code snippet.
 
-~~~
+&#126;&#126;&#126;
 var x = new my.class.name({optionA: false, optionB: {a: 4}});
 x.getOptionA(false);
-~~~
+&#126;&#126;&#126;
 
 ~~~
