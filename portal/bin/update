@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+DOC_ROOT=$(cd -P $(dirname "$0") && cd ../.. && pwd)
+MAKEDOCS_BIN="$DOC_ROOT/portal/bin/make-docs"
+DOC_USER="doc"
+
+if [ ! -x "$MAKEDOCS_BIN" ]; then
+		echo "Error: Can not find make-docs."
+		exit 1
+fi
+
+if ! id -u "$DOC_USER" > /dev/null 2>&1; then
+    echo "Error: 'doc' user does not exist."
+		exit 1
+fi
+
+#update repo ...
+cd "$DOC_ROOT"
+sudo -u "$DOC_USER" git pull
+
+#generate docs ...
+sudo -u "$DOC_USER" "$MAKE-DOCS"
