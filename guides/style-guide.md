@@ -86,7 +86,7 @@ You may split up options, methods or properties into categories by using a headi
 
 Include a small description about the code example after a heading 2. Wrap the code in three tildas.
 
-~~~
+<pre></code>
 
 ## Usage
 
@@ -96,5 +96,4 @@ This is a code snippet.
 var x = new my.class.name({optionA: false, optionB: {a: 4}});
 x.getOptionA(false);
 &#126;&#126;&#126;
-
-~~~
+</code></pre>
