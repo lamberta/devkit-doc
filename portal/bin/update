@@ -9,6 +9,8 @@ if [ ! -x "$MAKEDOCS_BIN" ]; then
 		exit 1
 fi
 
+
+
 if ! id -u "$DOC_USER" > /dev/null 2>&1; then
     echo "Error: 'doc' user does not exist."
 		exit 1
@@ -19,4 +21,4 @@ cd "$DOC_ROOT"
 sudo -u "$DOC_USER" git pull
 
 #generate docs ...
-sudo -u "$DOC_USER" "$MAKE-DOCS"
+sudo -u "$DOC_USER" "$MAKEDOCS_BIN"
