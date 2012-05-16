@@ -26,7 +26,7 @@ Next you want to list the chain of inheritence of the class under a heading 2. T
 be in an *ordered* list and should link to it's corresponding class definition page in the docs (if it
 exists).
 
-	
+	      
 	## Inheritence
 
 	1. [timestep.View](./timestep-view.html)
