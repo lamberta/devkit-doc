@@ -10,7 +10,7 @@ Use a heading 1 for class names and wrap them in backticks. Include the full pat
 	
 ~~~
 
-	# `my.class.name`
+# `my.class.name`
 ~~~
 
 ### Description
@@ -20,9 +20,9 @@ expain so here.
 
 ~~~
 
-	# `my.class.name`
-	
-	This is an example class description.
+# `my.class.name`
+
+This is an example class description.
 ~~~
 
 ### Inheritence
@@ -33,10 +33,10 @@ exists).
 
 ~~~
 
-	## Inheritence
+## Inheritence
 
-	1. [timestep.View](./timestep-view.html)
-	2. [lib.PubSub](./lib-pubsub.html)
+1. [timestep.View](./timestep-view.html)
+2. [lib.PubSub](./lib-pubsub.html)
 ~~~
 	
 ### Options
@@ -48,11 +48,11 @@ and the value inside the backticks. Add a description about what the option does
 
 ~~~
 
-	## Options
+## Options
 
-	* __optionA__ `{boolean} = true` ---This option does nothing!
-	* __optionB__ `{object}` ---Even more options that do nothing.
-		* __a__ `{number}` ---Demonstrating keys inside an object option. Simple indent.
+* __optionA__ `{boolean} = true` ---This option does nothing!
+* __optionB__ `{object}` ---Even more options that do nothing.
+	* __a__ `{number}` ---Demonstrating keys inside an object option. Simple indent.
 ~~~
 
 ## Methods
@@ -64,11 +64,11 @@ the default value.
 
 ~~~
 
-	## Methods
+## Methods
 
-	* __getOptionA(anArgument)__ ---This is a description.
-		* @param `{boolean} anArgument = true` ---Is this an argument? Yes it is!
-		* @return `{boolean}` ---Return whatever optionA was.
+* __getOptionA(anArgument)__ ---This is a description.
+	* @param `{boolean} anArgument = true` ---Is this an argument? Yes it is!
+	* @return `{boolean}` ---Return whatever optionA was.
 ~~~
 
 If the method has no parameters you may omit the parenthesis in the method signature. If there is no
@@ -88,13 +88,13 @@ Include a small description about the code example after a heading 2. Wrap the c
 
 ~~~
 
-	## Usage
+## Usage
 
-	This is a code snippet.
+This is a code snippet.
 
-	~~~
-	var x = new my.class.name({optionA: false, optionB: {a: 4}});
-	x.getOptionA(false);
-	~~~
+~~~
+var x = new my.class.name({optionA: false, optionB: {a: 4}});
+x.getOptionA(false);
+~~~
 
 ~~~
