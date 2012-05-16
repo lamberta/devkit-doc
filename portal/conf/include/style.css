@@ -151,6 +151,8 @@ nav ul li ul li {
 
 footer {
 	clear: both;
+	text-align: center;
+	font-size: 0.9em;
 }
 
 #main {
@@ -173,8 +175,9 @@ footer {
 
 /* method grouping */
 #main h3 {
-	font-style: italic;
+	margin-bottom: 10px;
 	text-align: right;
+	font-style: italic;
 	color: #63668B;
 	border-bottom: 1px solid #aaa;
 }
