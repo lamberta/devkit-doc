@@ -82,7 +82,9 @@ exports = Class(View, function(supr) {
 	* @param `{View|object} target` ---Will interpolate the appropriate number values of the provided object.
 	* @param `{number} duration` ---Duration of the animation in milliseconds.
 	* @param `{number} transition` ---Type of animation transition. See [`animate` properties](#properties).
-	* @param `{function} onTick` ---
+	* @param `{function|number} onTick` ---A built-in animation, or a callback to control the speed of the transition.
+	    * @param `{number} progress` ---A float value between 0.0 and 1.0 of the current animation progress.
+	    * @returns `{number}` ---A float value for how far the animation transition should be.
 
 * __then (target, duration, transition, onTick)__ --Same as `now()` but will animate after the previous animation is over.
 
@@ -103,7 +105,9 @@ For dealing with views as animation subjects.
 1. [Animator](#animator)
 2. [lib.PubSub](./lib-pubsub.html)
 
-# `Group` 
+# `Group`
+
+A group of styles that animate independently of other styles.
 
 ## Inheritence
 
@@ -123,7 +127,7 @@ For dealing with views as animation subjects.
 * __isActive__ ---
 	* @return `{boolean}`
 
-* __onAnimateFinish (anim)__ --- Deletes the animation and publishes a `'Finish'` event.
+* __onAnimationFinish (anim)__ --- Deletes the animation and publishes a `'Finish'` event.
 
 # `Frame`
 

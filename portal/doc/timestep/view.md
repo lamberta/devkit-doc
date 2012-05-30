@@ -132,6 +132,7 @@
 * __style__ `{timestep.canvas.ViewStyle}` ---All style properties belong here. See `ViewStyle` below.
 
 * __tick__ `{function}` ---A function that is called every tick.
+    * @param `{number} elapsed` ---The number of milliseconds elapsed since the last tick.
   
 * __render__ `{function}` ---Allows a custom rendering function for a view.
 
