@@ -108,6 +108,13 @@ nav ul li ul li {
 	padding-left: 10px;
 }
 
+/* current links */
+nav a.current {
+	font-weight: bold;
+	color: #339;
+	text-decoration: none;
+}
+
 /* total width: 160px */
 #quicknav {
 	float: right;
