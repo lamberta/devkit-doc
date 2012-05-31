@@ -1,5 +1,10 @@
-Generating HTML documentation from the Markdown files.
+Generating documentation from the Markdown files.
 
-Example usage:
-`./bin/make-docs -h`
-Use the defaults: `./bin/make-docs`
+Generate HTML documentation in the `./build` directory:
+`$ ./bin/make-docs`
+
+See options:
+`$ ./bin/make-docs -h`
+
+If you're on the doc server, to avoid permission errors, you'll probably need to use:
+`$ sudo -u doc ./bin/make-docs`
