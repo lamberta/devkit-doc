@@ -82,6 +82,13 @@
 					li.appendChild(a);
 					quicknav.appendChild(li)
 				});
+
+				/* current page
+				 */
+				Array.prototype.slice.call(document.links).forEach(function (l) {
+					if (l.href == window.location.href)
+						l.className = 'current';
+				})
 			};
 		</script>
   </body>
