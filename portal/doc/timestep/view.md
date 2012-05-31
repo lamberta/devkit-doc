@@ -144,6 +144,22 @@
 
 * __needsReflow__ `{boolean}` ---Notifies the need for repositioning.
 
+## Events
+
+### Publish
+
+* __`InputStart`__ ---User has touched the view.
+	* @param `{InputEvent} event`
+	* @param `{Point} point`
+
+* __`InputMove`__ ---User has moved while touching view.
+	* @param `{InputEvent} event`
+	* @param `{Point} point`
+
+* __`InputOut`__ ---User has stopped touching the view.
+	* @param `{InputEvent} event`
+	* @param `{Point} point`
+
 ## Usage
 
 Create two rectangles, one red half transparent and one green fully opaque. Make
