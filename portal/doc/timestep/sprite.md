@@ -37,7 +37,10 @@
 	* @param `{string} name`
 	* @return `{boolean}`
 
-* __pauseAnimation__
+* __pauseAnimation__ ---Deprecated.
+
+* __getPaused__ ---Gets the paused state.
+    * @return `{boolean}`
 
 * __setPaused (isPaused)__ ---Set the paused state.
 	* @param `{boolean} isPaused`
