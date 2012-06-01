@@ -152,12 +152,12 @@ To issue a *pull request* on GitHub, navigate to the
 repository page---make sure you're on the feature branch you
 wish to merge---and click __Pull Request__.
 
-Make sure you:
+Make sure to:
 
-* Enter a meaningful message about your changes.
-* Check the repository:branch *from* and *to* (to change these, click __Change Commits__).
-* Preview.
-* Click __Send Pull Request__
+1. Enter a meaningful message about your changes.
+2. Check the repository:branch *from* and *to* (to change these, click __Change Commits__).
+3. Preview.
+4. Click __Send Pull Request__
 
 
 ## Git Tips
