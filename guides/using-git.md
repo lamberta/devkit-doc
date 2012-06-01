@@ -7,8 +7,7 @@
 Even though the *git utility* has many features, only a few
 commands are needed to start working. And since it's
 a very popular revision control system, there's plenty of
-[documentation](http://git-scm.com/documentation) about it,
-and [GitHub](http://help.github.com/)---the popular
+information about it, and *GitHub*---the popular
 web-based hosting service we use to manage our git projects.
 
 If you have tab-completion set up in your shell, list
@@ -22,6 +21,8 @@ To see a git command's usage:
 
 And to see a git command's manual page:
 
+`$ git help command`<br/>
+or<br/>
 `$ man git-command`
 
 To see the differences between the working branch and the
@@ -45,22 +46,37 @@ on its own, it's worth understanding how these commands work:
 `$ git mv file`<br/>
 `$ git rm file`
 
+#### See also:
+
+* [git-scm.com/documentation](http://git-scm.com/documentation)
+* [help.github.com](http://help.github.com)
+* [gitref.org](http://gitref.org)
+
 
 ## Workflow
-
-### Required reading
-
-* [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
-* [GitHub Help: Pull Requests](http://help.github.com/send-pull-requests/)
   
-### The hard part
+### A reasonable development model
 
 The complications with git are not so much how to use it,
 but how to use it when collaborating with other
-people. Work-flow is not something enforced by the tool, but
+people. Workflow is not something enforced by the tool, but
 by the people using it. As such, check with your project leader
 to make sure everyone is on the same page, obviously, that
 direction supersedes any advice given here.
+
+A popular development model is to reserve the `master` branch
+for *production-ready* releases, and use `develop` as the
+*integration branch*. When `develop` reaches a stable
+point and is ready for release, the branch is merged back into `master`
+and tagged with a release number. Feature branches are
+forked from `develop`; this is where most of the day-to-day
+coding occurs. Hotfixes are forked from `master` and merged
+back into the `master` *and* `develop` branches.
+
+#### See also:
+
+* [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
+
 
 ### Adding a feature
 
@@ -85,6 +101,7 @@ $ git merge myfeature
 # remove the feature branch
 $ git branch -d myfeature
 ~~~
+
 
 ### Working with others
 
@@ -128,6 +145,12 @@ $ git branch -d myfeature
 
 ~~~
 
+#### See also:
+
+* [Remotes](http://help.github.com/remotes/)
+* [Basic Merge Conflicts](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merge-Conflicts)
+
+
 ### Pull requests on GitHub
 
 While the git tool has its own command for code management,
@@ -159,8 +182,104 @@ Make sure to:
 3. Preview.
 4. Click __Send Pull Request__
 
+#### See also:
+
+* [Send Pull Requests](http://help.github.com/send-pull-requests/)
+
 
 ## Git Tips
+
+### Add sections of a file
+
+Running `git add -p <file>` will let you interactively
+choose which parts or the file to add to a commit. This is
+can be helpful when you want to break up multiple additions
+into separate commits, or for testing purposes where you
+want to ignore some isolated changes.
+
+
+### View history
+
+List commits in reverse chronological order:
+
+`$ git log`
+
+List commits and include the diff with each one:
+
+`$ git log -p`
+
+Print each commit on a single line:
+
+`$ git log --pretty=oneline`
+
+Show the commit history of the file:
+
+`$ git blame <file>`
+
+Restrict history of a file to line numbers 20-25:
+
+`$ git blame -L 20,25 <file>`
+
+#### See also:
+
+* [Viewing the Commit History](http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History)
+
+
+### See changes
+
+To see what's been changed but not yet staged:
+
+`$ git diff`
+
+To see what's been staged and will go into the next commit:
+
+`$ git diff --staged`
+
+#### See also:
+
+* [Viewing Your Staged and Unstaged Changes](http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository#Viewing-Your-Staged-and-Unstaged-Changes)
+
+
+### Fixing mistakes
+
+If you've messed up the working tree, but haven't committed
+yet, return to the last committed state with:
+
+`$ git reset --hard HEAD`
+
+If you've committed something you want to undo, you can
+create a new commit that undoes whatever was done by the old
+commit. To do this pass a reference of the bad commit to
+`git revert`. For example, to revert the most recent commit:
+
+`$ git revert HEAD`
+
+#### See also:
+
+* [Undoing Things](http://git-scm.com/book/en/Git-Basics-Undoing-Things)
+
+
+### Ignore files
+
+Often you won't want to track certain files or directories
+in a git repository, such as log and build files. To ignore
+these, create a list of matching file name patterns in a
+`.gitignore` file in a directory of the git tree. You may
+also create a global ignore file as well.
+
+#### See also:
+
+* [Doc: Ignoring Files](http://git-scm.com/book/ch2-2.html#Ignoring-Files)
+* [GitHub: Ignore Files](http://help.github.com/ignore-files/)
+
+
+### GUI
+
+There are a number of third-party utilites for visualizing
+a git repo, but there's also a simple, built-in, tool as well: 
+
+`$ git gui`
+
 
 ### Colors
 
@@ -196,3 +315,15 @@ Here is Billy's `~/.gitconfig`, featuring his famous recipe for git console colo
   changed = green bold
   untracked = cyan
 ~~~
+
+
+### Healthy repo
+
+General repository cleanup helps reduce disk space and
+increase performance by compressing file revisions and
+removing unnecessary files and unreachable objects. `git gc`
+can be run very quickly and is often automatically called by
+some git commands. For a more aggressive, but
+time-consuming, optimization, run:
+
+`$ git gc --aggressive`
