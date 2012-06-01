@@ -89,7 +89,7 @@ the key is the name of the animation and the value is a
 	* @param `{number}` frame
 	* @param `{number}` dt
 
-* __tick (dt)__
+* __tick (dt)__ ---A function that is called every tick. *Note:* if this function is overridden, it must call its super function in order to animate the sprite.
 	* @param `{number}` dt
 	* @return `{number}`
 
