@@ -8,5 +8,3 @@ with the Game Closure terms and way of life.
 
 But before you start hacking away, consult our [Installation Guide](./guides/build-start.html) to get all
 the files you need.
-
-
