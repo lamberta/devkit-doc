@@ -153,6 +153,7 @@ repository page---make sure you're on the feature branch you
 wish to merge---and click __Pull Request__.
 
 Make sure you:
+
 * Enter a meaningful message about your changes.
 * Check the repository:branch *from* and *to* (to change these, click __Change Commits__).
 * Preview.
