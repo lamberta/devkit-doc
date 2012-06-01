@@ -235,6 +235,12 @@ To see what's been staged and will go into the next commit:
 
 `$ git diff --staged`
 
+View the changes between two arbitrary commits:
+
+`$ git diff <commit> <commit>`
+
+If only passed a single commit then it has the same effect as using HEAD instead.
+
 #### See also:
 
 * [Viewing Your Staged and Unstaged Changes](http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository#Viewing-Your-Staged-and-Unstaged-Changes)
