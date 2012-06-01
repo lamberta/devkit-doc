@@ -70,7 +70,7 @@ the key is the name of the animation and the value is a
 * __sheetWidth__ `{number}` ---Full width of the sprite sheet.
 * __sheetHeight__ `{number}` ---Full height of the sprite sheet.
 * __start__ `{number}` ---Index of the sprite to start the animation (from left to right, top to bottom).
-* __end__ `{number}` ---Index of the sprite to end the animation.
+* __end__ `{number}` ---Index of the sprite to end the animation, where `end` >= `start`.
 * __step__ `{number}` ---Amount of ticks or frames inbetween sprite frames.
 * __frames__ `{array}` ---Array of frames. Frames are an array of 2 elements: `[sourceX, sourceY]`. Defaults to `[]`.
 * __front__ `{number}` ---Defaults to `0`. Does nothing?
