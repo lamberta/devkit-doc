@@ -25,7 +25,7 @@ From what I can see, the code doesn't work.
 
 * __id__ ---Universal ID.
 * __name__ `{string}` ---
-* __description__ ---
+* __description__ `{string}` ---
 * __image__
 
 ## Properties
