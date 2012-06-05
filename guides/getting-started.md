@@ -43,8 +43,9 @@ View called `World`. For now let''s start with `Application.js`.
 
 ~~~
 
-//use the SDK import system
 "use import";
+//use the SDK import system
+//this must be the first line in the file
 
 //import the GC namespace
 import GC;
