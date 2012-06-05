@@ -2,8 +2,8 @@
 
 Is a function to animate Views or objects. It interpolates number properties over a given duration and with easing functions.
 
-* __animate (obj, groupId)__ ---
-	* @param `{object} obj`
+* __animate (obj, groupId)__ ---Create an Animator for a View or object. Passing an empty object literal `{}` allows you to perform arbitrary timing.
+	* @param `{View|object} obj`
 	* @param `{number} groupID`
 	* @return `{Animator|ViewAnimator}`
 
@@ -87,6 +87,12 @@ exports = Class(View, function(supr) {
 	    * @returns `{number}` ---A float value for how far the animation transition should be.
 
 * __then (target, duration, transition, onTick)__ --Same as `now()` but will animate after the previous animation is over.
+
+* __now (callback)__ -- Trigger a callback.
+    * @param `{function}` callback
+
+* __then (callback)__ -- Trigger a callback after the previous animation has ended.
+    * @param `{function}` callback
 
 * __debug__ --- Set `_debug` to `true`.
 	* @return `{thisAnimator}`

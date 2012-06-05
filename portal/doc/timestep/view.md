@@ -148,15 +148,19 @@
 
 ### Publish
 
-* __`InputStart`__ ---User has touched the view.
+* __`InputStart`__ ---When the mouse is down or touch has started.
 	* @param `{InputEvent} event`
 	* @param `{Point} point`
 
-* __`InputMove`__ ---User has moved while touching view.
+* __`InputMove`__ ---When the mouse or touch moves on this view.
 	* @param `{InputEvent} event`
 	* @param `{Point} point`
 
-* __`InputOut`__ ---User has stopped touching the view.
+* __`InputOut`__ ---When the mouse or touch moves out of bounds of this view, or has ended.
+	* @param `{InputEvent} event`
+	* @param `{Point} point`
+
+* __`InputSelect`__ ---When the mouse or touch has ended, like a button click.
 	* @param `{InputEvent} event`
 	* @param `{Point} point`
 
