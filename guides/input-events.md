@@ -1,6 +1,12 @@
 # Input Events
 
-## Using the PubSub class for messaging
+## Event object
+
+[`timestep.input.InputEvent`](./timestep-input-inputevent.html)
+
+## Messaging
+
+[`lib.PubSub`](./lib-pubsub.html)
 
 view.subscribe('InputEventType', thisObj, function () {});
 view.publish('InputEventType');
@@ -23,12 +29,7 @@ this.subscribe('InputSelect', function () {});
 Root app:
 GC.app.view.subscribe('InputSelect', function () {});
 
-
-## Event object
-
-`timestep.input.InputEvent`
-
-
 ## Wish list
 
-InputPress --Takes into account InputStart and InputSelect.
+* InputPress --Takes into account InputStart and InputSelect.
+* Multi-touch?
