@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Game Closure SDK: $if(pagetitle)$$pagetitle$$endif$</title>
+		<title>GC Docs: $if(title)$$title$$endif$</title>
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -30,10 +30,6 @@
 		<header>
 			<!--take this message out when docs go public-->
 			<p style="color:#f00; text-align:center;">See a problem? Want to add more detail? Please do <a href="https://github.com/gameclosure/doc/tree/master/portal/doc" target="_blank">here</a>! (Don't worry, we'll clean it up.)</p>
-			
-			$if(title)$
-			<h1 class="title">$title$</h1>
-			$endif$
 		</header>
 
 		m4_include(sidebar_nav)m4_dnl
