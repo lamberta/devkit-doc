@@ -8,26 +8,24 @@
 
 [`lib.PubSub`](./lib-pubsub.html)
 
-view.subscribe('InputEventType', thisObj, function () {});
-view.publish('InputEventType');
+* `view.subscribe('InputEventType', thisObj, function () {});`
+* `view.publish('InputEventType');`
 
 ## Event types
 
-* InputStart (evt, pt)
-* InputOut
-* InputOver
-* InputSelect (evt, pt)
-* InputScroll
-* InputMove
+* `InputStart (evt, pt)`
+* `InputOut`
+* `InputOver`
+* `InputSelect (evt, pt)`
+* `InputScroll`
+* `InputMove`
 
 //events on the first phase of capture/bubble?
-InputStartCapture
+`InputStartCapture`
 
-On view:
-this.subscribe('InputSelect', function () {});
+On view: `this.subscribe('InputSelect', function () {});`
 
-Root app:
-GC.app.view.subscribe('InputSelect', function () {});
+Root app: `GC.app.view.subscribe('InputSelect', function () {});`
 
 ## Wish list
 
