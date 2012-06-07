@@ -1,0 +1,49 @@
+{
+    "android": {
+        "entryPoint": "runtimeNative.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "animations": [], 
+    "appID": "bfce8709740d4b6abafb36bea528d961", 
+    "description": "Kids with jetpacks", 
+    "facebookEnabled": false, 
+    "fonts": [], 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "ios": {
+        "entryPoint": "runtimeNative.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
+    "resources": {}, 
+    "shortName": "jetpacman", 
+    "studio": {
+        "domain": "wee.cat", 
+        "name": "Wee Cat Games", 
+        "stagingDomain": "staging.wee.cat"
+    }, 
+    "supportedOrientations": [
+        "landscape"
+    ], 
+    "targets": {}, 
+    "tileConfig": {
+        "images": [
+            {
+                "filename": "resources/pacman.png", 
+                "groups": 1, 
+                "properties": {}
+            }
+        ], 
+        "tileHeight": 64, 
+        "tileWidth": 64
+    }, 
+    "title": "JetPacMan", 
+    "version": "0.0.5-beta-3"
+}
