@@ -1,4 +1,7 @@
-# `timestep.Sprite`
+# `timestep.OldSprite`
+
+Deprecated. Still in `timestep` since it's used in old
+games. Will probably move it elsewhere.
 
 ## Inheritence
 
