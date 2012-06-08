@@ -87,23 +87,3 @@ sprite.startAnimation('animationNane');
 ## Class Properties
 
 * __allAnimations__ `{object}`
-
-
-
-# `timestep.Group`
-
-## Methods
-
-* __add (sprite)__
-	* @param `{timestep.Sprite} sprite`
-
-* __remove (uid)__
-	* @param `{} uid`
-
-* __pause__
-
-* __resume__
-
-* __stopAnimation__
-
-* __resetAnimation__
