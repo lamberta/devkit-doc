@@ -103,6 +103,11 @@ $ git branch -d myfeature
 ~~~
 
 
+### Update a branch from remote
+
+`$ git pull origin mybranch`
+
+
 ### Working with others
 
 Now we'll look at a more real-life example of adding a new
