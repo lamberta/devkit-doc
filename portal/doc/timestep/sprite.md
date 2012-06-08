@@ -8,12 +8,17 @@ etc.) which themselves are made of multiple *frames*.
 The sprite system grabs images from a given location and
 format. Using images like this:
 
-    directory/spriteName-animationName-0001.png
-	directory/spriteName-animationName-0002.png
+~~~
+
+directory/spriteName-animationName-0001.png
+directory/spriteName-animationName-0002.png
+~~~
 
 To create a new sprite object:
 
-	var sprite = new Sprite({url: 'directory/spriteName'});
+~~~
+var sprite = new Sprite({url: 'directory/spriteName'});
+~~~
 
 The `Sprite` class automatically finds the images associated
 with the sprite and generates a configuartion for each of
@@ -21,8 +26,9 @@ the animations.
 
 To start an animation:
 
-	sprite.startAnimation('animationNane');
-
+~~~
+sprite.startAnimation('animationNane');
+~~~
 
 ## Inheritence
 
