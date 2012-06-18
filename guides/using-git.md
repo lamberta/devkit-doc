@@ -150,6 +150,21 @@ $ git branch -d myfeature
 
 ~~~
 
+### Checking out a remote branch
+
+List remote branches and tracking status:
+
+`$ git remote show origin`
+
+If the remote branch is not listed as `tracked`, then fetch them:
+
+`$ git fetch`
+
+Now checkout the remote branch just like a local branch:
+
+`$ git checkout -b mybranchname origin/branchname`
+
+
 #### See also:
 
 * [Remotes](http://help.github.com/remotes/)
