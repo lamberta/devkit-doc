@@ -1,0 +1,59 @@
+{
+    "android": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "appID": "98a7f53640e0487dae703151facfe1ea", 
+    "facebookEnabled": false, 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "ios": {
+        "entryPoint": "runtimeIOS.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "tealeaf", 
+    "resources": {}, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
+        }, 
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
+        }, 
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
+        }
+    }, 
+    "title": "Isometric Tutorial"
+}

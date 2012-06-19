@@ -103,6 +103,11 @@ $ git branch -d myfeature
 ~~~
 
 
+### Update a branch from remote
+
+`$ git pull origin mybranch`
+
+
 ### Working with others
 
 Now we'll look at a more real-life example of adding a new
@@ -144,6 +149,21 @@ $ git checkout develop
 $ git branch -d myfeature
 
 ~~~
+
+### Checking out a remote branch
+
+List remote branches and tracking status:
+
+`$ git remote show origin`
+
+If the remote branch is not listed as `tracked`, then fetch them:
+
+`$ git fetch`
+
+Now checkout the remote branch just like a local branch:
+
+`$ git checkout -b mybranchname origin/branchname`
+
 
 #### See also:
 
@@ -234,6 +254,12 @@ To see what's been changed but not yet staged:
 To see what's been staged and will go into the next commit:
 
 `$ git diff --staged`
+
+View the changes between two arbitrary commits:
+
+`$ git diff <commit> <commit>`
+
+If only passed a single commit then it has the same effect as using HEAD instead.
 
 #### See also:
 

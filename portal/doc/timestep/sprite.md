@@ -1,134 +1,89 @@
 # `timestep.Sprite`
 
+New and improved version that replaces [`timestep.OldSprite`](./timestep-oldsprite.html).
+
+A `Sprite` consists of multiple *animations* (walk, run,
+etc.) which themselves are made of multiple *frames*.
+
+The sprite system grabs images from a given location and
+format. Using images like this:
+
+~~~
+
+directory/spriteName-animationName-0001.png
+directory/spriteName-animationName-0002.png
+~~~
+
+To create a new sprite object:
+
+~~~
+var sprite = new Sprite({url: 'directory/spriteName'});
+~~~
+
+The `Sprite` class automatically finds the images associated
+with the sprite and generates a configuartion for each of
+the animations.
+
+To start an animation:
+
+~~~
+sprite.startAnimation('animationNane');
+~~~
+
 ## Inheritence
 
-1. [timestep.View](./timestep-view.md)
-2. [lib.PubSub](./lib-pubsub.md)
-
-## Options
-
-* __defaultAnimation__ `{string}` ---The go to animation after other iterations have completed.
-* __animations__`{object}` ---See Animation options below
-* __defaultWidth__ `{number}` ---Defaults to 64.
-* __defaultHeight__ `{number}` ---Defaults to 64.
-* __offsetX__
-* __offsetY__
-
+1. [timestep.ImageView](./timestep-imageview.html)
+2. [timestep.View](./timestep-view.html)
+3. [lib.PubSub](./lib-pubsub.html)
 
 ## Methods
 
-* __getName__
-	* @return `{string}`
-
-* __getFront (width)__
-
-* __addAnimation (name, args)__
-
-* __startAnimation (name, opts)__
+* __startAnimation (name, opts)__ ---Start an animation.
 	* @param `{string} name`
 	* @param `{object} opts`
-		* __iterations__ ` {number}` ---Run the animation a
-          number of times before reverting back to the default animation.
-		* __callback__ `{function}` ---Executed after the iteration switch.
-		* __mirrorHorizontal__ `{boolean}` ---Mirror the sprite animation horizontally.
-		* __mirrorVertical__ `{boolean}` ---Mirror the sprite animation vertically.
+		* __iterations__ `{number} = 1`
+		* __callback__ `{function} = null`   ---Called at end of animation.
+		* __frame__ `{number} = 0` ---Frame to start on.
+		* __randomFrame__ `{boolean} = false` ---Start on random frame.
 
-* __isCurrentAnimation (name)__ ---Determine if the provided animation is the one running.
-	* @param `{string} name`
-	* @return `{boolean}`
+* __stopAnimation__
 
-* __pauseAnimation__ ---Deprecated.
+* __resetAnimation__
 
-* __getPaused__ ---Gets the paused state.
-    * @return `{boolean}`
+* __resetAllAnimations (opts)__
+	* @param `{object} opts`
 
-* __setPaused (isPaused)__ ---Set the paused state.
-	* @param `{boolean} isPaused`
-	* @return `{boolean}`
+* __pause__
 
-* __stopAnimation__ ---Stop the running animation.
+* __resume__
 
+* __setFramerate (fps)__
+	* @param `{number} fps` ---Frames per second.
 
-# `SpriteAnimation`
+* __getFrame (animName, index)__ ---Returns a [`timestep.Image`](./timestep-image.html) for the given
+  animation's frame.
 
-## Animation Options
+* __getFrameCount (animName)__ ---Returns the number of frames in a given aniamtion.
 
-The `animations` object is a collection of `SpriteAnimation`
-objects, each representing a single animation sequence, or
-and array of `timestep.Image` objects. This can be part of
-the `Sprite` parameters during installation, or added with
-its `addAnimation` method. In the constructor animations object,
-the key is the name of the animation and the value is a
-`SpriteAnimation` object.
-
-* __frameRate__ `{number}` ---Defaults to `10`.
-* __imageURL__ `{string}` ---Defaults to `'about:blank'`.
-* __width__ `{number}` ---Width of the sprite.
-* __height__ `{number}` ---Height of the sprite.
-* __spritesWide__ `{number}` ---Amount of sprites make up the width (`sheetWidth / width`).
-* __spritesHigh__ `{number}` ---Amount of sprites make up the height (`sheetHeight / height`).
-* __sheetWidth__ `{number}` ---Full width of the sprite sheet.
-* __sheetHeight__ `{number}` ---Full height of the sprite sheet.
-* __start__ `{number}` ---Index of the sprite to start the animation (from left to right, top to bottom).
-* __end__ `{number}` ---Index of the sprite to end the animation, where `end` >= `start`.
-* __step__ `{number}` ---Amount of ticks or frames inbetween sprite frames.
-* __frames__ `{array}` ---Array of frames. Frames are an array of 2 elements: `[sourceX, sourceY]`. Defaults to `[]`.
-* __front__ `{number}` ---Defaults to `0`. Does nothing?
-* __autoframes__ `{boolean}` ---Defaults to `false`, does nothing?
+* __getGroup (groupId)__
+	* @param `{} groupId`
+	* @return `{}`
 
 
-## Methods
+## Properties
 
-* __getFront (width)__
+* __defaults__ `{object}`
+	* __url__ `{string} = null`
+	* __groupId__ `{string} = 'default'`
+	* __frameRate__ `{number} = 15`
+	* __emitFrameEvents__ `{boolean} = false`
+	* __autoStart__ `{boolean} = false`
+	* __loop__ `{boolean} = true`
 
-* __render (thisArg, view)__
-	* @param `{}` thisArg
-	* @param `{}` view
+## Class Methods
 
-* __reset (frame, dt)__
-	* @param `{number}` frame
-	* @param `{number}` dt
+* __getGroup__
 
-* __tick (dt)__ ---A function that is called every tick. *Note:* if this function is overridden, it must call its super function in order to animate the sprite.
-	* @param `{number}` dt
-	* @return `{number}`
+## Class Properties
 
-
-# Usage
-
-~~~
-
-"use import";
-
-import timestep.View as View;
-import timestep.Sprite as Sprite;
-
-exports = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", arguments);
-
-		var runner = new Sprite({
-			parent: this,
-			defaultAnimation: "idle",
-			width: 34, 
-			height: 86, 
-
-			//sprite animation definitions
-			animations: {
-				//main idle sprite animation
-				idle: {
-					imageURL: "resources/character.png",
-					spritesWide: 6,
-					spritesHigh: 4,
-					start: 12, 
-					end: 17, 
-					width: 34, 
-					height: 86
-				}   
-			}   
-		}); 
-
-		runner.startAnimation("idle");
-	}   
-});
-~~~
+* __allAnimations__ `{object}`

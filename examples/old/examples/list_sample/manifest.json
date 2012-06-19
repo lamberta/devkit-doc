@@ -1,0 +1,68 @@
+{
+    "android": {
+        "entryPoint": "runtimeNative.launchClient", 
+        "flurryKey": "", 
+        "tapjoyDaily": {}, 
+        "tapjoyId": "", 
+        "tapjoyKey": "", 
+        "versionCode": 1
+    }, 
+    "animations": [], 
+    "appID": "e99f5991b64847eb97419e604677c01a", 
+    "description": "Sample app demonstrating how to use a timestep.ui.List", 
+    "facebookEnabled": false, 
+    "fonts": [], 
+    "groups": {}, 
+    "handshakeEnabled": false, 
+    "icons": {}, 
+    "ios": {
+        "entryPoint": "runtimeNative.launchClient", 
+        "flurryKey": "", 
+        "tapjoyId": "", 
+        "tapjoyKey": ""
+    }, 
+    "nativeURLScheme": "listsample", 
+    "resources": {}, 
+    "shortName": "listsample", 
+    "studio": {
+        "domain": "gameclosure.com", 
+        "name": "GameClosure"
+    }, 
+    "supportedOrientations": [
+        "portrait"
+    ], 
+    "targets": {
+        "android": {
+            "embed": [], 
+            "name": "android", 
+            "upload": []
+        }, 
+        "desktop": {
+            "embed": [], 
+            "name": "desktop", 
+            "upload": []
+        }, 
+        "facebook": {
+            "embed": [], 
+            "name": "facebook", 
+            "upload": []
+        }, 
+        "ios": {
+            "embed": [], 
+            "name": "ios", 
+            "upload": []
+        }, 
+        "native-mobile": {
+            "embed": [], 
+            "name": "native-mobile", 
+            "upload": []
+        }, 
+        "native-tablet": {
+            "embed": [], 
+            "name": "native-tablet", 
+            "upload": []
+        }
+    }, 
+    "title": "List Sample", 
+    "version": "0.0.3-beta-87"
+}
