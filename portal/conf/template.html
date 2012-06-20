@@ -11,7 +11,6 @@
 			q { quotes: "“" "”" "‘" "’"; }
 		</style>
 		$endif$
-		<base href="http://doc.gameclosure.com/">
 		<link rel="shortcut icon" href="./include/fav.png">
 		<link rel="stylesheet" href="./include/style.css">
 		<link rel="stylesheet" href="./include/prettify.css">
@@ -29,9 +28,10 @@
 		$endfor$
 
 		<header>
-			<!--take this message out when docs go public-->
-			<p style="color:#f00; text-align:center;">See a problem? Want to add more detail? Please do <a href="https://github.com/gameclosure/doc/tree/master/portal/doc" target="_blank">here</a>! (Don't worry, we'll clean it up.)</p>
+			<h1><img src="include/gclogo.png" alt="Game Closure Documentation"></h1>
 		</header>
+
+		<div id="content">
 
 		m4_include(sidebar_nav)m4_dnl
 
@@ -42,10 +42,14 @@
 		$endfor$
 		</div>
 
-		<aside id="quicknav">
+		<aside id="outer-quicknav">
+		  <div id="quicknav">
 			<h1>QuickNav</h1>
 			<ul></ul>
+		  </div>
 		</aside>
+
+		</div>
 		
 		<footer>
 			&copy; Game Closure

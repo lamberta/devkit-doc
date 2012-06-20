@@ -44,11 +44,9 @@ q:before, q:after {
  */
 
 body {
-  margin: 0 auto;
-  width: 940px;
 	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	line-height: 1.2em;
-	background-color: #eee;
+	background-color: rgb(33, 33, 33);
 }
 
 b, strong, h1, h2, h3, h4, h5, h6 {
@@ -77,15 +75,24 @@ p {
 
 nav {
   float: left;
-  width: 140px;
+  width: 150px;
 	margin-right: 10px;
-	padding: 0 10px 10px 10px;
-	background-color: #aaaaff;
-	border-radius: 8px;
+	padding: 10px 15px 10px;
+	background-color: #58a;
+	font-size: 14px;
+	color: white;
+	border-radius: 5px;
 }
 
 nav a {
-	color: #000;
+	color: #dde;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: #fff;
+	text-decoration: underline;
+	background: #69b;
 }
 
 nav ul {
@@ -99,8 +106,7 @@ nav ul ul {
 /* top sections: api, tutorials */
 nav h1 {
 	display: inline;
-	padding-top: 5px; 
-	//padding: 2px 6px;
+	padding-top: 5px;
 	color: #fff;
 }
 
@@ -118,7 +124,7 @@ nav h3 {
 
 /* second level indentation */
 nav ul li ul li {
-	padding-left: 10px;
+	padding-left: 6px;
 }
 
 /* current links */
@@ -129,14 +135,19 @@ nav a.current {
 }
 
 /* total width: 160px */
-#quicknav {
+#outer-quicknav {
 	float: right;
-	width: 140px;
+	width: 150px;
 	margin: 0 0 0 10px;
+}
+
+#quicknav {
 	padding: 5px;
+	width: 140px;
 	font-size: 0.9em;
 	background-color: #ffdd75;
-	border-radius: 8px;
+	border-radius: 5px;
+	position: fixed;
 }
 
 #quicknav a {
@@ -177,7 +188,37 @@ footer {
 
 #main {
 	float: left;
-	width: 610px;
+	width: 560px;
+	background: #ddd;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+
+#content, footer {
+  width: 940px;
+  margin: 0 auto;
+}
+
+header {
+	background-image: linear-gradient(top, rgb(77,77,77) 30%, rgb(33,33,33) 100%);
+	background-image: -o-linear-gradient(top, rgb(77,77,77) 30%, rgb(33,33,33) 100%);
+	background-image: -moz-linear-gradient(top, rgb(77,77,77) 30%, rgb(33,33,33) 100%);
+	background-image: -webkit-linear-gradient(top, rgb(77,77,77) 30%, rgb(33,33,33) 100%);
+	background-image: -ms-linear-gradient(top, rgb(77,77,77) 30%, rgb(33,33,33) 100%);
+	padding: 10px 0 10px;
+}
+
+header h1 {
+	margin: 0 auto;
+	width: 700px;
+}
+
+.notice { 
+	text-align: center; background: #fc0;
+	padding: 4px;
+	margin: 0 15px;
+	font-size: 0.8em;
+	border-radius: 10px;
 }
 
 /* class name */
