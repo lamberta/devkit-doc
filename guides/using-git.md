@@ -36,6 +36,11 @@ To list branches, or to list *all* branches (including remotes):
 `$ git branch`<br/>
 `$ git branch -a`
 
+To delete a remote branch (after say, your feature request
+has been merged):
+
+`$ git push origin --delete branchname`
+
 Please read the GitHub help for [managing remote branches](http://help.github.com/remotes/);
 it's confusing to see a list of old branches that no one knows anything about.
 
@@ -201,6 +206,12 @@ Make sure to:
 2. Check the repository:branch *from* and *to* (to change these, click __Change Commits__).
 3. Preview.
 4. Click __Send Pull Request__
+
+After your pull request has been accepted and merged, delete
+the feature branch from the remote to cut down the clutter:
+
+`$ git push origin --delete myfeature`
+
 
 #### See also:
 
