@@ -40,8 +40,8 @@ a pertinent directed graph.
 
 ### Level tracking
 
-The original api had these parameters as: *Level (number,
-name). These have been swapped to make the name optional,
+The original api had these parameters as: *Level (name,
+number); but have been swapped to make the name optional,
 but, for now, the old order is still supported for backwards
 compatibility.
 
