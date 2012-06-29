@@ -1,7 +1,7 @@
-# `achievements`
+# `GC.achievements`
 
-This is a singleton instance of `AchievementAPI`, located at `sdk/_api/client/achievements.js`.
-From what I can see, the code doesn't work.
+This is a namespace for adding and querying achievements. A
+game developer specifies achievements in `manifest.json`.
 
 ## Inheritence
 
@@ -9,25 +9,31 @@ From what I can see, the code doesn't work.
 
 ## Methods
 
-* __earn (id, callback)__
-	* @param `{} itemID` ---Item identification.
-	* @param `{function} callback` ---
-	* @return `{}`
+* __get (itemID)__ ---Returns the achievement.
+	1. @param `{string=} itemID` ---Achievement id, optional.
+	2. @return `{*|array}` ---Returns the item, or array of all items.
 
-* __sync__
-	* @param
+* __earn (id, callback)__ ---Sets the `earned` property of an achievement to `true`, and syncs with server. 
+	1. @param `{string|Achievement} itemID` ---Item identification.
+	2. @param `{function=} callback(err, res)` ---If successful, `res` is `{'success': true}`, otherwise,
+      `err` with contain a message why not. Optional.
 
+
+## Events
+
+### Subscribe
+
+* `OnlineStateChanged` ---If online, sync collection. Inherited from `SyncedCollection`.
 
 
 # Achievement
 
-## Options
-
-* __id__ ---Universal ID.
-* __name__ `{string}` ---
-* __description__ `{string}` ---
-* __image__
-
 ## Properties
 
+* __id__ ---Achievement ID.
+* __name__ `{string}` ---Achievement name.
+* __description__ `{string}` ---Description.
+* __image__ `{string}` ---Image URL.
+* __weight__ `{number}`
+* __created__ `{number}` --Timestamp in seconds.
 * __earned__ `{boolean} = false`

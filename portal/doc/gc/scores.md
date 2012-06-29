@@ -1,10 +1,13 @@
 # `GC.scores`
 
+The default global leaderboard records a single high score
+per user per game.
+
 ## Methods
 
 * __get (opts, callback)__
 	1. @param `{object} opts`
-		* __type__ `{string} = 'everyone'` ---Options are `'everyone'`, `'friends'`, or `'me'`.
+		* __type__ `{string} = 'everyone'` ---Options are `'me'`, `'friends'`, or `'everyone'`.
 		* __leaderboard__ `{string} = 'default'`
 	2. @param `{function(err, res)} callback`
 	3. @return `{string|null}` ---Return the leaderboard type or `null`.
@@ -15,7 +18,7 @@
 		* __leaderboard__ `{string} = 'default'` ---Name of the leaderboard to post score to.
 		* __score__ `{number}` ---Score to post.
 		* __data__ `{*}` ---Data to post with score.
-	2. @param `{function} callback(error, response)` ---Callback to run after asynchronous POST operation.
+	2. @param `{function=} callback(err, res)` ---Optional callback to run after asynchronous POST operation.
 
 
 ## Usage:
@@ -32,27 +35,14 @@ GC.scores.post({
 });
 ~~~
 
+
 # `Leaderboard`
-
-## Options
-
-* __id__
-* __name__
-* __description__
-* __me__
-* __friends__
-* __everyone__
 
 ## Properties
 
 * __id__ `{string} = 'default'`
-
 * __name__
-
 * __description__
-
 * __me__
-
 * __friends__
-
 * __everyone__
