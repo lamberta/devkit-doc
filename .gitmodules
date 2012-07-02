@@ -1,0 +1,3 @@
+[submodule "examples/asteroids"]
+	path = examples/asteroids
+	url = git@github.com:gameclosure/Asteroids--.git
