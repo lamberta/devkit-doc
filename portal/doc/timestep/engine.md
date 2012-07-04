@@ -1,4 +1,13 @@
-# `timestep.Application`
+# `timestep.Engine`
+
+The game engine and scene graph manager for the Game Closure
+SDK; it has Canvas and DOM rendering back-ends.
+
+The game engine initializes a number of components,
+including the input and key event listeners, the game loop,
+the view hierarchy, and rendering the scene graph.
+
+A single `timestep.Engine` is instantiated for games at `GC.app.engine`.
 
 ## Inheritence
 
