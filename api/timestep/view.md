@@ -1,273 +1,413 @@
-# `timestep.View`
+# timestep.View
 
-## Inheritence
+The base display object.
 
+## Class: timestep.View
+
+#### Inherits
 1. [lib.PubSub](./lib-pubsub.html)
 
-## Methods
 
-### Scene Graph
+### new timestep.View ([options])
+1. `options {object}` ---Optional.
+	* `id {string}`
+	* `tag {string}`
+	* `filters {}`
+	* `circle {boolean} = false`
+	* `infinite {boolean} = false`
+	* `canHandleEvents {boolean} = true`
+	* `superview`
+	* `rotation {number} = 0`
 
-* __getSubviews__ ---Returns children. (Defined in `timestep.canvas.View`.)
-	* @return `{array}`
+### view.style
 
-* __getSubview (i)__ ---Returns the child view at a given index.
-	* @param `{number} i` ---Index.
-	* @return `{View}` ---Index.
+Property containing the view's style defintions. [timestep.ViewStyle](#class-timestep.viewstyle)
 
-* __addSubview (view)__ ---Add a child view. (Defined on `timestep.canvas.View`.)
-	* @param `{View} view`
-	* @return `{View}`
+### view.getApp ()
+1. Return: `{timestep.Application}`
 
-* __removeSubview (view)__ ---Remove a child view. (Defined in `timestep.canvas.View`.)
-	* @param `{View} view`
+Returns the root application for this view: `GC.app.engine`.
 
-* __removeAllSubviews__ ---Removes all children.
+### view.getSuperview ()
+1. Return: `{View}`
 
-* __getSuperview__ ---Returns parent view. (Defined in `timestep.canvas.View`.)
-	* @return `{View}` The parent view.
+Returns the parent view of this view.
 
-* __removeFromSuperview__ ---Remove this view from parent.
+### view.getParents ()
+1. Return: `{array}`
 
-* __getParents__ ---Returns parent and all relatives to the top of the scene graph.
-	* @return `{array}`
+Returns an array of all ancestors of the current view to the
+scene graph root.
 
-* __getApp__ ---Returns `GC.app.engine`.
-	* @return `{View}`
+### view.getSubview (i)
+1. `id {number}`
+2. Return: `{View}`
+
+Return a subview at the given index.
+
+### view.getSubviews ()
+1. Return: `{array}`
+
+Returns an array of all subviews.
+
+### view.addSubview (view)
+1. `view {View}`
+2. Return: `{View}` ---Returns the given view.
+
+Add a view as a child of this view.
+
+### view.removeSubview (view)
+1. `view {View}`
+
+Removes a child view from this view.
+
+### view.removeAllSubviews ()
+
+Removes all child views from this view.
+
+### view.removeFromSuperview ()
+
+Removes this view from its parent view.
+
+### Callback Handler: view.buildView
+
+Called before the first render of the view. Since a view
+will have it's dimensions set when this called, subview
+creation should be put in here since their dimensions will
+be dependent on their parent.
+
+### view.needsRepaint ()
+
+Notifies the renderer that the view needs to be repainted next tick.
+
+### view.needsReflow ()
+
+Notifies the need for repositioning.
+
+### view.needsSort ()
+
+Notifies the need for sorting views.
+
+### view.canHandleEvents (handlep)
+1. `handlep {boolean}`
+
+Set if a view will handle events or not.
+
+### view.getInput ()
+1. Return: `{InputHandler}`
+
+Return the input handler of a view.
+
+### view.isInputOver ()
+1. Return `{boolean}`
+
+Check if an input event is over a view.
+
+### view.getInputOverCount ()
+1. Return: `{number}`
+
+Returns a count of how many input events are over a view.
+
+### view.startDrag (options)
+1. `options {object}`
+	* `inputStartEvt {InputEvent}`
+	* `radius {number} = 0`
+
+Start responding to an input event by dragging the view.
+
+### view.isDragging ()
+1. Return: `{boolean}`
+
+Indicate if the view is being dragged.
+
+### Event: \'InputOver\', callback (over, overCount, atTarget)
+1. `over`
+2. `overCount {number}`
+3. `atTarget`
+
+### Event: \'InputOut\', callback (over, overCount, atTarget)
+1. `over`
+2. `overCount {number}`
+3. `atTarget`
+
+### Event: \'DragStart\', callback (dragEvent)
+1. `dragEvent {InputEvent}`
+
+### Event: \'Drag\', callback (dragEvent, moveEvent, delta)
+1. `dragEvent {InputEvent}`
+2. `moveEvent {InputEvent}`
+3. `delta {number}`
+
+### Event: \'DragStop\', callback (dragEvent, selectEvent)
+1. `dragEvent {InputEvent}`
+2. `selectEvent {InputEvent}`
+
+### view.localizePoint (point)
+1. `point {math2D.Point}`
+2. Return `{math2D.Point}` ---Returns the given point, with updated values.
+
+Convert a point to it’s local position relative to this view.
+
+### view.getPosition ([relativeTo])
+1. `relativeTo {View}` ---Optional.
+2. Return: `{object}`
+	* `x {number}`
+	* `y {number}`
+	* `rotation {number}`
+	* `width {number}`
+	* `height {number}`
+	* `scale {number}`
+
+Get position of a view relative to a superview. If
+`relativeTo` is not provided, get the position relative to
+the top-most superview (the root of the scence graph.).
+
+### view.containsLocalPoint (point)
+1. `point {Point}` ---A point being an object with `x` and `y` numeric properties.
+2. Return: `{boolean}`
+
+Determine if the given point is contained by the view.
+
+### view.getBoundingShape ()
+1. Return: `{Rect}` or `{Circle}`, the shape defined when the view was created.
+
+Get the bounding shape for a view.
+
+### view.getRelativeRegion (region, parent)
+1. `region {Rect}`
+2. `parent {View}`
+3. Return `{Rect}`
+
+Return the location of a rectangle region in a parent's coordinate space.
+
+### view.getFilters ()
+1. Return: `{array}`
+
+Return an array of filters attached to a view.
+
+### view.addFilter (filter)
+1. `filter {Filter}`
+
+Adds a filter to this view. Only one filter of each type can
+exist on a view.
+
+### view.removeFilter (type)
+1. `type {string}`
+
+Remove a named filter from this view.
+
+### view.animate (style, duration, easing)
+1. `style {}`
+2. `duration {}`
+3. `easing {}`
+4. Return:
+
+Subject to change with the animation api.
+
+### view.getAnimation (groupID)
+1. `groupID {number}`
+2. Return: `{}`
+
+Subject to change with the animation api.
+
+### view.toString()
+1. Return: `{string}`
+
+### view.getTag()
+1. Return: `{string}`
+
+Return a readable tag for a view.
+
+### view.show()
+
+Make the view visible, trigger a repaint.
+
+### view.hide()
+
+Make the view invisible, trigger a repaint.
 
 
-### Events
-
-* __getInput__ ---Grab the InputEvent instance.
-	* @return `{timestep.input.InputEvent}`
-
-* __isInputOver__ ---If the mouse is over the view.
-	* @return `{boolean}`
-
-* __onEventPropagate (evt, pt, atTarget)__ ---Should be private. Allows construction of meta-events. ??
-	* @param `{event} evt`
-	* @param `{point} pt`
-	* @param `{boolean} atTarget`
-
-* __canHandleEvents (handleEventsp)__ ---Set if a view can handle events. Odd name.
-	* @param `{boolean} handleEventsp`
-
-* __startDrag__ ---Start the drag by assigning event handlers on the views.
-	* @param `{object} opts` 
-		* @param `{timestep.input.InputEvent} opts.inputStartEvent` ---Event that triggers the starts the drag.
-
-* __isDragging__ ---Is the view currently being dragged.
-	* @return `{boolean}`
-
-* __focus__ ---Change the focus to this view. Will execute the `onBlur` event on the current focused view and the `onFocus` event on the new focused view.	
-	* @return `{thisObj}`
-
-* __onFocus__ ---Called when the whole application is focused.
-
-* __onBlur__ ---Called when the application loses focus.
 
 
+## Class: timestep.ViewStyle
 
-### Geometry
+Style definitions in `view.style`.
 
-* __containsLocalPt (pt)__ ---Determine if the given point is contained by the view.
-	* @param `{point} pt` ---Object containing x and y properties.
-	* @return `{boolean}`
+### style.x
+1. `{number} = 0`
 
-* __localizePt (pt)__ ---Convert a point to it's local position relative to this view.
-	* @param `{point} pt` ---Point to localize.
+### style.y
+1. `{number} = 0`
 
-* __getPosition (relativeTo)__ ---Get position of the view relative a superview or by default the top-most superview (rootview).
-	* @param `{View} relativeTo` ---Get position relative to a specific superview.
-	* @return `{Rect}`
+### style.anchorX
+1. `{number} = 0`
 
-* __getBoundingShape__ ---Return a Shape object that represents the view.
-	* @return `{Rect|Circle}`
+The x position of the anchor point for rotation.
 
-* __getRelativeRegion (region, parent)__ ---Return location or rectangle in parent space.
-	* @param `{Rect} region`
-	* @param `{view} parent`
-	* @return `{Rect}`
+### style.anchorY
+1. `{number} = 0`
+
+The y position of the anchor point.
+
+### style.width
+1. `{number}`
+
+Defaults to parent `width` value.
+
+### style.height
+1. `{number}`
+
+Defaults to parent `height` value.
+
+### style.widthPercentage
+1. `{number}`
+
+Defaults to `__onResize` value.
+
+### style.heightPercentage
+1. `{number}`
+
+Defaults to `__onResize` value.
+
+### style.scale
+1. `{number} = 1`
+
+Increase or decrease the size of the view.
+
+### style.rotation
+1. `{number} = 0`
+
+Rotation.
+
+### style.radius
+1. `{number}` (read-only)
+
+The radius.
+
+### style.visible
+1. `{boolean} = true`
+
+If the view is shown or hidden.
+
+### style.opacity
+1. `{number} = 1`
+
+Transparency of the view.
+
+### style.zIndex
+1. `{number} = 0`
+
+The higher the number the closer to the top.
+
+### style.shadowColor
+1. `{string} = 'black'`
+
+Shadow color of the view.
+
+### style.clip
+1. `{boolean} = false`
+
+View and children get clipped to parent.
+
+### style.backgroundColor
+1. `{string}`
+
+Background color of the view.
+
+### style.layout
+1. `{string} = 'relative'`
+
+### style.direction
+1. `{string} = 'down'`
+
+### style.flex
+1. `{number} = 0`
+
+### style.align
+1. `{string} = 'start'`
+
+### style.selfAlign
+1. `{}`
+
+### style.distribute
+1. `{string} = 'start'`
+
+### style.rows
+1. `{number} = 0`
+
+### style.columns
+1. `{number} = 0`
+
+### style.rowSpan
+1. `{number} = 0`
+
+### style.colSpan
+1. `{number} = 0`
+
+### style.expandX
+1. `{boolean} = false`
+
+### style.expandY
+1. `{boolean} = false`
 
 
-### Filters
+### style.update (style)
+1. `style {ViewStyle}`
 
-* __getFilters__ ---
-	* @return `{object}`
+Set the view's style.
 
-* __addFilter (filter)__ ---
-	* @param `{} filter`
+### style.copy ()
+1. `style {ViewSyle}`
 
-* __removeFilter (type)__ ---
-	* @param `{} type`
-
-
-### Animations
-
-* __animate (style, duration, easing)__ ---
-	* @return ---Calls `getAnimation`.
-
-* __getAnimation (groupID)__ ---
-	* @param `{} groupID`
-	* @return ---An animation object?
+Returns a copy of the current style.
 
 
-### Misc.
+### Class Property: ViewStyle.keys
+1. `{object}`
 
-* __show__ ---Make the view visible.
-
-* __hide__ ---Make the view hidden.
-
-* __toString__ ---Defined in `timestep.canvas.View`.
-	* @return `{string}`
-
-* __getTag__ ---
-	* @return `{string}`
+Object containing the supported style properties.
 
 
-## Properties
 
-* __uid__ `{string}` ---Unique identifier. Used internally
-
-* __style__ `{timestep.canvas.ViewStyle}` ---All style properties belong here. See `ViewStyle` below.
-
-* __tick__ `{function}` ---A function that is called every tick.
-    * @param `{number} elapsed` ---The number of milliseconds elapsed since the last tick.
-  
-* __render__ `{function}` ---Allows a custom rendering function for a view.
-
-* __buildView__ `{function}` ---Called just before the first render call.
-
-* __needsRepaint__ `{boolean}` ---Notifies the renderer that the view needs to be repainted next tick.
-
-* __needsSort__ `{boolean}` ---Notifies the need for sorting views.
-
-* __needsReflow__ `{boolean}` ---Notifies the need for repositioning.
-
-## Events
-
-### Publish
-
-* __`InputStart`__ ---When the mouse is down or touch has started.
-	* @param `{InputEvent} event`
-	* @param `{Point} point`
-
-* __`InputMove`__ ---When the mouse or touch moves on this view.
-	* @param `{InputEvent} event`
-	* @param `{Point} point`
-
-* __`InputOut`__ ---When the mouse or touch moves out of bounds of this view, or has ended.
-	* @param `{InputEvent} event`
-	* @param `{Point} point`
-
-* __`InputSelect`__ ---When the mouse or touch has ended, like a button click.
-	* @param `{InputEvent} event`
-	* @param `{Point} point`
-
-## Usage
+## Usage: Nested views
 
 Create two rectangles, one red half transparent and one green fully opaque. Make
 the red rectangle sit on top of the green using `zIndex`.
 
 ~~~
+var DoubleRect = Class(timestep.View, function (supr) {
+	//called when an object is instantiated
+	this.init = function (opts) {
+		supr(this, 'init', arguments);
 
-"use import";
-
-import timestep.View as View;
-
-exports = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", arguments);
-
-		//draw me a red rectangle!
-		var redRect = new View({
-			parent: this,
+		var redRect = new timestep.View({
+			superview: this,
 			opacity: 0.5,
-			backgroundColor: "#FF0000",
+			backgroundColor: '#ff0000',
 			width: 100,
 			height: 100,
 			zIndex: 2
 		}); 
 
-		//draw me a green rectangle!
-		var greenRect = new View({
-			parent: this,
+		var greenRect = new timestep.View({
+			superview: this,
 			opacity: 0.8,
-			backgroundColor: "#00FF00",
+			backgroundColor: '#00ff00',
 			width: 100,
 			height: 100,
 			x: 80
-		}); 
-	}   
+		});
+	}
 });
+
+var rects = new DoubleRect();
 ~~~
 
-# `timestep.ViewStyle`
-
-Style definitions in `view.style`.
-
-## Properties
-
-* __x__ `{number} = 0` 
-
-* __y__ `{number} = 0`
-
-* __anchorX__ `{number} = 0` ---X position of the anchor point for rotation.
-
-* __anchorY__ `{number} = 0` ---Y position of the anchor point.
-
-* __width__ `{number}` ---Defaults to parent `width` value.
-
-* __height__ `{number}` ---Defaults to parent `height` value.
-
-* __widthPercentage__ `{number}` ---Defaults to `__onResize` value.
-
-* __heightPercentage__ `{number}` ---Defaults to `__onResize` value.
-
-* __scale__ `{number} = 1` ---Increase or decrease the size of the view.
-
-* __r__ `{number} = 0` ---Rotation. Bad name.
-
-* __radius__ `{number}` ---*Read only*
-
-* __visible__ `{boolean} = true` ---If the view is shown or hidden.
-
-* __clip__ `{boolean} = false` ---View and children get clipped to parent.
-
-* __opacity__ `{number} = 1` ---Transparency of the view.
-
-* __zIndex__ `{number} = 0` ---The higher the number the closer to the top.
-
-* __backgroundColor__ `{string}` ---Background color of the view.
-
-* __shadowColor__ `{string} = 'black'` ---Shadow color of the view.
-
-	
-## Methods
-
-* __update (style)__ ---Set the view's style.
-	* @param `{ViewStyle} style`
-
-* __copy__ ---Returns a copy of the current style.
-	* @return `{ViewStyle}`
-
-* __updateRadius__ ---Private??
-	* @return `{number}`
-
-* __clearCache__ ---Clears the style cache.
-
-### Class Properties
-
-* __keys__ `{object}` ---Object containing the supported style properties.
-
-## Usage
+## Usage: Modify a view's style
 
 Create a view and change the background to blue. Scale it to half the original size.
 
 ~~~
-
-"use import";
-
 import timestep.View as View;
 
 exports = Class(View, function(supr) {
@@ -275,7 +415,7 @@ exports = Class(View, function(supr) {
 		supr(this, "init", arguments);
 
 		//modify the ViewStyle properties
-		this.style.backgroundColor = "#0000FF";
+		this.style.backgroundColor = '#0000FF';
 		this.style.scale = 0.5;
 	}   
 });
