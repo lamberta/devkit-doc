@@ -1,47 +1,39 @@
-# `timestep.ui.List`
+# timestep.ui.List
 
-## Inheritence
+## Class: timestep.ui.List
 
-1. [timestep.ScrollView](./timestep-scrollview.html)
-2. [timestep.View](./timestep-view.html)
-3. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.ScrollView](./timestep-scrollview.html)
+     2. [timestep.View](./timestep-view.html)
+     3. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+### new timestep.ui.List ([options])
+1. `options {object}`
+	* `isFixedSize {boolean}`
+	* `isTiled {boolean}`
+	* `getCell`
+	* `sorter`
+	* `selectable`
+	* `dataSource`
 
-* __isFixedSize__ `{boolean}`
+### list.addCell (cell)
+1. `cell {timestep.ui.Cell}`
 
-* __isTiled__ `{boolean}`
+### list.setMaxY (maxY)__
+1. `maxY {number}`
 
-* __getCell__
+### list.model
+1. `{squill.models.List}`
 
-* __sorter__
-
-* __selectable__
-
-* __dataSource__
-
-## Methods
-
-* __addCell (cellView)__
-	* @param `{timestep.ui.Cell}` cellView
-
-* __setMaxY (maxY)__
-	* @param `{number}` maxY
-
-
-## Properties
-
-* __model__ `{squill.models.List}` --From [squill.models.List](./squill-models-list.html)
-
-* __selection__ `{}`
+### list.selection
+1. `{}`
 
 
-## Usage
+## Example: Create a list
 
-Requires a DataSource and Cell.
+Requires a data source and cell.
 
 ~~~
-
 var list = new timestep.ui.List({
 	parent: this.view,
 	dataSource: GC.contacts.getDataSource(),

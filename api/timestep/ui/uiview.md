@@ -1,33 +1,26 @@
-# `timestep.ui.UIView`
+# timestep.ui.UIView
 
-## Inheritence
+## Class: timestep.ui.UIView
 
-1. [timestep.View](./timestep-view.html)
-2. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.View](./timestep-view.html)
+     2. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+### new timestep.ui.UIView ([options])
+1. `options {object}`
+	* `insetX`
+	* `insetY`
+	* `centerX`
+	* `centerY`
+	* `widthPercent`
+	* `heightPercent`
 
-* __insetX__
+### view.wrapReflow ()
 
-* __insetY__
+### view.computeWidth (parentWidth)
+1. `parentWidth {number}`
+2. Return: `{number}`
 
-* __centerX__
-
-* __centerY__
-
-* __widthPercent__
-
-* __heightPercent__
-
-
-## Methods
-
-* __wrapReflow__
-
-* __computeWidth (parentWidth)__
-	* @param `{number}` parentWidth
-	* @return `{number}`
-
-* __computeHeight (parentHeight)__
-	* @param `{number}` parentHeight
-	* @return `{number}`
+### view.computeHeight (parentHeight)
+1. `parentHeight {number}`
+2. Return: `{number}`

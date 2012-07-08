@@ -1,34 +1,41 @@
-# `timestep.ui.Cell`
+# timestep.ui.Cell
 
-## Inheritence
+## Class: timestep.ui.Cell
 
-1. [timestep.View](./timestep-view.html)
-2. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.View](./timestep-view.html)
+     2. [lib.PubSub](./lib-pubsub.html)
 
-## Methods
+### new timestep.ui.Cell ([options])
 
-* __remove__ ---Remove this View from the superview.
+### cell.remove ()
 
-* __getHeight__
-	* @return `{number}` ---Returns `this.style.height`.
+Remove this View from the superview.
 
-* __getWidth__
-	* @return `{number}` ---Returns `this.style.width`.
+### cell.getHeight ()
+1. Return: `{number}`
 
-* __setData (data)__ ---This needs to be redefined if you
-  want to use this data in your view.
-	* @param `{object} data`
+Returns `this.style.height`.
 
-* __setPosition (pos)__
-	* @param `{object} pos` ---Object with `x` and `y` properties.
+### cell.getWidth ()
+1. Return: `{number}`
 
+Returns `this.style.width`.
 
-## Properties
+### cell.setData (data)
+1. `data {object}`
 
-* __model__ `{squill.models.Cell}` ---[`squill.models.Cell`](./squill-models-cell.html).
+This needs to be redefined if you  want to use this data in your view.
 
+### cell.setPosition (pos)
+1. `pos {object}`
 
-## Messages
+Object with `x` and `y` properties.
 
-`Recycle` ---When `this.model` receives a `Recycle` event, this
-`Cell` is removed from it's superview.
+### cell.model
+1. `{squill.models.Cell}`
+
+### Event: \'Recycle\'
+
+When `this.model` receives a `'Recycle'` event, this `Cell`
+is removed from it's superview.
