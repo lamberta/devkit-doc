@@ -4,9 +4,8 @@ The base display object.
 
 ## Class: timestep.View
 
-#### Inherits
-1. [lib.PubSub](./lib-pubsub.html)
-
+Inherits
+:    1. [lib.PubSub](./lib-pubsub.html)
 
 ### new timestep.View ([options])
 1. `options {object}` ---Optional.
@@ -369,7 +368,7 @@ Object containing the supported style properties.
 
 
 
-## Usage: Nested views
+## Example: Nested views
 
 Create two rectangles, one red half transparent and one green fully opaque. Make
 the red rectangle sit on top of the green using `zIndex`.
@@ -403,7 +402,7 @@ var DoubleRect = Class(timestep.View, function (supr) {
 var rects = new DoubleRect();
 ~~~
 
-## Usage: Modify a view's style
+## Example: Modify a view's style
 
 Create a view and change the background to blue. Scale it to half the original size.
 
