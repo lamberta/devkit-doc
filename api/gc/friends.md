@@ -1,26 +1,30 @@
-# `GC.friends`
+# GC.friends
 
+## Class: Friend
 
+### friend.update (details)
+1. @param `{object}`
+	* `user`
+	* `id`
+	* `favorite`
 
-# `Friend`
+### friend.getName ()
+1. Return: `{string}`
 
-## Methods
+Returns a user's name.
 
-* __update (details)__
-	1. @param `{object}`
-	   * __user__
-	   * __id__
-	   * __favorite__
+### friend.isFavorite ()
+1. Return: `{boolean}`
 
-* __getName__ ---Returns a user's name.
-	1. @return `{string}`
+Is the user a favorite?
 
-* __isFavorite__ ---Is the user a favorite?
-	1. @return `{boolean}`
+### friend.setFavorite (isFav [, callback])
+1. `isFav {boolean}`
+2. `callback {function(err, res)}` ---Optional.
 
-* __setFavorite (isFav, callback)__ ---Sets which friends are favorite.
-	1. @param `{boolean} isFav`
-	2. @param `{function=} callback(err, res)` ---Optional callback used to catch an error.
+Sets which friends are favorite.
 
-* __remove (callback)__ ---Removes the friend from your friend list.
-	1. @param `{function} callback(err, res)`
+### friend.remove (callback)
+1. @param `{function} callback(err, res)`
+
+Removes the friend from your friend list.

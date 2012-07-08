@@ -1,88 +1,85 @@
-# `GCDataSource`
+# GC.GCDataSource
 
-This class is an alias for `squill.models.DataSource`.
+## Class: GC.GCDataSource
 
-## Inheritence
+Inherits
+:    1. squill.models.DataSource
+     2. [squill.models.BasicDataSource](./squill/models/basicdatasource.html)
+     3. [lib.PubSub](./lib/pubsub.html)
 
-1. squill.models.DataSource
-2. [squill.models.BasicDataSource](./squill/models/basicdatasource.html)
-3. [lib.PubSub](./lib/pubsub.html)
-
-## Options
-
-* __key__
-* __channel__
-* __hasRemote__
-* __sorter__
-
-
-## Methods
-
-* __onMessage (data)__
-	* @param `{object}` data ---`data.type` can be `'UPDATE'` or `'REMOVE'`.
-
-* __signalUpdate (type, iten, id)__
-	* @param `{string}` type ---Can be `'UPDATE'` or `'REMOVE'`.
-	* @param  `{}` item
-	* @param `{}` id
-
-* __add (item)__
-	* @param `{object}` item
-	* @return `{this}`
-
-* __remove (id)__
-	* @param `{}` id
-	* @return `{this}`
-
-* __keepOnly (list)__
-	* @param `{}` list
-
-* __clear__
-
-* __getCount__
-	* @return `{number}` ---Return `this.length`.
-
-* __setSorter (sorter)__
-	* @return `{this}`
-
-* __contains (id)__
-	* @paramn `{string}` id
-	* @return `{boolean}`
-
-* __getKey__
-	* @return `{}`
-
-* __get (id)__
-	* @param `{string}` id
-	* @return `{object|null}`
-
-* __getItemForIndex (index)__
-	* @param `{number}` index
-	* @return `{object|null}`
-
-* __sort__
-
-* __forEach (callback, thisArg)__
-	* @param `{function}` callback(object, number)
-	* @param `{object}` thisArg
-
-* __toJSON__
-	* @return `{object}` ---Not sure how this is JSON, should be a string.
-
-* __fromJSON (data)__
-	* @param `{object}` data
-
-* __beginChanges__
-
-* __saveChanges__
-
-* __load__
+### new GC.GCDataSource ([options])
+1. `options {object}`
+	* `key`
+	* `channel`
+	* `hasRemote`
+	* `sorter`
 
 
-## Messages
+### datasource.onMessage (data)
+1. `data {object}`
+	* `type` ---Can be `'UPDATE'` or `'REMOVE'`.
 
-* `'Update'`
-* `'Remove'`
-* `'Remote'`
+### datasource.signalUpdate (type, iten, id)
+1. `type {string}` ---Can be `'UPDATE'` or `'REMOVE'`.
+2. `item {}`
+3. `id {}`
 
-## Usage
+### datasource.add (item)
+1. `item {object}`
+2. Return: `{this}`
+
+### datasource.remove (id)
+1. `id {}`
+2. Return: `{this}`
+
+### datasource.keepOnly (list)
+1. `list {}`
+
+### datasource.clear ()
+
+### datasource.getCount ()
+1. Return: `{number}`
+
+Return `this.length`.
+
+### datasource.setSorter (sorter)
+1. @return `{this}`
+
+### datasource.contains (id)
+1. `id {string}`
+2. Return: `{boolean}`
+
+### datasource.getKey ()
+1. Return: `{}`
+
+### datasource.get (id)
+1. `id {string}`
+2. Return: `{object|null}`
+
+### datasource.getItemForIndex (i)
+1. `i {number}`
+2. Return: `{object|null}`
+
+### datasource.sort ()
+
+### datasource.forEach (callback, thisArg)
+1. `callback {function(elem, i)}`
+2. `thisArg {object}`
+
+### datasource.toJSON ()
+1. Return: `{string}`
+
+### datasource.fromJSON (data)
+1. `data {object}`
+
+### datasource.beginChanges ()
+
+### datasource.saveChanges ()
+
+### datasource.load ()
+
+### Event: \'Update\'
+
+### Event: \'Remove\'
+
+### Event: \'Remote\'

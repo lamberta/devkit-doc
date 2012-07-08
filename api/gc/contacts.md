@@ -1,83 +1,84 @@
-# `GC.Contacts`
+# GC.contacts
+
+### GC.contacts.getDataSource ()
+
+Returns the underlying `DataSource` for contacts.
+
+### GC.contacts.sync (callback)
+1. `callback {function}`
+
+### GC.contacts.loadContactPhotos ()
+
+### GC.contacts.showPicker ()
+
+### GC.contacts.get (nativeID)
+
+### GC.contacts.getAll (callback)
+1. `{function} callback`
+
+*Deprecated*
+
+### GC.contacts.withServerContacts (callback)
+1. `callback {function}`
+
+### GC.contacts.find (data, callback)
+1. `data {}` ---Contact.
+2. `callback {function(err, contact)}`
+
+Asynchronously return a contact.
+	
+### GC.contacts.getRandom ()
+1. Return: `{Contact}`
+
+Return a random contact.
 
 
-## Functions
+## Class: Contact
 
-* __getDataSource__ ---Returns the underlying `DataSource` for contacts.
+### contact.userID
+1. `{} = null`
 
-* __sync (callback)__
-	1. @param `{function} callback`
+### contact.id
 
-* __loadContactPhotos__
+### contact.name
 
-* __showPicker__
+### contact.email
 
-* __get (nativeID)__
+### contact.phones
 
-* __getAll (callback)__
-	1. @param `{function} callback`
+### contact.wasInvited
+1. `{boolean} = false`
 
-* __withServerContacts (callback)__
-	1. @param `{function} callback`
+### contact.update (details)
+1. `details {object}`
+	* `user`
+	* `name`
+	* `email`
+	* `phones`
 
-* __find (data, callback)__ ---Asynchronously return a contact.
-	1. @param `{} data` ---Contact.
-	2. @param `{function} callback(error, contact)` ---Synchronous version is deprecated.
+### contact.isGCUser ()
+1. Return: `{boolean}`
 
-* __getRandom__ --Return a random contact.
-	1. @return `{}`
+### contact.getImage ([img])
+1. `img {timestep.Image}` ---Optional.
+2. Return: `{timestep.Image}`
 
-* __getImageForPhone (phoneNumber)__ ---*Deprecated* and non-functional.
+### contact.getPublicData (callback)
+1. `callback {function}`
 
+Asynchronous.
 
-## Messages
+### contact.updateFromServer (details)
+1. `details {object}`
+	* `user`
+	* `email`
 
-### Subscribe
+Preserves native phone numbers, but replace everything else with server details.
 
-* __pagehide__
+### contact.updateFromNative (details)
+1. `details {object}`
+	* `id`
+	* `phones`
+	* `name`
 
-* __pageshow__
-
-
-# `Contact`
-
-## Properties
-
-* __userID__ `{} = null`
-* __id__
-* __name__
-* __email__
-* __phones__
-* __wasInvited__ `{boolean} = false`
-
-## Methods
-
-* __update (details)__
-	1. @param `{object} details`
-		* __user__
-			* __name__
-		* __name__
-		* __email__
-		* __phones__
-
-* __isGCUser__
-	1. @return `{boolean}`
-
-* __getImage (timestepImg)__
-	1. @param `{timestep.Image=}`
-	2. @return `{timestep.Image}`
-
-* __getPublicData (callback)__ ---Asynchronous.
-	1. @param `{function}`
-
-* __updateFromServer (details)__ ---Preserves native phone
-  numbers, but replace everything else with server details.
-	1. @param `{object} details`
-		* __user__
-		* __email__
-
-* __updateFromNative (details)__ ---Update the native contact ID and phone number.
-	1. @param `{object} details`
-		* __id__
-		* __phones__
-		* __name__
+Update the native contact ID and phone number.

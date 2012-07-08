@@ -68,7 +68,7 @@ Removes all child views from this view.
 
 Removes this view from its parent view.
 
-### Callback Handler: view.buildView
+### Callback handler: view.buildView
 
 Called before the first render of the view. Since a view
 will have it's dimensions set when this called, subview

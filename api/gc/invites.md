@@ -1,33 +1,26 @@
-# `invites`
+# GC.invites
 
+### GC.invites.getInvites (callback)
+1. `callback {function}`
 
+### GC.invites.createInvite (opts, callback)
+1. `opts {object}`
+2. `callback {function}`
 
-## Methods
+### GC.invites.sendNotification (opts, callback)
+1. `opts {object}`	
+	* `service {string}` ---Can be `'facebook'` or `'phone'`.
+	* `user {object}`
+	* `phone {object}`
+	* `number {string}`
+	* `url`
+	* `message`
+	* `smsMessage`
+	* `includeLink`
+	* `isInvite`
+2. `callback {function}`
 
-* __getInvites (callback)__
-	* @param `{function} callback`
-
-* __createInvite (opts, callback)__
-	* @param `{object} opts`
-	* @param `{function} callback`
-
-* __sendNotification (opts, callback)__
-	* @param `{object} opts`
-	
-		* __service__ ---Can be `'facebook'` or `'phone'`.
-		* __user__ `{object}`
-			* __phone__ `{object}`
-				* __number__ `{string}`
-		* __url__
-		* __message__
-		* __smsMessage__
-		* __includeLink__
-		* __isInvite__
-	
-	* @param `{function} callback`
-
-* __send (opts, callback)__
-  * @param `{object} opts`
-	  * __isInvite__ `{boolean} = true`
-	  * __url__
-
+### GC.invites.send (opts, callback)
+1. `opts {object}`
+	* `isInvite {boolean} = true`
+	* `url`

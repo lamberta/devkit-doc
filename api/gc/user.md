@@ -1,63 +1,63 @@
-# `GC.user`
+# GC.user
 
-## Properties
+### GC.user.accounts
 
-* __accounts__
+### GC.user.clear ()
 
-## Methods
+### GC.user.uploadPhoto (imgData [, callback])
+1. `imgData {string}` ---PNG image in base64 encoding.
+2. `callback {function(err, res)}` ---Optional.
 
-* __clear__
+### GC.user.setDetails (details)
 
-* __uploadPhoto (imgData, callback)__
-	1. @param `{string} imgData` ---PNG image in base64 encoding.
-	2. @param `{function} callback(err, res)` ---Optional callback.
+Not implemented.
 
-* __setDetails (details)__ ---Not implemented.
+### GC.user.setPublicData (data, callback)
+1. `data {object}`
+2. `callback {function}`
 
-* __setPublicData (data, callback)__
-	1. @param `{object} data`
-	2. @param `{function} callback`
+### GC.user.getPublicData (callback)
+1. `callback {function(err, res)}`
 
-* __getPublicData (callback)__
-	1. @param `{function} callback(err, res)`
+### GC.user.setName (name, callback)
+1. `name {string}` ---User name.
+2. `callback {function(err, res)}`
+   
+### GC.user.getName (callback)
+1. `callback {function(err, res)}`
 
-* __setName (name, callback)__
-	1. @param `{string} name` ---User name.
-	2. @param `{function} callback(err, res)`
+### GC.user.hasAccount (type)
+1. `type {}`
+2. Return: `{}`
 
-* __getName (callback)__
-	1. @param `{function} callback(err, name)`
+### GC.user.getAccount (type)
+1. `type {}`
+2. Return: `{}`
 
-* __hasAccount (type)__
-	1. @param `{} type`
-	2. @return `{}`
+Same as `GC.user.hasAccount`.
 
-* __getAccount (type)__ ---Same as `hasAccount`.
-	1. @param `{} type`
-	2. @return `{}`
+### GC.user.withAuth ()
 
-* __withAuth__
+### GC.user.logout (callback)
+1. `callback {function}` ---I don't see where this parameter is used.
 
-* __logout (callback)__
-	1. @param `{function} callback` ---I don't see where this parameter is used.
+### GC.user.getSession (callback)
+1. `callback {function}`
 
-* __getSession (callback)__
-	1. @param `{function} callback`
+### GC.user.createSessionFrame ()
 
-* __createSessionFrame__
+### GC.user.saveSessionToken (token, callback)
+1. `token {}`
+2. `callback {function(err, obj)}`
 
-* __saveSessionToken (token, callback)__
-	1. @param `{} token`
-	2. @param `{function} callback(err, object)`
+### GC.user.setPlayer (player)
+1. `player {}`
 
-* __setPlayer (player)__
-	1. @param `{} player`
+### GC.user.getPlayer ()
+1. Return: `{}`
 
-* __getPlayer__
-	1. @return `{}`
+### GC.user.setUserID (id)
+1. `id {}`
 
-* __setUserID (userID)__
-	1. @param `{}`
-
-* __getUserID ()__
-	1. @return `{}`
+### GC.user.getUserID ()
+1. Return: `{}`

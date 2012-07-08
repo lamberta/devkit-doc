@@ -1,115 +1,109 @@
-# `GC`
+# GC
 
 The singleton that does it all. Defined in `sdk/_api/client/init.js`.
 We got here through `desktop.html`, which calls
 `runtimeBrowser.launchClient`, which imports `init.js`.
 
+Inherits
+:    1. [shared.Common](#shared.common) ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
+     2. [lib.PubSub](./lib-pubsub.html)
 
-## Inheritence
+### GC.getPlayer ()
 
-1. [shared.Common](#shared.common) ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
-2. [lib.PubSub](./lib-pubsub.html)
+### GC.buildApp (entry)
+1. `entry {}`
+2. Return: `{}` ---Returns `this.app`.
 
-## Methods
+This is where the user's `shared.Application` is
+instantiated and its entry point is called, because it
+inherits from `client/Application`, which runs the `entry`
+after all the preloading. In `launchClient.js` this is
+called as `GC.buildApp('launchUI')`.
 
-* __log__ ---Deprecated
-* __flushLogs__ ---Deprecated
-* __error__ ---Deprecated
-* __track__ ---Deprecated
-* __getPlayer__
+### GC.isServer ()
+1. Return: `{boolean}` ---Hardcoded to return `false` ??
 
-* __buildApp (entry)__ ---This is where the user's
-  `shared.Application` is instantiated and its entry point
-  is called, because it inherits from `client/Application`,
-  which runs the `entry` after all the preloading. In
-  `launchClient.js` this is called as
-  `GC.buildApp('launchUI')`.
-	* @param `{}` entry
-	* @return `{}` --returns `this.app`
+### GC.isClient ()
+1. Return: `{boolean}` ---Hardcoded to return `true` ??
 
-* __isServer__
-	* @return `{boolean}` ---Hardcoded to return `false` ??
+### GC.isConnected ()
+1. Return `{}`
 
-* __isClient__
-	* @return `{boolean}` ---Hardcoded to return `true` ??
+### GC.getConnection ()
+1. Return `{}`
 
-* __isConnected__
-	* @return `{}`
+### GC.startMultiplayerGame (opts, callback)
+1. `opts {object}`
+2. `callback {function(err, reponse}` ---Not sure if the callback is always passed these.
 
-* __getConnection__
-	* @return `{}`
+Async call.
+ 
+### GC.clearServerTimeout (id, callback)
+1. `id {}`
+2. `callback {function}`
 
-* __startMultiplayerGame (opts, cb)__ ---Async call.
-	* @param `{object}` opts
-	* @param `{function(err, reponse}` cb ---Not sure if the callback is always passed these.
+### GC.clearServerTimeout (id, callback)
+1. `id {}`
+2. `callback {function}`
 
-* __clearServerTimeout (timeoutID, cb)__
-	* @param `{}` timeoutID
-	* @param `{function}`  cb
+### GC.startNativeUpsell ()
 
-* __clearServerTimeout (timeoutID, cb__
-	* @param `{}` timeoutID
-	* @param `{function}`  cb
+### GC.cancelNativeUpsell ()
 
-* __startNativeUpsell__ ---Uses `track`, which I thought was deprecated.
+### GC.startCrossPromo (appID)
 
-* __cancelNativeUpsell__
+### GC.openAppStore ()
 
-* __startCrossPromo (appID)__
+### GC.hidePreloader ()
 
-* __openAppStore__
+### GC.getPushNotifications ()
 
-* __hidePreloader__
+### GC.Application
 
-* __getPushNotifications__
+### GC.ui
+1. `{UI}`
 
+### GC.overlay
+`{OverlayAPI}`
 
-## Properties
+### GC.isOnline
+`{boolean}`
 
-* __Application__
-* __ui__ `{UI}`
-* __overlay__ `{OverlayAPI}`
-* __invites__ `{Invites}`
-* __contacts__ `{Contacts}`
-* __user__ `{User}`
-* __track__ `{object}` ---From `.tracker`, I think this is deprecated?
+### GC.facebookApp
+`{object|undefined}`
 
+### GC.isNative
+`{boolean}`
 
-* __achievements__
-* __gifts__
-* __scores__ `{Scores}`
-* __feed__ `{Feed}`
-* __coins__ `{Coins}`
+### GC.isIOS
+`{boolean|undefined}` ---Depends on `isNative` being `true`.
 
-* __isOnline__ `{boolean}`
-* __facebookApp__ `{object|undefined}`
+### GC.isAndroid
+`{boolean|undefined}` ---Depends on `isNative` being `true`.
 
-* __isNative__ `{boolean}` ---
-* __isIOS__ `{boolean|undefined}` ---Depends on `isNative` being `true`.
-* __isAndroid__ `{boolean|undefined}` ---Depends on `isNative` being `true`.
-* __isMobileBrowser__ `{boolean|undefined}`
-* __isUIWebView__
-* __isDesktop__ `{boolean|undefined}`
-* __isFacebook__ `{boolean|undefined}`
+### GC.isMobileBrowser
+`{boolean|undefined}`
 
+### GC.isUIWebView
 
-## Messages
+### GC.isDesktop
+`{boolean|undefined}`
 
-### Publish
+### GC.isFacebook
+`{boolean|undefined}`
 
-* __Show__
-* __AfterShow__
-* __Hide__
-* __AfterHide__
-* __OnlineStateChanged__
-* __PushNotificationReceived__ ---First attempts to publish `'__internal_push_notification'`,
-  then if that isn't handled, published this one.
+### Event: \'Show\'
 
+### Event: \'AfterShow\'
 
-# `shared.Common`
+### Event: \'Hide\'
 
-This is not a public class.
+### Event: \'AfterHide\'
 
-## Properties
+### Event: \'OnlineStateChanged\'
 
-* __env__ `{string}` ---Values can be `'server'`, `'browser'`, `'ios'`, or `'android'`.
+### Event: \'PushNotificationReceived\'
+
+First attempts to publish
+`'__internal_push_notification'`,then if that isn't handled,
+published this one.

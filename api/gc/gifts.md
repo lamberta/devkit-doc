@@ -1,31 +1,29 @@
-# `gifts`
+# GC.gifts
 
-This is a singleton instance of `GiftAPI`, located at `sdk/_api/client/gifts.js`.
+Inherits
+:    1. [SyncedCollection](./gc-synced-collection.html)
 
-## Inheritence
-
-1. [SyncedCollection](./gc-synced-collection.html)
-
-## Methods
-
-* __send (opts, callback)__
-	* @param `{object}`
-	
-		* __giftID__ `{string}`
-		* __target__ `{object}`
-		
-			* __userID__ `{string}` ---If `userID` is
-              provided, make asynchronous PUT request and run callback parameter..
-	
-	* @param `{function}`
+### GC.gifts.send (opts, callback)
+1. `opts {object}`
+	* `giftID {string}`
+	* `target {object}`	
+	* `userID {string}` ---If provided, make asynchronous PUT request and run callback parameter.
+2. `callback {function}`
 
 
-# Gift
+## Class: Gift
 
-## Options
+### gift.id
 
-* __id__ ---Universal ID.
-* __name__ `{string}` ---
-* __description__ `{string}`---
-* __image__
-* __data__ `{object} = {}`
+Universal ID.
+
+### gift.name
+1. `{string}`
+
+### gift.description
+1. `{string}`
+
+### gift.image
+
+### gift.data
+1. `{object} = {}`

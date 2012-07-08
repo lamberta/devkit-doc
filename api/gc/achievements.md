@@ -1,39 +1,60 @@
-# `GC.achievements`
+# GC.achievements
 
 This is a namespace for adding and querying achievements. A
 game developer specifies achievements in `manifest.json`.
 
-## Inheritence
+Inherits
+:    1. [SyncedCollection](./gc-synced-collection.html)
 
-1. [SyncedCollection](./gc-synced-collection.html)
+### GC.achievements.get (id)
+1. `id {string}` ---Achievement ID.
+2. Return: `{Achievement}` ---Returns the item.
 
-## Methods
+Returns an achievement.
 
-* __get (itemID)__ ---Returns the achievement.
-	1. @param `{string=} itemID` ---Achievement id, optional.
-	2. @return `{*|array}` ---Returns the item, or array of all items.
+### GC.achievements.get ()
+1. Return `{array}`
 
-* __earn (id, callback)__ ---Sets the `earned` property of an achievement to `true`, and syncs with server. 
-	1. @param `{string|Achievement} itemID` ---Item identification.
-	2. @param `{function=} callback(err, res)` ---If successful, `res` is `{'success': true}`, otherwise,
-      `err` with contain a message why not. Optional.
+Returns an array of all achievements.
 
+### GC.achievements.earn (id [, callback])
+1. `id {string|Achievement}` ---Achievement ID..
+2. `callback {function(err, res)}` ---Optional.
 
-## Events
+Set the `earned` property of an achievement to `true`, then
+sync with server.
 
-### Subscribe
-
-* `OnlineStateChanged` ---If online, sync collection. Inherited from `SyncedCollection`.
+If provided a callback, on success `res` is `{'success': true}`, otherwise, `err` with contain a message why not.
 
 
-# Achievement
+## Class: Achievement
 
-## Properties
+### achievement.id
 
-* __id__ ---Achievement ID.
-* __name__ `{string}` ---Achievement name.
-* __description__ `{string}` ---Description.
-* __image__ `{string}` ---Image URL.
-* __weight__ `{number}`
-* __created__ `{number}` --Timestamp in seconds.
-* __earned__ `{boolean} = false`
+Achievement ID.
+
+### achievement.name
+`{string}`
+
+Achievement name.
+
+### achievement.description
+`{string}`
+
+Description.
+
+### achievement.image
+`{string}`
+
+Image URL.
+
+### achievement.weight
+`{number}`
+
+### achievement.created
+1. `{number}`
+
+Timestamp in seconds.
+
+### achievement.earned
+1. `{boolean} = false`
