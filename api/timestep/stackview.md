@@ -1,40 +1,44 @@
-# `timestep.StackView`
+# timestep.StackView
 
-## Inheritence
+## Class: timestep.StackView
 
-1. [timestep.ui.UIView](./timestep-ui-uiview.html)
-2. [timestep.View](./timestep-view.html)
-3. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.ui.UIView](./timestep-ui-uiview.html)
+     2. [timestep.View](./timestep-view.html)
+     3. [lib.PubSub](./lib-pubsub.html)
 
-## Methods
+### new timestep.StackView ([options])
+1. `options {object}`
 
-* __getCurrentView__
-	* @return `{View}`
+### stackview.getCurrentView ()
+1. Return: `{View}`
 
-* __hasView (view)__
-	* @param `{View}` view
-	* @return `{boolean}`
+### stackview.hasView (view)
+1. `view {View}`
+2. Return: `{boolean}`
 
-* __push (view, dontAnimate)__
-	* @param `{View}` view
-	* @param `{boolean}` dontAnimate
-	* @return `{View}` ---The pushed view.
+### stackview.push (view, dontAnimate)
+1. `view {View}`
+2. `dontAnimate {boolean}`
+3. Return: `{View}` ---The pushed view.
 
-* __pop (dontAnimate)__
-	* @param `{boolean}` dontAnimate
-	* @return `{View}`
+### stackview.pop (dontAnimate)
+1. `dontAnimate {boolean}`
+2. Return: `{View}`
 
-* __remove (view)__
-	* @param `{View}` view
+### stackview.remove (view)
+1. `view {View}`
 
-* __popAll (dontAnimate)__ ---Removes all views; returns nothing.
+### stackview.popAll (dontAnimate)
+1. `dontAnimate {}`
+
+Removes all views; returns nothing.
 
 
-## Messages
+### Event: \'ViewWillAppear\', callback ()
 
-### Publish
+### Event: \'ViewDidAppear\', callback ()
 
-* `'ViewWillAppear'`
-* `'ViewDidAppear'`
-* `'ViewWillDisappear'`
-* `'ViewDidDisapear'`
+### Event: \'ViewWillDisappear\', callback ()
+
+### Event: \'ViewDidDisapear\'

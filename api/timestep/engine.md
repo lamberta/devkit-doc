@@ -1,4 +1,4 @@
-# `timestep.Engine`
+# timestep.Engine
 
 The game engine and scene graph manager for the Game Closure
 SDK; it has Canvas and DOM rendering back-ends.
@@ -9,101 +9,85 @@ the view hierarchy, and rendering the scene graph.
 
 A single `timestep.Engine` is instantiated for games at `GC.app.engine`.
 
-## Inheritence
+## Class: timestep.Engine
 
-1. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+### new timestep.Engine ([options])
+1. `options {object}`
+	* `width {number} = device.width`
+	* `height {number} = device.width`
+	* `alwaysRepaint {boolean} = false`
+	* `clearEachFrame {boolean} = false`
+	* `view {} = null`
+	* `showFPS {boolean} = false`
+	* `dtFixed {number} = 0`
+	* `dtMinimum {number} = 0`
+	* `keyListenerEnabled {boolean} = true`
+	* `continuousInputCheck {boolean} = true` ---(if on mobile)
+	* `repaintOnEvent {boolean} = true`
+	* `mergeMoveEvents {boolean} = false`
 
-* __width__: `[device.width]`
+### engine.updateOpts (opts)
+1. `opts {object}`
 
-* __height__: `[device.width]`
+### engine.supports (key)
+1. `key {}`
+2. Return: `{}`
 
-* __alwaysRepaint__: `[false]`
+### engine.getInput ()
+1. Return: `{}`
 
-* __clearEachFrame__: `[false]`
+### engine.getEvents ()
+1. Return: `{}`
 
-* __view__: `[null]`
+### engine.getKeyListener ()
+1. Return: `{}`
 
-* __showFPS__: `[false]`
+### engine.getCanvas ()
+1. Return: `{}`
 
-* __dtFixed__: `[0]`
+### engine.getViewCtor ()
+1. Return: `{View}`
 
-* __dtMinimum__: `[0]`
+Returns the actual timestep.View constructor.
 
-* __keyListenerEnabled__: `[true]`
+### engine.getView ()
+1. Return `{View}` ---This view.
 
-* __continuousInputCheck__: `[true]` (if on mobile)
+### engine.setView (view)
+1. `view {}`
+2. Return: `{this}`
 
-* __repaintOnEvent__: `[true]`
+### engine.show ()
+1. Return: `{this}`
 
-* __mergeMoveEvents__: `[false]`
+### engine.hide ()
+1. Return: `{this}`
 
+### engine.pause ()
 
-## Methods
+### engine.resume ()
 
-* __updateOpts (opts)__
-	* @param `{object}`
+### engine.startLoop ()
 
-* __supports (key)__
-	* @param `{}` key
-	* @return `{}`
+### engine.stopLoop (dtMin)
+1. `dtMin {number}`
+2. Return: `{this}`
+  
+### engine.doOnTick (callback)
+1. `callback {function}`
 
-* __getInput__
-	* @return `{}`
+### engine.render ()
 
-* __getEvents__
-	* @return `{}`
+### engine.needsRepaint ()
 
-* __getKeyListener__
-	* @return `{}`
+### Event: \'Tick\', callback ()
 
-* __getCanvas__
-	* @return `{}`
+Emitted each `Timer.onTick`.
 
-* __getViewCtor__
-	* @return `{View}` --Returns the actual timestep.View constructor.
+## Class Method: timestep.Engine.get ()
+1. Return: `{Application}`
 
-* __getView__
-	* @return `{View}` ---This view
-
-* __setView (view)__
-	* @param `{}` view
-	* @return `{this}`
-
-* __show__
-	* @return `{this}`
-
-* __hide__
-	* @return `{this}`
-
-* __pause__
-
-* __resume__
-
-* __startLoop__
-
-* __stopLoop (dtMin)__
-	* @param `{number}` dtMin
-	* @return `{this}`
-
-* __doOnTick (callback)__
-	* @param `{function}` callback
-
-* __render__
-
-* __needsRepaint__
-
-
-## Messages
-
-### Publish
-
-* `'Tick'` ---Emitted each `Timer.onTick`.
-	* @param `{number}` dt
-
-
-## Class Methods
-
-* `get` ---Returns the instance of `GC.app.engine`
-	* @return `{Application}`
+Returns the instance of `GC.app.engine`

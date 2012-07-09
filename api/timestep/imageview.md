@@ -1,108 +1,126 @@
-# `timestep.ImageView`
+# timestep.ImageView
 
-## Inheritence
+## Class: timestep.ImageView
 
-1. [timestep.View](./timestep-view.html)
-2. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.View](./timestep-view.html)
+     2. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+### new timestep.ImageView ([options])
+1. `options {object}`
+	* `image {string|timestep.Image} = false` ---Image to render.
+	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `scaleMethod {string} = false`
 
-* __image__ {string|timestep.Image} --- Image to render. Defaults to `false`.
+### imageview.getImage ()
+1. Return: `{timestep.Image}`
 
-* __autoSize__ {boolean} ---Stretch the image to the View dimensions if `false`. Use the image
-dimensions if `true`. Defaults to `false`.
+### imageview.setImage (img [, opts])
+1. `img {timestep.Image}`
+2. `opts {object}` ---Optional.
+	* `image {string|timestep.Image} = false` ---Image to render.
+	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `scaleMethod {string} = false`
 
-* __scaleMethod__ {string} ---Defaults to `false`.
+Set the image for the ImageView.
+
+### imageview.setImage (url [, opts])
+1. `url {string}`
+2. `opts {object}` ---Optional.
+	* `image {string|timestep.Image} = false` ---Image to render.
+	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `scaleMethod {string} = false`
+
+Set the image for the ImageView.
+
+### Callback handler: imageview.doOnLoad
+
+### imageview.autoSize (method, url, width, height)
+1. `method {string}` ---Options: `'none'`, `'fit'`, `'proportional'`, and `'resize'`.
+2. `url {string}`
+3. `width {number}`
+4. `height {number}`
+
+### imageview.getOrigWidth ()
+1. Return `{number}`
+
+Returns the image width.
+
+### imageview.getOrigHeight ()
+1. Return: `{number}`
+
+Returns the image height.
 
 
-## Methods
+## Class: timestep.Image
 
-* __getImage__ ---
-	* @return `{timestep.Image}`
+### new timestep.Image ([options])
+1. `options {object}`
+	* `scale {boolean} = false`
+	* `sourceW {number} = -1`
+	* `sourceH {number} = -1`
+	* `sourceX {number} = 0`
+	* `sourceY {number} = 0`
+	* `url {string}`
 
-* __setImage (img, opts)__ ---Set the image for the ImageView.
-	* @param `{string|timestep.Image} img` ---If a string is passed, it will create a new `Image` instance. Otherwise it will use the `Image` passed.
-	* @param `{object}` opts ---See above Options
+### image.setSrcImg (srcImg)
+1. `srcImg {Image}`
 
-* __doOnLoad__ ---
+### image.setUrl (url)
+1. `url {string}`
 
-* __autoSize (method, url, width, height)__ ---
-	* @param `{string`} method ---Options: 'none', 'fit', 'proportional', 'resize'<br/>
-	* @param `{string}` url<br/>
-	* @param `{number}` width<br/>
-	* @param `{number}` height
+### image.getUrl ()
 
-* __getOrigW__ ---
-	* @return `{number}` ---The image width.
+### image.getOrigW
 
-* __getOrigH__ ---
-	* @return `{number}` ---The image height.
+### image.getOrigH ()
+
+### image.setSourceX (x)
+1. `x {number}`
+
+### image.setSourceY (y)
+1. `y {number}`
+
+### image.setSourceW (w)
+1. `w {number}`
+
+### image.setSourceH (h)
+1. `h {number}`
+
+### image.getSource ()
+
+### image.getWidth ()
+
+### image.getBounds ()
+
+### image.getMap ()
+
+Same as `getBounds`.
+
+### image.setBounds (x, y, w, h)
+1. `x {number}`
+2. `y {number}`
+3. `w {number}`
+4. `h {number}`
+
+### Callback handler: image.doOnLoad
+
+### image.isReady ()
+
+### image.isLoaded ()
+
+Same as `isReady`.
+
+### image.getImageData ()
+
+### image.setImageData ()
+
+### image.destroy ()
 
 
-# `timestep.Image`
-
-## Options
-
-* __scale__ `{boolean} = false` ---
-
-* __sourceW__ `{number} = -1` ---
-
-* __sourceH__ `{number} = -1` ---
-
-* __sourceX__ `{number} = 0` ---
-
-* __sourceY__ `{number} = 0` ---
-
-* __url__ `{string} = ''` ---
-
-## Methods
-
-* __setSrcImg (srcImg)__ ---
-
-* __setUrl (url)__ ---
-
-* __getUrl__ ---
-
-* __getOrigW__ ---
-
-* __getOrigH__ ---
-
-* __setSourceW (w)__ ---
-
-* __setSourceH (h)__ ---
-
-* __setSourceX (x)__ ---
-
-* __setSourceY (y)__ ---
-
-* __getSource__ ---
-
-* __getWidth__ ---
-
-* __getBounds__ ---
-
-* __getMap__ ---Same as `getBounds`.
-
-* __setBounds (x, y, w, h)__ ---
-
-* __doOnLoad__ ---
-
-* __isReady__ ---
-
-* __isLoaded__ ---Same as `isReady`.
-
-* __getImageData__ ---
-
-* __setImageData__ ---
-
-* __destroy__
-
-# Usage
+## Example: Create an ImageView
 
 ~~~
-
-"use import";
-
 import timestep.View as View;
 import timestep.ImageView as ImageView;
 

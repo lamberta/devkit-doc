@@ -1,45 +1,50 @@
-# `timestep.Sound`
+# timestep.Sound
 
-## Inheritence
+## Class: timestep.Sound
 
-1. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+## new timestep.Sound ([options])
+1. `options {object}`
+	* `path {string}` ---Directory where the sound files exist. This builds the path to the sound files.
+	* `map {object}` ---Map where key is the sound name and the value is an object of options.
+	* `sources {array}` ---List of sources that will be preloaded. Default is the path + sound name + type.
+	* `loop {boolean}` ---Continue looping the sound.
+	* `background {boolean}` ---Background sound. Will loop forever.
+	* `volume {number}` ---Volume of the sound between `0.0` and `1.0`.
 
-* __path__ `{string}` ---Directory where the sound files exist. This builds the path to the sound files.
+### sound.addSound (name, opts)
 
-* __map__ `{object}` ---Map where key is the sound name and the value is an object of options.
-	
-	* __sources__ `{array}` ---List of sources that will be preloaded. Default is the path + sound name + type.
+Create a sound from a name and some options. See the above [options](#options).
 
-	* __loop__ `{boolean}` ---Continue looping the sound.
+### sound.setMuted (muted)
+1. `muted {boolean}`
 
-	* __background__ `{boolean}` ---Background sound. Will loop forever.
+Set the mute state on all the sounds.
 
-	* __volume__ `{number}` ---Volume of the sound between `0.0` and `1.0`.
+### sound.setVolume (name, volume)
+1. `name {string}` ---Sound name given in the options when created.
+2. `volume {number}` ---Value of the volume between `0.0` and `1.0`.
 
-## Methods
+Set the volume of a specific sound.
 
-* __addSound (name, opts)__ ---Create a sound from a name and some options. See the above [options](#options).
+### sound.play (name)
+1. `name {string}` ---Sound name to play.
 
-* __setMuted (muted)__ ---Set the mute state on all the sounds.
-	* @param `{boolean} muted` ---Boolean value to set the state.
+Play a previosly created sound.
 
-* __setVolume (name, volume)__ ---Set the volume of a specific sound.
-	* @param `{string} name` ---Sound name given in the options when created.
-	* @param `{number} volume` ---Value of the volume between `0.0` and `1.0`.
+### sound.pause (name)
+1. `{string} name` ---Sound name to pause.
 
-* __play (name)__ ---Play a previosly created sound.
-	* @param `{string} name` ---Sound name to play.
+Pause a previously created sound.
 
-* __pause (name)__ ---Pause a previously created sound.
-	* @param `{string} name` ---Sound name to pause.
+### sound.playBackgroundMusic (name)
+1. `name {string}` ---Name of the background sound to play.
 
-* __playBackgroundMusic (name)__ ---Play a background sound in the background. Stop any previous background sounds.
-	* @param `{string} name` ---Name of the background sound to play.
+Play a background sound in the background. Stop any previous
+background sounds.
 
-* __pauseBackgroundMusic__ ---Pause the currently playing background sound. Only one background sound can play at a time.
+### sound.pauseBackgroundMusic ()
 
-## Usage
-
-
+Pause the currently playing background sound. Only one background sound can play at a time.

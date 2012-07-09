@@ -3,109 +3,127 @@
 View to scroll itself and subviews. Supports
 drag through user input.
 
-## Inheritence
+## Class: timestep.ScrollView
 
-1. [timestep.View](./timestep-view.html)
-2. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.View](./timestep-view.html)
+     2. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+### new timestep.ScrollView ([options])
+1. `options {object}`
+	* `fullWidth {number} = 0` ---Does nothing?
+	* `fullHeight {number} = 0` ---Does nothing?
+	* `offsetX {number} = 0` ---Offset X position.
+	* `offsetY {number} = 0` ---Offset Y position.
+	* `scrollX {boolean} = true` ---Scroll along the X axis.
+	* `scrollY {boolean} = true` ---Scroll along the Y axis.
+	* `clip {boolean} = true` ---Hide anything that is outside of the view boundary.
+	* `bounce {boolean} = true` ---Bounce effect when scrolling.
+	* `drag {boolean} = true` ---Allow the user to drag the view around.
+	* `inertia {boolean} = true` ---Inertia scrolling.
+	* `dragRadius {number} = 10` ---Radius between dragging start and move.
+	* `scrollBounds {object}` ---Boundary of scroll.
+		* `minX {number}` ---minimum X position.
+		* `minY {number}` ---minimum Y position.
+		* `maxX {number}` ---maximum X position.
+		* `maxY {number}` ---maximum Y position.
 
-* __fullWidth__ `{number} = 0` ---Does nothing?
+### scrollview.getStyleBounds ()
+1. Return: `{object}`
+	* `minX {number}`
+	* `maxX {number}`
+	* `minY {number}`
+	* `maxY {number}`
 
-* __fullHeight__ `{number} = 0` ---Does nothing?
+Return the style boundary object.
 
-* __offsetX__ `{number} = 0` ---Offset X position.
+### scrollview.getOffset ()
+1. Return `{Point}`
 
-* __offsetY__ `{number} = 0` ---Offset Y position.
+Returns a point of the Scroll offset.
 
-* __scrollX__ `{boolean} = true` ---Scroll along the X axis.
+### scrollview.setOffset (x, y)
+1. `x {number}`
+2. `y {number}`
 
-* __scrollY__ `{boolean} = true` ---Scroll along the Y axis.
+Set the offset to manually scroll views.
 
-* __clip__ `{boolean} = true` ---Hide anything that is outside of the view boundary.
+### scrollview.isScrolling ()
+1. Return `{boolean}`
 
-* __bounce__ `{boolean} = true` ---Bounce effect when scrolling.
+If View is currently scrolling.
 
-* __drag__ `{boolean} = true` ---Allow the user to drag the view around.
+### scrollview.stopScrolling ()
 
-* __inertia__ `{boolean} = true` ---Inertia scrolling.
+Stop View from scrolling.
 
-* __dragRadius__ `{number} = 10` ---Radius between dragging start and move.
+### scrollview.startBounce ()
 
-* __scrollBounds__ `{object}` ---Boundary of scroll.
-	* __minX__ `{number}` ---minimum X position.
-	* __minY__ `{number}` ---minimum Y position.
-	* __maxX__ `{number}` ---maximum X position.
-	* __maxY__ `{number}` ---maximum Y position.
+Set the ability to bounce when scrolling.
 
-## Methods
+### scrollview.endBounce ()
 
-* __getStyleBounds__ ---Return the style boundary object.
-	* @return `{object}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`
+Remove the ability to bounce when scrolling.
 
-* __getOffset__ ---Returns a point of the Scroll offset.
-	* @return `{math2D.Point}`
+### scrollview.setScrollBounds (bounds)
+1. `bounds {object}`
+	* `minX {number}`
+	* `maxX {number}`
+	* `minY {number}`
+	* `maxY {number}`
 
-* __setOffset (x, y)__ ---Set the offset to manually scroll views.
-	* @param `{number} x`
-	* @param `{number} y`
+Set the scroll boundary.
 
-* __isScrolling__ ---If View is currently scrolling.
-	* @return `{boolean}`
+### scrollview.getScrollBounds ()
+1. Return: `bounds {object}`
+	* `minX {number}`
+	* `maxX {number}`
+	* `minY {number}`
+	* `maxY {number}`
 
-* __stopScrolling__ ---Stop View from scrolling.
+Return the scroll boundary object.
 
-* __startBounce__ ---Set the ability to bounce when scrolling.
+### scrollview.addOffset (x, y)
+1. `x {number}`
+2. `y {number}`
 
-* __endBounce__ ---Remove the ability to bounce when scrolling.
+Add the values to the current offset.
 
-* __setScrollBounds (bounds)__ ---Set the scroll boundary.
-	* @param `{object} bounds`
-		* @param `{number} minX`
-		* @param `{number} maxX`
-		* @param `{number} minY`
-		* @param `{number} maxY`
+### scrollview.getContentView ()
+1. Return: `{View}`
 
-* __getScrollBounds__ ---Return the scroll boundary object.
-	* @return `{bounds}` ---Object contains properties `minX`, `maxX`, `minY`, `maxY`.
+Return the generated View that becomes the container View.
 
-* __addOffset (x, y)__ ---Add the values to the current offset.
-	* @param `{number} x`
-	* @param `{number} y`
+### scrollview.getFullWidth ()
+1. Return: `{number}`
 
-* __getContentView__ ---Return the generated View that becomes the container View.
-	* @return `{View}`
+Return the full width.
 
-* __getFullWidth__ ---Return the full width.
-	* @return `{number}`
+### scrollview.getFullHeight ()
+1. Return: `{number}`
 
-* __getFullHeight__ ---Return the full height.
-	* @return `{number}`
+Return the full height.
 
-* __scrollTo (x, y, duration, callback)__ ---Smoothly scroll to a specific position.
-	* @param `{number} x`
-	* @param `{number} y`
-	* @param `{number} duration`
-	* @param `{function} callback`
+### scrollview.scrollTo (x, y, duration, callback)
+1. `x {number}`
+2. `y {number}`
+3. `duration {number}`
+4. `callback {function}`
 
+Smoothly scroll to a specific position.
 
-## Events
+### Event: \'Scrolled\', callback (delta)
+1. `delta {point}`
 
-### Publish
-
-* __`Scrolled`__ ---Published in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.
-	* @param `{point} delta`
+Published in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.
 
 
-## Usage
+## Example: Create a ScrollView
 
 Add an image to a ScrollView as a subview and
 allow the user to scroll through drag.
 
 ~~~
-
-"use import";
-
 import timestep.ImageView as ImageView;
 import timestep.ScrollView as ScrollView;
 

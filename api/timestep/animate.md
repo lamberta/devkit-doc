@@ -1,41 +1,187 @@
-# `timestep.animate`
+# timestep.animate
 
 Is a function to animate Views or objects. It interpolates number properties over a given duration and with easing functions.
 
-* __animate (obj, groupId)__ ---Create an Animator for a View or object. Passing an empty object literal `{}` allows you to perform arbitrary timing.
-	* @param `{View|object} obj`
-	* @param `{number} groupID`
-	* @return `{Animator|ViewAnimator}`
+### timestep.animate (obj, groupId)
+1. `obj {View|object}`
+2. `groupID {number}`
+3. Return: `{Animator|ViewAnimator}`
+
+Create an Animator for a View or object. Passing an empty object literal `{}` allows you to perform arbitrary timing.
+
+### animate.setViewAnimator (ctor)
+
+### animate.getGroup (i)
+1. `i {number}`
+2. Return: `{Group}`
+
+### animate.linear
+1. `{number} = 1`
+
+Animation has the same speed from start to finish.
+
+### animate.easeIn
+1. `{number} = 2`
+
+Animation has a slow start.
+
+### animate.easeOut
+1. `{number} = 3`
+
+Animation has a slow end.
+
+### animate.easeInOut
+1. `{number} = 4`
+
+Animation has both slow start and slow end.
+
+### animate.bounce
+1. `{number} = 5`
+
+Animation overshoots target and animates back to simulate bouncing.
 
 
-## Namespace Functions
 
-* __setViewAnimator (ctor)__ ---
+## Class: Animator
 
-* __getGroup (i)__ ---
-	* @param `{number} i`
-	* @return `{Group}`
+Inherits
+:    1. [lib.PubSub](./lib-pubsub.html)
 
-## Properties
+### animator.clear ()
+1. Return: `{this}` ---This instance of Animator.
 
-* __linear__ `{number} = 1` ---Animation has the same speed from start to finish.
+Clear the current animations scheduled.
 
-* __easeIn__ `{number} = 2` ---Animation has a slow start.
+### animator.pause ()
 
-* __easeOut__ `{number} = 3` ---Animation has a slow end.
+Pause the animation.
 
-* __easeInOut__ `{number} = 4` ---Animation has both slow start and slow end.
+### animator.isPaused () ---Is the animation paused.
+1. Return: `{boolean}`
 
-* __bounce__ `{number} = 5` ---Animation overshoots target and animates back to simulate bouncing.
+### animator.wait (duration)
+1. `duration {number}`
 
-## Usage
+### animator.resume ()
+
+Resume the animation if paused.
+
+### animator.hasFrames ()
+
+If there are any frames to animate.
+
+### animator.now (target, duration, transition, onTick)
+1. `target {View|object}` ---Will interpolate the appropriate number values of the provided object.
+2. `duration {number}` ---Duration of the animation in milliseconds.
+3. `transition {number}` ---Type of animation transition. See [`animate` properties](#properties).
+4. `onTick {function}` ---A callback to control the speed of the transition.
+5. Return: `{number}` ---A float value for how far the animation transition should be.
+
+Start an animation right now.
+
+### animator.then (target, duration, transition, onTick)
+
+Same as `now()` but will animate after the previous animation is over.
+
+### animator.now (callback)
+1. `callback {function}`
+
+Trigger a callback.
+
+### animator.then (callback)
+1. `callback {function}`
+
+### animator.debug ()
+1. Return: `{this}`
+
+Set `_debug` to `true`.
+
+### animator.commit ()
+1. Return: `{this}`
+
+### animator.next ()
+
+
+## Class: ViewAnimator
+
+For dealing with views as animation subjects.
+
+Inherits
+:    1. [Animator](#animator)
+     2. [lib.PubSub](./lib-pubsub.html)
+
+## Class: Group
+
+A group of styles that animate independently of other styles.
+
+Inherits
+:    1. [lib.PubSub](./lib-pubsub.html)
+
+### group.get (id)
+	* @param `{number} id`
+	* @return `{}`
+
+### group.add (id, q)
+	* @param `{} id`
+	* @param `{} q`
+	* @return `{} q` ---?
+
+### group.isActive ()
+	* @return `{boolean}`
+
+### group.onAnimationFinish (anim)
+
+Deletes the animation and publishes a `'Finish'` event.
+
+
+## Class: Frame
+
+### frame.onTick
+
+### frame.exec
+
+### frame.onInterrupt
+
+### frame.subject
+
+### frame.target
+
+### frame.duration
+
+### frame.transition
+
+
+## Class: CallbackFrame`
+
+Inherits
+:    1. [Frame](#frame)
+
+
+## Class: `WaitFrame` 
+
+Actually, it *is* a `Frame`. It's a frame that does nothing.
+
+Inherits
+:    1. [Frame](#frame)
+
+
+## Class: ObjectFrame
+
+Inherits
+:    1. [Frame](#frame)
+
+
+## Class: ViewStyleFrame
+
+Inherits
+:    1. [Frame](#frame)
+
+
+## Example: Move a rectangle
 
 Animate a red rectangle view to the edge of the device while rotating.
 
 ~~~
-
-"use import";
-
 import timestep.View as View;
 import timestep.animate as animate;
 import timestep.device as device;
@@ -54,131 +200,3 @@ exports = Class(View, function(supr) {
     }   
 });
 ~~~
-
-# `Animator` 
-
-## Inheritence
-
-1. [lib.PubSub](./lib-pubsub.html)
-
-## Methods
-
-* __clear__ ---Clear the current animations scheduled.
-	* @return `{this}` ---This instance of Animator.
-
-* __pause__ ---Pause the animation.
-
-* __isPaused__ ---Is the animation paused.
-	* @return `{boolean}`
-
-* __wait (duration)__
-	* @param `{number} duration` ---I assume it's a number.
-
-* __resume__ ---Resume the animation if paused.
-
-* __hasFrames__ ---If there are any frames to animate.
-
-* __now (target, duration, transition, onTick)__ ---Start an animation straight away.
-	* @param `{View|object} target` ---Will interpolate the appropriate number values of the provided object.
-	* @param `{number} duration` ---Duration of the animation in milliseconds.
-	* @param `{number} transition` ---Type of animation transition. See [`animate` properties](#properties).
-	* @param `{function|number} onTick` ---A built-in animation, or a callback to control the speed of the transition.
-	    * @param `{number} progress` ---A float value between 0.0 and 1.0 of the current animation progress.
-	    * @returns `{number}` ---A float value for how far the animation transition should be.
-
-* __then (target, duration, transition, onTick)__ --Same as `now()` but will animate after the previous animation is over.
-
-* __now (callback)__ -- Trigger a callback.
-    * @param `{function}` callback
-
-* __then (callback)__ -- Trigger a callback after the previous animation has ended.
-    * @param `{function}` callback
-
-* __debug__ --- Set `_debug` to `true`.
-	* @return `{thisAnimator}`
-
-* __commit__ ---
-	* @return `{thisAnimator}`
-
-* __next__ ---
-
-# `ViewAnimator` 
-
-For dealing with views as animation subjects.
-
-## Inheritence
-
-1. [Animator](#animator)
-2. [lib.PubSub](./lib-pubsub.html)
-
-# `Group`
-
-A group of styles that animate independently of other styles.
-
-## Inheritence
-
-1. [lib.PubSub](./lib-pubsub.html)
-
-## Methods
-
-* __get (id)__ ---
-	* @param `{number} id`
-	* @return `{}`
-
-* __add (id, q)__ ---
-	* @param `{} id`
-	* @param `{} q`
-	* @return `{} q` ---?
-
-* __isActive__ ---
-	* @return `{boolean}`
-
-* __onAnimationFinish (anim)__ --- Deletes the animation and publishes a `'Finish'` event.
-
-# `Frame`
-
-## Methods
-
-* __onTick__
-
-* __exec__
-
-* __onInterrupt__
-
-## Properties
-
-* __subject__
-
-* __target__
-
-* __duration__
-
-* __transition__
-
-
-# `CallbackFrame` 
-
-## Inheritence
-
-1. [Frame](#frame)
-
-# `WaitFrame` 
-
-Actually, it *is* a `Frame`. It's a frame that does nothing.
-
-## Inheritence
-
-1. [Frame](#frame)
-
-# `ObjectFrame` 
-
-## Inheritence
-
-1. [Frame](#frame)
-
-# `ViewStyleFrame` 
-
-## Inheritence
-
-1. [Frame](#frame)
-

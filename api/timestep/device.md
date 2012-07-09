@@ -1,74 +1,104 @@
-# `timestep.device`
+# timestep.device
 
-This is a namespace object.
 On an undefined platform, `timestep.device` is `{isUnknown: true}`.
 
-## Functions
+### device.registerDevice (name, path)
+1. `name {string}`
+2. `path {string}`
 
-* __registerDevice (name, path)__
-	* @param `{string} name`
-	* @param `{string} path`
+### device.get (module)
+1. `name {string}` ---Name of the module to import.
+2.  Return: `{Class} module`
 
-* __get (module)__ ---Internal? Dynamically use jsio to import a platform-specific module.
-	* @param `{string} name` ---Name of the module to import.
-	* @return `{Class} module`
+Dynamically use jsio to import a platform-specific module.
 
-* __importUI (module)__ ---Internal? Dynamically use jsio to import a renderer-specific module (`timestep.canvas` or `timestep.dom`).
-	* @param `{string} name` ---Name of the module to import.
-	* @return `{Class} module`
+### device.importUI (name)
+1. `name {string}` ---Name of the module to import.
+2. Return: `{Class}` ---The module.
 
-* __hideAddressBar__ ---Seems to be empty.
+Internal? Dynamically use jsio to import a renderer-specific
+module (`timestep.canvas` or `timestep.dom`).
 
-* __getDimensions (isLandscape)__
-	* @param `{boolean} isLandscape = false` ---Switch the dimensions if landscape.
-	* @return `{object}` ---Returns object with properties `width` and `height`.
+### device.hideAddressBar ()
 
-## Properties
+Seems to be empty.
+ 
+### device.getDimensions (isLandscape)
+1. `isLandscape {boolean} = false` ---Switch the dimensions if landscape.
+2. Return: `{object}` ---Returns object with properties `width` and `height`.
 
-* __name__ `{string}` ---Defaults to `'tealeaf'` or `'browser'`.
 
-* __width__ `{number}` ---Width of the device.
+### device.name
+1. `{string}`
 
-* __height__ `{number}` ---Height of the device.
+Defaults to `'tealeaf'` or `'browser'`.
 
-* __isMobile__ `{boolean}` ---If the device is a mobile device.
+### device.width
+1. `{number}`
 
-* __screen__ `{lib.PubSub}`: ---Contains the following properties:
-	* __width__ `{number}`
-	* __height__ `{number}`
-	* __orientation__ `{string}`
-	* __defaultOrientation__ `{string}` ---This doesn't seem to be set all the time.
-	* __isPortrait__ `{boolean}`
-	* __isLandscape__ `{boolean}`
-	* __browserChrome__ `{object}` ---Not always there, but contains the properties:
-		* __portrait__ `{object}` ---`{top: 0, bottom: 0}`
-		* __landscape__ `{object}` ---`{top: 0, bottom: 0}`
+Width of the device.
 
-* __devicePixelRatio__ `{number}` ---Probably `1`?
+### device.height
+1. `{number}`
 
-* __defaultFontFamily__ `{string}` ---Defaults to `'Helvetica'`
+Height of the device.
 
-* __events__ `{object}` ---Contains the following properties:
-	* __start__ `{string}` ---Defaults to `'touchstart'` or `'mousedown'`
-	* __move__ `{string}` ---Defaults to `'touchmove'` or `'mousemove'`
-	* __end__ `{string}` ---Defaults to `'touchend'` or `'mouseup'`
+### device.isMobile
+1. `{boolean}`
 
-* __onReady__ `{lib.Callback}`
+If the device is a mobile device.
 
-* __useDOM__ `{boolean} = false` ---Internal flag to use DOM.
+### device.screen
+1. `{lib.PubSub}`
+	* `width {number}`
+	* `height {number}`
+	* `orientation {string}`
+	* `defaultOrientation {string}` ---This doesn't seem to be set all the time.
+	* `isPortrait {boolean}`
+	* `isLandscape {boolean}`
+	* `browserChrome {object}` ---Not always there.
+		* `portrait {object}` ---`{top: 0, bottom: 0}`
+		* `landscape {object}` ---`{top: 0, bottom: 0}`
 
-### User-Agents
+### device.devicePixelRatio
+1. `{number}`
 
-These properties are dependant upon the user-agent, may, or may not, be there.
+### device.defaultFontFamily
+1. `{string}`
 
-* __isIOS__ `{boolean}`
+Defaults to `'Helvetica'`
 
-* __isAndroid__ `{boolean}`
+### device.events
+1. `{object}`
+	* `start {string}` ---Defaults to `'touchstart'` or `'mousedown'`
+	* `move {string}` ---Defaults to `'touchmove'` or `'mousemove'`
+	* `end {string}` ---Defaults to `'touchend'` or `'mouseup'`
 
-* __isSafari__ `{boolean}`
+### device.onReady
+1. `{lib.Callback}`
 
-* __isMobileBrowser__ `{boolean}`
+### device.useDOM
+1. `{boolean} = false`
 
-* __isUIWebView__ `{boolean}`
+Internal flag to use DOM.
 
-* __canResize__ `{boolean}`
+### device.isIOS
+1. `{boolean}`
+
+These properties are dependant upon the user-agent, may, or
+may not, be there.
+
+### device.isAndroid
+1. `{boolean}`
+
+### device.isSafari
+1. `{boolean}`
+
+### device.isMobileBrowser
+1. `{boolean}`
+
+### device.isUIWebView
+1. `{boolean}`
+
+### device.canResize
+1. `{boolean}`

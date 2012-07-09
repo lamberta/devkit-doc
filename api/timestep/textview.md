@@ -1,71 +1,59 @@
-# `timestep.TextView`
+# timestep.TextView
 
 Use this View to display text.
 
-## Inheritence
+## Class: timestep.TextView
 
-1. [timestep.View](./timestep-view.html)
-2. [lib.PubSub](./lib-pubsub.html)
+Inherits
+:    1. [timestep.View](./timestep-view.html)
+     2. [lib.PubSub](./lib-pubsub.html)
 
-## Options
+### new timestep.TextView ([options])
+1. `options {object}`
+	* `text {string}`
+	* `fontSize {number} = 12`
+	* `fontFamily {string} = timestep.device.defaultFontFamily`
+	* `color {string} = 'black'`
+	* `backgroundColor {string} = null`
+	* `horizontalPadding {number} = 0`
+	* `verticalPadding {number} = 0`
+	* `lineHeight {number} = 1.2`
+	* `textAlign {string} = 'center'` ---Options: `'left'`, `'right'`, `'center'`.
+	* `verticalAlign {string} = 'middle'` ---Options: `'top'`, `'bottom'`, `'middle'`.
+	* `multiline {boolean} = true`
+	* `fontWeight {string}`
+	* `strokeStyle {} = null`
+	* `lineWidth {number} = 2`
+	* `shadow {boolean} = false`
+	* `shadowColor {string} = 'black'`
 
-* __text__ `{string} = ''`
+### textview.setText (text)
+1. `text {string}`
 
-* __fontSize__ `{number} = 12`
+Set the display text.
 
-* __fontFamily__ `{string} = timestep.device.defaultFontFamily`
+### textview.getText ()
+1. Return: `{string}`
 
-* __color__ `{string} = 'black'`
+Return the display text.
 
-* __backgroundColor__ `{string} = null`
+### textview.getCharacterWidth (ctx)
+1. `ctx {CanvasRenderingContext2D}`
+2. Return: `{number}`
 
-* __horizontalPadding__ `{number} = 0`
+### textview.getLineWidth (ctx, line)
+1. `ctx {CanvasRenderingContext2D}`
+2. `line {string}`
+3. `{number}`
 
-* __verticalPadding__ `{number} = 0`
+### textview.updateOpts (opts)
+1. `opts {object}`
 
-* __lineHeight__ `{number} = 1.2`
+Update text options.
 
-* __textAlign__ `{string} = 'center'` ---Options: 'left', 'right', 'center'
+## Example: Using a TextView
 
-* __verticalAlign__ `{string} = 'middle'` ---Options: 'top', 'bottom', 'middle'
-
-* __multiline__ `{boolean} = true`
-
-* __fontWeight__ `{string} = ''`
-
-* __strokeStyle__ `{} = null`
-
-* __lineWidth__ `{number} = 2`
-
-* __shadow__ `{boolean} = false`
-
-* __shadowColor__ `{string} = 'black'`
-
-## Methods
-
-* __setText (text)__ --- Set the display text.
-	* @param `{string} text`
-
-* __getText__ --- Return the display text.
-	* @return `{string}`
-
-* __getCharacterWidth (ctx)__
-	* @param `{CanvasRenderingContext2D}` ctx
-	* @return `{number}`
-
-* __getLineWidth (ctx, line)__
-	* @param `{CanvasRenderingContext2D}` ctx
-	* @param `{string} line`
-	* @return `{number}`
-
-* __updateOpts (opts)__ ---Update text options.
-	* @param `{object} opts`
-
-## Usage
 ~~~
-
-"use import";
-
 import timestep.View as View;
 import timestep.TextView as TextView;
 
