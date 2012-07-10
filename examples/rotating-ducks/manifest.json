@@ -26,43 +26,13 @@
     "shortName": "cf845a7d843a41528aab10788760d781", 
     "studio": {
         "domain": "wee.cat", 
-        "name": "Wee Cat Games"
+        "name": "Wee Cat Games", 
+        "stagingDomain": "staging.wee.cat"
     }, 
     "supportedOrientations": [
         "portrait"
     ], 
-    "targets": {
-        "android": {
-            "embed": [], 
-            "name": "android", 
-            "upload": []
-        }, 
-        "desktop": {
-            "embed": [], 
-            "name": "desktop", 
-            "upload": []
-        }, 
-        "facebook": {
-            "embed": [], 
-            "name": "facebook", 
-            "upload": []
-        }, 
-        "ios": {
-            "embed": [], 
-            "name": "ios", 
-            "upload": []
-        }, 
-        "native-mobile": {
-            "embed": [], 
-            "name": "native-mobile", 
-            "upload": []
-        }, 
-        "native-tablet": {
-            "embed": [], 
-            "name": "native-tablet", 
-            "upload": []
-        }
-    }, 
+    "targets": {}, 
     "title": "empty project", 
-    "version": "0.0.3-beta-87"
+    "version": "0.0.6-beta-8"
 }
