@@ -296,6 +296,17 @@ commit. To do this pass a reference of the bad commit to
 * [Undoing Things](http://git-scm.com/book/en/Git-Basics-Undoing-Things)
 
 
+### Copy a file from between branches
+
+First, switch to the destination branch:
+
+`$ git checkout destbranch`
+
+Then, checkout the file you want from another branch:
+
+`$ git checkout anotherbranch file`
+
+
 ### Ignore files
 
 Often you won't want to track certain files or directories

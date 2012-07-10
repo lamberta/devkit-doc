@@ -87,9 +87,17 @@ nav#TOC {
 
 #main {
 	float: left;
-	width: 800px;
 	padding: 5px 15px;
 }
+
+/* when generating the toc, disable the header linkbacks.
+ */
+#main h1 a, #main h2 a, #main h3 a {
+		pointer-events: none;
+		cursor: default;
+		text-decoration: none;
+}
+
 /*
 footer {
   margin: 0 auto;
