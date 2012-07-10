@@ -4,7 +4,4 @@ examples/*/build/
 examples/*/*/sdk/
 .DS_Store
 .tealeaf_sdk
-*.swp
-titanicJS/jsdoc-toolkit/LOG
-titanicJS/jsdoc-toolkit/debug
-titanicJS/jsdoc-toolkit/out
+.swp
