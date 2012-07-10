@@ -1,169 +1,409 @@
-# `math2d`
+# math2d
 
 Math functions for 2D manipulation.
 
-## math2D.Point
+## Class: math2D.Point
 
-* __Point({x, y})__, __Point(x, y)__ ---
+### new Point (x, y)
+1. `x {number} = 0`
+2. `y {number} = 0`
 
-* __rotate(r)___
+### new Point (pt)
+1. `pt {object}`
+	* `x {number} = 0`
+	* `y {number} = 0`
 
-* __translate({x, y})__, __translate(x, y)__
-* __add({x, y})__, __add(x, y)__
+### point.rotate (radians)
+1. `radians {number}`
+2. Return: `{this}`
 
-* __subtract({x, y})__, __subtract(x, y)__
+Rotates this point around the origin by a value in radians.
 
-* __scale(factor)__
+### point.translate (x, y)
+1. `x {number} = 0`
+2. `y {number} = 0`
+3. Return `{this}`
 
-* __setMagnitude(mag)__
+### point.add (x, y)
 
-* __normalize()__
+Alias for `point.translate`.
 
-* __addMagnitude(mag)__
+### point.translate ({x, y})
+1. `pt {object}`
+	* `x {number} = 0`
+	* `y {number} = 0`
+2. Return: `{this}`
 
-* __getMagnitude()__
+### point.add ({x, y})
 
-* __getSquaredMagnitude()__
+Alias for `point.translate`.
 
-* __getDirection()__, __getAngle()__
+### point.subtract (x, y)
+1. `x {number} = 0`
+2. `y {number} = 0`
+3. Return `{this}`
 
-Point.getPolarR = function(x, y)
+Subtract this point by two scalars or by another point.
 
-Point.getPolarTheta = function(x, y)
+### point.subtract ({x, y})
+1. `pt {object}`
+	* `x {number} = 0`
+	* `y {number} = 0`
+2. Return: `{this}`
 
-Point.add = Point.translate = function(a, b, c, d)
+### point.scale (factor)
+1. `factor {number}`
+2. Return: `{this}`
 
-Point.subtract = function(a, b, c, d)
+Scale point by the given factor.
 
-Point.scale = function(a, b, c) 
+### point.normalize ()
+1. Return: `{number}`
 
-Point.setMagnitude = function(a, b, c)
+Normalize this point to the unit circle.
 
-Point.addMagnitude = function(a, b, c)
+### point.setMagnitude (mag)
+1. `mag {number}`
+2. Return `{this}`
 
-Point.getMagnitude = function(a, b)
+Set the magnitude of this point at a constant angle.
 
-Point.rotate = function(a, b, c)
+### point.addMagnitude (mag)
+1. `mag {number}`
+2. Return `{this}`
 
-## math2D.Line
+Add a magnitude to a point.
 
-Line(point, point)
+### point.getMagnitude ()
+1. Return: `{number}`
 
-* __getMagnitude()__
-* __getLength()__
+Return the magnitude of a point.
 
-## math2D.Circle
+### point.getSquaredMagnitude ()
+1. Return: `{number}`
 
-Circle(x, y, radius)
+Return the magnitude of a point ... squared!
 
-* __scale(factor)__
+### point.getAngle ()
+1. Return: `{number}`
 
-## math2D.Rect
+Return the angle of a point by using `Math.atan2`.
 
-Rect(x, y, width, height)
+### point.getDirection ()
+1. Return: `{number}`
 
-* __normalize__ ---Normalize negative dimensions so that the rectange (x, y) is based on the upper left corner.
+Alias for `point.getAngle`.
 
-* __unionRect__ ---Resizes this rectangle to its union with another rectangle.
+### Class Method: Point.getPolarTheta (x, y)
+1. `x {number}`
+2. `y {number}`
+3. Return: `{number}`
 
-* __getCorner(corner)__ ---Returns a point corresponding to the specified corner of the rectangle.
-    * @returns `{Point}`
+### Class Method: Point.add (a, b, c, d)
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. `d {number}`
+5. Return: `{Point}`
 
-* Rect.CORNERS
-    * TOP_LEFT
-    * TOP_RIGHT
-    * BOTTOM_LEFT
-    * BOTTOM_RIGHT
+### Class Method: Point.translate (a, b, c, d)
 
-* __getSide(side)__ ---Returns a line corresponding to the specified side of the rectangle.
-    * @returns `{Line}`
+Alias for `Point.add`.
 
-* Rect.SIDES
-    * TOP
-    * RIGHT
-    * BOTTOM
-    * LEFT
+### Class Method: Point.subtract (a, b, c, d)
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. `d {number}`
+5. Return: `{Point}`
 
-* __getCenter()__ ---Returns the center point of this circle.
-    * @returns `{Point}`
+### Class Method: Point.scale (a, b, c) 
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. Return: `{Point}`
 
-## math2D.Vec2D
+### Class Method: Point.setMagnitude (a, b, c)
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. Return: `{Point}`
 
-Vec2D({x, y})
+### Class Method: Point.addMagnitude (a, b, c)
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. Return: `{Point}`
 
-* __addForce({x, y})__
+### Class Method: Point.getMagnitude (a, b)
+1. `a {number}`
+2. `b {number}`
+3. Return: `{Point}`
 
-* __getAngle()__ ---Returns the angle of this vector.
-* __getMagnitude()__ ---Returns the magnitude of this vector.
-* __getUnitVector()__ ---Returns this vector's unit vector.
-* __dot(vec)__ ---Returns the dot product of this and another vector.
-* __add(vec)__ ---Returns the sum of this and another vector.
-* __minus(vec)__ ---Returns this vector subtracted by another.
-* __negate()__ ---Returns the negative of this vector.
-* __multiply(scalar)__ ---Returns this vector multiplied by a scalar.
+### Class Method: Point.rotate (a, b, c)
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. Return: `{Point}`
 
-## math2D.angle
 
-* __range__ ---Angular range from a to b.
-	* @params `{number} angleA` ---
-	* @params `{number} angleB` ---
-	* @returns `{number}` ---Float between [0, 2PI].
+## Class: math2D.Line
 
-* __average__ ---Returns a weighted angle between two angles.
-	* @params `{number} angleA` ---
-	* @params `{number} angleB` ---
-	* @returns `{number} weight = 0.5` ---Float between 0.0 and 1.0
+### new Line ([a, b, c, d])
+1. `a {number}`
+2. `b {number}`
+3. `c {number}`
+4. `d {number}`
 
-* __normalize__ ---Normalize an angle between -PI and PI.
-	* @params `{number} angle`
-	* @returns `{number}`
+### new Line ([point, point])
+1. `point {Point}`
+2. `point {Point}`
 
-* __add__ ---Compute the sum of two angles.
-	* @params `{number} angle`
-	* @returns `{number}` ---Within the range [-PI, PI].
+### line.start
+1. `{Point}`
 
-* __difference__ ---Compute the difference between two angles.
-	* @params `{number} angle`
-	* @returns `{number}` ---Within the range [-PI, PI].
+### line.end
+1. `{Point}`
 
-## math2D.intersect
+### line.getLength ()
+1. Return: `{number}`
 
-intersect.rectAndPt
+Return the length of a line.
 
-intersect.ptAndRect
+### line.getMagnitude ()
 
-intersect.circAndPt
+Alias for `line.getLength`.
 
-intersect.ptAndCirc
 
-intersect.rectAndRect
+## Class: math2D.Circle
 
-intersect.rectAndCircle
+### new Circle ([x, y, radius])
+1. `x {number} = 0`
+2. `y {number} = 0`
+3. `radius {number} = 0`
 
-intersect.circleAndRect
+### new Circle ([circle])
+1. `circle {object}`
+	* `x {number} = 0`
+	* `y {number} = 0`
+	* `radius {number} = 0`
 
-intersect.circleAndLine
+### circle.scale (factor)
+1. `factor {number}`
+2. Return: `{this}`
 
-intersect.lineAndCircle
 
-intersect.util.ptToLine
+## Class: math2D.Rect
 
-intersect.util.rectAndRect
+### new Rect ([x, y, width, height])
+1. `x {number}`
+2. `y {number}`
+3. `width {number}`
+4. `height {number}`
 
-## math2D.morphology
+### rect.normalize ()
+1. Return: `{this}`
 
-morphology.open
+Normalize negative dimensions so that the rectange (x, y) is based on the upper left corner.
 
-morphology.close
+### rect.unionRect (rect)
+1. `rect {Rect}`
 
-exports.getSquareMask
+Resizes this rectangle to its union with another rectangle.
 
-exports.getCircleMask
+### rect.getCenter ()
+* @returns `{Point}`
 
-exports.multiply
+Returns the center point of this circle.
 
-exports.subtract
+### rect.getCorner (corner)
+1. `corner {Rect.CORNER}`
+2. Return: `{Point}`
 
-exports.erode
+Returns a point corresponding to the specified corner of the rectangle.
 
-exports.dilate
+### Class property: Rect.CORNER
+* `TOP_LEFT`
+* `TOP_RIGHT`
+* `BOTTOM_LEFT`
+* `BOTTOM_RIGHT`
+
+### rect.getSide (side)
+1. `side {Rect.SIDE}`
+2. Return: `{Line}`
+
+Returns a line corresponding to the specified side of the rectangle.
+
+### Class property: Rect.SIDE
+* `TOP`
+* `RIGHT`
+* `BOTTOM`
+* `LEFT`
+
+
+## Class: math2D.Vec2D
+
+Model a vector in two-dimensional space.
+
+### new Vec2D ([options])
+1. `options {object}`
+	* `x {number}`
+	* `y {number}`
+
+### new Vec2D ([options])
+1. `options {object}`
+	* `angle {number}`
+	* `magnitude {number}`
+
+Pass an "angle" option in radians to this function to
+initialize an angle.
+
+### vec.addForce (point)
+1. `point {Point}`
+
+### vec.getAngle ()
+1. Return: `{number}`
+
+Returns the angle of this vector.
+
+### vec.getMagnitude ()
+1. Return: `{number}`
+
+Returns the magnitude of this vector.
+
+### vec.getUnitVector ()
+1. Return: `{Vec2D}`
+
+Returns this vector's unit vector.
+
+### vec.dot (vec)
+1. `vec {Vec2D}`
+2. Return: `{number}`
+
+Returns the dot product of this and another vector.
+
+### vec.add (vec)
+1. `vec {Vec2D}`
+2. Return: `{Vec2D}`
+
+Returns the sum of this and another vector.
+
+### vec.minus (vec)
+1. `vec {Vec2D}`
+2. Return: `{Vec2D}`
+
+Returns this vector subtracted by another.
+
+### vec.negate ()
+1. `vec {Vec2D}`
+2. Return: `{Vec2D}`
+
+Returns the negative of this vector.
+
+### vec.multiply (scalar)
+1. `scalar {number}`
+2. Return: `{Vec2D}`
+
+Returns this vector multiplied by a scalar.
+
+
+## Module: math2D.angle
+
+### angle.average (angle1, angle2 [, weight])
+1. `angle1 {number}`
+2. `angle2 {number}`
+3. `weight {number} = 0.5` ---Float between 0.0 and 1.0
+4. Return: `{number}`
+
+Returns a weighted angle between two angles.
+
+### angle.normalize (angle)
+1. `angle {number}`
+2. Return: `{number}`
+
+Normalize an angle between -PI and PI.
+
+### angle.add (angle1, angle2)
+1. `angle1 {number}`
+2. `angle2 {number}`
+3. Return: `{number}`
+
+Compute the sum of two angles, within the range of PI and -PI.
+
+### angle.difference (angle1, angle2)
+1. `angle1 {number}`
+2. `angle2 {number}`
+3. Return: `{number}`
+
+Compute the difference between two angles, within the rangle
+of PI and -PI.
+
+### angle.range (angle1, angle2)
+1. `angle1 {number}`
+2. `angle2 {number}`
+3. Return: `{number}`
+
+Angular range from a to b, in the range of 0 and 2PI.
+
+
+## Module: math2D.intersect
+
+### intersect.rectAndPoint (rect, point)
+1. `rect {Rect}`
+2. `point {Point}`
+3. Return: `{boolean}`
+
+### intersect.pointAndRect (point, rect)
+1. `point {Point}`
+2. `rect {Rect}`
+3. Return: `{boolean}`
+
+### intersect.circleAndPoint (circle, point)
+1. `circle {Circle}`
+2. `point {Point}`
+3. Return: `{boolean}`
+
+### intersect.pointAndCircle (point, circle)
+1. `point {Point}`
+2. `circle {Circle}`
+3. Return: `{boolean}`
+
+### intersect.rectAndRect (rect, rect)
+1. `rect {Rect}`
+2. `rect {Rect}`
+3. Return: `{boolean}`
+
+### intersect.rectAndCircle (rect, circle)
+1. `rect {Rect}`
+2. `circle {Circle}`
+3. Return: `{boolean}`
+
+### intersect.circleAndRect (circle, rect)
+1. `circle {Circle}`
+2. `rect {Rect}`
+3. Return: `{boolean}`
+
+### intersect.circleAndLine (circle, line)
+1. `circle {Circle}`
+2. `line {Line}`
+3. Return: `{boolean}`
+
+### intersect.lineAndCircle (line, circle)
+1. `line {Line}`
+2. `circle {Circle}`
+3. Return: `{boolean}`
+
+### intersect.util.pointToLine (point, line)
+1. `point {Point}`
+2. `line {Line}`
+3. Return: `{Line}`
+
+Return a line composed of a given point and the nearest point on the line.
+
+### intersect.util.rectAndRect (rect, rect)
+1. `rect {Rect}`
+2. `rect {Rect}`
+3. Return: `{Rect}`
+
+Return the intersection rectangle. If there is no
+intersection, return `null`.
