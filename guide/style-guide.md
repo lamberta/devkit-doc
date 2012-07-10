@@ -14,7 +14,8 @@ This is an overview of the class or module.
 
 ``### new module.Class ([options])``<br/>
 ``1. `options {object}` ---Optional.``<br/>
-``‿‿‿‿`id {string}``
+``‿‿‿‿* `property1 {type}``<br/>
+``‿‿‿‿* `property2 {type}``
 
 <br/>
 
