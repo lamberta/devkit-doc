@@ -1,6 +1,11 @@
 # timestep.ui.UIView
 
+This is not complete and subject to change.
+
 ## Class: timestep.ui.UIView
+
+A view proxy for a contained LinearLayout. Contains logic
+for reflowing in either significant direction.
 
 Inherits
 :    1. [timestep.View](./timestep-view.html)
@@ -8,19 +13,25 @@ Inherits
 
 ### new timestep.ui.UIView ([options])
 1. `options {object}`
-	* `insetX`
-	* `insetY`
-	* `centerX`
-	* `centerY`
-	* `widthPercent`
-	* `heightPercent`
+	* `left {number}`
+	* `right {number}`
+	* `top {number}`
+	* `bottom {number}`
+	* `centerX {number}`
+	* `centerY {number}`
+	* `widthPercent {number}`
+	* `heightPercent {number}`
 
-### view.wrapReflow ()
+### view.reflowX (padding)
 
-### view.computeWidth (parentWidth)
-1. `parentWidth {number}`
-2. Return: `{number}`
+### view.reflowY (padding)
 
-### view.computeHeight (parentHeight)
-1. `parentHeight {number}`
-2. Return: `{number}`
+### Callback handler: view.wrapReflow
+
+Determines the position and style of a view and its child
+views. If you want to customize the layout flow you can
+override this function.
+
+### Event: \'Resize\', callback ()
+
+Event emitted to view when it has been resized.
