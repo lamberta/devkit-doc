@@ -11,16 +11,17 @@ Inherits
 1. `options {object}` ---Optional.
 	* `id {string}`
 	* `tag {string}`
-	* `filters {}`
+	* `filters {Filter}`
 	* `circle {boolean} = false`
 	* `infinite {boolean} = false`
 	* `canHandleEvents {boolean} = true`
-	* `superview`
+	* `superview {View}`
 	* `rotation {number} = 0`
 
 ### view.style
+1. `{ViewStyle}`
 
-Property containing the view's style defintions. [timestep.ViewStyle](#class-timestep.viewstyle)
+Property containing the view's style defintions.
 
 ### view.getApp ()
 1. Return: `{timestep.Application}`
