@@ -1,4 +1,4 @@
-# timestep.Sprite
+# timestep.SpriteView
 
 A *Sprite* consists of multiple *animations* (walk, run,
 etc.) which themselves are made of multiple *frames*.
@@ -11,18 +11,23 @@ directory/spriteName-animationName-0001.png
 directory/spriteName-animationName-0002.png
 ~~~
 
-## Class: timestep.Sprite
+## Class: timestep.SpriteView
 
 Inherits
 :    1. [timestep.ImageView](./timestep-imageview.html)
      2. [timestep.View](./timestep-view.html)
      3. [lib.PubSub](./lib-pubsub.html)
 
-### new timestep.Sprite ([options])
+### new timestep.SpriteView ([options])
 1. `options {object}`
+	* `url {string}` ---Specified as a file name prefix.
+	* `groupID {string} = 'default'`
+	* `frameRate {number} = 15`
+	* `emitFrameEvents {boolean} = false`
+	* `autoStart {boolean} = false`
+	* `loop {boolean} = true`
 
-
-### sprite.startAnimation (name [, opts])
+### spriteview.startAnimation (name [, opts])
 1. `name {string}`
 2. `opts {object}`
 	* `iterations {number} = 1`
@@ -32,21 +37,21 @@ Inherits
 
 Start an animation.
 
-### sprite.stopAnimation ()
+### spriteview.stopAnimation ()
 
-### sprite.resetAnimation ()
+### spriteview.resetAnimation ()
 
-### sprite.resetAllAnimations (opts)
+### spriteview.resetAllAnimations (opts)
 1. `opts {object}`
 
-### sprite.pause ()
+### spriteview.pause ()
 
-### sprite.resume ()
+### spriteview.resume ()
 
-### sprite.setFramerate (fps)
+### spriteview.setFramerate (fps)
 1. `fps {number}` ---Frames per second.
 
-### sprite.getFrame (animName, index)
+### spriteview.getFrame (animName, index)
 1. `animName {string}`
 2. `index {number}`
 3. Return: `{Frame}`
@@ -54,15 +59,15 @@ Start an animation.
 Returns a [`timestep.Image`](./timestep-image.html) for the
 given animation's frame.
 
-### sprite.getFrameCount (animName)
+### spriteview.getFrameCount (animName)
 
-Returns the number of frames in a given aniamtion.
+Returns the number of frames in a given animation.
 
-### sprite.getGroup (groupId)
+### spriteview.getGroup (groupId)
 1. `{} groupId`
 2. Return:`{Group}`
 
-### sprite.defaults
+### spriteview.defaults
 1. `{object}`
 	* `url {string} = null`
 	* `groupId {string} = 'default'`
@@ -71,10 +76,21 @@ Returns the number of frames in a given aniamtion.
 	* `autoStart {boolean} = false`
 	* `loop {boolean} = true`
 
-### Class Method: timestep.Sprite.getGroup ()
+### spriteview.visible
+1. `{boolean}`
 
-### Class Property: timestep.Sprite.allAnimations
-1. `{object}`
+### spriteview.groupID
+1. `{string}`
+
+### spriteview.frameRate
+1. `{number}`
+
+
+
+### Class Method: SpriteView.getGroup ()
+
+### Class Property: SpriteView.allAnimations
+1. `{Object}`
 
 
 ## Example: Create a Sprite
@@ -82,7 +98,7 @@ Returns the number of frames in a given aniamtion.
 To create a new sprite object:
 
 ~~~
-var sprite = new Sprite({url: 'directory/spriteName'});
+var sprite = new SpriteView({url: 'directory/spriteName'});
 ~~~
 
 The `Sprite` class automatically finds the images associated
