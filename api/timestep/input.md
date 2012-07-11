@@ -33,12 +33,12 @@ Unique ID for a particular input.
 
 Input event type.
 
-### event.pt
+### event.point
 1. `{object} = {}`
 
 Localized point coordinate, index by view uid.
 
-### event.srcPt
+### event.srcPoint
 1. `{Point}`
 
 Object containing `x` and `y` coordinates of the event.
