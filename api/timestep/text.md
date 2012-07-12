@@ -1,8 +1,9 @@
-# timestep.TextView
+# timestep.text
+
+
+## Class: timestep.text.TextView
 
 Use this View to display text.
-
-## Class: timestep.TextView
 
 Inherits
 :    1. [timestep.View](./timestep-view.html)
@@ -12,6 +13,7 @@ Inherits
 1. `options {object}`
 	* `text {string}`
 	* `fontSize {number} = 12`
+	* `autoSize {boolean} = true`
 	* `fontFamily {string} = timestep.device.defaultFontFamily`
 	* `color {string} = 'black'`
 	* `backgroundColor {string} = null`
@@ -50,6 +52,53 @@ Return the display text.
 1. `opts {object}`
 
 Update text options.
+
+
+## Class: timestep.text.TextInputView
+
+Inherits
+:    1. [timestep.text.TextView](./timestep-text-textview.html)
+     2. [timestep.View](./timestep-view.html)
+     3. [lib.PubSub](./lib-pubsub.html)
+
+### new timestep.text.TextInputView ([options])
+1. `options {object}`
+	* `prompt {text}`
+
+
+## text.parseFont (font)
+1. `font {string}`
+2. Return: `{Font}` ---From resources.
+
+Not implemented. This function was in the Font.js file, but
+should be moved into this namespace, which now acts as a
+util file for text.
+
+
+### Event: \'Change\', callback (text)
+1. `text {string}`
+
+Called when the text value changes.
+
+### Event: \'InputSelect\', callback ()
+
+Called when TextInputView has been selected.
+
+
+## Class: Font
+
+This class is not instaniated by the developer, but returned
+by `text.parseFont`.
+
+### font.getName ()
+1. Return: `{string}`
+
+### font.getSize ()
+1. Return: `{number}`
+
+### font.getWeight ()
+1. Return: `{number}`
+
 
 ## Example: Using a TextView
 
