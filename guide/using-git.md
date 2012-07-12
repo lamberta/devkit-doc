@@ -89,7 +89,6 @@ Since branching is easy with git, generally, a new feature is
 added by creating a new branch and merging it back.
 
 ~~~
-
 # create a new myfeature branch from the current branch (probably master)
 $ git checkout -b myfeature
 
@@ -122,7 +121,6 @@ about it other than the convention to point it at the
 GitHub remote repository.
 
 ~~~
-
 # create myfeature branch from the develop branch
 $ git checkout -b myfeature develop
 
@@ -183,7 +181,6 @@ While the git tool has its own command for code management,
 GitHub's *pull request* mechanism.
 
 ~~~
-
 # create a new feature branch
 git checkout -b myfeature
 
@@ -307,6 +304,21 @@ Then, checkout the file you want from another branch:
 `$ git checkout anotherbranch file`
 
 
+### New tags
+
+If there's a bug in a release, you'll need to release a new
+tag.  But, if you update an existing tag, only people who
+haven't seen the tag before will correctly get the tag.
+
+If you do end up in this state, you can get the new tag by running:
+
+~~~
+git tag -d tagname
+git fetch --tags
+git checkout tagname
+git reset --hard
+~~~
+
 ### Ignore files
 
 Often you won't want to track certain files or directories
@@ -334,7 +346,6 @@ a git repo, but there's also a simple, built-in, tool as well:
 Here is Billy's `~/.gitconfig`, featuring his famous recipe for git console colors:
 
 ~~~
-
 [user]
   name = Johnny Game Closure
   email = you@gameclosure.com
