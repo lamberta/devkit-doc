@@ -103,5 +103,5 @@ by `text.parseFont`.
 ## Example: Using a TextView
 
 ~~~
-m4_include(./examples/api/textview.js)m4_dnl
+m4_include(./examples/api/textview.js)
 ~~~

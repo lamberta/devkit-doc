@@ -34,5 +34,5 @@ Inherits
 Requires a data source and cell.
 
 ~~~
-m4_include(./examples/api/list.js)m4_dnl
+m4_include(./examples/api/list.js)
 ~~~

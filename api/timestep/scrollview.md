@@ -124,5 +124,5 @@ Add an image to a ScrollView as a subview and
 allow the user to scroll through drag.
 
 ~~~
-m4_include(./examples/api/scrollview.js)m4_dnl
+m4_include(./examples/api/scrollview.js)
 ~~~

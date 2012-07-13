@@ -98,5 +98,5 @@ Returns the number of frames in a given animation.
 To create a new sprite object:
 
 ~~~
-m4_include(./examples/api/spriteview.js)m4_dnl
+m4_include(./examples/api/spriteview.js)
 ~~~

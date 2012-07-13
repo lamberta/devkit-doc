@@ -121,5 +121,5 @@ Same as `isReady`.
 ## Example: Create an ImageView
 
 ~~~
-m4_include(./examples/api/imageview.js)m4_dnl
+m4_include(./examples/api/imageview.js)
 ~~~

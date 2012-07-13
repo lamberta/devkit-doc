@@ -182,5 +182,5 @@ Inherits
 Animate a red rectangle view to the edge of the device while rotating.
 
 ~~~
-m4_include(./examples/api/animate.js)m4_dnl
+m4_include(./examples/api/animate.js)
 ~~~

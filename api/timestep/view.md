@@ -375,7 +375,7 @@ Create two rectangles, one red half transparent and one green fully opaque. Make
 the red rectangle sit on top of the green using `zIndex`.
 
 ~~~
-m4_include(./examples/api/view.js)m4_dnl
+m4_include(./examples/api/view.js)
 ~~~
 
 ## Example: Modify a view's style
@@ -383,5 +383,5 @@ m4_include(./examples/api/view.js)m4_dnl
 Create a view and change the background to blue. Scale it to half the original size.
 
 ~~~
-m4_include(./examples/api/viewstyle.js)m4_dnl
+m4_include(./examples/api/viewstyle.js)
 ~~~
