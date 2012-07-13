@@ -1,29 +1,28 @@
-"use import";
+import timestep.View;
 
-import timestep.View as View;
+var DoubleRect = Class(timestep.View, function (supr) {
+	//called when an object is instantiated
+	this.init = function (opts) {
+		supr(this, 'init', arguments);
 
-exports = Class(View, function(supr) {
-    this.init = function(opts) {
-        supr(this, "init", arguments);
-
-        //draw me a red rectangle!
-        var redRect = new View({
-            parent: this,
-            opacity: 0.5,
-            backgroundColor: "#FF0000",
-            width: 100,
-            height: 100,
+		var redRect = new timestep.View({
+			superview: this,
+			opacity: 0.5,
+			backgroundColor: '#ff0000',
+			width: 100,
+			height: 100,
 			zIndex: 2
-        });
+		}); 
 
-        //draw me a green rectangle!
-        var greenRect = new View({
-            parent: this,
-            opacity: 0.8,
-            backgroundColor: "#00FF00",
-            width: 100,
-            height: 100,
-            x: 80
-        });
-    }
+		var greenRect = new timestep.View({
+			superview: this,
+			opacity: 0.8,
+			backgroundColor: '#00ff00',
+			width: 100,
+			height: 100,
+			x: 80
+		});
+	}
 });
+
+var rects = new DoubleRect();

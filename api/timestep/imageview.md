@@ -121,18 +121,5 @@ Same as `isReady`.
 ## Example: Create an ImageView
 
 ~~~
-import timestep.View as View;
-import timestep.ImageView as ImageView;
-
-exports = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", arguments);
-		
-		var myImage = new ImageView({
-			image: "resources/duck.png",
-			autoSize: true,
-			parent: this        
-		}); 
-	}
-});
+m4_include(./examples/api/imageview.js)m4_dnl
 ~~~

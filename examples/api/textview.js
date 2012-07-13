@@ -1,13 +1,12 @@
-"use import";
+import timestep.View;
+import timestep.TextView;
 
-import timestep.View as View;
-import timestep.TextView as TextView;
-
-exports = Class(View, function(supr) {
+exports = Class(timestep.View, function(supr) {
 	this.init = function(opts) {
 		supr(this, "init", arguments);
-
-		var titleText = new TextView({
+		
+		//show a big heading
+		var titleText = new timestep.TextView({
 			text: "Welcome to the TextView",
 			color: "white",
 			fontSize: 26,
@@ -15,8 +14,9 @@ exports = Class(View, function(supr) {
 			y: 100,
 			parent: this
 		});
-
-		var subText = new TextView({
+		
+		//show a smaller subheading
+		var subText = new timestep.TextView({
 			text: "The best TextView in the depths of Timestep",
 			color: "#CCCCCC",
 			fontSize: 14,

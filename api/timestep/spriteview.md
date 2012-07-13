@@ -98,15 +98,5 @@ Returns the number of frames in a given animation.
 To create a new sprite object:
 
 ~~~
-var sprite = new SpriteView({url: 'directory/spriteName'});
-~~~
-
-The `Sprite` class automatically finds the images associated
-with the sprite and generates a configuartion for each of
-the animations.
-
-To start an animation:
-
-~~~
-sprite.startAnimation('animationNane');
+m4_include(./examples/api/spriteview.js)m4_dnl
 ~~~

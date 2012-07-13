@@ -375,32 +375,7 @@ Create two rectangles, one red half transparent and one green fully opaque. Make
 the red rectangle sit on top of the green using `zIndex`.
 
 ~~~
-var DoubleRect = Class(timestep.View, function (supr) {
-	//called when an object is instantiated
-	this.init = function (opts) {
-		supr(this, 'init', arguments);
-
-		var redRect = new timestep.View({
-			superview: this,
-			opacity: 0.5,
-			backgroundColor: '#ff0000',
-			width: 100,
-			height: 100,
-			zIndex: 2
-		}); 
-
-		var greenRect = new timestep.View({
-			superview: this,
-			opacity: 0.8,
-			backgroundColor: '#00ff00',
-			width: 100,
-			height: 100,
-			x: 80
-		});
-	}
-});
-
-var rects = new DoubleRect();
+m4_include(./examples/api/view.js)m4_dnl
 ~~~
 
 ## Example: Modify a view's style
@@ -408,15 +383,5 @@ var rects = new DoubleRect();
 Create a view and change the background to blue. Scale it to half the original size.
 
 ~~~
-import timestep.View as View;
-
-exports = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", arguments);
-
-		//modify the ViewStyle properties
-		this.style.backgroundColor = '#0000FF';
-		this.style.scale = 0.5;
-	}   
-});
+m4_include(./examples/api/viewstyle.js)m4_dnl
 ~~~

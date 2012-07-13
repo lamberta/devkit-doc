@@ -34,16 +34,5 @@ Inherits
 Requires a data source and cell.
 
 ~~~
-var list = new timestep.ui.List({
-	parent: this.view,
-	dataSource: GC.contacts.getDataSource(),
-	width: timestep.device.width-20,
-	height: timestep.device.height-20,
-	x: 10,
-	y: 10,
-	scrollX: false,
-	backgroundColor: 'white',
-	sorter: function (data) { return data.name.toLowerCase(); },
-	getCell: function () { return new ContactCell({parent: list}); },
-});
+m4_include(./examples/api/list.js)m4_dnl
 ~~~

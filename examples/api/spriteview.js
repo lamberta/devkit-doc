@@ -1,13 +1,11 @@
-"use import";
+import timestep.View;
+import timestep.SpriteView;
 
-import timestep.View as View;
-import timestep.Sprite as Sprite;
-
-exports = Class(View, function(supr) {
+exports = Class(timestep.View, function(supr) {
 	this.init = function(opts) {
 		supr(this, "init", arguments);
-
-		var runner = new Sprite({
+		
+		var runner = new timestep.SpriteView({
 			parent: this,
 			defaultAnimation: "idle",
 			width: 34,
