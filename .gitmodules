@@ -1,6 +1,0 @@
-[submodule "examples/asteroids"]
-	path = examples/asteroids
-	url = git@github.com:gameclosure/Asteroids--.git
-[submodule "examples/jetpacman"]
-	path = examples/jetpacman
-	url = git@github.com:gameclosure/jetpacman.git
