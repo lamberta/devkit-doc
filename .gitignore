@@ -1,5 +1,6 @@
 html/api/
 html/guide/
+examples/out/
 examples/*/build/
 examples/*/*/sdk/
 .DS_Store
