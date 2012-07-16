@@ -122,7 +122,7 @@ Shuffle an array in-place.
 Rotates an array's elements left. Returns a new array.
 
 
-### Module: math.geom
+## Module: math.geom
 
 Math functions for 2D manipulation.
 
