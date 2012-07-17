@@ -71,13 +71,12 @@ p {
 }
 
 nav#sidebar {
-  float: left;
+	float: left;
 	width: 200px;
-	padding: 10px 15px 10px;
-	background-color: #58a;
-	
-	color: white;
+	padding: 10px 15px;
 	border-radius: 5px;
+	background-color: #87CEFA;
+	color: white;
 }
 
 nav#TOC {
@@ -86,8 +85,8 @@ nav#TOC {
 }
 
 #main {
-	float: left;
-	padding: 5px 15px;
+	margin-left: 230px;
+	padding: 15px;
 }
 
 /* when generating the toc, disable the header linkbacks.
@@ -98,8 +97,7 @@ nav#TOC {
 		text-decoration: none;
 }
 
-/*
 footer {
   margin: 0 auto;
 }
-*/
+
