@@ -1,50 +1,45 @@
-# timestep.Sound
+# timestep.sound
 
-## Class: timestep.Sound
+## Module: timestep.sound
 
-Inherits
-:    1. [lib.PubSub](./lib-pubsub.html)
+~~~
+import timestep.sound as sound;
+~~~
 
-## new timestep.Sound ([options])
-1. `options {object}`
-	* `path {string}` ---Directory where the sound files exist. This builds the path to the sound files.
-	* `map {object}` ---Map where key is the sound name and the value is an object of options.
-	* `sources {array}` ---List of sources that will be preloaded. Default is the path + sound name + type.
-	* `loop {boolean}` ---Continue looping the sound.
-	* `background {boolean}` ---Background sound. Will loop forever.
-	* `volume {number}` ---Volume of the sound between `0.0` and `1.0`.
+### sound.preload (category, name)
+1. `category {string}`
+2. `name {string}`
 
-### sound.addSound (name, opts)
+Loads a sound in the application's `resources/sounds/{category}/{name}` path.
 
-Create a sound from a name and some options. See the above [options](#options).
+### sound.play (category, name [, options])
+1. `category {string}`
+2. `name {string}`
+3. `options {object}`
+	* `loop {boolean} = false` ---Loops sound.
 
-### sound.setMuted (muted)
-1. `muted {boolean}`
+Play a sound.
 
-Set the mute state on all the sounds.
+### sound.pause (category, name)
+1. `category {string}`
+2. `name {string}`
 
-### sound.setVolume (name, volume)
-1. `name {string}` ---Sound name given in the options when created.
-2. `volume {number}` ---Value of the volume between `0.0` and `1.0`.
+Pause a sound.
 
-Set the volume of a specific sound.
+### sound.setVolume (category, name, volume)
+1. `category {string}`
+2. `name {string}`
+3. `volume {number}`
 
-### sound.play (name)
-1. `name {string}` ---Sound name to play.
+### sound.muteAll ()
 
-Play a previosly created sound.
+Mute all the sounds.
 
-### sound.pause (name)
-1. `{string} name` ---Sound name to pause.
+### sound.unmuteAll ()
 
-Pause a previously created sound.
+Un-mute all the sounds.
 
-### sound.playBackgroundMusic (name)
-1. `name {string}` ---Name of the background sound to play.
+### sound.forEach (callback)
+1. `callback {function(sound, category, name)}`
 
-Play a background sound in the background. Stop any previous
-background sounds.
-
-### sound.pauseBackgroundMusic ()
-
-Pause the currently playing background sound. Only one background sound can play at a time.
+Pass a function that is iterated over each sound.
