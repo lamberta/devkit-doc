@@ -1,13 +1,19 @@
-# timestep.Image
+# resource
 
-## Class: timestep.Image
+A collection of resources.
+
+## Class: resource.Image
 
 Model an Image for rendering. Supports taking a subset of
 images, to support extracting from compacted sprite
 sheets. Also supports applying filters to an image, usually
 by the View class.
 
-### new timestep.Image ([options])
+~~~
+import resource.Image as Image;
+~~~
+
+### new Image ([options])
 1. `options {object}`
 	* `scale {boolean}`
 	* `sourceWidth {number} = -1`
@@ -108,3 +114,34 @@ Returns the image data object from a canvas.
 
 ### Callback handler: image.doOnLoad ([args ...])
 1. Return: `{this}`
+
+
+## Class: resource.Font
+
+~~~
+import resource.Font as Font;
+~~~
+
+### new Font ([options])
+1. `options {object}`
+	* `name {string} = device.defaultFamilyName`
+	* `size {number} = 20`
+	* `unit {string} = 'px'`
+	* `style {string}`
+	* `weight {string}`
+	
+### new Font (fontName)
+1. `fontName {string}`
+
+### font.getName ()
+1. Return: `{string}`
+
+### font.getSize ()
+1. Return: `{number}`
+
+### font.getWeight ()
+1. Reurn: `{string}`
+
+### Class method: Font.parse (fontName)
+1. `fontName {string}`
+2. `Return: {Font}`
