@@ -1,5 +1,11 @@
 # squill
 
+These parts of squill are used by other timestep classes on
+the backend, but shouldn't be directly referenced.
+
+Hopefully, their features will be implemented by newer
+features in timestep, but until then, they are documented here.
+
 ## Class: squill.models.BasicDataSource
 
 Inherits
