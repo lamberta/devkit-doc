@@ -13,9 +13,7 @@ Inherits
 	* `volume {number}`
 
 
-## Class: Video
-
-Resource. Not instantiated by developer.
+## Class: resource.Video
 
 ### video.play ()
 

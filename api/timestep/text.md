@@ -1,6 +1,5 @@
 # timestep.text
 
-
 ## Class: timestep.text.TextView
 
 Use this View to display text.
@@ -85,10 +84,22 @@ Called when the text value changes.
 Called when TextInputView has been selected.
 
 
-## Class: Font
+## Class: resource.Font
 
-This class is not instaniated by the developer, but returned
-by `text.parseFont`.
+~~~
+import resource.Font as Font;
+~~~
+
+### new Font ([options])
+1. `options {object}`
+	* `name {string} = device.defaultFamilyName`
+	* `size {number} = 20`
+	* `unit {string} = 'px'`
+	* `style {string}`
+	* `weight {string}`
+	
+### new Font (fontName)
+1. `fontName {string}`
 
 ### font.getName ()
 1. Return: `{string}`
@@ -97,7 +108,12 @@ by `text.parseFont`.
 1. Return: `{number}`
 
 ### font.getWeight ()
-1. Return: `{number}`
+1. Reurn: `{string}`
+
+### Class method: Font.parse (fontName)
+1. `fontName {string}`
+2. `Return: {Font}`
+
 
 
 ## Example: Using a TextView
