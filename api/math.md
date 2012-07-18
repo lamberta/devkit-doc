@@ -47,27 +47,14 @@ Return the sign of a number value, 1 or -1.
 
 Round a number to a given precision, or by a given method.
 
-### math.round.ROUND_HALF_UP
+The precision method can be one of the following:
 
-Round 0.5 to 1.
-
-### math.round.ROUND_HALF_AWAY_FROM_ZERO
-
-### math.round.ROUND_HALF_TO_EVEN
-
-Round to the nearest even number.
-
-### math.round.ROUND_HALF_TO_ODD
-
-Round to the nearest odd number.
-
-### math.round.ROUND_HALF_STOCHASTIC
-
-Round at random.
-
-### math.round.ROUND_HALF_ALTERNATE
-
-Alternate rounding up/down with sequential uses of this function.
+* math.round.ROUND_HALF_UP ---Round 0.5 to 1.
+* math.round.ROUND_HALF_AWAY_FROM_ZERO
+* math.round.ROUND_HALF_TO_EVEN ---Round to the nearest even number.
+* math.round.ROUND_HALF_TO_ODD ---Round to the nearest odd number.
+* math.round.ROUND_HALF_STOCHASTIC ---Round at random.
+* math.round.ROUND_HALF_ALTERNATE ---Alternate rounding up/down with sequential uses of this function.
 
 
 ## Module: math.array
