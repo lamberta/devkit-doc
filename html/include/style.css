@@ -75,7 +75,7 @@ nav#sidebar {
 	width: 200px;
 	padding: 10px 15px;
 	border-radius: 5px;
-	background-color: #87CEFA;
+	background-color: #3388ff;
 	color: white;
 }
 
@@ -92,9 +92,13 @@ nav#TOC {
 /* when generating the toc, disable the header linkbacks.
  */
 #main h1 a, #main h2 a, #main h3 a {
-		pointer-events: none;
-		cursor: default;
-		text-decoration: none;
+	pointer-events: none;
+	cursor: default;
+	text-decoration: none;
+}
+
+#main pre {
+	font-size: 0.8em;
 }
 
 footer {
