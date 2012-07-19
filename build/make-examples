@@ -8,7 +8,7 @@ DOC_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
 EXAMPLE_ROOT="$DOC_ROOT/examples"
 EXAMPLE_API_ROOT="$EXAMPLE_ROOT/api"
 EXAMPLE_OUT="$EXAMPLE_ROOT/out"
-GC_BIN=$(which tealeaf)
+GC_BIN=$(which basil)
 
 function print_help {
 		echo "Usage: $(basename $0) [options]"
@@ -16,6 +16,7 @@ function print_help {
 		echo " -h       Print this help."
 }
 
+# not in use
 function wrap_app {
 		local src_path="$1" app_out="Application.js"
 
@@ -43,7 +44,10 @@ function create_project {
 		fi
 
 		cd "$project_root"
-		$GC_BIN startproject -t empty "$project_name" > /dev/null 2> /dev/null
+		#tealeaf startproject -t empty "$project_name" > /dev/null 2> /dev/null
+		
+		#basil create project differs from tealeaf
+		$GC_BIN init "$project_name" > /dev/null 2> /dev/null
 }
 
 function create_file_project {
@@ -59,8 +63,7 @@ function create_api_project {
 		local project_path="$EXAMPLE_OUT/api/$(basename $src_path '.js')"
 
 		create_project "$project_path"
-		cd "$project_path/shared"
-		wrap_app "$src_path"
+		cp "$src_path" "$project_path/shared/Application.js"
 }
 
 function format_name {
