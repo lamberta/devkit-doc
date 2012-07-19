@@ -1,45 +1,27 @@
 # timestep.animate
 
-Is a function to animate Views or objects. It interpolates number properties over a given duration and with easing functions.
+Is a function to animate Views or objects. It interpolates
+number properties over a given duration and with easing
+functions.
 
-### timestep.animate (obj, groupId)
+~~~
+import timestep.animate as animate;
+~~~
+
+### animate (obj, groupId)
 1. `obj {View|object}`
 2. `groupID {number}`
 3. Return: `{Animator|ViewAnimator}`
 
-Create an Animator for a View or object. Passing an empty object literal `{}` allows you to perform arbitrary timing.
+Create an Animator for a View or object. Passing an empty
+object literal `{}` allows you to perform arbitrary timing.
 
-### animate.setViewAnimator (ctor)
+### animate.setViewAnimator (animator)
+1. `animator {Animator}`
 
 ### animate.getGroup (i)
 1. `i {number}`
 2. Return: `{Group}`
-
-### animate.linear
-1. `{number} = 1`
-
-Animation has the same speed from start to finish.
-
-### animate.easeIn
-1. `{number} = 2`
-
-Animation has a slow start.
-
-### animate.easeOut
-1. `{number} = 3`
-
-Animation has a slow end.
-
-### animate.easeInOut
-1. `{number} = 4`
-
-Animation has both slow start and slow end.
-
-### animate.bounce
-1. `{number} = 5`
-
-Animation overshoots target and animates back to simulate bouncing.
-
 
 
 ## Class: Animator
@@ -79,14 +61,23 @@ If there are any frames to animate.
 
 Start an animation right now.
 
-### animator.then (target, duration, transition, onTick)
+An animation transition can be one of the following:
 
-Same as `now()` but will animate after the previous animation is over.
+* animate.LINEAR ---Animation has the same speed from start to finish.
+* animate.EASE_IN ---Animation has a slow start.
+* animate.EASE_OUT ---Animation has a slow end.
+* animate.EASE_IN_OUT ---Animation has both slow start and slow end.
+* animate.BOUNCE ---Animation overshoots target and animates back to simulate bouncing.
+
 
 ### animator.now (callback)
 1. `callback {function}`
 
 Trigger a callback.
+
+### animator.then (target, duration, transition, onTick)
+
+Same as `now()` but will animate after the previous animation is over.
 
 ### animator.then (callback)
 1. `callback {function}`
@@ -151,13 +142,13 @@ Deletes the animation and publishes a `'Finish'` event.
 ### frame.transition
 
 
-## Class: CallbackFrame`
+## Class: CallbackFrame
 
 Inherits
 :    1. [Frame](#frame)
 
 
-## Class: `WaitFrame` 
+## Class: WaitFrame
 
 Actually, it *is* a `Frame`. It's a frame that does nothing.
 
@@ -177,9 +168,9 @@ Inherits
 :    1. [Frame](#frame)
 
 
-## Example: Move a rectangle
+## Example: Moving rectangles
 
-Animate a red rectangle view to the edge of the device while rotating.
+Move over each rectangle to animate it to the edge of the device.
 
 ~~~
 m4_include(./examples/api/animate.js)
