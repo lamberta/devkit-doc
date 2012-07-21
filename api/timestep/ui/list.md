@@ -19,7 +19,7 @@ Inherits
 ### list.addCell (cell)
 1. `cell {timestep.ui.Cell}`
 
-### list.setMaxY (maxY)__
+### list.setMaxY (maxY)
 1. `maxY {number}`
 
 ### list.model

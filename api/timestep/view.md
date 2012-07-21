@@ -120,6 +120,18 @@ Start responding to an input event by dragging the view.
 
 Indicate if the view is being dragged.
 
+### Event: \'InputSelect\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+Click on a view.
+
+~~~
+view.subscribe('InputSelect', function (evt, pt) {
+	console.log("View clicked at position: " + pt.x + "," + pt.y);
+});
+~~~
+
 ### Event: \'InputOver\', callback (over, overCount, atTarget)
 1. `over`
 2. `overCount {number}`
@@ -129,6 +141,14 @@ Indicate if the view is being dragged.
 1. `over`
 2. `overCount {number}`
 3. `atTarget`
+
+### Event: \'InputStart\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+### Event: \'InputScroll\', callback ()
+
+### Event: \'InputMove\', callback ()
 
 ### Event: \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
