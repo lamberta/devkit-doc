@@ -63,11 +63,11 @@ Start an animation right now.
 
 An animation transition can be one of the following:
 
-* animate.LINEAR ---Animation has the same speed from start to finish.
-* animate.EASE_IN ---Animation has a slow start.
-* animate.EASE_OUT ---Animation has a slow end.
-* animate.EASE_IN_OUT ---Animation has both slow start and slow end.
-* animate.BOUNCE ---Animation overshoots target and animates back to simulate bouncing.
+* `animate.LINEAR` ---Animation has the same speed from start to finish.
+* `animate.EASE_IN` ---Animation has a slow start.
+* `animate.EASE_OUT` ---Animation has a slow end.
+* `animate.EASE_IN_OUT` ---Animation has both slow start and slow end.
+* `animate.BOUNCE` ---Animation overshoots target and animates back to simulate bouncing.
 
 
 ### animator.now (callback)
@@ -93,14 +93,6 @@ Set `_debug` to `true`.
 ### animator.next ()
 
 
-## Class: ViewAnimator
-
-For dealing with views as animation subjects.
-
-Inherits
-:    1. [Animator](#animator)
-     2. [lib.PubSub](./lib-pubsub.html)
-
 ## Class: Group
 
 A group of styles that animate independently of other styles.
@@ -124,6 +116,10 @@ Inherits
 
 Deletes the animation and publishes a `'Finish'` event.
 
+### Event: \'Finish\'
+
+Published when the group animation finishes.
+
 
 ## Class: Frame
 
@@ -140,32 +136,6 @@ Deletes the animation and publishes a `'Finish'` event.
 ### frame.duration
 
 ### frame.transition
-
-
-## Class: CallbackFrame
-
-Inherits
-:    1. [Frame](#frame)
-
-
-## Class: WaitFrame
-
-Actually, it *is* a `Frame`. It's a frame that does nothing.
-
-Inherits
-:    1. [Frame](#frame)
-
-
-## Class: ObjectFrame
-
-Inherits
-:    1. [Frame](#frame)
-
-
-## Class: ViewStyleFrame
-
-Inherits
-:    1. [Frame](#frame)
 
 
 ## Example: Moving rectangles
