@@ -1,18 +1,18 @@
-# timestep.text
+# text
 
-## Class: timestep.text.TextView
+## Class: ui.text.TextView
 
 Use this View to display text.
 
 Inherits
-:    1. [timestep.View](./timestep-view.html)
-     2. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.View](./ui-view.html)
+     2. [event.PubSub](./event.html#class-event.pubsub)
 
 ~~~
-import timestep.text.TextView as TextView;
+import ui.text.TextView as TextView;
 ~~~
 
-### new timestep.text.TextView ([options])
+### new TextView ([options])
 1. `options {object}`
 	* `text {string}`
 	* `fontSize {number} = 12`
@@ -45,46 +45,49 @@ var text = new TextView({
 });
 ~~~
 
-### textview.setText (text)
+### text.setText (text)
 1. `text {string}`
 
 Set the display text.
 
-### textview.getText ()
+### text.getText ()
 1. Return: `{string}`
 
 Return the display text.
 
-### textview.getCharacterWidth (ctx)
+### text.getCharacterWidth (ctx)
 1. `ctx {CanvasRenderingContext2D}`
 2. Return: `{number}`
 
-### textview.getLineWidth (ctx, line)
+### text.getLineWidth (ctx, line)
 1. `ctx {CanvasRenderingContext2D}`
 2. `line {string}`
 3. `{number}`
 
-### textview.updateOpts (opts)
+### text.updateOpts (opts)
 1. `opts {object}`
 
 Update text options.
 
 
-## Class: timestep.text.TextInputView
+## Class: ui.text.TextInputView
 
 Inherits
-:    1. [timestep.text.TextView](./timestep-textview.html)
-     2. [timestep.View](./timestep-view.html)
-     3. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.text.TextView](./ui-text.html#class-timestep.text.textview)
+     2. [ui.View](./ui-view.html)
+	 3. [event.PubSub](./event.html#class-event.pubsub)
 
 ~~~
-import timestep.text.TextInputView as TextInputView;
+import ui.text.TextInputView as TextInputView;
 ~~~
 
-### new timestep.TextInputView ([options])
+### new TextInputView ([options])
 1. `options {object}`
 	* `prompt {text}`
 
+~~~
+var text = new TextInputView();
+~~~
 
 ## text.parseFont (font)
 1. `font {string}`
@@ -105,10 +108,10 @@ Called when the text value changes.
 Called when TextInputView has been selected.
 
 
-## Class: resource.Font
+## Class: ui.resource.Font
 
 ~~~
-import resource.Font as Font;
+import ui.resource.Font as Font;
 ~~~
 
 ### new Font ([options])
@@ -118,7 +121,11 @@ import resource.Font as Font;
 	* `unit {string} = 'px'`
 	* `style {string}`
 	* `weight {string}`
-	
+
+~~~
+var font = new Font();
+~~~
+
 ### new Font (fontName)
 1. `fontName {string}`
 

@@ -1,12 +1,12 @@
-# timestep.Color
+# ui.Color
 
-## Class: timestep.Color
+## Class: ui.Color
 
 ~~~
-import timestep.Color as Color;
+import ui.Color as Color;
 ~~~
 
-### new timestep.Color (color)
+### new Color (color)
 1. `color {string}`
 
 ~~~
@@ -14,7 +14,7 @@ var red = new Color('#ff000'),
     blue = new Color('azure');
 ~~~
 
-### new timestep.Color (color)
+### new Color (color)
 1. `color {object}`
 	* `r {number}` ---Red component between 0 and 255.
 	* `g {number}` ---Green component between 0 and 255.
@@ -25,7 +25,7 @@ var red = new Color('#ff000'),
 var color = new Color({r: 255, g: 20, b: 120});
 ~~~
 
-### new timestep.Color (color)
+### new Color (color)
 1. `color {object}`
 	* `h {number}` ---Hue component between 0 and 360.
 	* `s {number}` ---Saturation component between 0 and 360.

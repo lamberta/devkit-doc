@@ -1,4 +1,4 @@
-# timestep.Engine
+# ui.Engine
 
 The game engine and scene graph manager for the Game Closure
 SDK; it has Canvas and DOM rendering back-ends.
@@ -7,14 +7,14 @@ The game engine initializes a number of components,
 including the input and key event listeners, the game loop,
 the view hierarchy, and rendering the scene graph.
 
-A single `timestep.Engine` is instantiated for games at `GC.app.engine`.
+A single `ui.Engine` is instantiated for games at `GC.app.engine`.
 
-## Class: timestep.Engine
+## Class: ui.Engine
 
 Inherits
-:    1. [lib.PubSub](./lib-pubsub.html)
+:    1. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.Engine ([options])
+### new Engine ([options])
 1. `options {object}`
 	* `width {number} = device.width`
 	* `height {number} = device.width`
@@ -91,7 +91,7 @@ Emitted each `Timer.onTick`.
 ### Event: \'Render\', callback (context)
 1. `context {}`
 
-## Class Method: timestep.Engine.get ()
+## Class Method: Engine.get ()
 1. Return: `{Application}`
 
 Returns the instance of `GC.app.engine`

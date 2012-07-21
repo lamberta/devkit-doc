@@ -1,9 +1,9 @@
-# timestep.sound
+# sound
 
-## Module: timestep.sound
+## Module: sound
 
 ~~~
-import timestep.sound as sound;
+import sound;
 ~~~
 
 ### sound.preload (category, name)

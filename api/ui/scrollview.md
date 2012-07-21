@@ -1,15 +1,19 @@
-# `timestep.ScrollView`
+# ui.ScrollView
 
 View to scroll itself and subviews. Supports
 drag through user input.
 
-## Class: timestep.ScrollView
+## Class: ui.ScrollView
 
 Inherits
-:    1. [timestep.View](./timestep-view.html)
-     2. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.View](./ui-view.html)
+     2. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.ScrollView ([options])
+~~~
+import ui.ScrollView as ScrollView;
+~~~
+
+### new ScrollView ([options])
 1. `options {object}`
 	* `fullWidth {number} = 0` ---Does nothing?
 	* `fullHeight {number} = 0` ---Does nothing?
@@ -27,6 +31,10 @@ Inherits
 		* `minY {number}` ---minimum Y position.
 		* `maxX {number}` ---maximum X position.
 		* `maxY {number}` ---maximum Y position.
+
+~~~
+var scrollview = new ScrollView();
+~~~
 
 ### scrollview.getStyleBounds ()
 1. Return: `{object}`

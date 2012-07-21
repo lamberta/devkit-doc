@@ -1,13 +1,17 @@
-# timestep.ui.List
+# ui.widget.List
 
-## Class: timestep.ui.List
+## Class: ui.widget.List
 
 Inherits
-:    1. [timestep.ScrollView](./timestep-scrollview.html)
-     2. [timestep.View](./timestep-view.html)
-     3. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.ScrollView](./ui-scrollview.html)
+     2. [ui.View](./ui-view.html)
+     3. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.ui.List ([options])
+~~~
+import ui.widget.List as List;
+~~~
+
+### new List ([options])
 1. `options {object}`
 	* `isFixedSize {boolean}`
 	* `isTiled {boolean}`
@@ -16,14 +20,18 @@ Inherits
 	* `selectable`
 	* `dataSource`
 
+~~~
+var list = new List();
+~~~
+
 ### list.addCell (cell)
-1. `cell {timestep.ui.Cell}`
+1. `cell {ui.widget.Cell}`
 
 ### list.setMaxY (maxY)
 1. `maxY {number}`
 
 ### list.model
-1. `{squill.models.List}`
+1. `{}`
 
 ### list.selection
 1. `{}`

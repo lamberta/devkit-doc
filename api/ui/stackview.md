@@ -1,53 +1,61 @@
-# timestep.StackView
+# ui.StackView
 
-## Class: timestep.StackView
+## Class: ui.StackView
 
 A view that contains multiple child views, one of which is
 at the top of the stack and displayed.
 
 Inherits
-:    1. [timestep.ui.UIView](./timestep-ui-uiview.html)
-     2. [timestep.View](./timestep-view.html)
-     3. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.widget.UIView](./ui-widget-uiview.html)
+     2. [ui.View](./ui-view.html)
+     3. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.StackView ([options])
+~~~
+import ui.StackView as StackView;
+~~~
+
+### new StackView ([options])
 1. `options {object}`
 
-### stackview.getStack ()
+~~~
+var stack = new StackView();
+~~~
+
+### stack.getStack ()
 1. Return: `{array}`
 
 Return an array of stacks contained in this view.
 
-### stackview.getCurrentView ()
+### stack.getCurrentView ()
 1. Return: `{View}`
 
 Return the current visible view at the top of the stack.
 
-### stackview.hasView (view)
+### stack.hasView (view)
 1. `view {View}`
 2. Return: `{boolean}`
 
 Check if a given view is contained in this StackView.
 
-### stackview.push (view, dontAnimate)
+### stack.push (view, dontAnimate)
 1. `view {View}`
 2. `dontAnimate {boolean}`
 3. Return: `{View}` ---The pushed view.
 
 Add a view to the top of the StackView, which makes is visible.
 
-### stackview.pop (dontAnimate)
+### stack.pop (dontAnimate)
 1. `dontAnimate {boolean}`
 2. Return: `{View}`
 
 Remove a view from the top of the StackView.
 
-### stackview.popAll (dontAnimate)
+### stack.popAll (dontAnimate)
 1. `dontAnimate {boolean}`
 
 Removes all child views from the StackView.
 
-### stackview.remove (view)
+### stack.remove (view)
 1. `view {View}`
 
 Removes a child view from the stack. Will not animate out

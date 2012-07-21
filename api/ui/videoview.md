@@ -1,10 +1,14 @@
-# timestep.VideoView
+# ui.VideoView
 
-## Class: timestep.VideoView
+## Class: ui.VideoView
 
 Inherits
-:    1. [timestep.View](./timestep-view.html)
-     2. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.View](./ui-view.html)
+     2. [event.PubSub](./event.html#class-event.pubsub)
+
+~~~
+import ui.VideoView as VideoView;
+~~~
 
 ### new timestep.VideoView ([options])
 1. `options {object}`
@@ -13,7 +17,11 @@ Inherits
 	* `volume {number}`
 
 
-## Class: resource.Video
+## Class: ui.resource.Video
+
+~~~
+import ui.resource.Video as Video;
+~~~
 
 ### video.play ()
 

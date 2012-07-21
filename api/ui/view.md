@@ -1,13 +1,17 @@
-# timestep.View
+# ui.View
 
 The base display object.
 
-## Class: timestep.View
+## Class: ui.View
 
 Inherits
-:    1. [lib.PubSub](./lib-pubsub.html)
+:    1. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.View ([options])
+~~~
+import ui.View as View;
+~~~
+
+### new View ([options])
 1. `options {object}` ---Optional.
 	* `id {string}`
 	* `tag {string}`
@@ -17,6 +21,10 @@ Inherits
 	* `canHandleEvents {boolean} = true`
 	* `superview {View}`
 	* `rotation {number} = 0`
+
+~~~
+var view = new View();
+~~~
 
 ### view.style
 1. `{ViewStyle}`
@@ -249,9 +257,20 @@ Make the view invisible, trigger a repaint.
 
 
 
-## Class: timestep.ViewStyle
+## Class: ui.ViewStyle
 
 Style definitions in `view.style`.
+
+~~~
+import ui.ViewStyle as ViewStyle;
+~~~
+
+### new ViewStyle ([options])
+1. `options {object}`
+
+~~~
+var style = new ViewStyle();
+~~~
 
 ### style.x
 1. `{number} = 0`

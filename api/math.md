@@ -1,4 +1,4 @@
-# Namespace: math
+# math
 
 ## Module: math.util
 
@@ -109,7 +109,7 @@ Shuffle an array in-place.
 Rotates an array's elements left. Returns a new array.
 
 
-## Namespace: math.geom
+## math.geom
 
 Math functions for 2D manipulation.
 

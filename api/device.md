@@ -1,6 +1,6 @@
-# timestep.device
+# device
 
-On an undefined platform, `timestep.device` is `{isUnknown: true}`.
+On an undefined platform, `device` is `{isUnknown: true}`.
 
 ### device.registerDevice (name, path)
 1. `name {string}`
@@ -10,14 +10,7 @@ On an undefined platform, `timestep.device` is `{isUnknown: true}`.
 1. `name {string}` ---Name of the module to import.
 2.  Return: `{Class} module`
 
-Dynamically use jsio to import a platform-specific module.
-
-### device.importUI (name)
-1. `name {string}` ---Name of the module to import.
-2. Return: `{Class}` ---The module.
-
-Internal? Dynamically use jsio to import a renderer-specific
-module (`timestep.canvas` or `timestep.dom`).
+Dynamically import a platform-specific module.
 
 ### device.hideAddressBar ()
 
@@ -26,7 +19,6 @@ Seems to be empty.
 ### device.getDimensions (isLandscape)
 1. `isLandscape {boolean} = false` ---Switch the dimensions if landscape.
 2. Return: `{object}` ---Returns object with properties `width` and `height`.
-
 
 ### device.name
 1. `{string}`
@@ -49,7 +41,7 @@ Height of the device.
 If the device is a mobile device.
 
 ### device.screen
-1. `{lib.PubSub}`
+1. `{event.PubSub}`
 	* `width {number}`
 	* `height {number}`
 	* `orientation {string}`
@@ -75,7 +67,7 @@ Defaults to `'Helvetica'`
 	* `end {string}` ---Defaults to `'touchend'` or `'mouseup'`
 
 ### device.onReady
-1. `{lib.Callback}`
+1. `{event.Callback}`
 
 ### device.useDOM
 1. `{boolean} = false`

@@ -1,6 +1,12 @@
-# timestep.filter
+# ui.filter
 
-### new timestep.filter.Filter ([options])
+## Class: ui.filter.Filter
+
+~~~
+import ui.filter.Filter as Filter;
+~~~
+
+### new Filter ([options])
 1. `options {object}`
 	* `priority {number} = 0`
 	* `r {number} = 0` ---Red component.
@@ -9,6 +15,10 @@
 	* `a {number} = 0` ---Alpha component.
 
 A generic class that specilized filters inherit from.
+
+~~~
+var filter = new Filter();
+~~~
 
 ### filter.get ()
 1. Return: `{object}`
@@ -36,32 +46,48 @@ Set the view for a filter.
 Returns the color of a filter in the format: `"rgba(r, g, b, a)"`.
 
 
-## Class: timestep.filter.LinearAddFilter
+## Class: ui.filter.LinearAddFilter
 
 Linear add (lighten) filter.
 
-### new timestep.filter.LinearAddFilter ([options])
+~~~
+import ui.filter.LinearAddFilter as LinearAddFilter;
+~~~
+
+### new LinearAddFilter ([options])
 
 
-## Class: timestep.filter.TintFilter
+## Class: ui.filter.TintFilter
 
 Tint (averaging) filter.
 
-### new timestep.filter.TintFilter ([options])
+~~~
+import ui.filter.TintFilter as TintFilter;
+~~~
+
+### new TintFilter ([options])
 
 
-## Class: timestep.filter.MultiplyFilter
+## Class: ui.filter.MultiplyFilter
 
 Multiply filter.
 
-### new timestep.filter.MultiplyFilter ([options])
+~~~
+import ui.filter.MultiplyFilter as MultiplyFilter;
+~~~
+
+### new MultiplyFilter ([options])
 
 
-## Class: timestep.filter.PositiveMaskFilter
+## Class: ui.filter.PositiveMaskFilter
 
 Positive masking.
 
-### new timestep.filter.PositiveMaskFilter ([options])
+~~~
+import ui.filter.PositiveMaskFilter as PositiveMaskFilter;
+~~~
+
+### new PositiveMaskFilter ([options])
 1. `options {object}`
 	* `priority {number} = 0`
 	* `image {string}` ---Image URL.
@@ -70,11 +96,15 @@ Positive masking.
 	* `b {number} = 0` ---Blue component.
 	* `a {number} = 0` ---Alpha component.
 
-## Class: timestep.filter.NegativeMaskFilter
+## Class: ui.filter.NegativeMaskFilter
 
 Negative masking.
 
-### new timestep.filter.NegativeMaskFilter ([options])
+~~~
+import ui.filter.NegativeMaskFilter as NegativeMaskFilter;
+~~~
+
+### new NegativeMaskFilter ([options])
 1. `options {object}`
 	* `priority {number} = 0`
 	* `image {string}` ---Image URL.

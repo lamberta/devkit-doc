@@ -1,19 +1,23 @@
-# timestep.ImageView
+# ui.ImageView
 
-## Class: timestep.ImageView
+## Class: ui.ImageView
 
 Inherits
-:    1. [timestep.View](./timestep-view.html)
-     2. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.View](./ui-view.html)
+     2. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.ImageView ([options])
+~~~
+import ui.ImageView as ImageView;
+~~~
+
+### new ImageView ([options])
 1. `options {object}`
 	* `image {string|timestep.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
 ~~~
-var imageview = new timestep.ImageView({
+var imageview = new ImageView({
   superview: parent,
   image: 'resources/images/example.png',
   x: 0,
@@ -63,7 +67,7 @@ Returns the image width.
 Returns the image height.
 
 
-## Class: resource.Image
+## Class: ui.resource.Image
 
 Model an Image for rendering. Supports taking a subset of
 images, to support extracting from compacted sprite
@@ -71,7 +75,7 @@ sheets. Also supports applying filters to an image, usually
 by the View class.
 
 ~~~
-import resource.Image as Image;
+import ui.resource.Image as Image;
 ~~~
 
 ### new Image ([options])

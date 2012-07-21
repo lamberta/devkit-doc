@@ -1,12 +1,21 @@
-# timestep.ui.Cell
+# ui.widget.Cell
 
-## Class: timestep.ui.Cell
+## Class: ui.widget.Cell
 
 Inherits
-:    1. [timestep.View](./timestep-view.html)
-     2. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.View](./ui-view.html)
+     2. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.ui.Cell ([options])
+~~~
+import ui.widget.Cell as Cell;
+~~~
+
+### new Cell ([options])
+1. `options {object}`
+
+~~~
+var cell = new Cell();
+~~~
 
 ### cell.remove ()
 

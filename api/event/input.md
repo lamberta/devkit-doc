@@ -1,8 +1,12 @@
-# timestep.input
+# event.input
 
-## Class: timestep.input.InputEvent
+## Class: event.input.InputEvent
 
-## new timestep.input.InputEvent (id, type, x, y, root, target)
+~~~
+import event.input.InputEvent as InputEvent;
+~~~
+
+## new InputEvent (id, type, x, y, root, target)
 1. `id {string}`
 2. `type {string}`
 3. `x {number}`

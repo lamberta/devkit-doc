@@ -1,4 +1,4 @@
-# timestep.SpriteView
+# ui.SpriteView
 
 A *Sprite* consists of multiple *animations* (walk, run,
 etc.) which themselves are made of multiple *frames*.
@@ -11,14 +11,18 @@ directory/spriteName-animationName-0001.png
 directory/spriteName-animationName-0002.png
 ~~~
 
-## Class: timestep.SpriteView
+## Class: ui.SpriteView
 
 Inherits
-:    1. [timestep.ImageView](./timestep-imageview.html)
-     2. [timestep.View](./timestep-view.html)
-     3. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.ImageView](./ui-imageview.html)
+     2. [ui.View](./ui-view.html)
+     3. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.SpriteView ([options])
+~~~
+import ui.SpriteView as SpriteView;
+~~~
+
+### new SpriteView ([options])
 1. `options {object}`
 	* `url {string}` ---Specified as a file name prefix.
 	* `groupID {string} = 'default'`
@@ -27,7 +31,19 @@ Inherits
 	* `autoStart {boolean} = false`
 	* `loop {boolean} = true`
 
-### spriteview.startAnimation (name [, opts])
+~~~
+var sprite = new SpriteView({
+  superview: parent,
+  x: 0,
+  y: 0,
+  width: 75,
+  height: 100,
+  url: 'resources/images/sprite',
+  frameRate: 30
+});
+~~~
+
+### sprite.startAnimation (name [, opts])
 1. `name {string}`
 2. `opts {object}`
 	* `iterations {number} = 1`
@@ -38,50 +54,40 @@ Inherits
 Start an animation.
 
 ~~~
-var sprite = new timestep.SpriteView({
-  superview: parent,
-  x: 0,
-  y: 0,
-  width: 75,
-  height: 100,
-  url: 'resources/images/sprite',
-  frameRate: 30
-})
-
 sprite.startAnimation('run');
 ~~~
 
-### spriteview.stopAnimation ()
+### sprite.stopAnimation ()
 
-### spriteview.resetAnimation ()
+### sprite.resetAnimation ()
 
-### spriteview.resetAllAnimations (opts)
+### sprite.resetAllAnimations (opts)
 1. `opts {object}`
 
-### spriteview.pause ()
+### sprite.pause ()
 
-### spriteview.resume ()
+### sprite.resume ()
 
-### spriteview.setFramerate (fps)
+### sprite.setFramerate (fps)
 1. `fps {number}` ---Frames per second.
 
-### spriteview.getFrame (animName, index)
+### sprite.getFrame (animName, index)
 1. `animName {string}`
 2. `index {number}`
 3. Return: `{Frame}`
 
-Returns a [`timestep.Image`](./timestep-image.html) for the
+Returns a [ui.Image](./ui-image.html) for the
 given animation's frame.
 
-### spriteview.getFrameCount (animName)
+### sprite.getFrameCount (animName)
 
 Returns the number of frames in a given animation.
 
-### spriteview.getGroup (groupId)
+### sprite.getGroup (groupId)
 1. `{} groupId`
 2. Return:`{Group}`
 
-### spriteview.defaults
+### sprite.defaults
 1. `{object}`
 	* `url {string} = null`
 	* `groupId {string} = 'default'`
@@ -90,13 +96,13 @@ Returns the number of frames in a given animation.
 	* `autoStart {boolean} = false`
 	* `loop {boolean} = true`
 
-### spriteview.visible
+### sprite.visible
 1. `{boolean}`
 
-### spriteview.groupID
+### sprite.groupID
 1. `{string}`
 
-### spriteview.frameRate
+### sprite.frameRate
 1. `{number}`
 
 

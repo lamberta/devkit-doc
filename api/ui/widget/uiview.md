@@ -1,17 +1,21 @@
-# timestep.ui.UIView
+# ui.widget.UIView
 
 This is not complete and subject to change.
 
-## Class: timestep.ui.UIView
+## Class: ui.widget.UIView
 
 A view proxy for a contained LinearLayout. Contains logic
 for reflowing in either significant direction.
 
 Inherits
-:    1. [timestep.View](./timestep-view.html)
-     2. [lib.PubSub](./lib-pubsub.html)
+:    1. [ui.View](./ui-view.html)
+     2. [event.PubSub](./event.html#class-event.pubsub)
 
-### new timestep.ui.UIView ([options])
+~~~
+import ui.widget.UIView as UIView;
+~~~
+
+### new UIView ([options])
 1. `options {object}`
 	* `left {number}`
 	* `right {number}`
@@ -21,6 +25,10 @@ Inherits
 	* `centerY {number}`
 	* `widthPercent {number}`
 	* `heightPercent {number}`
+
+~~~
+var view = new UIView();
+~~~
 
 ### view.reflowX (padding)
 

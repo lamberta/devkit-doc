@@ -1,4 +1,4 @@
-# squill
+# storage
 
 These parts of squill are used by other timestep classes on
 the backend, but shouldn't be directly referenced.
