@@ -1,14 +1,14 @@
-# math
+# Namespace: math
 
-## Module: math
+## Module: math.util
 
-Basic math functions.
+Basic math utility functions.
 
 ~~~
-import math;
+import math.util as util;
 ~~~
 
-### math.interpolate (a, b, x)
+### util.interpolate (a, b, x)
 1. `a {number}`
 2. `b {number}`
 3. `x {number}`
@@ -16,7 +16,7 @@ import math;
 
 Interpolate between values `a` and `b` at the point `x` in the interval.
 
-### math.random (a, b [, seed])
+### util.random (a, b [, seed])
 1. `a {number}`
 2. `b {number}`
 3. `seed {number} = Math.random()` ---Optional.
@@ -25,7 +25,7 @@ Interpolate between values `a` and `b` at the point `x` in the interval.
 Return a random integer between a and b. Optionally, a
 random seed can be given.
  
-### math.clip (n, min, max)
+### util.clip (n, min, max)
 1. `n {number}`
 2. `min {number}`
 3. `max {number}`
@@ -33,28 +33,28 @@ random seed can be given.
 
 Return a value `min` <= `n` <= `max`.
 
-### math.sign (n)
+### util.sign (n)
 1. `n {number}`
 2. Return: `{number}`
 
 Return the sign of a number value, 1 or -1.
 
-### math.round (n [, precision, method])
+### util.round (n [, precision, method])
 1. `n {number} value`
 2. `precision {number} = null` ---Optional.
-3. `method {number}` ---Optional enum from `math.round`.
+3. `method {number}` ---Optional enum from `util.round`.
 4. Return `{number}`
 
 Round a number to a given precision, or by a given method.
 
 The precision method can be one of the following:
 
-* math.round.ROUND_HALF_UP ---Round 0.5 to 1.
-* math.round.ROUND_HALF_AWAY_FROM_ZERO
-* math.round.ROUND_HALF_TO_EVEN ---Round to the nearest even number.
-* math.round.ROUND_HALF_TO_ODD ---Round to the nearest odd number.
-* math.round.ROUND_HALF_STOCHASTIC ---Round at random.
-* math.round.ROUND_HALF_ALTERNATE ---Alternate rounding up/down with sequential uses of this function.
+* `util.round.ROUND_HALF_UP` ---Round 0.5 to 1.
+* `util.round.ROUND_HALF_AWAY_FROM_ZERO`
+* `util.round.ROUND_HALF_TO_EVEN` ---Round to the nearest even number.
+* `util.round.ROUND_HALF_TO_ODD` ---Round to the nearest odd number.
+* `util.round.ROUND_HALF_STOCHASTIC` ---Round at random.
+* `util.round.ROUND_HALF_ALTERNATE` ---Alternate rounding up/down with sequential uses of this function.
 
 
 ## Module: math.array
@@ -109,11 +109,11 @@ Shuffle an array in-place.
 Rotates an array's elements left. Returns a new array.
 
 
-## Module: math.geom
+## Namespace: math.geom
 
 Math functions for 2D manipulation.
 
-## Class: geom.Point
+## Class: math.geom.Point
 
 ~~~
 import math.geom.Point as Point;
@@ -262,7 +262,7 @@ Alias for `Point.add`.
 4. Return: `{Point}`
 
 
-## Class: geom.Line
+## Class: math.geom.Line
 
 ~~~
 import math.geom.Line as Line;
@@ -294,7 +294,7 @@ Return the length of a line.
 Alias for `line.getLength`.
 
 
-## Class: geom.Circle
+## Class: math.geom.Circle
 
 ~~~
 import math.geom.Circle as Circle;
@@ -316,7 +316,7 @@ import math.geom.Circle as Circle;
 2. Return: `{this}`
 
 
-## Class: geom.Rect
+## Class: math.geom.Rect
 
 ~~~
 import math.geom.Rect as Rect;
@@ -368,7 +368,7 @@ Returns a line corresponding to the specified side of the rectangle.
 * `LEFT`
 
 
-## Class: geom.Vec2D
+## Class: math.geom.Vec2D
 
 Model a vector in two-dimensional space.
 
@@ -438,7 +438,7 @@ Returns the negative of this vector.
 Returns this vector multiplied by a scalar.
 
 
-## Module: geom.angle
+## Module: math.geom.angle
 
 ~~~
 import math.geom.angle as angle;
@@ -481,7 +481,7 @@ of PI and -PI.
 Angular range from a to b, in the range of 0 and 2PI.
 
 
-## Module: geom.intersect
+## Module: math.geom.intersect
 
 ~~~
 import math.geom.intersect as intersect;
