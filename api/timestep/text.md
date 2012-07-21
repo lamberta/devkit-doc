@@ -8,7 +8,11 @@ Inherits
 :    1. [timestep.View](./timestep-view.html)
      2. [lib.PubSub](./lib-pubsub.html)
 
-### new timestep.TextView ([options])
+~~~
+import timestep.text.TextView as TextView;
+~~~
+
+### new timestep.text.TextView ([options])
 1. `options {object}`
 	* `text {string}`
 	* `fontSize {number} = 12`
@@ -27,6 +31,19 @@ Inherits
 	* `lineWidth {number} = 2`
 	* `shadow {boolean} = false`
 	* `shadowColor {string} = 'black'`
+
+~~~
+var text = new TextView({
+  superview: parent,
+  x: 25,
+  y: 100,
+  width: 400,
+  text: "Hello, world!",
+    fontSize: 24,
+    shadow: true,
+    shadowColor: '#999999'
+});
+~~~
 
 ### textview.setText (text)
 1. `text {string}`
@@ -56,11 +73,15 @@ Update text options.
 ## Class: timestep.text.TextInputView
 
 Inherits
-:    1. [timestep.text.TextView](./timestep-text-textview.html)
+:    1. [timestep.text.TextView](./timestep-textview.html)
      2. [timestep.View](./timestep-view.html)
      3. [lib.PubSub](./lib-pubsub.html)
 
-### new timestep.text.TextInputView ([options])
+~~~
+import timestep.text.TextInputView as TextInputView;
+~~~
+
+### new timestep.TextInputView ([options])
 1. `options {object}`
 	* `prompt {text}`
 
