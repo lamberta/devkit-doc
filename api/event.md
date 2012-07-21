@@ -1,4 +1,4 @@
-# event
+# Namespace: event
 
 ## Class: event.PubSub
 
