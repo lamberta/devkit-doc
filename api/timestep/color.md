@@ -51,6 +51,8 @@ Todo.
 	* `a {number}` ---Alpha component between 0 and 1.
 2. Return:`{this}`
 
+Sets any of the RGBA components of the color.
+
 ### color.getHSLA ()
 1. Return: `{object}`
 	* `h {number}`
@@ -66,36 +68,54 @@ Todo.
 	* `a {number}` ---Alpha component between 0 and 1.
 2. Return: `{this}`
 
+Sets any of the HSLA components of the color.
+
 ### color.spin (degrees)
 1. `degrees {number}`
 2. Return: `{this}`
+
+Rotates the hue of the color.
 
 ### color.saturate (amount)
 1. `amount {number}`
 2. Return: `{this}`
 
+Increases the saturation of the color.
+
 ### color.desaturate (amount)
 1. `amount {number}`
 2. Return: `{this}`
+
+Decreases the saturation of the color.
 
 ### color.lighten (amount)
 1. `amount {number}`
 2. Return: `{this}`
 
+Increases the lightness of the color.
+
 ### color.darken (amount)
 1. `amount {number}`
 2. Return: `{this}`
+
+Decreases the lightness of the color.
 
 ### color.fadeIn (amount)
 1. `amount {number}`
 2. Return: `{this}`
 
+Increases the alpha of the color.
+
 ### color.fadeOut (amount)
 1. `amount {number}`
 2. Return: `{this}`
 
+Decreases the alpha of the color.
+
 ### color.clone ()
 1. Return: `{Color}`
+
+Returns a separate instance of the same color.
 
 ### color.toHex ()
 1. Return `{string}`
