@@ -19,7 +19,7 @@ var red = new Color('#ff000'),
 	* `r {number}` ---Red component between 0 and 255.
 	* `g {number}` ---Green component between 0 and 255.
 	* `b {number}` ---Blue componet between 0 and 255.
-	* `a {number} = 0` ---Alpha component.
+	* `a {number}` ---Alpha component between 0 and 1.
 
 ~~~
 var color = new Color({r: 255, g: 20, b: 120});
@@ -27,10 +27,10 @@ var color = new Color({r: 255, g: 20, b: 120});
 
 ### new timestep.Color (color)
 1. `color {object}`
-	* `h {number}` ---Hue component between 0 and 360.
-	* `s {number}` ---Saturation component between 0 and 360.
-	* `l {number}` ---Lightness component between 0 and 360.
-	* `a {number} = 0`
+	* `h {number}` ---Hue component between 0 and 360 degrees.
+	* `s {number}` ---Saturation component between 0 and 100 percent.
+	* `l {number}` ---Lightness component between 0 and 100 percent.
+	* `a {number}` ---Alpha component between 0 and 1.
 
 ### color.setColor (color)
 
@@ -48,7 +48,7 @@ Todo.
 	* `r {number}` ---Red component between 0 and 255.
 	* `g {number}` ---Green component between 0 and 255.
 	* `b {number}` ---Blue componet between 0 and 255.
-	* `a {number} = 0` ---Alpha component.
+	* `a {number}` ---Alpha component between 0 and 1.
 2. Return:`{this}`
 
 ### color.getHSLA ()
@@ -60,10 +60,10 @@ Todo.
 
 ### color.setHSLA (color)
 1. `color {object}`
-	* `h {number}` ---Hue component between 0 and 360.
-	* `s {number}` ---Saturation component between 0 and 360.
-	* `l {number}` ---Lightness component between 0 and 360.
-	* `a {number} = 0`
+	* `h {number}` ---Hue component between 0 and 360 degrees.
+	* `s {number}` ---Saturation component between 0 and 100 percent.
+	* `l {number}` ---Lightness component between 0 and 100 percent.
+	* `a {number}` ---Alpha component between 0 and 1.
 2. Return: `{this}`
 
 ### color.spin (degrees)
@@ -103,11 +103,11 @@ Todo.
 Returns the color as a string in the format: `'#RRGGBB'`.
 
 ### color.toRGBA ()
-1. Return `{string}`
+1. Return: `{string}`
 
 Returns the color as a string in the format: `'rgba(R, G, B, A)'`.
 
 ### color.toHSLA ()
 1. Return: `{string}`
 
-Returns the color as a string in the format: `'hsla(hue, saturation, lightness, alpha)'`.
+Returns the color as a string in the format: `'hsla(H, S%, L%, A)'`.
