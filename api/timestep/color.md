@@ -33,8 +33,8 @@ var color = new Color({r: 255, g: 20, b: 120});
 	* `a {number}` ---Alpha component between 0 and 1.
 
 ### color.setColor (color)
-
-Todo.
+1. `color {string}`
+2. Return: `{this}`
 
 ### color.getRGBA ()
 1. Return: `{object}`
@@ -49,7 +49,7 @@ Todo.
 	* `g {number}` ---Green component between 0 and 255.
 	* `b {number}` ---Blue componet between 0 and 255.
 	* `a {number}` ---Alpha component between 0 and 1.
-2. Return:`{this}`
+2. Return: `{this}`
 
 Sets any of the RGBA components of the color.
 
