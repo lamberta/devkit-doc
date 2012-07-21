@@ -1,7 +1,7 @@
-import timestep.View;
+import ui.View as View;
 
-exports = Class(timestep.View, function(supr) {
-	this.init = function(opts) {
+exports = Class(View, function (supr) {
+	this.init = function (opts) {
 		supr(this, "init", arguments);
 		
 		//modify the ViewStyle properties

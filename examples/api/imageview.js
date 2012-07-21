@@ -1,5 +1,5 @@
-import timestep.View as View;
-import timestep.ImageView as ImageView;
+import ui.View as View;
+import ui.ImageView as ImageView;
 
 exports = Class(View, function(supr) {
 	this.init = function(opts) {
@@ -8,7 +8,7 @@ exports = Class(View, function(supr) {
 		var myImage = new ImageView({
 			image: "resources/duck.png",
 			autoSize: true,
-			parent: this        
+			superview: this        
 		}); 
 	}
 });

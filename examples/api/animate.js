@@ -1,6 +1,6 @@
-import timestep.View as View;
-import timestep.animate as animate;
-import timestep.device as device;
+import animate;
+import device;
+import ui.View as View;
 
 exports = Class(GC.Application, function () {
   this._settings = {

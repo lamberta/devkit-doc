@@ -1,11 +1,11 @@
-import timestep.View;
-import timestep.SpriteView;
+import ui.View as View;
+import ui.SpriteView as SpriteView;
 
-exports = Class(timestep.View, function(supr) {
-	this.init = function(opts) {
+exports = Class(View, function (supr) {
+	this.init = function (opts) {
 		supr(this, "init", arguments);
 		
-		var runner = new timestep.SpriteView({
+		var runner = new SpriteView({
 			parent: this,
 			defaultAnimation: "idle",
 			width: 34,

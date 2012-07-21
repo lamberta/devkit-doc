@@ -1,6 +1,4 @@
-"use import";
-
-import timestep.View as View;
+import ui.View as View;
 
 //a custom red rectangle class
 function RedRect(opts) {

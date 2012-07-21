@@ -1,7 +1,3 @@
-"use import";
-
-import GC;
-
 import .ViewUsage;
 import .ViewStyleUsage;
 import .TextUsage;

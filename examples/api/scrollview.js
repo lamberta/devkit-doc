@@ -1,8 +1,8 @@
-import timestep.ImageView as ImageView;
-import timestep.ScrollView as ScrollView;
+import ui.ImageView as ImageView;
+import ui.ScrollView as ScrollView;
 
-exports = Class(ScrollView, function(supr) {
-  this.init = function(opts) {
+exports = Class(ScrollView, function (supr) {
+  this.init = function (opts) {
 		merge(opts, {
 			scrollBounds: {
 				minX: -100,
