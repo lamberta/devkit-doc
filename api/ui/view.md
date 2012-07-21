@@ -5,7 +5,7 @@ The base display object.
 ## Class: ui.View
 
 Inherits
-:    1. [event.PubSub](./event.html#class-event.pubsub)
+:    1. [event.PubSub](./event-index.html#class-event.pubsub)
 
 ~~~
 import ui.View as View;

@@ -4,7 +4,7 @@
 
 Inherits
 :    1. [ui.View](./ui-view.html)
-     2. [event.PubSub](./event.html#class-event.pubsub)
+     2. [event.PubSub](./event-index.html#class-event.pubsub)
 
 ~~~
 import ui.VideoView as VideoView;

@@ -27,7 +27,7 @@ object literal `{}` allows you to perform arbitrary timing.
 ## Class: Animator
 
 Inherits
-:    1. [event.PubSub](./event.html#class-event.pubsub)
+:    1. [event.PubSub](./event-index.html#class-event.pubsub)
 
 ### animator.clear ()
 1. Return: `{this}` ---This instance of Animator.
@@ -105,7 +105,7 @@ Set `_debug` to `true`.
 A group of styles that animate independently of other styles.
 
 Inherits
-:    1. [event.PubSub](./event.html#class-event.pubsub)
+:    1. [event.PubSub](./event-index.html#class-event.pubsub)
 
 ### group.get (id)
 1. `id {number}`

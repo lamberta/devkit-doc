@@ -1,4 +1,4 @@
-# text
+# ui.text
 
 ## Class: ui.text.TextView
 
@@ -6,7 +6,7 @@ Use this View to display text.
 
 Inherits
 :    1. [ui.View](./ui-view.html)
-     2. [event.PubSub](./event.html#class-event.pubsub)
+     2. [event.PubSub](./event-index.html#class-event.pubsub)
 
 ~~~
 import ui.text.TextView as TextView;
@@ -75,7 +75,7 @@ Update text options.
 Inherits
 :    1. [ui.text.TextView](./ui-text.html#class-timestep.text.textview)
      2. [ui.View](./ui-view.html)
-	 3. [event.PubSub](./event.html#class-event.pubsub)
+	 3. [event.PubSub](./event-index.html#class-event.pubsub)
 
 ~~~
 import ui.text.TextInputView as TextInputView;
