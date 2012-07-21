@@ -83,9 +83,13 @@ Returns the actual timestep.View constructor.
 
 ### engine.needsRepaint ()
 
-### Event: \'Tick\', callback ()
+### Event: \'Tick\', callback (dt)
+1. `dt {number}`
 
 Emitted each `Timer.onTick`.
+
+### Event: \'Render\', callback (context)
+1. `context {}`
 
 ## Class Method: timestep.Engine.get ()
 1. Return: `{Application}`
