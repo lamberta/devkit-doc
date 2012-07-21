@@ -37,6 +37,20 @@ Inherits
 
 Start an animation.
 
+~~~
+var sprite = new timestep.SpriteView({
+  superview: parent,
+  x: 0,
+  y: 0,
+  width: 75,
+  height: 100,
+  url: 'resources/images/sprite',
+  frameRate: 30
+})
+
+sprite.startAnimation('run');
+~~~
+
 ### spriteview.stopAnimation ()
 
 ### spriteview.resetAnimation ()

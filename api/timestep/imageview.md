@@ -12,6 +12,17 @@ Inherits
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
+~~~
+var imageview = new timestep.ImageView({
+  superview: parent,
+  image: 'resources/images/example.png',
+  x: 0,
+  y: 0,
+  width: 100,
+  height: 100
+})
+~~~
+
 ### imageview.getImage ()
 1. Return: `{timestep.Image}`
 

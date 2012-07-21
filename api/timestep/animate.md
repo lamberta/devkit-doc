@@ -79,6 +79,13 @@ Trigger a callback.
 
 Same as `now()` but will animate after the previous animation is over.
 
+~~~
+timestep.animate(view).then({
+  x: 500,
+  y: 500
+}, 1000);
+~~~
+
 ### animator.then (callback)
 1. `callback {function}`
 
