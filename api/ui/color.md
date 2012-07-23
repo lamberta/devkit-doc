@@ -9,9 +9,11 @@ import ui.Color as Color;
 ### new Color (color)
 1. `color {string}`
 
+Creates a Color instance, initially set with a color string. Accepts most CSS3 colors, including hex, rgb()/rgba(), hsl()/hsla(), and all valid CSS color names. Defaults alpha to 1.
+
 ~~~
-var red = new Color('#ff000'),
-    blue = new Color('azure');
+var red = new Color("#FF000");
+var blue = new Color("azure");
 ~~~
 
 ### new Color (color)
@@ -21,8 +23,10 @@ var red = new Color('#ff000'),
 	* `b {number}` ---Blue componet between 0 and 255.
 	* `a {number}` ---Alpha component between 0 and 1.
 
+Creates a Color instance, initially set with RGBA components. Defaults alpha to 1.
+
 ~~~
-var color = new Color({r: 255, g: 20, b: 120});
+var pink = new Color({ r: 255, g: 20, b: 120, a: 0.5 });
 ~~~
 
 ### new Color (color)
@@ -32,9 +36,17 @@ var color = new Color({r: 255, g: 20, b: 120});
 	* `l {number}` ---Lightness component between 0 and 100 percent.
 	* `a {number}` ---Alpha component between 0 and 1.
 
+Creates a Color instance, initially set with HSLA components. Defaults alpha to 1.
+
+~~~
+var sky = new Color({ h: 178, s: 96, l: 50 });
+~~~
+
 ### color.setColor (color)
 1. `color {string}`
 2. Return: `{this}`
+
+Sets the full color. Defaults alpha back to 1. Accepts the same strings the constructor does.
 
 ### color.getRGBA ()
 1. Return: `{object}`
@@ -42,6 +54,8 @@ var color = new Color({r: 255, g: 20, b: 120});
 	* `g {number}`
 	* `b {number}`
 	* `a {number}`
+
+Returns an object of the RGBA components of the color.
 
 ### color.setRGBA (color)
 1. `color {object}`
@@ -60,6 +74,8 @@ Sets any of the RGBA components of the color.
 	* `l {number}`
 	* `a {number}`
 
+Returns an object of the HSLA components of the color.
+
 ### color.setHSLA (color)
 1. `color {object}`
 	* `h {number}` ---Hue component between 0 and 360 degrees.
@@ -75,6 +91,10 @@ Sets any of the HSLA components of the color.
 2. Return: `{this}`
 
 Rotates the hue of the color.
+
+~~~
+var blue = new Color("yellow").spin(180);
+~~~
 
 ### color.saturate (amount)
 1. `amount {number}`
@@ -115,7 +135,12 @@ Decreases the alpha of the color.
 ### color.clone ()
 1. Return: `{Color}`
 
-Returns a separate instance of the same color.
+Returns a separate instance (deep copy) of the same color.
+
+~~~
+var blue = new Color("#08C");
+var green = blue.clone().spin(-60);
+~~~
 
 ### color.toHex ()
 1. Return `{string}`
