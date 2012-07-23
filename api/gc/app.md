@@ -1,9 +1,4 @@
-# GC.Application
-
-`GC.app` is an instance of the user's `shared/Application.js` file,
-which inherits from the sdk's `_api/client/Application.js`. When this object is
-instantiated, `GC.app.engine` and `GC.app.view` are created,
-and the `initUI` method in the user's application is called.
+# GC.app
 
 `GC.app.engine` is an instance of [`timestep.Application`](./timestep-application.html) and
 manages the view hierarchy contained in `GC.app.view`; it
@@ -49,31 +44,38 @@ instance of the user's `GC.Application`. Options need to be set before the
 * `preload {array}` ---Preload resource groups.
 
 
-### app.getCanvas ()
+## GC.app
+
+`GC.app` is an instance of the user's `shared/Application.js` file,
+which inherits from the sdk's `_api/client/Application.js`. When this object is
+instantiated, `GC.app.engine` and `GC.app.view` are created,
+and the `initUI` method in the user's application is called.
+
+### GC.app.getCanvas ()
 1. Return: `{HTMLCanvasElement}`
 
 Returns the canvas element used to render graphics. If not
 running in a browser environment, returns a canvas-like
 object.
 
-### app.run ()
+### GC.app.run ()
 
 Displays the scene graph managed by `GC.app.engine` and
 starts the animation loop.
 
 
-### Callback handler: app.initUI
+### Callback handler: GC.app.initUI
 
-### Callback handler: app.launchUI
+### Callback handler: GC.app.launchUI
 
 A user defined function that serves as the entry point for
 applications built on the Game Closure SDK.
 
-### Callback handler: app.onPause
+### Callback handler: GC.app.onPause
 
 Executed when the application process is sent to the background.
 
-### Callback handler: app.onResume
+### Callback handler: GC.app.onResume
 
 Executed when the application resumes.
 
