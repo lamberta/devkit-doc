@@ -1,8 +1,8 @@
 # Documentation Style Guide
 
-``# module.Class``
+``# title``
 
-This is an overview of the class or module.
+This is an overview of the class, module, namespace, or singleton.
 
 ``## Class: module.Class``
 
@@ -10,12 +10,20 @@ This is an overview of the class or module.
 ``:‿‿‿‿1. [module.ClassA](./module-classa.html)``<br/>
 ``‿‿‿‿‿2. [module.ClassB](./module-classb.html)``
 
+``~~~``<br/>
+``import module.Class as Class``<br/>
+``~~~``
+
 <br/>
 
-``### new module.Class ([options])``<br/>
+``### new Class ([options])``<br/>
 ``1. `options {object}` ---Optional.``<br/>
 ``‿‿‿‿* `property1 {type}``<br/>
 ``‿‿‿‿* `property2 {type}``
+
+``~~~``<br/>
+``var class = new Class({a: 'optionA', b: 'optionB'});``<br/>
+``~~~``
 
 <br/>
 
