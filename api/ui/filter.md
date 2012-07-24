@@ -14,7 +14,7 @@ import ui.filter.Filter as Filter;
 	* `b {number} = 0` ---Blue component.
 	* `a {number} = 0` ---Alpha component.
 
-A generic class that specilized filters inherit from.
+A generic class that specialized filters inherit from.
 
 ~~~
 var filter = new Filter();
@@ -43,7 +43,7 @@ Set the view for a filter.
 ### filter.getColorString ()
 1. Return: `{string}`
 
-Returns the color of a filter in the format: `"rgba(r, g, b, a)"`.
+Returns the color of a filter in the format: `"rgba(R, G, B, A)"`.
 
 
 ## Class: ui.filter.LinearAddFilter
@@ -88,13 +88,7 @@ import ui.filter.PositiveMaskFilter as PositiveMaskFilter;
 ~~~
 
 ### new PositiveMaskFilter ([options])
-1. `options {object}`
-	* `priority {number} = 0`
-	* `image {string}` ---Image URL.
-	* `r {number} = 0` ---Red component.
-	* `g {number} = 0` ---Green component.
-	* `b {number} = 0` ---Blue component.
-	* `a {number} = 0` ---Alpha component.
+
 
 ## Class: ui.filter.NegativeMaskFilter
 
@@ -105,10 +99,3 @@ import ui.filter.NegativeMaskFilter as NegativeMaskFilter;
 ~~~
 
 ### new NegativeMaskFilter ([options])
-1. `options {object}`
-	* `priority {number} = 0`
-	* `image {string}` ---Image URL.
-	* `r {number} = 0` ---Red component.
-	* `g {number} = 0` ---Green component.
-	* `b {number} = 0` ---Blue component.
-	* `a {number} = 0` ---Alpha component.
