@@ -39,3 +39,8 @@ Sets the volume of the sound.
 1. `shouldMute {boolean}`
 
 Either mutes or unmutes all the sounds, depending on `shouldMute`.
+
+### sound.forEach (callback)
+1. `callback {function(sound, category, name)}`
+
+Iterate over each sound.
