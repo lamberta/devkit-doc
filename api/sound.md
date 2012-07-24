@@ -2,15 +2,17 @@
 
 ## Module: sound
 
+Sounds are defined as a category and name, and are loaded from `resources/sounds/{category}/{name}`.
+
 ~~~
 import sound;
 ~~~
 
-### sound.preload (category, name)
+### sound.preload (category [, name])
 1. `category {string}`
 2. `name {string}`
 
-Loads a sound in the application's `resources/sounds/{category}/{name}` path.
+Preloads the sound or entire category.
 
 ### sound.play (category, name [, options])
 1. `category {string}`
@@ -18,28 +20,22 @@ Loads a sound in the application's `resources/sounds/{category}/{name}` path.
 3. `options {object}`
 	* `loop {boolean} = false` ---Loops sound.
 
-Play a sound.
+Plays the sound.
 
 ### sound.pause (category, name)
 1. `category {string}`
 2. `name {string}`
 
-Pause a sound.
+Pauses the sound.
 
 ### sound.setVolume (category, name, volume)
 1. `category {string}`
 2. `name {string}`
 3. `volume {number}`
 
-### sound.muteAll ()
+Sets the volume of the sound.
 
-Mute all the sounds.
+### sound.muteAll ([shouldMute])
+1. `shouldMute {boolean}`
 
-### sound.unmuteAll ()
-
-Un-mute all the sounds.
-
-### sound.forEach (callback)
-1. `callback {function(sound, category, name)}`
-
-Pass a function that is iterated over each sound.
+Either mutes or unmutes all the sounds, depending on `shouldMute`.
