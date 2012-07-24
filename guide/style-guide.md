@@ -82,4 +82,10 @@ Describe the example.
 ``var a = new module.Class();``<br/>
 <br/>
 ``a.method('Hello, World!');``<br/>
+<br/>
+``var hello = function (a, b) {``<br/>
+``‿‿var x = 1,``<br/>
+``‿‿‿‿‿‿y = 2;``<br/>
+``‿‿console.log("Hello variables!", a, b, x, y);``<br/>
+``};``<br/>
 ``~~~``
