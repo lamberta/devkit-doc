@@ -64,10 +64,6 @@ Returns the value of the option `key`.
 ### GC.app.engine.getCanvas ()
 1. Return: `{}`
 
-### GC.app.engine.getViewCtor ()
-
-This will BREAK YOUR CODE :D
-
 ### GC.app.engine.getView ()
 1. Return: `{View}`
 
