@@ -34,7 +34,7 @@ import ui.Engine as Engine;
 ### Class Method: Engine.get ()
 1. Return: `{Application}`
 
-Returns the instance of `GC.app.engine`
+If an engine has yet to be created, returns `null`, otherwise returns the singleton.
 
 
 ## GC.app.engine
@@ -44,9 +44,13 @@ A single `ui.Engine` is instantiated for games at `GC.app.engine`.
 ### GC.app.engine.updateOpts (opts)
 1. `opts {object}`
 
+Updates any options.
+
 ### GC.app.engine.supports (key)
-1. `key {}`
+1. `key {string}`
 2. Return: `{}`
+
+Returns the value of the option `key`.
 
 ### GC.app.engine.getInput ()
 1. Return: `{}`
@@ -61,16 +65,19 @@ A single `ui.Engine` is instantiated for games at `GC.app.engine`.
 1. Return: `{}`
 
 ### GC.app.engine.getViewCtor ()
-1. Return: `{View}`
 
-Returns the actual timestep.View constructor.
+This will BREAK YOUR CODE :D
 
 ### GC.app.engine.getView ()
-1. Return `{View}` ---This view.
+1. Return: `{View}`
+
+Returns the root view.
 
 ### GC.app.engine.setView (view)
-1. `view {}`
+1. `view {View}`
 2. Return: `{this}`
+
+Sets the root view.
 
 ### GC.app.engine.show ()
 1. Return: `{this}`
@@ -82,14 +89,21 @@ Returns the actual timestep.View constructor.
 
 ### GC.app.engine.resume ()
 
-### GC.app.engine.startLoop ()
-
-### GC.app.engine.stopLoop (dtMin)
+### GC.app.engine.startLoop ([dtMin])
 1. `dtMin {number}`
 2. Return: `{this}`
+
+Starts the game loop. If `dtMin` is provided, uses it as the argument to Timer.start(), instead of opts.dtMinimum.
+
+### GC.app.engine.stopLoop ()
+1. Return: `{this}`
+
+Stops the game loop.
   
 ### GC.app.engine.doOnTick (callback)
 1. `callback {function}`
+
+Registers `callback` to be called every tick.
 
 ### GC.app.engine.render ()
 
