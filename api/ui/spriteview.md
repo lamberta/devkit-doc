@@ -1,10 +1,8 @@
 # ui.SpriteView
 
-A *Sprite* consists of multiple *animations* (walk, run,
-etc.) which themselves are made of multiple *frames*.
+A *Sprite* consists of multiple *animations* (walk, run, etc.) which themselves are made of multiple *frames*.
 
-The sprite system grabs images from a given location and
-format. Using images like this:
+The sprite system grabs images from a given location and format. Using images like this:
 
 ~~~
 directory/spriteName-animationName-0001.png
@@ -24,7 +22,7 @@ import ui.SpriteView as SpriteView;
 
 ### new SpriteView ([options])
 1. `options {object}`
-	* `url {string}` ---Specified as a file name prefix.
+	* `url {string}` ---Sprite image filename prefix.
 	* `groupID {string} = 'default'`
 	* `frameRate {number} = 15`
 	* `emitFrameEvents {boolean} = false`
@@ -76,8 +74,7 @@ sprite.startAnimation('run');
 2. `index {number}`
 3. Return: `{Frame}`
 
-Returns a [ui.Image](./ui-image.html) for the
-given animation's frame.
+Returns a [ui.Image](./ui-image.html) for the given animation's frame.
 
 ### sprite.getFrameCount (animName)
 
@@ -106,16 +103,13 @@ Returns the number of frames in a given animation.
 1. `{number}`
 
 
-
 ### Class Method: SpriteView.getGroup ()
 
 ### Class Property: SpriteView.allAnimations
 1. `{Object}`
 
 
-## Example: Create a Sprite
-
-To create a new sprite object:
+## Example: Create a sprite
 
 ~~~
 m4_include(./examples/api/spriteview.js)
