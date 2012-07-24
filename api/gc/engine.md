@@ -100,5 +100,17 @@ Returns the actual timestep.View constructor.
 
 Emitted each `Timer.onTick`.
 
+To keep track of the amount of frames rendered over an
+application's lifetime:
+
+~~~
+var frame = 0;
+
+GC.app.engine.subscribe('Tick', function (dt) {
+  frame += 1;
+  console.log(frame);
+});
+~~~
+
 ### Event: \'Render\', callback (context)
 1. `context {}`
