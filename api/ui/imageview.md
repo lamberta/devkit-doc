@@ -17,14 +17,14 @@ import ui.ImageView as ImageView;
 	* `scaleMethod {string} = false`
 
 ~~~
-var imageview = new ImageView({
+new ImageView({
   superview: parent,
   image: 'resources/images/example.png',
-  x: 0,
-  y: 0,
   width: 100,
-  height: 100
-})
+  height: 100,
+  x: 0,
+  y: 0
+});
 ~~~
 
 ### imageview.getImage ()
@@ -37,7 +37,7 @@ var imageview = new ImageView({
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
-Set the image for the ImageView.
+Sets the image for the ImageView.
 
 ### imageview.setImage (url [, opts])
 1. `url {string}`
@@ -96,7 +96,7 @@ import ui.resource.Image as Image;
 ### image.isReady ()
 1. Return: `{boolean}`
 
-Returns `true` if the image has loaded.
+Returns whether the image has loaded.
 
 ### image.destroy ()
 
@@ -105,14 +105,22 @@ Destroys the image.
 ### image.setSrcImage (image)
 1. `image {Image}`
 
+Sets the raw (HTML) internal image.
+
 ### image.setSrcImage (image)
 1. `image {string}`
+
+Sets the raw (HTML) internal image's URL.
 
 ### image.getURL ()
 1. Return: `{string}`
 
+Returns the image URL.
+
 ### image.setURL (url)
 1. `url {string}`
+
+Sets the image URL.
 
 ### image.setImageData (data)
 1. `data {ImageData}`
@@ -127,23 +135,37 @@ Returns the image data object from a canvas.
 ### image.getWidth ()
 1. Return: `{number}`
 
+Returns the image's computed width (taking into account margin and scale).
+
 ### image.getOrigWidth ()
 1. Return: `{number}`
+
+Returns the image's actual, "natural" width (i.e. width ignoring margin and scale).
 
 ### image.getHeight ()
 1. Return: `{number}`
 
+Returns the image's computed height (taking into account margin and scale).
+
 ### image.getOrigHeight ()
 1. Return: `{number}`
+
+Returns the image's actual, "natural" height (i.e. height ignoring margin and scale).
 
 ### image.getSource ()
 1. Return: `{Image}`
 
+Returns the raw (HTML) image.
+
 ### image.setSourceWidth (n)
 1. `n {number}`
 
+Sets the internal imagemap's width.
+
 ### image.setSourceHeight (n)
 1. `n {number}`
+
+Sets the internal imagemap's height.
 
 ### image.setSourceX (n)
 1. `n {number}`
@@ -164,7 +186,9 @@ Returns the image data object from a canvas.
 1. `n {number}`
 
 ### image.getBounds ()
-1. Return `{}`
+1. Return: `{object}`
+
+Returns the internal ImageMap.
 
 ### image.setBounds (x, y, w, h, marginTop, marginRight, marginBottom, marginRight)
 1. `x {number}`
@@ -179,8 +203,6 @@ Returns the image data object from a canvas.
 
 ### Callback handler: image.doOnLoad ([args ...])
 1. Return: `{this}`
-
-
 
 ## Example: Create an ImageView
 
