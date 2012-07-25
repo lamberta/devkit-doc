@@ -492,57 +492,81 @@ import math.geom.intersect as intersect;
 2. `point {Point}`
 3. Return: `{boolean}`
 
+Returns whether `rect` and `point` overlap.
+
 ### intersect.pointAndRect (point, rect)
 1. `point {Point}`
 2. `rect {Rect}`
 3. Return: `{boolean}`
+
+Returns whether `point` and `rect` overlap.
 
 ### intersect.circleAndPoint (circle, point)
 1. `circle {Circle}`
 2. `point {Point}`
 3. Return: `{boolean}`
 
+Returns whether `circle` and `point` overlap.
+
 ### intersect.pointAndCircle (point, circle)
 1. `point {Point}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
-### intersect.rectAndRect (rect, rect)
-1. `rect {Rect}`
-2. `rect {Rect}`
+Returns whether `point` and `circle` overlap.
+
+### intersect.rectAndRect (rect1, rect2)
+1. `rect1 {Rect}`
+2. `rect2 {Rect}`
 3. Return: `{boolean}`
+
+Returns whether `rect1` and `rect2` overlap.
 
 ### intersect.rectAndCircle (rect, circle)
 1. `rect {Rect}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
+Returns whether `rect` and `circle` overlap.
+
 ### intersect.circleAndRect (circle, rect)
 1. `circle {Circle}`
 2. `rect {Rect}`
 3. Return: `{boolean}`
+
+Returns whether `circle` and `rect` overlap.
 
 ### intersect.circleAndLine (circle, line)
 1. `circle {Circle}`
 2. `line {Line}`
 3. Return: `{boolean}`
 
+Returns whether `circle` and `line` overlap.
+
 ### intersect.lineAndCircle (line, circle)
 1. `line {Line}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
-### intersect.pointToLine (point, line)
+Returns whether `line` and `circle` overlap.
+
+### intersect.polyAndPoly (poly1, poly2)
+1. `poly1 {object}`
+2. `poly2 {object}`
+3. Return: `{boolean|object}`
+
+Returns the minimum displacement vector (object with `overlap` and `normal`) in case of collision, otherwise returns `false`.
+
+### intersect.util.pointToLine (point, line)
 1. `point {Point}`
 2. `line {Line}`
 3. Return: `{Line}`
 
-Return a line composed of a given point and the nearest point on the line.
+Returns a `Line` from `point` to the nearest point on `line`.
 
-### intersect.rectAndRect (rect, rect)
-1. `rect {Rect}`
-2. `rect {Rect}`
+### intersect.util.rectAndRect (rect1, rect2)
+1. `rect1 {Rect}`
+2. `rect2 {Rect}`
 3. Return: `{Rect}`
 
-Return the intersection rectangle. If there is no
-intersection, return `null`.
+Returns the overlap between `rect1` and `rect2` as a `Rect`.
