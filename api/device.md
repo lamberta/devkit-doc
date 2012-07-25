@@ -6,6 +6,8 @@ On an undefined platform, `device` is `{isUnknown: true}`.
 1. `name {string}`
 2. `path {string}`
 
+Registers a new backend environment.
+
 ### device.get (module)
 1. `name {string}` ---Name of the module to import.
 2.  Return: `{Class} module`
@@ -20,20 +22,22 @@ Seems to be empty.
 1. `isLandscape {boolean} = false` ---Switch the dimensions if landscape.
 2. Return: `{object}` ---Returns object with properties `width` and `height`.
 
+Returns the device's screen dimensions.
+
 ### device.name
 1. `{string}`
 
-Defaults to `'tealeaf'` or `'browser'`.
+Runtime name. Defaults to `'tealeaf'` or `'browser'`.
 
 ### device.width
 1. `{number}`
 
-Width of the device.
+Width of the device's screen.
 
 ### device.height
 1. `{number}`
 
-Height of the device.
+Height of the device's screen.
 
 ### device.isMobile
 1. `{boolean}`
@@ -52,8 +56,12 @@ If the device is a mobile device.
 		* `portrait {object}` ---`{top: 0, bottom: 0}`
 		* `landscape {object}` ---`{top: 0, bottom: 0}`
 
+Information on the device's screen.
+
 ### device.devicePixelRatio
-1. `{number}`
+1. `{number} = 1`
+
+The device's pixel ratio.
 
 ### device.defaultFontFamily
 1. `{string}`
@@ -62,9 +70,11 @@ Defaults to `'Helvetica'`
 
 ### device.events
 1. `{object}`
-	* `start {string}` ---Defaults to `'touchstart'` or `'mousedown'`
-	* `move {string}` ---Defaults to `'touchmove'` or `'mousemove'`
-	* `end {string}` ---Defaults to `'touchend'` or `'mouseup'`
+	* `start {string} = 'touchstart'|'mousedown'`
+	* `move {string} = 'touchmove'|'mousemove'`
+	* `end {string} 'touchend'|'mouseup'`
+
+Mapping between timestep's abstracted events and the device's events.
 
 ### device.onReady
 1. `{event.Callback}`
@@ -72,7 +82,7 @@ Defaults to `'Helvetica'`
 ### device.useDOM
 1. `{boolean} = false`
 
-Internal flag to use DOM.
+Whether or not to use the DOM backend.
 
 ### device.isIOS
 1. `{boolean}`
