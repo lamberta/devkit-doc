@@ -2,7 +2,7 @@
 
 ## Class: event.PubSub
 
-Pubish and subscribe to messages dispatched on an object.
+Publish and subscribe to messages dispatched on an object.
 
 ~~~
 import event.PubSub as PubSub;
@@ -10,24 +10,43 @@ import event.PubSub as PubSub;
 
 ### new PubSub ()
 
-### pubsub.publish (signal)
-1. `signal {string}`
-2. Return: `{this}`
+Creates a PubSub instance.
 
-### pubsub.subscribe (signal [, thisObj], method)
+### pubsub.publish (signal [, args, ...])
 1. `signal {string}`
-2. `thisObj {object}` ---Optional.
+2. `args {*}`
+3. Return: `{this}`
+
+Calls all subscribers to the signal with any arguments provided.
+
+### pubsub.subscribe (signal [, thisObj], method [, args, ...])
+1. `signal {string}` ---Signal to subscribe to.
+2. `thisObj {object}` ---Optional context to bind.
 3. `method {function|string}` ---A function or method name on an object.
+4. `args {*}` ---Optional arguments to bind.
+
+Subscribes a method to a signal, optionally binding a context and initial arguments. Subscribing to the `'__any'` signal is effectively a catch-all, and passes the actual signal as the first argument to the callback.
 
 ### pubsub.subscribeOnce (signal [, thisObj], method)
+1. `signal {string}` ---Signal to subscribe to.
+2. `thisObj {object}` ---Optional context to bind.
+3. `method {function|string}` ---A function or method name on an object.
+4. `args {*}` ---Optional arguments to bind.
+
+Temporarily subscribes a method to a signal, optionally binding a context and initial arguments. Once the signal has been received, unsubscribes the method. Subscribing to the `'__any'` signal is effectively a catch-all, and passes the actual signal as the first argument to the callback.
+
+### pubsub.unsubscribe (signal, method)
 1. `signal {string}`
-2. `thisObj {object}` ---Optional.
 3. `method {function|string}` ---A function or method name on an object.
 
-### pubsub.unsubscribe (signal, thisObj, method)
+Unsubscribes the method from the signal.
+
+### pubsub.unsubscribe (signal, thisObj [, method])
 1. `signal {string}`
-2. `thisObj {object}` ---Optional.
-3. `method {function|string}` ---A function or method name on an object.
+2. `thisObj {object}`
+3. `method {function|string}` ---Optional function or method name on an object.
+
+Unsubscribes anything subscribed with the `thisObj` context, optionally specifically targeting `method`.
 
 
 ## Class: event.Callback
