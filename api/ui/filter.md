@@ -50,6 +50,9 @@ Returns the color of a filter in the format: `"rgba(R, G, B, A)"`.
 
 Linear add (lighten) filter.
 
+Inherits
+:    1. [ui.filter.Filter](#class-ui.filter.filter)
+
 ~~~
 import ui.filter.LinearAddFilter as LinearAddFilter;
 ~~~
@@ -60,6 +63,9 @@ import ui.filter.LinearAddFilter as LinearAddFilter;
 ## Class: ui.filter.TintFilter
 
 Tint (averaging) filter.
+
+Inherits
+:    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 ~~~
 import ui.filter.TintFilter as TintFilter;
@@ -72,6 +78,9 @@ import ui.filter.TintFilter as TintFilter;
 
 Multiply filter.
 
+Inherits
+:    1. [ui.filter.Filter](#class-ui.filter.filter)
+
 ~~~
 import ui.filter.MultiplyFilter as MultiplyFilter;
 ~~~
@@ -83,19 +92,29 @@ import ui.filter.MultiplyFilter as MultiplyFilter;
 
 Positive masking.
 
+Inherits
+:    1. [ui.filter.Filter](#class-ui.filter.filter)
+
 ~~~
 import ui.filter.PositiveMaskFilter as PositiveMaskFilter;
 ~~~
 
 ### new PositiveMaskFilter ([options])
+1. `options {object}`
+	* `image {string}` ---Image URL.
 
 
 ## Class: ui.filter.NegativeMaskFilter
 
 Negative masking.
 
+Inherits
+:    1. [ui.filter.Filter](#class-ui.filter.filter)
+
 ~~~
 import ui.filter.NegativeMaskFilter as NegativeMaskFilter;
 ~~~
 
 ### new NegativeMaskFilter ([options])
+1. `options {object}`
+	* `image {string}` ---Image URL.
