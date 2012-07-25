@@ -21,9 +21,9 @@ var blue = new Color("azure");
 	* `r {number}` ---Red component between 0 and 255.
 	* `g {number}` ---Green component between 0 and 255.
 	* `b {number}` ---Blue componet between 0 and 255.
-	* `a {number}` ---Alpha component between 0 and 1.
+	* `a {number} = 1` ---Alpha component between 0 and 1.
 
-Creates a Color instance, initially set with RGBA components. Defaults alpha to 1.
+Creates a Color instance, initially set with RGBA components.
 
 ~~~
 var pink = new Color({ r: 255, g: 20, b: 120, a: 0.5 });
@@ -34,9 +34,9 @@ var pink = new Color({ r: 255, g: 20, b: 120, a: 0.5 });
 	* `h {number}` ---Hue component between 0 and 360 degrees.
 	* `s {number}` ---Saturation component between 0 and 100 percent.
 	* `l {number}` ---Lightness component between 0 and 100 percent.
-	* `a {number}` ---Alpha component between 0 and 1.
+	* `a {number} = 1` ---Alpha component between 0 and 1.
 
-Creates a Color instance, initially set with HSLA components. Defaults alpha to 1.
+Creates a Color instance, initially set with HSLA components.
 
 ~~~
 var sky = new Color({ h: 178, s: 96, l: 50 });
