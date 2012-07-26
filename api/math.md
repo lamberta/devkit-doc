@@ -115,6 +115,8 @@ Math functions for 2D manipulation.
 
 ## Class: math.geom.Point
 
+The base of 2D math.
+
 ~~~
 import math.geom.Point as Point;
 ~~~
@@ -127,6 +129,8 @@ import math.geom.Point as Point;
 1. `pt {object}`
 	* `x {number} = 0`
 	* `y {number} = 0`
+
+Creates a Point.
 
 ### point.rotate (radians)
 1. `radians {number}`
@@ -158,13 +162,13 @@ Alias for `point.translate`.
 2. `y {number} = 0`
 3. Return `{this}`
 
-Subtract this point by two scalars or by another point.
-
 ### point.subtract ({x, y})
 1. `pt {object}`
 	* `x {number} = 0`
 	* `y {number} = 0`
 2. Return: `{this}`
+
+Subtract this point by two scalars or by another point.
 
 ### point.scale (factor)
 1. `factor {number}`
@@ -296,6 +300,11 @@ Alias for `line.getLength`.
 
 ## Class: math.geom.Circle
 
+Circles!
+
+Inherits
+:    1. [math.geom.Point](#class-math.geom.point)
+
 ~~~
 import math.geom.Circle as Circle;
 ~~~
@@ -311,9 +320,13 @@ import math.geom.Circle as Circle;
 	* `y {number} = 0`
 	* `radius {number} = 0`
 
+Creates a Circle.
+
 ### circle.scale (factor)
 1. `factor {number}`
 2. Return: `{this}`
+
+Scales the position and radius of the circle by a factor (where 1 = 100%).
 
 
 ## Class: math.geom.Rect
@@ -328,6 +341,8 @@ import math.geom.Rect as Rect;
 3. `width {number}`
 4. `height {number}`
 
+Creates a rect instances.
+
 ### rect.normalize ()
 1. Return: `{this}`
 
@@ -339,7 +354,7 @@ Normalize negative dimensions so that the rectange (x, y) is based on the upper 
 Resizes this rectangle to its union with another rectangle.
 
 ### rect.getCenter ()
-* @returns `{Point}`
+1. Return: `{Point}`
 
 Returns the center point of this circle.
 
