@@ -9,7 +9,7 @@ features in timestep, but until then, they are documented here.
 ## Class: squill.models.BasicDataSource
 
 Inherits
-:    1. [lib.PubSub](./lib-pubsub.html)
+:    1. [event.PubSub](./event-index.html)
 
 ### new squill.models.BasicDataSource ([options])
 1. `options {object}
@@ -26,7 +26,7 @@ Inherits
 Not accessed directly using the SDK.
 
 Inherits
-:    1. [lib.PubSub](./lib-pubsub.html)
+:    1. [event.PubSub](./event-index.html)
 
 ### new squill.models.persistence.BasicPersistenceHandler ([options])
 1. `object {object}`
