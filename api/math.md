@@ -389,8 +389,10 @@ import math.geom.Vec2D as Vec2D;
 Pass an "angle" option in radians to this function to
 initialize an angle.
 
-### vec.addForce (point)
-1. `point {Point}`
+### vec.addForce (vec)
+1. `vec {Vec2D}`
+
+Applies a force vector.
 
 ### vec.getAngle ()
 1. Return: `{number}`
