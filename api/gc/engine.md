@@ -48,21 +48,29 @@ Updates any options.
 
 ### GC.app.engine.supports (key)
 1. `key {string}`
-2. Return: `{}`
+2. Return: `{*}`
 
 Returns the value of the option `key`.
 
 ### GC.app.engine.getInput ()
-1. Return: `{}`
+1. Return: `{Input}`
+
+Returns the internal Input thingy (from runtimes).
 
 ### GC.app.engine.getEvents ()
-1. Return: `{}`
+1. Return: `{Array}`
+
+Returns any events that haven't been dispatched yet.
 
 ### GC.app.engine.getKeyListener ()
-1. Return: `{}`
+1. Return: `{KeyListener}`
+
+Returns the internal KeyListener (from runtimes).
 
 ### GC.app.engine.getCanvas ()
-1. Return: `{}`
+1. Return: `{Canvas}`
+
+Returns the internal Canvas (from runtimes).
 
 ### GC.app.engine.getView ()
 1. Return: `{View}`
@@ -78,23 +86,31 @@ Sets the root view.
 ### GC.app.engine.show ()
 1. Return: `{this}`
 
+Shows the canvas, but only when useDOM is off.
+
 ### GC.app.engine.hide ()
 1. Return: `{this}`
 
+Hides the canvas.
+
 ### GC.app.engine.pause ()
 
+Calls `.stopLoop()` and disables the key listener.
+
 ### GC.app.engine.resume ()
+
+Calls `.startLoop()` and enables the key listener.
 
 ### GC.app.engine.startLoop ([dtMin])
 1. `dtMin {number}`
 2. Return: `{this}`
 
-Starts the game loop. If `dtMin` is provided, uses it as the argument to Timer.start(), instead of opts.dtMinimum.
+Starts the engine loop. If `dtMin` is provided, uses it as the argument to Timer.start(), instead of opts.dtMinimum.
 
 ### GC.app.engine.stopLoop ()
 1. Return: `{this}`
 
-Stops the game loop.
+Stops the engine loop.
   
 ### GC.app.engine.doOnTick (callback)
 1. `callback {function}`
@@ -103,7 +119,12 @@ Registers `callback` to be called every tick.
 
 ### GC.app.engine.render ()
 
+Supposedly renders everything.
+
 ### GC.app.engine.needsRepaint ()
+1. Return: `{this}`
+
+Signals that the engine needs to repaint.
 
 ### Event: \'Tick\', callback (dt)
 1. `dt {number}`
@@ -123,4 +144,6 @@ GC.app.engine.subscribe('Tick', function (dt) {
 ~~~
 
 ### Event: \'Render\', callback (context)
-1. `context {}`
+1. `context {Context2D}`
+
+Called every render, with the internal canvas context.

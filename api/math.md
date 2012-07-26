@@ -115,6 +115,8 @@ Math functions for 2D manipulation.
 
 ## Class: math.geom.Point
 
+The base of 2D math.
+
 ~~~
 import math.geom.Point as Point;
 ~~~
@@ -127,6 +129,8 @@ import math.geom.Point as Point;
 1. `pt {object}`
 	* `x {number} = 0`
 	* `y {number} = 0`
+
+Creates a Point.
 
 ### point.rotate (radians)
 1. `radians {number}`
@@ -158,13 +162,13 @@ Alias for `point.translate`.
 2. `y {number} = 0`
 3. Return `{this}`
 
-Subtract this point by two scalars or by another point.
-
 ### point.subtract ({x, y})
 1. `pt {object}`
 	* `x {number} = 0`
 	* `y {number} = 0`
 2. Return: `{this}`
+
+Subtract this point by two scalars or by another point.
 
 ### point.scale (factor)
 1. `factor {number}`
@@ -296,6 +300,11 @@ Alias for `line.getLength`.
 
 ## Class: math.geom.Circle
 
+Circles!
+
+Inherits
+:    1. [math.geom.Point](#class-math.geom.point)
+
 ~~~
 import math.geom.Circle as Circle;
 ~~~
@@ -311,9 +320,13 @@ import math.geom.Circle as Circle;
 	* `y {number} = 0`
 	* `radius {number} = 0`
 
+Creates a Circle.
+
 ### circle.scale (factor)
 1. `factor {number}`
 2. Return: `{this}`
+
+Scales the position and radius of the circle by a factor (where 1 = 100%).
 
 
 ## Class: math.geom.Rect
@@ -328,6 +341,8 @@ import math.geom.Rect as Rect;
 3. `width {number}`
 4. `height {number}`
 
+Creates a rect instances.
+
 ### rect.normalize ()
 1. Return: `{this}`
 
@@ -339,7 +354,7 @@ Normalize negative dimensions so that the rectange (x, y) is based on the upper 
 Resizes this rectangle to its union with another rectangle.
 
 ### rect.getCenter ()
-* @returns `{Point}`
+1. Return: `{Point}`
 
 Returns the center point of this circle.
 
@@ -389,8 +404,10 @@ import math.geom.Vec2D as Vec2D;
 Pass an "angle" option in radians to this function to
 initialize an angle.
 
-### vec.addForce (point)
-1. `point {Point}`
+### vec.addForce (vec)
+1. `vec {Vec2D}`
+
+Applies a force vector.
 
 ### vec.getAngle ()
 1. Return: `{number}`
@@ -492,57 +509,81 @@ import math.geom.intersect as intersect;
 2. `point {Point}`
 3. Return: `{boolean}`
 
+Returns whether `rect` and `point` overlap.
+
 ### intersect.pointAndRect (point, rect)
 1. `point {Point}`
 2. `rect {Rect}`
 3. Return: `{boolean}`
+
+Returns whether `point` and `rect` overlap.
 
 ### intersect.circleAndPoint (circle, point)
 1. `circle {Circle}`
 2. `point {Point}`
 3. Return: `{boolean}`
 
+Returns whether `circle` and `point` overlap.
+
 ### intersect.pointAndCircle (point, circle)
 1. `point {Point}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
-### intersect.rectAndRect (rect, rect)
-1. `rect {Rect}`
-2. `rect {Rect}`
+Returns whether `point` and `circle` overlap.
+
+### intersect.rectAndRect (rect1, rect2)
+1. `rect1 {Rect}`
+2. `rect2 {Rect}`
 3. Return: `{boolean}`
+
+Returns whether `rect1` and `rect2` overlap.
 
 ### intersect.rectAndCircle (rect, circle)
 1. `rect {Rect}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
+Returns whether `rect` and `circle` overlap.
+
 ### intersect.circleAndRect (circle, rect)
 1. `circle {Circle}`
 2. `rect {Rect}`
 3. Return: `{boolean}`
+
+Returns whether `circle` and `rect` overlap.
 
 ### intersect.circleAndLine (circle, line)
 1. `circle {Circle}`
 2. `line {Line}`
 3. Return: `{boolean}`
 
+Returns whether `circle` and `line` overlap.
+
 ### intersect.lineAndCircle (line, circle)
 1. `line {Line}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
-### intersect.pointToLine (point, line)
+Returns whether `line` and `circle` overlap.
+
+### intersect.polyAndPoly (poly1, poly2)
+1. `poly1 {object}`
+2. `poly2 {object}`
+3. Return: `{boolean|object}`
+
+Returns the minimum displacement vector (object with `overlap` and `normal`) in case of collision, otherwise returns `false`.
+
+### intersect.util.pointToLine (point, line)
 1. `point {Point}`
 2. `line {Line}`
 3. Return: `{Line}`
 
-Return a line composed of a given point and the nearest point on the line.
+Returns a `Line` from `point` to the nearest point on `line`.
 
-### intersect.rectAndRect (rect, rect)
-1. `rect {Rect}`
-2. `rect {Rect}`
+### intersect.util.rectAndRect (rect1, rect2)
+1. `rect1 {Rect}`
+2. `rect2 {Rect}`
 3. Return: `{Rect}`
 
-Return the intersection rectangle. If there is no
-intersection, return `null`.
+Returns the overlap between `rect1` and `rect2` as a `Rect`.
