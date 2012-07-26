@@ -16,6 +16,8 @@ import ui.ImageView as ImageView;
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
+Creates an ImageView.
+
 ~~~
 new ImageView({
   superview: parent,
@@ -28,7 +30,9 @@ new ImageView({
 ~~~
 
 ### imageview.getImage ()
-1. Return: `{timestep.Image}`
+1. Return: `{Image}`
+
+Returns the internal Image.
 
 ### imageview.setImage (img [, opts])
 1. `img {timestep.Image}`
@@ -48,7 +52,12 @@ Sets the image for the ImageView.
 
 Set the image for the ImageView.
 
-### Callback handler: imageview.doOnLoad
+### Callback handler: imageview.doOnLoad (cb, [args, ...])
+1. `cb {Function}`
+2. `args {*}`
+1. Return: `{this}`
+
+Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
 
 ### imageview.autoSize (method, url, width, height)
 1. `method {string}` ---Options: `'none'`, `'fit'`, `'proportional'`, and `'resize'`.
@@ -92,6 +101,8 @@ import ui.resource.Image as Image;
 	* `sourceScale {number} = 1`
 	* `url {string}` ---A URL or a base64 encoded image string.
 	* `srcImage {Image}`
+
+Creates an Image.
 
 ### image.isReady ()
 1. Return: `{boolean}`
@@ -170,20 +181,32 @@ Sets the internal imagemap's height.
 ### image.setSourceX (n)
 1. `n {number}`
 
+Sets the x coordinate of the internal ImageMap.
+
 ### image.setSourceY (n)
 1. `n {number}`
+
+Sets the y coordinate of the internal ImageMap.
 
 ### image.setMarginTop (n)
 1. `n {number}`
 
-### image.setMarginBottom (n)
+Sets the top margin.
+
+### image.setMarginRight (n)
 1. `n {number}`
+
+Sets the right margin.
 
 ### image.setMarginBottom (n)
 1. `n {number}`
+
+Sets the bottom margin.
 
 ### image.setMarginLeft (n)
 1. `n {number}`
+
+Sets the left margin.
 
 ### image.getBounds ()
 1. Return: `{object}`
@@ -200,9 +223,15 @@ Returns the internal ImageMap.
 7. `marginBottom {number}`
 8. `marginRight {number}`
 
+Sets the properties of the internal ImageMap.
 
-### Callback handler: image.doOnLoad ([args ...])
+
+### Callback handler: image.doOnLoad (fn, [args, ...])
+1. `cb {Function}`
+2. `args {*}`
 1. Return: `{this}`
+
+Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
 
 ## Example: Create an ImageView
 
