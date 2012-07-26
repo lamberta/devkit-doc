@@ -110,38 +110,51 @@ Called when TextInputView has been selected.
 
 ## Class: ui.resource.Font
 
+Basic font representation class.
+
 ~~~
 import ui.resource.Font as Font;
 ~~~
 
-### new Font ([options])
-1. `options {object}`
+### new Font (font)
+1. `font {string}`
+
+Creates a font from a standard CSS font string.
+
+### new Font (opts)
+1. `opts {object}`
 	* `name {string} = device.defaultFamilyName`
 	* `size {number} = 20`
 	* `unit {string} = 'px'`
 	* `style {string}`
 	* `weight {string}`
 
-~~~
-var font = new Font();
-~~~
+Creates a font from options.
 
-### new Font (fontName)
-1. `fontName {string}`
+~~~
+var font = new Font("16px Helvetica");
+~~~
 
 ### font.getName ()
 1. Return: `{string}`
 
+Returns the font family.
+
 ### font.getSize ()
 1. Return: `{number}`
+
+Returns the font size in pixels.
 
 ### font.getWeight ()
 1. Reurn: `{string}`
 
-### Class method: Font.parse (fontName)
-1. `fontName {string}`
+Returns the font weight.
+
+### Class method: Font.parse (font)
+1. `font {string}`
 2. `Return: {Font}`
 
+Creates a Font from a font string.
 
 
 ## Example: Using a TextView
