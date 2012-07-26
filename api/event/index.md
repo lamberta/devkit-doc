@@ -12,41 +12,54 @@ import event.PubSub as PubSub;
 
 Creates a PubSub instance.
 
-### pubsub.publish (signal [, args, ...])
+~~~
+var pubsub = new PubSub();
+~~~
+
+### pubsub.publish (signal [, args ...])
 1. `signal {string}`
-2. `args {*}`
+2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
 3. Return: `{this}`
 
 Calls all subscribers to the signal with any arguments provided.
 
-### pubsub.subscribe (signal [, thisObj], method [, args, ...])
+### pubsub.subscribe (signal, callback [, args ...])
 1. `signal {string}` ---Signal to subscribe to.
-2. `thisObj {object}` ---Optional context to bind.
-3. `method {function|string}` ---A function or method name on an object.
-4. `args {*}` ---Optional arguments to bind.
+2. `callback {function|string}` ---A function, or the name of method on an object.
+3. `args {...*}` ---Optional arguments to bind.
+4. Return: `{this}`
 
 Subscribes a method to a signal, optionally binding a context and initial arguments. Subscribing to the `'__any'` signal is effectively a catch-all, and passes the actual signal as the first argument to the callback.
 
-### pubsub.subscribeOnce (signal [, thisObj], method)
+### pubsub.subscribe (signal, thisObj, callback [, args ...])
+
+Subscribe to a signal, binding an object to the `this`
+context in the callback function.
+
+### pubsub.subscribeOnce (signal, callback [, args ...])
 1. `signal {string}` ---Signal to subscribe to.
-2. `thisObj {object}` ---Optional context to bind.
-3. `method {function|string}` ---A function or method name on an object.
-4. `args {*}` ---Optional arguments to bind.
+2. `callback {function|string}` ---A function or method name on an object.
+3. `args {*}` ---Optional arguments to bind.
 
 Temporarily subscribes a method to a signal, optionally binding a context and initial arguments. Once the signal has been received, unsubscribes the method. Subscribing to the `'__any'` signal is effectively a catch-all, and passes the actual signal as the first argument to the callback.
 
-### pubsub.unsubscribe (signal, method)
+### pubsub.subscribeOnce (signal [, thisObj], callback [, args ...])
+
+Subscribe to a signal once, binding an object to the `this`
+context in the callback function.
+
+### pubsub.unsubscribe (signal, callback)
 1. `signal {string}`
-3. `method {function|string}` ---A function or method name on an object.
+3. `callback {function|string}` ---A function or method name on an object.
 
 Unsubscribes the method from the signal.
 
-### pubsub.unsubscribe (signal, thisObj [, method])
+### pubsub.unsubscribe (signal, thisObj [, callback])
 1. `signal {string}`
 2. `thisObj {object}`
-3. `method {function|string}` ---Optional function or method name on an object.
+3. `callback {function|string}` ---Optional function or method name on an object.
 
-Unsubscribes anything subscribed with the `thisObj` context, optionally specifically targeting `method`.
+Unsubscribes anything subscribed with the `thisObj` context, optionally specifically targeting `callback`.
 
 
 ## Class: event.Callback
@@ -59,15 +72,15 @@ import event.Callback as Callback;
 
 ### new Callback ()
 
-### callback.run (fn)
-1. `fn {function}`
+### callback.run (callback)
+1. `callback {function}`
 2. Return: `{this}`
 
 Add a callback function to the list of callbacks.
 
-### callback.run (thisObj, method)
+### callback.run (thisObj, callback)
 1. `thisObj {object}` 
-2. `method {string}`
+2. `callback {string}`
 3. Return: `{this}`
 
 Add a callback to the callback chain by specifying the
