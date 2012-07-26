@@ -49,7 +49,7 @@ var sprite = new SpriteView({
 	* `frame {number} = 0` ---Frame to start on.
 	* `randomFrame {boolean} = false` ---Start on random frame.
 
-Start an animation.
+Starts an animation.
 
 ~~~
 sprite.startAnimation('run');
@@ -57,17 +57,29 @@ sprite.startAnimation('run');
 
 ### sprite.stopAnimation ()
 
+Stops the current animation and hides the sprite.
+
 ### sprite.resetAnimation ()
+
+If the current animation loops, start the default animation. Otherwise, calls `.stopAnimation()`.
 
 ### sprite.resetAllAnimations (opts)
 1. `opts {object}`
 
+Completely resets all the animations, and sets new options with `opts` and the defaults.
+
 ### sprite.pause ()
+
+Pauses the animation.
 
 ### sprite.resume ()
 
+Unpauses the animation.
+
 ### sprite.setFramerate (fps)
-1. `fps {number}` ---Frames per second.
+1. `fps {number}`
+
+Sets the sprite's framerate.
 
 ### sprite.getFrame (animName, index)
 1. `animName {string}`
@@ -80,9 +92,11 @@ Returns a [ui.Image](./ui-image.html) for the given animation's frame.
 
 Returns the number of frames in a given animation.
 
-### sprite.getGroup (groupId)
-1. `{} groupId`
+### sprite.getGroup (groupID)
+1. `{string} groupID`
 2. Return:`{Group}`
+
+Returns the group.
 
 ### sprite.defaults
 1. `{object}`
@@ -93,21 +107,33 @@ Returns the number of frames in a given animation.
 	* `autoStart {boolean} = false`
 	* `loop {boolean} = true`
 
+Default sprite settings.
+
 ### sprite.visible
 1. `{boolean}`
+
+Whether or not the sprite is visible.
 
 ### sprite.groupID
 1. `{string}`
 
+The group the sprite is in.
+
 ### sprite.frameRate
 1. `{number}`
 
+The sprite's framerate.
 
-### Class Method: SpriteView.getGroup ()
+### Class Method: SpriteView.getGroup (groupID)
+1. `{string} groupID`
+2. Return:`{Group}`
+
+Returns the group.
 
 ### Class Property: SpriteView.allAnimations
-1. `{Object}`
+1. `{object}`
 
+Object of all animations found in the resources directory.
 
 ## Example: Create a sprite
 
