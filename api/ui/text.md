@@ -59,10 +59,14 @@ Return the display text.
 1. `ctx {CanvasRenderingContext2D}`
 2. Return: `{number}`
 
+Returns the width of a single character.
+
 ### text.getLineWidth (ctx, line)
 1. `ctx {CanvasRenderingContext2D}`
 2. `line {string}`
-3. `{number}`
+3. Return: `{number}`
+
+Returns the width of the `line`.
 
 ### text.updateOpts (opts)
 1. `opts {object}`
