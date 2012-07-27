@@ -225,6 +225,12 @@ can be helpful when you want to break up multiple additions
 into separate commits, or for testing purposes where you
 want to ignore some isolated changes.
 
+### Merge sections of a file from another branch
+
+While on the branch you want to merge *to*, this command
+will interactively ask you to merge each chunk:
+
+`git checkout --patch frombranch file`
 
 ### View history
 

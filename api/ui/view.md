@@ -132,7 +132,7 @@ Indicate if the view is being dragged.
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Click on a view.
+"Click" on a view. Combination of up and down.
 
 ~~~
 view.subscribe('InputSelect', function (evt, pt) {
@@ -154,6 +154,8 @@ view.subscribe('InputSelect', function (evt, pt) {
 1. `event {InputEvent}`
 2. `point {Point}`
 
+Fired on mousedown/touch.
+
 ### Event: \'InputScroll\', callback ()
 
 ### Event: \'InputMove\', callback ()
@@ -161,14 +163,20 @@ view.subscribe('InputSelect', function (evt, pt) {
 ### Event: \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
 
+Fired when dragging starts.
+
 ### Event: \'Drag\', callback (dragEvent, moveEvent, delta)
 1. `dragEvent {InputEvent}`
 2. `moveEvent {InputEvent}`
 3. `delta {number}`
 
+Fired during dragging.
+
 ### Event: \'DragStop\', callback (dragEvent, selectEvent)
 1. `dragEvent {InputEvent}`
 2. `selectEvent {InputEvent}`
+
+Fired when dragging is stopped.
 
 ### view.localizePoint (point)
 1. `point {math2D.Point}`
@@ -225,12 +233,12 @@ exist on a view.
 Remove a named filter from this view.
 
 ### view.animate (style, duration, easing)
-1. `style {}`
-2. `duration {}`
-3. `easing {}`
-4. Return:
+1. `style {object}`
+2. `duration {duration}`
+3. `easing {number}`
+4. Return: `{Animator}`
 
-Subject to change with the animation api.
+Subject to change with the animation api. Currently calls `animate.then()` on the view.
 
 ### view.getAnimation (groupID)
 1. `groupID {number}`
