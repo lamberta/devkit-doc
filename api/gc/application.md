@@ -13,7 +13,6 @@ Inherits:
      2. sdk/_api/client/Application.js
      3. [lib.PubSub](./lib-pubsub.html)
 
-
 Application options are added to the `_settings` object within an
 instance of the user's `GC.Application`. Options need to be set before the
 `initUI` and `launchUI` methods are called, since they reference this object.
@@ -65,6 +64,8 @@ starts the animation loop.
 
 
 ### Callback handler: GC.app.initUI
+
+Called before `launchUI`.
 
 ### Callback handler: GC.app.launchUI
 
