@@ -78,8 +78,10 @@ Return `this.length`.
 
 ### datasource.load ()
 
-### Event: \'Update\'
+### Events
 
-### Event: \'Remove\'
+#### \'Update\'
 
-### Event: \'Remote\'
+#### \'Remove\'
+
+#### \'Remote\'

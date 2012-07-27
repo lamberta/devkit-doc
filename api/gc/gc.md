@@ -140,27 +140,29 @@ Whether or not this is a desktop app.
 
 Whether or not this is a Facebook app.
 
-### Event: \'Show\'
+### Events
+
+#### \'Show\'
 
 Published when the app is shown/resumed.
 
-### Event: \'AfterShow\'
+#### \'AfterShow\'
 
 Published after the app is shown/resumed.
 
-### Event: \'Hide\'
+#### \'Hide\'
 
 Published when the app is hidden/paused.
 
-### Event: \'AfterHide\'
+#### \'AfterHide\'
 
 Published after the app is hidden/paused.
 
-### Event: \'OnlineStateChanged\'
+#### \'OnlineStateChanged\'
 
 Published when the online state changes. Passes either `true` or `false` depending on whether the new state is online or offline.
 
-### Event: \'PushNotificationReceived\'
+#### \'PushNotificationReceived\'
 
 First attempts to publish
 `'__internal_push_notification'`,then if that isn't handled,

@@ -128,56 +128,6 @@ Start responding to an input event by dragging the view.
 
 Indicate if the view is being dragged.
 
-### Event: \'InputSelect\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
-
-"Click" on a view. Combination of up and down.
-
-~~~
-view.subscribe('InputSelect', function (evt, pt) {
-	console.log("View clicked at position: " + pt.x + "," + pt.y);
-});
-~~~
-
-### Event: \'InputOver\', callback (over, overCount, atTarget)
-1. `over`
-2. `overCount {number}`
-3. `atTarget`
-
-### Event: \'InputOut\', callback (over, overCount, atTarget)
-1. `over`
-2. `overCount {number}`
-3. `atTarget`
-
-### Event: \'InputStart\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
-
-Fired on mousedown/touch.
-
-### Event: \'InputScroll\', callback ()
-
-### Event: \'InputMove\', callback ()
-
-### Event: \'DragStart\', callback (dragEvent)
-1. `dragEvent {InputEvent}`
-
-Fired when dragging starts.
-
-### Event: \'Drag\', callback (dragEvent, moveEvent, delta)
-1. `dragEvent {InputEvent}`
-2. `moveEvent {InputEvent}`
-3. `delta {number}`
-
-Fired during dragging.
-
-### Event: \'DragStop\', callback (dragEvent, selectEvent)
-1. `dragEvent {InputEvent}`
-2. `selectEvent {InputEvent}`
-
-Fired when dragging is stopped.
-
 ### view.localizePoint (point)
 1. `point {math2D.Point}`
 2. Return `{math2D.Point}` ---Returns the given point, with updated values.
@@ -263,6 +213,61 @@ Make the view visible, trigger a repaint.
 Make the view invisible, trigger a repaint.
 
 
+### Events
+
+#### \'InputSelect\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+Select a view by click or touch.
+
+~~~
+view.subscribe('InputSelect', function (evt, pt) {
+  console.log("View clicked at position: " + pt.x + "," + pt.y);
+});
+~~~
+
+Subscribe to the capture-phase event with `'InputSelectCapture'`.
+
+#### \'InputOver\', callback (over, overCount, atTarget)
+1. `over`
+2. `overCount {number}`
+3. `atTarget`
+
+#### \'InputOut\', callback (over, overCount, atTarget)
+1. `over`
+2. `overCount {number}`
+3. `atTarget`
+
+#### \'InputStart\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+Fired on mousedown/touch.
+
+Subscribe to the capture-phase event with `'InputStartCapture'`.
+
+#### \'InputScroll\', callback ()
+
+#### \'InputMove\', callback ()
+
+#### \'DragStart\', callback (dragEvent)
+1. `dragEvent {InputEvent}`
+
+Fired when dragging starts.
+
+#### \'Drag\', callback (dragEvent, moveEvent, delta)
+1. `dragEvent {InputEvent}`
+2. `moveEvent {InputEvent}`
+3. `delta {number}`
+
+Fired during dragging.
+
+#### \'DragStop\', callback (dragEvent, selectEvent)
+1. `dragEvent {InputEvent}`
+2. `selectEvent {InputEvent}`
+
+Fired when dragging is stopped.
 
 
 ## Class: ui.ViewStyle

@@ -14,16 +14,14 @@ Support for the browser's `window` object.
 2. `callback {function}`
 3. `bubble {boolean} = false`
 
-### Event: \'pageshow\'
+### Events
 
-### Event: \'pagehide\'
+#### \'pageshow\'
 
-### Event:
+#### \'pagehide\'
 
 
 ## document
 
 ### document.createElement (type)
 1. `type {}`
-
-

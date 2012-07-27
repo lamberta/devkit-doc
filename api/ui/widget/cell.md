@@ -44,7 +44,9 @@ Object with `x` and `y` properties.
 ### cell.model
 1. `{squill.models.Cell}`
 
-### Event: \'Recycle\'
+### Events
+
+#### \'Recycle\'
 
 When `this.model` receives a `'Recycle'` event, this `Cell`
 is removed from it's superview.

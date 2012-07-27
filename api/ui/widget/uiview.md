@@ -40,6 +40,8 @@ Determines the position and style of a view and its child
 views. If you want to customize the layout flow you can
 override this function.
 
-### Event: \'Resize\', callback ()
+### Events
+
+#### \'Resize\', callback ()
 
 Event emitted to view when it has been resized.

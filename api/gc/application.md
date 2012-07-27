@@ -230,7 +230,9 @@ Supposedly renders everything.
 
 Signals that the engine needs to repaint.
 
-### Event: \'Tick\', callback (dt)
+### Events
+
+#### \'Tick\', callback (dt)
 1. `dt {number}`
 
 Emitted each `Timer.onTick`.
@@ -247,7 +249,7 @@ GC.app.engine.subscribe('Tick', function (dt) {
 });
 ~~~
 
-### Event: \'Render\', callback (context)
+#### \'Render\', callback (context)
 1. `context {Context2D}`
 
 Called every render, with the internal canvas context.
