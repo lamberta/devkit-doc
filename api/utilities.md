@@ -4,21 +4,25 @@
 
 ### Class (superConstructor, constructor)
 1. `superConstructor {function}`
-2. `constructor {function}`
+2. `constructor {function(supr)}` ---The constructor is
+passed a function that can call any method on it's superclass.
 3. Return: `{function}`
 
-Inherits the properties and methods of one class into another.
+Our class system for simplifying JavaScript object
+inheritence. Objects of a class-type inherit the properties and methods
+defined on that class. A sub-class inherits the attributes of its super-class.
 
 ~~~
-var SuperClass = Class(function () {
+var MySuperClass = Class(function () {
   this.init = function (name) {
     this.name = name;
   };
 });
 
-var MyClass = Class(SuperClass, function (supr) {
+var MyClass = Class(MySuperClass, function (supr) {
   this.init = function (name) {
-    supr(this, 'init', arguments);
+    //Call the init of the super class with the arguments passed to this class.
+    supr(this, 'init', arguments);  
   };
   this.say = function () {
     console.log("Hello, " + this.name + "!");
@@ -53,6 +57,7 @@ var fn = bind(pt, add_to_point, 23);
 
 fn(56); //=> {x: 123, y: 456}
 ~~~
+
 
 ### merge (obj1, obj2 [, obj3 ...])
 1. `base {object}`
