@@ -61,22 +61,24 @@ Removes all child views from the StackView.
 Removes a child view from the stack. Will not animate out
 reguardless of position.
 
-### Event: \'ViewWillAppear\', callback ()
+### Events
+
+#### \'ViewWillAppear\', callback ()
 
 Event emitted to the StackView's child view when it is
 schedules to appear, but before it has animated in.
 
-### Event: \'ViewDidAppear\', callback ()
+#### \'ViewDidAppear\', callback ()
 
 Event emitted to the StackView's child view once it has
 appeared, and after any animations.
 
-### Event: \'ViewWillDisappear\', callback ()
+#### \'ViewWillDisappear\', callback ()
 
 Event emitted to the StackView's child view when it is
 scheduled to disappear, but before it has animated out.
 
-### Event: \'ViewDidDisapear\', callback ()
+#### \'ViewDidDisapear\', callback ()
 
 Event emitted to the StackView's child view once it has
 disappeared, after any animations.

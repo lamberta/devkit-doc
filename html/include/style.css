@@ -91,7 +91,7 @@ nav#TOC {
 
 /* when generating the toc, disable the header linkbacks.
  */
-#main h1 a, #main h2 a, #main h3 a {
+#main h1 a, #main h2 a, #main h3 a, #main h4 a {
 	pointer-events: none;
 	cursor: default;
 	text-decoration: none;

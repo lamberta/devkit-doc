@@ -158,7 +158,9 @@ Returns whether there are any running animations in the group.
 
 Deletes the animation and publishes a `'Finish'` event.
 
-### Event: \'Finish\'
+### Events
+
+#### \'Finish\'
 
 Published when the group animation finishes.
 

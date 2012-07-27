@@ -120,7 +120,10 @@ Return the full height.
 
 Smoothly scroll to a specific position.
 
-### Event: \'Scrolled\', callback (delta)
+
+### Events
+
+#### \'Scrolled\', callback (delta)
 1. `delta {point}`
 
 Published in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.

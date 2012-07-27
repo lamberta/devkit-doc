@@ -213,9 +213,9 @@ Make the view visible, trigger a repaint.
 Make the view invisible, trigger a repaint.
 
 
-## ui.View supported events
+### Events
 
-### Event: \'InputSelect\', callback (event, point)
+#### \'InputSelect\', callback (event, point)
 1. `event {InputEvent}`
 2. `point {Point}`
 
@@ -229,17 +229,17 @@ view.subscribe('InputSelect', function (evt, pt) {
 
 Subscribe to the capture-phase event with `'InputSelectCapture'`.
 
-### Event: \'InputOver\', callback (over, overCount, atTarget)
+#### \'InputOver\', callback (over, overCount, atTarget)
 1. `over`
 2. `overCount {number}`
 3. `atTarget`
 
-### Event: \'InputOut\', callback (over, overCount, atTarget)
+#### \'InputOut\', callback (over, overCount, atTarget)
 1. `over`
 2. `overCount {number}`
 3. `atTarget`
 
-### Event: \'InputStart\', callback (event, point)
+#### \'InputStart\', callback (event, point)
 1. `event {InputEvent}`
 2. `point {Point}`
 
@@ -247,23 +247,23 @@ Fired on mousedown/touch.
 
 Subscribe to the capture-phase event with `'InputStartCapture'`.
 
-### Event: \'InputScroll\', callback ()
+#### \'InputScroll\', callback ()
 
-### Event: \'InputMove\', callback ()
+#### \'InputMove\', callback ()
 
-### Event: \'DragStart\', callback (dragEvent)
+#### \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
 
 Fired when dragging starts.
 
-### Event: \'Drag\', callback (dragEvent, moveEvent, delta)
+#### \'Drag\', callback (dragEvent, moveEvent, delta)
 1. `dragEvent {InputEvent}`
 2. `moveEvent {InputEvent}`
 3. `delta {number}`
 
 Fired during dragging.
 
-### Event: \'DragStop\', callback (dragEvent, selectEvent)
+#### \'DragStop\', callback (dragEvent, selectEvent)
 1. `dragEvent {InputEvent}`
 2. `selectEvent {InputEvent}`
 

@@ -93,21 +93,14 @@ import ui.text.TextInputView as TextInputView;
 var text = new TextInputView();
 ~~~
 
-## text.parseFont (font)
-1. `font {string}`
-2. Return: `{Font}` ---From resources.
+### Events
 
-Not implemented. This function was in the Font.js file, but
-should be moved into this namespace, which now acts as a
-util file for text.
-
-
-### Event: \'Change\', callback (text)
+#### \'Change\', callback (text)
 1. `text {string}`
 
 Called when the text value changes.
 
-### Event: \'InputSelect\', callback ()
+#### \'InputSelect\', callback ()
 
 Called when TextInputView has been selected.
 
