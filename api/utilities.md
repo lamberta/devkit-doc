@@ -5,7 +5,7 @@
 ### Class (superConstructor, constructor)
 1. `superConstructor {function}`
 2. `constructor {function(supr)}` ---The constructor is
-passed a function that can call any method on it's superclass.
+passed a function that can call any method on its superclass.
 3. Return: `{function}`
 
 Our class system for simplifying JavaScript object
