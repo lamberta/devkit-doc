@@ -42,6 +42,7 @@ q:before, q:after {
 
 html {
 	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 }
 
 body {
@@ -75,7 +76,7 @@ nav#sidebar {
 	width: 200px;
 	padding: 10px 15px;
 	border-radius: 5px;
-	background-color: #3388ff;
+	background-color: #85adff;
 	color: white;
 }
 
@@ -86,7 +87,7 @@ nav#TOC {
 
 #main {
 	margin-left: 230px;
-	padding: 15px;
+	padding: 15px 15px 15px 30px;
 }
 
 /* when generating the toc, disable the header linkbacks.
@@ -95,6 +96,25 @@ nav#TOC {
 	pointer-events: none;
 	cursor: default;
 	text-decoration: none;
+}
+
+#main h2, #main h3, #main h4 {
+	margin-top: 40px;
+}
+
+#main p {
+	max-width: 600px;
+}
+
+#main ol {
+	padding-left: 22px; /*function parameter indent*/
+	font-size: 0.9em;
+	line-height: 1.4em;
+}
+
+/*method types*/
+#main ol code {
+	font-weight: bold;
 }
 
 #main pre {
