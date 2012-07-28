@@ -1,24 +1,18 @@
-# Application
+# The Application and Scene Graph
 
-`GC.app.engine` is an instance of [`timestep.Application`](./timestep-application.html) and
-manages the view hierarchy contained in `GC.app.view`; it
-controls the animation tick and renders the scene graph.
-
-`GC.app.view` is a shortcut to `GC.app.engine._view`.
 
 ## Class: GC.Application
 
 Inherits:
-:    1. shared/Application.js
-     2. sdk/_api/client/Application.js
-     3. [lib.PubSub](./lib-pubsub.html)
+:    1. [event.PubSub](./event-index.html#class-event.pubsub)
 
-Application options are added to the `_settings` object within an
-instance of the user's `GC.Application`. Options need to be set before the
-`initUI` and `launchUI` methods are called, since they reference this object.
+### Settings
+
+Application options are configured in the `_settings` object within an
+instance of the user's `GC.Application`. Options must be set before the
+`initUI` and `launchUI` methods are called.
 
 * `logsEnabled {boolean}` ---Print the logging output to the browser console.
-* `noTimestep {boolean} = false` ---Do not load the timestep library. *Deprecated*
 * `showFPS {boolean}` ---Display the running speed of the animation in frames per second.
 * `alwaysRepaint {boolean} = false` ---Redraw the screen
   every animation tick. If the display requires continuous
@@ -42,13 +36,84 @@ instance of the user's `GC.Application`. Options need to be set before the
 * `dtMinimum {number} = 0` ---*Not used?*
 * `preload {array}` ---Preload resource groups.
 
+For example, the settings in the `shared/Application.js`
+file of an empty project can be changed:
 
-## GC.app
+~~~
+exports = Class(GC.Application, function () {
+  this._settings = {
+    logsEnabled: true,
+    showFPS: true,
+    alwaysRepaint: true
+  };
 
-`GC.app` is an instance of the user's `shared/Application.js` file,
-which inherits from the sdk's `_api/client/Application.js`. When this object is
-instantiated, `GC.app.engine` and `GC.app.view` are created,
-and the `initUI` method in the user's application is called.
+  this.initUI = function () {};
+  this.launchUI = function () {};
+});
+~~~
+
+### Event handlers
+
+#### initUI ()
+
+Called before `launchUI`.
+
+#### launchUI ()
+
+A user defined function that serves as the entry point for
+applications built on the Game Closure SDK.
+
+#### onPause ()
+
+Executed when the application process is sent to the background.
+
+#### onResume ()
+
+Executed when the application resumes.
+
+
+## Example: Hello, World!
+
+We'll step through a simple example by creating a new
+project, and using the following code as the
+`shared/Application.js` file: 
+
+~~~
+m4_include(./examples/api/hello-world.js)
+~~~
+
+First, the `ui.TextView` module is imported in to the file and aliased
+as `TextView`. Next, a constructor function is defined for
+our application---named `App`. Its `launchUI` method is
+overridden and is the entry point of our application
+code. Here, we create the display text using the `TextView`,
+setting the color and font size. To render the text object,
+it must be added to the scene graph. We attach it by setting
+its parent---or `superview`---as the root node, which is
+`GC.app.view`. (`GC.app` is an instance of our application
+and will be introduced next.) Finally, we sub-class `App`
+to inherit from `GC.Application`, and assign it to
+`exports`; this ensures that it will be called when the
+application is run.
+
+
+## Singleton: GC.app
+
+A reference to the running application. When the application
+is instantiated, the scene graph hierarchy and rendering
+engine are created, and the application's `initUI` and
+`launchUI` methods are called.
+
+Inherits:
+:    1. {project}/shared/Application
+     2. [GC.Application](#class-gc.application)
+     3. [event.PubSub](./event-index.html#class-event.pubsub)
+
+### GC.app.view
+1. `{ui.StackView}`
+
+The root of the application's scene graph. All child views
+attached to this will be rendered to the screen.
 
 ### GC.app.getCanvas ()
 1. Return: `{HTMLCanvasElement}`
@@ -59,53 +124,14 @@ object.
 
 ### GC.app.run ()
 
-Displays the scene graph managed by `GC.app.engine` and
-starts the animation loop.
-
-
-### Callback handler: GC.app.initUI
-
-Called before `launchUI`.
-
-### Callback handler: GC.app.launchUI
-
-A user defined function that serves as the entry point for
-applications built on the Game Closure SDK.
-
-### Callback handler: GC.app.onPause
-
-Executed when the application process is sent to the background.
-
-### Callback handler: GC.app.onResume
-
-Executed when the application resumes.
-
-
-## Example: Create a new project
-
-Within a newly created project, this is an example of an
-empty application used at `example_app/shared/Application.js`.
-
-~~~
-exports = Class(GC.Application, function () {
-  /* window.DEV_MODE defaults to true during development.
-   */
-  this._settings = {
-    logsEnabled: window.DEV_MODE,
-	showFPS: window.DEV_MODE,
-	alwaysRepaint: true
-  };
-
-  this.initUI = function () {};
-
-  this.launchUI = function () {
-    // let's go! ...
-  };
-});
-~~~
+Renders the application's scene graph and starts the animation loop.
 
 
 ## Class: ui.Engine
+
+Manages a view hierarchy by rendering its scene graph and
+controlling the animation loop. It has native, Canvas, and
+DOM rendering backends.
 
 Inherits
 :    1. [event.PubSub](./event-index.html#class-event.pubsub)
@@ -132,13 +158,15 @@ import ui.Engine as Engine;
 ### Class Method: Engine.get ()
 1. Return: `{Application}`
 
-If an engine has yet to be created, returns `null`, otherwise returns the singleton.
+If a rendering engine has been initialized, return
+`GC.app.engine`, otherwise, return `null`.
 
 
-## GC.app.engine
+## Singleton: GC.app.engine
 
-The game engine and scene graph manager for the Game Closure
-SDK; it has Canvas and DOM rendering back-ends.
+Inherits:
+:    1. [ui.Engine](#class-ui.engine)
+     2. [event.PubSub](./event-index.html#class-event.pubsub)
 
 The game engine initializes a number of components,
 including the input and key event listeners, the game loop,
