@@ -2,10 +2,11 @@
 
 ## Global utilities
 
-### Class ([superConstructor,] constructor)
-1. `superConstructor {function}` ---The optional superclass which this class inherits from.
-2. `constructor {function(supr)}` ---The function that will define this class.
-3. Return: `{function}` ---The class constructor.
+### Class ([name, superConstructor,] constructor)
+1. `name {string}` ---An optional name to assign to the class for debugging purposes.
+2. `superConstructor {function}` ---The optional superclass which this class inherits from.
+3. `constructor {function(supr)}` ---The function that will define this class.
+4. Return: `{function}` ---The class constructor.
 
 Our class system for simplifying JavaScript object
 inheritance. Objects of a class-type inherit the properties and methods
@@ -53,7 +54,7 @@ b.say(); //=> "Hello, Billy!"
 4. Return: `{function}`
 
 Binds the first parameter as `this` in the callback
-function. Additional arguments are curried on the function.
+function. Additional arguments are curried to the given function.
 
 ~~~
 function add_to_point (x, y) {
@@ -74,9 +75,9 @@ add_to_y(56); //=> {x: 123, y: 456}
 2. `props {...object}`
 3. Return: `{object}`
 
-Combine the properties of multiple objects into the object
-passed as the first parameter. If a property already exists
-on the first object, then that value is used.
+Combine the properties of multiple objects. All properties
+are collected on the object passed as the first argument,
+and if a property already exists, subsequent values are ignored.
 
 ~~~
 var obj1 = {a: 1, b: 2},
