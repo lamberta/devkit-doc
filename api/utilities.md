@@ -47,6 +47,32 @@ a.say(); //=> "Hello, Arjun!"
 b.say(); //=> "Hello, Billy!"
 ~~~
 
+### import
+
+The system for referring to an external module, as defined in
+a separate file, and including it in this file. Modules may
+be arranged in a namespace hierarchy to indicate a usage
+category. Additionally, modules may be aliased using the `as`
+keyword for easier reference.
+
+~~~
+import device;
+import ui.View;
+import shared.path.to.Module as Module;
+
+var view = new ui.View(),
+    mod = new Module();
+
+console.log(device.defaultFontFamily); //=> 'Helvetica'
+console.log(typeof ui);                //=> 'object'
+~~~
+
+The path of a user defined module is relative to the
+project's root directory. So, in the above example, the
+import path of `Module` refers to the file located at
+`{project}/shared/path/to/Module.js`.
+
+
 ### bind (thisArg, callback [, args ...])
 1. `thisArg {object}`
 2. `callback {function}`
