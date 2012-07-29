@@ -115,7 +115,10 @@ Math functions for 2D manipulation.
 
 ## Class: math.geom.Point
 
-The base of 2D math.
+An object with `x` and `y` numeric properties, typically
+representing coordinates on a Cartesian plane. In many cases
+it refers to a location on a device's screen, where the
+position `{x: 0, y: 0}` is the top-left corner.
 
 ~~~
 import math.geom.Point as Point;
