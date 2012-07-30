@@ -84,17 +84,17 @@ m4_include(./examples/api/hello-world.js)
 
 First, the `ui.TextView` module is imported in to the file and aliased
 as `TextView`. Next, a constructor function is defined for
-our application---named `App`. Its `launchUI` method is
-overridden and is the entry point of our application
-code. Here, we create the display text using the `TextView`,
-setting the color and font size. To render the text object,
-it must be added to the scene graph. We attach it by setting
-its parent---or `superview`---as the root node, which is
-`GC.app.view`. (`GC.app` is an instance of our application
-and will be introduced next.) Finally, we sub-class `App`
-to inherit from `GC.Application`, and assign it to
-`exports`; this ensures that it will be called when the
-application is run.
+our application, it inherits from `GC.Application` and is
+assigned to `exports`, which ensures that it will be
+executed when the application is run. The application's
+`launchUI` method is overridden and will serve as the entry
+point of our example code. Here, we create the display text
+using the `TextView`, setting the color and font size. To
+render the text object, it must be added to the scene
+graph, so we attach it by setting the node's parent
+view---or `superview`---as the root view object, which is
+`GC.app.view`. This is a property on `GC.app`, which is the
+instance of our application, and is introduced next.
 
 
 ## Singleton: GC.app

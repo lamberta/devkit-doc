@@ -1,6 +1,6 @@
 import ui.TextView as TextView;
 
-function App () {
+exports = Class(GC.Application, function (supr) {
   this.launchUI = function () {
     var text = new TextView({
       text: "Hello, Game Closure!",
@@ -9,5 +9,4 @@ function App () {
       superview: GC.app.view,
     });
   };
-}
-exports = Class(GC.Application, App);
+});
