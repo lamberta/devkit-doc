@@ -58,7 +58,7 @@ If the device is a mobile device.
 
 Information on the device's screen.
 
-### device.devicePixelRatio
+### device.pixelRatio
 1. `{number} = 1`
 
 The device's pixel ratio.
