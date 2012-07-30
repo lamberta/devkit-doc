@@ -1,10 +1,10 @@
-# The Application and Scene Graph
+# Application and Scene Graph
 
 
 ## Class: GC.Application
 
 Inherits:
-:    1. [event.PubSub](./event-index.html#class-event.pubsub)
+:    1. [event.PubSub](./event.html#class-event.pubsub)
 
 ### Settings
 
@@ -107,7 +107,7 @@ engine are created, and the application's `initUI` and
 Inherits:
 :    1. {project}/shared/Application
      2. [GC.Application](#class-gc.application)
-     3. [event.PubSub](./event-index.html#class-event.pubsub)
+     3. [event.PubSub](./event.html#class-event.pubsub)
 
 ### GC.app.view
 1. `{ui.StackView}`
@@ -134,7 +134,7 @@ controlling the animation loop. It has native, Canvas, and
 DOM rendering backends.
 
 Inherits
-:    1. [event.PubSub](./event-index.html#class-event.pubsub)
+:    1. [event.PubSub](./event.html#class-event.pubsub)
 
 ~~~
 import ui.Engine as Engine;
@@ -166,7 +166,7 @@ If a rendering engine has been initialized, return
 
 Inherits:
 :    1. [ui.Engine](#class-ui.engine)
-     2. [event.PubSub](./event-index.html#class-event.pubsub)
+     2. [event.PubSub](./event.html#class-event.pubsub)
 
 The game engine initializes a number of components,
 including the input and key event listeners, the game loop,

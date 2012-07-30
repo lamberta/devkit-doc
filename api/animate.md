@@ -32,7 +32,7 @@ Returns a Group.
 The main force of animate.
 
 Inherits
-:    1. [event.PubSub](./event-index.html#class-event.pubsub)
+:    1. [event.PubSub](./event.html#class-event.pubsub)
 
 ### new Animator (subject, group)
 1. `subject {object}`
@@ -134,7 +134,7 @@ Runs the next frame.
 A group of animations.
 
 Inherits
-:    1. [event.PubSub](./event-index.html#class-event.pubsub)
+:    1. [event.PubSub](./event.html#class-event.pubsub)
 
 ### group.get (id)
 1. `id {number}`

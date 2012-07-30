@@ -14,7 +14,7 @@ directory/spriteName-animationName-0002.png
 Inherits
 :    1. [ui.ImageView](./ui-imageview.html)
      2. [ui.View](./ui-view.html)
-     3. [event.PubSub](./event-index.html#class-event.pubsub)
+     3. [event.PubSub](./event.html#class-event.pubsub)
 
 ~~~
 import ui.SpriteView as SpriteView;
