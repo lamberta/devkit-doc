@@ -1,4 +1,5 @@
-# event
+# Events
+
 
 ## Class: event.PubSub
 
@@ -15,13 +16,6 @@ Creates a PubSub instance.
 ~~~
 var pubsub = new PubSub();
 ~~~
-
-### pubsub.publish (signal [, args ...])
-1. `signal {string}`
-2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
-3. Return: `{this}`
-
-Calls all subscribers to the signal with any arguments provided.
 
 ### pubsub.subscribe (signal, callback [, args ...])
 1. `signal {string}` ---Signal to subscribe to.
@@ -60,6 +54,13 @@ Unsubscribes the method from the signal.
 3. `callback {function|string}` ---Optional function or method name on an object.
 
 Unsubscribes anything subscribed with the `thisObj` context, optionally specifically targeting `callback`.
+
+### pubsub.publish (signal [, args ...])
+1. `signal {string}`
+2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
+3. Return: `{this}`
+
+Calls all subscribers to the signal with any arguments provided.
 
 
 ## Class: event.Callback
