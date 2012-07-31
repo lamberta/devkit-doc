@@ -6,8 +6,6 @@ Information and settings about the device running the application.
 import device;
 ~~~
 
-If the device is unknown, `device` is set to `{isUnknown: true}`.
-
 ### device.name
 1. `{string}`
 
@@ -93,6 +91,11 @@ Property is `true` when run in a mobile web browser, otherwise `undefined`.
 1. `{boolean}`
 
 Property is `true` when run in a WebView, otherwise `undefined`.
+
+### device.isUnknown
+1. `{boolean}`
+
+Property is `true` if unable to determine the device, otherwise `undefined`.
 
 ### device.onReady
 1. `{event.Callback}`
