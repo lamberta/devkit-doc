@@ -95,7 +95,9 @@ Property is `true` when run in a WebView, otherwise `undefined`.
 ### device.isUnknown
 1. `{boolean}`
 
-Property is `true` if unable to determine the device, otherwise `undefined`.
+Property is `true` if unable to determine the device,
+otherwise `undefined`. When run on an unknown device, there
+are no other properties defined beyond this one.
 
 ### device.onReady
 1. `{event.Callback}`
