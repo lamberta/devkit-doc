@@ -1,72 +1,109 @@
 # device
 
-On an undefined platform, `device` is `{isUnknown: true}`.
+Information and settings about the device running the application.
 
-### device.registerDevice (name, path)
-1. `name {string}`
-2. `path {string}`
+~~~
+import device;
+~~~
 
-Registers a new backend environment.
-
-### device.get (module)
-1. `name {string}` ---Name of the module to import.
-2.  Return: `{Class} module`
-
-Dynamically import a platform-specific module.
-
-### device.hideAddressBar ()
-
-Seems to be empty.
- 
-### device.getDimensions (isLandscape)
-1. `isLandscape {boolean} = false` ---Switch the dimensions if landscape.
-2. Return: `{object}` ---Returns object with properties `width` and `height`.
-
-Returns the device's screen dimensions.
+If the device is unknown, `device` is set to `{isUnknown: true}`.
 
 ### device.name
 1. `{string}`
 
-Runtime name. Defaults to `'tealeaf'` or `'browser'`.
+The name of the runtime platform, e.g. `'tealeaf'` or `'browser'`.
+
+### device.defaultFontFamily
+1. `{string} = 'Helvetica'`
+
+The default font used by the device.
 
 ### device.width
 1. `{number}`
 
-Width of the device's screen.
+The screen width of the device.
 
 ### device.height
 1. `{number}`
 
-Height of the device's screen.
+The screen height of the device.
 
-### device.isMobile
-1. `{boolean}`
+### device.getDimensions (isLandscape)
+1. `isLandscape {boolean} = false` ---Return size in landscape-mode.
+2. Return: `{object}`
+	* `width {number}`
+	* `height {number}`
 
-If the device is a mobile device.
+Returns the screen dimensions of the device. The default
+size is given in portrait-mode, but it can be returned in
+landscape-mode by passing a `true` argument.
 
 ### device.screen
 1. `{event.PubSub}`
 	* `width {number}`
 	* `height {number}`
 	* `orientation {string}`
-	* `defaultOrientation {string}` ---This doesn't seem to be set all the time.
+	* `defaultOrientation {string}` ---Defaults to `'portrait'` or `'landscape'`.
 	* `isPortrait {boolean}`
 	* `isLandscape {boolean}`
-	* `browserChrome {object}` ---Not always there.
-		* `portrait {object}` ---`{top: 0, bottom: 0}`
-		* `landscape {object}` ---`{top: 0, bottom: 0}`
+	* `browserChrome {object}`
+		* `portrait {object} = {top: 0, bottom: 0}`
+		* `landscape {object} = {top: 0, bottom: 0}`
 
-Information on the device's screen.
+Information about the device's screen size and
+orientation. Depending on the device, `defaultOrientation`
+and `browserChrome` may not be available.
+
+### device.canResize
+1. `{boolean}`
+
+Test if the device's screen is able to resize.
 
 ### device.pixelRatio
 1. `{number} = 1`
 
-The device's pixel ratio.
+The pixel ratio of the device.
 
-### device.defaultFontFamily
-1. `{string}`
+### device.isMobile
+1. `{boolean}`
 
-Defaults to `'Helvetica'`
+Test if the device is a mobile browser.
+
+### device.isIOS
+1. `{boolean}`
+
+Property is `true` when run on iOS, otherwise `undefined`.
+
+### device.isAndroid
+1. `{boolean}`
+
+Property is `true` when run on Android, otherwise `undefined`.
+
+### device.isSafari
+1. `{boolean}`
+
+Property is `true` when run in a Safari web browser, otherwise `undefined`.
+
+### device.isMobileBrowser
+1. `{boolean}`
+
+Property is `true` when run in a mobile web browser, otherwise `undefined`.
+
+### device.isUIWebView
+1. `{boolean}`
+
+Property is `true` when run in a WebView, otherwise `undefined`.
+
+### device.onReady
+1. `{event.Callback}`
+
+Functions added to this `event.Callback` are executed when the device is ready.
+
+### device.useDOM
+1. `{boolean} = false`
+
+Set the rendering engine to use the HTML DOM backend instead of
+the default HTML Canvas element.
 
 ### device.events
 1. `{object}`
@@ -74,33 +111,6 @@ Defaults to `'Helvetica'`
 	* `move {string} = 'touchmove'|'mousemove'`
 	* `end {string} 'touchend'|'mouseup'`
 
-Mapping between timestep's abstracted events and the device's events.
-
-### device.onReady
-1. `{event.Callback}`
-
-### device.useDOM
-1. `{boolean} = false`
-
-Whether or not to use the DOM backend.
-
-### device.isIOS
-1. `{boolean}`
-
-These properties are dependant upon the user-agent, may, or
-may not, be there.
-
-### device.isAndroid
-1. `{boolean}`
-
-### device.isSafari
-1. `{boolean}`
-
-### device.isMobileBrowser
-1. `{boolean}`
-
-### device.isUIWebView
-1. `{boolean}`
-
-### device.canResize
-1. `{boolean}`
+A collection events supported by the device. Since it may be
+run in a web browser or touch device, this provides a
+convenient mapping of both types if input.
