@@ -68,7 +68,7 @@ quit the game.
 ### GC.track.funnelStep (funnelName, stepName, stepNumber)
 1. `funnelName {string}` --- Funnel Name.
 2. `stepName {string}` --- Name of the step for this funnel.
-3. `stepNumber {stepNumber}` --- Number of the step for this funnel.
+3. `stepNumber {number}` --- Number of the step for this funnel.
 
 ### GC.track.custom  (eventName, eventPayload)
 1. `eventName {string}` --- Name of this event.
