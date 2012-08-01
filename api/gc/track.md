@@ -65,6 +65,15 @@ quit the game.
 1. `number {number}` ---Level number.
 2. `name {string}` ---Level name. Optional.
 
+### GC.track.funnelStep (funnelName, stepName, stepNumber)
+1. `funnelName {string}` --- Funnel Name.
+2. `stepName {string}` --- Name of the step for this funnel.
+3. `stepNumber {stepNumber}` --- Number of the step for this funnel.
+
+### GC.track.custom  (eventName, eventPayload)
+1. `eventName {string}` --- Name of this event.
+2. `eventPayload {json}` --- a json map with strings as values for the payload (ie. {key1: "value1", key2: "value2", ...})
+
 ### GC.track.count (key, value)
 1. `key {string}` ---The key to increment.
 2. `value {number}` ---Add value to key, or subtract if passed a negative number.
