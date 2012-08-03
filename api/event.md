@@ -234,6 +234,14 @@ Clears all of the registered callbacks.
 
 ## Class: event.input.InputEvent
 
+When an input event is created it is passed sequentially up
+a hierarchy of View objects, with the top-most view being
+the main application.
+
+Events are assigned a *target*, the view where it occurred,
+and a *root*, the top-most view where it's dispatched. Event
+propagation has two phases: capturing and bubbling.
+
 ~~~
 import event.input.InputEvent as InputEvent;
 ~~~
@@ -246,43 +254,22 @@ import event.input.InputEvent as InputEvent;
 5. `root {View}`
 6. `target {View}`
 
-### event.clone ()
-1. Return: `{InputEvent}`
-
-Return a new `InputEvent` using this event's property values.
-
-### event.cancel ()
-
-Set `canceled` property to `true`.
-
-### event.canceled
-1. `{boolean} = false`
-
-If true, event won't propagate.
-
 ### event.id
+1. `{number}`
 
-Unique ID for a particular input.
+Each input type is identified by a unique ID, for example,
+the mouse has the same identifier, and each finger touch
+will have the same ID throughout the start-move-end process.
 
 ### event.type
 1. `{string}`
 
 Input event type.
 
-### event.point
-1. `{object} = {}`
-
-Localized point coordinate, index by view uid.
-
 ### event.srcPoint
 1. `{Point}`
 
 Object containing `x` and `y` coordinates of the event.
-
-### event.trace
-1. `{array} = []`
-
-List of view nodes from target to root.
 
 ### event.root
 1. `{View|null}`
@@ -295,11 +282,32 @@ Top view where event is dispatched (the tree root).
 Bottom view where the event occurred.
 
 ### event.when
-1. `{}`
+1. `{number}`
 
-Time of dispatch.
+Total elapsed number of dt's accumulated since the beginning
+of the application start.
 
 ### event.depth
 1. `{number} = 0`
 
 Number of levels of the tree from root to target.
+
+### event.point
+1. `{object} = {}`
+
+Localized point coordinate, index by View UID.
+
+### event.clone ()
+1. Return: `{InputEvent}`
+
+Return a new `InputEvent` using this event's property values.
+
+### event.cancel ()
+
+Cancel an event from propagating further.
+
+### event.cancelled
+1. `{boolean} = false`
+
+Check if an event has been canceled, and therefore, will not
+propagate further.
