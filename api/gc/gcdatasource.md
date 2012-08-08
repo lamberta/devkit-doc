@@ -38,12 +38,10 @@ Inherits
 ### datasource.clear ()
 
 ### datasource.getCount ()
-1. Return: `{number}`
-
-Return `this.length`.
+1. Return: `{number}` ---`this.length`
 
 ### datasource.setSorter (sorter)
-1. @return `{this}`
+1. Return: `{this}`
 
 ### datasource.contains (id)
 1. `id {string}`

@@ -1,46 +1,23 @@
 # GC
 
-The singleton that does it all. Defined in `sdk/_api/client/init.js`.
-We got here through `desktop.html`, which calls
-`runtimeBrowser.launchClient`, which imports `init.js`.
-
 Inherits
 :    1. [shared.Common](#shared.common) ---Only sets `this.env` to the name of the environment (`from jsio.__jsio.__env.name`).
      2. [lib.PubSub](./lib-pubsub.html)
 
-### GC.getPlayer ()
-
-Gone?
-
-### GC.buildApp (entry)
-1. `entry {}`
-2. Return: `{}` ---Returns `this.app`.
-
-This is where the user's `shared.Application` is
-instantiated and its entry point is called, because it
-inherits from `client/Application`, which runs the `entry`
-after all the preloading. In `launchClient.js` this is
-called as `GC.buildApp('launchUI')`.
-
 ### GC.isServer ()
-1. Return: `{boolean}` ---Hardcoded to return `false` ??
+1. Return: `{boolean}`
 
-Broken?
+Check if this application is running as the server.
 
 ### GC.isClient ()
-1. Return: `{boolean}` ---Hardcoded to return `true` ??
+1. Return: `{boolean}`
 
-Broken?
+Check if this application is running as the client.
 
 ### GC.isConnected ()
 1. Return `{boolean}`
 
-Broken.
-
-### GC.getConnection ()
-1. Return `{ClientConnection}`
-
-Broken.
+Check if the appliaction is onlne.
 
 ### GC.startMultiplayerGame (opts, callback)
 1. `opts {object}`
@@ -59,36 +36,13 @@ Tells the server to clear a timeout.
 
 Tells the server to clear all timeouts.
 
-### GC.startNativeUpsell ()
-
-Tracks showing a native upsell.
-
-### GC.cancelNativeUpsell ()
-
-Tracks a native upsell being ignored.
-
-### GC.startCrossPromo (appID)
-1. `appID {string}`
-
-Starts a cross promo to the game with `appID`.
-
-### GC.openAppStore ()
-
-Opens the native app store.
-
-### GC.hidePreloader ()
-
-Hides the preloader.
-
 ### GC.getPushNotifications ()
 1. Return: `{Array}`
 
-Returns the list of any push notifications.
+Returns the list of pending push notifications.
 
 ### GC.Application
 1. `{Application}`
-
-Reference to [Application](./gc-application.html#class-gc.application).
 
 ### GC.ui
 1. `{UI}`
