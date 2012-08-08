@@ -9,14 +9,14 @@ exports = Class(GC.Application, function () {
   this.initUI = function () {
     create_buttons(this.view);
     
-    sound.preload('mylabel', 'mysound');
+    sound.preload('background', 'music');
         
     play_btn.subscribe('InputSelect', function () {
-      sound.play('mylabel', 'mysound', {loop: true});
+      sound.play('background', 'music', {loop: true});
     });
 
     stop_btn.subscribe('InputSelect', function () {
-      sound.pause('mylabel', 'mysound');
+      sound.pause('background', 'music');
     });
   };
 
