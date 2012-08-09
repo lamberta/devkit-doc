@@ -243,11 +243,6 @@ Starts the engine loop. If `dtMin` is provided, uses it as the argument to Timer
 1. Return: `{this}`
 
 Stops the engine loop.
-  
-### GC.app.engine.doOnTick (callback)
-1. `callback {function}`
-
-Registers `callback` to be called every tick.
 
 ### GC.app.engine.render ()
 
@@ -271,7 +266,7 @@ application's lifetime:
 ~~~
 var frame = 0;
 
-GC.app.engine.subscribe('Tick', function (dt) {
+GC.app.engine.on('Tick', function (dt) {
   frame += 1;
   console.log(frame);
 });
