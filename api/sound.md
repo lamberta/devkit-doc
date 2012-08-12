@@ -54,7 +54,7 @@ immediately, otherwise, it will need to load it into memory
 before playing.
 
 ~~~
-sound.play('effect', 'boink');
+sound.play('background', 'music', {loop: true});
 ~~~
 
 ### sound.pause (category, name)
