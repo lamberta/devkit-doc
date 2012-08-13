@@ -15,6 +15,13 @@ import animate;
 
 Create an Animator for a View or object. Passing a plain object allows you to perform arbitrary tweening.
 
+~~~
+animate(myView);
+
+// typical usage is via method chaining
+animate(myView).now({x: 100}).then({y: 100}); //moves a view 100px to the right, then 100px downwards.
+~~~
+
 ### animate.setViewAnimator (animator)
 1. `animator {Animator}`
 
@@ -72,7 +79,13 @@ Returns whether there are any frames left to animate.
 1. `duration {number}`
 2. Return: `{this}`
 
-Queues a delay (in milliseconds).
+Queues a delay (in milliseconds). These can also be used in lieu of `setTimeout` functions when used in conjunction with `animator.then(callback)`, which affords greater control than `setTimeout`.
+
+~~~
+animate(view).wait({500}).then(function () {
+  console.log("called after 500ms");
+});
+~~~
 
 ### animator.now (target, duration, transition, onTick)
 1. `target {View|object}` ---Will interpolate the appropriate number values of the provided object.
@@ -85,12 +98,10 @@ Starts an animation immediately.
 
 An animation transition can be one of the following:
 
-* `animate.LINEAR` ---Animation has the same speed from start to finish.
-* `animate.EASE_IN` ---Animation has a slow start.
-* `animate.EASE_OUT` ---Animation has a slow end.
-* `animate.EASE_IN_OUT` ---Animation has both slow start and slow end.
-* `animate.BOUNCE` ---Animation overshoots target and animates back to simulate bouncing.
-
+* `animate.linear` ---Animation has the same speed from start to finish.
+* `animate.easeIn` ---Animation has a slow start.
+* `animate.easeOut` ---Animation has a slow end.
+* `animate.easeInOut` ---Animation has both slow start and slow end.
 
 ### animator.now (callback)
 1. `callback {function}`
@@ -108,6 +119,18 @@ animate(view).then({
   x: 500,
   y: 500
 }, 1000);
+
+//these can be chained
+animate(view).now({x: 10}, 300).then({
+  x: 500,
+  y: 500
+}, 1000).then({
+  x: 50,
+  y: 50
+}, 200).then({
+  x: 100,
+  y: 10
+}, 1000);
 ~~~
 
 ### animator.then (callback)
@@ -115,6 +138,12 @@ animate(view).then({
 2. Return: `{this}`
 
 Same as `.now()`, but adds the callback to the queue.
+
+~~~
+animate.then(function(){
+  console.log('calling back.')
+});
+~~~
 
 ### animator.debug ()
 1. Return: `{this}`
@@ -131,7 +160,20 @@ Runs the next frame.
 
 ## Class: Group
 
-A group of animations.
+A group of animations. Typically used to track a complex animation involving multiple views.
+
+~~~
+animate(firstView, 'complexAnimation1').now({ //the second argument is the group id 
+  x: 100
+});
+animate(secondView, 'complexAnimation1').now({
+  x: 100
+});
+
+animate.getGroup('complexAnimation1').on('Finish', function(){
+  console.log('The complex animation is finished!');
+});
+~~~
 
 Inherits
 :    1. [event.PubSub](./event.html#class-event.pubsub)

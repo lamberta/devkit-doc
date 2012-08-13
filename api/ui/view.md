@@ -84,6 +84,27 @@ will have it's dimensions set when this called, subview
 creation should be put in here since their dimensions will
 be dependent on their parent.
 
+~~~
+exports = Class(ui.View, function (supr) {
+  this.init = function (opts) {
+    supr(this, 'init', [opts]);
+  };
+
+  this.buildView = function () {
+    this.background = new ui.View({
+      superview: this,
+      x: 0,
+      y: 0,
+      width: this.style.width, // these are set in the supr init function
+      height: this.style.width
+    });
+
+    /* Put your subviews here! */
+  };
+});
+~~~
+
+
 ### view.needsRepaint ()
 
 Notifies the renderer that the view needs to be repainted next tick.
@@ -122,6 +143,12 @@ Returns a count of how many input events are over a view.
 	* `radius {number} = 0`
 
 Start responding to an input event by dragging the view.
+
+~~~
+view.on('InputStart', function (evt, pt) {
+  myView.startDrag({ radius: 15 }); //will fire onDrag if the drag is further than 15 pixels in any direction
+});
+~~~
 
 ### view.isDragging ()
 1. Return: `{boolean}`
@@ -182,20 +209,6 @@ exist on a view.
 
 Remove a named filter from this view.
 
-### view.animate (style, duration, easing)
-1. `style {object}`
-2. `duration {duration}`
-3. `easing {number}`
-4. Return: `{Animator}`
-
-Subject to change with the animation api. Currently calls `animate.then()` on the view.
-
-### view.getAnimation (groupID)
-1. `groupID {number}`
-2. Return: `{}`
-
-Subject to change with the animation api.
-
 ### view.toString()
 1. Return: `{string}`
 
@@ -219,10 +232,10 @@ Make the view invisible, trigger a repaint.
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Select a view by click or touch.
+Select a view by click or touch. `point` is a point relative to the top-left corner of the view.
 
 ~~~
-view.subscribe('InputSelect', function (evt, pt) {
+view.on('InputSelect', function (evt, pt) {
   console.log("View clicked at position: " + pt.x + "," + pt.y);
 });
 ~~~
@@ -243,7 +256,7 @@ Subscribe to the capture-phase event with `'InputSelectCapture'`.
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Fired on mousedown/touch.
+Fired on mousedown/touch. `point` is a point relative to the top-left corner of the view.
 
 Subscribe to the capture-phase event with `'InputStartCapture'`.
 
@@ -263,12 +276,25 @@ Fired when dragging starts.
 
 Fired during dragging.
 
+~~~
+view.on('Drag', function (dragEvent, moveEvent, delta) {
+  var dx = moveEvent.srcPt.x - dragEvt.srcPt.x;
+  console.log("Moved " + dx + " pixels along the x-axis from where the drag started!");
+  console.log("Moved " + delta.x + "pixels along the x-axis from where the last drag event happened!");
+});
+~~~
+
 #### \'DragStop\', callback (dragEvent, selectEvent)
 1. `dragEvent {InputEvent}`
 2. `selectEvent {InputEvent}`
 
 Fired when dragging is stopped.
 
+~~~
+view.on('DragStop', function (dragEvent, selectEvent) {
+  console.log("Drag started at " + dragEvt.srcPt + " and ended at " + selectEvent.srcPt);
+});
+~~~
 
 ## Class: ui.ViewStyle
 
@@ -422,7 +448,7 @@ Returns a copy of the current style.
 Object containing the supported style properties.
 
 
-
+ 
 ## Example: Nested views
 
 Create two rectangles, one red half transparent and one green fully opaque. Make

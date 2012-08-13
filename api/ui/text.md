@@ -39,9 +39,9 @@ var text = new TextView({
   y: 100,
   width: 400,
   text: "Hello, world!",
-    fontSize: 24,
-    shadow: true,
-    shadowColor: '#999999'
+  fontSize: 24,
+  shadow: true,
+  shadowColor: '#999999'
 });
 ~~~
 

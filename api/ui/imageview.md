@@ -6,13 +6,14 @@ Inherits
 :    1. [ui.View](./ui-view.html)
      2. [event.PubSub](./event.html#class-event.pubsub)
 
+D
 ~~~
 import ui.ImageView as ImageView;
 ~~~
 
 ### new ImageView ([options])
 1. `options {object}`
-	* `image {string|timestep.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
@@ -35,22 +36,30 @@ new ImageView({
 Returns the internal Image.
 
 ### imageview.setImage (img [, opts])
-1. `img {timestep.Image}`
+1. `img {ui.resource.Image}`
 2. `opts {object}` ---Optional.
-	* `image {string|timestep.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
 Sets the image for the ImageView.
 
+~~~
+myImageView.setImage(new ui.resource.Image({url: 'resources/images/example2.png'});
+~~~
+
 ### imageview.setImage (url [, opts])
 1. `url {string}`
 2. `opts {object}` ---Optional.
-	* `image {string|timestep.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
 Set the image for the ImageView.
+
+~~~
+myImageView.setImage('resources/images/example2.png');
+~~~
 
 ### Callback handler: imageview.doOnLoad (cb, [args, ...])
 1. `cb {Function}`
