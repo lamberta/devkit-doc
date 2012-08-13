@@ -37,7 +37,7 @@ size is given in portrait-mode, but it can be returned in
 landscape-mode by passing a `true` argument.
 
 ### device.screen
-1. `{event.PubSub}`
+1. `{event.Emitter}`
 	* `width {number}`
 	* `height {number}`
 	* `orientation {string}`

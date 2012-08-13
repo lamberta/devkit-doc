@@ -1,120 +1,130 @@
 # Events
 
-## Class: event.PubSub
+## Class: event.Emitter
 
 Publish and subscribe to events dispatched on an object.
 
 ~~~
-import event.PubSub as PubSub;
+import event.Emitter as Emitter;
 ~~~
 
-### new PubSub ()
+### new Emitter ()
 
-Creates a PubSub instance.
+Create an Emitter instance.
 
 ~~~
-var pubsub = new PubSub();
+var emitter = new Emitter();
 ~~~
 
-### pubsub.publish (event [, args ...])
-1. `event {string}`
+### emitter.emit (type [, args ...])
+1. `type {string}` ---The name of the event type.
 2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
+3. Return: `{boolean}`
+
+Emit an event to the object. Any of its handler functions
+subscribed to the given event type are executed. Returns
+`true` if the event was handled, otherwise `false`.
+
+### emitter.on (type, callback)
+1. `type {string}` ---The name of the event type.
+2. `callback {function|string}` ---The dispatch function, or method name on an object.
 3. Return: `{this}`
 
-Emit an event to the PubSub object. Any listener functions
-subscribed to the given event are executed.
-
-### pubsub.subscribe (event, [thisArg,] listener)
-1. `event {string}` ---Event to subscribe the listener.
-2. `thisArg {object}` ---Optional argument to use as `this` in the listener function. Defaults to the global context.
-3. `listener {function|string}` ---The dispatch function, or method name on an object.
-4. Return: `{this}`
-
-Add a listener function that is subscribed to an event
-type. The function will execute when an object is registered
-for a specific event, and that event is published to the object.
-
-Subscribing to the `'__any'` event will execute the listener
-function on every received event, with the actual event name
-passed as the first argument to the listener.
-
-### pubsub.subscribe (event, thisArg, listener [, args ...])
-1. `event {string}` ---Event to subscribe the listener.
-2. `thisArg {object}` ---Object used as `this` in the listener function.
-3. `listener {function|string}` ---The dispatch function, or method name on an object.
-4. `args {...*}` ---Optionally curry arguments to the listener.
-5. Return: `{this}`
-
-If arguments are curried to the listener function, then the
-`thisArg` must be explicitly passed.
+Add a callback function that is subscribed to a given event
+type. The function will execute when that event is emitted to the object.
 
 ~~~
-function run_away (name) {
-  console.log("Run, " + name + ", run!");
-}
+var emitter = new Emitter();
 
-var j = new PubSub(),
-    s = new PubSub();
-
-j.subscribe('run', run_away);
-s.subscribe('run', null, run_away, "Stephanie");
-
-j.publish('run', "Jimmy"); //=> "Run, Jimmy, run!"
-s.publish('run');          //=> "Run, Stephanie, run!"
-~~~
-
-### pubsub.subscribeOnce (event, [thisArg,] listener)
-1. `event {string}` ---Event to subscribe the listener.
-2. `thisArg {object}` ---Optional argument to use as `this` in the listener function. Defaults to the global context.
-3. `listener {function|string}` ---The dispatch function, or method name on an object.
-4. Return `{this}`
-
-Subscribe to a event once, optionally binding an object to
-the `this` context in the listener function. Once an event
-is received, the listener is unsubscribed.
-
-Subscribing to the `'__any'` event will execute the listener
-function on every received event, with the actual event name
-passed as the first argument to the listener.
-
-### pubsub.subscribeOnce (event, thisArg, listener [, args ...])
-1. `event {string}` ---Event to subscribe the listener.
-2. `thisArg {object}` ---Object used as `this` in the listener function.
-3. `listener {function|string}` ---The dispatch function, or method name on an object.
-4. `args {*}` ---Optionally curry arguments to the listener.
-5. Return `{this}`
-
-If arguments are curried to the listener function, then the
-`thisArg` must be explicitly passed.
-
-~~~
-pubsub.subscribeOnce('one-time', function () {
-  console.log("Once is all you get.");
+emitter.on('add', function (a, b) {
+  var sum = a + b;
+  console.log("The sum is: " + sum);
 });
 
-pubsub.publish('one-time'); //=> "Once is all you get."
-pubsub.publish('one-time'); //=> ... crickets ...
+emitter.emit('add', 3, 5);  //=> true (console prints "The sum is 8")
 ~~~
 
-### pubsub.unsubscribe (event [, thisArg, listener])
-1. `event {string}` ---Event to unsubscribe the listener.
-2. `thisArg {object}` ---Object used as `this` in the listener function.
-3. `listener {function|string}` ---The optional dispatch function, or method name on an object.
-4. Return: `{this}`
+### emitter.addListener (type, callback)
+1. `type {string}` ---The name of the event type.
+2. `callback {function|string}` ---The dispatch function, or method name on an object.
+3. Return: `{this}`
 
-Unsubscribe a listener for a specific event type. If a
-listener function i not provided, unsubscribe all listeners
-on an event.
+This is an alias for `emitter.on`.
+
+### emitter.once (type, callback)
+1. `type {string}` ---The name of the event type.
+2. `callback {function|string}` ---The dispatch function, or method name on an object.
+3. Return `{this}`
+
+Subscribe to an event, and remove the listener after it is received once.
 
 ~~~
-pubsub.subscribe('try-it', function () {
-  console.log("Ta-da!");
-});
+emitter.once('one-time', callback);
 
-pubsub.publish('try-it');     //=> "Ta-da!"
-pubsub.unsubscribe('try-it');
-pubsub.publish('try-it');     //=> ... tumbleweed rolls by ...
+emitter.emit('one-time'); //=> true
+emitter.emit('one-time'); //=> false
 ~~~
+
+### emitter.removeListener (type, callback)
+1. `type {string}` ---The name of the event type.
+2. `callback {function|string}` ---The dispatch function, or method name on an object.
+3. Return `{this}`
+
+Unsubscribe a listener. This function will no longer execute
+when its event type is emitted to the object.
+
+~~~
+emitter.on('myevent', callback);
+emitter.emit('myevent');                     //=> true
+emitter.removeListener('myevent', callback);
+emitter.emit('myevent');                     //=> false
+~~~
+
+### emitter.removeAllListeners (type)
+1. `type {string}` ---The name of the event type.
+2. Return `{this}`
+
+Unsubscribe all listeners for a given event type.
+
+~~~
+emitter.on('myevent', callback);
+emitter.on('myevent', callback);
+
+emitter.removeAllListeners('myevent');
+emitter.emit('myevent');               //=> false
+~~~
+
+### emitter.listeners (type)
+1. `type {string}` ---The name of the event type.
+2. Return: `{array}`
+
+Returns an emitter's listener functions for a given event type.
+
+~~~
+emitter.on('myevent', callback);
+
+emitter.listeners('myevent');  //=> [callback]
+~~~
+
+### emitter.setMaxListeners (n)
+1. `n {number}`
+
+By default, a warning message will display in the console if
+more than 10 listeners are added to an object, which may
+indicate a potential memory leak. Use this method to
+increase this limit.
+
+~~~
+emitter.setMaxListeners(20);
+~~~
+
+### Events
+
+#### \'newListener\', callback (type, handler)
+1. `type {string}`
+2. `handler {function}`
+
+Emitted when a new listener is added to the object.
 
 
 ## Class: event.Callback
