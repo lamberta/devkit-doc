@@ -54,7 +54,16 @@ var animator = animate(object);
 ### animator.clear ()
 1. Return: `{this}`
 
-Clears the animations currently scheduled.
+Clears the animations currently scheduled. This will stop the animation immediately, without completing the animation.
+
+~~~
+var myAnimation = animate(view).now({
+  x: 100
+}, 5000);
+setTimeout( function() {
+  myAnimation.clear(); //view.x has stopped in its tracks, without reaching the target value.
+}, 1500);
+~~~
 
 ### animator.pause ()
 
@@ -152,6 +161,17 @@ Turns debug logging on.
 
 ### animator.commit ()
 1. Return: `{this}`
+
+Finishes the animation immediately, moving all values to their end position. Unlike `clear`, this runs `onAnimationFinish()` for the animation's group.
+
+~~~
+var myAnimation = animate(view).now({
+  x: 100
+}, 5000);
+setTimeout( function() {
+  myAnimation.commit(); //view.x is now at 100 and the animation is complete.
+}, 1500);
+~~~
 
 ### animator.next ()
 
