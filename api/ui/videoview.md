@@ -10,7 +10,7 @@ Inherits
 import ui.VideoView as VideoView;
 ~~~
 
-### new timestep.VideoView ([options])
+### new ui.VideoView ([options])
 1. `options {object}`
 	* `src {string}` ---URL.
 	* `loop {boolean}`

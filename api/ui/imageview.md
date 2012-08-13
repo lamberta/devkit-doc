@@ -12,7 +12,7 @@ import ui.ImageView as ImageView;
 
 ### new ImageView ([options])
 1. `options {object}`
-	* `image {string|timestep.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
@@ -35,9 +35,9 @@ new ImageView({
 Returns the internal Image.
 
 ### imageview.setImage (img [, opts])
-1. `img {timestep.Image}`
+1. `img {ui.resource.Image}`
 2. `opts {object}` ---Optional.
-	* `image {string|timestep.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
@@ -46,7 +46,7 @@ Sets the image for the ImageView.
 ### imageview.setImage (url [, opts])
 1. `url {string}`
 2. `opts {object}` ---Optional.
-	* `image {string|timestep.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 

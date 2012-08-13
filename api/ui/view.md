@@ -32,7 +32,7 @@ var view = new View();
 Property containing the view's style defintions.
 
 ### view.getApp ()
-1. Return: `{timestep.Application}`
+1. Return: `{ui.Engine}`
 
 Returns the root application for this view: `GC.app.engine`.
 
