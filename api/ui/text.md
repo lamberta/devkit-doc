@@ -1,15 +1,15 @@
-# ui.text
+# Text
 
-## Class: ui.text.TextView
+## Class: ui.TextView
 
 Use this View to display text.
 
 Inherits
 :    1. [ui.View](./ui-view.html)
-     2. [event.PubSub](./event.html#class-event.pubsub)
+     2. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
-import ui.text.TextView as TextView;
+import ui.TextView as TextView;
 ~~~
 
 ### new TextView ([options])
@@ -17,7 +17,7 @@ import ui.text.TextView as TextView;
 	* `text {string}`
 	* `fontSize {number} = 12`
 	* `autoSize {boolean} = true`
-	* `fontFamily {string} = timestep.device.defaultFontFamily`
+	* `fontFamily {string} = device.defaultFontFamily`
 	* `color {string} = 'black'`
 	* `backgroundColor {string} = null`
 	* `horizontalPadding {number} = 0`
@@ -74,15 +74,15 @@ Returns the width of the `line`.
 Update text options.
 
 
-## Class: ui.text.TextInputView
+## Class: ui.TextInputView
 
 Inherits
-:    1. [ui.text.TextView](./ui-text.html#class-timestep.text.textview)
+:    1. [ui.TextView](./ui-text.html#class-ui.textview)
      2. [ui.View](./ui-view.html)
-	 3. [event.PubSub](./event.html#class-event.pubsub)
+	 3. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
-import ui.text.TextInputView as TextInputView;
+import ui.TextInputView as TextInputView;
 ~~~
 
 ### new TextInputView ([options])

@@ -4,13 +4,13 @@
 
 Inherits
 :    1. [ui.View](./ui-view.html)
-     2. [event.PubSub](./event.html#class-event.pubsub)
+     2. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.VideoView as VideoView;
 ~~~
 
-### new timestep.VideoView ([options])
+### new ui.VideoView ([options])
 1. `options {object}`
 	* `src {string}` ---URL.
 	* `loop {boolean}`
