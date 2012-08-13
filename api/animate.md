@@ -91,7 +91,7 @@ Returns whether there are any frames left to animate.
 Queues a delay (in milliseconds). These can also be used in lieu of `setTimeout` functions when used in conjunction with `animator.then(callback)`, which affords greater control than `setTimeout`.
 
 ~~~
-animate(view).wait({500}).then(function () {
+animate(view).wait(500).then(function () {
   console.log("called after 500ms");
 });
 ~~~
