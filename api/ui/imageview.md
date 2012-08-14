@@ -6,7 +6,6 @@ Inherits
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
-D
 ~~~
 import ui.ImageView as ImageView;
 ~~~
