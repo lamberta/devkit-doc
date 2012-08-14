@@ -87,13 +87,14 @@ nav#sidebar {
 	overflow: auto;
 	width: 200px;
 	padding: 10px 15px;
-	background-color: #ECEAE7;
+	background-color: #ECECF6;
 	margin: -10px;
 	border-right: 1px solid #ccc;
+	text-shadow: 0 1px 1px white;
 }
 
 	nav#sidebar h1 {
-		font-size: 1.5em;
+		font-size: 1.2em;
 	}
 
 	nav#sidebar ul {
@@ -121,7 +122,7 @@ nav#TOC {
 }
 
 #main {
-	margin: 50px 0 0 230px;
+	margin: 0 0 0 230px;
 	padding: 15px 15px 15px 30px;
 }
 
@@ -146,6 +147,7 @@ nav#TOC {
 	padding-left: 22px; /*function parameter indent*/
 	font-size: 0.9em;
 	line-height: 1.4em;
+	margin: -10px 0 10px 0;
 }
 
 /*method types*/
@@ -155,6 +157,9 @@ nav#TOC {
 
 #main pre {
 	font-size: 0.8em;
+	border-left: 4px solid #EEE;
+	padding-left: 20px;
+	margin-left: 0;
 }
 
 header {
@@ -168,12 +173,14 @@ header {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#222222',GradientType=0 ); /* IE6-9 */
 	margin: -10px -10px 10px -10px;
 	color: #ccc;
-	height: 30px;
-	padding-top: 20px;
 	text-align: center;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	width: 222px;
+	padding: 20px 0 10px 0;
+	z-index: 10;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 footer {
