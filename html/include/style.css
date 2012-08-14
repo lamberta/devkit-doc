@@ -60,10 +60,16 @@ code {
 }
 
 h1, h2 {
-	line-height: 2em;
+	line-height: 1.9em;
 }
 
-	h1 { font-size: 20px; }
+h1 {
+	font-size: 1.7em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
 
 a {
 	color: #000;
@@ -77,6 +83,7 @@ nav#sidebar {
 	position: fixed;
 	left: 0;
 	top: 50px;
+	bottom: 0;
 	overflow: auto;
 	width: 200px;
 	padding: 10px 15px;
@@ -84,6 +91,10 @@ nav#sidebar {
 	margin: -10px;
 	border-right: 1px solid #ccc;
 }
+
+	nav#sidebar h1 {
+		font-size: 1.5em;
+	}
 
 	nav#sidebar ul {
 		list-style: none;
@@ -96,9 +107,13 @@ nav#sidebar {
 		nav#sidebar li a {
 			text-decoration: none;
 			color: #444;
-			font-size: 14px;
+			font-size: 0.9em;
 			padding: 10px 0;
 		}
+
+nav h1 {
+	margin-left: 10px;
+}
 
 nav#TOC {
 	font-size: 0.8em;
@@ -116,6 +131,7 @@ nav#TOC {
 	pointer-events: none;
 	cursor: default;
 	text-decoration: none;
+	color: #0089CE;
 }
 
 #main h2, #main h3, #main h4 {
