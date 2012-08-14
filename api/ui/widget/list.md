@@ -5,7 +5,7 @@
 Inherits
 :    1. [ui.ScrollView](./ui-scrollview.html)
      2. [ui.View](./ui-view.html)
-     3. [event.PubSub](./event.html#class-event.pubsub)
+     3. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.widget.List as List;

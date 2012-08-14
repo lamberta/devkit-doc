@@ -6,8 +6,6 @@ Information and settings about the device running the application.
 import device;
 ~~~
 
-If the device is unknown, `device` is set to `{isUnknown: true}`.
-
 ### device.name
 1. `{string}`
 
@@ -39,9 +37,10 @@ size is given in portrait-mode, but it can be returned in
 landscape-mode by passing a `true` argument.
 
 ### device.screen
-1. `{event.PubSub}`
+1. `{event.Emitter}`
 	* `width {number}`
 	* `height {number}`
+	* `devicePixelRatio {number} = 1`
 	* `orientation {string}`
 	* `defaultOrientation {string}` ---Defaults to `'portrait'` or `'landscape'`.
 	* `isPortrait {boolean}`
@@ -58,11 +57,6 @@ and `browserChrome` may not be available.
 1. `{boolean}`
 
 Test if the device's screen is able to resize.
-
-### device.pixelRatio
-1. `{number} = 1`
-
-The pixel ratio of the device.
 
 ### device.isMobile
 1. `{boolean}`
@@ -94,13 +88,20 @@ Property is `true` when run in a mobile web browser, otherwise `undefined`.
 
 Property is `true` when run in a WebView, otherwise `undefined`.
 
-### device.onReady
-1. `{event.Callback}`
+### device.isUnknown
+1. `{boolean}`
 
-Functions added to this `event.Callback` are executed when the device is ready.
+Property is `true` if unable to determine the device,
+otherwise `undefined`. When run on an unknown device, there
+are no other properties defined beyond this one.
 
 ### device.useDOM
 1. `{boolean} = false`
+
+Check if the current rendering backend is using the DOM.
+
+### device.setUseDOM (useDOM)
+1. `useDOM {boolean}`
 
 Set the rendering engine to use the HTML DOM backend instead of
 the default HTML Canvas element.
@@ -114,3 +115,8 @@ the default HTML Canvas element.
 A collection events supported by the device. Since it may be
 run in a web browser or touch device, this provides a
 convenient mapping of both types if input.
+
+### device.hideAddressBar ()
+
+If available on the device, hides the address bar. If not
+available, this function does nothing.

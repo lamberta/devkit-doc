@@ -5,7 +5,7 @@ The base display object.
 ## Class: ui.View
 
 Inherits
-:    1. [event.PubSub](./event.html#class-event.pubsub)
+:    1. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.View as View;
@@ -27,12 +27,12 @@ var view = new View();
 ~~~
 
 ### view.style
-1. `{ViewStyle}`
+1. `{object}` ---Contains the [style defintions](#styles) enumerated below.
 
-Property containing the view's style defintions.
+This properties determine the look and style of a view.
 
 ### view.getApp ()
-1. Return: `{timestep.Application}`
+1. Return: `{ui.Engine}`
 
 Returns the root application for this view: `GC.app.engine`.
 
@@ -84,6 +84,27 @@ will have it's dimensions set when this called, subview
 creation should be put in here since their dimensions will
 be dependent on their parent.
 
+~~~
+exports = Class(ui.View, function (supr) {
+  this.init = function (opts) {
+    supr(this, 'init', [opts]);
+  };
+
+  this.buildView = function () {
+    this.background = new ui.View({
+      superview: this,
+      x: 0,
+      y: 0,
+      width: this.style.width, // these are set in the supr init function
+      height: this.style.width
+    });
+
+    /* Put your subviews here! */
+  };
+});
+~~~
+
+
 ### view.needsRepaint ()
 
 Notifies the renderer that the view needs to be repainted next tick.
@@ -122,6 +143,12 @@ Returns a count of how many input events are over a view.
 	* `radius {number} = 0`
 
 Start responding to an input event by dragging the view.
+
+~~~
+view.on('InputStart', function (evt, pt) {
+  myView.startDrag({ radius: 15 }); //will fire onDrag if the drag is further than 15 pixels in any direction
+});
+~~~
 
 ### view.isDragging ()
 1. Return: `{boolean}`
@@ -182,20 +209,6 @@ exist on a view.
 
 Remove a named filter from this view.
 
-### view.animate (style, duration, easing)
-1. `style {object}`
-2. `duration {duration}`
-3. `easing {number}`
-4. Return: `{Animator}`
-
-Subject to change with the animation api. Currently calls `animate.then()` on the view.
-
-### view.getAnimation (groupID)
-1. `groupID {number}`
-2. Return: `{}`
-
-Subject to change with the animation api.
-
 ### view.toString()
 1. Return: `{string}`
 
@@ -219,10 +232,10 @@ Make the view invisible, trigger a repaint.
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Select a view by click or touch.
+Select a view by click or touch. `point` is a point relative to the top-left corner of the view.
 
 ~~~
-view.subscribe('InputSelect', function (evt, pt) {
+view.on('InputSelect', function (evt, pt) {
   console.log("View clicked at position: " + pt.x + "," + pt.y);
 });
 ~~~
@@ -243,7 +256,7 @@ Subscribe to the capture-phase event with `'InputSelectCapture'`.
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Fired on mousedown/touch.
+Fired on mousedown/touch. `point` is a point relative to the top-left corner of the view.
 
 Subscribe to the capture-phase event with `'InputStartCapture'`.
 
@@ -263,26 +276,32 @@ Fired when dragging starts.
 
 Fired during dragging.
 
+~~~
+view.on('Drag', function (dragEvent, moveEvent, delta) {
+  var dx = moveEvent.srcPt.x - dragEvt.srcPt.x;
+  console.log("Moved " + dx + " pixels along the x-axis from where the drag started!");
+  console.log("Moved " + delta.x + "pixels along the x-axis from where the last drag event happened!");
+});
+~~~
+
 #### \'DragStop\', callback (dragEvent, selectEvent)
 1. `dragEvent {InputEvent}`
 2. `selectEvent {InputEvent}`
 
 Fired when dragging is stopped.
 
-
-## Class: ui.ViewStyle
-
-Style definitions in `view.style`.
-
 ~~~
-import ui.ViewStyle as ViewStyle;
+view.on('DragStop', function (dragEvent, selectEvent) {
+  console.log("Drag started at " + dragEvt.srcPt + " and ended at " + selectEvent.srcPt);
+});
 ~~~
 
-### new ViewStyle ([options])
-1. `options {object}`
+## Styles
+
+A view can be styled by modifying its `view.style` property.
 
 ~~~
-var style = new ViewStyle();
+var style = view.style;
 ~~~
 
 ### style.x
@@ -306,37 +325,28 @@ relative to the top-left corner of the view.
 ### style.width
 1. `{number}`
 
-Defaults to parent `width` value.
+Defaults to the width of the view's parent.
 
 ### style.height
 1. `{number}`
 
-Defaults to parent `height` value.
+Defaults to the height of the view's parent.
 
 ### style.widthPercentage
 1. `{number}`
 
-Defaults to `__onResize` value.
-
 ### style.heightPercentage
 1. `{number}`
-
-Defaults to `__onResize` value.
 
 ### style.scale
 1. `{number} = 1`
 
 Increase or decrease the size of the view.
 
-### style.rotation
+### style.r
 1. `{number} = 0`
 
-Rotation.
-
-### style.radius
-1. `{number}` (read-only)
-
-The radius.
+The rotation of a view in radins.
 
 ### style.visible
 1. `{boolean} = true`
@@ -346,12 +356,17 @@ If the view is shown or hidden.
 ### style.opacity
 1. `{number} = 1`
 
-Transparency of the view.
+The transparency of a view.
 
 ### style.zIndex
 1. `{number} = 0`
 
 The higher the number the closer to the top.
+
+### style.backgroundColor
+1. `{string}`
+
+Background color of the view.
 
 ### style.shadowColor
 1. `{string} = 'black'`
@@ -361,12 +376,7 @@ Shadow color of the view.
 ### style.clip
 1. `{boolean} = false`
 
-View and children get clipped to parent.
-
-### style.backgroundColor
-1. `{string}`
-
-Background color of the view.
+If set to `true`, child views will get clipped to this view.
 
 ### style.layout
 1. `{string} = 'relative'`
@@ -381,48 +391,28 @@ Background color of the view.
 1. `{string} = 'start'`
 
 ### style.selfAlign
-1. `{}`
+1. `{undefined}`
 
 ### style.distribute
 1. `{string} = 'start'`
 
-### style.rows
+### style.contentWidth
 1. `{number} = 0`
 
-### style.columns
+### style.contentHeight
 1. `{number} = 0`
-
-### style.rowSpan
-1. `{number} = 0`
-
-### style.colSpan
-1. `{number} = 0`
-
-### style.expandX
-1. `{boolean} = false`
-
-### style.expandY
-1. `{boolean} = false`
-
 
 ### style.update (style)
-1. `style {ViewStyle}`
+1. `style {object}` ---Using the properties enumerated here.
 
-Set the view's style.
+Update the view's style.
 
 ### style.copy ()
-1. `style {ViewSyle}`
+1. Return: `{object}`
 
-Returns a copy of the current style.
+Returns a copy of the style object.
 
-
-### Class Property: ViewStyle.keys
-1. `{object}`
-
-Object containing the supported style properties.
-
-
-
+ 
 ## Example: Nested views
 
 Create two rectangles, one red half transparent and one green fully opaque. Make

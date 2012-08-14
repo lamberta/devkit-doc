@@ -8,7 +8,7 @@ at the top of the stack and displayed.
 Inherits
 :    1. [ui.widget.UIView](./ui-widget-uiview.html)
      2. [ui.View](./ui-view.html)
-     3. [event.PubSub](./event.html#class-event.pubsub)
+     3. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.StackView as StackView;

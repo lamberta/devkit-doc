@@ -4,7 +4,7 @@
 ## Class: GC.Application
 
 Inherits:
-:    1. [event.PubSub](./event.html#class-event.pubsub)
+:    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### Settings
 
@@ -107,7 +107,7 @@ engine are created, and the application's `initUI` and
 Inherits:
 :    1. {project}/shared/Application
      2. [GC.Application](#class-gc.application)
-     3. [event.PubSub](./event.html#class-event.pubsub)
+     3. [event.Emitter](./event.html#class-event.emitter)
 
 ### GC.app.view
 1. `{ui.StackView}`
@@ -134,7 +134,7 @@ controlling the animation loop. It has native, Canvas, and
 DOM rendering backends.
 
 Inherits
-:    1. [event.PubSub](./event.html#class-event.pubsub)
+:    1. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.Engine as Engine;
@@ -166,7 +166,7 @@ If a rendering engine has been initialized, return
 
 Inherits:
 :    1. [ui.Engine](#class-ui.engine)
-     2. [event.PubSub](./event.html#class-event.pubsub)
+     2. [event.Emitter](./event.html#class-event.emitter)
 
 The game engine initializes a number of components,
 including the input and key event listeners, the game loop,
@@ -243,11 +243,6 @@ Starts the engine loop. If `dtMin` is provided, uses it as the argument to Timer
 1. Return: `{this}`
 
 Stops the engine loop.
-  
-### GC.app.engine.doOnTick (callback)
-1. `callback {function}`
-
-Registers `callback` to be called every tick.
 
 ### GC.app.engine.render ()
 
@@ -271,7 +266,7 @@ application's lifetime:
 ~~~
 var frame = 0;
 
-GC.app.engine.subscribe('Tick', function (dt) {
+GC.app.engine.on('Tick', function (dt) {
   frame += 1;
   console.log(frame);
 });
