@@ -1,115 +1,183 @@
-# sound
+# Sound
 
-## Module: sound
-
-A sound is defined with a category and a name, loaded from a
-project's path in the form: `{project}/resources/sounds/{category}/{name}`.
+## Class: Sound
 
 ~~~
-import sound;
+import Sound;
 ~~~
 
-Given the following file structure of an application:
+For the examples on this page, we'll assume the following
+directory structure of a project:
 
 ~~~
 project
  |- shared
-    \- Application.js
+ |    \- Application.js
  \- resources
-    \- sounds
-       |- background
-          \- music.mp3
-       \- effect
-          \- boink.mp3
+      \- sounds
+         |- music
+         |    \- levelmusic.mp3
+         \- effect
+              \- boink.mp3
 ~~~
 
-For example, to use the `boink.mp3` file in the following
-API functions, the category is referenced as `'effect'` and
-the sound name is `'boink'`.
+### new Sound ([options])
+1. `options {object}`
+	* `path {string}` ---Directory path containing audio files.
+	* `files {object}` ---Collection of audio files mapped to their options.
+	* `persist {}`
 
+`path` is the directory containing a group of audio files,
+relative to the top-level of a project. `files` is an object
+mapping audio files to their options.
 
-### sound.preload (category [, name])
-1. `category {string}` ---Directory path within `{projects}/resources/sounds`.
-2. `name {string}` ---The name of the audio file, without the extension.
+The `files` options object has the following properties:
 
-Preload the audio file in to memory, or, the entire directory of
-sounds. Files that are preloaded will start playing
-immediately when `play` is called.
+ * `sources {}`
+ * `background {boolean}` ---Set as the background music file, one per group.
+ * `loop {boolean}`
+ * `volume {number}`
+ * `path {string}` ---Add addtional path information to the options path.
 
-Given the directory structure outlined above, preload the
-`boink` sound by calling:
+Given the above directory structure for a project, multiple
+sound groups can be created using:
 
 ~~~
-sound.preload('effect', 'boink');
+var sound = new Sound({
+  path: 'resources/sounds',
+  files: {
+    levelmusic: {
+      path: 'music'
+      volume: 0.5,
+      background: true,
+      loop: true
+    },
+    boink: {
+      path: 'effect',
+      background: false
+    }
+  }
+});
 ~~~
 
-### sound.play (category, name [, options])
-1. `category {string}`
-2. `name {string}`
-3. `options {object}`
-	* `loop {boolean} = false` ---Loops sound.
+### sound.addSound (name [, options])
+1. `name {string}`
+2. `options {object}` ---Audio file options described above.
+
+Add a sound to the sound group.
+
+~~~
+sound.addSound ('pop', {
+  path: 'effect',
+  background: false
+});
+~~~
+
+### sound.play (name [, options])
+1. `name {string}`
+2. `options {object}`
+	* `loop {boolean} = false`
 
 Play a sound. If it has already been preloaded, it will play
 immediately, otherwise, it will need to load it into memory
 before playing.
 
 ~~~
-sound.play('background', 'music', {loop: true});
+sound.play('boink', {loop: true});
 ~~~
 
-### sound.pause (category, name)
-1. `category {string}`
-2. `name {string}`
+### sound.pause (name)
+1. `name {string}`
 
-Pause a sound. The audio file is stopped at a certain point,
+ause a sound. The audio file is stopped at a certain point,
 and restarted from that point when played again.
 
 ~~~
-sound.pause('effect', 'boink');
+sound.play('levelmusic');
 ~~~
 
-### sound.stop (category, name)
-1. `category {string}`
-2. `name {string}`
+### sound.stop (name)
+1. `name {string}`
 
 Stop a sound. If a sound is played again, it will restart
 from the beginning.
 
 ~~~
-sound.stop('effect', 'boink');
+sound.stop('levelmusic');
 ~~~
 
-### sound.setVolume (category, name, volume)
-1. `category {string}`
-2. `name {string}`
-3. `volume {number}` ---A range between 0 and 1.
+### sound.setVolume (name, volume)
+1. `name {string}`
+2. `volume {number}` ---A range between 0 and 1.
 
 Sets the volume of the sound, with 1 as the maximum, and 0
 as silent. A sound's default volume is 1.
 
 ~~~
-sound.setVolume('effect', 'boink', 0.5);
+sound.setVolume('levelmusic', 0.8);
 ~~~
 
-### sound.muteAll ([shouldMute])
-1. `shouldMute {boolean} = true`
+### sound.getVolume (name)
+1. `name {string}`
+2. Return: `{number}`
 
-Mute each sound. If passed a `false` argument, unmute each sound.
-
-~~~
-sound.muteAll();
-// ... silence ...
-sound.muteAll(false);
-// ... NOISE! ...
-~~~
-
-
-## Example: Play and Pause a Sound Loop
-
-Given the directory structure outlined above, set up two
-buttons: one to play an audio sample in a loop, and the
-other to pause the sound.
+Returns the volume level of the specified sound.
 
 ~~~
-m4_include(./examples/api/sound.js)
+sound.getVolume('levelmusic'); //=> 0.8
+~~~
+
+### sound.setMuted (isMuted)
+1. `isMuted {boolean}`
+
+Mute volume on all sounds.
+
+### sound.getMuted ()
+1. Return: `{boolean}`
+
+Check the mute status of all sounds.
+
+### sound.setMusicMuted (isMuted)
+1. `isMuted {boolean}`
+
+Mute volume on music sound.
+
+### sound.getMusicMuted ()
+1. Return: `{boolean}`
+
+Check the mute status of the music sound.
+
+### sound.setEffectsMuted (areEffectsMuted)
+1. `areEffectsMuted {}`
+
+Mute volume on effects sounds.
+
+### sound.getEffectsMuted ()
+1. Return: `{boolean}`
+
+Check the mute status of the effects sounds.
+
+### sound.setPath (path)
+1. `path {string}`
+
+Set a new path for the sound group.
+
+~~~
+sound.setPath('resources/sounds/music');
+~~~
+
+### sound.getPath()
+1. Return: `{string}`
+
+~~~
+sound.getPath(); //=> "resources/sounds"
+~~~
+
+### sound.getExt ()
+1. Return `{string}`
+
+Returns the file extenstion of the sound.
+
+~~~
+sound.getExt() //=> ".mp3"
 ~~~
