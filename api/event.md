@@ -189,7 +189,7 @@ cb.runOrTimeout(function () {
 ~~~
 
 ### callback.chain ()
-2. Return: `{function}`
+1. Return: `{function}`
 
 Chaining allows the loaded callback functions to run *after* another
 function is explicitly executed. Each call to `chain` returns
