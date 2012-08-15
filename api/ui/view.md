@@ -278,7 +278,7 @@ Fired during dragging.
 
 ~~~
 view.on('Drag', function (dragEvent, moveEvent, delta) {
-  var dx = moveEvent.srcPt.x - dragEvt.srcPt.x;
+  var dx = moveEvent.srcPoint.x - dragEvt.srcPoint.x;
   console.log("Moved " + dx + " pixels along the x-axis from where the drag started!");
   console.log("Moved " + delta.x + "pixels along the x-axis from where the last drag event happened!");
 });
@@ -292,7 +292,7 @@ Fired when dragging is stopped.
 
 ~~~
 view.on('DragStop', function (dragEvent, selectEvent) {
-  console.log("Drag started at " + dragEvt.srcPt + " and ended at " + selectEvent.srcPt);
+  console.log("Drag started at " + dragEvt.srcPoint + " and ended at " + selectEvent.srcPoint);
 });
 ~~~
 
