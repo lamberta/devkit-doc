@@ -16,7 +16,7 @@ exports = Class(ScrollView, function (supr) {
 		
 		var ducky = new ImageView({
 			image: "resources/duck.png",
-			parent: this
+			superview: this
 		});
 	}
 });

@@ -15,8 +15,6 @@ import ui.ScrollView as ScrollView;
 
 ### new ScrollView ([options])
 1. `options {object}`
-	* `fullWidth {number} = 0` ---Does nothing?
-	* `fullHeight {number} = 0` ---Does nothing?
 	* `offsetX {number} = 0` ---Offset X position.
 	* `offsetY {number} = 0` ---Offset Y position.
 	* `scrollX {boolean} = true` ---Scroll along the X axis.
@@ -34,6 +32,33 @@ import ui.ScrollView as ScrollView;
 
 ~~~
 var scrollview = new ScrollView();
+~~~
+
+~~~
+//scroll around an image
+var scroller = new ui.ScrollView({
+  superview: this.view,
+  x: 0,
+  y: 0,
+  width: 100, //note that the scrollview is smaller than the image
+  height: 100,
+  scrollBounds: {
+    minX: -50, //can scroll 50px to the left
+    maxX: 200, //can scroll 200px to the right
+    minY: -100, //can scroll 100px upwards
+    maxY: 200 //can scroll 200px downwards.
+  }
+});
+
+var duck = new ui.ImageView({
+  x: 0,
+  y: 0,
+  width: 200,
+  height: 200,
+  image: "resources/duck.png"
+});
+
+scroller.addSubview(duck);
 ~~~
 
 ### scrollview.getStyleBounds ()
