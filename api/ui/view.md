@@ -319,7 +319,7 @@ relative to the top-left corner of the view.
 ### style.anchorY
 1. `{number} = 0`
 
-The x position of the anchor point for rotation. This is
+The y position of the anchor point for rotation. This is
 relative to the top-left corner of the view.
 
 ### style.width

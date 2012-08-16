@@ -159,6 +159,10 @@ cb.run(function () { console.log("Runs immediately!"); }); //=> "Runs immediatel
 ~~~
 
 ### callback.run (thisArg, callback [, args ...])
+1. `thisArg {object}` ---Object to use as `this` in the callback function.
+2. `callback {function}`
+3. `args {...*}` ---Arguments to pass to the callback function.
+4. Return: `{this}`
 
 If arguments are curried to the function then the `thisArg`
 object is required.

@@ -166,11 +166,13 @@ Set a new path for the sound group.
 sound.setPath('resources/sounds/music');
 ~~~
 
-### sound.getPath()
-1. Return: `{string}`
+### sound.getPath ([name])
+1. `name {string}` ---Optional sound name.
+2. Return: `{string}`
 
 ~~~
-sound.getPath(); //=> "resources/sounds"
+sound.getPath();        //=> "resources/sounds"
+sound.getPath('boink'); //=> "resources/sounds/effect"
 ~~~
 
 ### sound.getExt ()
