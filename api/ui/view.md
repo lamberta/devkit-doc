@@ -31,6 +31,27 @@ var view = new View();
 
 This properties determine the look and style of a view.
 
+### Callback handler: view.buildView
+
+This function is run before the view is first rendered. Any
+subview creation should be in here since their dimensions
+will be dependent on their parent.
+
+~~~
+var myview = Class(ui.View, function (supr) {
+
+  this.buildView = function () {
+    var mysubview = new ui.View({
+      superview: this,
+      x: 0,
+      y: 0,
+      width: this.style.width,
+      height: this.style.width
+    });
+  };
+});
+~~~
+
 ### view.getApp ()
 1. Return: `{ui.Engine}`
 
@@ -76,34 +97,6 @@ Removes all child views from this view.
 ### view.removeFromSuperview ()
 
 Removes this view from its parent view.
-
-### Callback handler: view.buildView
-
-Called before the first render of the view. Since a view
-will have it's dimensions set when this called, subview
-creation should be put in here since their dimensions will
-be dependent on their parent.
-
-~~~
-exports = Class(ui.View, function (supr) {
-  this.init = function (opts) {
-    supr(this, 'init', [opts]);
-  };
-
-  this.buildView = function () {
-    this.background = new ui.View({
-      superview: this,
-      x: 0,
-      y: 0,
-      width: this.style.width, // these are set in the supr init function
-      height: this.style.width
-    });
-
-    /* Put your subviews here! */
-  };
-});
-~~~
-
 
 ### view.needsRepaint ()
 
