@@ -21,9 +21,9 @@ import ui.LayoutView as LayoutView;
 
 ### new LayoutView ([options])
 1. `options {object}`
-	* `direction {string} = 'down'` ---Options are `'up'`, `'down'`, `'right'`, or `'left'`.
-	* `halign {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
-	* `valign {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
+    * `direction {string} = 'down'` ---Options are `'up'`, `'down'`, `'right'`, or `'left'`.
+    * `halign {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
+    * `valign {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
 
 LayoutViews have a given direction in which children are
 positioned. They can be given a horizontal and vertical
@@ -36,27 +36,61 @@ perpendicular axis controls the alignment of a single child.
 var layoutview = new LayoutView();
 ~~~
 
-## LayoutView subviews
-1. `options {object}`
-	* `hflex {integer} = 0`
-	* `vflex {integer} = 0`
-	* `halignSelf {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
-	* `valignSelf {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
-	* `contentWidth {integer} = 0`
-	* `contentHeight {integer} = 0`
 
-Subviews of LayoutViews have style properties which can
-override their parent's alignment (only in the perpendicular
-direction) or whether the child should be "flexible" and
-take up all available space. In the direction of the
+## Subview Styles
+
+The subviews of a LayoutView can accept addtional options
+which override their parent's alignment (only in the
+perpendicular direction) or whether the child view should be
+"flexible" and fills up all available space. In the direction of the
 LayoutView, this consumes all free space not taken by other
 subviews. In the perpendicular direction, this matches the
 dimension of its parent.
+
+The subviews of a LayoutView can accept addtional options
+for arrangement within their parent.
+
+### new View ([options])
+1. `options {object}`
+    * `hflex {integer} = 0`
+    * `vflex {integer} = 0`
+    * `halignSelf {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
+    * `valignSelf {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
+    * `contentWidth {integer} = 0`
+    * `contentHeight {integer} = 0`
+
+This view represents any child view of a LayoutView.
 
 The `'contentWidth'` and `'contentHeight'` parameters
 specify minimum dimensions for a flexible view, so that it
 does not shrink to below a specific size. These have no
 impact on the default relative layout.
+
+~~~
+var layoutview = new LayoutView({
+  direction: 'down'
+});
+
+var topmenu = new View({
+  superview: layoutview,
+  hflex: 1,
+  height: 50,
+  backgroundColor: 'red'
+});
+
+var main = new ScrollView({
+  superview: layoutview,
+  hflex: 1,
+  vflex: 1
+});
+
+var bottomnav = new View({
+  superview: layoutview,
+  hflex: 1,
+  height: 50,
+  backgroundColor: 'blue'
+});
+~~~
 
 ## Example: Using the LayoutView
 
