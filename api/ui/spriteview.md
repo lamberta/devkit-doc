@@ -27,7 +27,8 @@ When this is referenced from the constructor (as `resources/images/characterSpri
 There are two animations for the *timSprite* sprite - `idle` and `run`. `idle` has 6 frames, and run has 3.
 
 During the build stage, these images are automatically turned into an optimised spritesheet, based on the number and size of these images. In some cases they may be turned into multiple spritesheets. These spritesheets are saved to `build/resources/`.
-In practice, developers never need to touch these spritesheets.
+
+In practice, developers never need to touch these spritesheets. However, in some situations, the `build/resources/` folder must be deleted, as it may cache old images.
 
 ## Class: ui.SpriteView
 
@@ -69,7 +70,7 @@ var sprite = new SpriteView({
 	* `frame {number} = 0` ---Frame to start on.
 	* `randomFrame {boolean} = false` ---Start on random frame.
 
-Starts an animation.
+Starts an animation. After the specified number of `iterations`, the sprite returns to its `defaultAnimation`.
 
 ~~~
 sprite.startAnimation('run');
@@ -148,7 +149,12 @@ The sprite's framerate.
 1. `{string} groupID`
 2. Return:`{Group}`
 
-Returns the group.
+Returns the group. This is useful for keeping track of multiple sprites - for example, if you wanted to pause all of your enemy sprites.
+
+~~~
+SpriteView.getGroup('enemy').pause(); //pauses all sprites in the 'enemy' group
+~~~
+
 
 ### Class Property: SpriteView.allAnimations
 1. `{object}`
