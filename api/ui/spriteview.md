@@ -2,12 +2,32 @@
 
 A *Sprite* consists of multiple *animations* (walk, run, etc.) which themselves are made of multiple *frames*.
 
-The sprite system grabs images from a given location and format. Using images like this:
+The sprite system grabs images from a given location and format, using images like this:
 
 ~~~
 directory/spriteName-animationName-0001.png
 directory/spriteName-animationName-0002.png
 ~~~
+
+Then, you pass a path as a `url` parameter to a SpriteView constructor. This infers several things from the `url` - the name of each animation, and the number of frames to that animation. This is conveyed to the sprite system by the file name. For example, consider:
+
+~~~
+resources/images/characterSprites/timSprite-idle-01.png
+resources/images/characterSprites/timSprite-idle-02.png
+resources/images/characterSprites/timSprite-idle-03.png
+resources/images/characterSprites/timSprite-idle-04.png
+resources/images/characterSprites/timSprite-idle-05.png
+resources/images/characterSprites/timSprite-idle-06.png
+resources/images/characterSprites/timSprite-run-01.png
+resources/images/characterSprites/timSprite-run-02.png
+resources/images/characterSprites/timSprite-run-03.png
+~~~
+
+When this is referenced from the constructor (as `resources/images/characterSprites/timSprite`), it gives this information: 
+There are two animations for the *timSprite* sprite - `idle` and `run`. `idle` has 6 frames, and run has 3.
+
+During the build stage, these images are automatically turned into an optimised spritesheet, based on the number and size of these images. In some cases they may be turned into multiple spritesheets. These spritesheets are saved to `build/resources/`.
+In practice, developers never need to touch these spritesheets.
 
 ## Class: ui.SpriteView
 
