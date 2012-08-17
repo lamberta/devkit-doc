@@ -3,9 +3,11 @@ import ui.TextView as TextView;
 
 exports = Class(GC.Application, function() {
 
-  this.initUI = function() {
+  this.buildView = function() {
 
-    // Create a LayoutView as our root layout. Position things in the center on both axes.
+    /* Create a LayoutView as the root layout,
+     * position children in the center horizontally and vertically.
+     */
     var root = new LayoutView({
       superview: this.view,
       direction: 'right',
@@ -13,7 +15,7 @@ exports = Class(GC.Application, function() {
       valign: 'center'
     });
 
-    // Fixed sized center box that is positioned in the center of the screen.
+    //Fixed sized box positioned in the center of the screen.
     var modal = new LayoutView({
       superview: root,
       width: 300,
