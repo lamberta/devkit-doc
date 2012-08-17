@@ -25,15 +25,18 @@ import ui.LayoutView as LayoutView;
 	* `halign {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
 	* `valign {string} = 'start'` ---Options are `'start'`, `'center'`, `'end'`, `'space'`, or `'space-outside'`
 
-LayoutViews have a given direction in which children are positioned. They can be given a horizontal and vertical
-align parameter, which along the direction axis positions all children (`'space'` and `'space-outside`' control 
-distribution of space *between* children) and along the perpendicular axis controls the alignment of a single child.
+LayoutViews have a given direction in which children are
+positioned. They can be given a horizontal and vertical
+align parameter, which along the direction axis positions
+all children (`'space'` and `'space-outside`' control
+distribution of space *between* children) and along the
+perpendicular axis controls the alignment of a single child.
 
 ~~~
 var layoutview = new LayoutView();
 ~~~
 
-### LayoutView subviews
+## LayoutView subviews
 1. `options {object}`
 	* `hflex {integer} = 0`
 	* `vflex {integer} = 0`
@@ -42,13 +45,18 @@ var layoutview = new LayoutView();
 	* `contentWidth {integer} = 0`
 	* `contentHeight {integer} = 0`
 
-Subviews of LayoutViews have style properties which can override their parent's alignment (only in the perpendicular
-direction) or whether the child should be "flexible" and take up all available space. In the direction of the LayoutView,
-this consumes all free space not taken by other subviews. In the perpendicular direction, this matches the dimension
-of its parent.
+Subviews of LayoutViews have style properties which can
+override their parent's alignment (only in the perpendicular
+direction) or whether the child should be "flexible" and
+take up all available space. In the direction of the
+LayoutView, this consumes all free space not taken by other
+subviews. In the perpendicular direction, this matches the
+dimension of its parent.
 
-The `'contentWidth'` and `'contentHeight'` parameters specify minimum dimensions for a flexible view, so that it does
-not shrink to below a specific size. These have no impact on the default relative layout.
+The `'contentWidth'` and `'contentHeight'` parameters
+specify minimum dimensions for a flexible view, so that it
+does not shrink to below a specific size. These have no
+impact on the default relative layout.
 
 ## Example: Using the LayoutView
 
