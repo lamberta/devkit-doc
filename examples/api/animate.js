@@ -7,57 +7,54 @@ exports = Class(GC.Application, function () {
     alwaysRepaint: true
   };
 
-  var start_x = device.width / 2 - 75,
-      start_y = device.height / 2 - 25,
-      red, green, blue;
+  this.buildView = function () {
+  
+    var start_x = device.width / 2 - 75,
+        start_y = device.height / 2 - 25;
 
-  this.initUI = function () {
-    red = new View({
+    var redbox = new View({
+      superview: this,
       x: start_x,
       y: start_y,
       width: 50,
-      height: 50
+      height: 50,
+      backgroundColor: '#ff0000'
     });
-    red.style.anchorX = red.style.width / 2;
-    red.style.anchorY = red.style.height / 2;
-    red.style.backgroundColor = '#ff0000';
-    this.view.addSubview(red);
+    redbox.style.anchorX = redbox.style.width / 2;
+    redbox.style.anchorY = redbox.style.height / 2;
 
-    green = new View({
+    redbox.on('InputOver', function () {
+      move_square(this, 3000, 0);
+    });
+    
+    var greenbox = new View({
+      superview: this,
       x: start_x + 50,
       y: start_y,
       width: 50,
-      height: 50
+      height: 50,
+      backgroundColor: '#00ff00'
     });
-    green.style.anchorX = green.style.width / 2;
-    green.style.anchorY = green.style.height / 2;
-    green.style.backgroundColor = '#00ff00';
-    this.view.addSubview(green);
+    greenbox.style.anchorX = greenbox.style.width / 2;
+    greenbox.style.anchorY = greenbox.style.height / 2;
 
-    blue = new View({
+    greenbox.on('InputOver', function () {
+      move_square(this, 2000, device.height/2 - this.style.height/2);
+    });
+    
+    var bluebox = new View({
+      superview: this,
       x: start_x + 100,
       y: start_y,
       width: 50,
-      height: 50
+      height: 50,
+      backgroundColor: '#0000ff'
     });
-    blue.style.anchorX = blue.style.width / 2;
-    blue.style.anchorY = blue.style.height / 2;
-    blue.style.backgroundColor = '#0000ff';
-    this.view.addSubview(blue);
-  };
+    bluebox.style.anchorX = bluebox.style.width / 2;
+    bluebox.style.anchorY = bluebox.style.height / 2;
 
-  this.launchUI = function () {
-    
-    red.subscribe('InputOver', function () {
-      move_square(red, 3000, 0);
-    });
-    
-    green.subscribe('InputOver', function () {
-      move_square(green, 2000, device.height/2 - green.style.height/2);
-    });
-
-    blue.subscribe('InputOver', function () {
-      move_square(blue, 1000, device.height - blue.style.height);
+    bluebox.on('InputOver', function () {
+      move_square(this, 1000, device.height - this.style.height);
     });
   };
 });

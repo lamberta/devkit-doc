@@ -10,26 +10,26 @@ import .AnimateUsage;
 
 exports = Class(GC.Application, function() {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		noTimestep: false,
-		showFPS: window.DEV_MODE,
-		alwaysRepaint: true
-	};
+  this._settings = {
+    logsEnabled: window.DEV_MODE,
+    noTimestep: false,
+    showFPS: window.DEV_MODE,
+    alwaysRepaint: true
+  };
 
-	this.initUI = function() {
+  this.initUI = function() {
 
-	}
+  }
 
-	this.launchUI = function() {
-		new AnimateUsage({parent: this.view});		
-	}
+  this.launchUI = function() {
+    new AnimateUsage({parent: this.view});    
+  }
 
-	this.launchSinglePlayerGame = function() {
-		
-	}
+  this.launchSinglePlayerGame = function() {
+    
+  }
 
-	this.launchMultiplayerGame = function() {
-		
-	}
+  this.launchMultiplayerGame = function() {
+    
+  }
 });

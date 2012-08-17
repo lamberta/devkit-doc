@@ -3,7 +3,7 @@ import ui.widget.List as List;
 import ui.widget.Cell as Cell;
 
 var list = new List({
-  superview: this.view,
+  superview: parent,
   dataSource: books.getDataSource(),
   width: device.width - 20,
   height: device.height - 20,

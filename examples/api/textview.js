@@ -1,9 +1,9 @@
 import ui.View as View;
 import ui.TextView as TextView;
 
-exports = Class(View, function(supr) {
-  this.init = function(opts) {
-    supr(this, "init", arguments);
+exports = Class(View, function (supr) {
+  
+  this.buildView = function (opts) {
     
     //show a big heading
     var title = new TextView({
@@ -22,5 +22,5 @@ exports = Class(View, function(supr) {
       fontSize: 14,
       superview: this
     });
-  }
+  };
 });

@@ -37,7 +37,7 @@ var scrollview = new ScrollView();
 ~~~
 //scroll around an image
 var scroller = new ui.ScrollView({
-  superview: this.view,
+  superview: parent,
   x: 0,
   y: 0,
   width: 100, //note that the scrollview is smaller than the image
