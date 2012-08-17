@@ -2,30 +2,28 @@ import ui.View as View;
 import ui.SpriteView as SpriteView;
 
 exports = Class(View, function (supr) {
-	this.init = function (opts) {
-		supr(this, "init", arguments);
-		
-		var runner = new SpriteView({
-			parent: this,
-			defaultAnimation: "idle",
-			width: 34,
-			height: 86,
+	this.buildView = function(){
 
-			//sprite animation definitions
-			animations: {
-				//main idle sprite animation
-				idle: {
-					imageURL: "resources/character.png",
-					spritesWide: 6,
-					spritesHigh: 4,
-					start: 12,
-					end: 17,
-					width: 34,
-					height: 86
-				}
-			}
+		//resources folder layout:
+		/*
+		 * resources/images/characterSprites/timSprite_idle_1.png
+		 *  ...
+		 * resources/images/characterSprites/timSprite_idle_8.png
+		 * resources/images/characterSprites/timSprite_walk_1.png
+		 *  ...
+		 * resources/images/characterSprites/timSprite_walk_9.png
+		*/
+		
+		var timSprite = new SpriteView({
+			superview: this,
+			x: 0,
+			y: 0,
+			width: 60,
+			height: 60,
+			url: "resources/images/characterSprites/timSprite",
+			defaultAnimation: "idle"
 		});
 
-		runner.startAnimation("idle");
-	}
+		timSprite.startAnimation('walk'); //plays 'walk' once, returns to idle.
+	};
 });
