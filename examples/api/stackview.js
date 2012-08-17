@@ -1,12 +1,12 @@
-import ui.View;
-import ui.TextView;
-import ui.StackView;
+import ui.View as View;
+import ui.TextView as TextView;
+import ui.StackView as StackView;
 
-exports = Class(ui.View, function() {
-  this.init = function(opts) {
-    supr(this, 'init', arguments);
-
-      var myStackView = new ui.StackView({
+exports = Class(View, function() {
+  
+  this.buildView = function(opts) {
+    
+    var stackview = new StackView({
       superview: this,
       x: 50,
       y: 50,
@@ -16,39 +16,38 @@ exports = Class(ui.View, function() {
     });
 
     //when added to a stackview, child views take the same dimensions.
-    var topView = new ui.TextView({
+    var front = new TextView({
       x: 0,
       y: 0,
-      text: "Click to dismiss! This is the top view.",
+      text: "Click to dismiss! This is the front view.",
       backgroundColor: "#00f" //blue
     });
 
-    var middleView = new ui.TextView({
+    var middle = new TextView({
       x: 0,
       y: 0,
       text: "Click to dismiss! This is the middle view.",
       backgroundColor: "#0f0" //green
     });
 
-    var bottomView = new ui.TextView({
+    var back = new TextView({
       x: 0,
       y: 0,
-      text: "Click to dismiss! This is the bottom view.",
+      text: "Click to dismiss! This is the back view.",
       backgroundColor: "#f00" //red
     });
 
-    myStackView.push(bottomView, true); //don't animate the views as they are attached to the stackview
-    myStackView.push(middleView, true);
-    myStackView.push(topView, true);
+    function pop_off () {
+      stackview.pop(this);
+    }
 
-    topView.on('InputStart', function(){
-        myStackView.pop(topView);
-    });
-    middleView.on('InputStart', function(){
-        myStackView.pop(middleView);
-    });
-    bottomView.on('InputStart', function(){
-        myStackView.pop(bottomView);
-    });
+    front.on('InputStart', pop_off);
+    middle.on('InputStart', pop_off);
+    back.on('InputStart', pop_off);
+    
+    //Don't animate the views as they are attached to the stackview.
+    stackview.push(front, true);
+    stackview.push(middle, true);
+    stackview.push(back, true);
   };
 });

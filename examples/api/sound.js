@@ -1,27 +1,25 @@
-import sound;
 import device;
 import ui.View as View;
+import Sound;
 
 exports = Class(GC.Application, function () {
 
-  var play_btn, stop_btn;
-  
   this.initUI = function () {
-    create_buttons(this.view);
-    
-    sound.preload('background', 'music');
-        
-    play_btn.subscribe('InputSelect', function () {
-      sound.play('background', 'music', {loop: true});
-    });
 
-    stop_btn.subscribe('InputSelect', function () {
-      sound.pause('background', 'music');
+    this.sound = new Sound({
+      path: 'resources/sounds',
+      files: {
+        levelmusic: {
+          background: true,
+          loop: true
+        }
+      }
     });
   };
 
-  function create_buttons (parent) {
-    play_btn = new View({
+  this.buildView = function () {
+    var play = new View({
+      superview: this,
       x: device.width/2 - 125,
       y: 100,
       width: 100,
@@ -29,7 +27,12 @@ exports = Class(GC.Application, function () {
       backgroundColor: '#00ff00'
     });
 
-    stop_btn = new View({
+    play.on('InputSelect', bind(this, function () {
+      this.sound.play('levelmusic');
+    }));
+
+    var stop = new View({
+      superview: this,
       x: device.width/2 + 25,
       y: 100,
       width: 100,
@@ -37,7 +40,8 @@ exports = Class(GC.Application, function () {
       backgroundColor: '#ff0000'
     });
 
-    parent.addSubview(play_btn);
-    parent.addSubview(stop_btn);
-  }
+    stop.on('InputSelect', bind(this, function () {
+      this.sound.pause('levelmusic');
+    }));
+  };
 });

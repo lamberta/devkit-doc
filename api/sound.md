@@ -47,7 +47,7 @@ var sound = new Sound({
   path: 'resources/sounds',
   files: {
     levelmusic: {
-      path: 'music'
+      path: 'music',
       volume: 0.5,
       background: true,
       loop: true
@@ -182,4 +182,11 @@ Returns the file extenstion of the sound.
 
 ~~~
 sound.getExt() //=> ".mp3"
+~~~
+
+
+## Example: Toggle Sound
+
+~~~
+m4_include(./examples/api/sound.js)
 ~~~

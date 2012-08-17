@@ -2,13 +2,11 @@ import ui.View as View;
 import ui.ImageView as ImageView;
 
 exports = Class(View, function(supr) {
-  this.init = function(opts) {
-    supr(this, "init", arguments);
-    
-    var myImage = new ImageView({
+  this.buildView = function (opts) {
+    var image = new ImageView({
+      superview: this,
       image: "resources/duck.png",
-      autoSize: true,
-      superview: this        
+      autoSize: true
     }); 
   }
 });

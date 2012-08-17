@@ -11,12 +11,14 @@ exports = Class(ScrollView, function (supr) {
         maxY: 200
       },
     });
-    
+
     supr(this, "init", arguments);
-    
+  };
+
+  this.buildView = function () {
     var ducky = new ImageView({
-      image: "resources/duck.png",
-      superview: this
+      superview: this,
+      image: "resources/image.png"
     });
-  }
+  };
 });
