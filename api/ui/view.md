@@ -13,23 +13,40 @@ import ui.View as View;
 
 ### new View ([options])
 1. `options {object}` ---Optional.
-	* `id {string}`
-	* `tag {string}`
-	* `filters {Filter}`
-	* `circle {boolean} = false`
-	* `infinite {boolean} = false`
-	* `canHandleEvents {boolean} = true`
-	* `superview {View}`
-	* `rotation {number} = 0`
+    * `id {string}`
+    * `tag {string}`
+    * `filters {Filter}`
+    * `circle {boolean} = false`
+    * `infinite {boolean} = false`
+    * `canHandleEvents {boolean} = true`
+    * `superview {View}`
+
+In addition to these options, you can also pass the
+[style definitions](#styles) listed below.
 
 ~~~
-var view = new View();
+var view = new View({
+  superview: parent,
+  x: 50,
+  y: 50,
+  width: 100,
+  height: 100,
+  backgroundColor: '#0000ff'
+});
 ~~~
 
 ### view.style
-1. `{object}` ---Contains the [style defintions](#styles) enumerated below.
+1. `{object}` ---Contains the [style definitions](#styles) enumerated below.
 
-This properties determine the look and style of a view.
+The properties on this object determine the look and style
+of a view. If not passed as options to the view constructor,
+the properties can be set here.
+
+~~~
+var view = new View({visible: true}); //now you see me
+
+view.style.visible = false;           //now you don't
+~~~
 
 ### Callback handler: view.buildView
 
@@ -38,7 +55,7 @@ subview creation should be in here since their dimensions
 will be dependent on their parent.
 
 ~~~
-var myview = Class(ui.View, function (supr) {
+var view = Class(ui.View, function (supr) {
 
   this.buildView = function () {
     var mysubview = new ui.View({
@@ -104,7 +121,7 @@ Notifies the renderer that the view needs to be repainted next tick.
 
 ### view.needsReflow ()
 
-Notifies the need for repositioning.
+Notifies the need for positioning.
 
 ### view.needsSort ()
 
@@ -132,14 +149,15 @@ Returns a count of how many input events are over a view.
 
 ### view.startDrag (options)
 1. `options {object}`
-	* `inputStartEvt {InputEvent}`
-	* `radius {number} = 0`
+    * `inputStartEvt {InputEvent}`
+    * `radius {number} = 0`
 
 Start responding to an input event by dragging the view.
 
 ~~~
 view.on('InputStart', function (evt, pt) {
-  myView.startDrag({ radius: 15 }); //will fire onDrag if the drag is further than 15 pixels in any direction
+  //will emit a 'drag' event if moved further than 15 pixels in any direction
+  this.startDrag({ radius: 15 });
 });
 ~~~
 
@@ -157,16 +175,16 @@ Convert a point to it’s local position relative to this view.
 ### view.getPosition ([relativeTo])
 1. `relativeTo {View}` ---Optional.
 2. Return: `{object}`
-	* `x {number}`
-	* `y {number}`
-	* `rotation {number}`
-	* `width {number}`
-	* `height {number}`
-	* `scale {number}`
+    * `x {number}`
+    * `y {number}`
+    * `rotation {number}`
+    * `width {number}`
+    * `height {number}`
+    * `scale {number}`
 
 Get position of a view relative to a superview. If
 `relativeTo` is not provided, get the position relative to
-the top-most superview (the root of the scence graph.).
+the top-most superview (the root of the scene graph.).
 
 ### view.containsLocalPoint (point)
 1. `point {Point}` ---A point being an object with `x` and `y` numeric properties.
@@ -354,7 +372,7 @@ The transparency of a view.
 ### style.zIndex
 1. `{number} = 0`
 
-The higher the number the closer to the top.
+The higher the number the closer to the front.
 
 ### style.backgroundColor
 1. `{string}`
