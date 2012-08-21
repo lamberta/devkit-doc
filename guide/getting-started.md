@@ -1,185 +1,178 @@
-#Getting Started with the Game Closure SDK
+# Getting Started
 
-##In the beginning
 
-The entry point into your game is the method `launchUI()` in the generated file 
-`Application.js`. Think of it as the `main` function.
+## Getting the SDK
 
-From here you may initialise game objects and display objects.
+### Prerequisites
 
-##Common terms
+* [Git](http://git-scm.com) (> 1.7.10)
+* [Node.js](http://nodejs.org) (> 0.8)
+* [Java JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-* __`View`__ --- a View is any game object that should be visible on the
-screen. There are interal Views for displaying Images, Sprites or Text. 
-
-* __`subview`__ --- a child of a View.
-
-* __`superview`__ --- a parent of a View.
-
-* __`InputStart`__ --- an event for mouse and touch events. When mouse is down or touch has started.
-
-* __`InputSelect`__ --- an event for mouse and touch when mouse is up or touch has ended.
-
-* __`device`__ --- this is a namespace for information regarding the environment the game is running on for responsive games.
-
-* __`opts`__ --- many Game Closure classes require an object as an argument as opposed to long complicated arguments. `opts` is just a common name for the argument as it is the options passed into the class.
-
-* __`supr`__ --- in classic inheritance, it is necessary to execute functions in the parent class. This is usually known as `super` but as it is a reserved word in JavaScript, we use the nickname `supr`. It is passed into the class definition function when the class is created through an argument so you may name this whatever you want.
-
-* __`DEV_MODE`__ --- a boolean flag whether the game is in development mode or not.
-
-* __`exports`__ --- when using the SDK import system, whatever `exports` is set to will be the object that is returned from importing the file.
-
-* __`Class`__ --- function to create a class using the Game Closure class system. This isn''t required as it is possible to create your own classes in whatever style you prefer.
-
-* __`timestep`__ -- the Game Closure game engine and namespace.
-
-##Hello World
-
-Let''s start with `Application.js` as this is our entry point. A good idea
-would be to create another View as the container rather than bloat
-the Application file with game code. My convention is to create a generic
-View called `World`. For now let''s start with `Application.js`.
+### Download the source and install
 
 ~~~
+$ git clone git@github.com:gameclosure/sdk.git
+$ cd sdk
+$ ./install.sh
+~~~
 
-"use import";
-//use the SDK import system
-//this must be the first line in the file
+This installs the command-line program `basil` which is used
+create and serve projects. To see a list of basil commands,
+simply run it in your terminal without any arguments:
 
-//import the GC namespace
-import GC;
+~~~
+$ basil
+~~~
+
+This will print out a list of basil commands. You can get
+help for a particular command  by appending an `-h` option,
+for example:
+
+~~~
+$ basil init -h
+~~~
+
+## Create a new project
+
+With `basil` installed, you're ready to create a new
+project! Switch to the directory where you want the new
+project directory to reside, then run: 
+
+~~~
+$ basil init hello-world
+~~~
+
+Great! By default, basil generates a simple "Hello, world!"
+template for your project. Now you can switch to the new
+project's directory and serve the application:
+
+~~~
+$ cd ./hello-world
+$ basil serve
+~~~
+
+By default, basil starts a server on your machine at
+`http://localhost:9200`, to access the project manager GUI,
+simply direct your web browser to this address. If you'd
+like to specify a different port for your application, just
+pass it as a `-p` option:
+
+~~~
+$ basil serve -p 8080
+~~~
+
+With the application server running, in your web browser
+click the bottom tab named 'Projects' and select your 'empty
+project' from the project list.
+
+<img src="./assets/getting-started/hello-project.png" alt="project selector screenshot" class="screenshot">
+
+Now launch the simulator for your project by clicking the 'Simulate' button.
+
+<img src="./assets/getting-started/hello-world.png" alt="hello, world screenshot" class="screenshot">
+
+Your first application running in the browser, pretty cool,
+right? This view gives you an idea of how it will look on a
+mobile device, but remember, we're still in a web browser
+which means we can interact with it, and debug it, using all
+the great tools we're used to for web development.
+
+## Project Structure
+
+~~~
+project
+  |--src/
+  |   |-Application.js (project entry point)
+  |--resources/ (empty)
+  |--sdk/ (symlink)
+  |--build/ (generated when run)
+~~~
+
+Application.js:
+
+~~~
+import ui.TextView as TextView;
 
 exports = Class(GC.Application, function() {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		noTimestep: false,
-		showFPS: window.DEV_MODE,
-		alwaysRepaint: true
-	};
+  this._settings = {
+    logsEnabled: window.DEV_MODE,
+    showFPS: DEV_MODE,
+    clearEachFrame: true,
+    alwaysRepaint: true,
+    preload: []
+  };
 
-	this.initUI = function() {
-		//do stuff
-	}
+  this.initUI = function() {
+    var textview = new TextView({
+      superview: this.view,
+      text: "Hello, world!",
+      color: "white"
+    });
+  };
 
-	this.launchUI = function() {
-		//create the container view for the Game
-		//pass the root view as an option to be the parent
-		this.world = new World({parent: this.view});
-	}
+  this.launchUI = function () {};
 });
 ~~~
 
-In our Application file we created an instance of the `World` class I mentioned
-earlier. Though there are a few problems:
+## Inspecting and Debugging
 
-1. The class doesn''t exist yet
-2. We didn''t import it so the SDK won''t be able to find it
+Click on 'UI Inspector' to view the scene graph hierarchy.
 
-Create a file called `World.js`:
+<img src="./assets/getting-started/hello-inspector.png" alt="ui inspector screenshot" class="screenshot">
 
-~~~
+In the view inspector you can see that there is a `TextView`
+in the hierarchy named `'TextView2:Hello, world!'`
 
-"use import";
+Using the [Chrome](http://www.google.com/chrome) web
+browser, open up the JavaScript debugging console by
+clicking the settings icon, then "Tools > JavaScript
+Console." In this pane you can view all of the debugging
+logs from the application and any JavaScript errors. You can
+set breakpoints in your application just like a regular
+JavaScript web application; for more information about using
+the Chrome debugger, see the documentation for the
+[Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/docs/overview).
 
-import timestep.View as View;
-import timestep.TextView as TextView;
+In the bottom of the console panel, switch the context of
+the JavaScript REPL from `<top frame>` to
+`<SimulatorFrame>`. Now you can access the variables of your
+application directly, provide you are in the correct
+scope. For instance, entering `GC.app` will return the
+instance of your application.
 
-exports = Class(View, function(supr) {
-	//class contructor
-	this.init = function() {
-		supr(this, "init", arguments);
-
-		//create a TextView with this View as the parent
-		var text = new TextView({
-			text: "Hello World!",
-			parent: this
-		});
-	}
-});
-
-~~~
-
-Now we need to be able to reference it in `Application.js`. Add this line after `"use import";`.
-
-		import .World;
-
-Horray, now we have a cross browser, cross device implementation of 
-Hello World!
-
-The View heirarchy looks something like this:
-
-		Application (root view) -> World -> TextView
-
-##Import system
-
-Each JavaScript file is a module. To identify a module, we use the file path 
-to the JavaScript file. Dots (.) in the module identifier separate folder 
-names and filenames (no need to specify the file extension). There are two 
-types of path identifiers: __absolute paths__ and __relative paths__.
-
-A leading dot indicates a __relative__ path where the import system will look
-for the module within the current directory of the module importing the
-file. Consecutive dots indicate the __parent__ directory.
-
-Ommiting a leading dot indicates an __absolute__ path. This is required for
-internal modules such as those under the `timestep` namespace.
+Let's say we wanted to change the "Hello, world!" text while
+the application is running. From looking at the UI Inspector
+we know our lone TextView is a child of the main application
+view, so we can grab a reference to it by reaching down the
+view hierarchy:
 
 ~~~
-
-.ui.View -> ./ui/View.js
-.index   -> ./index.js
-..foo    -> ../foo.js
-...foo   -> ../../foo.js
+var textview = GC.app.view.getSubviews()[0]; //select the first child view
 ~~~
 
-You may also alias the module as an easy to use name by using `as`:
+As mentioned, `GC.app` is an instance of the application
+defined in our project's `src/Application.js`
+file. `GC.app.view` is the root of the scene graph, views
+attached to this view hierarchy will be rendered to the screen.
 
-	    import timestep.View as View;
+The `getSubviews` method returns an array containing its
+children, here we simply take the first (and only object) in
+this collection.
 
-That way you can reference it as `View` instead of `timestep.View`.
-
-##Alternative Classes
-
-We don't want to force an unwanted methodology when developers have their own
-ideas about objects, structure and organization. That's why you may choose
-not to use the internal class system as long as you include some bridge code.
-
-We will create a basic red rectangle class that turns blue when a mouse is
-down or touch has started (on the view) then green when the mouse is up or
-touch has ended.
+With a reference to the text object we can use its API to
+change the text to something else:
 
 ~~~
-
-"use import";
-
-import timestep.View as View;
-
-//a custom red rectangle class
-function RedRect(opts) {
-    this.init.apply(this, arguments);
-    this.style.backgroundColor = "#FF0000";
-
-    this.onInputSelect = function() {
-        this.style.backgroundColor = "#00FF00";
-    }
-}
-
-//inherit the View prototype
-exports = inherit(RedRect, View);
-
-//custom prototype function
-RedRect.prototype.onInputStart = function() {
-    this.style.backgroundColor = "#0000FF";
-}
-
-
-/**
- * Utility to inherit the prototype chain
- */
-function inherit(ctor, superCtor) {
-    ctor.prototype = superCtor.prototype;
-    return ctor;
-};
+textview.updateOpts({fontSize: 42});
+textview.setText("We did it!");
 ~~~
+
+Notice how you can see the changes instantly in your
+browser, this makes the coding-debugging feedback loop tight
+and developer friendly.
+
+<img src="./assets/getting-started/hello-debugger.png" alt="console debugger screenshot" class="screenshot">
+
+Of course, if you want to persist this change, you'll need to edit the file.
