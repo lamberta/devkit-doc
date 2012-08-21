@@ -96,6 +96,32 @@ var add_to_y = bind(pt, add_to_point, 23);
 add_to_y(56); //=> {x: 123, y: 456}
 ~~~
 
+This function is provided for readability over the
+traditonal JavaScript `.bind` method:
+
+~~~
+view.on('InputSelect', bind(this, function (evt) {
+  //...
+}));
+
+view.on('InputSelect', (function (evt) {
+  //..
+}).bind(this));
+~~~
+
+In the first example, it's clear that a new context is
+assigned for `this` in the callback function at the
+beginning, where in the second example, the new binding of
+`this` doesn't happen until the end of the function declaration.
+
+Of course, the regular JavaScript `.bind` can still be used
+when it makes sense, as in assigning a bound function name
+to a new variable:
+
+~~~
+var my_bound_fn = my_function.bind(this);
+~~~
+
 
 ### merge (obj1, obj2 [, obj3 ...])
 1. `base {object}`
@@ -117,7 +143,29 @@ console.log(obj1); //=> {a: 1, b: 2, c: 4}
 
 This function is particularly useful for combining objects
 that contain options that are passed up a class
-initialization hierarchy.
+initialization hierarchy. However, there is a caveat for
+this common usage, since an options object may not exist,
+the properties can not be merged on an `undefined` value. To
+account for this, set the `opts` parameter to the return
+value of `merge` as illustrated here:
+
+~~~
+function not_merged (opts) {
+  merge(opts, {x: 1});
+  return opts;
+}
+
+function merged (opts) {
+  opts = merge(opts, {x: 1});
+  return opts;
+}
+
+not_merged();  //=> undefined
+merged();      //=> {x: 1}
+~~~
+
+This way you can be assured that the options object contains
+all the properties you intend for it to have.
 
 ### GLOBAL
 1. `{object}`
