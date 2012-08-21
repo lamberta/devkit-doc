@@ -33,6 +33,14 @@ for example:
 $ basil init -h
 ~~~
 
+If you're getting permission errors when installing to the
+`/usr/local` directory, try running this command:
+
+~~~
+$ sudo chown -R $(whoami) /usr/local
+~~~
+
+
 ## Create a new project
 
 With `basil` installed, you're ready to create a new
