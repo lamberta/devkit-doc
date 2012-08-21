@@ -16,10 +16,10 @@ import ui.ImageView as ImageView;
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
 
-Creates an ImageView.
+Create an ImageView.
 
 ~~~
-new ImageView({
+var imageview = new ImageView({
   superview: parent,
   image: 'resources/images/example.png',
   width: 100,
@@ -30,22 +30,9 @@ new ImageView({
 ~~~
 
 ### imageview.getImage ()
-1. Return: `{Image}`
+1. Return: `{ui.resource.Image}`
 
 Returns the internal Image.
-
-### imageview.setImage (img [, opts])
-1. `img {ui.resource.Image}`
-2. `opts {object}` ---Optional.
-	* `image {string|ui.resource.Image} = false` ---Image to render.
-	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
-	* `scaleMethod {string} = false`
-
-Sets the image for the ImageView.
-
-~~~
-myImageView.setImage(new ui.resource.Image({url: 'resources/images/example2.png'});
-~~~
 
 ### imageview.setImage (url [, opts])
 1. `url {string}`
@@ -57,12 +44,28 @@ myImageView.setImage(new ui.resource.Image({url: 'resources/images/example2.png'
 Set the image for the ImageView.
 
 ~~~
-myImageView.setImage('resources/images/example2.png');
+imageview.setImage('resources/images/example2.png');
 ~~~
 
-### Callback handler: imageview.doOnLoad (cb, [args, ...])
-1. `cb {Function}`
-2. `args {*}`
+### imageview.setImage (img [, opts])
+1. `img {ui.resource.Image}`
+2. `opts {object}` ---Optional.
+	* `image {string|ui.resource.Image} = false` ---Image to render.
+	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `scaleMethod {string} = false`
+
+Sets the image for the ImageView.
+
+~~~
+import ui.resource.Image as Image;
+
+var image = new Image({url: 'resources/images/example2.png'};
+imageview.setImage(image);
+~~~
+
+### Callback handler: imageview.doOnLoad (callback, [args ...])
+1. `callback {function}`
+2. `args {...*}`
 1. Return: `{this}`
 
 Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
@@ -111,6 +114,12 @@ import ui.resource.Image as Image;
 	* `srcImage {Image}`
 
 Creates an Image.
+
+~~~
+import ui.resource.Image as Image;
+
+var image = new Image({url: 'resources/images/example.png'};
+~~~
 
 ### image.isReady ()
 1. Return: `{boolean}`
@@ -234,15 +243,23 @@ Returns the internal ImageMap.
 Sets the properties of the internal ImageMap.
 
 
-### Callback handler: image.doOnLoad (fn, [args, ...])
-1. `cb {Function}`
-2. `args {*}`
+### Callback handler: image.doOnLoad (callback, [args ...])
+1. `callback {function}`
+2. `args {...*}`
 1. Return: `{this}`
 
 Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
 
 ## Example: Create an ImageView
 
+This example requires an image in your resources directory
+and renders it to the screen.
+
 ~~~
-m4_include(./examples/api/imageview.js)
+m4_include(./examples/api/example-imageview.js)
 ~~~
+
+Place this in the `Application.js` file of your project,
+rotate the simulator, and you'll see:
+
+<img src="./assets/ui-imageview/example-imageview.png" alt="a book screenshot" class="screenshot">
