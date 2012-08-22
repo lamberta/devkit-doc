@@ -13,7 +13,7 @@ keyword for easier reference.
 ~~~
 import device;
 import ui.View;
-import shared.path.to.Module as Module;
+import src.path.to.Module as Module;
 
 var view = new ui.View(),
     mod = new Module();
@@ -25,7 +25,7 @@ console.log(typeof ui);                //=> 'object'
 The path of a user defined module is relative to the
 project's root directory. So, in the above example, the
 import path of `Module` refers to the file located at
-`{project}/shared/path/to/Module.js`.
+`{project}/src/path/to/Module.js`.
 
 
 ### Class ([name, superConstructor,] constructor)

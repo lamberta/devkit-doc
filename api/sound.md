@@ -11,7 +11,7 @@ directory structure of a project:
 
 ~~~
 project
- |- shared
+ |- src
  |    \- Application.js
  \- resources
       \- sounds

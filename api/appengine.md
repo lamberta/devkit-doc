@@ -36,7 +36,7 @@ instance of the user's `GC.Application`. Options must be set before the
 * `dtMinimum {number} = 0` ---*Not used?*
 * `preload {array}` ---Preload resource groups.
 
-For example, the settings in the `shared/Application.js`
+For example, the settings in the `src/Application.js`
 file of an empty project can be changed:
 
 ~~~
@@ -76,7 +76,7 @@ Executed when the application resumes.
 
 We'll step through a simple example by creating a new
 project, and using the following code as the
-`shared/Application.js` file: 
+`src/Application.js` file: 
 
 ~~~
 m4_include(./examples/api/hello-world.js)
@@ -105,7 +105,7 @@ engine are created, and the application's `initUI` and
 `launchUI` methods are called.
 
 Inherits:
-:    1. {project}/shared/Application
+:    1. {project}/src/Application
      2. [GC.Application](#class-gc.application)
      3. [event.Emitter](./event.html#class-event.emitter)
 
