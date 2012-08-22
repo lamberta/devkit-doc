@@ -7,7 +7,8 @@
 
 * [Git](http://git-scm.com) (> 1.7.10)
 * [Node.js](http://nodejs.org) (> 0.8)
-* [Java JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (included with installer)
+* [Chrome](www.google.com/chrome) (what we test against)
 
 ### Download the source and install
 
