@@ -162,6 +162,21 @@ nav#TOC {
   margin-left: 0;
 }
 
+#main #menu li {
+  float: left;
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+#main #menu li img {
+  display: block;
+}
+
+#main #links {
+  clear: both;
+}
+
 header {
   background: #444444; /* Old browsers */
   background: -moz-linear-gradient(top,  #444444 0%, #222222 100%); /* FF3.6+ */
