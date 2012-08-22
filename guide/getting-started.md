@@ -62,8 +62,8 @@ $ basil serve
 ~~~
 
 By default, basil starts a server on your machine at
-`http://localhost:9200`, to access the project manager GUI,
-simply direct your web browser to this address. If you'd
+`http://localhost:9200`, to access the web interface for the
+project, simply direct your web browser to this address. If you'd
 like to specify a different port for your application, just
 pass it as a `-p` option:
 
@@ -86,6 +86,18 @@ right? This view gives you an idea of how it will look on a
 mobile device, but remember, we're still in a web browser
 which means we can interact with it, and debug it, using all
 the great tools we're used to for web development.
+
+If you're working on a project that wasn't created with
+`basil init`, you'll need to register the project before it
+is available in the web interface:
+
+~~~
+$ cd ./anotherproject
+$ basil register
+~~~
+
+Now if you run `basil serve` you'll see the new project in
+the web interface.
 
 ## Project Structure
 
