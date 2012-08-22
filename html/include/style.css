@@ -12,185 +12,190 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 **/
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 /*
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 */
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 /* end css reset */
 
 html {
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 body {
-	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-	line-height: 1.2em;
-	background-color: '#000000';
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.2em;
+  background-color: '#000000';
 }
 
 i, em {
-	font-style: italic;
+  font-style: italic;
 }
 
 code {
-	font-family: 'Inconsolata', monospace;
+  font-family: 'Inconsolata', monospace;
 }
 
 h1, h2 {
-	line-height: 1.9em;
+  line-height: 1.9em;
 }
 
 h1 {
-	font-size: 1.7em;
+  font-size: 1.7em;
 }
 
 h2 {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 a {
-	color: #000;
+  color: #000;
 }
 
 p {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 nav#sidebar {
-	position: fixed;
-	left: 0;
-	top: 50px;
-	bottom: 0;
-	overflow: auto;
-	width: 200px;
-	padding: 10px 15px;
-	background-color: #ECECF6;
-	margin: -10px;
-	border-right: 1px solid #ccc;
-	text-shadow: 0 1px 1px white;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  overflow: auto;
+  width: 200px;
+  padding: 10px 15px;
+  background-color: #ECECF6;
+  margin: -10px;
+  border-right: 1px solid #ccc;
+  text-shadow: 0 1px 1px white;
 }
 
-	nav#sidebar h1 {
-		font-size: 1.2em;
-	}
+nav#sidebar h1 {
+  font-size: 1.2em;
+}
 
-	nav#sidebar ul {
-		list-style: none;
-	}
+nav#sidebar ul {
+  list-style: none;
+}
 
-	nav#sidebar li {
-		margin: 10px 0;
-	}
+nav#sidebar li {
+  margin: 10px 0;
+}
 
-		nav#sidebar li a {
-			text-decoration: none;
-			color: #444;
-			font-size: 0.9em;
-			padding: 10px 0;
-		}
+nav#sidebar li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 0.9em;
+  padding: 10px 0;
+}
 
 nav h1 {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 nav#TOC {
-	font-size: 0.8em;
-	line-height: 1.6em;
+  font-size: 0.8em;
+  line-height: 1.6em;
 }
 
 #main {
-	margin: 0 0 0 230px;
-	padding: 15px 15px 15px 30px;
+  margin: 0 0 0 230px;
+  padding: 15px 15px 15px 30px;
 }
 
 /* when generating the toc, disable the header linkbacks.
  */
 #main h1 a, #main h2 a, #main h3 a, #main h4 a {
-	pointer-events: none;
-	cursor: default;
-	text-decoration: none;
-	color: #0089CE;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: #0089CE;
 }
 
 #main h2, #main h3, #main h4 {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 #main p {
-	max-width: 600px;
+  max-width: 600px;
 }
 
 #main ol {
-	padding-left: 22px; /*function parameter indent*/
-	font-size: 0.9em;
-	line-height: 1.4em;
-	margin: -10px 0 10px 0;
+  padding-left: 22px; /*function parameter indent*/
+  font-size: 0.9em;
+  line-height: 1.4em;
+  margin: -10px 0 10px 0;
 }
 
 /*method types*/
 #main ol code {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #main pre {
-	font-size: 0.8em;
-	border-left: 4px solid #EEE;
-	padding-left: 20px;
-	margin-left: 0;
+  font-size: 0.8em;
+  border-left: 4px solid #EEE;
+  padding-left: 20px;
+  margin-left: 0;
 }
 
 header {
-	background: #444444; /* Old browsers */
-	background: -moz-linear-gradient(top,  #444444 0%, #222222 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444444), color-stop(100%,#222222)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #444444 0%,#222222 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #444444 0%,#222222 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #444444 0%,#222222 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #444444 0%,#222222 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#222222',GradientType=0 ); /* IE6-9 */
-	margin: -10px -10px 10px -10px;
-	color: #ccc;
-	text-align: center;
-	position: fixed;
-	top: 0;
-	width: 222px;
-	padding: 20px 0 10px 0;
-	z-index: 10;
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
+  background: #444444; /* Old browsers */
+  background: -moz-linear-gradient(top,  #444444 0%, #222222 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444444), color-stop(100%,#222222)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #444444 0%,#222222 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #444444 0%,#222222 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #444444 0%,#222222 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #444444 0%,#222222 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#222222',GradientType=0 ); /* IE6-9 */
+  margin: -10px -10px 10px -10px;
+  color: #ccc;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 222px;
+  padding: 20px 0 10px 0;
+  z-index: 10;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+header a {
+  text-decoration: none;
+  color: #ccc;
 }
 
 footer {
-	margin: 0 auto;
-	font-size: 12px;
-	text-align: center;
-	letter-spacing: 2px;
-	color: #AAA;
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #AAA;
 }
 
 img.screenshot {
-	max-width: 600px;
+  max-width: 600px;
 }
