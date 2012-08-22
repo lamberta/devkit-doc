@@ -91,6 +91,7 @@ the great tools we're used to for web development.
 
 ~~~
 project
+  |--manifest.json (project information)
   |--src/
   |   |-Application.js (project entry point)
   |--resources/ (empty)
