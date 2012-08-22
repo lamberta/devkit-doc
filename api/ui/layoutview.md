@@ -92,8 +92,13 @@ var bottomnav = new View({
 });
 ~~~
 
+<img src="./assets/ui-layoutview/example-navbars.png" alt="nav bars with layoutview" class="screenshot">
+
+
 ## Example: Using the LayoutView
 
 ~~~
 m4_include(./examples/api/layoutview.js)
 ~~~
+
+<img src="./assets/ui-layoutview/example-layoutview.png" alt="layoutview example screenshot" class="screenshot">

@@ -1,25 +1,27 @@
+import device;
 import ui.LayoutView as LayoutView;
 import ui.TextView as TextView;
 
 exports = Class(GC.Application, function() {
 
-  this.buildView = function() {
+  this.initUI = function () {
 
     /* Create a LayoutView as the root layout,
      * position children in the center horizontally and vertically.
      */
-    var root = new LayoutView({
-      superview: this.view,
+    var layout = new LayoutView({
       direction: 'right',
       halign: 'center',
       valign: 'center'
     });
+    
+    this.view.push(layout); //add to the root StackView
 
     //Fixed sized box positioned in the center of the screen.
     var modal = new LayoutView({
-      superview: root,
-      width: 300,
-      height: 300,
+      superview: layout,
+      width: device.height,
+      height: device.height,
       direction: 'right'
     })
 
