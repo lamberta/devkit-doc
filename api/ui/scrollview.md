@@ -15,8 +15,8 @@ import ui.ScrollView as ScrollView;
 
 ### new ScrollView ([options])
 1. `options {object}`
-	* `offsetX {number} = 0` ---Offset X position.
-	* `offsetY {number} = 0` ---Offset Y position.
+	* `offsetX {number} = 0` ---Offset the child's X position relative to the scrollview.
+	* `offsetY {number} = 0` ---Offset the child's Y position relative to the scrollview.
 	* `scrollX {boolean} = true` ---Scroll along the X axis.
 	* `scrollY {boolean} = true` ---Scroll along the Y axis.
 	* `clip {boolean} = true` ---Hide anything that is outside of the view boundary.
@@ -36,29 +36,31 @@ var scrollview = new ScrollView();
 
 ~~~
 //scroll around an image
-var scroller = new ui.ScrollView({
+var scrollview = new ui.ScrollView({
   superview: parent,
   x: 0,
   y: 0,
-  width: 100, //note that the scrollview is smaller than the image
-  height: 100,
+  width: 480,    //the scrollview is smaller than the image
+  height: 320,
+  offsetX: -100, //offset the image within the scrollview
+  offset: -100,
   scrollBounds: {
-    minX: -50, //can scroll 50px to the left
-    maxX: 200, //can scroll 200px to the right
-    minY: -100, //can scroll 100px upwards
-    maxY: 200 //can scroll 200px downwards.
+    minX: 0,
+    maxX: 1000,  //can scroll 1000 px to the right
+    minY: 0,
+    maxY: 1000   //can scroll 1000 px downwards.
   }
 });
 
-var duck = new ui.ImageView({
+var worldmap = new ui.ImageView({
   x: 0,
   y: 0,
-  width: 200,
-  height: 200,
-  image: "resources/duck.png"
+  width: 1000,
+  height: 1000,
+  image: "resources/images/worldmap.png"
 });
 
-scroller.addSubview(duck);
+scrollview.addSubview(worldmap); //add the big image to the scrollview
 ~~~
 
 ### scrollview.getStyleBounds ()
@@ -156,9 +158,15 @@ Published in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `ad
 
 ## Example: Create a ScrollView
 
-Add an image to a ScrollView as a subview and
-allow the user to scroll through drag.
+In this example, we'll use the `ScrollView` as a viewport to
+move around a
+[large background image](./assets/ui-scrollview/europemap.jpg). Dragging
+the screen moves the map until it reaches the edge of the
+scroll bounds. The scrollview has an offset applied to view
+the image initially 800 pixels in on the x and y axis.
 
 ~~~
 m4_include(./examples/api/scrollview.js)
 ~~~
+
+<img src="./assets/ui-scrollview/example-scrollview.png" alt="scrollview section screenshot" class="screenshot">

@@ -120,7 +120,7 @@ exports = Class(GC.Application, function() {
 
   this._settings = {
     logsEnabled: window.DEV_MODE,
-    showFPS: DEV_MODE,
+    showFPS: window.DEV_MODE,
     clearEachFrame: true,
     alwaysRepaint: true,
     preload: []

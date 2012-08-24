@@ -1,24 +1,32 @@
-import ui.ImageView as ImageView;
 import ui.ScrollView as ScrollView;
+import ui.ImageView as ImageView;
+import ui.resource.Image as Image;
 
-exports = Class(ScrollView, function (supr) {
-  this.init = function (opts) {
-    merge(opts, {
+var bgimage = new Image({url: 'resources/images/europemap.jpg'});
+
+exports = Class(GC.Application, function () {
+  
+  this.launchUI = function () {
+
+    var scrollview = new ScrollView({
+      offsetX: -800,
+      offsetY: -800,
       scrollBounds: {
-        minX: -100,
-        maxX: 200,
-        minY: -100,
-        maxY: 200
-      },
+        minX: 0,
+        maxX: bgimage.getWidth(), //=> 2291 px
+        minY: 0,
+        maxY: bgimage.getHeight() //=> 1682 px
+      }
     });
-
-    supr(this, "init", arguments);
-  };
-
-  this.buildView = function () {
-    var ducky = new ImageView({
-      superview: this,
-      image: "resources/image.png"
+    
+    var imageview = new ImageView({
+      superview: scrollview,
+      image: bgimage,
+      width: 500,
+      height: 500,
+      autoSize: true
     });
+    
+    this.view.push(scrollview); //add to the root StackView
   };
 });
