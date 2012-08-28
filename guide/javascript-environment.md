@@ -40,7 +40,7 @@ $ ln -s $(which jsiohint) $(which jshint)
 
 If you have another JavaScript syntax checker
 installed---like `jslint`---you may need to change the load
-order to place `jsiohint` first in `~/.vim/bundle/syntastic/syntax_checkers/javascript.vim`.
+order to place `jshint` first in `~/.vim/bundle/syntastic/syntax_checkers/javascript.vim`.
 
 ### Sublime
 
