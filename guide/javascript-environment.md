@@ -38,13 +38,17 @@ With these prerequisites installed, symlink `jshint` to `jsiohint`:
 $ ln -s $(which jsiohint) $(which jshint)
 ~~~
 
-### Sublime Text Editor
+If you have another JavaScript syntax checker
+installed---like `jslint`---you may need to change the load
+order to place `jsiohint` first in `~/.vim/bundle/syntastic/syntax_checkers/javascript.vim`.
+
+### Sublime
 
 Install the following:
 
 1. [Sublime Package Manager](http://wbond.net/sublime_packages/package_control/installation)
 2. [JSHint plugin](https://github.com/uipoet/sublime-jshint)
-3. jsioHint (as described above)
+3. jsiohint (as described above)
 
 
 With these prerequisites installed, symlink `jshint` to `jsiohint`:
