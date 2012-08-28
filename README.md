@@ -1,9 +1,6 @@
-
-## Sample games
-* [Asteroids--](https://github.com/gameclosure/Asteroids--)
-* [JetPacMan](https://github.com/gameclosure/jetpacman)
-* [BoxelWar](https://github.com/gameclosure/BoxelWar)
+## Examples
+* [Whack-that-Mole!](https://github.com/gameclosure/whack-that-mole) --A simple game highlighting the SDK.
+* [SDK Tour](https://github.com/gameclosure/tour) --A component explorer app.
 
 ## Look
-* [Game Jumpoff](https://github.com/gameclosure/mvcGameFramework)---Jimmy's MVC springboard for starting new projects.
-* [Best Practices Wiki](https://github.com/gameclosure/doc/wiki/Best-Practices) ---Read and contribute!
+* [Wiki](https://github.com/gameclosure/doc/wiki) ---Helpful hints not in the main documentation.
