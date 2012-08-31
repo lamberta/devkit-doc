@@ -318,30 +318,36 @@ var style = view.style;
 ### style.x
 1. `{number} = 0`
 
+The position of the top-left corner of a view on the x-axis
+relative to it's parent.
+
 ### style.y
 1. `{number} = 0`
+
+The position of the top-left corner of a view on the y-axis
+relative to it's parent.
 
 ### style.anchorX
 1. `{number} = 0`
 
-The x position of the anchor point for rotation. This is
-relative to the top-left corner of the view.
+The x position of the anchor point for rotation and
+scaling. This is relative to the top-left corner of the view.
 
 ### style.anchorY
 1. `{number} = 0`
 
-The y position of the anchor point for rotation. This is
-relative to the top-left corner of the view.
+The y position of the anchor point for rotation and
+scaling. This is relative to the top-left corner of the view.
 
 ### style.width
 1. `{number}`
 
-Defaults to the width of the view's parent.
+The width of a view, defaults to the width of the view's parent.
 
 ### style.height
 1. `{number}`
 
-Defaults to the height of the view's parent.
+The height of a view, defaults to the height of the view's parent.
 
 ### style.widthPercentage
 1. `{number}`
