@@ -27,7 +27,7 @@ import ui.TextView as TextView;
 	* `verticalAlign {string} = 'middle'` ---Options: `'top'`, `'bottom'`, `'middle'`.
 	* `multiline {boolean} = true`
 	* `fontWeight {string}`
-	* `strokeStyle {} = null`
+	* `strokeStyle {string} = null` ---Color of the text outline.
 	* `lineWidth {number} = 2`
 	* `shadow {boolean} = false`
 	* `shadowColor {string} = 'black'`
