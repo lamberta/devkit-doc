@@ -72,6 +72,10 @@ In the top-level of your project, run:
 
 This creates an apk file located at `path/to/project/build/myapp.apk`.
 
+To create a debugging version, just add the appropriate flag:
+
+`$ basil build native-android --debug`
+
 Install the application to your device:
 
 `$ adb install -r path/to/project/build/myapp.apk`
