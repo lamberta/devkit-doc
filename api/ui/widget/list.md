@@ -24,6 +24,15 @@ import ui.widget.List as List;
 var list = new List();
 ~~~
 
+### list.updateOpts (options)
+1. `options {object}`
+
+~~~
+list.updateOpts({
+  dataSource: contacts.toDataSource()
+});
+~~~
+
 ### list.addCell (cell)
 1. `cell {ui.widget.Cell}`
 

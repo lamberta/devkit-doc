@@ -327,6 +327,18 @@ relative to it's parent.
 The position of the top-left corner of a view on the y-axis
 relative to it's parent.
 
+### style.offsetX
+1. `{number} = 0`
+
+The x position of the anchor point for translation. This is
+relative to the top-left corner of the view.
+
+### style.offsetY
+1. `{number} = 0`
+
+The y position of the anchor point for translation. This is
+relative to the top-left corner of the view.
+
 ### style.anchorX
 1. `{number} = 0`
 
