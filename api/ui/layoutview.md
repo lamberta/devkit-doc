@@ -66,30 +66,17 @@ specify minimum dimensions for a flexible view, so that it
 does not shrink to below a specific size. These have no
 impact on the default relative layout.
 
+## Example: Setting up Navigation Bars
+
+Setting up a basic header/content/footer layout is
+easy. Here we create our main `LayoutView` to fit the device
+dimensions, then stack the three child views within it. The
+`topmenu` and `bottomnav` views have their height set to 50
+pixels, while the`ScrollView` fills out the middle. Include
+the following in your `Application.js` file:
+
 ~~~
-var layoutview = new LayoutView({
-  direction: 'down'
-});
-
-var topmenu = new View({
-  superview: layoutview,
-  hflex: 1,
-  height: 50,
-  backgroundColor: 'red'
-});
-
-var main = new ScrollView({
-  superview: layoutview,
-  hflex: 1,
-  vflex: 1
-});
-
-var bottomnav = new View({
-  superview: layoutview,
-  hflex: 1,
-  height: 50,
-  backgroundColor: 'blue'
-});
+m4_include(./examples/api/example-layoutview-navbars.js)
 ~~~
 
 <img src="./assets/ui-layoutview/example-navbars.png" alt="nav bars with layoutview" class="screenshot">
