@@ -82,7 +82,7 @@ m4_include(./examples/api/example-layoutview-navbars.js)
 <img src="./assets/ui-layoutview/example-navbars.png" alt="nav bars with layoutview" class="screenshot">
 
 
-## Example: Using the LayoutView
+## Example: Using Relative Sizes
 
 ~~~
 m4_include(./examples/api/layoutview.js)
