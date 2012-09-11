@@ -32,16 +32,13 @@ var FilmCell = Class(Cell, function (supr) {
     supr(this, 'init', arguments);
 
     this._data = null;
-
-    this._textview = new TextView({
-      superview: this,
-      color: '#fff',
-    });
+    this._textview = new TextView({superview: this});
 
     this.on('InputSelect', function () {
-      this._textview.updateOpts({
-        color: '#f00'
-      });
+      //attach this property to the data object,
+      //it'll stick because objects are passed by reference, but be careful!
+      this._data.color = '#f00';
+      this._textview.updateOpts({color: this._data.color});
       console.log("Selected: " + this._data.title);
     });
   };
@@ -50,8 +47,10 @@ var FilmCell = Class(Cell, function (supr) {
    * We'll use it to update our TextView child.
    */
   this.setData = function (data) {
-    var film_listing = data.title + " (" + data.year + ")";
-
+    var film_listing = data.title + " (" + data.year + ")",
+        text_color = (data.color || '#fff');
+    
+    this._textview.updateOpts({color: text_color});
     this._textview.setText(film_listing);
     this._data = data; //store it for the input event handler
   };
