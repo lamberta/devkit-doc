@@ -27,6 +27,17 @@ $ jsiohint ./src/Application.js
 
 ## Configure your editor
 
+### Emacs
+
+1. Install [jshint-mode](https://github.com/daleharvey/jshint-mode)
+
+With this prerequisite installed, symlink `jshint` to
+`jsiohint`. Usually this can be done with:
+
+~~~
+$ ln -s $(which jsiohint) $(which jshint)
+~~~
+
 ### Vim
 
 1. Install [Vim-pathogen](https://github.com/tpope/vim-pathogen)
