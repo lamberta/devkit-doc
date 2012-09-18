@@ -1,7 +1,7 @@
 # Getting Started
 
 
-## Getting the SDK
+## Install the SDK
 
 ### Prerequisites
 
@@ -42,7 +42,16 @@ $ sudo chown -R $(whoami) /usr/local
 ~~~
 
 
-## Create a new project
+## Update the SDK
+
+To update your SDK to the latest version, just type teh
+following at the command line:
+
+~~~
+$ basil update
+~~~
+
+## Create your first project: Hello, World!
 
 With `basil` installed, you're ready to create a new
 project! Switch to the directory where you want the new
