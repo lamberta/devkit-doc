@@ -11,12 +11,64 @@ local machine. If you are using the
 manager, run:
 
 ~~~
-$ brew install android-sdk
-$ brew install android-ndk
+$ brew install android
 ~~~
 
 Running `android` at the command-line brings up a GUI
-front-end that will install the latest target.
+front-end that will install the latest target. Install the
+Android API 15.
+
+### Install the native Android component from the Game Closure SDK
+
+Clone the Game Closure
+[Android repository](https://github.com/gameclosure/android). Switch
+to this directory and make sure everything is up-to-date:
+
+~~~
+$ cd ./android
+$ git submodule update --init
+$ android update project -p ./
+~~~
+
+To let basil know where to find the android repository,
+update the `config.json` file located in the root of the
+basil install:
+
+~~~
+{
+  "android": {
+    "root": "path/to/android"
+  }
+}
+~~~
+
+Alternatively, you can set this path as the environmental
+variable `GC_ANDROID_ROOT`. Make this permanent by adding
+the following to your `$HOME/.profile` file:
+
+`export GC_ANDROID_ROOT="/path/to/android"`
+
+And make sure all the required sub-modules are updated:
+
+`$ basil update`
+
+### Build the apk
+
+In the top-level of your project, run:
+`$ basil build native-android`
+
+This creates an apk file located at `path/to/project/build/myapp.apk`.
+
+To create a debugging version, just add the appropriate flag:
+
+`$ basil build native-android --debug`
+
+Install the application to your device:
+
+`$ adb install -r path/to/project/build/myapp.apk`
+
+Run the game on your device by clicking its icon in the
+Application menu!
 
 
 ### Configure the device
@@ -49,36 +101,3 @@ Stop the server if something is hanging:
 Reference:
 * [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
 * [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
-
-
-### Install the native Android component from the Game Closure SDK
-
-Clone the Game Closure [Android repository](https://github.com/gameclosure/android).
-
-Set this path as the environmental variable
-`GC_ANDROID_ROOT`. You can make this permanent by adding the
-following to your `$HOME/.profile` file:
-
-`export GC_ANDROID_ROOT="/path/to/android"`
-
-Make sure all the required sub-modules are updated:
-
-`$ basil update`
-
-### Build the apk
-
-In the top-level of your project, run:
-`$ basil build native-android`
-
-This creates an apk file located at `path/to/project/build/myapp.apk`.
-
-To create a debugging version, just add the appropriate flag:
-
-`$ basil build native-android --debug`
-
-Install the application to your device:
-
-`$ adb install -r path/to/project/build/myapp.apk`
-
-Run the game on your device by clicking its icon in the
-Application menu!
