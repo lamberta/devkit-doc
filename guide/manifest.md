@@ -10,7 +10,7 @@ example,
   "appID": "abcdefghijklmnopqrstuvwxyz012345",
   "shortName": "helloworld",
   "title": "Hello, World!",
-  "supportedOrientations": {}
+  "supportedOrientations": ["portrait"]
 }
 ~~~
 
