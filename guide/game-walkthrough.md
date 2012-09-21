@@ -170,6 +170,45 @@ in more detail in the documentation.
 * GC.app.view (this.view) / StackView
 * events
 
+Once the Game Closure SDK environment is initiaized, the
+game picks up in your project's `./src/Application.js`
+file. In *Whack-that-Mole!*, this file is rather short, it's
+purpose is to initialize the title and game screen, and
+handle events for directing the game flow.
+
+~~~
+import src.TitleScreen as TitleScreen;
+import src.GameScreen as GameScreen;
+import src.soundcontroller as soundcontroller;
+
+exports = Class(GC.Application, function () {
+  this.initUI = function () {
+    var titlescreen = new TitleScreen(),
+		gamescreen = new GameScreen();
+		
+	this.view.push(titlescreen);
+
+	var sound = soundcontroller.getSound();
+		
+	titlescreen.on('titlescreen:start', function () {
+	  sound.play('levelmusic');
+	  GC.app.view.push(gamescreen);
+	  gamescreen.emit('app:start');
+	});
+		
+	gamescreen.on('gamescreen:end', function () {
+	  sound.stop('levelmusic');
+	  GC.app.view.pop();
+	});
+  };
+
+  this.launchUI = function () {};
+});
+~~~
+
+
+
+
 ### TitleScreen
 
 * device
