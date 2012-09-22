@@ -8,7 +8,7 @@ LayoutView, these coordinates are unused, and each subview
 is positioned sequentially in a given direction. Using this
 layout, children never overlap, and the direction is set with
 the `direction` property of the LayoutView's style. If the
-size of the child view exceed it's superview, it will
+size of the child view exceed its superview, it will
 overflow the containing box.
 
 Inherits
