@@ -183,13 +183,16 @@ import src.soundcontroller as soundcontroller;
 
 exports = Class(GC.Application, function () {
   this.initUI = function () {
+    // initialize game screens
     var titlescreen = new TitleScreen(),
 		gamescreen = new GameScreen();
-		
+	
+	// add to screen stack
 	this.view.push(titlescreen);
 
 	var sound = soundcontroller.getSound();
-		
+
+	// set up event handlers
 	titlescreen.on('titlescreen:start', function () {
 	  sound.play('levelmusic');
 	  GC.app.view.push(gamescreen);
@@ -206,7 +209,49 @@ exports = Class(GC.Application, function () {
 });
 ~~~
 
+At the top of this file, we import three additional source
+files in our project's root directory using the `import`
+command which is [defined](../api/utilities.html#import) in
+the Game Closure SDK:
 
+~~~
+import src.TitleScreen as TitleScreen;
+import src.GameScreen as GameScreen;
+import src.soundcontroller as soundcontroller;
+~~~
+
+These files have been written as modules and are assigned to
+variables within this file.
+
+Note that this `Application.js` file is also a module, it's
+a class that inherits from `GC.Application` using the
+`Class` function, the new constructor which is assigned to
+the `exports` object. This is a predefined object within
+each module file, and what is returned when another file
+imports this one. A bare-bones, working, `Application.js`
+file would look like this:
+
+~~~
+exports = Class(GC.Application, function () {
+  // class definition goes here ...
+});
+~~~
+
+The `GC.Application` class is special in that it has two
+callback functions, `initUI` and `launchUI`, that it checks
+for and runs when ready; this is where we'll hook in our
+main game code. The `initUI` function is run after the Game
+Closure engine is created and the scene graph is
+ready. When the `launchUI` function is called, the splash
+screen is removed, if there is one.
+
+
+
+
+The sound code is simple, but we'll look at that at towards
+the end of this guide. The `soundcontroller` module returns
+a `Sound` object singleton, which we use to play the level
+music when we transition to the game screen.
 
 
 ### TitleScreen
