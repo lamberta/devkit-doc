@@ -319,13 +319,13 @@ var style = view.style;
 1. `{number} = 0`
 
 The position of the top-left corner of a view on the x-axis
-relative to it's parent.
+relative to its parent.
 
 ### style.y
 1. `{number} = 0`
 
 The position of the top-left corner of a view on the y-axis
-relative to it's parent.
+relative to its parent.
 
 ### style.offsetX
 1. `{number} = 0`

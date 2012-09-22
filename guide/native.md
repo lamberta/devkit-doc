@@ -112,7 +112,7 @@ taken out. Function calls carry some additional
 overhead. Generally, modern JavaScript engines optimize for
 most use cases, but using a tool like
 [jsPerf](http://jsperf.com) to test snippets can be very
-insightful (even though it run tests in your browser, it's
+insightful (even though it run tests in your browser, the
 lessons can still apply).
 
 Also, get comfortable with debugging JavaScript using the
@@ -126,7 +126,7 @@ with particular attention to the **CPU profiler** and the
 The more objects that are created, the greater the
 performance lag when the JavaScript engine needs to garbage
 collect them, and if there are any references to an object,
-it's memory won't be de-allocated. It's better to reuse
+its memory won't be de-allocated. It's better to reuse
 existing objects than create new ones, so for example:
 
 * Use `Date.now()` instead of `+new Date()`.

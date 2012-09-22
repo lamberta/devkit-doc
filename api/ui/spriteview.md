@@ -203,7 +203,7 @@ Add a sprite to a group.
 ### group.remove (uid)
 1. `uid {string}`
 
-Remove a sprite from a group given it's uid name.
+Remove a sprite from a group given its uid name.
 
 ### group.pause ()
 
