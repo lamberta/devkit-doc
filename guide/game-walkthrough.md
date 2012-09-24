@@ -170,7 +170,7 @@ in more detail in the documentation.
 * GC.app.view (this.view) / StackView
 * events
 
-Once the Game Closure SDK environment is initiaized, the
+Once the Game Closure SDK environment is initialized, the
 game picks up in your project's `./src/Application.js`
 file. In *Whack-that-Mole!*, this file is rather short, it's
 purpose is to initialize the title and game screen, and
@@ -228,12 +228,19 @@ a class that inherits from `GC.Application` using the
 `Class` function, the new constructor which is assigned to
 the `exports` object. This is a predefined object within
 each module file, and what is returned when another file
-imports this one. A bare-bones, working, `Application.js`
-file would look like this:
+imports this one. When our application it's instantiated, it's
+assigned to the global property `GC.app`, which can be
+accessed anywhere in your game code. Since you are only
+going to have one application in your game, you can just
+think of this as a singleton. Within the application's class
+definition function, you can refer to it using the `this`
+object. A bare-bones, working, `Application.js` file can
+look like this:
 
 ~~~
 exports = Class(GC.Application, function () {
   // class definition goes here ...
+  // this === GC.app //=> true
 });
 ~~~
 
@@ -245,8 +252,61 @@ Closure engine is created and the scene graph is
 ready. When the `launchUI` function is called, the splash
 screen is removed, if there is one.
 
+We're only using the `initUI` function in this game, we'll
+run through that.
 
+After our game screen classes have been imported at the top
+of our file, we instantiate them once our game engine is ready:
 
+~~~
+var titlescreen = new TitleScreen(),
+    gamescreen = new GameScreen();
+~~~
+
+We'll look in detail about how these screens are constructed
+in the next couple of sections.
+
+When the scene graph for the game engine is created, its
+root node is stored at `GC.app.view`. Any View that is
+attached as a child to this node, or its descendants, can be
+rendered to the screen. The root view is a little special
+because it's an instance of
+[ui.StackView](../api/ui-stackview.html), which is a
+*subclass* of [ui.View](../api/ui-view.html). It has
+additional functionality for pushing and popping child views
+and transitioning between them.
+
+With our screens built, we push the title screen on to the
+root view stack, and because of it's setup and dimensions,
+is all that we see in the application:
+
+~~~
+this.view.push(titlescreen);
+~~~
+
+In the event handling code, we listen for the game start and
+end events on our two screens and manage our root `StackView`:
+
+~~~
+titlescreen.on('titlescreen:start', function () {
+  //...
+  GC.app.view.push(gamescreen);
+  gamescreen.emit('app:start');
+});
+
+gamescreen.on('gamescreen:end', function () {
+  //...
+  GC.app.view.pop();
+});
+~~~
+
+When we receive the event to start the game, we *push* the
+game screen on to the root stack. There is no need to remove
+the title screen already in the stack, the game screen is
+simply "on top" of it and becomes the visible view of the
+application. By default, pushing another view to the
+`StackView` has a side-scrolling animation transition, this
+can be turned off.
 
 The sound code is simple, but we'll look at that at towards
 the end of this guide. The `soundcontroller` module returns
