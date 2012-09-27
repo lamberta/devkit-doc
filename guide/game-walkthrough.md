@@ -316,31 +316,814 @@ music when we transition to the game screen.
 
 ### TitleScreen
 
-* device
-* ui.View / ui.ImageView
-* class structure
-	* inheritance
-	* init -- opts, merge, supr
-	* buildView
-	* child views
+With our application framework in place, let's look at how
+the title screen is constructed. The screen is an instance
+of the `TitleScreen` class, defined in the
+`./src/TitleScreen.js` file. It is instanstiated once in
+`./src/Application.js` and added to the root view where it
+remains throughout the lifetime of the application. The
+structure of the `TitleScreen`'s view hierarchy is
+relatively simple, there is a singe background image that
+fits the screen, then there is an "invisible" child view
+placed over the portion of the background image designated
+as the play button, where it registers an input event, then
+signals to the main application to start the game. Since
+it's a small class, we'll take a look at it in it's entirety
+here, then break down it's component pieces:
+
+~~~
+import device;
+import ui.View;
+import ui.ImageView;
+
+exports = Class(ui.ImageView, function (supr) {
+  this.init = function (opts) {
+    opts = merge(opts, {
+      x: 0,
+      y: 0,
+      width: device.width,
+      height: device.height,
+      image: "resources/images/title_screen.png"
+    });
+
+    supr(this, 'init', [opts]);
+  };
+
+  this.buildView = function () {
+    var startbutton = new ui.View({
+      superview: this,
+      x: 58,
+      y: 313,
+      width: 200,
+      height: 100
+    });
+
+    startbutton.on('InputSelect', bind(this, function () {
+      this.emit('titlescreen:start');
+    }));
+  };
+});
+~~~
+
+First, we import the classes and modules that we'll need to
+use in this class:
+
+~~~
+import device;
+import ui.View;
+import ui.ImageView;
+~~~
+
+`ui.View` is a class used as the basic display object used
+to render elements to the screen. To do this, a view must be
+attached to the game's scene graph, which is just a hierachy
+of view nodes. Views have methods for adding and removing
+superviews and subviews, handlers for events, properties for
+styling the view, among other things. The defintion of
+`ui.View`'s properties can be found
+[in the docs](../api/ui-view.html), along with examples on
+how to use them.
+
+`ui.ImageView` is a subclass of `ui.View` which along with
+the properties it inherits, has additional methods for
+setting an image to be used in a view. Check
+[the API](../api/ui-imageview.html) for more examples.
+
+`device` is a module that contains information about the
+physical device running the application.
+
+The basic structure of a class defintion that inherits from
+any view can be seen in this file (omitting the
+implementation details):
+
+~~~
+exports = Class(ui.ImageView, function (supr) {
+  this.init = function (opts) {
+    opts = merge(opts, {
+      //...
+    });
+
+    supr(this, 'init', [opts]);
+  };
+
+  this.buildView = function () {
+    //...
+  };
+});
+~~~
+
+This class inherits from `ui.ImageView`, configures some
+default options, and adds a child view that acts as a
+button.
+
+Each class defined by the
+[Class function](../api/utilities.html#class-name-superconstructor-constructor)
+has an `init` method which is executed when a new object is
+instantiated, in this case, when `new TitleScreen` is
+called. In the initialization of this class, we're using the
+`merge` utility function to consolidate our default options
+with the options properties passed to the constructor. Then
+we initialize the underlying superclass we inherit from by
+calling its `init` method and passing it our merged options
+object. Here's the complete `init` function:
+
+~~~
+this.init = function (opts) {
+  opts = merge(opts, {
+    x: 0,
+    y: 0,
+    width: device.width,
+    height: device.height,
+    image: "resources/images/title_screen.png"
+  });
+
+  supr(this, 'init', [opts]);
+};
+~~~
+
+The `title_screen.png` image file is loaded as an option for
+`ui.ImageView`. What's interesting here is using the
+properties `device.width` and `device.height` to set the
+dimensions of the ImageView to fill the screen. You can view
+a complete list of [device properties](../api/device.html)
+in the documenation.
+
+The `supr` function is provided as an argument to our class
+defintion function by the `Class` function. As parameters it
+takes the object we wish to run its superclass function on,
+the name of the function to call, and an array of arguments
+to apply to this function. Since `opts` is just an object,
+we need to wrap it in a new array before passing it to `supr`.
+
+Each class that inherits from `ui.View` also has a
+`buildView` method. This function is called right before the
+the view is first rendered to the screen. Consequently, this
+is a good place to define any child views since not only
+does it defer creation until you actually need it it, but
+since all parent views are already initialized and in place
+at this time, if needed, you can reference their position
+and dimension and be assured there will be a value.
+
+~~~
+this.buildView = function () {
+  var startbutton = new ui.View({
+    superview: this,
+    x: 58,
+    y: 313,
+    width: 200,
+    height: 100
+  });
+
+  startbutton.on('InputSelect', bind(this, function () {
+    this.emit('titlescreen:start');
+  }));
+};
+~~~
+
+For the title screen, we create our "invisible" start button
+and position it exactly over the correct portion of the
+background image. The view is attached as a child to the
+instance of the `TitleScreen` by passing it as the
+`superview` option. Then we attach an `InputSelect` listener
+to capture user clicks and taps, that triggers a game start
+event which we handle in this view's parent, in the
+`Application.js` file.
+
 
 ### GameScreen
 
-* child view set up
-	* scoreboard
-	* mole hills
-	* game start flow
-	* using animate
-	* tick
-	* end game flow
+... event handle, push, emit start event ...
+
+The `GameScreen` class is defined in the
+`./src/GameScreen.js` file and is the longest of the
+project. Fortunately, much of that is devoted to builing up
+its child view hierachy, a process that we already looked at
+in detail in the previous section. Once the child views and
+game assets are set up, there are functions for defining the
+flow for the user starting the game, then actually playing
+the game, then finally, the end game sequence and display of
+the score. You can view the file in it's entirey
+[on GitHub](https://github.com/gameclosure/whack-that-mole/blob/master/src/GameScreen.js),
+but we'll look at important sections here.
+
+Like the previous files we've looked at, we'll need to
+import the classes and modules that are needed in this file:
+
+~~~
+import animate;
+import device;
+import ui.View;
+import ui.ImageView;
+import ui.TextView;
+import src.MoleHill as MoleHill;
+~~~
+
+We've already seen `ui.View`, `ui.ImageView`, and `device`,
+let's look at the others.
+
+You can probably guess what `ui.TextView` does, it's simply
+a view that allows you to display text on your screen. Quite
+helpful for scores, labels, and anything else that people
+read. You can set its font style, size, and color, in
+addition to the other style properties on regular views. For
+a full list of properties, check out [the API](../api/ui-text.html).
+
+`animate` is [a module](../api/animate.html) used for
+animating views, objects, and style properties. This is a
+"tweening engine" used to interpolate between values, and
+since it can be optimized for native devices, should be used
+wherever it can for in-game calculations over manual
+calculations done in the game loop. We'll look its usage and
+syntax in more detail as we come across it.
+
+Or final import statement is a little more interesting:
+
+~~~
+import src.MoleHill as MoleHill;
+~~~
+
+The class `src.MoleHill` is a reference to the
+`./src/MoleHill.js` class located in our project. So besides
+the classes and modules defined in the SDK, you can also
+import user defined classes and modules created for the
+game, just make sure your path is set up correctly or the
+`import` command will be unable to find it. Here, as use the
+`as` command to alias the `src.MoleHill` class as simply the
+`MoleHill` object within our file. You can do this for any
+import, but it's especially handy for user-defined classes
+with long path names.
+
+Like our `TitleScreen`, the `GameScreen` class is
+instatiated only once in the application in the
+`Application.js` file. Its `init` function is also similar,
+it defines options for its dimensions to match the device
+dimensions, as well as setting a green background color that
+will serve as our grass. We then initialize our superclass
+by passing in the options to the `supr` function.
+
+We attach an listener for the game start event which starts
+the game. This is dispatched from the root of our
+application after the start button click event was handled,
+and executes the `start_game_flow` function.
+
+~~~
+this.init = function (opts) {
+  opts = merge(opts, {
+    x: 0,
+    y: 0,
+    width: device.width,
+    height: device.height,
+    backgroundColor: '#37B34A'
+  });
+
+  supr(this, 'init', [opts]);
+
+  this.on('app:start', start_game_flow.bind(this));
+
+  this._scoreboard = new ui.TextView({
+    superview: this,
+    x: 0,
+    y: 15,
+    width: device.width,
+    height: 50,
+    autoSize: false,
+    fontSize: 38,
+    verticalAlign: 'middle',
+    textAlign: 'center',
+    multiline: false,
+    color: '#fff'
+  });
+};
+~~~
+
+You should notice one curious thing about this `init`
+function, we've included the creation of our `TextView`
+score board here, something normally contained in the
+`buildView`. This is a consequence of *when* `buildView` is
+called, thereby creating it's child view (before the view
+first needs to be rendered to the screen), and *when* we
+first need to reference it (on the `'app:start'` event when
+`start_game_flow` is called). Because the event is captured
+*before* the child views have been created, the `TextView`
+reference is not avilable, therefore the call in
+`start_game_flow` to `scoreboard.setText(...)` will
+fail. Typically, all children can safely be built in
+`buildView`, but in cases like this, it's worth
+understanding the order that views are created, just in case
+you have to deal with special situations like this.
+
+Aside from constructing our score board view a little
+eariler than usual, the rest of the subview creation is done
+in the standard `buildView` function:
+
+~~~
+this.buildView = function () {
+  var x_offset = 5,
+	  y_offset = 160,
+	  y_pad = 25,
+	  layout = [[1, 0, 1],
+		        [0, 1, 0],
+				[1, 0, 1]];
+
+  this._molehills = [];
+		
+  for (var row = 0, len = layout.length; row < len; row++) {
+    for (var col = 0; col < len; col++) {
+	  if (layout[row][col] !== 0) {
+	    var molehill = new MoleHill();
+		molehill.style.x = x_offset + col * molehill.style.width;
+		molehill.style.y = y_offset + row * (molehill.style.height + y_pad);
+		this.addSubview(molehill);
+		this._molehills.push(molehill);
+					
+		//update score on hit event
+		molehill.on('molehill:hit', bind(this, function () {
+		  if (game_on) {
+		    score = score + hit_value;
+			this._scoreboard.setText(score.toString());
+		  }
+		}));
+	  }
+	}
+  }
+
+  this._countdown = new ui.TextView({
+    superview: this._scoreboard,
+	visible: false,
+	x: 260,
+	y: -5,
+	width: 50,
+	height: 50,
+	fontSize: 24,
+	color: '#fff',
+	opacity: 0.7
+  });
+};
+~~~
+
+It's a little longer than soem of the prior `buildView`
+functions, but it's pretty simple. The top of the function
+defines the position and layout of the mole hills on the
+device's screen. We then create a number of `MoleHill`
+objects (five in this example), add them as a subview to
+this `GameScreen` instance, and attach an event handler to
+each one which updates the score if it registers a hit. The
+`MoleHill` class is defined in the file `./src/MoleHill.js`
+and we'll look at that soon. Basically, it's a collection of
+images that make up the mole poking his head out of its
+hill, and functions for the animations.
+
+With the mole hills in place, all that's left to do is set
+up the countdown `TextView`, this is attached to the score
+board we already created in `init`.
+
+With all the child views set, we can now step through
+starting, playing, and ending the game. 
+
+In the `init` constructor we add listenr to handle the
+`'app:start'` event that was dispatched from the top-level
+of our application. It then calls `start_game_flow` which
+plays the introductory animation sequence, then starts the
+game play by calling `play_game`:
+
+~~~
+function start_game_flow () {
+  var that = this;
+
+  animate(that._scoreboard).wait(1000)
+    .then(function () {
+	  that._scoreboard.setText(text.READY);
+	}).wait(1500).then(function () {
+	  that._scoreboard.setText(text.SET);
+	}).wait(1500).then(function () {
+	  that._scoreboard.setText(text.GO);
+	  //start game ...
+	  game_on = true;
+	  play_game.call(that);
+	});
+}
+~~~
+
+The \"Ready, Set, Go!\" message is displayed sequentially, at
+each pause the text of the score board is updated and
+another animation step is added. In the final step, the game
+is started by executing `play_game.call(that)`; we apply the
+`that` object (which is just a reference to `this`) so we
+can reference the proper context in the subsequent function.
+
+There's not much too the actual game play once you have
+everything set up. It consists of three functions, the
+`tick` function picks a random mole to animate out of its hole,
+one function to update the countdown timer each second, and
+another function to set up the timers for these functions,
+and set a timeout for the game.
+
+~~~
+function play_game () {
+  var i = setInterval(tick.bind(this), mole_interval),
+	  j = setInterval(update_countdown.bind(this), 1000);
+
+  setTimeout(bind(this, function () {
+    game_on = false;
+	clearInterval(i);
+	clearInterval(j);
+	setTimeout(end_game_flow.bind(this), mole_interval * 2);
+	this._countdown.setText(":00");
+  }), game_length);
+
+  //Make countdown timer visible, remove start message if still there.
+  setTimeout(bind(this, function () {
+    this._scoreboard.setText(score.toString());
+	this._countdown.style.visible = true;
+  }), game_length * 0.25);
+
+  //Running out of time! Set countdown timer red.
+  setTimeout(bind(this, function () {
+    this._countdown.updateOpts({color: '#CC0066'});
+  }), game_length * 0.75);
+}
+
+function tick () {
+  var len = this._molehills.length,
+	  molehill = this._molehills[Math.random() * len | 0];
+
+  while (molehill.activeMole) {
+    molehill = this._molehills[Math.random() * len | 0];
+  }
+  molehill.showMole();
+}
+
+function update_countdown () {
+  countdown_secs -= 1;
+  this._countdown.setText(":" + (("00" + countdown_secs).slice(-2)));
+}
+~~~
+
+When the game timer is up, the game ends, and the ending
+animation sequence begins---this is orchestrated in the
+`end_game_flow` function. The end game sequence checks if a
+new high score has been set, and displays a closing message
+based on that. A ending animation is played by popping up
+the mole and alternativing between hit image states, giving
+the appearence that he is laughing at you.
+
+~~~
+function end_game_flow () {
+  var isHighScore = (score > high_score),
+	  end_msg = get_end_message(score, isHighScore);
+
+  this._countdown.setText(''); //clear countdown text
+  //resize scoreboard text to fit everything
+  this._scoreboard.updateOpts({
+    text: '',
+	x: 10,
+	fontSize: 17,
+	verticalAlign: 'top',
+	textAlign: 'left',
+	multiline: true
+  });
+
+  //check for high-score and do appropriate animation
+  if (isHighScore) {
+    high_score = score;
+	this._molehills.forEach(function (molehill) {
+	  molehill.endAnimation();
+	});
+  } else {
+    var i = (this._molehills.length-1) / 2 | 0; //just center mole
+	this._molehills[i].endAnimation(true);
+  }
+
+  this._scoreboard.setText(end_msg);
+  //slight delay before allowing a tap reset
+  setTimeout(emit_endgame_event.bind(this), 2000);
+}
+~~~
+
+Once the new score board message is set and the mole
+animation is underway, a two second timeout is created that
+adds a one-time event handler to listen for the user to
+touch the screen:
+
+~~~
+function emit_endgame_event () {
+  this.once('InputSelect', function () {
+    this.emit('gamescreen:end');
+	reset_game.call(this);
+  });
+}
+~~~
+
+When the screen is clicked, the game is reset, and a
+`'gamescreen:end'` event is emitted and handled in the
+top-level application. From there, this game screen is
+pushed off the view stack, revealing the title screen, and
+ready for the user to play again.
+
 
 ### MoleHill
 
-* image resources
-* child hierarchy setup
-	* stack images
-	* clipping
-	* input
-* advanced animate
+The `MoleHill` class is another larger class, but we won't
+look at it all in detail since we've already seen how
+classes and views are put together. For a complete listing,
+check it out [on-line](https://github.com/gameclosure/whack-that-mole/blob/master/src/MoleHill.js).
+
+At a high level, a single mole hill is a collection of
+three image assets stacked on top of one another: the back
+of the mole hill, the mole, and the front of the mole
+hill. By animating the mole up and down, and giving it a
+clipping rectangle to mask it out beyond certain dimensions,
+we can make the mole appear like it's "jumping" out of the
+ground.
+
+~~~
+this.buildView = function () {
+  var hole_back = new ui.ImageView({
+    superview: this,
+	image: hole_back_img,
+	//...
+  });
+
+  this._inputview = new ui.View({
+    superview: this,
+	clip: true,
+	//...
+  });
+
+  this._moleview = new ui.ImageView({
+    superview: this._inputview,
+	image: mole_normal_img,
+	//...
+  });
+
+  var hole_front = new ui.ImageView({
+    superview: this,
+	canHandleEvents: false,
+	image: hole_front_img,
+	//...
+  });
+
+  //...
+
+  this._inputview.on('InputSelect', bind(this, function () {
+    if (this.activeInput) {
+	  sound.play('whack');
+	  this.emit('molehill:hit');
+	  this.hitMole();
+	}
+  }));
+};
+~~~
+
+To get an idea how these pieces fit together. As you can see
+in the above diagram, the three ImageViews are stacked to
+make up a single mole hill.
+
+<img src="./assets/game-walkthrough/molehill_layers.png" alt="molehill layers screenshot" class="screenshot">
+
+Since the body of the mole extends below the image of the
+front of the hill, the illusion of the mole diving in to the
+ground will be ruined unless we can only show the portion of
+the mole's body that is above the groundline. We can
+accomplish this by creating a new `View` and using is as a
+clipping mask. Simply set the `clip` option on the view to
+`true`, and any child views attached to it will only display
+the regions within the boundraies of the clipping view. In
+the above diagram, the clipping view for the mole is
+represented in the midle layer as the square drawn on top of
+the mole.
+
+Without clipping view in place, we're also going to use it
+to test if the mole has registered a hit. Any tap within
+its bounding area---when the mole is up---will register as a
+hit and update the score. The problem here is that the view
+we're using to capture click input is obscured by the
+`ImageView` displaying the front of the mole hill, therefore
+any clicks on the screen area where the mole is will be
+captured by the `hole_front` view, these will not propagate
+to the `_inputview`, which is where we need to register the
+event. We can avoid this by setting the `canHandleEvents`
+option to `false` on the covering `hole_front` view. This
+allows input events to "pass through" so views underneath
+willl recieve the input instead.
+
+Also in the `buildView` function, we create an `Animator`
+object thar references the `_moleview` child, this is the
+`ImageView` of the mole's body:
+
+~~~
+this._animator = animate(this._moleview);
+~~~
+
+This creates a reference to the animation we will call over
+the course of the game. We could call
+`animate(this._moleview)` each time we wanted to animate a
+property on the view, but that wouldn't be as
+efficent. Having a reference to this object attached to the
+view means we can access it whenever we need it and not have
+to create a new `Animator` instance for each animation.
+
+Three animation sequences are defined on the `MoleHill`
+class: the mole popping up out of its hole, the mole
+lowering back in to its hole, and an ending animation which
+raises the mole up slowly and makes him laugh at you. These
+are defined in the following methods using the `Animator` we
+just defined:
+
+~~~
+this.showMole = function () {
+  if (this.activeMole === false) {
+    this.activeMole = true;
+	this.activeInput = true;
+
+	this._animator.now({y: mole_up}, 500, animate.EASE_IN)
+	  .wait(1000).then(bind(this, function () {
+	    this.activeInput = false;
+	  })).then({y: mole_down}, 200, animate.EASE_OUT)
+	  .then(bind(this, function () {
+	    this.activeMole = false;
+	  }));
+  }
+};
+
+this.hitMole = function () {
+  if (this.activeMole && this.activeInput) {
+    this.activeInput = false;
+
+	this._animator.clear()
+	  .now((function () {
+	    this._moleview.setImage(mole_hit_img);
+	  }).bind(this))
+	    .then({y: mole_down}, 1500)
+		.then(bind(this, function () {
+		  this._moleview.setImage(mole_normal_img);
+		  this.activeMole = false;
+		  this.activeInput = false;
+	  }));
+	}
+};
+
+this.endAnimation = function () {
+  this.activeInput = false;
+  this._animator.then({y: mole_up}, 2000)
+  .then(bind(this, function () {
+    this._interval = setInterval(bind(this, function () {
+	  if (this._moleview.getImage() === mole_normal_img) {
+	    this._moleview.setImage(mole_hit_img);
+	  } else {
+	    this._moleview.setImage(mole_normal_img);
+	  }
+    }), 100);
+  }));
+};
+~~~
+
+The `animate` function interpolates values on an JavaScript
+object. If passed a `View`, it will interpolate the values
+on its `style` property, this is provided as a convience,
+since most likely these are the properties you'll want to
+animate.
+
+Let's step through the animation sequence of popping up the
+mole out if the hole contained in the `showMole` method:
+
+~~~
+this._animator.now({y: mole_up}, 500, animate.EASE_IN)
+  .wait(1000).then(bind(this, function () {
+    this.activeInput = false;
+  })).then({y: mole_down}, 200, animate.EASE_OUT)
+    .then(bind(this, function () {
+	  this.activeMole = false;
+  }));
+~~~
+
+The first step is the animator's call to `.now({y: mole_up}, 500, animate.EASE_IN)`,
+This immediately operates on the `y` property on the animator object,
+which we defined as the `this._moleview` view. Because the
+subject is an instance of a `View` class, we're actually
+operating on its `style.y` property, or the vertical
+position of the mole image on the screen. `mole_up` is a
+variable defined at the top of the file equal to 5, and is
+relative to its parent view, which is its clipping view, `this._inputview`.
+We want this animation to take half a second, or 500
+milliseconds, and ease in to the final position. At this
+point the mole is peeking his head out of the hole.
+
+When this animation completes, the next command,
+`.wait(1000)`, is run. This pauses the animation sequence
+for one second before moving on to the next item in the
+sequence. The mole stands up for this amount of time before
+darting back in to his hole. If teh mole is tapped within
+thsi time, a hit is registered and the user's score increases.
+
+From there the command `.then( ... )` is called, it's passed
+a callback function which is run immediately. The function
+performs one action after the wait, that's to set the
+`activeInput` property of the mole hill to `false`. This
+means the mole is no longer eligible to receive hits. When
+that action is completed, the animation moves to the next
+item in the sequence.
+
+At this point, we want the mole to dive back in to it's
+hole, so we issue the `.then({y: mole_down}, 200, animate.EASE_OUT)`
+command. This function can be called in a variety of ways,
+here we're passing it the same arguments as we did to the
+previous `.now()` call. The mole is lowered on the y-axis,
+an animation that takes 200 millseconds, easing out of its
+starting position and placed below the ground line.
+
+When the lowering animation is complete, we issue the final
+command in the animation sequence: `.then( ... )` supplied
+with a callback function to set the `activeMole` property of
+the mole hill to `false`. The sequence has now finished.
+
 
 ### Sound
+
+The sound is added to our game last, using a singleton
+controller located in the file `./src/soundcontroller.js`.
+
+~~~
+import Sound;
+
+exports.sound = null;
+
+exports.getSound = function () {
+  if (!exports.sound) {
+    exports.sound = new Sound({
+	  path: 'resources/sounds',
+	  files: {
+	    levelmusic: {
+		  path: 'music',
+		  volume: 0.5,
+		  background: true,
+		  loop: true
+		},
+		whack: {
+		  path: 'effect',
+		  background: false
+		}
+      }
+    });
+  }
+  return exports.sound;
+};
+~~~
+
+This creates a single `Sound`
+object when the application is launched, and returns this
+whenever it is needed throughout the game. The details of
+loading and playing sounds can be found in [the API](../api/sound.html).
+
+To see how we're using this in the game, we can go back to
+our `./src/Application.js` file amd look at its `initUI` function:
+
+~~~
+this.initUI = function () {
+  //...
+
+  var sound = soundcontroller.getSound();
+
+  //...
+
+  titlescreen.on('titlescreen:start', function () {
+    sound.play('levelmusic');
+	GC.app.view.push(gamescreen);
+	gamescreen.emit('app:start');
+  });
+
+  gamescreen.on('gamescreen:end', function () {
+    sound.stop('levelmusic');
+	GC.app.view.pop();
+  });
+};
+~~~
+
+In the event handlers that manage the game flow, after the
+start button has been pressed, the event is captured and te
+background music for the level starts playing. The audio
+file will continue playing throughout the duration of the
+game play, and will loop if the clip runs to the end, as
+specified in the loading option for `levelmusic`, `loop: true`.
+This is all set up when we create our sounds with `new Sound( ... )`
+in `./src/soundcontroller.js`.
+
+
+## Conclusion
+
+*Whack-that-Mole!* while relatively simple, is still an
+example of a complete, working game. Learning an API is one
+thing, seeing how they fit together is another. Here we've
+seen the overall flow of separate game screens, managed the
+events that indicate our progress through them, and
+implemented the game play dynamics and asset setup. These
+are the types of things you'll need to do in any game.
+
+From here, you might want to start experimenting with
+changing the assets or their properties in the game, by
+using the UI Inspector in the browser simulator, or just by
+changing values in the project code and re-running
+it. Create some simple game screens and flow between them by
+capturing events; with this skeleton in place, you can then
+flesh out the game itself. There are more tutorials to read
+to learn the finer points of using the Game Closure SDK.
