@@ -87,6 +87,44 @@ Returns the image width.
 Returns the image height.
 
 
+## Class: ui.ImageScaleView
+
+Inherits
+:    1. ui.widget.UIView
+     1. [ui.widget.View](./ui-view.html)
+     2. [event.Emitter](./event.html#class-event.emitter)
+
+~~~
+import ui.ImageScaleView as ImageScaleView;
+~~~
+
+### new ImageScaleView ([options])
+1. `options {object}`
+	* `image {string|ui.resource.Image} = false`
+	* `autoSize {boolean} = false`
+	* `scaleMethod {string} = 'stretch'` ---Valid options are `'none'`, `'stretch'`, `'cover'`, and `'9slice'`.
+	* `renderCenter {boolean} = true`
+	* `clip {boolean} = true`
+	* `debug {boolean} = false` ---Display 9-slice scaling measurements.
+	* `sourceSlices {object}` ---9-slice source slices.
+		* `horizontal {object}`
+			* `left {number}`
+			* `center {number}`
+			* `right {number}`
+		* `vertical {object}`
+			* `top {number}`
+			* `middle {number}`
+			* `bottom {number}`
+   * `destSlices {object}` ---9-slice destination slices. Setting the below values to 0 can create 3- and 6-slice scaling.
+		* `horizontal {object}`
+			* `left {number}`
+			* `right {number}`
+		* `vertical {object}`
+			* `top {number}`
+			* `bottom {number}`
+
+
+
 ## Class: ui.resource.Image
 
 Model an Image for rendering. Supports taking a subset of
@@ -250,6 +288,7 @@ Sets the properties of the internal ImageMap.
 
 Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
 
+
 ## Example: Create an ImageView
 
 This example requires an image in your resources directory
@@ -263,3 +302,41 @@ Place this in the `Application.js` file of your project,
 rotate the simulator, and you'll see:
 
 <img src="./assets/ui-imageview/example-imageview.png" alt="a book screenshot" class="screenshot">
+
+
+## Example: 9-Slice Image Scaling
+
+Given the following 300x300 image:
+
+<img src="./assets/ui-imageview/button.png" alt="sample button image" class="screenshot">
+
+We can scale it to the dimensions of the device (with a
+slight centering for visibility) so that the rounded corners
+maintain their integrity while the middle section is scaled
+out. This way buttons can maintain their style despite the
+dimensions of the device.
+
+Here, the image is sliced and scaled out, and a label is
+given to the button by assigning a `TextView` as a
+child. The child view's dimensions is set to the width and
+height of the middle section of the `ImageScaleView`, and
+set to a very light blue so you can see it in the example
+below. The debugging flag of the `ImageScaleView` is set to
+`true` so you can see how the slices are sectioned off.
+
+~~~
+m4_include(./examples/api/example-imagescaleview.js)
+~~~
+
+Run this code as the `Application.js` file in your project,
+and you should see something like this in the simulator:
+
+<img src="./assets/ui-imageview/example-imagescaleview.png" alt="9-slice scaling screenshot" class="screenshot">
+
+Click anywhere on the button background image with your
+browser console open and you'll see the message.
+
+If you change the dimensions of your device by clicking
+**Choose Device** on the simulator screen, you will see that
+the background image of the button scales appropriately,
+while the button text remains centered on the screen.
