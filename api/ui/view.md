@@ -390,7 +390,9 @@ The transparency of a view.
 ### style.zIndex
 1. `{number} = 0`
 
-The higher the number the closer to the front.
+The higher this number, the closer to the front the view
+appears. This value is only relative to a view's siblings,
+not the entire scene graph.
 
 ### style.backgroundColor
 1. `{string}`
