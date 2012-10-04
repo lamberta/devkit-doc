@@ -136,6 +136,7 @@ nav#TOC {
 }
 
 #main h2, #main h3, #main h4 {
+	margin-top: 40px;
   margin-bottom: 0;
   clear: both;
   color: #0089CE;
@@ -149,7 +150,7 @@ nav#TOC {
   padding-left: 22px; /*function parameter indent*/
   font-size: 0.9em;
   line-height: 1.4em;
-  margin: -10px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 /*method types*/
@@ -164,38 +165,31 @@ nav#TOC {
   margin-left: 0;
 }
 
+/*front page menu*/
+
 #main #menu li {
   float: left;
   display: inline;
   list-style-type: none;
-  padding-right: 20px;
+	padding: 20px;
   text-align: center;
   width: 140px;
 }
 
+#main #menu ul {
+	margin: 0;
+	padding: 0;
+}
+
 #main #menu li img {
-  width: 50px;
+  width: 64px;
+	height: 64px;
 }
 
-
-#main .links ul {
-  clear: both;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+#main #menu li span {
+	display: block;
 }
 
-#main .links a {
-  float: left;
-  width: 200px;
-  padding: 20px;
-  text-align: center;
-}
-
-#main .links li a[href=""] {
-  color: #666;
-  text-decoration: none;
-}
 
 header {
   background: #444444; /* Old browsers */
