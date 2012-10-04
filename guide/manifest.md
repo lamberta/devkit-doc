@@ -65,6 +65,14 @@ icon. For example:
 	* `img {string}` ---Path to the splash screen image.
 	* `autoHide {boolean}` ---Automatically hide the splash image when the app starts.
 	* `scaleMethod {string} = 'cover'` ---Method for scaling the splash screen image to fit.
+	* `iphone {object}`
+		* `launch {string}` ---Path to the splash screen image.
+		* `launchRetina {string}` ---Path to the splash screen image for retina display.
+	* `ipad {object}`
+		* `portrait {string}` ---Path to the splash screen image.
+		* `portraitRetina {string}` ---Path to the splash screen image.
+		* `landscape {string}` ---Path to the splash screen image.
+		* `landscapeRetina {string}` ---Path to the splash screen image.
 
 If `autoHide` is set to `false`, the developer can manually
 remove the splash screen by calling `GC.hidePreloader()`.
