@@ -136,7 +136,9 @@ nav#TOC {
 }
 
 #main h2, #main h3, #main h4 {
-  margin-top: 40px;
+  margin-bottom: 0;
+  clear: both;
+  color: #0089CE;
 }
 
 #main p {
@@ -167,14 +169,32 @@ nav#TOC {
   display: inline;
   list-style-type: none;
   padding-right: 20px;
+  text-align: center;
+  width: 140px;
 }
 
 #main #menu li img {
-  display: block;
+  width: 50px;
 }
 
-#main #links {
+
+#main .links ul {
   clear: both;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#main .links a {
+  float: left;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+}
+
+#main .links li a[href=""] {
+  color: #666;
+  text-decoration: none;
 }
 
 header {
@@ -214,3 +234,5 @@ footer {
 img.screenshot {
   max-width: 600px;
 }
+
+.clearer { clear: both }
