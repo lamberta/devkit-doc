@@ -136,7 +136,10 @@ nav#TOC {
 }
 
 #main h2, #main h3, #main h4 {
-  margin-top: 40px;
+	margin-top: 40px;
+  margin-bottom: 0;
+  clear: both;
+  color: #0089CE;
 }
 
 #main p {
@@ -147,7 +150,7 @@ nav#TOC {
   padding-left: 22px; /*function parameter indent*/
   font-size: 0.9em;
   line-height: 1.4em;
-  margin: -10px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 /*method types*/
@@ -162,20 +165,31 @@ nav#TOC {
   margin-left: 0;
 }
 
+/*front page menu*/
+
 #main #menu li {
   float: left;
   display: inline;
   list-style-type: none;
-  padding-right: 20px;
+	padding: 20px;
+  text-align: center;
+  width: 140px;
+}
+
+#main #menu ul {
+	margin: 0;
+	padding: 0;
 }
 
 #main #menu li img {
-  display: block;
+  width: 64px;
+	height: 64px;
 }
 
-#main #links {
-  clear: both;
+#main #menu li span {
+	display: block;
 }
+
 
 header {
   background: #444444; /* Old browsers */
@@ -214,3 +228,5 @@ footer {
 img.screenshot {
   max-width: 600px;
 }
+
+.clearer { clear: both }
