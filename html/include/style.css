@@ -77,6 +77,7 @@ a {
 
 p {
   font-size: 1em;
+	line-height: 1.5em;
 }
 
 nav#sidebar {
@@ -166,6 +167,10 @@ nav#TOC {
 }
 
 /*front page menu*/
+
+#main #menu {
+	max-width: 1000px;
+}
 
 #main #menu li {
   float: left;
