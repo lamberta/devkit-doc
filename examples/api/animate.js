@@ -7,13 +7,12 @@ exports = Class(GC.Application, function () {
     alwaysRepaint: true
   };
 
-  this.buildView = function () {
-  
+  this.initUI = function () {
     var start_x = device.width / 2 - 75,
         start_y = device.height / 2 - 25;
 
     var redbox = new View({
-      superview: this,
+      superview: this.view,
       x: start_x,
       y: start_y,
       width: 50,
@@ -28,7 +27,7 @@ exports = Class(GC.Application, function () {
     });
     
     var greenbox = new View({
-      superview: this,
+      superview: this.view,
       x: start_x + 50,
       y: start_y,
       width: 50,
@@ -43,7 +42,7 @@ exports = Class(GC.Application, function () {
     });
     
     var bluebox = new View({
-      superview: this,
+      superview: this.view,
       x: start_x + 100,
       y: start_y,
       width: 50,

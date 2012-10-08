@@ -2,9 +2,10 @@
 
 ## Create your first project
 
-With `basil` installed, you're ready to create a new
-project! Switch to the directory where you want the new
-project directory to reside, then run: 
+With [basil installed](../guide/getting-started.html),
+you're ready to create a new project! Switch to the
+directory where you want the new project directory to
+reside, then run:
 
 ~~~
 $ basil init hello-world
