@@ -167,6 +167,15 @@ The group ID the sprite is a member of.
 
 Return the group that the sprite is a member of.
 
+### sprite.isPlaying
+1. `{boolean}`
+
+Test if the animation is playing.
+
+### sprite.isPaused
+1. `{boolean}`
+
+Test if an animation is paused.
 
 ### Class Property: SpriteView.allAnimations
 1. `{object}`
@@ -228,17 +237,20 @@ Given the following project layout for resources:
 
 ~~~
 project
-  |- src
-  |    \- Application.js
-  |- resources
-       \- images
-            \- characters
-                 |- tim_idle_1.png
-                 |- ...
-                 |- tim_idle_5.png
-                 |- tim_walk_1.png
-                 |- ...
-                 |- tim_walk_8.png
+  |--manifest.json
+  |--src/
+  |   |-Application.js
+  |--resources/
+  |   |-images/
+  |      |-characters/
+  |         |-tim_idle_1.png
+  |         |- ...
+  |         |-tim_idle_5.png
+  |         |-tim_walk_1.png
+  |         |- ...
+  |         |-tim_walk_8.png
+  |--sdk/
+  |--build/
 ~~~
 
 You can set up a sprite to play multiple animations:
