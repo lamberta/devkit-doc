@@ -77,6 +77,7 @@ sound.addSound ('pop', {
 1. `name {string}`
 2. `options {object}`
 	* `loop {boolean} = false`
+3. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
 Play a sound. If it has already been preloaded, it will play
 immediately, otherwise, it will need to load it into memory
@@ -88,6 +89,7 @@ sound.play('boink', {loop: true});
 
 ### sound.pause (name)
 1. `name {string}`
+2. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
 ause a sound. The audio file is stopped at a certain point,
 and restarted from that point when played again.
@@ -98,6 +100,7 @@ sound.play('levelmusic');
 
 ### sound.stop (name)
 1. `name {string}`
+2. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
 Stop a sound. If a sound is played again, it will restart
 from the beginning.
@@ -109,6 +112,7 @@ sound.stop('levelmusic');
 ### sound.setVolume (name, volume)
 1. `name {string}`
 2. `volume {number}` ---A range between 0 and 1.
+3. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
 Sets the volume of the sound, with 1 as the maximum, and 0
 as silent. A sound's default volume is 1.
