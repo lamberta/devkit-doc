@@ -22,8 +22,8 @@ exports = Class(GC.Application, function () {
     var imageview = new ImageView({
       superview: scrollview,
       image: bgimage,
-      width: 500,
-      height: 500,
+      width: bgimage.getWidth(),
+      height: bgimage.getHeight(),
       autoSize: true
     });
     
