@@ -380,12 +380,12 @@ The rotation of a view in radins.
 ### style.visible
 1. `{boolean} = true`
 
-If the view is shown or hidden.
+If the view is shown or hidden. The view will not accept input events while hidden.
 
 ### style.opacity
 1. `{number} = 1`
 
-The transparency of a view.
+The transparency of a view. The view will always accept input events even if it is fully transparent.
 
 ### style.zIndex
 1. `{number} = 0`
