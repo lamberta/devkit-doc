@@ -52,18 +52,21 @@ be re-generated on the next build.
 Given the following project layout for resources:
 
 ~~~
-project
-  |- src
-  |    \- Application.js
-  |- resources
-       \- images
-            \- characters
-                 |- tim_idle_1.png
-                 |- ...
-                 |- tim_idle_5.png
-                 |- tim_walk_1.png
-                 |- ...
-                 |- tim_walk_8.png
+project/
+  |--manifest.json
+  |--src/
+  |   |-Application.js
+  |--resources/
+  |   |-images/
+  |      |-characters/
+  |         |-tim_idle_1.png
+  |         |- ...
+  |         |-tim_idle_5.png
+  |         |-tim_walk_1.png
+  |         |- ...
+  |         |-tim_walk_8.png
+  |--sdk/
+  |--build/
 ~~~
 
 You can set up a sprite to play multiple animations:
