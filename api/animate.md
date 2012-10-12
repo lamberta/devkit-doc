@@ -173,10 +173,6 @@ setTimeout( function() {
 }, 1500);
 ~~~
 
-### animator.next ()
-
-Runs the next frame.
-
 
 ## Class: Group
 
