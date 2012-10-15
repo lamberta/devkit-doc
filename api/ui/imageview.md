@@ -70,11 +70,9 @@ imageview.setImage(image);
 
 Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
 
-### imageview.autoSize (method, url, width, height)
-1. `method {string}` ---Options: `'none'`, `'fit'`, `'proportional'`, and `'resize'`.
-2. `url {string}`
-3. `width {number}`
-4. `height {number}`
+### imageview.autoSize ()
+
+Automatically resize the view to the size of the image.
 
 ### imageview.getOrigWidth ()
 1. Return `{number}`
