@@ -221,52 +221,12 @@ Returns the image's actual, "natural" height (i.e. height ignoring margin and sc
 
 Returns the raw (HTML) image.
 
-### image.setSourceWidth (n)
-1. `n {number}`
-
-Sets the internal imagemap's width.
-
-### image.setSourceHeight (n)
-1. `n {number}`
-
-Sets the internal imagemap's height.
-
-### image.setSourceX (n)
-1. `n {number}`
-
-Sets the x coordinate of the internal ImageMap.
-
-### image.setSourceY (n)
-1. `n {number}`
-
-Sets the y coordinate of the internal ImageMap.
-
-### image.setMarginTop (n)
-1. `n {number}`
-
-Sets the top margin.
-
-### image.setMarginRight (n)
-1. `n {number}`
-
-Sets the right margin.
-
-### image.setMarginBottom (n)
-1. `n {number}`
-
-Sets the bottom margin.
-
-### image.setMarginLeft (n)
-1. `n {number}`
-
-Sets the left margin.
-
-### image.getBounds ()
+### image.getMap ()
 1. Return: `{object}`
 
-Returns the internal ImageMap.
+Returns the internal `ImageMap` object.
 
-### image.setBounds (x, y, w, h, marginTop, marginRight, marginBottom, marginRight)
+### image.setMap (x, y, w, h, marginTop, marginRight, marginBottom, marginRight)
 1. `x {number}`
 2. `y {number}`
 3. `w {number}`
@@ -276,7 +236,7 @@ Returns the internal ImageMap.
 7. `marginBottom {number}`
 8. `marginRight {number}`
 
-Sets the properties of the internal ImageMap.
+Sets the properties of the internal `ImageMap` object.
 
 
 ### Callback handler: image.doOnLoad (callback, [args ...])
