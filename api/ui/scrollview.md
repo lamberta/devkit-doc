@@ -87,19 +87,11 @@ Set the offset to manually scroll views.
 ### scrollview.isScrolling ()
 1. Return `{boolean}`
 
-If View is currently scrolling.
+Return `true` if the ScrollView is scrolling.
 
 ### scrollview.stopScrolling ()
 
 Stop View from scrolling.
-
-### scrollview.startBounce ()
-
-Set the ability to bounce when scrolling.
-
-### scrollview.endBounce ()
-
-Remove the ability to bounce when scrolling.
 
 ### scrollview.setScrollBounds (bounds)
 1. `bounds {object}`
@@ -129,16 +121,6 @@ Add the values to the current offset.
 1. Return: `{View}`
 
 Return the generated View that becomes the container View.
-
-### scrollview.getFullWidth ()
-1. Return: `{number}`
-
-Return the full width.
-
-### scrollview.getFullHeight ()
-1. Return: `{number}`
-
-Return the full height.
 
 ### scrollview.scrollTo (x, y, duration, callback)
 1. `x {number}`
