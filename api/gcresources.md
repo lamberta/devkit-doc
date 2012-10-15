@@ -22,16 +22,18 @@ following directory structure for a project:
 
 ~~~
 project/
-  |--src/
-  |   |--Application.js
-  |--resources/
-      |--images/
-      |   |--bgimage.jpg
-      |--sounds/
-          |--effects/
-          |   |--boing.mp3
-          |--music/
-              |--levelmusic.mp3
+├── manifest.json
+├── sdk -> /path/to/basil/sdk
+├── resources/
+│	 ├── images/
+│	 │	  └── bgimage.jpg
+│	 └── sounds/
+│	 	  ├── effects/
+│		  │    └── boing.mp3
+│		  └── music/
+│		       └── levelmusic.mp3
+└── src
+	 └── Application.js
 ~~~
 
 ### GCResources.preload (path, callback)
