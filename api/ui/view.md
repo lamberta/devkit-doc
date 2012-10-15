@@ -35,6 +35,12 @@ var view = new View({
 });
 ~~~
 
+### view.updateOpts (options)
+1. `options {object}` ---The options object is the same as defined for the constructor.
+2. Return: `{object}` ---Returns the options object.
+
+Update the properties and styles of a view.
+
 ### view.style
 1. `{object}` ---Contains the [style definitions](#styles) enumerated below.
 
