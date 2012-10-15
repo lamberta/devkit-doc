@@ -211,21 +211,42 @@ exist on a view.
 
 Remove a named filter from this view.
 
-### view.toString()
+### view.toString ()
 1. Return: `{string}`
 
-### view.getTag()
+### view.getTag ()
 1. Return: `{string}`
 
 Return a readable tag for a view.
 
-### view.show()
+### view.show ()
 
 Make the view visible, trigger a repaint.
 
-### view.hide()
+### view.hide ()
 
 Make the view invisible, trigger a repaint.
+
+### view.focus ()
+1. Return: `{this}`
+
+Indicate to the focus manager this element is focused.
+
+### view.blur ()
+1. Return: `{this}`
+
+Indicate to the focus manager this element is blurred.
+
+
+### Event handlers
+
+#### view.onFocus ()
+
+The callback function is triggered when focus is given to this view.
+
+#### view.onBlur ()
+
+The callback function is triggered when this view loses focus.
 
 
 ### Events
