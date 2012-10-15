@@ -157,11 +157,6 @@ var datasource = new GCDataSource();
 
 ### datasource.sort ()
 
-### datasource.load (callback)
-1. `callback {function}`
-
-### datasource.save ()
-
 ### datasource.toJSON ()
 1. Return: `{object}`
 	* `key {string}`
