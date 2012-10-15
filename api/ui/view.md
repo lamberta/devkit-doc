@@ -138,11 +138,6 @@ Return the input handler of a view.
 
 Check if an input event is over a view.
 
-### view.getInputOverCount ()
-1. Return: `{number}`
-
-Returns a count of how many input events are over a view.
-
 ### view.startDrag (options)
 1. `options {object}`
     * `inputStartEvt {InputEvent}`
