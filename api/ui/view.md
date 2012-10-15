@@ -123,10 +123,6 @@ Notifies the renderer that the view needs to be repainted next tick.
 
 Notifies the need for positioning.
 
-### view.needsSort ()
-
-Notifies the need for sorting views.
-
 ### view.canHandleEvents (handlep)
 1. `handlep {boolean}`
 
