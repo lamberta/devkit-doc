@@ -14,7 +14,7 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.initUI = function() {
-		imageview = new ImageView({
+		var imageview = new ImageView({
 			superview: this.view,
 			x: 10,
 			y: 10,
