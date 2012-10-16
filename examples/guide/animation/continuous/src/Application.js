@@ -30,7 +30,7 @@ exports = Class(GC.Application, function() {
 
 	this.createAnimation = function() {
 		this._animationView.getAnimation()
-			.clear() // Clear the animation queue
+			.clear()
 			.then({x: 200}, 1000, animate.linear) // Move right - linear
 			.then({y: 200}, 1000, animate.easeIn) // Move down - ease in
 			.then({x: 20}, 1000, animate.easeOut) // Move left - ease out
