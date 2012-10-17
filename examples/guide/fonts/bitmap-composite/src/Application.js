@@ -24,9 +24,12 @@ exports = Class(GC.Application, function () {
 		var s = "Game {Closure}";
 		var y = 10;
 
-		ctx.font = "36px customFont1 color";
+		ctx.fillStyle = "#0088DD";
+		ctx.strokeStyle = "#FFDD00";
+		ctx.font = "36px customFont1 composite";
 		ctx.textBaseline = "top";
 		while (y < device.height - 40) {
+			ctx.strokeText(s, (device.width - ctx.measureText(s).width) / 2, y);
 			ctx.fillText(s, (device.width - ctx.measureText(s).width) / 2, y);
 			y += 40;
 		}
