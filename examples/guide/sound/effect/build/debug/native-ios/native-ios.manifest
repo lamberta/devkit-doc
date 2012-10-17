@@ -1,0 +1,18 @@
+CACHE MANIFEST
+
+#349c182cbb144dbf8053f779d05e1db8 version undefined
+
+CACHE:
+resources/audio/sound1.mp3
+resources/audio/sound1.ogg
+resources/audio/sound2.mp3
+resources/audio/sound2.ogg
+resources/audio/sound3.mp3
+resources/audio/sound3.ogg
+index.html
+native-ios.js
+
+FALLBACK:
+
+NETWORK:
+*

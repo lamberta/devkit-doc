@@ -1,0 +1,31 @@
+{
+	"appID": "5b6365fc74d84b39b6ebb2074d70a1e6",
+	"shortName": "spritesNineSlice",
+	"title": "sprites - 9 slice",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Cool Kid Studios",
+		"domain": "cool.kids.com",
+		"stagingDomain": "staging.kids.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
+}
