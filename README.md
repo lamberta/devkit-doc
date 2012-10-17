@@ -4,3 +4,14 @@
 
 ## Look
 * [Wiki](https://github.com/gameclosure/doc/wiki) ---Helpful hints not in the main documentation.
+
+## Build
+
+On the doc web server, run as the `doc` user:
+
+~~~
+$ sudo -u doc git pull
+$ sudo -u doc ./build/make-doc -A
+~~~
+
+This will create *all* the docs.
