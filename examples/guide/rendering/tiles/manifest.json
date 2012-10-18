@@ -27,5 +27,6 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"preload": {}
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
 }
