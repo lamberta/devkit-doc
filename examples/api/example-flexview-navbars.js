@@ -1,11 +1,11 @@
 import device;
 import ui.View as View;
-import ui.LayoutView as LayoutView;
+import ui.layout.FlexView as FlexView;
 import ui.ScrollView as ScrollView;
 
 exports = Class(GC.Application, function () {
   this.initUI = function () {
-    var layoutview = new LayoutView({
+    var flexview = new FlexView({
       superview: this.view,
       width: device.width,
       height: device.height,
@@ -13,20 +13,20 @@ exports = Class(GC.Application, function () {
     });
     
     var topmenu = new View({
-      superview: layoutview,
+      superview: flexview,
       hflex: 1,
       height: 50,
       backgroundColor: 'red'
     });
     
     var main = new ScrollView({
-      superview: layoutview,
+      superview: flexview,
       hflex: 1,
       vflex: 1
     });
     
     var bottomnav = new View({
-      superview: layoutview,
+      superview: flexview,
       hflex: 1,
       height: 50,
       backgroundColor: 'blue'

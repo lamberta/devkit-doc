@@ -1,15 +1,15 @@
 import device;
-import ui.LayoutView as LayoutView;
+import ui.layout.FlexView as FlexView;
 import ui.TextView as TextView;
 
 exports = Class(GC.Application, function() {
 
   this.initUI = function () {
 
-    /* Create a LayoutView as the root layout,
+    /* Create a FlexView as the root layout,
      * position children in the center horizontally and vertically.
      */
-    var layout = new LayoutView({
+    var layout = new FlexView({
       direction: 'right',
       halign: 'center',
       valign: 'center'
@@ -18,7 +18,7 @@ exports = Class(GC.Application, function() {
     this.view.push(layout); //add to the root StackView
 
     //Fixed sized box positioned in the center of the screen.
-    var modal = new LayoutView({
+    var modal = new FlexView({
       superview: layout,
       width: device.height,
       height: device.height,
