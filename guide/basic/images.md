@@ -3,16 +3,16 @@
 ## Using an ImageView
 
 This example requires an image in your resources directory
-and renders it to the screen.
+and renders it to the screen. In this example the image is located
+in `resources/images/specialBlue`.
 
 ~~~
-m4_include(./examples/api/example-imageview.js)
+m4_include(./examples/guide/images/basic.js)
 ~~~
 
-Place this in the `Application.js` file of your project,
-rotate the simulator, and you'll see:
-
-<img src="../api/assets/ui-imageview/example-imageview.png" alt="a book screenshot" class="screenshot">
+When you open the application `images - basic` and run it then
+you will see this image on the screen:
+<img src="./examples/guide/images/basic/resources/images/specialBlue.png" alt="a book screenshot" class="screenshot">
 
 
 ## Using 9-Slice Image Scaling
