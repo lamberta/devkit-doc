@@ -47,3 +47,7 @@ Create an imageView, the application has a root view which is used as the superv
     this.launchUI = function () {};
 });
 ~~~
+
+The output should look like this screenshot:
+
+<img src="screenshot.png" alt="a book screenshot" class="screenshot">
