@@ -1,14 +1,14 @@
-## Events, on
+## Events, once
 
-This demo shows how to use publish and subscribe.
+This example shows how to use subscribe and receive a single event.
 
+Import device to get the width of the screen and the TextView class:
 ~~~
 import device;
 import ui.TextView as TextView;
 ~~~
 
-Create a view which publishes an event and a value,
-each time the view is clicked the value will be increased...
+Create a class which publishes an event:
 
 ~~~
 var PublishView = Class(TextView, function(supr) {
@@ -42,7 +42,8 @@ var SubscribeView2 = Class(TextView, function(supr) {
 });
 ~~~
 
-Create the application with default settings:
+Create a view with a function which can be called when the view is clicked,
+the takes two parameters:
 
 ~~~
 exports = Class(GC.Application, function() {
@@ -104,7 +105,7 @@ invoked with the parameter value "Red was clicked".
 After publishing the event the subscriber is un-subscribed
 
 ~~~
-            .on("Clicked", bind(this._subscribeView1, "setText", "Red was clicked"))
+            .subscribeOnce("Clicked", this._subscribeView1, "setText", "Red was clicked")
 ~~~
 
 When "Clicked" is published then the onClick method is
@@ -113,7 +114,7 @@ is passed from the publish call.
 After publishing the event the subscriber is un-subscribed
 
 ~~~
-            .on("Clicked", bind(this._subscribeView2, "onClick"))
+            .subscribeOnce("Clicked", this._subscribeView2, "onClick")
 ~~~
 
 When "Clicked" is published then the onClick method is
@@ -123,22 +124,11 @@ is passed from the publish call.
 After publishing the event the subscriber is un-subscribed
 
 ~~~
-            .on("Clicked", bind(this._subscribeView3, "onClick", "Red was clicked, someValue: "));
+            .subscribeOnce("Clicked", this._subscribeView3, "onClick", "Red was clicked, someValue: ");
 ~~~
+
     };
 
     this.launchUI = function () {};
 });
-~~~
-
-The output should look like this screenshot:
-
-<img src="screenshot1.png" alt="a book screenshot" class="screenshot">
-
-After clicking the red button once the output should look like this:
-
-<img src="screenshot2.png" alt="a book screenshot" class="screenshot">
-
-After clicking the red button twice the output should look like this:
-
-<img src="screenshot3.png" alt="a book screenshot" class="screenshot">
+~~~~
