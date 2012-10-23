@@ -13,6 +13,7 @@ import ui.ImageScaleView as ImageScaleView;
 ~~~
 
 Create an application class with the default settings:
+
 ~~~
 exports = Class(GC.Application, function() {
 
@@ -68,6 +69,7 @@ the slices are scaled to fit and no center is used.
 ~~~
 
 Put an image on top of the animating image...
+
 ~~~
         new ImageView({
             superview: this.view,
@@ -82,7 +84,12 @@ Put an image on top of the animating image...
     };
 ~~~
 
-A continuous animation...
+A continuous animation.
+First the height of the image is increased, the center stretches but the top
+and bottom caps keep their with and height. When the image height is 250 pixels
+then then animation pauses for 1.5 seconds after which the size is decreased to
+70 pixels. After pausing another 1.5 seconds the animation starts again.
+
 ~~~
 	this.animate = function() {
 		this._imageScaleView.getAnimation()
