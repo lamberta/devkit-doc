@@ -108,3 +108,10 @@ In the third row the images are scaled 50 percent and png8 compression is used
 
     this.launchUI = function () {};
 });
+
+The output should look like this screenshot:
+
+<img src="screenshot.png" alt="a book screenshot" class="screenshot">
+
+The first row of images uses the original quality, the second scales the image down
+to 10% and the third row scales the images 50% and uses png8 compression.

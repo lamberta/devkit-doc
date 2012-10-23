@@ -101,3 +101,7 @@ The line weight can be controlled by changing the destination slices:
     this.launchUI = function () {};
 });
 ~~~
+
+The output should look like this screenshot:
+
+<img src="screenshot.png" alt="a book screenshot" class="screenshot">
