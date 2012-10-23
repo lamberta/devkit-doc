@@ -23,34 +23,43 @@ Set the start time:
 ~~~
 
 Reset the view
+
 ~~~
     this.reset = function(opts) {
 ~~~
+
 Set the start time
+
 ~~~
         this._dt = 0;
 ~~~
+
 Because opts contains a superview this view is added to the superview!
+
 ~~~
         this.updateOpts(opts);
 	};
 ~~~
 
 This function is called every frame and after 500ms removes the view
+
 ~~~
     this._tick = function(dt) {
         this._dt += dt;
         if (this._dt > 500) {
 ~~~
+
 Remove this view from the superview
+
 ~~~
             this.removeFromSuperview();
         } else {
 ~~~
+
 Fade out...
+
 ~~~
             this.updateOpts({opacity: 1 - this._dt / 500});
-~~~
         }
     };
 });
@@ -101,6 +110,7 @@ Add a new view to the circular buffer
 ~~~
 
 Next value of the circular buffer:
+
 ~~~
             this._index = (this._index + 1) & 63;
         }
