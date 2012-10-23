@@ -32,7 +32,7 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.initUI = function() {
-		var clickBox = new ClickBox({
+		new ClickBox({
 			superview: this.view,
 			x: 10,
 			y: 10,
