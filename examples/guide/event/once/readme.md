@@ -125,8 +125,6 @@ After publishing the event the subscriber is un-subscribed
 
 ~~~
             .subscribeOnce("Clicked", this._subscribeView3, "onClick", "Red was clicked, someValue: ");
-~~~
-
     };
 
     this.launchUI = function () {};
