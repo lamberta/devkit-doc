@@ -1,16 +1,15 @@
 ## Using a sprite sheet
 
 This example demonstrates how to set the source location of the image within an image map.
+It uses an image `resources/images/stars.png` which contains nine separate images
+in a grid. Each of the nine images is displayed in a loop.
 
-This demo uses an image `resources/images/stars.png` which contains nine separate images
-in a grid.
-
-Import the ImageView class.
+First we import the ImageView class.
 ~~~
 import ui.ImageView as ImageView;
 ~~~
 
-Create a class to display an image from a sprite map.
+Create a class to display an image from a sprite map:
 
 ~~~
 var SheetView = Class(ImageView, function(supr) {
@@ -24,14 +23,14 @@ The map contains three rows and three columns of images...
 ~~~
 
 Get the initial location, if the image is packed in a sprite sheet then the left top
-position is probably not (0, 0)
+position is probably not (0, 0)...
 
 ~~~
         this._offsetX = map.x;
         this._offsetY = map.y;
 ~~~
 
-Get the size of the image in the sprite sheet, it is posible that the image is scaled
+Get the size of the image in the sprite sheet, it is posible that the image is scaled:
 
 ~~~
         this._sizeX = (map.width / 3) | 0;
@@ -42,7 +41,7 @@ Get the size of the image in the sprite sheet, it is posible that the image is s
     };
 ~~~
 
-The tick function is called each frame
+The tick function is called each frame...
 
 ~~~
     this.tick = function(dt) {
