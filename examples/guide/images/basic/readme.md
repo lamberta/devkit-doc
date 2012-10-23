@@ -19,31 +19,31 @@ exports = Class(GC.Application, function() {
 
 Set the default settings:
 ~~~
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
+    this._settings = {
+        logsEnabled: window.DEV_MODE,
+        showFPS: window.DEV_MODE,
+        clearEachFrame: true,
+        alwaysRepaint: true,
+        preload: []
+    };
 ~~~
 
 Initialize the UI:
 ~~~
-	this.initUI = function() {
+    this.initUI = function() {
 ~~~
-Create an imageView:
+Create an imageView, the application has a root view which is used as the superview for the imageView:
 ~~~
-		var imageview = new ImageView({
-			superview: this.view,
-			x: 10,
-			y: 10,
-			width: 100,
-			height: 100,
-			image: "resources/images/specialBlue.png"
-		});
-	};
+        var imageview = new ImageView({
+            superview: this.view,
+            x: 10,
+            y: 10,
+            width: 100,
+            height: 100,
+            image: "resources/images/specialBlue.png"
+        });
+    };
 
-	this.launchUI = function () {};
+    this.launchUI = function () {};
 });
 ~~~
