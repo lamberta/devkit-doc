@@ -66,9 +66,9 @@ These are the destination slices.
 If the images width is larger then the sum of the horizontal
 slices then the rest value is filled with the center slice.
 If the sum of the horizontal slices exceeds the width then
+the slices are scaled to fit and no center is used.
 
 ~~~
-the slices are scaled to fit and no center is used.
             destSlices: {
                 horizontal: {left: 15, right: 15},
                 vertical: {top: 15, bottom: 15}
