@@ -94,11 +94,11 @@ then then animation pauses for 1.5 seconds after which the size is decreased to
 	this.animate = function() {
 		this._imageScaleView.getAnimation()
 			.clear()
-			.then({height: 250}, 350) // Increase the height, the center stretches
+			.then({height: 250}, 350)
 			.wait(1500)
-			.then({height: 70}, 350) // Decrease the height
+			.then({height: 70}, 350)
 			.wait(1500)
-			.then(bind(this, "animate")); // Run it again
+			.then(bind(this, "animate"));
 	};
 
 	this.launchUI = function () {};
