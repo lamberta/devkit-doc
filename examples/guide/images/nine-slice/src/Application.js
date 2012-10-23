@@ -1,5 +1,5 @@
 /*
- * This file demonstrates how to use 9-slice in an animating scroll.
+ * This file demonstrates how to use 9-slice.
  */
 import device as device;
 import ui.ImageScaleView as ImageScaleView;
