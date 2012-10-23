@@ -1,69 +1,104 @@
-/*
- * This file demonstrates how to set the source location of the image within an image map.
- */
+## Using a sprite sheet
+
+This example demonstrates how to set the source location of the image within an image map.
+
+This demo uses an image `resources/images/stars.png` which contains nine separate images
+in a grid.
+
+Import the ImageView class.
+~~~
 import ui.ImageView as ImageView;
+~~~
 
+Create a class to display an image from a sprite map.
+
+~~~
 var SheetView = Class(ImageView, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", [opts]);
+    this.init = function(opts) {
+        supr(this, "init", [opts]);
+~~~
 
-		// The map contains three rows and three columns of images...
-		var map = this.getImage().getMap();
+The map contains three rows and three columns of images...
+~~~
+        var map = this.getImage().getMap();
+~~~
 
-		// Get the initial location,
-		// if the image is packed in a sprite sheet then the left top
-		// position is probably not (0, 0)
-		this._offsetX = map.x;
-		this._offsetY = map.y;
+Get the initial location, if the image is packed in a sprite sheet then the left top
+position is probably not (0, 0)
 
-		// Get the size of the image in the sprite sheet,
-		// it is posible that the image is scaled
-		this._sizeX = (map.width / 3) | 0;
-		this._sizeY = (map.height / 3) | 0;
+~~~
+        this._offsetX = map.x;
+        this._offsetY = map.y;
+~~~
 
-		this._index = 0;
-		this._dt = 500;
-	};
+Get the size of the image in the sprite sheet, it is posible that the image is scaled
 
-	this.tick = function(dt) {
-		this._dt += dt;
-		if (this._dt > 500) {
-			this._dt %= 500;
+~~~
+        this._sizeX = (map.width / 3) | 0;
+        this._sizeY = (map.height / 3) | 0;
 
-			// Change the index, there are nine images...
-			this._index = (this._index + 1) % 9;
+        this._index = 0;
+        this._dt = 500;
+    };
+~~~
 
-			var map = this.getImage().getMap();
+The tick function is called each frame
 
-			// Use the values from the initial map...
-			map.width = this._sizeX;
-			map.height = this._sizeY;
-			map.x = this._offsetX + ((this._index /3) | 0) * this._sizeX;
-			map.y = this._offsetY + (this._index % 3) * this._sizeY;
-		}
-	};
+~~~
+    this.tick = function(dt) {
+        this._dt += dt;
+        if (this._dt > 500) {
+            this._dt %= 500;
+~~~
+
+Change the index, there are nine images...
+
+~~~
+            this._index = (this._index + 1) % 9;
+
+            var map = this.getImage().getMap();
+~~~
+
+Use the values from the initial map...
+
+~~~
+            map.width = this._sizeX;
+            map.height = this._sizeY;
+            map.x = this._offsetX + ((this._index /3) | 0) * this._sizeX;
+            map.y = this._offsetY + (this._index % 3) * this._sizeY;
+        }
+    };
 });
+~~~
 
+An application with default settings is defined.
+
+~~~
 exports = Class(GC.Application, function() {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
+    this._settings = {
+        logsEnabled: window.DEV_MODE,
+        showFPS: window.DEV_MODE,
+        clearEachFrame: true,
+        alwaysRepaint: true,
+        preload: []
+    };
 
-	this.initUI = function() {
-		new SheetView({
-			superview: this.view,
-			x: 10,
-			y: 10,
-			width: 26 * 3,
-			height: 26 * 3,
-			image: "resources/images/stars.png"
-		});
-	};
+    this.initUI = function() {
+~~~
 
-	this.launchUI = function () {};
+The SheetView class is instantiated with the root view as the parent.
+
+~~~
+    new SheetView({
+        superview: this.view,
+        x: 10,
+        y: 10,
+        width: 26 * 3,
+        height: 26 * 3,
+        image: "resources/images/stars.png"
+    });
+};
+
+this.launchUI = function () {};
 });
