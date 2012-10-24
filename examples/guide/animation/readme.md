@@ -13,22 +13,24 @@ The api documentation of the animation classes can be found
 ### Animation, basic
 
 [This example](@todo basic/readme.html) shows how to use the animation functions
-to move a view to a given location and back again.
+to move a view to a given location and back again.<br>
+[> View the demo](@todo basic/readme.html)
 
 ### Animation, continuous
 
 [The continuous example](@todo continuous/readme.html) demonstrates how to loop
 an animation, it also shows the different methods by which the values can be
-interpolated e.g. ease-in, ease-out, etc.
+interpolated e.g. ease-in, ease-out, etc.<br>
+[> View the demo](@todo continuous/readme.html)
 
 ### Animation, pause
 
 [Pause and continue](@todo pause/readme.html) is a basic function of the animation
-classes.
+classes.<br>
+[> View the demo](@todo pause/readme.html)
 
 ### Animation, trail
 
 [The trail demo](@todo trail/readme.html) shows how to create views which animate.
-The views will be removed when the animation is finished.
-
-
+The views will be removed when the animation is finished.<br>
+[> View the demo](@todo trail/readme.html)
