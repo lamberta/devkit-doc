@@ -14,20 +14,23 @@ which allows you to run them immediately.
 The [Emitter class](@todo link to emitter) documentation can be
 found [here](@todo link to emitter).
 
-Event demos:
+**Event demos:**
 - [on](@todo on/readme.html)
 - [pubsub](@todo pubsub/readme.html)
 - [once](@todo once/readme.html)
 
-### Events, on
+**Related api docs:**
+- [Emitter class](@todo link to emitter)
+
+### Capturing an event with _on_
 
 [This demo](@todo on/readme.html) shows how to use [publish and on](@todo on/readme.html).
 
-### Events, pubsub
+### Publishing and subscribing
 
 [This demo](@todo pubsub/readme.html) shows how to use [publish and subscribe](@todo pubsub/readme.html).
 
-### Events, once
+### Capturing an event once
 
 Sometimes you want to have an signal which is only emitted once for example
 a view which passes a certain location threshold.
