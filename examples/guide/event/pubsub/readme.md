@@ -1,6 +1,6 @@
-## Events, once
+## Events, pubsub
 
-This example shows how to use subscribe and receive a single event.
+This example shows how to use subscribe and receive to an event.
 
 Import device to get the width of the screen and the TextView class:
 ~~~
@@ -104,7 +104,7 @@ When "Clicked" is published then the setText method is
 invoked with the parameter value "Red was clicked".
 
 ~~~
-            .subscribeOnce("Clicked", this._subscribeView1, "setText", "Red was clicked")
+            .subscribe("Clicked", this._subscribeView1, "setText", "Red was clicked")
 ~~~
 
 When "Clicked" is published then the onClick method is
@@ -112,7 +112,7 @@ invoked, this method will also use the parameter value 12 which
 is passed from the publish call.
 
 ~~~
-            .subscribeOnce("Clicked", this._subscribeView2, "onClick")
+            .subscribe("Clicked", this._subscribeView2, "onClick")
 ~~~
 
 When "Clicked" is published then the onClick method is
@@ -121,7 +121,7 @@ string "Red was clicked, someValue: " and the number 12 which
 is passed from the publish call.
 
 ~~~
-            .subscribeOnce("Clicked", this._subscribeView3, "onClick", "Red was clicked, someValue: ");
+            .subscribe("Clicked", this._subscribeView3, "onClick", "Red was clicked, someValue: ");
     };
 
     this.launchUI = function () {};
