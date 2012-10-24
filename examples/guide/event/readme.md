@@ -14,6 +14,11 @@ which allows you to run them immediately.
 The [Emitter class](@todo link to emitter) documentation can be
 found [here](@todo link to emitter).
 
+Event demos:
+- [on](@todo on/readme.html)
+- [pubsub](@todo pubsub/readme.html)
+- [once](@todo once/readme.html)
+
 ### Events, on
 
 [This demo](@todo on/readme.html) shows how to use [publish and on](@todo on/readme.html).
