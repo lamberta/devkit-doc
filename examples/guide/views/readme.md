@@ -7,13 +7,13 @@ children of the root view.
 The structure of the views is a tree, each view has properties and methods to navigate
 the view hierarchy.
 
-View demos:
+**View demos:**
 
 - [basic](@todo basic/readme.html)
 - [nested](@todo nested/readme.html)
 - [add/remove](@todo addremove/readme.html)
 
-Related api docs:
+**Related api docs:**
 
 - [View class](@todo link to view class)
 
