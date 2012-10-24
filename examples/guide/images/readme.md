@@ -6,6 +6,13 @@ very easy access from your code.
 
 All these demos can also be found on the `example` tab in the SDK.
 
+Image demos:
+- [Displaying an image](@todo basic/readme.html)
+- [9-Slice image scaling](@todo nineslice/readme.html)
+- [9-Slice image scaling in an animation](@todo ninesliceanimation/readme.html)
+- [Packing images in sprite sheets](@todo resources/readme.html)
+- [Using a sprite sheet](@todo spritesheet/index.html)
+
 ## Displaying images
 
 ### Displaying an image
