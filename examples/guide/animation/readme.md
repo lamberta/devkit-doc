@@ -10,27 +10,29 @@ immediately.
 The api documentation of the animation classes can be found
 [here](@todo link to animation).
 
+Animation demos:
+- [basic](@todo basic/readme.html)
+- [continuous](@todo continuous/readme.html)
+- [pause](@todo pause/readme.html)
+- [trail](@todo trail/readme.html)
+
 ### Animation, basic
 
 [This example](@todo basic/readme.html) shows how to use the animation functions
-to move a view to a given location and back again.<br>
-[> View the demo](@todo basic/readme.html)
+to move a view to a given location and back again.
 
 ### Animation, continuous
 
 [The continuous example](@todo continuous/readme.html) demonstrates how to loop
 an animation, it also shows the different methods by which the values can be
-interpolated e.g. ease-in, ease-out, etc.<br>
-[> View the demo](@todo continuous/readme.html)
+interpolated e.g. ease-in, ease-out, etc.
 
 ### Animation, pause
 
 [Pause and continue](@todo pause/readme.html) is a basic function of the animation
-classes.<br>
-[> View the demo](@todo pause/readme.html)
+classes.
 
 ### Animation, trail
 
 [The trail demo](@todo trail/readme.html) shows how to create views which animate.
-The views will be removed when the animation is finished.<br>
-[> View the demo](@todo trail/readme.html)
+The views will be removed when the animation is finished.
