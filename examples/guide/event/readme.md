@@ -1,4 +1,4 @@
-### Events
+## Events
 
 Events can be used to respond to a changing condition.
 Most classes in the SDK extend the Emitter class which
@@ -14,15 +14,15 @@ which allows you to run them immediately.
 The [Emitter class](@todo link to emitter) documentation can be
 found [here](@todo link to emitter).
 
-## Events, on
+### Events, on
 
 [This demo](@todo on/readme.html) shows how to use [publish and on](@todo on/readme.html).
 
-## Events, pubsub
+### Events, pubsub
 
 [This demo](@todo pubsub/readme.html) shows how to use [publish and subscribe](@todo pubsub/readme.html).
 
-## Events, once
+### Events, once
 
 Sometimes you want to have an signal which is only emitted once for example
 a view which passes a certain location threshold.

@@ -21,12 +21,12 @@ to move a view to a given location and back again.
 an animation, it also shows the different methods by which the values can be
 interpolated e.g. ease-in, ease-out, etc.
 
-## Animation, pause
+### Animation, pause
 
 [Pause and continue](@todo pause/readme.html) is a basic function of the animation
 classes.
 
-## Animation, trail
+### Animation, trail
 
 [The trail demo](@todo trail/readme.html) shows how to create views which animate.
 The views will be removed when the animation is finished.
