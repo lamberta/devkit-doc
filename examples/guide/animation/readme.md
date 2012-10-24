@@ -7,32 +7,33 @@ The following examples give a description of the code, all examples
 can also be found in the `example` tab in the SDK and can be started
 immediately.
 
-The api documentation of the animation classes can be found
-[here](@todo link to animation).
-
-Animation demos:
+**Animation demos:**
 - [basic](@todo basic/readme.html)
 - [continuous](@todo continuous/readme.html)
 - [pause](@todo pause/readme.html)
 - [trail](@todo trail/readme.html)
 
-### Animation, basic
+**Related api docs:**
+- [View class](@todo link to view class)
+- [animation](@todo link to animation class)
+
+### A basic animation
 
 [This example](@todo basic/readme.html) shows how to use the animation functions
 to move a view to a given location and back again.
 
-### Animation, continuous
+### A continuously looping animation
 
 [The continuous example](@todo continuous/readme.html) demonstrates how to loop
 an animation, it also shows the different methods by which the values can be
 interpolated e.g. ease-in, ease-out, etc.
 
-### Animation, pause
+### Pausing and resuming an animation
 
 [Pause and continue](@todo pause/readme.html) is a basic function of the animation
 classes.
 
-### Animation, trail
+### Using an animation to create a fading trail
 
 [The trail demo](@todo trail/readme.html) shows how to create views which animate.
 The views will be removed when the animation is finished.
