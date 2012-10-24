@@ -1,4 +1,4 @@
-## Sound, background
+## Playing a background sound
 
 This example shows how to add a background sound, pausing and resuming it.
 
@@ -39,8 +39,8 @@ exports = Class(GC.Application, function () {
 This index is the name of the file,
 the extension is depending on the system.
 If you run this demo in Chromium the file
-will be "resources/audio/background.ogg"
-else the file will be "resources/audio/background.mp3"
+will be `resources/audio/background.ogg`
+else the file will be `resources/audio/background.mp3`
 
 ~~~
                 background: {

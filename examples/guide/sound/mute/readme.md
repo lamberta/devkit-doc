@@ -1,4 +1,4 @@
-## Sound, mute
+## Muting sounds
 
 This file shows how mute sounds and effects
 

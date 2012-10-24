@@ -1,8 +1,7 @@
-## Sound, effect
+## Playing effects
 
 This example shows how to play different sound effects.
-
-How to use: Click on one of the views to play an effect
+You can click on one of the views to play an effect
 
 ~~~
 import device as device;

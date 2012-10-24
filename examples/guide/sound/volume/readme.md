@@ -1,4 +1,4 @@
-## Sound, volume
+## Setting the sound volume
 
 This example shows how to set the volume of a sound effect.
 
