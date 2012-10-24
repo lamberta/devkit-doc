@@ -9,6 +9,12 @@ The demos include both .ogg and .mp3 files however when publishing a
 project you only need the .mp3 files. The .ogg files are included
 because the Chromium browser does not support the .mp3 format.
 
+Sound demos:
+- [effects](@todo effect/readme.html)
+- [background sound](@todo background readme.html)
+- [muting](@todo mute/readme.html)
+- [volume](@todo volume/readme.html)
+
 ### Playing effects
 
 [The effects demo](@todo effect/readme.html) shows how to load several sound files and play them.
