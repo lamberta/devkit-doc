@@ -8,10 +8,14 @@ All views have several methods to handle touch events:
 * onInputMove
 * onInputOut
 
-Input demos:
+**Input demos:**
 - [andling click events](@todo click/readme.html)
 - [Detect an input out event](@todo out/readme.html)
 - [Capturing a move event](@todo trail/readme.html)
+
+**Related api docs:**
+- [View class](@todo link to view class)
+- [Emitter class](@todo link to emitter class)
 
 ### Handling click events
 
