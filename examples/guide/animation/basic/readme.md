@@ -1,6 +1,6 @@
 ## Animation, basic
 
-This file demonstrates how make a view move.
+This example demonstrates how make a view move.
 
 Import the View class:
 ~~~

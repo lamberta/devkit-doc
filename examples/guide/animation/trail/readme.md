@@ -1,8 +1,6 @@
 ## Animation, trail
 
-This example shows how ot create a trail behind the mouse when click and drag
-
-How to use: click on the view and then drag
+This example shows how ot create a trail behind the mouse when clicking and dragging.
 
 Import the View class
 

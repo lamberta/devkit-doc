@@ -1,8 +1,7 @@
 ## Animation, pause
 
 This example demonstrates how pause and resume an animation.
-
-How to use: click on the view to pause, click again to resume
+You can click on the view the pause or resume the animation.
 
 Import the View class and animate
 
