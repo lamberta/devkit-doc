@@ -1,4 +1,4 @@
-## Views, basic
+## A basic view
 
 This file demonstrates how to create a simple view.
 

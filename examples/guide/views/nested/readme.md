@@ -1,4 +1,4 @@
-## Views, nested
+## Nesting views
 
 This file demonstrates the nesting of views.
 
