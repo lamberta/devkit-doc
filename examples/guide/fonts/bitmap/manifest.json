@@ -2,6 +2,8 @@
 	"appID": "abab8d5fe2bc479081f82f5da0835174",
 	"shortName": "fontsBitmap",
 	"title": "fonts - bitmap",
+	"group": "tutorials",
+	"description": "Rendering bitmap fonts",
 	"icons": {},
 	"resources": {},
 	"targets": {},

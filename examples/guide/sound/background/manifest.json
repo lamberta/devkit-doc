@@ -2,6 +2,8 @@
 	"appID": "6cb644c4ee334e2c85fc1dabb552aea8",
 	"shortName": "soundBackground",
 	"title": "sound - background",
+	"group": "tutorials",
+	"description": "Playing a background sound",
 	"icons": {},
 	"resources": {},
 	"targets": {},

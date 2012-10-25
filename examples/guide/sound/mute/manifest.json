@@ -2,6 +2,8 @@
 	"appID": "66ae5e1a8e6245daac5232b5251d0198",
 	"shortName": "soundMote",
 	"title": "sound - mute",
+	"group": "tutorials",
+	"description": "Muting sounds",
 	"icons": {},
 	"resources": {},
 	"targets": {},

@@ -2,6 +2,8 @@
 	"appID": "89342e918022497d8edccf8e090b15ec",
 	"shortName": "imagesResources",
 	"title": "images - resources",
+	"description": "Image resources",
+	"group": "tutorials",
 	"icons": {},
 	"resources": {},
 	"targets": {},

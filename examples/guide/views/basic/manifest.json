@@ -2,6 +2,8 @@
 	"appID": "91abb12b65cc4e5d8c7e1b8569142b4a",
 	"shortName": "viewsBasic",
 	"title": "views - basic",
+	"group": "tutorials",
+	"description": "A basic view",
 	"icons": {},
 	"resources": {},
 	"targets": {},

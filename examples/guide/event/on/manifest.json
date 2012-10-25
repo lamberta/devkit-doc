@@ -2,6 +2,8 @@
 	"appID": "b457143fd009478b9794437d0053b5ae",
 	"shortName": "eventOn",
 	"title": "event - on",
+	"group": "tutorials",
+	"description": "Capturing an event with 'on'",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",

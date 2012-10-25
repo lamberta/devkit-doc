@@ -2,6 +2,8 @@
 	"appID": "52d403ce722e46b7abc878a7972a63aa",
 	"shortName": "eventPubSub",
 	"title": "event - pubsub",
+	"group": "tutorials",
+	"description": "Publishing and subscribing",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",

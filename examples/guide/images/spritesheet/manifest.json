@@ -2,6 +2,8 @@
 	"appID": "08c7be76ea6a4503bb498810bd4859b2",
 	"shortName": "imagesSpriteSheet",
 	"title": "images - sprite sheet",
+	"group": "tutorials",
+	"description": "Using a sprite sheet",
 	"icons": {},
 	"resources": {},
 	"targets": {},

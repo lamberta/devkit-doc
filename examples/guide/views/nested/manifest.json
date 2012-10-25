@@ -2,6 +2,8 @@
 	"appID": "ddccbf6abf1a47b1bf9e8c22eedd6974",
 	"shortName": "viewsNested",
 	"title": "views - nested",
+	"group": "tutorials",
+	"description": "Nesting views",
 	"icons": {},
 	"resources": {},
 	"targets": {},

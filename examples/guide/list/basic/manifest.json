@@ -2,7 +2,9 @@
 	"appID": "b0050ce9e4af4ce9abed24050c208189",
 	"shortName": "listBasic",
 	"title": "list - basic",
+	"description": "A basic list",
 	"icons": {},
+	"group": "tutorials",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

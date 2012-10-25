@@ -2,6 +2,8 @@
 	"appID": "87038edc4f7140b09fdd4c581cf11f02",
 	"shortName": "soundVolume",
 	"title": "sound - volume",
+	"group": "tutorials",
+	"description": "Setting the sound volume",
 	"icons": {},
 	"resources": {},
 	"targets": {},
