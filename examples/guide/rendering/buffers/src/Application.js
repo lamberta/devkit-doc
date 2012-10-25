@@ -20,7 +20,7 @@ exports = Class(GC.Application, function () {
 		this._pixelSize = 1 << this._pixelShift;
 
 		var Canvas = new device.get("Canvas");
-		this._buffer = new Canvas({width: device.width, height: device.height});
+		this._buffer = new Canvas({width: 120, height: 500});
 		this._ctx = this._buffer.getContext("2d");
 		this._ctx.fillStyle = "#FFFFFF";
 		this._ctx.fillRect(0, 0, device.width, device.height);

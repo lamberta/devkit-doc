@@ -1,7 +1,7 @@
 import device as device;
 import .TileView as TileView;
 
-exports = Class(GC.Application, function () {
+exports = Class(GC.Application, function() {
 
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
@@ -11,7 +11,7 @@ exports = Class(GC.Application, function () {
 		preload: []
 	};
 
-	this.initUI = function () {
+	this.initUI = function() {
 		var Canvas = device.get("Canvas");
 
 		var sizeX = 20;
@@ -56,5 +56,5 @@ exports = Class(GC.Application, function () {
 		this._tileView.scrollVertical(~~(Math.sin(this._cnt * 0.025) * 3));
 	};
 
-	this.launchUI = function () {};
+	this.launchUI = function() {};
 });

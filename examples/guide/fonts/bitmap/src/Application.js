@@ -2,7 +2,6 @@
  * This file shows how to render bitmap fonts
  */
 import device as device;
-import ui.TextView as TextView;
 
 exports = Class(GC.Application, function () {
 
