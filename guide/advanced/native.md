@@ -27,7 +27,6 @@ to this directory and make sure everything is up-to-date:
 ~~~
 $ cd ./android
 $ git submodule update --init
-$ android update project -p ./
 ~~~
 
 To let basil know where to find the android repository,
@@ -42,12 +41,6 @@ basil install:
 }
 ~~~
 
-Alternatively, you can set this path as the environmental
-variable `GC_ANDROID_ROOT`. Make this permanent by adding
-the following to your `$HOME/.profile` file:
-
-`export GC_ANDROID_ROOT="/path/to/android"`
-
 And make sure all the required sub-modules are updated:
 
 `$ basil update`
@@ -61,7 +54,7 @@ This creates an apk file located at `path/to/project/build/myapp.apk`.
 
 To create a debugging version, just add the appropriate flag:
 
-`$ basil build native-android --debug`
+`$ basil build native-android --debug --clean --no-compress`
 
 Install the application to your device:
 
