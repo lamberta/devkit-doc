@@ -62,6 +62,7 @@ import ui.SpriteView as SpriteView;
 ### new SpriteView ([options])
 1. `options {object}`
     * `url {string}` ---Sprite image file name prefix.
+	* `defaultAnimation {string}` ---Defaults to the first animation listed in the directory
     * `groupID {string} = 'default'`
     * `frameRate {number} = 15`
     * `emitFrameEvents {boolean} = false`

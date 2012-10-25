@@ -369,6 +369,16 @@ scaling. This is relative to the top-left corner of the view.
 The y position of the anchor point for rotation and
 scaling. This is relative to the top-left corner of the view.
 
+### style.flipX
+1. `{boolean} = false`
+
+If set to `true`, flips the view in-place on the x-axis.
+
+### style.flipY
+1. `{boolean} = false`
+
+If set to `true`, flips the view in-place on the y-axis.
+
 ### style.width
 1. `{number}`
 
