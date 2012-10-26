@@ -1,0 +1,32 @@
+{
+	"appID": "ddccbf6abf1a47b1bf9e8c22eedd6974",
+	"shortName": "viewsNested",
+	"title": "views - nested",
+	"group": "tutorials",
+	"description": "Nesting views",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Cool Kid Studios",
+		"domain": "cool.kids.com",
+		"stagingDomain": "staging.kids.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"appID": "08c7be76ea6a4503bb498810bd4859b2",
+	"shortName": "imagesSpriteSheet",
+	"title": "images - sprite sheet",
+	"group": "tutorials",
+	"description": "Using a sprite sheet",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Cool Kid Studios",
+		"domain": "cool.kids.com",
+		"stagingDomain": "staging.kids.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
+}

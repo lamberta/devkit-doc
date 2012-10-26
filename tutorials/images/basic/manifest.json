@@ -1,0 +1,33 @@
+{
+	"appID": "4923224586464da6a5b5357a0a2d1e84",
+	"shortName": "imagesBasic",
+	"title": "images - basic",
+	"group": "tutorials",
+	"description": "Displaying an image",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Cool Kid Studios",
+		"domain": "cool.kids.com",
+		"stagingDomain": "staging.kids.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
+}

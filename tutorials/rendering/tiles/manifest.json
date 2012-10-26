@@ -1,0 +1,32 @@
+{
+	"appID": "1c4b60305f694fd6a02b5c300e67c688",
+	"shortName": "renderingTiles",
+	"title": "rendering - tiles",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
+}

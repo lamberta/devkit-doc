@@ -1,0 +1,33 @@
+{
+	"appID": "f5e0494af35346ada483d1b6f813fbed",
+	"shortName": "inputOut",
+	"title": "input - out",
+	"group": "tutorials",
+	"description": "Detect an input out event",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Cool Kid Studios",
+		"domain": "cool.kids.com",
+		"stagingDomain": "staging.kids.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
+}

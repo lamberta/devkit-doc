@@ -1,0 +1,34 @@
+{
+	"appID": "89342e918022497d8edccf8e090b15ec",
+	"shortName": "imagesResources",
+	"title": "images - resources",
+	"description": "Image resources",
+	"group": "tutorials",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
+}
