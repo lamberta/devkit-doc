@@ -1,10 +1,35 @@
-/*
- * This file shows how ot create a trail behind the mouse when click and drag
- *
- * How to use: click on the view and then drag
- */
+//# Trailing Animation
+//This example shows how ot create a trail behind the mouse when clicking and dragging.
+//How to use: click on the view and then drag.
+
+//Import the View class.
 import ui.View as View;
 
+//## Class: Application
+//Create an application.
+exports = Class(GC.Application, function() {
+	//Settings for the app.
+	this._settings = {
+		logsEnabled: window.DEV_MODE,
+		showFPS: window.DEV_MODE,
+		clearEachFrame: true,
+		alwaysRepaint: true,
+		preload: []
+	};
+
+	this.initUI = function() {
+		this.view.onInputMove = bind(this, "onInputMove");
+	};
+
+	this.onInputMove = function(evt, pt) {
+		var trailbox = new TrailBox(merge(pt, {superview: this.view}))
+	};
+
+	this.launchUI = function () {};
+});
+
+//## Class: TrailBox
+//Create a View which fades out and the removes its self.
 var TrailBox = Class(View, function(supr) {
 	this.init = function(opts) {
 		opts = merge(opts, {
@@ -20,8 +45,7 @@ var TrailBox = Class(View, function(supr) {
 		supr(this, "init", [opts]);
 
 		this.getAnimation()
-			.then(
-			{
+			.then({
 				opacity: 0,
 				x: opts.x - 15,
 				y: opts.y - 15,
@@ -30,29 +54,7 @@ var TrailBox = Class(View, function(supr) {
 				width: 30,
 				height: 30,
 				r: Math.PI * 4
-			},
-			500)
+			}, 500)
 			.then(bind(this, "removeFromSuperview"));
 	};
-});
-
-exports = Class(GC.Application, function() {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
-	this.initUI = function() {
-		this.view.onInputMove = bind(this, "onInputMove");
-	};
-
-	this.onInputMove = function(evt, pt) {
-		new TrailBox(merge(pt, {superview: this.view}))
-	};
-
-	this.launchUI = function () {};
 });

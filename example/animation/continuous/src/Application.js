@@ -1,11 +1,12 @@
-/*
- * This file demonstrates how make a view move continuous.
- */
+//This file demonstrates how make a view move continuous.
+
+//Import the View class and animate module.
 import ui.View as View;
 import animate as animate;
 
-exports = Class(GC.Application, function() {
-
+// ## Class: Application
+exports = Class(GC.Application, function () {
+	//Settings for the application.
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
 		showFPS: window.DEV_MODE,
@@ -31,11 +32,16 @@ exports = Class(GC.Application, function() {
 	this.createAnimation = function() {
 		this._animationView.getAnimation()
 			.clear()
-			.then({x: 200}, 1000, animate.linear) // Move right - linear
-			.then({y: 200}, 1000, animate.easeIn) // Move down - ease in
-			.then({x: 20}, 1000, animate.easeOut) // Move left - ease out
-			.then({y: 20}, 1000, animate.easeInOut)// Move up - ease in, ease out
-			.then(bind(this, "createAnimation")); // Start animating again
+			// Move right - linear
+			.then({x: 200}, 1000, animate.linear)
+			// Move down - ease in
+			.then({y: 200}, 1000, animate.easeIn)
+			// Move left - ease out
+			.then({x: 20}, 1000, animate.easeOut)
+			// Move up - ease in, ease out
+			.then({y: 20}, 1000, animate.easeInOut)
+			// Start animating again
+			.then(bind(this, "createAnimation"));
 	};
 
 	this.launchUI = function () {};

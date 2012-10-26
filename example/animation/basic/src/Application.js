@@ -1,10 +1,11 @@
-/*
- * This file demonstrates how make a view move.
- */
+//This file demonstrates how make a view move.
+
+//Import the View class.
 import ui.View as View;
 
+//## Class: Application
 exports = Class(GC.Application, function() {
-
+	//Set the default settings of the application.
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
 		showFPS: window.DEV_MODE,
@@ -14,7 +15,7 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.initUI = function() {
-		// Create a single red squared view...
+		//Create a single red squared view...
 		var view = new View({
 			superview: this.view,
 			backgroundColor: "red",
@@ -25,8 +26,10 @@ exports = Class(GC.Application, function() {
 		});
 
 		view.getAnimation()
-			.then({x: 200}, 500) // Change the x property from 20 to 200 in 500ms...
-			.then({x: 20}, 1500); // Change the x property fron 200 to 20 in 1500ms...
+			//Change the x property from 20 to 200 in 500 ms.
+			.then({x: 200}, 500)
+			//Change the x property fron 200 to 20 in 1500 ms.
+			.then({x: 20}, 1500);
 	};
 
 	this.launchUI = function () {};
