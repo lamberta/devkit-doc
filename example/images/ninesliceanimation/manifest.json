@@ -4,6 +4,7 @@
 	"title": "images - 9 slice anim",
 	"group": "tutorials",
 	"description": "Using 9-Slice image scaling in an animation",
+	"docLink": "http://doc.gameclosure.com/example/images-ninesliceanimation/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

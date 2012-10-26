@@ -4,10 +4,10 @@
 	"title": "views - basic",
 	"group": "tutorials",
 	"description": "A basic view",
+	"docLink": "http://doc.gameclosure.com/example/view-basic/",
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Cool Kid Studios",
 		"domain": "cool.kids.com",

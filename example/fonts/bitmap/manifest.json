@@ -4,6 +4,7 @@
 	"title": "fonts - bitmap",
 	"group": "tutorials",
 	"description": "Rendering bitmap fonts",
+	"docLink": "http://doc.gameclosure.com/example/fonts-bitmap/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

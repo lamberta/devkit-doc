@@ -4,6 +4,7 @@
 	"title": "event - on",
 	"group": "tutorials",
 	"description": "Capturing an event with 'on'",
+	"docLink": "http://doc.gameclosure.com/example/event-on/",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",

@@ -4,6 +4,7 @@
 	"title": "event - pubsub",
 	"group": "tutorials",
 	"description": "Publishing and subscribing",
+	"docLink": "http://doc.gameclosure.com/example/event-pubsub/",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",

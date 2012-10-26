@@ -4,6 +4,7 @@
 	"title": "input - trail",
 	"group": "tutorials",
 	"description": "Capturing a move event",
+	"docLink": "http://doc.gameclosure.com/example/input-trail/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

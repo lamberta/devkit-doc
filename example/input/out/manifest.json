@@ -4,6 +4,7 @@
 	"title": "input - out",
 	"group": "tutorials",
 	"description": "Detect an input out event",
+	"docLink": "http://doc.gameclosure.com/example/input-out/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

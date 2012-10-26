@@ -4,6 +4,7 @@
 	"title": "fonts - bitmap composite",
 	"group": "tutorials",
 	"description": "Rendering composite bitmap fonts",
+	"docLink": "http://doc.gameclosure.com/example/fonts-bitmapcomposite/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

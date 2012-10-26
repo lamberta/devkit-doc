@@ -1,9 +1,10 @@
 {
 	"appID": "0aaaedc5afa847e89464b6d8d57df4f1",
 	"shortName": "animBasic",
-	"title": "anim - basic",
+	"title": "Basic Animation",
 	"group": "tutorials",
 	"description": "A basic animation",
+	"docLink": "http://doc.gameclosure.com/example/animation-basic/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

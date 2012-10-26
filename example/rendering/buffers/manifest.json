@@ -5,7 +5,9 @@
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"groups": {},
+	"group": "tutorials",
+	"description": "Rendering in offscreen buffers",
+	"docLink": "http://doc.gameclosure.com/example/rendering-buffers/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

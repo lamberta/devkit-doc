@@ -5,7 +5,9 @@
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"groups": {},
+	"group": "tutorials",
+	"description": "Rendering tiles",
+	"docLink": "http://doc.gameclosure.com/example/rendering-tiles/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

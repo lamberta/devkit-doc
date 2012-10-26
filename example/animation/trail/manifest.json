@@ -1,9 +1,10 @@
 {
 	"appID": "614296f4cc894e5f9375af19a51349ba",
 	"shortName": "animTrail",
-	"title": "anim - trail",
+	"title": "Trailing Animation",
 	"group": "tutorials",
 	"description": "Using an animation to create a fading trail",
+	"docLink": "http://doc.gameclosure.com/example/animation-trail/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

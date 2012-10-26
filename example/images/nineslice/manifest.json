@@ -4,6 +4,7 @@
 	"title": "images - 9 slice",
 	"group": "tutorials",
 	"description": "Using 9-Slice image scaling",
+	"docLink": "http://doc.gameclosure.com/example/images-nineslice/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

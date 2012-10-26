@@ -4,6 +4,7 @@
 	"title": "input - click",
 	"group": "tutorials",
 	"description": "Handling click events",
+	"docLink": "http://doc.gameclosure.com/example/input-click/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

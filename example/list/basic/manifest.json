@@ -3,6 +3,9 @@
 	"shortName": "listBasic",
 	"title": "list - basic",
 	"icons": {},
+	"group": "tutorials",
+	"description": "Displaying a list",
+	"docLink": "http://doc.gameclosure.com/example/list-basic/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

@@ -1,9 +1,10 @@
 {
 	"appID": "65fb0d7e07cb4e399213b923b3b6eee3",
 	"shortName": "animPause",
-	"title": "anim - pause",
+	"title": "Pause Animation",
 	"group": "tutorials",
 	"description": "Pausing and resuming an animation",
+	"docLink": "http://doc.gameclosure.com/example/animation-pause/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

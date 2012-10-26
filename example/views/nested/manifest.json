@@ -4,6 +4,7 @@
 	"title": "views - nested",
 	"group": "tutorials",
 	"description": "Nesting views",
+	"docLink": "http://doc.gameclosure.com/example/view-nested/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

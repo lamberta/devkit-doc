@@ -7,7 +7,9 @@
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"groups": {},
+	"group": "tutorials",
+	"description": "Background sound",
+	"docLink": "http://doc.gameclosure.com/example/sound-background/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
