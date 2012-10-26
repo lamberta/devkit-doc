@@ -1,6 +1,7 @@
 build/
 html/api/
 html/guide/
+example/*/*/sdk
 examples/out/
 examples/*/*/sdk/
 tutorials/*/*/sdk
