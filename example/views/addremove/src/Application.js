@@ -87,4 +87,4 @@ var JumpingBox = Class(View, function (supr) {
 	};
 });
 
-//![Screenshot 1](../img/screenshot1.png)
+//![Screenshot 1](./img/screenshot1.png)

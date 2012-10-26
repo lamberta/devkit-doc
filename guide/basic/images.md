@@ -7,7 +7,7 @@ and renders it to the screen. In this example the image is located
 in `resources/images/specialBlue`.
 
 ~~~
-m4_include(./examples/guide/images/basic.js)
+m4m4_include(./examples/guide/images/basic.js)
 ~~~
 
 When you open the application `images - basic` and run it then
