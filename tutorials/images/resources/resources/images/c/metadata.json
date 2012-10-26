@@ -1,0 +1,9 @@
+{
+	"targets": [
+		"native-android",
+		"native-ios",
+		"browser-desktop"
+	],
+	"scale": 0.5,
+	"png8": true
+}

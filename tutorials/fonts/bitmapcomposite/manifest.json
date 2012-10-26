@@ -1,0 +1,35 @@
+{
+	"appID": "d650bd4484614019a8e82cb10ebb4a97",
+	"shortName": "fontsBitmapComposite",
+	"title": "fonts - bitmap composite",
+	"group": "tutorials",
+	"description": "Rendering composite bitmap fonts",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"fonts": "resources/fonts/fonts.json",
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
+}

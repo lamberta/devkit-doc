@@ -1,0 +1,35 @@
+{
+	"appID": "abab8d5fe2bc479081f82f5da0835174",
+	"shortName": "fontsBitmap",
+	"title": "fonts - bitmap",
+	"group": "tutorials",
+	"description": "Rendering bitmap fonts",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"fonts": "resources/fonts/fonts.json",
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
+}

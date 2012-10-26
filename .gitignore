@@ -1,8 +1,9 @@
+build/
 html/api/
 html/guide/
 examples/out/
-examples/*/build/
 examples/*/*/sdk/
+tutorials/*/*/sdk
 .DS_Store
 .tealeaf_sdk
 .swp
