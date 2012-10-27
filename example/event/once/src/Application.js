@@ -1,29 +1,11 @@
-/*
- * This demo shows how to use publish and subscribe.
- */
+//# Subscribe to an event once
+
+//Import device to get the width of the screen and the TextView class.
 import device;
 import ui.TextView as TextView;
 
-var PublishView = Class(TextView, function(supr) {
-	this.onInputSelect = function() {
-		this._value = this._value || 0;
-		this._value++;
-		this.publish("Clicked", this._value);
-	};
-});
-
-var SubscribeView1 = Class(TextView, function(supr) {
-	this.onClick = function(someValue) {
-		this.setText("Red was clicked, someValue: " + someValue);
-	};
-});
-
-var SubscribeView2 = Class(TextView, function(supr) {
-	this.onClick = function(text, someValue) {
-		this.setText(text + someValue);
-	};
-});
-
+//## Class: Application
+//Create a view with a function which can be called when the view is clicked, the takes two parameters.
 exports = Class(GC.Application, function() {
 
 	this._settings = {
@@ -96,4 +78,31 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.launchUI = function () {};
+});
+
+//## Class: PublishView
+//Create a view which publishes an event and a value, each time the view is clicked the value will be increased.
+var PublishView = Class(TextView, function(supr) {
+	this.onInputSelect = function() {
+		this._value = this._value || 0;
+		this._value++;
+		this.publish("Clicked", this._value);
+	};
+});
+
+//## Class: SubscribeView1
+//Create a view with a function which can be called when the view is clicked, the takes one parameter.
+var SubscribeView1 = Class(TextView, function(supr) {
+	this.onClick = function(someValue) {
+		this.setText("Red was clicked, someValue: " + someValue);
+	};
+});
+
+
+//## Class: SubscribeView2
+//Create a view with a function which can be called when the view is clicked, the takes two parameters.
+var SubscribeView2 = Class(TextView, function(supr) {
+	this.onClick = function(text, someValue) {
+		this.setText(text + someValue);
+	};
 });
