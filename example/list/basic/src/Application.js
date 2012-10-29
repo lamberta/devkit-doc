@@ -1,34 +1,57 @@
+//# A Basic List
+
+//This example shows how to display a list of items.
+
+//Import device to get the screen size, `GCDataSource` to store the items,
+//the `List` and `Cell` classes to create a list.
 import device;
 import GCDataSource;
 import ui.TextView as TextView;
 import ui.widget.List as List;
 import ui.widget.Cell as Cell;
 
-var scifiFilms = [
-	{title: 'Blade Runner', year: 1982},
-	{title: '2001: A Space Odyssey', year: 1968},
-	{title: 'Alien', year: 1979},
-	{title: 'The Terminator', year: 1984},
-	{title: 'The Matrix', year: 1999},
-	{title: 'Close Encounters of the Third Kind', year: 1977},
-	{title: 'Inception', year: 2010},
-	{title: 'WALL-E', year: 2008},
-	{title: 'Metropolis', year: 1927},
-	{title: 'Tron', year: 1982},
-	{title: 'E.T.: The Extra-Terrestrial', year: 1982},
-	{title: 'Back to the Future', year: 1985},
-	{title: 'Tron', year: 1982},
-	{title: 'Solaris', year: 1972},
-	{title: 'Brazil', year: 1985},
-	{title: 'Star Trek II: The Wrath of Khan', year: 1982},
-	{title: 'Star Wars', year: 1977},
-	{title: 'Planet of the Apes', year: 1968},
-	{title: 'RoboCop', year: 1987},
-	{title: 'Godzilla', year: 1954},
-	{title: 'Mad Max', year: 1979}
-];
+//## Class: Application
+//Create an application, set the default properties.
+exports = Class(GC.Application, function () {
 
-// A Cell is a View, it can have child views, and accepts data from a List.
+	this._settings = {
+		logsEnabled: window.DEV_MODE,
+		showFPS: window.DEV_MODE,
+		clearEachFrame: true,
+		alwaysRepaint: true,
+		preload: []
+	};
+
+	this.initUI = function () {
+		// Set up the datasource.
+		var filmData = new GCDataSource({
+			// Entries require a key, which defaults to 'id'.
+			key: 'title',
+			//Sort by oldest first
+			sorter: function (data) { return data.year; }
+		});
+		// And load our data.
+		filmData.add(scifiFilms);
+
+		// Create the List, which inherits from ScrollView.
+		var filmList = new List({
+			superview: this.view,
+			x: 0,
+			y: 0,
+			width: device.width,
+			height: device.height,
+			//Use the dataSource:
+			dataSource: filmData,
+			scrollX: false,
+			getCell: function () { return new FilmCell({superview: filmList, height: 50}); }
+		});
+	};
+
+	this.launchUI = function () {};
+});
+
+//## Class: FilmCell
+//Subclass a Cell which is a view, it can have child views, and accepts data from a List.
 var FilmCell = Class(Cell, function (supr) {
 	this.init = function (opts) {
 		supr(this, 'init', arguments);
@@ -57,37 +80,27 @@ var FilmCell = Class(Cell, function (supr) {
 	};
 });
 
-exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
-	this.initUI = function () {
-		// Set up the datasource ...
-		var filmData = new GCDataSource({
-			key: 'title', // Entries require a key, which defaults to 'id'.
-			sorter: function (data) { return data.year; } //Sort by oldest first
-		});
-		// And load our data ...
-		filmData.add(scifiFilms);
-
-		// Create the List, which inherits from ScrollView ...
-		var filmList = new List({
-			superview: this.view,
-			x: 0,
-			y: 0,
-			width: device.width,
-			height: device.height,
-			dataSource: filmData, // attach our data
-			scrollX: false,
-			getCell: function () { return new FilmCell({superview: filmList, height: 50}); }
-		});
-	};
-
-	this.launchUI = function () {};
-});
+//These are the items which will be displayed in the list.
+var scifiFilms = [
+	{title: 'Blade Runner', year: 1982},
+	{title: '2001: A Space Odyssey', year: 1968},
+	{title: 'Alien', year: 1979},
+	{title: 'The Terminator', year: 1984},
+	{title: 'The Matrix', year: 1999},
+	{title: 'Close Encounters of the Third Kind', year: 1977},
+	{title: 'Inception', year: 2010},
+	{title: 'WALL-E', year: 2008},
+	{title: 'Metropolis', year: 1927},
+	{title: 'Tron', year: 1982},
+	{title: 'E.T.: The Extra-Terrestrial', year: 1982},
+	{title: 'Back to the Future', year: 1985},
+	{title: 'Tron', year: 1982},
+	{title: 'Solaris', year: 1972},
+	{title: 'Brazil', year: 1985},
+	{title: 'Star Trek II: The Wrath of Khan', year: 1982},
+	{title: 'Star Wars', year: 1977},
+	{title: 'Planet of the Apes', year: 1968},
+	{title: 'RoboCop', year: 1987},
+	{title: 'Godzilla', year: 1954},
+	{title: 'Mad Max', year: 1979}
+];
