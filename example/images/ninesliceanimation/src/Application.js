@@ -1,10 +1,16 @@
-/*
- * This file demonstrates how to use 9-slice in an animating scroll.
- */
+//## Using 9-Slice image scaling in an animation
+//This file demonstrates how to use 9-slice in an animating scroll.
+//This example requires two images located in the resources directory:
+//`resources/images/scrollBottom.png` and `resources/images/scrollTop.png`.
+
+//Import device to get the size of the screen, import ImageView to display a
+//basic image and import ImageScaleView to apply 9-slice scaling to an image.
 import device as device;
 import ui.ImageView as ImageView;
 import ui.ImageScaleView as ImageScaleView;
 
+//## Class: Application
+//Create an application class with the default settings.
 exports = Class(GC.Application, function() {
 
 	this._settings = {
@@ -16,7 +22,7 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.initUI = function() {
-		// The device width is used to center the image...
+		// The device width is used to center the image.
 		this._imageScaleView = new ImageScaleView({
 			superview: this.view,
 			x: (device.width - 165) / 2,
@@ -51,7 +57,7 @@ exports = Class(GC.Application, function() {
 		});
 
 		// Put an image on top of the animating image...
-		new ImageView({
+		var imageview = new ImageView({
 			superview: this.view,
 			x: (device.width - 165) / 2,
 			y: 10,
@@ -63,15 +69,22 @@ exports = Class(GC.Application, function() {
 		this.animate();
 	};
 
+	//A continuous animation.
+	//First the height of the image is increased, the center stretches but the top
+	//and bottom caps keep their with and height. When the image height is 250 pixels
+	//then then animation pauses for 1.5 seconds after which the size is decreased to
+	//70 pixels. After pausing another 1.5 seconds the animation starts again.
 	this.animate = function() {
-		// A continuous animation...
 		this._imageScaleView.getAnimation()
 			.clear()
-			.then({height: 250}, 350) // Increase the height, the center stretches
+			// Increase the height, the center stretches
+			.then({height: 250}, 350)
 			.wait(1500)
-			.then({height: 70}, 350) // Decrease the height
+			// Decrease the height
+			.then({height: 70}, 350)
 			.wait(1500)
-			.then(bind(this, "animate")); // Run it again
+			// Run it again
+			.then(bind(this, "animate"));
 	};
 
 	this.launchUI = function () {};

@@ -1,11 +1,16 @@
-/*
- * This file demonstrates how to use 9-slice.
- */
-import device as device;
+//## Using 9-Slice image scaling
+//This file demonstrates how to use 9-slice.
+//This example requires an image in your resources directory and renders it to the screen.
+//In this example the image is located in `resources/images/border.png`.
+
+//Import device to get the width of the screen.
+import device;
+//Import the ImageScaleView class which allows us to apply 9-slice scaling to an image.
 import ui.ImageScaleView as ImageScaleView;
 
+//## Class: Application
 exports = Class(GC.Application, function() {
-
+	//Set the default settings.
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
 		showFPS: window.DEV_MODE,
@@ -15,10 +20,11 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.initUI = function() {
+		//Initialize the ui, give the background a gray color.
 		this.view.updateOpts({backgroundColor: "#808080"});
 
 		// The device width is used to center the image...
-		new ImageScaleView({
+		var imagescaleview0 = new ImageScaleView({
 			superview: this.view,
 			x: (device.width - 200) / 2,
 			y: 10,
@@ -52,7 +58,7 @@ exports = Class(GC.Application, function() {
 		});
 
 		// The line weight can be controlled by changing the destination slices:
-		new ImageScaleView({
+		var imagescaleview1 = new ImageScaleView({
 			superview: this.view,
 			x: (device.width - 200) / 2,
 			y: 120,
@@ -73,3 +79,6 @@ exports = Class(GC.Application, function() {
 
 	this.launchUI = function () {};
 });
+
+//The output should look like this screenshot:
+//<img src="screenshot.png" alt="a book screenshot" class="screenshot">
