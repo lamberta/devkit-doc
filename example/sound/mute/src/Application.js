@@ -1,29 +1,15 @@
-/*
- * This file shows how mute sounds and effects
- */
+//# Muting sounds
+//This file shows how mute sounds and effects
+
+//Import device to get the width of the screen, import the Sound class to play music and effects.
 import device as device;
 import Sound as Sound;
+//Import View and TextView to display elements.
 import ui.View as View;
 import ui.TextView as TextView;
 
-var SoundView = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", [opts]);
-
-		this._callback = opts.callback;
-		this._sound = opts.sound;
-
-		this.muted = false;
-	};
-
-	this.onInputSelect = function() {
-		this.muted = !this.muted;
-		this._callback(this.muted); // Call the mute function
-		this.updateOpts({backgroundColor: this.muted ? "#FF0000" : "#00FF00"});
-		this.publish("Change");
-	};
-});
-
+//## Class: Application
+//Create an application and set the default properties.
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -92,4 +78,26 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.launchUI = function () {};
+});
+
+
+//## Class: SoundView
+//Create a view which will call a mute callback when clicked.
+var SoundView = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", [opts]);
+
+		this._callback = opts.callback;
+		this._sound = opts.sound;
+
+		this.muted = false;
+	};
+
+	this.onInputSelect = function() {
+		this.muted = !this.muted;
+		// Call the mute function
+		this._callback(this.muted);
+		this.updateOpts({backgroundColor: this.muted ? "#FF0000" : "#00FF00"});
+		this.publish("Change");
+	};
 });

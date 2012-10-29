@@ -1,25 +1,14 @@
-/*
- * This file shows how to play different sound effects.
- *
- * How to use: Click on one of the views to play an effect
- */
-import device as device;
-import Sound as Sound;
+//# Playing effects
+
+//This example shows how to play different sound effects.
+//You can click on one of the views to play an effect
+
+import device;
+import Sound;
 import ui.View as View;
 
-var SoundView = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", [opts]);
-
-		this._sound = opts.sound;
-		this._index = opts.index;
-	};
-
-	this.onInputSelect = function() {
-		this._sound.play(this._index);
-	};
-});
-
+//## Class: Application
+//Create an application and set the default settings.
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -55,10 +44,11 @@ exports = Class(GC.Application, function () {
 		});
 
 		// Create three views, click on them the hear an effect play...
-		var w = device.width / 3;
-		var colors = ["#FF0000", "#00FF00", "#0000FF"];
+		var w = device.width / 3,
+				colors = ["#FF0000", "#00FF00", "#0000FF"];
+		
 		for (var i = 0; i < 3; i++) {
-			new SoundView({
+			var soundview = new SoundView({
 				superview: this.view,
 				x: i * w + 10,
 				y: 10,
@@ -72,4 +62,18 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.launchUI = function () {};
+});
+
+//## Class: SoundView
+var SoundView = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", [opts]);
+
+		this._sound = opts.sound;
+		this._index = opts.index;
+	};
+
+	this.onInputSelect = function() {
+		this._sound.play(this._index);
+	};
 });

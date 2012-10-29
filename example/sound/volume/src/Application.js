@@ -1,26 +1,14 @@
-/*
- * This file shows how to set the volume of a sound effect.
- *
- * How to use: Click on one of the views to play an effect
- */
-import device as device;
-import Sound as Sound;
+//# Setting the sound volume
+//This example shows how to set the volume of a sound effect.
+//How to use: Click on one of the views to play an effect
+
+//Import device the get the screen size, the Sound class for playing sounds and effects and the View class to display views:
+import device;
+import Sound;
 import ui.View as View;
 
-var SoundView = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, "init", [opts]);
-
-		this._sound = opts.sound;
-		this._volume = opts.volume;
-	};
-
-	this.onInputSelect = function() {
-		this._sound.setVolume("sound1", this._volume);
-		this._sound.play("sound1");
-	};
-});
-
+//## Class: Application
+//Create an application and set the default properties.
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -50,7 +38,7 @@ exports = Class(GC.Application, function () {
 		var colors = ["#FF0000", "#00FF00", "#0000FF"];
 		var volumes = [0.2, 0.6, 1.0];
 		for (var i = 0; i < 3; i++) {
-			new SoundView({
+			var soundview = new SoundView({
 				superview: this.view,
 				x: i * w + 10,
 				y: 10,
@@ -64,4 +52,20 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.launchUI = function () {};
+});
+
+//## Class: SoundView
+//Create a view which can be clicked to play a sound.
+var SoundView = Class(View, function(supr) {
+	this.init = function(opts) {
+		supr(this, "init", [opts]);
+
+		this._sound = opts.sound;
+		this._volume = opts.volume;
+	};
+
+	this.onInputSelect = function() {
+		this._sound.setVolume("sound1", this._volume);
+		this._sound.play("sound1");
+	};
 });

@@ -1,9 +1,11 @@
-/*
- * This file shows how to add a background sound, pausing and resuming it.
- */
-import Sound as Sound;
+//# Playing a background sound
+//This example shows how to add a background sound, pausing and resuming it.
+
+//Import the Sound class and the TextView class.
+import Sound;
 import ui.TextView as TextView;
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -41,7 +43,7 @@ exports = Class(GC.Application, function () {
 		this._sound.play("background", {loop: true});
 	};
 
-	// Pause or resume the sound...
+	// Pause or resume the sound.
 	this.onClick = function() {
 		this._paused = !this._paused;
 		this._textView.setText("Click to " + (this._paused ? "resume" : "pause"));
