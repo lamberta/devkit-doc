@@ -1,9 +1,37 @@
-/*
- * This file shows how to render basic text
- */
-import device as device;
+//This file shows how to render basic text
+
+//# Rendering TTF fonts
+//The SDK supports TTF fonts to render texts with the fillText method.
+//This example shows how to render basic text
+
+//Import device to get the width of the screen and the View class:
+import device;
 import ui.View as View;
 
+//## Class: Application.js
+exports = Class(GC.Application, function() {
+
+	this._settings = {
+		logsEnabled: window.DEV_MODE,
+		showFPS: window.DEV_MODE,
+		clearEachFrame: true,
+		alwaysRepaint: true,
+		preload: []
+	};
+
+	this.initUI = function () {
+		//Create a view which renders a couple of lines of text ...
+		var ttfview = new TTFView({
+			superview: this.view,
+			width: device.width,
+			height: device.height
+		});
+	};
+
+	this.launchUI = function () {};
+});
+
+//## Class: TTFView
 var TTFView = Class(View, function() {
 	this._renderText = function(ctx, text, y) {
 		ctx.fillStyle = "#FFFFFF";
@@ -17,23 +45,5 @@ var TTFView = Class(View, function() {
 	};
 });
 
-exports = Class(GC.Application, function() {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
-	this.initUI = function () {
-		new TTFView({
-			superview: this.view,
-			width: device.width,
-			height: device.height
-		});
-	};
-
-	this.launchUI = function () {};
-});
+//The output should look like this screenshot:
+//<img src="./imgscreenshot.png" alt="a book screenshot" class="screenshot">
