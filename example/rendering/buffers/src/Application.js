@@ -1,5 +1,13 @@
-import device as device;
+//## Rendering to a buffer
 
+//This example shows how to create a buffer, rendering to that buffer
+//and displaying the buffer on the screen.
+
+//Import device the get the screen size and a device dependent Canvas constructor.
+import device;
+
+//## Class: Application
+//Create an application, set the default settings.
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -10,6 +18,10 @@ exports = Class(GC.Application, function () {
 		preload: []
 	};
 
+	//Capture the following events:
+	//* inputStart: to start drawing
+	//* inputMove: to change the end point of the list
+	//* inputSelect: place the line on the screen
 	this.initUI = function () {
 		this.view.render = bind(this, "render");
 		this.view.onInputStart = bind(this, "onInputStart");
@@ -19,6 +31,7 @@ exports = Class(GC.Application, function () {
 		this._pixelShift = 3;
 		this._pixelSize = 1 << this._pixelShift;
 
+		//Get a device dependent Canvas constructor.
 		var Canvas = new device.get("Canvas");
 		this._buffer = new Canvas({width: 120, height: 500});
 		this._ctx = this._buffer.getContext("2d");
@@ -58,26 +71,29 @@ exports = Class(GC.Application, function () {
 		}
 	};
 
+	//Render the buffer to the screen.
 	this.render = function(ctx) {
 		ctx.drawImage(this._buffer, 0, 0);
 		if (this._startX) {
+			//Check if a new line is being drawn.
 			this._renderLine(ctx);
 		}
 	};
 
-	this.onInputStart = function(evt, pt) {
+	//The user starts drawing.
+	this.onInputStart = function (evt, pt) {
 		this._startX = pt.x >> this._pixelShift;
 		this._startY = pt.y >> this._pixelShift;
 		this._endX = pt.x >> this._pixelShift;
 		this._endY = pt.y >> this._pixelShift;
 	};
-
-	this.onInputMove = function(evt, pt) {
+	//The end position is dragged.
+	this.onInputMove = function (evt, pt) {
 		this._endX = pt.x >> this._pixelShift;
 		this._endY = pt.y >> this._pixelShift;
 	};
-
-	this.onInputSelect = function(evt, pt) {
+	//The user stops dragging and the line is rendered to the off-screen buffer.
+	this.onInputSelect = function (evt, pt) {
 		this._renderLine(this._ctx);
 		this._startX = null;
 	};
