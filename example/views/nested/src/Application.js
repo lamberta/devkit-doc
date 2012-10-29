@@ -1,8 +1,36 @@
-/*
- * This file demonstrates the nesting of views.
- */
+//## Nesting views
+//This file demonstrates the nesting of views.
+
+//Import ui.View class.
 import ui.View as View;
 
+//## Class: Application
+exports = Class(GC.Application, function() {
+
+	this._settings = {
+		logsEnabled: window.DEV_MODE,
+		showFPS: window.DEV_MODE,
+		clearEachFrame: true,
+		alwaysRepaint: true,
+		preload: []
+	};
+
+	this.initUI = function() {
+		var nestedbox = new NestedBox({
+			superview: this.view,
+			backgroundColor: "#008800",
+			x: 20,
+			y: 20,
+			width: 140,
+			height: 140
+		});
+	};
+
+	this.launchUI = function () {};
+});
+
+
+//## Class: NestedBox
 var NestedBox = Class(View, function(supr) {
 	// Called before the first render of the view
 	this.buildView = function () {
@@ -25,28 +53,4 @@ var NestedBox = Class(View, function(supr) {
 			backgroundColor: '#0000FF'
 		});
 	};
-});
-
-exports = Class(GC.Application, function() {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
-	this.initUI = function() {
-		new NestedBox({
-			superview: this.view,
-			backgroundColor: "#008800",
-			x: 20,
-			y: 20,
-			width: 140,
-			height: 140
-		});
-	};
-
-	this.launchUI = function () {};
 });

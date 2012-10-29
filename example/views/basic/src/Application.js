@@ -1,8 +1,10 @@
-/*
- * This file demonstrates how to create a simple view.
- */
+//# A basic view
+//This file demonstrates how to create a simple view.
+
+//Import the ui.View class.
 import ui.View as View;
 
+//## Class: Application
 exports = Class(GC.Application, function() {
 
 	this._settings = {
