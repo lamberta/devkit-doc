@@ -8,6 +8,33 @@
 //Import the ImageView class.
 import ui.ImageView as ImageView;
 
+//Class: Application
+//An application with default settings is defined.
+exports = Class(GC.Application, function() {
+
+	this._settings = {
+		logsEnabled: window.DEV_MODE,
+		showFPS: window.DEV_MODE,
+		clearEachFrame: true,
+		alwaysRepaint: true,
+		preload: []
+	};
+
+	this.initUI = function() {
+		//The SheetView class is instantiated with the root view as the parent.
+		var sheetview = new SheetView({
+			superview: this.view,
+			x: 10,
+			y: 10,
+			width: 26 * 3,
+			height: 26 * 3,
+			image: "resources/images/stars.png"
+		});
+	};
+
+	this.launchUI = function () {};
+});
+
 //## Class: SheetView
 //Create a class to display an image from a sprite map:
 var SheetView = Class(ImageView, function(supr) {
@@ -49,31 +76,4 @@ var SheetView = Class(ImageView, function(supr) {
 			map.y = this._offsetY + (this._index % 3) * this._sizeY;
 		}
 	};
-});
-
-//Class: Application
-//An application with default settings is defined.
-exports = Class(GC.Application, function() {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
-	this.initUI = function() {
-		//The SheetView class is instantiated with the root view as the parent.
-		var sheetview = new SheetView({
-			superview: this.view,
-			x: 10,
-			y: 10,
-			width: 26 * 3,
-			height: 26 * 3,
-			image: "resources/images/stars.png"
-		});
-	};
-
-	this.launchUI = function () {};
 });
