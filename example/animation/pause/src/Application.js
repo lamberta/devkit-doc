@@ -1,10 +1,10 @@
 //# Pause an Animation
-//This file demonstrates how pause and resume an animation.
-//How to use: click on the view to pause, click again to resume.
+//Pause and resume an animation. Click on the view to pause, click again to resume.
 
-//Import the View class and the animate module.
+//Import the `ui.View` class.
 import ui.View as View;
-import animate as animate;
+//Import the `animate` module.
+import animate;
 
 //## Class: Application
 exports = Class(GC.Application, function() {
@@ -19,9 +19,9 @@ exports = Class(GC.Application, function() {
 
 	this.initUI = function() {
 		// Create a single red squared view...
-		new AnimationView({
+		var square = new AnimationView({
 			superview: this.view,
-			backgroundColor: "red",
+			backgroundColor: '#ff0000',
 			x: 20,
 			y: 20,
 			width: 100,

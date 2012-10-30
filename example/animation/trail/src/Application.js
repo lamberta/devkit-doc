@@ -2,12 +2,13 @@
 //This example shows how ot create a trail behind the mouse when clicking and dragging.
 //How to use: click on the view and then drag.
 
-//Import the View class.
+//Import the `ui.View` class.
 import ui.View as View;
+//Import the `animate` module.
+import animate;
 
 //## Class: Application
-//Create an application.
-exports = Class(GC.Application, function() {
+exports = Class(GC.Application, function () {
 	//Settings for the app.
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
@@ -17,21 +18,19 @@ exports = Class(GC.Application, function() {
 		preload: []
 	};
 
-	this.initUI = function() {
-		this.view.onInputMove = bind(this, "onInputMove");
+	this.initUI = function () {
+		this.view.on('InputView', function (evt, pt) {
+			var trailbox = new TrailBox(merge(pt, {superview: this.view}))
+		});
 	};
-
-	this.onInputMove = function(evt, pt) {
-		var trailbox = new TrailBox(merge(pt, {superview: this.view}))
-	};
-
+	
 	this.launchUI = function () {};
 });
 
 //## Class: TrailBox
 //Create a View which fades out and the removes its self.
 var TrailBox = Class(View, function(supr) {
-	this.init = function(opts) {
+	this.init = function (opts) {
 		opts = merge(opts, {
 			backgroundColor: "#FF0000",
 			opacity: 0.8,
@@ -42,19 +41,17 @@ var TrailBox = Class(View, function(supr) {
 			r: 0
 		});
 
-		supr(this, "init", [opts]);
+		supr(this, 'init', [opts]);
 
-		this.getAnimation()
-			.then({
-				opacity: 0,
-				x: opts.x - 15,
-				y: opts.y - 15,
-				anchorX: 15,
-				anchorY: 15,
-				width: 30,
-				height: 30,
-				r: Math.PI * 4
-			}, 500)
-			.then(bind(this, "removeFromSuperview"));
+		animate(this).now({
+			opacity: 0,
+			x: opts.x - 15,
+			y: opts.y - 15,
+			anchorX: 15,
+			anchorY: 15,
+			width: 30,
+			height: 30,
+			r: Math.PI * 4
+		}, 500).then(bind(this, "removeFromSuperview"));
 	};
 });
