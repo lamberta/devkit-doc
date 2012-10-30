@@ -28,14 +28,14 @@ exports = Class(GC.Application, function () {
 			height: 100
 		});
 		//Start the animation.
-		animate_view(square);
+		continuous_animate.call(square);
 	};
 
 	this.launchUI = function () {};
 });
 
-function animate_view (view) {
-	animate(view).clear()
+function continuous_animate () {
+	animate(this).clear()
 		// Move right - linear
 		.now({x: 200}, 1000, animate.linear)
 		// Move down - ease in
@@ -45,7 +45,5 @@ function animate_view (view) {
 		// Move up - ease in, ease out
 		.then({y: 20}, 1000, animate.easeInOut)
 		// Start animating again
-		.then(function () {
-			animate_view(view);
-		});
+		.then(continuous_animate.bind(this));
 }

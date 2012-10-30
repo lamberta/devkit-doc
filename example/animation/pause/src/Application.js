@@ -26,23 +26,33 @@ exports = Class(GC.Application, function() {
 			y: 20,
 			width: 100,
 			height: 100
-		}).animate();
+		});
+		//Start the animation.
+		square.continuousAnimate();
 	};
 
 	this.launchUI = function () {};
 });
 
 //## Class: AnimateView
-var AnimationView = Class(View, function(supr) {
-	this.onInputSelect = function() {
-		var animation = this.getAnimation();
-		animation.isPaused() ? animation.resume() : animation.pause();
+var AnimationView = Class(View, function (supr) {
+	this.init = function (opts) {
+		supr(this, 'init', [opts]);
+		//Store the Animation object for this view.
+		this.anim = animate(this);
+		//When the view is selected, pause or resume
+		this.on('InputSelect', bind(this, function () {
+			if (this.anim.isPaused()) {
+				this.anim.resume();
+			} else {
+				this.anim.pause();
+			}
+		}));
 	};
-
-	this.animate = function() {
-		this.getAnimation()
-			//Clear the animation queue
-			.clear()
+	
+	this.continuousAnimate = function () {
+		//Clear the animation queue
+		this.anim.clear()
 			// Move right - linear
 			.then({x: 200}, 1500, animate.linear)
 			// Move down - ease in
@@ -52,6 +62,6 @@ var AnimationView = Class(View, function(supr) {
 			// Move up - ease in, ease out
 			.then({y: 20}, 1500, animate.easeInOut)
 			// Start animating again
-			.then(bind(this, "animate"));
+			.then(this.continuousAnimate.bind(this));
 	};
 });

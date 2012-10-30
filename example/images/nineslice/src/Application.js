@@ -1,4 +1,4 @@
-//## Using 9-Slice image scaling
+//# Using 9-Slice image scaling
 //This file demonstrates how to use 9-slice.
 //This example requires an image in your resources directory and renders it to the screen.
 //In this example the image is located in `resources/images/border.png`.
@@ -23,7 +23,7 @@ exports = Class(GC.Application, function() {
 		//Initialize the ui, give the background a gray color.
 		this.view.updateOpts({backgroundColor: "#808080"});
 
-		// The device width is used to center the image...
+		// The device width is used to center the image.
 		var imagescaleview0 = new ImageScaleView({
 			superview: this.view,
 			x: (device.width - 200) / 2,

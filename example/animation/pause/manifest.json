@@ -2,13 +2,7 @@
 	"appID": "65fb0d7e07cb4e399213b923b3b6eee3",
 	"shortName": "animPause",
 	"title": "Pause Animation",
-	"group": "tutorials",
-	"description": "Pausing and resuming an animation",
-	"docLink": "http://doc.gameclosure.com/example/animation-pause/",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Cool Kid Studios",
 		"domain": "cool.kids.com",
@@ -29,5 +23,12 @@
 		"tapjoyId": "",
 		"tapjoyKey": "",
 		"flurryKey": ""
-	}
+	},
+	"group": "tutorials",
+	"description": "Pausing and resuming an animation",
+	"docLink": "http://doc.gameclosure.com/example/animation-pause/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

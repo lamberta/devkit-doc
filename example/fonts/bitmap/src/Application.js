@@ -8,8 +8,8 @@
 
 //@todo: <img src="resources/fonts/customFont1_0_0.png" alt="a book screenshot" class="screenshot">
 
-//Import device to get the size of the screen...
-import device as device;
+//Import device to get the size of the screen.
+import device;
 
 //## Class: Application
 //Create an application and set the default properties.

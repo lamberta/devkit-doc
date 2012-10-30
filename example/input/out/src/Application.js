@@ -1,17 +1,15 @@
 //# Detect an input out event
-
 //This demo shows how to detect if there's a click on the view but released outside the view.
 //This construction is mainly used for buttons, a button click is only registered when a user
 //touches the button and the touch up event is also triggered inside the same button.
+//Click on the view and then drag out of the view and release.
 
-//How to use: click on the view and then drag out of the view and release
-
-//First we import a View class
+//Import the `ui.View` class.
 import ui.View as View;
 
 //## Class: Application
 //Create an application with its default settings.
-exports = Class(GC.Application, function() {
+exports = Class(GC.Application, function () {
 
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
@@ -21,7 +19,7 @@ exports = Class(GC.Application, function() {
 		preload: []
 	};
 
-	this.initUI = function() {
+	this.initUI = function () {
 		this._clickBox = new ClickBox({
 			superview: this.view,
 			x: 10,
@@ -30,14 +28,12 @@ exports = Class(GC.Application, function() {
 			height: 100
 		});
 
-		this.view.onInputSelect = bind(this, "onInputSelect");
+		this.view.on('InputSelect', bind(this, function () {
+			// Restore the background of the view.
+			this._clickBox.updateOpts({backgroundColor: "#FF0000"});
+		}));
 	};
-
-	this.onInputSelect = function() {
-		// Restore the background of the view.
-		this._clickBox.updateOpts({backgroundColor: "#FF0000"});
-	};
-
+	
 	this.launchUI = function () {};
 });
 
@@ -51,15 +47,15 @@ var ClickBox = Class(View, function(supr) {
 		supr(this, "init", [opts]);
 	};
 
-	this.onInputStart = function() {
+	this.on('InputStart', function () {
 		// Change the color when the view is clicked.
 		this.updateOpts({backgroundColor: "#0000FF"});
-	};
+	});
 
-	this.onInputOut = function() {
+	this.on('InputOut', function () {
 		// Change the view when dragged outside the view.
 		this.updateOpts({backgroundColor: "#AA0000"});
-	};
+	});
 });
 
 //The output should look like this screenshot:

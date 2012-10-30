@@ -1,5 +1,3 @@
-//This file shows how to render basic text
-
 //# Rendering TTF fonts
 //The SDK supports TTF fonts to render texts with the fillText method.
 //This example shows how to render basic text
@@ -9,7 +7,7 @@ import device;
 import ui.View as View;
 
 //## Class: Application.js
-exports = Class(GC.Application, function() {
+exports = Class(GC.Application, function () {
 
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
@@ -32,8 +30,8 @@ exports = Class(GC.Application, function() {
 });
 
 //## Class: TTFView
-var TTFView = Class(View, function() {
-	this._renderText = function(ctx, text, y) {
+var TTFView = Class(View, function () {
+	this._renderText = function (ctx, text, y) {
 		ctx.fillStyle = "#FFFFFF";
 		ctx.font = "20px Verdana";
 		ctx.fillText(text, (device.width - ctx.measureText(text).width) / 2, y);

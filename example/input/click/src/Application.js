@@ -1,10 +1,7 @@
-//## Handling click events
-
+//# Handling click events
 //This file demonstrates how to handle click events, when the view is clicked the color changes.
 
-/*
- * This file demonstrates how to change the color when the view is clicked.
- */
+//Import the `ui.View` class.
 import ui.View as View;
 
 //## Class: Application
@@ -33,7 +30,7 @@ exports = Class(GC.Application, function () {
 	this.launchUI = function () {};
 });
 
-//## Class: Clickbox
+//## Class: ClickBox
 //Create a view which changes color when clicked.
 var ClickBox = Class(View, function (supr) {
 	this.init = function (opts) {

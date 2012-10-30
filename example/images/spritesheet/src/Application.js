@@ -1,16 +1,16 @@
-//## Using a sprite sheet
+//# Using a sprite sheet
 //This file demonstrates how to set the source location of the image within an image map.
 
 //This example demonstrates how to set the source location of the image within an image map.
 //It uses an image `resources/images/stars.png` which contains nine separate images
 //in a grid. Each of the nine images is displayed in a loop.
 
-//Import the ImageView class.
+//Import the `ui.ImageView` class.
 import ui.ImageView as ImageView;
 
-//Class: Application
+//## Class: Application
 //An application with default settings is defined.
-exports = Class(GC.Application, function() {
+exports = Class(GC.Application, function () {
 
 	this._settings = {
 		logsEnabled: window.DEV_MODE,

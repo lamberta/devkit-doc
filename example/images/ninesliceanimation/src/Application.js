@@ -1,4 +1,4 @@
-//## Using 9-Slice image scaling in an animation
+//# Using 9-Slice image scaling in an animation
 //This file demonstrates how to use 9-slice in an animating scroll.
 //This example requires two images located in the resources directory:
 //`resources/images/scrollBottom.png` and `resources/images/scrollTop.png`.

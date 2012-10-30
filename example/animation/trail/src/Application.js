@@ -19,8 +19,8 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		this.view.on('InputView', function (evt, pt) {
-			var trailbox = new TrailBox(merge(pt, {superview: this.view}))
+		this.view.on('InputMove', function (evt, pt) {
+			var trailbox = new TrailBox(merge(pt, {superview: GC.app.view}))
 		});
 	};
 	
@@ -52,6 +52,6 @@ var TrailBox = Class(View, function(supr) {
 			width: 30,
 			height: 30,
 			r: Math.PI * 4
-		}, 500).then(bind(this, "removeFromSuperview"));
+		}, 500).then(this.removeFromSuperview.bind(this));
 	};
 });

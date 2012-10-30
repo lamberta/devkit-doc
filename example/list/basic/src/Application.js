@@ -1,14 +1,14 @@
 //# A Basic List
-
 //This example shows how to display a list of items.
 
-//Import device to get the screen size, `GCDataSource` to store the items,
-//the `List` and `Cell` classes to create a list.
+//Import device to get the screen size. 
 import device;
+//Import `GCDataSource` to store the items.
 import GCDataSource;
-import ui.TextView as TextView;
+//Import the `List` and `Cell` classes to create a list.
 import ui.widget.List as List;
 import ui.widget.Cell as Cell;
+import ui.TextView as TextView;
 
 //## Class: Application
 //Create an application, set the default properties.
@@ -33,7 +33,7 @@ exports = Class(GC.Application, function () {
 		// And load our data.
 		filmData.add(scifiFilms);
 
-		// Create the List, which inherits from ScrollView.
+		// Create the List, which inherits from `ScrollView`.
 		var filmList = new List({
 			superview: this.view,
 			x: 0,

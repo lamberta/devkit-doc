@@ -14,55 +14,55 @@
 
 //The file `resources/images/a/metadata.json` lists three targets, when building the application
 //these images in `resources/images/a` will be included for all these targets.
-//~~~
+//<pre>
 //{
-//    "targets": [
-//        "native-android",
-//        "native-ios",
-//        "browser-desktop"
-//    ]
+//  "targets": [
+//    "native-android",
+//    "native-ios",
+//    "browser-desktop"
+//  ]
 //}
-//~~~
+//</pre>
 
 //The file `resources/images/b/metadata.json` lists three targets and adds a scaling setting.
-//~~~
+//<pre>
 //{
-//    "targets": [
-//        "native-android",
-//        "native-ios",
-//        "browser-desktop"
-//    ],
-//    "scale": 0.1
+//  "targets": [
+//    "native-android",
+//    "native-ios",
+//    "browser-desktop"
+//  ],
+//  "scale": 0.1
 //}
-//~~~
+//</pre>
 
 //If you only want to apply the scaling to a specific target, let's say `native-ios` then
 //you can use the following settings:
-//~~~
+//<pre>
 //{
-//    "targets": [
-//        "native-android",
-//        "native-ios",
-//        "browser-desktop"
-//    ],
-//    "native-ios": {
-//	    "scale": 0.1
-//	}
+//  "targets": [
+//    "native-android",
+//    "native-ios",
+//    "browser-desktop"
+//  ],
+//  "native-ios": {
+//	  "scale": 0.1
+//  }
 //}
-//~~~
+//</pre>
 
 //The file `resources/images/c/metadata.json` lists three targets and adds sets the compression method.
-//~~~
+//<pre>
 //{
-//    "targets": [
-//        "native-android",
-//        "native-ios",
-//        "browser-desktop"
-//    ],
-//    "scale": 0.5,
-//    "png8": true
+//  "targets": [
+//    "native-android",
+//    "native-ios",
+//    "browser-desktop"
+//  ],
+//  "scale": 0.5,
+//  "png8": true
 //}
-//~~~
+//</pre>
 
 //Import device to get the screen size and the ImageView class to display images.
 import device as device;
@@ -107,7 +107,7 @@ exports = Class(GC.Application, function () {
 
 //The output should look like this screenshot:
 
-//<img src="screenshot.png" alt="a book screenshot" class="screenshot">
+//<img src="./img/screenshot.png" alt="a book screenshot" class="screenshot">
 
 //The first row of images uses the original quality, the second scales the image down
 //to 10% and the third row scales the images 50% and uses png8 compression.
