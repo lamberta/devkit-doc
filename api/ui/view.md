@@ -254,6 +254,25 @@ The callback function is triggered when focus is given to this view.
 
 The callback function is triggered when this view loses focus.
 
+### view.tick (dt)
+1. `dt {number}`
+
+This callback function is executed on every tick of the game engine.
+
+~~~
+view.tick = function (dt) {
+  this.exampleMethod(dt);
+};
+~~~
+
+This is a convenience method that can be used instead of
+subscribing to the `'Tick'` event on the main game engine:
+
+~~~
+GC.app.engine.on('Tick', function (dt) {
+  view.exampleMethod(dt);
+});
+~~~
 
 ### Events
 
