@@ -1,10 +1,10 @@
 {
 	"appID": "d21423d98c6f4372ab5d290d119b13d3",
 	"shortName": "imagesNineSliceAnimation",
-	"title": "images - 9 slice anim",
-	"group": "tutorials",
+	"title": "Images: 9 Slice Animation",
+	"group": "examples",
 	"description": "Using 9-Slice image scaling in an animation",
-	"docLink": "http://doc.gameclosure.com/example/images-ninesliceanimation/",
+	"doc": "http://doc.gameclosure.com/example/images-ninesliceanimation/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

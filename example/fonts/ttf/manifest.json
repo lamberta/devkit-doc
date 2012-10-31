@@ -1,10 +1,10 @@
 {
 	"appID": "e0a86cd9a9604ac4872dfc7f7431d1da",
 	"shortName": "fontsTTF",
-	"title": "fonts - ttf",
-	"group": "tutorials",
+	"title": "Fonts: TTF Fonts",
+	"group": "examples",
 	"description": "TTF fonts",
-	"docLink": "http://doc.gameclosure.com/example/fonts-ttf/",
+	"doc": "http://doc.gameclosure.com/example/fonts-ttf/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

@@ -1,15 +1,13 @@
 {
 	"appID": "6cb644c4ee334e2c85fc1dabb552aea8",
 	"shortName": "soundBackground",
-	"title": "sound - background",
-	"group": "tutorials",
+	"title": "Sound: Background",
+	"group": "examples",
 	"description": "Playing a background sound",
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"group": "tutorials",
-	"description": "Background sound",
-	"docLink": "http://doc.gameclosure.com/example/sound-background/",
+	"doc": "http://doc.gameclosure.com/example/sound-background/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

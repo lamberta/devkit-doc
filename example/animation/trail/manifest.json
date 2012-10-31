@@ -1,7 +1,7 @@
 {
 	"appID": "614296f4cc894e5f9375af19a51349ba",
 	"shortName": "animTrail",
-	"title": "Trailing Animation",
+	"title": "Animation: Trail",
 	"icons": {},
 	"studio": {
 		"name": "Cool Kid Studios",
@@ -24,9 +24,9 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "tutorials",
+	"group": "examples",
 	"description": "Using an animation to create a fading trail",
-	"docLink": "http://doc.gameclosure.com/example/animation-trail/",
+	"doc": "http://doc.gameclosure.com/example/animation-trail/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

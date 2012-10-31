@@ -1,14 +1,8 @@
 {
 	"appID": "6304040653a04fa6bed9974896e0a843",
 	"shortName": "inputClick",
-	"title": "input - click",
-	"group": "tutorials",
-	"description": "Handling click events",
-	"docLink": "http://doc.gameclosure.com/example/input-click/",
+	"title": "Input: Click",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Cool Kid Studios",
 		"domain": "cool.kids.com",
@@ -30,5 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "Handling click events",
+	"doc": "http://doc.gameclosure.com/example/input-click/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
 	"sdkVersion": "dev-0.1.0"
 }

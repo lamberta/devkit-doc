@@ -1,10 +1,10 @@
 {
 	"appID": "91abb12b65cc4e5d8c7e1b8569142b4a",
 	"shortName": "viewsBasic",
-	"title": "views - basic",
-	"group": "tutorials",
+	"title": "Views: Basic",
+	"group": "examples",
 	"description": "A basic view",
-	"docLink": "http://doc.gameclosure.com/example/view-basic/",
+	"doc": "http://doc.gameclosure.com/example/view-basic/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

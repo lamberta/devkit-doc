@@ -1,11 +1,8 @@
 {
 	"appID": "b0050ce9e4af4ce9abed24050c208189",
 	"shortName": "listBasic",
-	"title": "list - basic",
+	"title": "List: Basic",
 	"icons": {},
-	"group": "tutorials",
-	"description": "Displaying a list",
-	"docLink": "http://doc.gameclosure.com/example/list-basic/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -27,8 +24,9 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
 	"description": "A basic list",
-	"group": "tutorials",
+	"doc": "http://doc.gameclosure.com/example/list-basic/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

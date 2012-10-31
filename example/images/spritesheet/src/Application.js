@@ -59,7 +59,7 @@ var SheetView = Class(ImageView, function(supr) {
 	};
 
 	//The tick function is called each frame.
-	this.tick = function(dt) {
+	this.tick = function (dt) {
 		this._dt += dt;
 		if (this._dt > 500) {
 			this._dt %= 500;

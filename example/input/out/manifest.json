@@ -1,14 +1,8 @@
 {
 	"appID": "f5e0494af35346ada483d1b6f813fbed",
 	"shortName": "inputOut",
-	"title": "input - out",
-	"group": "tutorials",
-	"description": "Detect an input out event",
-	"docLink": "http://doc.gameclosure.com/example/input-out/",
+	"title": "Input: Out",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Cool Kid Studios",
 		"domain": "cool.kids.com",
@@ -30,5 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "Detect an input out event",
+	"doc": "http://doc.gameclosure.com/example/input-out/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
 	"sdkVersion": "dev-0.1.0"
 }

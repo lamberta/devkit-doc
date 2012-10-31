@@ -1,15 +1,13 @@
 {
 	"appID": "66ae5e1a8e6245daac5232b5251d0198",
 	"shortName": "soundMote",
-	"title": "sound - mute",
-	"group": "tutorials",
+	"title": "Sound: Mute",
+	"group": "examples",
 	"description": "Muting sounds",
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"group": "tutorials",
-	"description": "Sound mute",
-	"docLink": "http://doc.gameclosure.com/example/sound-mute/",
+	"doc": "http://doc.gameclosure.com/example/sound-mute/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

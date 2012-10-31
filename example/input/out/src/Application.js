@@ -20,17 +20,18 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		this._clickBox = new ClickBox({
+		var clickbox = new ClickBox({
 			superview: this.view,
 			x: 10,
 			y: 10,
 			width: 100,
-			height: 100
+			height: 100,
+			backgroundColor: '#ff0000'
 		});
 
 		this.view.on('InputSelect', bind(this, function () {
 			// Restore the background of the view.
-			this._clickBox.updateOpts({backgroundColor: "#FF0000"});
+			clickbox.updateOpts({backgroundColor: "#FF0000"});
 		}));
 	};
 	
@@ -39,23 +40,20 @@ exports = Class(GC.Application, function () {
 
 //## Class: ClickBox
 //Create a view based on the view class which changes color when clicked.
-var ClickBox = Class(View, function(supr) {
-	this.init = function(opts) {
-		opts = merge(opts, {backgroundColor: "#FF0000"});
-		this._index = 1;
+var ClickBox = Class(View, function (supr) {
+	this.init = function (opts) {
+		supr(this, 'init', [opts]);
+		
+		this.on('InputStart', function () {
+			// Change the color when the view is clicked.
+			this.style.backgroundColor = '#0000ff';
+		});
 
-		supr(this, "init", [opts]);
+		this.on('InputOut', function () {
+			// Change the view when dragged outside the view.
+			this.style.backgroundColor = '#aa0000';
+		});
 	};
-
-	this.on('InputStart', function () {
-		// Change the color when the view is clicked.
-		this.updateOpts({backgroundColor: "#0000FF"});
-	});
-
-	this.on('InputOut', function () {
-		// Change the view when dragged outside the view.
-		this.updateOpts({backgroundColor: "#AA0000"});
-	});
 });
 
 //The output should look like this screenshot:

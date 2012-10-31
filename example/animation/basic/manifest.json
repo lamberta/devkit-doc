@@ -1,7 +1,10 @@
 {
 	"appID": "0aaaedc5afa847e89464b6d8d57df4f1",
 	"shortName": "animBasic",
-	"title": "Basic Animation",
+	"title": "Animation: Basic",
+	"description": "A basic animation",
+	"doc": "http://doc.gameclosure.com/example/animation-basic/",
+	"group": "examples",
 	"icons": {},
 	"studio": {
 		"name": "Cool Kid Studios",
@@ -24,9 +27,6 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "tutorials",
-	"description": "A basic animation",
-	"docLink": "http://doc.gameclosure.com/example/animation-basic/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

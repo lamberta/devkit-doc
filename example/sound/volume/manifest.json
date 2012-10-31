@@ -1,15 +1,13 @@
 {
 	"appID": "87038edc4f7140b09fdd4c581cf11f02",
 	"shortName": "soundVolume",
-	"title": "sound - volume",
-	"group": "tutorials",
+	"title": "Sound: Volume",
+	"group": "examples",
 	"description": "Setting the sound volume",
 	"icons": {},
 	"resources": {},
 	"targets": {},
-	"group": "tutorials",
-	"description": "Sound volume",
-	"docLink": "http://doc.gameclosure.com/example/sound-volume/",
+	"doc": "http://doc.gameclosure.com/example/sound-volume/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",

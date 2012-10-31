@@ -90,7 +90,7 @@ exports = Class(GC.Application, function () {
 		// In the third row the images are scaled 50 percent and png8 compression is used
 		for (var y = 0; y < 3; y++) {
 			for (var x = 0; x < 3; x++) {
-				new ImageView({
+				var imageview = new ImageView({
 					superview: this.view,
 					x: left + x * 80,
 					y: 10 + y * 80,

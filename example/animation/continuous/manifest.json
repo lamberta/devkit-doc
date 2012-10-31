@@ -1,7 +1,7 @@
 {
 	"appID": "bf6ca220053d40fb8a93b0ef3570c4cb",
 	"shortName": "animContinuous",
-	"title": "Continuous Animation",
+	"title": "Animation: Looping",
 	"icons": {},
 	"studio": {
 		"name": "Cool Kid Studios",
@@ -24,9 +24,9 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "tutorials",
+	"group": "examples",
 	"description": "A continuously looping animation",
-	"docLink": "http://doc.gameclosure.com/example/animation-continuous/",
+	"doc": "http://doc.gameclosure.com/example/animation-continuous/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

@@ -1,13 +1,8 @@
 {
 	"appID": "7fe418db7a74431ab5b515bbf568e590",
 	"shortName": "renderingBuffers",
-	"title": "rendering - buffers",
+	"title": "Rendering: Buffers",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"group": "tutorials",
-	"description": "Rendering in offscreen buffers",
-	"docLink": "http://doc.gameclosure.com/example/rendering-buffers/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -29,6 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"resources": {},
+	"targets": {},
+	"group": "examples",
+	"description": "Rendering in offscreen buffers",
+	"doc": "http://doc.gameclosure.com/example/rendering-buffers/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

@@ -1,10 +1,10 @@
 {
 	"appID": "d650bd4484614019a8e82cb10ebb4a97",
 	"shortName": "fontsBitmapComposite",
-	"title": "fonts - bitmap composite",
-	"group": "tutorials",
+	"title": "Fonts: Bitmap Composite Font",
+	"group": "examples",
 	"description": "Rendering composite bitmap fonts",
-	"docLink": "http://doc.gameclosure.com/example/fonts-bitmapcomposite/",
+	"doc": "http://doc.gameclosure.com/example/fonts-bitmapcomposite/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

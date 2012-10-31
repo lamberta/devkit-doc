@@ -1,14 +1,8 @@
 {
 	"appID": "abab8d5fe2bc479081f82f5da0835174",
 	"shortName": "fontsBitmap",
-	"title": "fonts - bitmap",
-	"group": "tutorials",
-	"description": "Rendering bitmap fonts",
-	"docLink": "http://doc.gameclosure.com/example/fonts-bitmap/",
+	"title": "Fonts: Bitmap Fonts",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -30,6 +24,12 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "Rendering bitmap fonts",
+	"doc": "http://doc.gameclosure.com/example/fonts-bitmap/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
 	"fonts": "resources/fonts/fonts.json",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"

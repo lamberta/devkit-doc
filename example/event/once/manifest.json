@@ -1,7 +1,7 @@
 {
 	"appID": "28700d99c2674dd281c799d1e2d19994",
 	"shortName": "eventOnce",
-	"title": "event - once",
+	"title": "Event: Subscribe Once",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",
@@ -24,9 +24,9 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "tutorials",
+	"group": "examples",
 	"description": "Capturing an event once",
-	"docLink": "http://doc.gameclosure.com/example/event-once/",
+	"doc": "http://doc.gameclosure.com/example/event-once/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

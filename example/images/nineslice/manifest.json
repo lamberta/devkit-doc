@@ -1,10 +1,10 @@
 {
 	"appID": "5b6365fc74d84b39b6ebb2074d70a1e6",
 	"shortName": "imagesNineSlice",
-	"title": "images - 9 slice",
-	"group": "tutorials",
+	"title": "Images: 9 Slice",
+	"group": "examples",
 	"description": "Using 9-Slice image scaling",
-	"docLink": "http://doc.gameclosure.com/example/images-nineslice/",
+	"doc": "http://doc.gameclosure.com/example/images-nineslice/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

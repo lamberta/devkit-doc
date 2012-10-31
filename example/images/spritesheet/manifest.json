@@ -1,10 +1,10 @@
 {
 	"appID": "08c7be76ea6a4503bb498810bd4859b2",
 	"shortName": "imagesSpriteSheet",
-	"title": "images - sprite sheet",
-	"group": "tutorials",
+	"title": "Images: Sprite Sheet",
+	"group": "examples",
 	"description": "Using a sprite sheet",
-	"docLink": "http://doc.gameclosure.com/example/images-spritesheet/",
+	"doc": "http://doc.gameclosure.com/example/images-spritesheet/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

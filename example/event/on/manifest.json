@@ -1,7 +1,7 @@
 {
 	"appID": "b457143fd009478b9794437d0053b5ae",
 	"shortName": "eventOn",
-	"title": "event - on",
+	"title": "Event: Subscribe",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",
@@ -24,9 +24,9 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "tutorials",
+	"group": "examples",
 	"description": "Capturing an event with 'on'",
-	"docLink": "http://doc.gameclosure.com/example/event-on/",
+	"doc": "http://doc.gameclosure.com/example/event-on/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

@@ -1,13 +1,8 @@
 {
 	"appID": "1c4b60305f694fd6a02b5c300e67c688",
 	"shortName": "renderingTiles",
-	"title": "rendering - tiles",
+	"title": "Rendering: Tiles",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"group": "tutorials",
-	"description": "Rendering tiles",
-	"docLink": "http://doc.gameclosure.com/example/rendering-tiles/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -29,6 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"resources": {},
+	"targets": {},
+	"group": "examples",
+	"description": "Rendering tiles",
+	"doc": "http://doc.gameclosure.com/example/rendering-tiles/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

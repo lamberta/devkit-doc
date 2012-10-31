@@ -1,10 +1,10 @@
 {
 	"appID": "ddccbf6abf1a47b1bf9e8c22eedd6974",
 	"shortName": "viewsNested",
-	"title": "views - nested",
-	"group": "tutorials",
+	"title": "Views: Nested",
+	"group": "examples",
 	"description": "Nesting views",
-	"docLink": "http://doc.gameclosure.com/example/view-nested/",
+	"doc": "http://doc.gameclosure.com/example/view-nested/",
 	"icons": {},
 	"resources": {},
 	"targets": {},

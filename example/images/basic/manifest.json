@@ -1,10 +1,10 @@
 {
 	"appID": "4923224586464da6a5b5357a0a2d1e84",
 	"shortName": "imagesBasic",
-	"title": "images - basic",
-	"group": "tutorials",
+	"title": "Images: Basic",
+	"group": "examples",
 	"description": "Displaying an image",
-	"docLink": "http://doc.gameclosure.com/example/images-basic/",
+	"doc": "http://doc.gameclosure.com/example/images-basic/",
 	"icons": {},
 	"resources": {},
 	"targets": {},
