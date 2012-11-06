@@ -2,13 +2,14 @@
 
 ## Install the SDK
 
+<!--
 ### Use the Installer
 
 The easiest way to get up and running with the Game Closure
 SDK is to simply download and click the Installer. This will
 install everything you need to run a game built on the game
 Closure SDK. You can download this at [http://gameclosure.com/sdk](http://gameclosure.com/sdk)
-
+-->
 
 ### Command-line install
 
@@ -22,15 +23,21 @@ on OSX.
 
 #### Prerequisites
 
+Install the following software before installing the Game
+Closure SDK:
+
 * [Git](http://git-scm.com) (> 1.7.10)
 * [Node.js](http://nodejs.org) (> 0.8)
-* [Java JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Chrome](www.google.com/chrome) (Preferred development enviroment)
+* [Chrome](www.google.com/chrome)
+
+Chrome is the preferred development environment because of
+its superior debugging tools and is the browser we use to
+develop the Game Closure SDK and test against.
 
 #### Download the source and install
 
 ~~~
-$ git clone git@github.com:gameclosure/basil.git
+$ git clone git@github.com:gameclosure/sdk.git
 $ cd basil
 $ ./install.sh
 ~~~
@@ -72,6 +79,6 @@ $ basil update
 
 ~~~
 $ git pull
-$ git submodule update --init
+$ git submodule update --init --recursive
 $ ./install.sh
 ~~~
