@@ -26,7 +26,7 @@ Because two different screen resolutions can have the same
 aspect ratio, we refer to the aspect ratio as the smallest
 integer fraction that represents the ratio. For example, the
 squares 100 x 100 and 200 x 200 have the same aspect ratio, 1:1,
-while the HD 1080p resolution of 1900 x 1200 has the aspect
+while the HD 1080p resolution of 1920 x 1080 has the aspect
 ratio 16:9, which is the same as the iPhone 5 at 1136 x 640.
 
 ## Stretch to fit
