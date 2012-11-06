@@ -1,49 +1,105 @@
 # Scaling the Game to Fit the Device
 
+## Aspect Ratio
+
+The aspect ratio of a screen describes the proportional
+relationship between its width and its height.
+
+Here's how the 4:3 and 3:2 aspect ratios fit within a 16:9
+ratio, leaving empty horizontal space:
+
+<img src="./assets/basic/scaling/aspect-ratio-1.png" alt="aspect ratio 1" class="screenshot">
+
+And here's how the 16:9 and 3:2 aspect ratios are confined
+within a 4:3 ratio; now there is vertical space at the top
+and bottom:
+
+<img src="./assets/basic/scaling/aspect-ratio-2.png" alt="aspect ratio 2" class="screenshot">
+
+In these diagrams the different ratios are centered within
+the constraining view. If desired, the constrained ratio
+could be positioned along an edge, leaving the extra padding
+along the opposite edge.
+
+Popular dimensions of different aspect ratios:
+
+16:9
+:    * 1280 × 720 (Galaxy Nexus)
+     * 1136 × 640 (iPhone 5)
+     * 1024 × 576
+     * 720 × 405
+
+3:2
+:    * 1080 × 720 (High-definition TV)
+     * 960 × 640 (iPhone 4)
+     * 864 × 576
+     * 480 × 320 (iPhone 3)
+
+4:3
+:    * 2048 × 1536 (iPad 3 & 4)
+     * 1024 × 768 (iPad 1 & 2)
+     * 960 × 720
+     * 768 × 576
+     * 427 × 320
+     * 320 × 240
+
 ## Art Deliverables
 
 Art assets should be delivered at the dimensions 576 x 1024
-since 1024 px is the maximum size for a texture side. This
-can be scaled up to 720 x 1280 by increasing our texture by
-25%: 576 * 1.25 = 720, 1024 * 1.25 = 1280.
+because, on most phones, the maximum width of a texture can
+be 1024 pixels. This allows game developers to target
+devices supporting a resolution of 720 x 1280---the most
+extreme resolution on popular phones---by scaling up the
+texture by 25 percent (576 * 1.25 = 720, 1024 * 1.25 = 1280).
+
 
 ## Calculate Scaling
 
-Define the maximum bounding box for the screen. This is the
-widest aspect ratio available on the more popular phones:
+Define the maximum displayable region for the visible portion of the game. Everything within this rectangle will be displayed on the phone, regardless of the device dimensions. Any art assets should be delivered relative to these dimensions.
 
 ~~~
 var bounds_width = 576,
-	bounds_height = 1024;
+    bounds_height = 1024;
 ~~~
 
-We'll use these values to calculate the base dimensions and
-scale used for the top-level views. For portrait mode this
-can be done like:
+Here, we’ve defined this region as 576 by 1024 pixels, and
+as you’ll see below, these are the dimensions used for the
+background image in this example. This is a 16:9 aspect
+ratio in portrait mode, the widest available on the more
+popular phones as shown above.
+
+We’ll use these values to calculate the base dimensions and
+scale used for the top-level views. This gives us a 576 x
+864 rectangle that we’ll use as the base of our game. Any
+screen coordinates should be given relative to these
+dimensions. We’ll then scale these coordinates to fit the
+device.
+
+For portrait mode, here’s how to calculate our base
+rectangle dimensions and scale:
 
 ~~~
-var base_width = bounds_width,
-	base_height =  device.screen.height * (bounds_width / device.screen.width),
-	scale = device.screen.width / base_width;
+var base_width = bounds_width, //576
+    base_height =  device.screen.height * (bounds_width / device.screen.width), //864
+    scale = device.screen.width / base_width; //1
 ~~~
 
-And in landscape mode:
+Replacing the variables for calculating height we get: 480 * (576 / 320) = 864.
+
+And in landscape mode, we can simply reverse these calculations:
 
 ~~~
-var base_width = device.screen.width * (bounds_height / device.screen.height),
-	base_height = bounds_height,
-	scale = device.screen.height / base_height;
+var base_width = device.screen.width * (bounds_height / device.screen.height), //864
+    base_height = bounds_height, //576
+    scale = device.screen.height / base_height; //1
 ~~~
 
-### Set the Top-Level View
+### Scale the Top-Level View
 
-Scaling a top-level view ensures all views beneath it are
-also scaled. This can be the root view, `GC.app.view`, if
-it's the only game screen, or if there are multiple game
-screens, then each one should be scaled.
-
-To center the game view's on a screen, set the size and
-scale of the root view in the scene graph:
+Scaling a view ensures that all its child views are also
+scaled. To center the game views on a screen, set the size
+and scale of the root view in the scene graph, which is
+`GC.app.view`:
 
 ~~~
 GC.app.view.style.width = base_width;
@@ -51,12 +107,17 @@ GC.app.view.style.height = base_height;
 GC.app.view.style.scale = scale;
 ~~~
 
-You could also position the overflow in a particular
-direction.
+You can also position the overflow in a particular direction
+by offsetting these positions.
 
-Now to dynamically position views based on the scaled
-parent. For example, to center a sprite on the background
-image:
+### Positioning Game Assets
+
+With the base rectangle set, we can dynamically position
+game assets on the screen so that they maintain their
+relative position regardless of the device’s aspect
+ratio. For example, to center a sprite on the background
+image, simply set it’s x and y position to half of the base
+region’s width and height:
 
 ~~~
 var sprite = new SpriteView({
