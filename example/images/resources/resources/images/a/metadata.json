@@ -1,7 +1,0 @@
-{
-	"targets": [
-		"native-android",
-		"native-ios",
-		"browser-desktop"
-	]
-}
