@@ -20,7 +20,7 @@ exports = Class(GC.Application, function () {
       superview: this.view,
       dataSource: film_data, //attach our data
       scrollX: false,
-      getCell: function () { return new FilmCell({superview: film_list, height: 50}); }
+      getCell: function () { return new FilmCell({height: 50}); }
     });
   };
 });

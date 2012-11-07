@@ -61,9 +61,7 @@ import ui.widget.Cell as Cell;
 1. `options {object}`
 
 ~~~
-var cell = new Cell({
-  superview: list
-});
+var cell = new Cell();
 ~~~
 
 ### Handler Function: cell.setData (data)
