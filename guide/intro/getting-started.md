@@ -82,3 +82,19 @@ $ git pull
 $ git submodule update --init --recursive
 $ ./install.sh
 ~~~
+
+
+## Install the Examples
+
+With basil installed, you're ready to browse some sample
+projects! Install the *examples addon* by running the
+following at the command-line:
+
+~~~
+$ basil install examples
+~~~
+
+This addon installs a collection of projects that demonstrate
+some game developement techniques using the Game Closure
+SDK. When you run basil you'll be able to browse the
+projects, code, and comments.
