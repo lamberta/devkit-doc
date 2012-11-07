@@ -38,7 +38,7 @@ develop the Game Closure SDK and test against.
 
 ~~~
 $ git clone git@github.com:gameclosure/sdk.git
-$ cd basil
+$ cd sdk
 $ ./install.sh
 ~~~
 
