@@ -1,5 +1,11 @@
 # Events
 
+Subscribing to object events follows the API as defined
+below. To see what type of events a particular component
+supports, a list is provided in that component's API
+documentation. For example, here are the [available events](./ui-view.html#events)
+on all objects that inherit from `ui.View`.
+
 ## Class: event.Emitter
 
 Publish and subscribe to events dispatched on an object.
