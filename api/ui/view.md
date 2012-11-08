@@ -310,7 +310,11 @@ Subscribe to the capture-phase event with `'InputStartCapture'`.
 
 #### \'InputScroll\', callback ()
 
-#### \'InputMove\', callback ()
+#### \'InputMove\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+Fired after an `'InputStart'` event, when the input is moving on the device.
 
 #### \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
