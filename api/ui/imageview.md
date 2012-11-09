@@ -113,15 +113,13 @@ import ui.ImageScaleView as ImageScaleView;
 			* `top {number}`
 			* `middle {number}`
 			* `bottom {number}`
-   * `destSlices {object}` ---9-slice destination slices. Setting the below values to 0 can create 3- and 6-slice scaling.
+	* `destSlices {object}` ---9-slice destination slices. Setting the below values to 0 can create 3- and 6-slice scaling.
 		* `horizontal {object}`
 			* `left {number}`
 			* `right {number}`
 		* `vertical {object}`
 			* `top {number}`
 			* `bottom {number}`
-
-
 
 ## Class: ui.resource.Image
 
