@@ -34,7 +34,7 @@ listview.updateOpts({
 ~~~
 
 ### listview.addCell (cell)
-1. `cell {ui.widget.Cell}`
+1. `cell {ui.widget.CellView}`
 
 ### listview.setMaxY (maxY)
 1. `maxY {number}`
@@ -46,7 +46,7 @@ listview.updateOpts({
 1. `{}`
 
 
-## Class: ui.widget.Cell
+## Class: ui.widget.CellView
 
 Inherits
 :    1. ui.widget.UIView
@@ -54,40 +54,40 @@ Inherits
      3. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
-import ui.widget.Cell as Cell;
+import ui.widget.CellView as CellView;
 ~~~
 
-### new Cell ([options])
+### new CellView ([options])
 1. `options {object}`
 
 ~~~
-var cell = new Cell();
+var cellview = new CellView();
 ~~~
 
-### Handler Function: cell.setData (data)
+### Handler Function: cellview.setData (data)
 1. `data {object}`
 
-Called when a cell is set.
+Called when a cellview is set.
 
-### cell.remove (list)
+### cellview.remove (list)
 1. `list {ui.widget.ListView}`
 
 Remove the cell from a given `ListView`.
 
-### Cell.setPosition (position)
+### cellview.setPosition (position)
 1. `position {object}`
 	* `x {number}`
 	* `y {number}`
 
-### cell.getWidth ()
+### cellview.getWidth ()
 1. Return: `{number}`
 
-Return the width of the cell view.
+Return the width of the `CellView`.
 
-### cell.getHeight ()
+### cellview.getHeight ()
 1. Return: `{number}`
 
-Return the height of the cell view.
+Return the height of the `CellView`.
 
 
 ## Class: GCDataSource
@@ -180,13 +180,13 @@ var datasource = new GCDataSource();
 ## Example: Create a ListView
 
 Displaying a list of items requires the coordinated use of
-three classes: `ui.widget.ListView`, `ui.widget.Cell`, and
+three classes: `ui.widget.ListView`, `ui.widget.CellView`, and
 `GCDataSource`. There are components that handle some of
 these for you, but to understand how they work together,
 we'll display a list of arbitrary data that we can scroll and
 click.
 
-Requires a data source and cell.
+Requires a data source and cell view.
 
 ~~~
 m4_include(./examples/api/listview.js)

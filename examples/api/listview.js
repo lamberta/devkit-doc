@@ -2,7 +2,7 @@ import device;
 import GCDataSource;
 import ui.TextView as TextView;
 import ui.widget.ListView as ListView;
-import ui.widget.Cell as Cell;
+import ui.widget.CellView as CellView;
 
 exports = Class(GC.Application, function () {
   this.initUI = function () {
@@ -25,9 +25,9 @@ exports = Class(GC.Application, function () {
   };
 });
 
-/* A Cell is a View, it can have child views, and accepts data from a ListView.
+/* A CellView is a View, it can have child views, and accepts data from a ListView.
  */
-var FilmCell = Class(Cell, function (supr) {
+var FilmCell = Class(CellView, function (supr) {
   this.init = function (opts) {
     supr(this, 'init', arguments);
 
