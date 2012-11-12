@@ -1,7 +1,7 @@
 import device;
 import GCDataSource;
 import ui.TextView as TextView;
-import ui.widget.List as List;
+import ui.widget.ListView as ListView;
 import ui.widget.Cell as Cell;
 
 exports = Class(GC.Application, function () {
@@ -15,8 +15,8 @@ exports = Class(GC.Application, function () {
     //And load our data ...
     film_data.add(scifi_films);
 
-    //Create the List, which inherits from ScrollView ...
-    var film_list = new List({
+    //Create the ListView, which inherits from ScrollView ...
+    var film_list = new ListView({
       superview: this.view,
       dataSource: film_data, //attach our data
       scrollX: false,
@@ -25,7 +25,7 @@ exports = Class(GC.Application, function () {
   };
 });
 
-/* A Cell is a View, it can have child views, and accepts data from a List.
+/* A Cell is a View, it can have child views, and accepts data from a ListView.
  */
 var FilmCell = Class(Cell, function (supr) {
   this.init = function (opts) {

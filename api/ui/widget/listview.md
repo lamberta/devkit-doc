@@ -1,6 +1,6 @@
-# ui.widget.List
+# ui.widget.ListView
 
-## Class: ui.widget.List
+## Class: ui.widget.ListView
 
 Inherits
 :    1. [ui.ScrollView](./ui-scrollview.html)
@@ -8,10 +8,10 @@ Inherits
      3. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
-import ui.widget.List as List;
+import ui.widget.ListView as ListView;
 ~~~
 
-### new List ([options])
+### new ListView ([options])
 1. `options {object}`
 	* `isFixedSize {boolean}`
 	* `isTiled {boolean}`
@@ -21,28 +21,28 @@ import ui.widget.List as List;
 	* `dataSource`
 
 ~~~
-var list = new List();
+var listview = new ListView();
 ~~~
 
-### list.updateOpts (options)
+### listview.updateOpts (options)
 1. `options {object}`
 
 ~~~
-list.updateOpts({
+listview.updateOpts({
   dataSource: contacts.toDataSource()
 });
 ~~~
 
-### list.addCell (cell)
+### listview.addCell (cell)
 1. `cell {ui.widget.Cell}`
 
-### list.setMaxY (maxY)
+### listview.setMaxY (maxY)
 1. `maxY {number}`
 
-### list.model
+### listview.model
 1. `{}`
 
-### list.selection
+### listview.selection
 1. `{}`
 
 
@@ -70,11 +70,11 @@ var cell = new Cell();
 Called when a cell is set.
 
 ### cell.remove (list)
-1. `list {ui.widget.List}`
+1. `list {ui.widget.ListView}`
 
-Remove the cell from a given `List`.
+Remove the cell from a given `ListView`.
 
-### cell.setPosition (position)
+### Cell.setPosition (position)
 1. `position {object}`
 	* `x {number}`
 	* `y {number}`
@@ -177,10 +177,10 @@ var datasource = new GCDataSource();
 2. `item {object}`
 
 
-## Example: Create a list
+## Example: Create a ListView
 
 Displaying a list of items requires the coordinated use of
-three classes: `ui.widget.List`, `ui.widget.Cell`, and
+three classes: `ui.widget.ListView`, `ui.widget.Cell`, and
 `GCDataSource`. There are components that handle some of
 these for you, but to understand how they work together,
 we'll display a list of arbitrary data that we can scroll and
@@ -189,7 +189,7 @@ click.
 Requires a data source and cell.
 
 ~~~
-m4_include(./examples/api/list.js)
+m4_include(./examples/api/listview.js)
 ~~~
 
 Run this code in the simulator, and you should see something
@@ -197,4 +197,4 @@ like the following screenshot. You can drag the list up and
 down, but not right or left. When you click on a film title,
 it will turn red and output its title in the debugging console.
 
-<img src="./assets/ui-widget-list/example-list.png" alt="film list screenshot" class="screenshot">
+<img src="./assets/ui-widget-listview/example-listview.png" alt="film list screenshot" class="screenshot">
