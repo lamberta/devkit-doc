@@ -34,9 +34,9 @@ var imageview = new ImageView({
 
 Returns the internal Image.
 
-### imageview.setImage (url [, opts])
+### imageview.setImage (url [, options])
 1. `url {string}`
-2. `opts {object}` ---Optional.
+2. `options {object}` ---Optional.
 	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`
@@ -47,9 +47,9 @@ Set the image for the ImageView.
 imageview.setImage('resources/images/example2.png');
 ~~~
 
-### imageview.setImage (img [, opts])
+### imageview.setImage (img [, options])
 1. `img {ui.resource.Image}`
-2. `opts {object}` ---Optional.
+2. `options {object}` ---Optional.
 	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = false`

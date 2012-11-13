@@ -146,18 +146,18 @@ that contain options that are passed up a class
 initialization hierarchy. However, there is a caveat for
 this common usage, since an options object may not exist,
 the properties can not be merged on an `undefined` value. To
-account for this, set the `opts` parameter to the return
+account for this, set the `options` parameter to the return
 value of `merge` as illustrated here:
 
 ~~~
-function not_merged (opts) {
-  merge(opts, {x: 1});
-  return opts;
+function not_merged (options) {
+  merge(options, {x: 1});
+  return options;
 }
 
-function merged (opts) {
-  opts = merge(opts, {x: 1});
-  return opts;
+function merged (options) {
+  options = merge(options, {x: 1});
+  return options;
 }
 
 not_merged();  //=> undefined

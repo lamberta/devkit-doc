@@ -92,9 +92,9 @@ var sprite = new SpriteView({
 
 The default sprite settings.
 
-### sprite.startAnimation (name [, opts])
+### sprite.startAnimation (name [, options])
 1. `name {string}`
-2. `opts {object}`
+2. `options {object}`
     * `iterations {number} = 1`
     * `callback {function} = null` ---Called at end of animation.
     * `frame {number} = 0` ---Frame to start on.
@@ -116,8 +116,8 @@ Stops the current animation and sets its visibility to `false`.
 If the current animation loops, start the default
 animation, otherwise, stop the animation.
 
-### sprite.resetAllAnimations ([opts])
-1. `opts {object}`
+### sprite.resetAllAnimations ([options])
+1. `options {object}`
 
 Completely reset all the sprite's animations. If provided,
 update the options.

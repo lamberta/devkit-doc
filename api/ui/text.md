@@ -68,8 +68,8 @@ Returns the width of a single character.
 
 Returns the width of the `line`.
 
-### text.updateOpts (opts)
-1. `opts {object}`
+### text.updateOpts (options)
+1. `options {object}`
 
 Update text options.
 
@@ -140,8 +140,8 @@ import ui.resource.Font as Font;
 
 Creates a font from a standard CSS font string.
 
-### new Font (opts)
-1. `opts {object}`
+### new Font ([options])
+1. `options {object}`
 	* `name {string} = device.defaultFamilyName`
 	* `size {number} = 20`
 	* `unit {string} = 'px'`

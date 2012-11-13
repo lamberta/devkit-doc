@@ -173,8 +173,8 @@ including the input and key event listeners, the game loop,
 the view hierarchy, and rendering the scene graph. A single
 `ui.Engine` is instantiated for games at `GC.app.engine`.
 
-### GC.app.engine.updateOpts (opts)
-1. `opts {object}`
+### GC.app.engine.updateoptions (options)
+1. `options {object}`
 
 Updates any options.
 
@@ -237,7 +237,7 @@ Calls `.startLoop()` and enables the key listener.
 1. `dtMin {number}`
 2. Return: `{this}`
 
-Starts the engine loop. If `dtMin` is provided, uses it as the argument to Timer.start(), instead of opts.dtMinimum.
+Starts the engine loop. If `dtMin` is provided, uses it as the argument to `timer.start()`, instead of `options.dtMinimum`.
 
 ### GC.app.engine.stopLoop ()
 1. Return: `{this}`
