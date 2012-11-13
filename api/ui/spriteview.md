@@ -22,16 +22,16 @@ animation.
 Given the following images in a project's `resources` directory:
 
 ~~~
-resources/images/characters/tim-idle-01.png
-resources/images/characters/tim-idle-02.png
-resources/images/characters/tim-idle-03.png
-resources/images/characters/tim-idle-04.png
-resources/images/characters/tim-run-01.png
-resources/images/characters/tim-run-02.png
-resources/images/characters/tim-run-03.png
+resources/images/characters/carl-idle-01.png
+resources/images/characters/carl-idle-02.png
+resources/images/characters/carl-idle-03.png
+resources/images/characters/carl-idle-04.png
+resources/images/characters/carl-run-01.png
+resources/images/characters/carl-run-02.png
+resources/images/characters/carl-run-03.png
 ~~~
 
-There is one sprite, *tim*, with two animations, *idle*
+There is one sprite, *carl*, with two animations, *idle*
 and *run*, and the *idle* animation contains four frames,
 the run animation three.
 
@@ -244,12 +244,12 @@ project
   |--resources/
   |   |-images/
   |      |-characters/
-  |         |-tim_idle_1.png
+  |         |-carl-idle-1.png
   |         |- ...
-  |         |-tim_idle_5.png
-  |         |-tim_walk_1.png
+  |         |-carl-idle-5.png
+  |         |-carl-walk-1.png
   |         |- ...
-  |         |-tim_walk_8.png
+  |         |-carl-walk-8.png
   |--sdk/
   |--build/
 ~~~
