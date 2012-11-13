@@ -38,7 +38,7 @@ Returns a Group.
 
 The main force of animate.
 
-Inherits
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### new Animator (subject, group)
@@ -191,7 +191,7 @@ animate.getGroup('complexAnimation1').on('Finish', function(){
 });
 ~~~
 
-Inherits
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### group.get (id)

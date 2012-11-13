@@ -2,7 +2,7 @@
 
 ## Class: ui.widget.ButtonView
 
-Inherits
+Inherits from:
 :    1. [ui.ImageView](./ui-imageview.html)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)

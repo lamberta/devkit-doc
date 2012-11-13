@@ -5,7 +5,7 @@
 Display an animated spinner. Great for showing that the
 application is not broke (yet).
 
-Inherits
+Inherits from:
 :    1. ui.widget.UIView
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)

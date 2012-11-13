@@ -11,7 +11,7 @@ the `direction` property of the FlexView's style. If the
 size of the child view exceed its superview, it will
 overflow the containing box.
 
-Inherits
+Inherits from:
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 

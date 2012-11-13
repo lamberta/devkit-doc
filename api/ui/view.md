@@ -4,7 +4,7 @@ The base display object.
 
 ## Class: ui.View
 
-Inherits
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~

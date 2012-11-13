@@ -305,7 +305,7 @@ Alias for `line.getLength`.
 
 Circles!
 
-Inherits
+Inherits from:
 :    1. [math.geom.Point](#class-math.geom.point)
 
 ~~~

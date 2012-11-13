@@ -50,7 +50,7 @@ Returns the color of a filter in the format: `"rgba(R, G, B, A)"`.
 
 Linear add (lighten) filter.
 
-Inherits
+Inherits from:
 :    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 ~~~
@@ -64,7 +64,7 @@ import ui.filter.LinearAddFilter as LinearAddFilter;
 
 Tint (averaging) filter.
 
-Inherits
+Inherits from:
 :    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 ~~~
@@ -78,7 +78,7 @@ import ui.filter.TintFilter as TintFilter;
 
 Multiply filter.
 
-Inherits
+Inherits from:
 :    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 ~~~
@@ -92,7 +92,7 @@ import ui.filter.MultiplyFilter as MultiplyFilter;
 
 Positive masking.
 
-Inherits
+Inherits from:
 :    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 ~~~
@@ -108,7 +108,7 @@ import ui.filter.PositiveMaskFilter as PositiveMaskFilter;
 
 Negative masking.
 
-Inherits
+Inherits from:
 :    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 ~~~

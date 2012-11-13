@@ -3,7 +3,7 @@
 
 ## Class: GC.Application
 
-Inherits:
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### Settings
@@ -104,7 +104,7 @@ is instantiated, the scene graph hierarchy and rendering
 engine are created, and the application's `initUI` and
 `launchUI` methods are called.
 
-Inherits:
+Inherits from:
 :    1. {project}/src/Application
      2. [GC.Application](#class-gc.application)
      3. [event.Emitter](./event.html#class-event.emitter)
@@ -133,7 +133,7 @@ Manages a view hierarchy by rendering its scene graph and
 controlling the animation loop. It has native, Canvas, and
 DOM rendering backends.
 
-Inherits
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
@@ -164,7 +164,7 @@ If a rendering engine has been initialized, return
 
 ## Singleton: GC.app.engine
 
-Inherits:
+Inherits from:
 :    1. [ui.Engine](#class-ui.engine)
      2. [event.Emitter](./event.html#class-event.emitter)
 

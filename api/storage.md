@@ -8,7 +8,7 @@ storage facilities, but until then, they are documented here.
 
 ## Class: squill.models.BasicDataSource
 
-Inherits
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### new squill.models.BasicDataSource ([options])
@@ -25,7 +25,7 @@ Inherits
 
 Not accessed directly using the SDK.
 
-Inherits
+Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### new squill.models.persistence.BasicPersistenceHandler ([options])
@@ -66,7 +66,7 @@ Doesn't seem to do anything.
 
 ## Class: squill.models.persistence.LocalPersistenceHandler
 
-Inherits:
+Inherits from:
 :    1. [squill.models.persistence.BasicPersistenceHandler](./squill-models-persistence-basicpersistencehandler.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 

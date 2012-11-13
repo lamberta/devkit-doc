@@ -4,7 +4,7 @@
 
 Use this View to display text.
 
-Inherits
+Inherits from:
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
@@ -78,7 +78,7 @@ Update text options.
 
 Present the user a prompt for entering text input.
 
-Inherits
+Inherits from:
 :    1. [ui.TextView](./ui-text.html#class-ui.textview)
      2. [ui.View](./ui-view.html)
 	 3. [event.Emitter](./event.html#class-event.emitter)
@@ -113,7 +113,7 @@ Called when the `TextPromptView` is selected.
 
 Enter text input inline. *This is not working.*
 
-Inherits
+Inherits from:
 :    1. ui.widet.UIView
      2. [ui.View](./ui-view.html)
 	 3. [event.Emitter](./event.html#class-event.emitter)

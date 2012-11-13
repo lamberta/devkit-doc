@@ -2,7 +2,7 @@
 
 ## Class: ui.widget.ListView
 
-Inherits
+Inherits from:
 :    1. [ui.ScrollView](./ui-scrollview.html)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
@@ -48,7 +48,7 @@ listview.updateOpts({
 
 ## Class: ui.widget.CellView
 
-Inherits
+Inherits from:
 :    1. ui.widget.UIView
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)

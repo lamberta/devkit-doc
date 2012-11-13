@@ -5,7 +5,7 @@ drag through user input.
 
 ## Class: ui.ScrollView
 
-Inherits
+Inherits from:
 :    1. ui.widget.UIView
 	 2. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
