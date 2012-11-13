@@ -224,7 +224,7 @@ Returns the raw (HTML) image.
 
 Returns the internal `ImageMap` object.
 
-### image.setMap (x, y, w, h, marginTop, marginRight, marginBottom, marginRight)
+### image.setMap (x, y, w, h, marginTop, marginRight, marginBottom, marginLeft)
 1. `x {number}`
 2. `y {number}`
 3. `w {number}`
@@ -232,7 +232,7 @@ Returns the internal `ImageMap` object.
 5. `marginTop {number}`
 6. `marginRight {number}`
 7. `marginBottom {number}`
-8. `marginRight {number}`
+8. `marginLeft {number}`
 
 Sets the properties of the internal `ImageMap` object.
 
