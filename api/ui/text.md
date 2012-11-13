@@ -74,7 +74,9 @@ Returns the width of the `line`.
 Update text options.
 
 
-## Class: ui.TextInputView
+## Class: ui.TextPromptView
+
+Present the user a prompt for entering text input.
 
 Inherits
 :    1. [ui.TextView](./ui-text.html#class-ui.textview)
@@ -82,15 +84,16 @@ Inherits
 	 3. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
-import ui.TextInputView as TextInputView;
+import ui.TextPromptView as TextPromptView;
 ~~~
 
-### new TextInputView ([options])
+### new TextPromptView ([options])
 1. `options {object}`
-	* `prompt {text}`
+	* `prompt {text} = ''`
+	* `autoShowKeyboard {boolean} = false`
 
 ~~~
-var text = new TextInputView();
+var textprompt = new TextPromptView();
 ~~~
 
 ### Events
@@ -102,7 +105,26 @@ Called when the text value changes.
 
 #### \'InputSelect\', callback ()
 
-Called when TextInputView has been selected.
+Called when the `TextPromptView` is selected.
+
+
+
+## Class: ui.TextInputView
+
+Enter text input inline. *This is not working.*
+
+Inherits
+:    1. ui.widet.UIView
+     2. [ui.View](./ui-view.html)
+	 3. [event.Emitter](./event.html#class-event.emitter)
+
+~~~
+import ui.TextInputView as TextInputView;
+~~~
+
+### new TextInputView ([options])
+1. `options {object`
+
 
 
 ## Class: ui.resource.Font
