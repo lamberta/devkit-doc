@@ -88,7 +88,7 @@ var sprite = new SpriteView({
     * `frameRate {number} = 15`
     * `emitFrameEvents {boolean} = false`
     * `autoStart {boolean} = false`
-    * `loop {boolean} = true`
+    * `loop {boolean} = true` ---Continously loop an animation.
 
 The default sprite settings.
 
@@ -99,12 +99,13 @@ The default sprite settings.
     * `callback {function} = null` ---Called at end of animation.
     * `frame {number} = 0` ---Frame to start on.
     * `randomFrame {boolean} = false` ---Start on random frame.
+	* `loop {boolean} = false` ---Continously loop an animation.
 
 Start an animation. After the specified number of
 `iterations`, the sprite returns to its `defaultAnimation`.
 
 ~~~
-sprite.startAnimation('run');
+sprite.startAnimation('run', {loop: true});
 ~~~
 
 ### sprite.stopAnimation ()
