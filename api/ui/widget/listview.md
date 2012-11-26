@@ -49,9 +49,8 @@ listview.updateOpts({
 ## Class: ui.widget.CellView
 
 Inherits from:
-:    1. ui.widget.UIView
-     2. [ui.View](./ui-view.html)
-     3. [event.Emitter](./event.html#class-event.emitter)
+:    1. [ui.View](./ui-view.html)
+     2. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.widget.CellView as CellView;

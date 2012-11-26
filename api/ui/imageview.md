@@ -88,8 +88,7 @@ Returns the image height.
 ## Class: ui.ImageScaleView
 
 Inherits from:
-:    1. ui.widget.UIView
-     1. [ui.widget.View](./ui-view.html)
+:    1. [ui.widget.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~

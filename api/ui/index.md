@@ -23,7 +23,6 @@ A collection of user interface elements.
 
 ### ui.widget
 
-* UIView
 * Button
 * List
 * ...

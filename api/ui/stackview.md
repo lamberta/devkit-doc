@@ -6,9 +6,8 @@ A view that contains multiple child views, one of which is
 at the top of the stack and displayed.
 
 Inherits from:
-:    1. [ui.widget.UIView](./ui-widget-uiview.html)
-     2. [ui.View](./ui-view.html)
-     3. [event.Emitter](./event.html#class-event.emitter)
+:    1. [ui.View](./ui-view.html)
+     2. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.StackView as StackView;

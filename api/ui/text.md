@@ -114,9 +114,8 @@ Called when the `TextPromptView` is selected.
 Enter text input inline. *This is not working.*
 
 Inherits from:
-:    1. ui.widet.UIView
-     2. [ui.View](./ui-view.html)
-	 3. [event.Emitter](./event.html#class-event.emitter)
+:    1. [ui.View](./ui-view.html)
+	 2. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~
 import ui.TextInputView as TextInputView;
