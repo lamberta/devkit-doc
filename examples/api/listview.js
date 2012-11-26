@@ -20,7 +20,12 @@ exports = Class(GC.Application, function () {
       superview: this.view,
       dataSource: film_data, //attach our data
       scrollX: false,
-      getCell: function () { return new FilmCell({height: 50}); }
+      getCell: function () {
+        return new FilmCell({
+          width: device.screen.width,
+          height: 50
+        });
+      }
     });
   };
 });
@@ -29,7 +34,7 @@ exports = Class(GC.Application, function () {
  */
 var FilmCell = Class(CellView, function (supr) {
   this.init = function (opts) {
-    supr(this, 'init', arguments);
+    supr(this, 'init', [opts]);
 
     this._data = null;
     this._textview = new TextView({superview: this});
@@ -40,6 +45,13 @@ var FilmCell = Class(CellView, function (supr) {
       this._data.color = '#f00';
       this._textview.updateOpts({color: this._data.color});
       console.log("Selected: " + this._data.title);
+    });
+  };
+
+  this.buildView = function () {
+    this._textview.updateOpts({
+      width: this.style.width,
+      height: this.style.height
     });
   };
 
