@@ -13,11 +13,11 @@ import ui.TextView as TextView;
 ~~~
 
 ### new TextView ([options])
-1. `options {object}`
+1. `options {object}` ---`TextView` specific options, also accepts [`View` options](./ui-view.html#new-view-options).
 	* `text {string}`
 	* `fontSize {number} = 12`
 	* `autoSize {boolean} = true`
-	* `fontFamily {string} = device.defaultFontFamily`
+	* `fontFamily {string} = device.defaultFontFamily` ---The [default font family](device.html#device.defaultfontfamily) used by the device.
 	* `color {string} = 'black'`
 	* `backgroundColor {string} = null`
 	* `horizontalPadding {number} = 0`

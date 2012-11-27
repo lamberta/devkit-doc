@@ -1,11 +1,19 @@
 # ui.View
 
-The base display object.
+The base display object for rendering elements to the
+screen. A `ui.View` is rendered to the viewport when it is
+attached to the game's scene graph---a hierarchy of `View`
+nodes. Views have methods for adding and removing superviews
+and subviews (parents and children), can set handler
+functions for events, and contain properties for styling how
+the view is displayed on the screen.
 
 ## Class: ui.View
 
 Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
+
+Usage:
 
 ~~~
 import ui.View as View;
@@ -21,11 +29,14 @@ import ui.View as View;
     * `canHandleEvents {boolean} = true`
     * `superview {View}`
 
-In addition to these options, you can also pass the
-[style definitions](#styles) listed below.
+The constructor used to create an instance of a `ui.View`
+object. In addition to the options listed here,
+[style definition properties](#styles) can also be
+passed in this object.
 
 ~~~
 var view = new View({
+  id: 'MyCrazyView',
   superview: parent,
   x: 50,
   y: 50,
@@ -35,18 +46,18 @@ var view = new View({
 });
 ~~~
 
-### view.updateOpts (options)
+### view.updateOpts ([options])
 1. `options {object}` ---The options object is the same as defined for the constructor.
 2. Return: `{object}` ---Returns the options object.
 
 Update the properties and styles of a view.
 
 ### view.style
-1. `{object}` ---Contains the [style definitions](#styles) enumerated below.
+1. `{object}` ---Contains the [style definitions](#styles) of a view, as enumerated below.
 
 The properties on this object determine the look and style
-of a view. If not passed as options to the view constructor,
-the properties can be set here.
+of a view. If not passed as options to a view constructor,
+the style properties can be set on this object.
 
 ~~~
 var view = new View({visible: true}); //now you see me
@@ -56,12 +67,14 @@ view.style.visible = false;           //now you don't
 
 ### Callback handler: view.buildView
 
-This function is run before the view is first rendered. Any
-subview creation should be in here since their dimensions
-will be dependent on their parent.
+This function on a view is run immediately before the
+view is first rendered to the screen. Consequently, since
+the view is guaranteed to be part of scene graph when this
+function called, any subview creation should be placed here
+since the child dimensions are dependent upon their parent.
 
 ~~~
-var view = Class(ui.View, function (supr) {
+var MyView = Class(ui.View, function (supr) {
 
   this.buildView = function () {
     var mysubview = new ui.View({
@@ -78,96 +91,100 @@ var view = Class(ui.View, function (supr) {
 ### view.getApp ()
 1. Return: `{ui.Engine}`
 
-Returns the root application for this view: `GC.app.engine`.
+Returns the root application for the view, [GC.app.engine](./appengine.html#singleton-gc.app.engine).
+This is the top-level node of the scene graph, a [ui.Engine](./appengine.html#class-ui.engine) singleton automatically instantiated by the game engine.
 
 ### view.getSuperview ()
 1. Return: `{View}`
 
-Returns the parent view of this view.
+Return the view's parent in the scene graph hierarchy.
 
 ### view.getParents ()
 1. Return: `{array}`
 
-Returns an array of all ancestors of the current view to the
-scene graph root.
-
-### view.getSubview (i)
-1. `id {number}`
-2. Return: `{View}`
-
-Return a subview at the given index.
+Returns an array of all parent ancestors of the current view
+to the root of the scene graph.
 
 ### view.getSubviews ()
 1. Return: `{array}`
 
-Returns an array of all subviews.
+Returns an array of all subview children of the view.
+
+### view.getSubview (i)
+1. `i {number}` ---Array index position.
+2. Return: `{View}`
+
+Return a child subview at the given array index.
 
 ### view.addSubview (view)
-1. `view {View}`
-2. Return: `{View}` ---Returns the given view.
+1. `view {View}` ---The view to add as a child of this view.
+2. Return: `{View}` ---Returns the view that was passed to this method.
 
-Add a view as a child of this view.
+Add a view as a child subview.
 
 ### view.removeSubview (view)
 1. `view {View}`
 
-Removes a child view from this view.
+Removes a child subview from this view.
 
 ### view.removeAllSubviews ()
 
-Removes all child views from this view.
+Removes all child subviews from this view.
 
 ### view.removeFromSuperview ()
 
-Removes this view from its parent view.
+Removes this view from its parent superview.
 
 ### view.needsRepaint ()
 
-Notifies the renderer that the view needs to be repainted next tick.
+Notifies the renderer that the view needs to be redrawn on next animation frame.
 
 ### view.needsReflow ()
 
-Notifies the need for positioning.
+Notifies the `ui.Engine` that the view needs its position updated.
 
-### view.canHandleEvents (handlep)
-1. `handlep {boolean}`
+### view.canHandleEvents (ignoreEvents [, ignoreSubviews])
+1. `ignoreEvents {boolean}`
+2. `ignoreSubviews {boolean} = false` ---Optionally block input events on all subviews.
 
-Set if a view will handle events or not.
+A view that can not handle events will pass them through to
+other views positioned beneath them on the screen. By
+default, a view handles all input events. In the *UI
+Inspector* you can see which views are underneath the input
+cursor by hovering over an element and using *control-click*.
 
-### view.getInput ()
-1. Return: `{InputHandler}`
-
-Return the input handler of a view.
+If the `ignoreSubviews` option is set to `true`, all events
+on the view's children are also ignored.
 
 ### view.isInputOver ()
 1. Return `{boolean}`
 
-Check if an input event is over a view.
+If an input event is over a view, return `true`, otherwise `false`.
 
-### view.startDrag (options)
+### view.startDrag ([options])
 1. `options {object}`
     * `inputStartEvt {InputEvent}`
     * `radius {number} = 0`
 
-Start responding to an input event by dragging the view.
+Respond to an input event by dragging the view.
 
 ~~~
 view.on('InputStart', function (evt, pt) {
   //will emit a 'drag' event if moved further than 15 pixels in any direction
-  this.startDrag({ radius: 15 });
+  this.startDrag({radius: 15});
 });
 ~~~
 
 ### view.isDragging ()
 1. Return: `{boolean}`
 
-Indicate if the view is being dragged.
+Test if the view is being dragged.
 
 ### view.localizePoint (point)
-1. `point {math2D.Point}`
-2. Return `{math2D.Point}` ---Returns the given point, with updated values.
+1. `point {Point}`
+2. Return `{Point}` ---Returns the given point, with updated values.
 
-Convert a point to it’s local position relative to this view.
+Convert a point to a local position relative to this view.
 
 ### view.getPosition ([relativeTo])
 1. `relativeTo {View}` ---Optional.
@@ -192,7 +209,7 @@ Determine if the given point is contained by the view.
 ### view.getBoundingShape ()
 1. Return: `{Rect}` or `{Circle}`, the shape defined when the view was created.
 
-Get the bounding shape for a view.
+Return the bounding shape for a view, this is a rectangle or circle.
 
 ### view.getRelativeRegion (region, parent)
 1. `region {Rect}`
@@ -217,31 +234,28 @@ exist on a view.
 
 Remove a named filter from this view.
 
-### view.toString ()
-1. Return: `{string}`
-
 ### view.getTag ()
 1. Return: `{string}`
 
-Return a readable tag for a view.
-
-### view.show ()
-
-Make the view visible, trigger a repaint.
+Return the human-readable name for a view.
 
 ### view.hide ()
 
-Make the view invisible, trigger a repaint.
+Make the view invisible.
+
+### view.show ()
+
+Make the view visible.
 
 ### view.focus ()
 1. Return: `{this}`
 
-Indicate to the focus manager this element is focused.
+Indicate to the focus manager this view has focus.
 
 ### view.blur ()
 1. Return: `{this}`
 
-Indicate to the focus manager this element is blurred.
+Indicate to the focus manager this element has been blurred.
 
 
 ### Event handlers
@@ -250,9 +264,21 @@ Indicate to the focus manager this element is blurred.
 
 The callback function is triggered when focus is given to this view.
 
+~~~
+view.onFocus = function () {
+  console.log("View has focus!");
+};
+~~~
+
 #### view.onBlur ()
 
 The callback function is triggered when this view loses focus.
+
+~~~
+view.onBlur = function () {
+  console.log("View has lost focus!");
+};
+~~~
 
 ### view.tick (dt)
 1. `dt {number}`
@@ -295,10 +321,14 @@ Subscribe to the capture-phase event with `'InputSelectCapture'`.
 2. `overCount {number}`
 3. `atTarget`
 
+The event is fired when input is moved over a view.
+
 #### \'InputOut\', callback (over, overCount, atTarget)
 1. `over`
 2. `overCount {number}`
 3. `atTarget`
+
+The event is fired when input is moved off a view.
 
 #### \'InputStart\', callback (event, point)
 1. `event {InputEvent}`
