@@ -1,12 +1,14 @@
 # Loading Assets
 
-## Module: GC.resources
+## Module: ui.resource.loader
 
-`GC.resources` is a module used for preloading image and
+`ui.resource.loader` is a module used for preloading image and
 sound assets.
 
+Usage:
+
 ~~~
-import GC.resources as resources;
+import ui.resource.loader as loader;
 ~~~
 
 Loading assets, while asynchronous, is still demanding on the
@@ -36,7 +38,7 @@ project/
 	 └── Application.js
 ~~~
 
-### resources.preload (path, callback)
+### loader.preload (path, callback)
 1. `path {string}`
 2. `callback {function}`
 
@@ -46,12 +48,12 @@ and image files are loaded in to memory, the supplied
 callback function is executed.
 
 ~~~
-resources.preload('resources/images/bgimage.jpg', function () {
+loader.preload('resources/images/bgimage.jpg', function () {
   //image is loaded ...
 });
 ~~~
 
-### resources.preload (paths, callback)
+### loader.preload (paths, callback)
 1. `paths {array}` ---A collection of path strings.
 2. `callback {function}`
 
@@ -62,7 +64,7 @@ To load all the asset files contained in the directories and
 sub-directories of `resources/images` and `resources/sounds`:
 
 ~~~
-resources.preload(['resources/images', 'resources/sounds'], function () {
+loader.preload(['resources/images', 'resources/sounds'], function () {
   //image is loaded, audio files are loaded ...
 });
 ~~~
