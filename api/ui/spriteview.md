@@ -26,9 +26,9 @@ resources/images/characters/carl-idle-01.png
 resources/images/characters/carl-idle-02.png
 resources/images/characters/carl-idle-03.png
 resources/images/characters/carl-idle-04.png
-resources/images/characters/carl-run-01.png
-resources/images/characters/carl-run-02.png
-resources/images/characters/carl-run-03.png
+resources/images/characters/carl-walk-01.png
+resources/images/characters/carl-walk-02.png
+resources/images/characters/carl-walk-03.png
 ~~~
 
 There is one sprite, *carl*, with two animations, *idle*
@@ -239,20 +239,20 @@ Given the following project layout for resources:
 
 ~~~
 project
-  |--manifest.json
-  |--src/
-  |   |-Application.js
-  |--resources/
-  |   |-images/
-  |      |-characters/
-  |         |-carl-idle-1.png
-  |         |- ...
-  |         |-carl-idle-5.png
-  |         |-carl-walk-1.png
-  |         |- ...
-  |         |-carl-walk-8.png
-  |--sdk/
-  |--build/
+.
+├── manifest.json
+├── sdk/ -> /path/to/basil/sdk
+├── build/
+├── resources/
+│   └── images
+│       ├── carl-idle-01.png
+│       ├── ...
+│       ├── carl-idle-04.png
+│       ├── carl-walk-01.png
+│       ├── ...
+│       └── carl-walk-03.png
+└── src/
+    └── Application.js
 ~~~
 
 You can set up a sprite to play multiple animations:

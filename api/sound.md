@@ -11,14 +11,18 @@ directory structure of a project:
 
 ~~~
 project
- |- src
- |    \- Application.js
- \- resources
-      \- sounds
-         |- music
-         |    \- levelmusic.mp3
-         \- effect
-              \- boink.mp3
+.
+├── manifest.json
+├── sdk/ -> /path/to/basil/sdk
+├── build/
+├── resources/
+│   └── sounds/
+│       ├── music/
+│       │   └── levelmusic.mp3
+│       └── effect/
+│           └── boink.mp3
+└── src/
+    └── Application.js
 ~~~
 
 ### new Sound ([options])
