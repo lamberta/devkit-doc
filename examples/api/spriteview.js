@@ -7,7 +7,7 @@ var sprite = new SpriteView({
   y: 0,
   width: 60,
   height: 60,
-  url: "resources/images/characters/tim",
+  url: "resources/images/characters/carl",
   defaultAnimation: 'idle'
 });
 
