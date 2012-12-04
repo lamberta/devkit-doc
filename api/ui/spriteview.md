@@ -22,13 +22,18 @@ animation.
 Given the following images in a project's `resources` directory:
 
 ~~~
-resources/images/characters/carl-idle-01.png
-resources/images/characters/carl-idle-02.png
-resources/images/characters/carl-idle-03.png
-resources/images/characters/carl-idle-04.png
-resources/images/characters/carl-walk-01.png
-resources/images/characters/carl-walk-02.png
-resources/images/characters/carl-walk-03.png
+project
+.
+└── resources/
+     └── images/
+          └── characters/
+               ├── carl-idle-01.png
+               ├── carl-idle-02.png
+               ├── carl-idle-03.png
+               ├── carl-idle-04.png
+               ├── carl-walk-01.png
+               ├── carl-walk-02.png
+               └── carl-walk-03.png
 ~~~
 
 There is one sprite, *carl*, with two animations, *idle*
@@ -244,13 +249,15 @@ project
 ├── sdk/ -> /path/to/basil/sdk
 ├── build/
 ├── resources/
-│   └── images
-│       ├── carl-idle-01.png
-│       ├── ...
-│       ├── carl-idle-04.png
-│       ├── carl-walk-01.png
-│       ├── ...
-│       └── carl-walk-03.png
+│   └── images/
+│        └── characters/
+│             ├── carl-idle-01.png
+│             ├── carl-idle-02.png
+│             ├── carl-idle-03.png
+│             ├── carl-idle-04.png
+│             ├── carl-walk-01.png
+│             ├── carl-walk-02.png
+│             └── carl-walk-03.png
 └── src/
     └── Application.js
 ~~~
@@ -258,5 +265,18 @@ project
 You can set up a sprite to play multiple animations:
 
 ~~~
-m4_include(./examples/api/spriteview.js)
+import ui.SpriteView as SpriteView;
+
+var sprite = new SpriteView({
+  superview: parent,
+  x: 0,
+  y: 0,
+  width: 60,
+  height: 60,
+  url: "resources/images/characters/carl",
+  defaultAnimation: 'idle'
+});
+
+//Play the 'walk' animation once, then return to idle.
+sprite.startAnimation('walk');
 ~~~
