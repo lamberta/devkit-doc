@@ -62,12 +62,14 @@ the web interface.
 
 ~~~
 project
-  |--manifest.json (project information)
-  |--src/
-  |   |-Application.js (project entry point)
-  |--resources/ (empty)
-  |--sdk/ (symlink)
-  |--build/ (generated when run)
+.
+├── manifest.json (project information)
+├── sdk/ -> /path/to/basil/sdk (symlink)
+├── build/ (auto-generated)
+├── resources/
+│   └── fonts/
+└── src/
+    └── Application.js (project entry point)
 ~~~
 
 Application.js:
@@ -88,6 +90,7 @@ exports = Class(GC.Application, function() {
   this.initUI = function() {
     var textview = new TextView({
       superview: this.view,
+      layout: "box",
       text: "Hello, world!",
       color: "white"
     });
