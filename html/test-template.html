@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GC Docs</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="./include/fav.png">
+		<link rel="stylesheet" href="./include/bootstrap/css/bootstrap.css">
+		<!--<link rel="stylesheet" href="./include/style.css">-->
+		<link rel="stylesheet" href="./include/prettify.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Puritan:400,700">
+  
+		<style type='text/css'>
+    body {
+    padding-bottom: 40px;
+    padding-top: 60px;
+}
+
+.sidebar-nav-fixed {
+    padding: 9px 0;
+    position:fixed;
+    left:20px;
+    top:60px;
+    width:250px;
+}
+
+.row-fluid > .span-fixed-sidebar {
+    margin-left: 290px;
+}
+
+#sidebar {
+	overflow: auto;
+	height: 650px;
+}
+
+.hero-unit {
+  margin-top: -30px;
+}
+</style>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+			<ul class="nav">
+
+				
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						game <span>{</span>closure<span>}</span> <strong>SDK</strong>
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="./api/utilities.html">Issue Tracker</a></li>
+						<li><a href="./api/color.html">IRC</a></li>
+						<li><a href="./api/math.html">Email Support</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="./api/appengine.html">App Engine</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="./api/event.html#class-event.emitter">Emitter</a></li>
+						<li><a href="./api/event.html#class-event.callback">Callback</a></li>
+						<li><a href="./api/event.html#class-event.input.inputevent">InputEvent</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Components<b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="./api/ui-view.html">View</a></li>
+						<li><a href="./api/ui-text.html">TextView</a></li>
+						<li><a href="./api/ui-text.html#class-ui.textpromptview">TextPromptView</a></li>
+						<li><a href="./api/ui-text.html#class-ui.textinputview">TextInputView</a></li>
+						<li><a href="./api/ui-imageview.html">ImageView</a></li>
+						<li><a href="./api/ui-spriteview.html">SpriteView</a></li>
+						<li><a href="./api/ui-stackview.html">StackView</a></li>
+						<li><a href="./api/ui-scrollview.html">ScrollView</a></li>
+						<li><a href="./api/ui-filter.html">Filters</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Widgets<b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="./api/ui-widget-buttonview.html">ButtonView</a></li>
+						<li><a href="./api/ui-widget-listview.html#class-ui.widget.cellview">CellView</a></li>
+						<li><a href="./api/ui-widget-listview.html">ListView</a></li>
+						<li><a href="./api/ui-widget-spinner.html">Spinner</a></li>
+					</ul>
+				</li>
+				<li><a href="./api/device.html">Device Properties</a></li>
+				<li><a href="./api/animate.html">Animation</a></li>
+				<li><a href="./api/sound.html">Sound</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities<b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="./api/utilities.html">Utilities</a></li>
+						<li><a href="./api/color.html">Color</a></li>
+						<li><a href="./api/math.html">Math</a></li>
+					</ul>
+				</li>
+			</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row-fluid row">
+    <div class="span4">
+      <div id="sidebar" class="well sidebar-nav-fixed">
+        <ul class="nav nav-list">
+
+          <li class="nav-header">Animation Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/animation-basic/">Basic</a></li>
+          <li><a href="http://doc.gameclosure.com/example/animation-continuous/">Loop</a></li>
+          <li><a href="http://doc.gameclosure.com/example/animation-pause/">Pause</a></li>
+					<li><a href="http://doc.gameclosure.com/example/animation-trail/">Trail</a></li>
+          <li class="nav-header">Event Examples</li>
+					<li><a href="http://doc.gameclosure.com/example/event-on/">Subscribe</a></li>
+          <li><a href="http://doc.gameclosure.com/example/event-once/">Subscribe Once</a></li>
+          <li class="nav-header">Font Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/fonts-bitmapcomposite/">Bitmap Composite Fonts</a></li>
+          <li><a href="http://doc.gameclosure.com/example/fonts-bitmap/">Bitmap Fonts</a></li>
+          <li><a href="http://doc.gameclosure.com/example/fonts-ttf/">TTF Fonts</a></li>
+          <li class="nav-header">Image Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/images-ninesliceanimation/">9-Slice Animation</a></li>
+          <li><a href="http://doc.gameclosure.com/example/images-nineslice/">9-Slice</a></li>
+          <li><a href="http://doc.gameclosure.com/example/images-basic/">Basic</a></li>
+					<li><a href="http://doc.gameclosure.com/example/images-resource/">Resources</a></li>
+          <li><a href="http://doc.gameclosure.com/example/images-spritesheet/">Sprite</a></li>
+					<li class="nav-header">Input Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/input-click/">Click</a></li>
+					<li><a href="http://doc.gameclosure.com/example/input-out/">Out</a></li>
+          <li><a href="http://doc.gameclosure.com/example/input-trail/">Trail</a></li>
+					<li class="nav-header">Rendering Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/rendering-buffers/">Buffers</a></li>
+					<li><a href="http://doc.gameclosure.com/example/rendering-tiles/">Tiles</a></li>
+					<li class="nav-header">Sound Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/sound-background/">Background</a></li>
+					<li><a href="http://doc.gameclosure.com/example/sound-effect/">Effects</a></li>
+					<li><a href="http://doc.gameclosure.com/example/sound-mute/">Mute</a></li>
+          <li><a href="http://doc.gameclosure.com/example/sound-volume/">Adjust Volume</a></li>
+					<li class="nav-header">View Examples</li>
+					<li><a href="http://doc.gameclosure.com/example/view-basic/">Basic</a></li>
+          <li><a href="http://doc.gameclosure.com/example/view-nested/">Nested</a></li>
+					<li><a href="http://doc.gameclosure.com/example/views-addremove/">Add and Remove</a></li>
+					<li class="nav-header">Misc Examples</li>
+          <li><a href="http://doc.gameclosure.com/example/list-basic/">List</a></li>
+					<li><a href="http://doc.gameclosure.com/example/scaling-fit-region/">Scaling</a></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+
+    <div class="span9 span-fixed-sidebar">
+      <div class="hero-unit">
+        <h1>Game Closure SDK</h1>
+        <p>Multi-player, Muti-platform, 2D Game Engine!</p>
+        <p><a href="http://gameclosure.com/sdk/" class="btn btn-primary btn-large">Install &raquo;</a></p>
+      </div>
+      <div class="row-fluid">
+
+        <div class="span4">
+          <h2>Getting Started</h2>
+          <p>Get up and running with the Game Closure SDK</p>
+          <p><a href="./guide/getting-started.html" class="btn">View details &raquo;</a></p>
+        </div>
+				
+        <div class="span4">
+          <h2>Hello, World!</h2>
+          <p>Create your first game using the Game Closure SDK.</p>
+          <p><a  href="./guide/hello-world.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+				
+        <div class="span4">
+          <h2>Game Walkthrough</h2>
+          <p>An in-depth look at a real, non-trivial game. Set up the scene graph and navigate through the app using events.</p>
+          <p><a href="./guide/game-walkthrough.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div><!--/row-->
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>Using Views</h2>
+          <p>Understanding the scene graph and how to set up a hierarchy of Views</p>
+          <p><a href="./guide/views.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+				
+        <div class="span4">
+          <h2>Loading Assets</h2>
+          <p>Everything you need to know about loading audio and image asssets for your game.</p>
+          <p><a href="./guide/load-assets.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+				
+        <div class="span4">
+          <h2>Scaling the Game</h2>
+          <p>Scale you game for multiple dimensions on multiple devices.</p>
+          <p><a href="./guide/scaling.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div><!--/row-->
+			<div class="row-fluid">
+				<div class="span4">
+          <h2>Manifest Options</h2>
+          <p>Options and settings for your game belong in the manifest file.</p>
+          <p><a href="./guide/manifest.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+				
+        <div class="span4">
+          <h2>Designing User Interfaces</h2>
+          <p>Design and layout your game.</p>
+          <p><a href="./guide/designing-user-interfaces.html" class="btn" href="#">View details &raquo;</a></p>
+        </div>
+				
+       
+      </div><!--/row-->
+    </div><!--/span-->
+  </div><!--/row-->
+
+</div><!--/.fluid-container-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="./include/bootstrap/js/bootstrap.js"></script>
+<script src="./include/prettify.js"></script>
+<script>
+window.onload = function () {
+  //prettify.js
+  Array.prototype.slice.call(document.getElementsByTagName('pre')).forEach(function (elem) {
+    elem.setAttribute('class', 'prettyprint');
+  });
+  prettyPrint();
+};
+</script>
+</body>
+
+
+</html>

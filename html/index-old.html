@@ -7,65 +7,78 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="./include/fav.png">
-    <link rel="stylesheet" href="./include/style.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Puritan:400,700">
+		<link rel="stylesheet" href="./include/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="./include/style.css">
+		<link rel="stylesheet" href="./include/prettify.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Puritan:400,700">
   </head>
   <body>
-    <header><a href="./index.html">game <span class="left-bracket">{</span>closure<span class="right-bracket">}</span> <strong>SDK</strong></a></header>
 
-    <nav id="sidebar">
-      <h1>API Reference</h1>
-      <ul>
-        <li><a href="./api/appengine.html">App Engine</a></li>
-        <li>
-          <a href="./api/event.html">Events</a>
-          <ul>
-            <li><a href="./api/event.html#class-event.emitter">Emitter</a></li>
-            <li><a href="./api/event.html#class-event.callback">Callback</a></li>
-            <li><a href="./api/event.html#class-event.input.inputevent">InputEvent</a></li>
-          </ul>
-        </li>
-        
-        <li>
-          <a href="./api/ui-index.html">UI Components</a>
-          <ul>
-            <li><a href="./api/ui-view.html">View</a></li>
-            <li><a href="./api/ui-text.html">TextView</a></li>
-            <li><a href="./api/ui-text.html#class-ui.textpromptview">TextPromptView</a></li>
-            <li><a href="./api/ui-text.html#class-ui.textinputview">TextInputView</a></li>
-            <li><a href="./api/ui-imageview.html">ImageView</a></li>
-            <li><a href="./api/ui-spriteview.html">SpriteView</a></li>
-            <li><a href="./api/ui-stackview.html">StackView</a></li>
-            <li><a href="./api/ui-scrollview.html">ScrollView</a></li>
-            <li><a href="./api/ui-filter.html">Filters</a></li>
-          </ul>
-        </li>
-        
-        <li>
-          <a href="#">UI Widgets</a>
-          <ul>
-            <li><a href="./api/ui-widget-buttonview.html">ButtonView</a></li>
-            <li><a href="./api/ui-widget-listview.html#class-ui.widget.cellview">CellView</a></li>
-            <li><a href="./api/ui-widget-listview.html">ListView</a></li>
-            <li><a href="./api/ui-widget-spinner.html">Spinner</a></li>
-          </ul>
-        </li>
-        <li><a href="./api/device.html">Device Properties</a></li>
-        <li><a href="./api/animate.html">Animation</a></li>
-        <li><a href="./api/sound.html">Sound</a></li>
-        <li>
-          <a href="./api/utilities.html">Utilities</a>
-          <ul>
-            <li><a href="./api/color.html">Color</a></li>
-            <li><a href="./api/math.html">Math</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+			<header class="well">
+				<a href="../index.html">game <span>{</span>closure<span>}</span> <strong>SDK</strong></a>
+			</header>
+<!--Sidebar content-->
+$if(toc)$<nav id="TOC" class="well sidebar-nav">
+	$toc$
+</nav>$endif$
+    </div>
+    <div class="span8">
+<!--Body content-->
+<nav id="topnav" class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><a href="./api/appengine.html">App Engine</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="./api/event.html#class-event.emitter">Emitter</a></li>
+          <li><a href="./api/event.html#class-event.callback">Callback</a></li>
+          <li><a href="./api/event.html#class-event.input.inputevent">InputEvent</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Components<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="./api/ui-view.html">View</a></li>
+          <li><a href="./api/ui-text.html">TextView</a></li>
+          <li><a href="./api/ui-text.html#class-ui.textpromptview">TextPromptView</a></li>
+          <li><a href="./api/ui-text.html#class-ui.textinputview">TextInputView</a></li>
+          <li><a href="./api/ui-imageview.html">ImageView</a></li>
+          <li><a href="./api/ui-spriteview.html">SpriteView</a></li>
+          <li><a href="./api/ui-stackview.html">StackView</a></li>
+          <li><a href="./api/ui-scrollview.html">ScrollView</a></li>
+          <li><a href="./api/ui-filter.html">Filters</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Widgets<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="./api/ui-widget-buttonview.html">ButtonView</a></li>
+          <li><a href="./api/ui-widget-listview.html#class-ui.widget.cellview">CellView</a></li>
+          <li><a href="./api/ui-widget-listview.html">ListView</a></li>
+          <li><a href="./api/ui-widget-spinner.html">Spinner</a></li>
+        </ul>
+      </li>
+      <li><a href="./api/device.html">Device Properties</a></li>
+      <li><a href="./api/animate.html">Animation</a></li>
+      <li><a href="./api/sound.html">Sound</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="./api/utilities.html">Utilities</a></li>
+          <li><a href="./api/color.html">Color</a></li>
+          <li><a href="./api/math.html">Math</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-
-    <div id="main">
-      <h1>Game Closure Documentation</h1>
+<div id="main">
+	<h1>Game Closure Documentation</h1>
       
       <div id="menu">
 
@@ -180,7 +193,11 @@
         </ul>
 
       </div><!--end menu-->
-    </div><!--end main-->
+</div>
+    </div>
+  </div>
+</div>
+
 
     <div class="clearer"></div><a hre</a>f="">
     

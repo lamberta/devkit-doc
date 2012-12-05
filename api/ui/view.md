@@ -143,14 +143,14 @@ Notifies the renderer that the view needs to be redrawn on next animation frame.
 
 Notifies the `ui.Engine` that the view needs its position updated.
 
-### view.canHandleEvents (ignoreEvents [, ignoreSubviews])
-1. `ignoreEvents {boolean}`
+### view.canHandleEvents (handleEvents [, ignoreSubviews])
+1. `handleEvents {boolean}`
 2. `ignoreSubviews {boolean} = false` ---Optionally block input events on all subviews.
 
 A view that can not handle events will pass them through to
 other views positioned beneath them on the screen. By
-default, a view handles all input events. In the *UI
-Inspector* you can see which views are underneath the input
+default, a view handles all input events. In the *UI Inspector*
+you can see which views are underneath the input
 cursor by hovering over an element and using *control-click*.
 
 If the `ignoreSubviews` option is set to `true`, all events
