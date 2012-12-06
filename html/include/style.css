@@ -1,74 +1,61 @@
-html {
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-
 body {
-  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-  line-height: 1.2em;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
-code {
-  font-family: 'Inconsolata', monospace;
+.sidebar-nav {
+  padding: 9px 0;
 }
 
-#topnav ul li a {
-	padding-left: 8px;
-	padding-right: 8px;
-}
-
-#TOC ul {
-	list-style-type: none;
-	margin-left: 0;
-}
-
-#main pre {
-  font-size: 0.8em;
-  border-left: 4px solid #EEE;
-  padding-left: 10px;
-  margin-left: -2px;
-}
-
-header {
-	background: #72bad9; /* Old browsers */
-	background: -moz-linear-gradient(top,  #72bad9 0%, #49a6ce 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#72bad9), color-stop(100%,#49a6ce)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #72bad9 0%,#49a6ce 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #72bad9 0%,#49a6ce 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #72bad9 0%,#49a6ce 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #72bad9 0%,#49a6ce 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#72bad9', endColorstr='#49a6ce',GradientType=0 ); /* IE6-9 */
-  text-align: center;
-  top: 0;
-  z-index: 10;
-  border-right: 1px solid #147eab;
-  border-bottom: 1px solid #147eab;
-}
-
-header.well {
-	padding: 10px;
-}
-
-header a {
-  text-decoration: none;
-  color: #fff;
-	font-family: 'Puritan', 'Helvetica', 'Arial', sans-serif;
-	font-weight: 400;
-	font-size: 25px;
-	letter-spacing: -1px;
-}
-
-header a span {
-	font-weight: 700;
-	color: #0B5474;
-	position: relative;
-	top: 1px;
+.logo {
+  font-family: 'Puritan', 'Gill Sans', 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  letter-spacing: -1px;
 }
 
 footer {
   margin: 0 auto;
-  font-size: 12px;
+  font-size: 0.8em;
   text-align: center;
   letter-spacing: 2px;
   color: #AAA;
+}
+
+/*should inherit from bootstrap 'nav nav-list'*/
+#TOC ul {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 0;
+  margin-left: -15px;
+  margin-right: -15px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  list-style-type: none;
+}
+
+#TOC > ul {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#TOC ul li {
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #08C;
+}
+
+#TOC ul li a {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 3px 15px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+#TOC ul li > a:hover {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #0088cc;
+  text-decoration: none;
 }
