@@ -61,7 +61,7 @@ footer {
 }
 
 /*docco reset for code*/
-td.code, th.code {
+td.code pre, th.code pre{
 	background-color: transparent;
 	border-style: none;
 }
