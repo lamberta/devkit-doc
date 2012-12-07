@@ -59,3 +59,9 @@ footer {
   background-color: #0088cc;
   text-decoration: none;
 }
+
+/*docco reset for code*/
+td.code, th.code {
+	background-color: transparent;
+	border-style: none;
+}
