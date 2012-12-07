@@ -173,24 +173,3 @@ Returns the font weight.
 2. `Return: {Font}`
 
 Creates a Font from a font string.
-
-
-## Example: Many Random TextViews
-
-Here we'll create a header using some of the `TextView`
-positional options, then add many, many random letters
-scattered around the screen, each its own `TextView`.
-
-~~~
-m4_include(./examples/api/example-textview.js)
-~~~
-
-Place this in the `Application.js` file of your project and
-you should see something like this:
-
-<img src="./assets/ui-textview/example-textview.png" alt="many, many textviews screenshot" class="screenshot">
-
-It should be noted that this is a static scene for the purpose of
-demonstrating `TextView` creation. If you tried to animate
-this many views at once on an actual mobile device, you may
-run into performance issues.
