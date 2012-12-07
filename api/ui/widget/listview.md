@@ -174,26 +174,3 @@ var datasource = new GCDataSource();
 #### \'Remove\', callback (id, item)
 1. `id {string}`
 2. `item {object}`
-
-
-## Example: Create a ListView
-
-Displaying a list of items requires the coordinated use of
-three classes: `ui.widget.ListView`, `ui.widget.CellView`, and
-`GCDataSource`. There are components that handle some of
-these for you, but to understand how they work together,
-we'll display a list of arbitrary data that we can scroll and
-click.
-
-Requires a data source and cell view.
-
-~~~
-m4_include(./examples/api/listview.js)
-~~~
-
-Run this code in the simulator, and you should see something
-like the following screenshot. You can drag the list up and
-down, but not right or left. When you click on a film title,
-it will turn red and output its title in the debugging console.
-
-<img src="./assets/ui-widget-listview/example-listview.png" alt="film list screenshot" class="screenshot">

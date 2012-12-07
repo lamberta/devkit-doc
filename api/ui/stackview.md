@@ -92,9 +92,3 @@ scheduled to disappear, but before it has animated out.
 
 Event emitted to the StackView's child view once it has
 disappeared, after any animations.
-
-## Example: Multiple stacked modals using a StackView. 
-
-~~~
-m4_include(./examples/api/stackview.js)
-~~~

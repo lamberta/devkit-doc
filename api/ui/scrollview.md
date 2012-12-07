@@ -136,19 +136,3 @@ Smoothly scroll to a specific position.
 1. `delta {point}`
 
 Published in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.
-
-
-## Example: Create a ScrollView
-
-In this example, we'll use the `ScrollView` as a viewport to
-move around a
-[large background image](./assets/ui-scrollview/europemap.jpg). Dragging
-the screen moves the map until it reaches the edge of the
-scroll bounds. The scrollview has an offset applied to view
-the image initially 800 pixels in on the x and y axis.
-
-~~~
-m4_include(./examples/api/scrollview.js)
-~~~
-
-<img src="./assets/ui-scrollview/example-scrollview.png" alt="scrollview section screenshot" class="screenshot">
