@@ -221,12 +221,3 @@ Deletes the animation and publishes a `'Finish'` event.
 #### \'Finish\'
 
 Published when the group animation finishes.
-
-
-## Example: Moving rectangles
-
-Move over each rectangle to animate it to the edge of the device.
-
-~~~
-m4_include(./examples/api/animate.js)
-~~~
