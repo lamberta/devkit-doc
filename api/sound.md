@@ -191,10 +191,3 @@ Returns the file extenstion of the sound.
 ~~~
 sound.getExt() //=> ".mp3"
 ~~~
-
-
-## Example: Toggle Sound
-
-~~~
-m4_include(./examples/api/sound.js)
-~~~
