@@ -60,6 +60,11 @@ footer {
   text-decoration: none;
 }
 
+.toc-section-header {
+	color: #999;
+	font-weight: bold;
+}
+
 /*docco reset for code*/
 td.code pre, th.code pre{
 	background-color: transparent;
