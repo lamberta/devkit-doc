@@ -1,9 +1,9 @@
-# Sound
+# Audio
 
-## Class: Sound
+## Class: AudioManager
 
 ~~~
-import Sound;
+import AudioManager;
 ~~~
 
 For the examples on this page, we'll assume the following
@@ -25,7 +25,7 @@ project
     └── Application.js
 ~~~
 
-### new Sound ([options])
+### new AudioManager ([options])
 1. `options {object}`
 	* `path {string}` ---Directory path containing audio files.
 	* `files {object}` ---Collection of audio files mapped to their options.
@@ -47,8 +47,8 @@ Given the above directory structure for a project, multiple
 sound groups can be created using:
 
 ~~~
-var sound = new Sound({
-  path: 'resources/sounds',
+var audiomanager = new AudioManager({
+  path: 'resources/audiomanagers',
   files: {
     levelmusic: {
       path: 'music',
@@ -64,45 +64,45 @@ var sound = new Sound({
 });
 ~~~
 
-### sound.addSound (name [, options])
+### audiomanager.addSound (name [, options])
 1. `name {string}`
 2. `options {object}` ---Audio file options described above.
 
 Add a sound to the sound group.
 
 ~~~
-sound.addSound ('pop', {
+audiomanager.addSound ('pop', {
   path: 'effect',
   background: false
 });
 ~~~
 
-### sound.play (name [, options])
+### audiomanager.play (name [, options])
 1. `name {string}`
 2. `options {object}`
 	* `loop {boolean} = false`
 3. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
-Play a sound. If it has already been preloaded, it will play
+Play a audiomanager. If it has already been preloaded, it will play
 immediately, otherwise, it will need to load it into memory
 before playing.
 
 ~~~
-sound.play('boink', {loop: true});
+audiomanager.play('boink', {loop: true});
 ~~~
 
-### sound.pause (name)
+### audiomanager.pause (name)
 1. `name {string}`
 2. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
-ause a sound. The audio file is stopped at a certain point,
+Pause a sound. The audio file is stopped at a certain point,
 and restarted from that point when played again.
 
 ~~~
-sound.play('levelmusic');
+audiomanager.play('levelmusic');
 ~~~
 
-### sound.stop (name)
+### audiomanager.stop (name)
 1. `name {string}`
 2. Return: `{boolean}` ---Returns `true` on success, `false` if not.
 
@@ -110,10 +110,10 @@ Stop a sound. If a sound is played again, it will restart
 from the beginning.
 
 ~~~
-sound.stop('levelmusic');
+audiomanager.stop('levelmusic');
 ~~~
 
-### sound.setVolume (name, volume)
+### audiomanager.setVolume (name, volume)
 1. `name {string}`
 2. `volume {number}` ---A range between 0 and 1.
 3. Return: `{boolean}` ---Returns `true` on success, `false` if not.
@@ -122,72 +122,72 @@ Sets the volume of the sound, with 1 as the maximum, and 0
 as silent. A sound's default volume is 1.
 
 ~~~
-sound.setVolume('levelmusic', 0.8);
+audiomanager.setVolume('levelmusic', 0.8);
 ~~~
 
-### sound.getVolume (name)
+### audiomanager.getVolume (name)
 1. `name {string}`
 2. Return: `{number}`
 
 Returns the volume level of the specified sound.
 
 ~~~
-sound.getVolume('levelmusic'); //=> 0.8
+audiomanager.getVolume('levelmusic'); //=> 0.8
 ~~~
 
-### sound.setMuted (isMuted)
+### audiomanager.setMuted (isMuted)
 1. `isMuted {boolean}`
 
 Mute volume on all sounds.
 
-### sound.getMuted ()
+### audiomanager.getMuted ()
 1. Return: `{boolean}`
 
 Check the mute status of all sounds.
 
-### sound.setMusicMuted (isMuted)
+### audiomanager.setMusicMuted (isMuted)
 1. `isMuted {boolean}`
 
 Mute volume on music sound.
 
-### sound.getMusicMuted ()
+### audiomanager.getMusicMuted ()
 1. Return: `{boolean}`
 
 Check the mute status of the music sound.
 
-### sound.setEffectsMuted (areEffectsMuted)
+### audiomanager.setEffectsMuted (areEffectsMuted)
 1. `areEffectsMuted {}`
 
 Mute volume on effects sounds.
 
-### sound.getEffectsMuted ()
+### audiomanager.getEffectsMuted ()
 1. Return: `{boolean}`
 
 Check the mute status of the effects sounds.
 
-### sound.setPath (path)
+### audiomanager.setPath (path)
 1. `path {string}`
 
 Set a new path for the sound group.
 
 ~~~
-sound.setPath('resources/sounds/music');
+audiomanager.setPath('resources/sounds/music');
 ~~~
 
-### sound.getPath ([name])
+### audiomanager.getPath ([name])
 1. `name {string}` ---Optional sound name.
 2. Return: `{string}`
 
 ~~~
-sound.getPath();        //=> "resources/sounds"
-sound.getPath('boink'); //=> "resources/sounds/effect"
+audiomanager.getPath();        //=> "resources/sounds"
+audiomanager.getPath('boink'); //=> "resources/sounds/effect"
 ~~~
 
-### sound.getExt ()
+### audiomanager.getExt ()
 1. Return `{string}`
 
 Returns the file extenstion of the sound.
 
 ~~~
-sound.getExt() //=> ".mp3"
+audiomanager.getExt() //=> ".mp3"
 ~~~
