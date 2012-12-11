@@ -79,7 +79,19 @@ project, and using the following code as the
 `src/Application.js` file: 
 
 ~~~
-m4_include(./examples/api/hello-world.js)
+import ui.TextView as TextView;
+
+exports = Class(GC.Application, function (supr) {
+  this.initUI = function () {
+    var text = new TextView({
+      superview: this,
+      text: "Hello, Game Closure!",
+      color: '#fff',
+      fontSize: 24,
+      layout: 'box'
+    });
+  };
+});
 ~~~
 
 First, the `ui.TextView` module is imported in to the file and aliased
