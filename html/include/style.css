@@ -22,8 +22,17 @@ footer {
   color: #AAA;
 }
 
+.navbar-search .search-query {
+	width: 120px;
+}
+
+#toc-well {
+	max-height: 640px;
+	overflow-y: scroll;
+}
+
 /*should inherit from bootstrap 'nav nav-list'*/
-#TOC ul {
+#toc ul {
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 0;
@@ -33,12 +42,12 @@ footer {
   list-style-type: none;
 }
 
-#TOC > ul {
+#toc > ul {
   margin-left: 0;
   margin-right: 0;
 }
 
-#TOC ul li {
+#toc ul li {
   line-height: 25px;
   white-space: nowrap;
   overflow: hidden;
@@ -46,14 +55,14 @@ footer {
   color: #08C;
 }
 
-#TOC ul li a {
+#toc ul li a {
   margin-left: -15px;
   margin-right: -15px;
   padding: 3px 15px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-#TOC ul li > a:hover {
+#toc ul li > a:hover {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   background-color: #0088cc;
