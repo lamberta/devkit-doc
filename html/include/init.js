@@ -9,7 +9,7 @@ $(function () {
 	if (typeof window.prettyPrint === 'function') {
 		window.prettyPrint();
 	}
-
+	
 	//search for keywords in the navbar
 	$('.navbar-search').submit(function () { return false; });
 	

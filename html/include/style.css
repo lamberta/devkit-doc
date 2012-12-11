@@ -29,6 +29,7 @@ footer {
 #toc-well {
 	max-height: 640px;
 	overflow-y: scroll;
+	position: fixed;
 }
 
 /*should inherit from bootstrap 'nav nav-list'*/
