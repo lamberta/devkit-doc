@@ -11,7 +11,7 @@ $(function () {
 			});
 		} else {
 			sidebar.css({
-				'width': 'auto',
+				'width': sidebar.parent().width(),
 				'max-height': win.height() - sidebar.offset().top - 30
 			});
 		}

@@ -99,6 +99,10 @@ td.code pre, th.code pre{
 
 /* medium */
 @media (max-width: 979px) {
+	body {
+		padding-top: 0px;
+	}
+	
 	.navbar-fixed-top .nav li a {
 		font-size: 0.9em;
 		font-weight: 400;
