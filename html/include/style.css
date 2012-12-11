@@ -7,8 +7,15 @@ body {
   padding: 9px 0;
 }
 
+.navbar-fixed-top .nav li a {
+	font-size: 0.9em;
+	font-weight: 400;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
 .logo {
-  font-family: 'Puritan', 'Gill Sans', 'Open Sans', sans-serif;
+  font-family: 'Puritan', 'Gill Sans', sans-serif;
   font-weight: 400;
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -79,4 +86,29 @@ footer {
 td.code pre, th.code pre{
 	background-color: transparent;
 	border-style: none;
+}
+
+
+/* adjust navbar spacing to avoid double-line */
+@media (max-width: 1040px) {
+	.navbar-fixed-top .nav li a {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+}
+
+/* medium */
+@media (max-width: 979px) {
+	.navbar-fixed-top .nav li a {
+		font-size: 0.9em;
+		font-weight: 400;
+		padding-right: 10px;
+		padding-left: 10px;	
+	}
+	
+	#toc-well {
+		max-height: none;
+		overflow-y: visible;
+		position: static;
+	}
 }

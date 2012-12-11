@@ -1,28 +1,63 @@
 $(function () {
-	//section headers in toc nav bar
+	/* dynamically set the max-height of the sidebar, since doing this in css is a pain.
+	 */
+	var sidebar = $('#toc-well'),
+			win = $(window);
+	function set_sidebar_height () {
+		if (win.width() < 979) {
+			sidebar.css({
+				'width': sidebar.parent().width(),
+				'max-height': 'none'
+			});
+		} else {
+			sidebar.css({
+				'width': 'auto',
+				'max-height': win.height() - sidebar.offset().top - 30
+			});
+		}
+	}
+	set_sidebar_height();
+	win.resize(set_sidebar_height);
+
+	
+	/* highlight section headers in sidebar
+	 */
 	$('nav li a').filter(function () {
 		return this.innerText.match(/^Module:|^Class:|^Events|^Styles/);
 	}).addClass('toc-section-header');
 
-	//color highlight code snippets, from prettify.js
+	
+	/* color highlight code snippets, from prettify.js
+	 */
 	$('pre').addClass('prettyprint');
 	if (typeof window.prettyPrint === 'function') {
 		window.prettyPrint();
 	}
+
 	
-	//search for keywords in the navbar
-	$('.navbar-search').submit(function () { return false; });
+	/* mark navbar links as active if on the same page
+	 */
+	var href_page = document.location.href.split('/').pop();
+	$('.navbar-inner a').each(function () {
+		var a_page = this.href.split('/').pop();
+		if (a_page === href_page) {
+			$(this).parent('li').addClass('active');
+		}
+	});
+
 	
+	/* search for keywords in the navbar
+	 */
 	var navbar_search = $('.navbar-search input').attr({
 		'data-provide': 'typeahead',
 		'data-items': 8,
-		'data-source': JSON.stringify(Object.keys(searchmap))
+		'data-source': JSON.stringify(Object.keys(keyword_index))
 	});
 	navbar_search.change(function () {
 		//base href should be determined by document.location.hef, not hard-coded
 		var base_href = 'http://doc.gameclosure.com';
 		var key = $(this).val(),
-				url = searchmap[key];
+				url = keyword_index[key];
 		if (url) {
 			document.location.href = base_href.concat('/', url);
 		}
@@ -31,11 +66,14 @@ $(function () {
 	navbar_search.blur(function () {
 		$(this).val('');
 	});
+	//ignore form submit
+	$('.navbar-search').submit(function () { return false; });
 });
+
 
 /* Keywords for the search box and the urls they resolve to.
  */
-var searchmap = {
+var keyword_index = {
 	'Application': 'api/appengine.html',
 	'GC.app': 'api/appengine.html#singleton-gc.app',
 	'Engine': 'api/appengine.html#class-ui.engine',
@@ -79,7 +117,8 @@ var searchmap = {
 };
 
 
-//google analytics
+/* google analytics
+ */
 var _gaq=[['_setAccount','UA-36886915-1'],['_trackPageview']];
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
