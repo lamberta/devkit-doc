@@ -6,7 +6,7 @@
 Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
-### Settings
+### Application Settings
 
 Application options are configured in the `_settings` object within an
 instance of the user's `GC.Application`. Options must be set before the
@@ -52,61 +52,22 @@ exports = Class(GC.Application, function () {
 });
 ~~~
 
-### Event handlers
-
-#### initUI ()
+### Callback: initUI ()
 
 Called before `launchUI`.
 
-#### launchUI ()
+### Callback: launchUI ()
 
 A user defined function that serves as the entry point for
 applications built on the Game Closure SDK.
 
-#### onPause ()
+### Callback: onPause ()
 
 Executed when the application process is sent to the background.
 
-#### onResume ()
+### Callback: onResume ()
 
 Executed when the application resumes.
-
-
-## Example: Hello, World!
-
-We'll step through a simple example by creating a new
-project, and using the following code as the
-`src/Application.js` file: 
-
-~~~
-import ui.TextView as TextView;
-
-exports = Class(GC.Application, function (supr) {
-  this.initUI = function () {
-    var text = new TextView({
-      superview: this,
-      text: "Hello, Game Closure!",
-      color: '#fff',
-      fontSize: 24,
-      layout: 'box'
-    });
-  };
-});
-~~~
-
-First, the `ui.TextView` module is imported in to the file and aliased
-as `TextView`. Next, a constructor function is defined for
-our application, it inherits from `GC.Application` and is
-assigned to `exports`, which ensures that it will be
-executed when the application is run. The application's
-`launchUI` method is overridden and will serve as the entry
-point of our example code. Here, we create the display text
-using the `TextView`, setting the color and font size. To
-render the text object, it must be added to the scene
-graph, so we attach it by setting the node's parent
-view---or `superview`---as the root view object, which is
-`GC.app.view`. This is a property on `GC.app`, which is the
-instance of our application, and is introduced next.
 
 
 ## Singleton: GC.app
@@ -117,7 +78,7 @@ engine are created, and the application's `initUI` and
 `launchUI` methods are called.
 
 Inherits from:
-:    1. {project}/src/Application
+:    1. {project}/src/Application ---The user defined application.
      2. [GC.Application](#class-gc.application)
      3. [event.Emitter](./event.html#class-event.emitter)
 
@@ -272,8 +233,8 @@ Signals that the engine needs to repaint.
 
 Emitted each `Timer.onTick`.
 
-To keep track of the amount of frames rendered over an
-application's lifetime:
+For example, To keep track of the amount of frames rendered
+over an application's lifetime:
 
 ~~~
 var frame = 0;
@@ -285,6 +246,6 @@ GC.app.engine.on('Tick', function (dt) {
 ~~~
 
 #### \'Render\', callback (context)
-1. `context {Context2D}`
+1. `context {Context2D}` ---The internal canvas context.
 
-Called every render, with the internal canvas context.
+This event is emitted on each time the scene is rendered.

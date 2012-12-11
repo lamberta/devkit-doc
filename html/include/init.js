@@ -27,7 +27,7 @@ $(function () {
 	/* highlight section headers in sidebar
 	 */
 	$('nav li a').filter(function () {
-		return this.innerText.match(/^Module:|^Class:|^Events|^Styles/);
+		return this.innerText.match(/^Module:|^Class:|^Singleton:|^Events|^Styles/);
 	}).addClass('toc-section-header');
 
 	
