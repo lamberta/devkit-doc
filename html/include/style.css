@@ -88,6 +88,18 @@ td.code pre, th.code pre{
 	border-style: none;
 }
 
+#main h1 a, #main h2 {
+	font-weight: 200;
+}
+
+#main h3 a {
+	font-weight: 500;
+}
+
+#main h2 a {
+	color: #d14;
+}
+
 
 /* adjust navbar spacing to avoid double-line */
 @media (max-width: 1040px) {
