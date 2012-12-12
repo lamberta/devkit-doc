@@ -203,7 +203,7 @@ enemies.pause();
 ~~~
 
 
-## Sprite Groups
+## Class: Sprite Groups
 
 Sprites can be grouped for easier coordination.
 

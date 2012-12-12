@@ -52,20 +52,20 @@ exports = Class(GC.Application, function () {
 });
 ~~~
 
-### Callback: initUI ()
+### Handler: initUI ()
 
 Called before `launchUI`.
 
-### Callback: launchUI ()
+### Handler: launchUI ()
 
 A user defined function that serves as the entry point for
 applications built on the Game Closure SDK.
 
-### Callback: onPause ()
+### Handler: onPause ()
 
 Executed when the application process is sent to the background.
 
-### Callback: onResume ()
+### Handler: onResume ()
 
 Executed when the application resumes.
 

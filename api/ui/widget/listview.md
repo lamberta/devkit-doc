@@ -63,7 +63,7 @@ import ui.widget.CellView as CellView;
 var cellview = new CellView();
 ~~~
 
-### Handler Function: cellview.setData (data)
+### Handler: cellview.setData (data)
 1. `data {object}`
 
 Called when a cellview is set.

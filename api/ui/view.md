@@ -65,7 +65,7 @@ var view = new View({visible: true}); //now you see me
 view.style.visible = false;           //now you don't
 ~~~
 
-### Callback handler: view.buildView
+### Handler: view.buildView ()
 
 This function on a view is run immediately before the
 view is first rendered to the screen. Consequently, since
@@ -258,9 +258,7 @@ Indicate to the focus manager this view has focus.
 Indicate to the focus manager this element has been blurred.
 
 
-### Event handlers
-
-#### view.onFocus ()
+### Handler: view.onFocus ()
 
 The callback function is triggered when focus is given to this view.
 
@@ -270,7 +268,7 @@ view.onFocus = function () {
 };
 ~~~
 
-#### view.onBlur ()
+### Handler: view.onBlur ()
 
 The callback function is triggered when this view loses focus.
 
@@ -280,7 +278,7 @@ view.onBlur = function () {
 };
 ~~~
 
-### view.tick (dt)
+### Handler: view.tick (dt)
 1. `dt {number}`
 
 This callback function is executed on every tick of the game engine.

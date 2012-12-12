@@ -63,7 +63,7 @@ var image = new Image({url: 'resources/images/example2.png'};
 imageview.setImage(image);
 ~~~
 
-### Callback handler: imageview.doOnLoad (callback, [args ...])
+### Handler: imageview.doOnLoad (callback, [args ...])
 1. `callback {function}`
 2. `args {...*}`
 1. Return: `{this}`
@@ -236,7 +236,7 @@ Returns the internal `ImageMap` object.
 Sets the properties of the internal `ImageMap` object.
 
 
-### Callback handler: image.doOnLoad (callback, [args ...])
+### Handler: image.doOnLoad (callback, [args ...])
 1. `callback {function}`
 2. `args {...*}`
 1. Return: `{this}`
