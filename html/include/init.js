@@ -6,7 +6,7 @@ $(function () {
 			href_page = document.location.href.split('/').pop();
 
 	//index file doesn't have to deal with this nonsense
-	if (href_page !== 'index.html' || href_page !== '') {
+	if (href_page !== 'index.html' || href_page === '') {
 		function set_sidebar_height () {
 			if (win.width() < 979) {
 				sidebar.css({
