@@ -1,4 +1,6 @@
-# animate
+# Animation
+
+## Module: animate
 
 Is a function to animate Views or objects. It interpolates
 number properties over a given duration and with easing

@@ -1,7 +1,5 @@
 # Utilities
 
-## Global utilities
-
 ### import
 
 The system for referring to an external module, as defined in

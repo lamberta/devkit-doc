@@ -1,4 +1,6 @@
-# device
+# Device Properties
+
+## Module: device
 
 Information and settings about the device running the application.
 

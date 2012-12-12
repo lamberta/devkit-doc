@@ -1,4 +1,4 @@
-# ui.ImageView
+# Images
 
 ## Class: ui.ImageView
 

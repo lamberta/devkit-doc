@@ -1,4 +1,4 @@
-# ui.filter
+# Filters
 
 ## Class: ui.filter.Filter
 
