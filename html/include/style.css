@@ -7,6 +7,13 @@ body {
   padding: 9px 0;
 }
 
+.sidebar-nav h2 {
+	font-size: 1.2em;
+	font-weight: 200;
+	color: #999;
+	margin: 0;
+}
+
 .navbar-fixed-top .nav li a {
 	font-size: 0.9em;
 	font-weight: 400;
@@ -86,6 +93,11 @@ footer {
 td.code pre, th.code pre{
 	background-color: transparent;
 	border-style: none;
+}
+
+/*links in docco*/
+td.docs p a {
+	color: #08c;
 }
 
 #main h1 a, #main h2 {
