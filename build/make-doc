@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+#in/out directory structure
+DOC_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
+API_ROOT="$DOC_ROOT/api"
+GUIDE_ROOT="$DOC_ROOT/guide"
+ASSETS_ROOT="$DOC_ROOT/build/assets"
+OUT_ROOT="$DOC_ROOT/html"
+DOC_TEMPLATE="$DOC_ROOT/build/template.html"
+
+function print_help {
+		echo "Usage: $(basename $0) [options]"
+		echo " -o=dir   Output directory. Default: $OUT_ROOT"
+		echo " -h       Print this help."
+}
+
+# markdown to html, add doc_root to output file
+function convert_file {
+		local in_file="$1" out_file="$OUT_ROOT/$2" template="$3" title="$4"
+
+		## Covert markdown to html using our template
+		if pandoc -f markdown -t html5 --toc --smart \
+				--standalone --template "$template" \
+				-V title="$title" \
+				--output "$out_file" "$in_file"; then
+				echo "    * $out_file"
+		else
+				echo "Error: Pandoc conversion from file '$in_file'"
+				exit 1
+		fi
+}
+
+# output file name is the complete namespace, determined by directory
+function convert_api_source {
+		while read path; do
+				#remove api_root and beginning slash
+				local rel_path="${path##$API_ROOT}"
+				rel_path="${rel_path#/}"
+				#create namespace file name: name-space-file
+				local ns=$(basename $(echo "$rel_path" | tr '/' '-') '.md' | tr '[:upper:]' '[:lower]')
+				convert_file "$path" "api/$ns.html" "$DOC_TEMPLATE" "$ns"
+		done < <(find "$API_ROOT" -type f -name '*.md' | grep -v -i 'readme')
+}
+
+# ignore readme and markdown files in the 'drafts' directory
+function convert_guide_source {
+		while read path; do
+				local name=$(basename "$path" '.md' | tr '[:upper:]' '[:lower]' | tr ' ' '-')
+				convert_file "$path" "guide/$name.html" "$DOC_TEMPLATE" "$name"
+		done < <(find "$GUIDE_ROOT" -type f -name '*.md' | grep -v -i 'readme' | grep -v 'drafts')
+}
+
+# main
+
+while getopts "o:h" opt; do
+    case $opt in
+				o) OUT_ROOT="$OPTARG";;
+				h) print_help; exit 0;;
+        \?) print_help; exit 0;;
+    esac
+done
+
+# check dependencies ...
+
+if ! which pandoc > /dev/null; then
+		echo "Error: Requires pandoc to build."
+		exit 1
+fi
+
+if ! which m4 > /dev/null; then
+		echo "Error: Requires m4 to insert code examples."
+		exit 1
+fi
+
+# set up output directories ...
+
+if [ -d "$OUT_ROOT/api" ]; then
+		rm -rf "$OUT_ROOT/api"
+fi
+
+if [ -d "$OUT_ROOT/guide" ]; then
+		rm -rf "$OUT_ROOT/guide"
+fi
+
+mkdir -p "$OUT_ROOT/api"
+mkdir -p "$OUT_ROOT/guide"
+
+if [ -d "$ASSETS_ROOT" ]; then
+		cp -a "$ASSETS_ROOT/api" "$OUT_ROOT/api/assets"
+		cp -a "$ASSETS_ROOT/guide" "$OUT_ROOT/guide/assets"
+fi
+
+# and off we go ...
+
+echo "  Generating API docs ..."
+convert_api_source
+
+echo "  Generating guide docs ..."
+convert_guide_source
