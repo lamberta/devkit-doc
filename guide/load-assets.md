@@ -16,8 +16,9 @@ system. When loading assets for a separate game screen, the
 typical flow might be to queue up an animation to a loading
 screen first, transition to the loading screen, then preload
 the assets in the background. After the assets have been
-preloaded, the callback is executed which can then
-transition out of the loading screen into the game screen.
+preloaded, the callback is executed. Where a transition out of the loading screen, and to the game screen, can be triggered. 
+
+Reasoning for this is that loading assets at the same time as presenting main menu screen, or during gameplay can produce undesirable visual artifacts (such as assets not being drawn on the screen for several frames while they load). By preloading assets within loading screens, smoother gameplay in general can be attained.
 
 For the following loading methods, we'll assume the
 following directory structure for a project:
@@ -44,7 +45,7 @@ project/
 
 The `path` parameter is specified as a file path, or a
 directory path containing multiple assets. When the sound
-and image files are loaded in to memory, the supplied
+and image files are loaded into memory, the supplied
 callback function is executed.
 
 ~~~
@@ -54,11 +55,11 @@ loader.preload('resources/images/bgimage.jpg', function () {
 ~~~
 
 ### loader.preload (paths, callback)
-1. `paths {array}` ---A collection of path strings.
+1. `paths {array}` --- A collection of path strings.
 2. `callback {function}`
 
-Multiple resources can be loaded at once by passing an array
-of paths.
+Multiple resource paths and/or files can be loaded at once by passing an array
+of paths and/or files.
 
 To load all the asset files contained in the directories and
 sub-directories of `resources/images` and `resources/sounds`:

@@ -14,7 +14,7 @@ import math.util as util;
 3. `x {number}`
 4. Return: `{number}`
 
-Interpolate between values `a` and `b` at the point `x` in the interval.
+Interpolate between values `a` and `b` at point `x` in the interval.
 
 ### util.random (a, b [, seed])
 1. `a {number}`
@@ -22,7 +22,7 @@ Interpolate between values `a` and `b` at the point `x` in the interval.
 3. `seed {number} = Math.random()` ---Optional.
 4. Return: `{number}`
 
-Return a random integer between a and b. Optionally, a
+Generate and return a random integer between a and b. Optionally, a
 random seed can be given.
  
 ### util.clip (n, min, max)
@@ -150,26 +150,10 @@ Rotates this point around the origin by a value in radians.
 
 Alias for `point.translate`.
 
-### point.translate ({x, y})
-1. `pt {object}`
-	* `x {number} = 0`
-	* `y {number} = 0`
-2. Return: `{this}`
-
-### point.add ({x, y})
-
-Alias for `point.translate`.
-
 ### point.subtract (x, y)
 1. `x {number} = 0`
 2. `y {number} = 0`
 3. Return `{this}`
-
-### point.subtract ({x, y})
-1. `pt {object}`
-	* `x {number} = 0`
-	* `y {number} = 0`
-2. Return: `{this}`
 
 Subtract this point by two scalars or by another point.
 
@@ -275,11 +259,11 @@ Alias for `Point.add`.
 import math.geom.Line as Line;
 ~~~
 
-### new Line ([a, b, c, d])
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. `d {number}`
+### new Line ([x1, y1, x2, y2])
+1. `x1 {number}`
+2. `y1 {number}`
+3. `x2 {number}`
+4. `y2 {number}`
 
 ### new Line ([point, point])
 1. `point {Point}`
@@ -344,7 +328,7 @@ import math.geom.Rect as Rect;
 3. `width {number}`
 4. `height {number}`
 
-Creates a rect instances.
+Creates a rect instance.
 
 ### rect.normalize ()
 1. Return: `{this}`
@@ -365,7 +349,7 @@ Returns the center point of this circle.
 1. `corner {Rect.CORNER}`
 2. Return: `{Point}`
 
-Returns a point corresponding to the specified corner of the rectangle.
+Returns a point corresponding to the specified corner of the rectangle, found below.
 
 ### Class property: Rect.CORNER
 * `TOP_LEFT`
@@ -377,7 +361,7 @@ Returns a point corresponding to the specified corner of the rectangle.
 1. `side {Rect.SIDE}`
 2. Return: `{Line}`
 
-Returns a line corresponding to the specified side of the rectangle.
+Returns a line corresponding to the specified side of the rectangle, found below.
 
 ### Class property: Rect.SIDE
 * `TOP`
@@ -575,7 +559,7 @@ Returns whether `line` and `circle` overlap.
 2. `poly2 {object}`
 3. Return: `{boolean|object}`
 
-Returns the minimum displacement vector (object with `overlap` and `normal`) in case of collision, otherwise returns `false`.
+Returns the minimum displacement vecto r object with `overlap` and `normal`) along which the two polygons can be separated by in case of the occurrence of a collision, otherwise returns `false`.
 
 ### intersect.util.pointToLine (point, line)
 1. `point {Point}`
