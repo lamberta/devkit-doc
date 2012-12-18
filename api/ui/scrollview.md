@@ -29,6 +29,8 @@ import ui.ScrollView as ScrollView;
 		* `minY {number}` ---minimum Y position.
 		* `maxX {number}` ---maximum X position.
 		* `maxY {number}` ---maximum Y position.
+	* `snapPixels {number} = 1` ---Snap to certain pixel increments.
+	* `useLayoutBounds {boolean} = true` ---TODO!
 
 ~~~
 var scrollview = new ScrollView();
@@ -63,23 +65,37 @@ var worldmap = new ui.ImageView({
 scrollview.addSubview(worldmap); //add the big image to the scrollview
 ~~~
 
+### scrollview.addFixedView (view)
+1. `view {View}` ---The view to add as a fixed child of this view.
+2. Return: `{View}` ---Returns the view that was passed to this method.
+
+Add a non-scrolling child subview.
+
+### scrollview.removeFixedView (view)
+1. `view {View}` ---The fixed child view to remove from this view.
+2. Return: `{View}` ---Returns the view that was passed to this method.
+
+Remove a non-scrolling child subview.
+
 ### scrollview.getStyleBounds ()
 1. Return: `{object}`
-	* `minX {number}`
-	* `maxX {number}`
-	* `minY {number}`
-	* `maxY {number}`
+	* `minX {number}` ---The minumum horizontal boundary.
+	* `maxX {number}` ---The maximum horizontal boundary.
+	* `minY {number}` ---The minimum vertical boundary.
+	* `maxY {number}` ---The maximum vertical boundary.
 
 Return the style boundary object.
 
 ### scrollview.getOffset ()
 1. Return `{Point}`
+	* `x {number}` ---The current horizontal offset.
+	* `y {number}` ---The current vertical offset.
 
 Returns a point of the Scroll offset.
 
 ### scrollview.setOffset (x, y)
-1. `x {number}`
-2. `y {number}`
+1. `x {number}` ---The horizontal offset to set.
+2. `y {number}` ---The vertical offset to set.
 
 Set the offset to manually scroll views.
 
@@ -94,25 +110,25 @@ Stop View from scrolling.
 
 ### scrollview.setScrollBounds (bounds)
 1. `bounds {object}`
-	* `minX {number}`
-	* `maxX {number}`
-	* `minY {number}`
-	* `maxY {number}`
+	* `minX {number}` ---The minumum horizontal scroll boundary to set.
+	* `maxX {number}` ---The maximum horizontal scroll boundary to set.
+	* `minY {number}` ---The minimum vertical scroll boundary to set.
+	* `maxY {number}` ---The maximum vertical scroll boundary to set.
 
 Set the scroll boundary.
 
 ### scrollview.getScrollBounds ()
 1. Return: `bounds {object}`
-	* `minX {number}`
-	* `maxX {number}`
-	* `minY {number}`
-	* `maxY {number}`
+	* `minX {number}` ---The minumum horizontal scroll boundary.
+	* `maxX {number}` ---The maximum horizontal scroll boundary.
+	* `minY {number}` ---The minimum vertical scroll boundary.
+	* `maxY {number}` ---The maximum vertical scroll boundary.
 
 Return the scroll boundary object.
 
 ### scrollview.addOffset (x, y)
-1. `x {number}`
-2. `y {number}`
+1. `x {number}` ---The horizontal offset to add.
+2. `y {number}` ---The vertical offset to add.
 
 Add the values to the current offset.
 
@@ -121,11 +137,18 @@ Add the values to the current offset.
 
 Return the generated View that becomes the container View.
 
+### scrollview.onInputScroll (scrollEvent)
+1. `scrollEvent {ScrollEvent}`
+	* `scrollAxis {number}` ---Enum, input.VERTICAL_AXIS, input.HORIZONTAL_AXIS.
+	* `scrollDelta {number}` ---The scroll delta.
+
+This is called in the desktop browser upon using the scroll wheel or a multi-touch scroll action.
+
 ### scrollview.scrollTo (x, y, duration, callback)
-1. `x {number}`
-2. `y {number}`
-3. `duration {number}`
-4. `callback {function}`
+1. `x {number}` ---The horizontal offset to scroll to.
+2. `y {number}` ---The vertical offset to scroll to.
+3. `duration {number}` ---The millisecond duration of the scroll animation.
+4. `callback {function}` ---Function to be invoked after animation completes.
 
 Smoothly scroll to a specific position.
 
@@ -135,4 +158,4 @@ Smoothly scroll to a specific position.
 #### \'Scrolled\', callback (delta)
 1. `delta {point}`
 
-Published in `setOffset`; called by `onDrag`, `onDragStop`, `endBounce`, and `addOffset`.
+Published in `setOffset`; called by `onDrag`, `onDragStop`, and `addOffset`.
