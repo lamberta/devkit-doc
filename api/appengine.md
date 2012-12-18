@@ -151,31 +151,28 @@ the view hierarchy, and rendering the scene graph. A single
 
 Updates any options.
 
-### GC.app.engine.supports (key)
-1. `key {string}`
-2. Return: `{*}`
+### GC.app.engine.supports (option)
+1. `option {string}` ---Key used to return a setting value for the application.
+2. Return: `{*}` ---If the setting does not exist, return `undefined`.
 
-Returns the value of the option `key`.
+Returns the value for an options declared in the
+application's `this._settings` object. If the option does
+not exist, return `undefined`.
 
-### GC.app.engine.getInput ()
-1. Return: `{Input}`
-
-Returns the internal Input thingy (from runtimes).
+~~~
+GC.app.engine.supports('alwaysRepaint'); //=> true
+~~~
 
 ### GC.app.engine.getEvents ()
 1. Return: `{Array}`
 
 Returns any events that haven't been dispatched yet.
 
-### GC.app.engine.getKeyListener ()
-1. Return: `{KeyListener}`
-
-Returns the internal KeyListener (from runtimes).
-
 ### GC.app.engine.getCanvas ()
 1. Return: `{Canvas}`
 
-Returns the internal Canvas (from runtimes).
+Returns the internal Canvas element. Not all of the HTML5
+methods are supported across all devices.
 
 ### GC.app.engine.getView ()
 1. Return: `{View}`
