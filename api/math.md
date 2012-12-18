@@ -2,19 +2,19 @@
 
 ## Module: math.util
 
-Basic math utility functions.
+Basic math utility functions. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/util.js)
 
 ~~~
 import math.util as util;
 ~~~
 
-### util.interpolate (a, b, x)
+### util.interpolate (a, b, t)
 1. `a {number}`
 2. `b {number}`
-3. `x {number}`
+3. `t {number}`
 4. Return: `{number}`
 
-Interpolate between values `a` and `b` at point `x` in the interval.
+Interpolate between values `a` and `b` at point `t` in the interval.
 
 ### util.random (a, b [, seed])
 1. `a {number}`
@@ -22,8 +22,7 @@ Interpolate between values `a` and `b` at point `x` in the interval.
 3. `seed {number} = Math.random()` ---Optional.
 4. Return: `{number}`
 
-Generate and return a random integer between a and b. Optionally, a
-random seed can be given.
+Generate and return a random number from `a` to `b` (excluding `b`). Optionally, a random seed can be given.
  
 ### util.clip (n, min, max)
 1. `n {number}`
@@ -35,26 +34,9 @@ Return a value `min` <= `n` <= `max`.
 
 ### util.sign (n)
 1. `n {number}`
-2. Return: `{number}`
+2. Return: `{number}` ---Possible values are `1`, `-1`, or `0`.
 
-Return the sign of a number value, 1 or -1.
-
-### util.round (n [, precision, method])
-1. `n {number} value`
-2. `precision {number} = null` ---Optional.
-3. `method {number}` ---Optional enum from `util.round`.
-4. Return `{number}`
-
-Round a number to a given precision, or by a given method.
-
-The precision method can be one of the following:
-
-* `util.round.ROUND_HALF_UP` ---Round 0.5 to 1.
-* `util.round.ROUND_HALF_AWAY_FROM_ZERO`
-* `util.round.ROUND_HALF_TO_EVEN` ---Round to the nearest even number.
-* `util.round.ROUND_HALF_TO_ODD` ---Round to the nearest odd number.
-* `util.round.ROUND_HALF_STOCHASTIC` ---Round at random.
-* `util.round.ROUND_HALF_ALTERNATE` ---Alternate rounding up/down with sequential uses of this function.
+Returns `1` if the value for `n` is positive, or `-1` if it is negative. If `n` is zero, return `0`.
 
 
 ## Module: math.array
@@ -199,58 +181,6 @@ Return the angle of a point by using `Math.atan2`.
 1. Return: `{number}`
 
 Alias for `point.getAngle`.
-
-### Class Method: Point.getPolarTheta (x, y)
-1. `x {number}`
-2. `y {number}`
-3. Return: `{number}`
-
-### Class Method: Point.add (a, b, c, d)
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. `d {number}`
-5. Return: `{Point}`
-
-### Class Method: Point.translate (a, b, c, d)
-
-Alias for `Point.add`.
-
-### Class Method: Point.subtract (a, b, c, d)
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. `d {number}`
-5. Return: `{Point}`
-
-### Class Method: Point.scale (a, b, c) 
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. Return: `{Point}`
-
-### Class Method: Point.setMagnitude (a, b, c)
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. Return: `{Point}`
-
-### Class Method: Point.addMagnitude (a, b, c)
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. Return: `{Point}`
-
-### Class Method: Point.getMagnitude (a, b)
-1. `a {number}`
-2. `b {number}`
-3. Return: `{Point}`
-
-### Class Method: Point.rotate (a, b, c)
-1. `a {number}`
-2. `b {number}`
-3. `c {number}`
-4. Return: `{Point}`
 
 
 ## Class: math.geom.Line
@@ -491,47 +421,26 @@ Angular range from a to b, in the range of 0 and 2PI.
 import math.geom.intersect as intersect;
 ~~~
 
-### intersect.rectAndPoint (rect, point)
-1. `rect {Rect}`
-2. `point {Point}`
-3. Return: `{boolean}`
-
-Returns whether `rect` and `point` overlap.
-
 ### intersect.pointAndRect (point, rect)
 1. `point {Point}`
 2. `rect {Rect}`
 3. Return: `{boolean}`
 
-Returns whether `point` and `rect` overlap.
-
-### intersect.circleAndPoint (circle, point)
-1. `circle {Circle}`
-2. `point {Point}`
-3. Return: `{boolean}`
-
-Returns whether `circle` and `point` overlap.
+Determine if a `point` and `rect` overlap.
 
 ### intersect.pointAndCircle (point, circle)
 1. `point {Point}`
 2. `circle {Circle}`
 3. Return: `{boolean}`
 
-Returns whether `point` and `circle` overlap.
+Determine if a `point` and `circle` overlap.
 
 ### intersect.rectAndRect (rect1, rect2)
 1. `rect1 {Rect}`
 2. `rect2 {Rect}`
 3. Return: `{boolean}`
 
-Returns whether `rect1` and `rect2` overlap.
-
-### intersect.rectAndCircle (rect, circle)
-1. `rect {Rect}`
-2. `circle {Circle}`
-3. Return: `{boolean}`
-
-Returns whether `rect` and `circle` overlap.
+Determine if `rect1` and `rect2` overlap.
 
 ### intersect.circleAndRect (circle, rect)
 1. `circle {Circle}`
@@ -546,20 +455,6 @@ Returns whether `circle` and `rect` overlap.
 3. Return: `{boolean}`
 
 Returns whether `circle` and `line` overlap.
-
-### intersect.lineAndCircle (line, circle)
-1. `line {Line}`
-2. `circle {Circle}`
-3. Return: `{boolean}`
-
-Returns whether `line` and `circle` overlap.
-
-### intersect.polyAndPoly (poly1, poly2)
-1. `poly1 {object}`
-2. `poly2 {object}`
-3. Return: `{boolean|object}`
-
-Returns the minimum displacement vecto r object with `overlap` and `normal`) along which the two polygons can be separated by in case of the occurrence of a collision, otherwise returns `false`.
 
 ### intersect.util.pointToLine (point, line)
 1. `point {Point}`
