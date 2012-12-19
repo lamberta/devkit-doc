@@ -11,7 +11,7 @@ For example,
 {
   "appID": "ggshooter",
   "shortName": "shooter",
-  "title": "Hello, World!",
+  "title": "Galactic Assault",
   "supportedOrientations": ["portrait"]
 }
 ~~~
@@ -79,43 +79,99 @@ The icons used during push notification alerts may also be specified, and differ
 
 It is recommended that you store your game's icons under ./preload/icons/ separate from your game's image resources so that they are not considered by the spriter.
 
+For example:
 ~~~
-{
-  "icons": {
-    "28": "preload/icons/icon36.png",
-    "38": "preload/icons/icon48.png",
-    "48": "preload/icons/icon48.png",
-    "56": "preload/icons/icon72.png",
-    "57": "preload/icons/icon57.png",
-    "72": "preload/icons/icon72.png",
-    "114": "preload/icons/icon114.png",
-    "144": "preload/icons/icon144.png",
-    "512": "preload/icons/icon512.png",
-    "alerts": {
-      "high": "preload/promo/PushNotification-02_48x48.png",
-      "low": "preload/promo/PushNotification-02_48x48.png",
-      "med": "preload/promo/PushNotification-02_48x48.png"
-    }
-  }
-}
+...
+	"icons": {
+		"28": "preload/icons/icon36.png",
+		"38": "preload/icons/icon48.png",
+		"48": "preload/icons/icon48.png",
+		"56": "preload/icons/icon72.png",
+		"57": "preload/icons/icon57.png",
+		"72": "preload/icons/icon72.png",
+		"114": "preload/icons/icon114.png",
+		"144": "preload/icons/icon144.png",
+		"512": "preload/icons/icon512.png",
+		"alerts": {
+			"high": "preload/promo/PushNotification-02_48x48.png",
+			"low": "preload/promo/PushNotification-02_48x48.png",
+			"med": "preload/promo/PushNotification-02_48x48.png"
+		}
+	},
+...
 ~~~
 
 ### preload
 1. `{object}`
 	* `img {string}` ---Path to the splash screen image.
-	* `autoHide {boolean}` ---Automatically hide the splash image when the app starts.
-	* `scaleMethod {string} = 'cover'` ---Method for scaling the splash screen image to fit.
+	* `autoHide {boolean}` ---Automatically hide the splash image when the app starts.  Default: `false`.
+	* `scaleMethod {string} = 'cover' || 'contain' || 'stretch' || 'none'` ---Method for scaling the splash screen image to fit.
 	* `iphone {object}`
-		* `launch {string}` ---Path to the splash screen image.
-		* `launchRetina {string}` ---Path to the splash screen image for retina display.
+		* `launch {string}` ---Path to the splash screen image (size: 320 x 480 px), top-side-left.
+		* `launchRetina {string}` ---Path to the splash screen image for retina 3.5 inch display (size: 640 x 960 px), top-side-left.
+		* `launchRetina4 {string}` ---Path to the splash screen image for retina 4 inch display (size: 640 x 1136 px), top-side-left.
 	* `ipad {object}`
-		* `portrait {string}` ---Path to the splash screen image.
-		* `portraitRetina {string}` ---Path to the splash screen image.
-		* `landscape {string}` ---Path to the splash screen image.
-		* `landscapeRetina {string}` ---Path to the splash screen image.
+		* `portrait {string}` ---Path to the splash screen image (size: 768 x 1024 px), top-side-up.
+		* `portraitRetina {string}` ---Path to the splash screen retina image (size: 1536 x 2048 px), top-side-up.
+		* `landscape {string}` ---Path to the splash screen image (size: 1024 x 768 px), top-side-up.
+		* `landscapeRetina {string}` ---Path to the splash screen retina image (size: 2048 x 1536 px), top-side-up.
 
-If `autoHide` is set to `false`, the developer can manually
+The preload section is used to specify splash screen images for Android and iPhone/iPad devices.
+
+All splash screens should be 8-bit 3-channel RGB PNG (Portable Network Graphics) images.
+
+The `img` path is the path to your splash screen image.  For games that run primarily in portrait mode
+(longer side up/down), it should be a 480 x 864 pixel image, oriented top-side-up.  For games that run
+primarily in landscape mode (longer side left/right), it should be a 864 x 480 pixel image.
+
+The `scaleMethod` selects how the splash screen image should scale for different sized screens.
+  * By specifying `"scaleMethod": "cover"`, the splash screen aspect ratio is maintained, and it will
+be scaled up or down until the entire screen contains the image so that no black edges remain.
+  * By specifying `"scaleMethod": "contain"`, the splash screen aspect ratio is maintained, and it will
+be scaled up or down so that the shorter side fits the screen, which may leave black edges.
+  * By specifying `"scaleMethod": "stretch"`, the splash screen aspect ratio will not be maintained, and
+the image will stretch to fit the screen exactly.  This is not recommended.
+  * By specifying `"scaleMethod": "none"`, the splash screen will not be rescaled.  This is not recommended.
+
+By specifying `"autoHide": true`, the splash screen will be automatically removed after loading completes.
+If `autoHide` is set to `false`, the default, the developer can manually
 remove the splash screen by calling `GC.hidePreloader()`.
+
+For the iPhone and iPad platforms, additional images are needed based on the screen size.  iPhone splash screens are all provided in portrait mode (long side up/down) so that the top side of the image is on the left side:
+	* `iphone {object}`
+		* `launch {string}` : 320 x 480 px, top-side-left.
+		* `launchRetina {string}` : 640 x 960 px, top-side-left.
+		* `launchRetina4 {string}` : 640 x 1136 px, top-side-left.
+	* `ipad {object}`
+		* `portrait {string}` : 768 x 1024 px, top-side-up.
+		* `portraitRetina {string}` : 1536 x 2048 px, top-side-up.
+		* `landscape {string}` : 1024 x 768 px, top-side-up.
+		* `landscapeRetina {string}` : 2048 x 1536 px, top-side-up.
+
+It is recommended to place these images under the ./preload/ directory to keep the splash screens separate
+from your game's other image resources, preventing them from being sprited.
+
+For example:
+~~~
+...
+	"preload": {
+		"autoHide": true,
+		"img": "preload/splash.png",
+		"scaleMethod: "cover",
+		"iphone": {
+			"launch": "preload/iphone/Default.png",
+			"launchRetina": "preload/iphone/Default@2x.png",
+			"launchRetina4": "preload/iphone/Default-568h@2x.png"
+		},
+		"ipad": {
+			"portrait": "preload/ipad/Default-Portrait~ipad.png",
+			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
+			"landscape": "preload/ipad/Default-Landscape~ipad.png",
+			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
+		}
+	},
+...
+~~~
 
 ### fonts
 1. `{array}`
