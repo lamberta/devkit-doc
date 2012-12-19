@@ -25,35 +25,38 @@ $ jsiohint ./src/Application.js
 ~~~
 
 
-## Configure your editor
-
 ### Emacs
 
 1. Install [jshint-mode](https://github.com/daleharvey/jshint-mode)
+2. jsiohint (as described above)
 
-With this prerequisite installed, symlink `jshint` to
-`jsiohint`. Usually this can be done with:
+With this prerequisite installed, symlink `jshint` to `jsiohint`. Usually this can be done with:
 
 ~~~
-$ ln -s $(which jsiohint) $(which jshint)
+$ ln -s $(which jsiohint) /usr/local/bin/jshint
 ~~~
+
+Be aware that this will overwrite `jshint` with `jsiohint`.
 
 ### Vim
 
 1. Install [Vim-pathogen](https://github.com/tpope/vim-pathogen)
 2. Install [Syntastic](https://github.com/scrooloose/syntastic)
+3. jsiohint (as described above)
 
 With these prerequisites installed, symlink `jshint` to `jsiohint`:
 
 ~~~
-$ ln -s $(which jsiohint) $(which jshint)
+$ ln -s $(which jsiohint) /usr/local/bin/jshint
 ~~~
 
+Be aware that this will overwrite `jshint` with `jsiohint`.
+
 If you have another JavaScript syntax checker
-installed---like `jslint`---you may need to change the load
+installed -- like `jslint` -- you may need to change the load
 order to place `jshint` first in `~/.vim/bundle/syntastic/syntax_checkers/javascript.vim`.
 
-### Sublime
+### Sublime Text 2
 
 Install the following:
 
@@ -65,5 +68,7 @@ Install the following:
 With these prerequisites installed, symlink `jshint` to `jsiohint`:
 
 ~~~
-$ ln -s $(which jsiohint) $(which jshint)
+$ ln -s $(which jsiohint) /usr/local/bin/jshint
 ~~~
+
+Be aware that this will overwrite `jshint` with `jsiohint`.

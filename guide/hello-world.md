@@ -21,7 +21,7 @@ $ basil serve
 ~~~
 
 By default, basil starts a server on your machine at
-`http://localhost:9200`, to access the web interface for the
+`http://localhost:9200`. To access the web interface for the
 project, simply direct your web browser to this address. If you'd
 like to specify a different port for your application, just
 pass it as a `-p` option:
@@ -30,9 +30,14 @@ pass it as a `-p` option:
 $ basil serve -p 8080
 ~~~
 
+In this case, you can access the interface at `http://localhost:8080`.
+
 With the application server running, in your web browser
-click the bottom tab named 'Projects' and select your 'empty
-project' from the project list.
+click the tab named 'Projects', on the left, and select your 'New
+Project' from the project list. To change the title of your
+project, edit the `manifest.json` file located in the root
+of your project directory. You can find a complete list of
+project settings in the [Manifest Options Guide](../guide/manifest.html).
 
 <img src="./assets/getting-started/hello-project.png" alt="project selector screenshot" class="screenshot">
 
@@ -56,7 +61,8 @@ $ basil register
 ~~~
 
 Now if you run `basil serve` you'll see the new project in
-the web interface.
+the web interface. 
+*Tip*: if this doesn't work, try adding the project manually to the `config.json` file in the `basil` directory!
 
 ## Project Structure
 
@@ -121,10 +127,11 @@ the Chrome debugger, see the documentation for the
 
 In the bottom of the console panel, switch the context of
 the JavaScript REPL from `<top frame>` to
-`<SimulatorFrame>`. Now you can access the variables of your
+`<Simulator_0>`. Now you can access the variables of your
 application directly, provide you are in the correct
 scope. For instance, entering `GC.app` will return the
-instance of your application.
+instance of your application. If you additional simulators,
+you can access each context by switching to the appropriate frame.
 
 Let's say we wanted to change the "Hello, world!" text while
 the application is running. From looking at the UI Inspector
