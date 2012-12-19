@@ -51,7 +51,7 @@ mobile device, but remember, we're still in a web browser
 which means we can interact with it, and debug it, using all
 the great tools we're used to for web development.
 
-If you're working on a project that wasn't created with
+*Note*: If you're working on a project that wasn't created with
 `basil init`, you'll need to register the project before it
 is available in the web interface:
 
@@ -61,8 +61,7 @@ $ basil register
 ~~~
 
 Now if you run `basil serve` you'll see the new project in
-the web interface. 
-*Tip*: if this doesn't work, try adding the project manually to the `config.json` file in the `basil` directory!
+the web interface.
 
 ## Project Structure
 
@@ -108,7 +107,7 @@ exports = Class(GC.Application, function() {
 
 ## Inspecting and Debugging
 
-Click on 'UI Inspector' to view the scene graph hierarchy.
+Click on 'UI Inspector' button at the top of the window to view the scene graph hierarchy.
 
 <img src="./assets/getting-started/hello-inspector.png" alt="ui inspector screenshot" class="screenshot">
 
@@ -130,8 +129,9 @@ the JavaScript REPL from `<top frame>` to
 `<Simulator_0>`. Now you can access the variables of your
 application directly, provide you are in the correct
 scope. For instance, entering `GC.app` will return the
-instance of your application. If you additional simulators,
-you can access each context by switching to the appropriate frame.
+instance of your application. If you add additional simulators
+(*Choose Simulator->Add Simulator...*), you can access each context 
+by switching to the appropriate frame.
 
 Let's say we wanted to change the "Hello, world!" text while
 the application is running. From looking at the UI Inspector
