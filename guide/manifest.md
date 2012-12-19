@@ -9,8 +9,8 @@ For example,
 
 ~~~
 {
-  "appID": "abcdefghijklmnopqrstuvwxyz012345",
-  "shortName": "helloworld",
+  "appID": "ggshooter",
+  "shortName": "shooter",
   "title": "Hello, World!",
   "supportedOrientations": ["portrait"]
 }
@@ -21,43 +21,81 @@ For example,
 ### appID
 1. `{string}`
 
-Generated hash, 32-character unique hex identifier.
+The appID is the global unique identifier for your game.
+
+Use a string containing only alpha-numeric characters (ie. no periods or spaces).
 
 ### shortName
 1. `{string}`
 
+The short name for your game is the internal code name used only by your game developers.
+It will be used to name output files and directories during the build process.
+
+It should be a unique name within your studio.
+
 The short name must only contain alpha-numeric characters
-and can not start with a number.
+and cannot start with a number.
 
 ### title
 1. `{string}`
 
-Full title of game.
+The full game title, which is the string displayed under your app icon when installed on a phone.  And the name displayed on menus in the simulator.
 
 ### description
 1. `{string}`
 
-Description of the game.
+A brief description of your game.  Currently unused.
 
 ### version
 1. `{string}`
 
-Developer assigned version.
+The version number or string for your game.
 
 ### icons
-1. `{object}` ---Properties are the numeric pixel size.
+1. `{object}`
+	* `28 {string}` ---Path to small game app icon for Android (size: 28 x 28 px, color: 8-bit RGB[A], format: PNG).
+	* `38 {string}` ---Path to small game app icon for Android (size: 38 x 38 px, color: 8-bit RGB[A], format: PNG).
+	* `48 {string}` ---Path to game app icon for Android (size: 48 x 48 px, color: 8-bit RGB[A], format: PNG).
+	* `56 {string}` ---Path to game app icon for Android (size: 56 x 56 px, color: 8-bit RGB[A], format: PNG).
+	* `57 {string}` ---Path to game app icon for iPhone (size: 57 x 57 px, color: 8-bit RGB[A], format: PNG).
+	* `72 {string}` ---Path to game app icon for iPad (size: 72 x 72 px, color: 8-bit RGB[A], format: PNG).
+	* `114 {string}` ---Path to retina game app icon for iPhone (size: 114 x 114 px, color: 8-bit RGB[A], format: PNG).
+	* `144 {string}` ---Path to retina game app icon for iPad (size: 144 x 144 px, color: 8-bit RGB[A], format: PNG).
+	* `512 {string}` ---Path to large game app icon (size: 512 x 512 px, color: 8-bit RGB[A], format: PNG).
+	* `alerts {object}`
+		* `high {string}` ---Path to high-priority push notification image (size: 48 x 48 px, color: 8-bit RGB[A], format: PNG).
+		* `med {string}` ---Path to medium-priority push notification image (size: 48 x 48 px, color: 8-bit RGB[A], format: PNG).
+		* `low {string}` ---Path to low-priority push notification image (size: 48 x 48 px, color: 8-bit RGB[A], format: PNG).
 
-Location of icon images for a given pixel size. Android
-supports 28, 38, and 56; iOS supports 114 for a touch
-icon. For example:
+This section describes paths to your game's icons.  These icons are used for display in the simulator and will also be the icons used for your game on a mobile device.
+
+All icons are 8-bit 3/4 channel RGB[A] PNG (Portable Network Graphics) images, which can be exported from almost any graphics editor.
+
+iPhone/iPad icons should look somewhat flat, as the 3d popout effect is added during the build process.
+
+Android icons should have the 3d popout effect baked in if it is desired.
+
+The icons used during push notification alerts may also be specified, and different alert icons can be specified by a message priority (high, medium, low) that you can assign.
+
+It is recommended that you store your game's icons under ./preload/icons/ separate from your game's image resources so that they are not considered by the spriter.
 
 ~~~
 {
   "icons": {
-    "28": "resources/images/icon28.png",
-	"38": "resources/images/icon38.png",
-	"56": "resources/images/icon56.png",
-	"114": "resources/images/icon114.png"
+    "28": "preload/icons/icon36.png",
+    "38": "preload/icons/icon48.png",
+    "48": "preload/icons/icon48.png",
+    "56": "preload/icons/icon72.png",
+    "57": "preload/icons/icon57.png",
+    "72": "preload/icons/icon72.png",
+    "114": "preload/icons/icon114.png",
+    "144": "preload/icons/icon144.png",
+    "512": "preload/icons/icon512.png",
+    "alerts": {
+      "high": "preload/promo/PushNotification-02_48x48.png",
+      "low": "preload/promo/PushNotification-02_48x48.png",
+      "med": "preload/promo/PushNotification-02_48x48.png"
+    }
   }
 }
 ~~~
