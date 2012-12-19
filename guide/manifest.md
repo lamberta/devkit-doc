@@ -190,7 +190,18 @@ Information about the studio publishing the game.
 ### supportedOrientations
 1. `{array}` ---Optional entries are `'portrait'`, `'landscape'`, or both.
 
+This section allows you to specify which orientations are allowed on the mobile device.
+
 The simulator will default to the first entry in the array.
+
+For example:
+~~~
+...
+	"supportedOrientations": [
+		"landscape"
+	],
+...
+~~~
 
 ### mpMetricsKey
 1. `{string}`
