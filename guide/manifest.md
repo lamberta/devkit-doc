@@ -1,9 +1,11 @@
 # Project Manifest Options
 
 Each game has a configuration file stored at the root of the
-project in the `manifest.json` file. These options are
-stored in JSON format and can be edited by hand. For
-example, 
+project in the `manifest.json` file. This file controls the
+build process for your game. These options are stored in JSON
+format and can be edited by hand.
+
+For example, 
 
 ~~~
 {
