@@ -122,7 +122,8 @@ All splash screens should be 8-bit 3-channel RGB PNG (Portable Network Graphics)
 
 The `img` path is the path to your splash screen image.  For games that run primarily in portrait mode
 (longer side up/down), it should be a 480 x 864 pixel image, oriented top-side-up.  For games that run
-primarily in landscape mode (longer side left/right), it should be a 864 x 480 pixel image.
+primarily in landscape mode (longer side left/right), it should be a 864 x 480 pixel image, also oriented
+top side facing upward.
 
 The `scaleMethod` selects how the splash screen image should scale for different sized screens.
   * By specifying `"scaleMethod": "cover"`, the splash screen aspect ratio is maintained, and it will
@@ -138,15 +139,15 @@ If `autoHide` is set to `false`, the default, the developer can manually
 remove the splash screen by calling `GC.hidePreloader()`.
 
 For the iPhone and iPad platforms, additional images are needed based on the screen size.  iPhone splash screens are all provided in portrait mode (long side up/down) so that the top side of the image is on the left side:
-	* `iphone {object}`
-		* `launch {string}` : 320 x 480 px, top-side-left.
-		* `launchRetina {string}` : 640 x 960 px, top-side-left.
-		* `launchRetina4 {string}` : 640 x 1136 px, top-side-left.
-	* `ipad {object}`
-		* `portrait {string}` : 768 x 1024 px, top-side-up.
-		* `portraitRetina {string}` : 1536 x 2048 px, top-side-up.
-		* `landscape {string}` : 1024 x 768 px, top-side-up.
-		* `landscapeRetina {string}` : 2048 x 1536 px, top-side-up.
+  * `iphone {object}`
+    * `launch {string}` : 320 x 480 px, top-side-left.
+    * `launchRetina {string}` : 640 x 960 px, top-side-left.
+    * `launchRetina4 {string}` : 640 x 1136 px, top-side-left.
+  * `ipad {object}`
+    * `portrait {string}` : 768 x 1024 px, top-side-up.
+    * `portraitRetina {string}` : 1536 x 2048 px, top-side-up.
+    * `landscape {string}` : 1024 x 768 px, top-side-up.
+    * `landscapeRetina {string}` : 2048 x 1536 px, top-side-up.
 
 It is recommended to place these images under the ./preload/ directory to keep the splash screens separate
 from your game's other image resources, preventing them from being sprited.
