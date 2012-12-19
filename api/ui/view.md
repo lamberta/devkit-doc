@@ -1,12 +1,18 @@
 # ui.View
 
-The base display object for rendering elements to the
-screen. A `ui.View` is rendered to the viewport when it is
-attached to the game's scene graph---a hierarchy of `View`
-nodes. Views have methods for adding and removing superviews
-and subviews (parents and children), can set handler
-functions for events, and contain properties for styling how
-the view is displayed on the screen.
+A view is the base display object for rendering regions to
+the screen. Each view has a size and position, and can be nested
+within other views to create a scene graph. This scene graph
+is a tree of views that composes the visible elements of the
+screen, organizing the game content in to a hierarchy which
+can be used to define boundaries for capturing input
+events. The game engine uses `View` objects to accelerate
+performance on mobile devices.
+
+Views have methods for adding and removing superviews and
+subviews (parents and children), can set handler functions
+for events, and contain properties for styling how the view
+is displayed on the screen.
 
 ## Class: ui.View
 
@@ -21,13 +27,13 @@ import ui.View as View;
 
 ### new View ([options])
 1. `options {object}` ---Optional.
+    * `superview {View}`
     * `id {string}`
     * `tag {string}`
     * `filters {Filter}`
     * `circle {boolean} = false`
     * `infinite {boolean} = false`
     * `canHandleEvents {boolean} = true`
-    * `superview {View}`
 
 The constructor used to create an instance of a `ui.View`
 object. In addition to the options listed here,
@@ -100,15 +106,26 @@ This is the top-level node of the scene graph, a [ui.Engine](./appengine.html#cl
 Return the view's parent in the scene graph hierarchy.
 
 ### view.getParents ()
-1. Return: `{array}`
+1. Return: `{array}` ---A collection of `View` elements.
 
 Returns an array of all parent ancestors of the current view
 to the root of the scene graph.
 
 ### view.getSubviews ()
-1. Return: `{array}`
+1. Return: `{array}` ---A collection of `View` elements.
 
-Returns an array of all subview children of the view.
+Returns an array containing a reference to all of the view's
+children. Since this function has an execution time of *O(n)*,
+you should store a reference to the array and then iterate:
+
+~~~
+for (var i = 0, children = view.getSubviews(), len = children.length; i < len; i++) {
+  children[i].style.update({
+    x = i * 10,
+    y = i * 10
+  });
+}
+~~~
 
 ### view.getSubview (i)
 1. `i {number}` ---Array index position.
@@ -137,7 +154,9 @@ Removes this view from its parent superview.
 
 ### view.needsRepaint ()
 
-Notifies the renderer that the view needs to be redrawn on next animation frame.
+Notifies the renderer that the view needs to be redrawn on
+next animation frame. This function is only needed if you're
+using a DOM rendering backend.
 
 ### view.needsReflow ()
 
@@ -163,7 +182,7 @@ If an input event is over a view, return `true`, otherwise `false`.
 
 ### view.startDrag ([options])
 1. `options {object}`
-    * `inputStartEvt {InputEvent}`
+    * `inputStartEvent {InputEvent} = 'START'`
     * `radius {number} = 0`
 
 Respond to an input event by dragging the view.
@@ -378,11 +397,42 @@ view.on('DragStop', function (dragEvent, selectEvent) {
 
 ## Styles
 
-A view can be styled by modifying its `view.style` property.
+A view can be styled by modifying the properties of its `view.style` object.
 
 ~~~
 var style = view.style;
 ~~~
+
+### style.update (style)
+1. `style {object}` ---Using the properties enumerated here.
+2. Return: `{this}` ---Returns this view.
+
+Update the view's style.
+
+~~~
+view.style.update({
+  x: 100,
+  y: 200,
+  backgroundColor: 'red'
+});
+~~~
+
+### style.copy ()
+1. Return: `{object}`
+
+Returns a shallow copy of the view's style object. You can
+use this object to update another view's style.
+
+~~~
+var old_style = view1.style.copy();
+
+view2.style.update(old_style);
+~~~
+
+### style.layout
+1. `{string} = false` ---Options are `'box'` or `'linear'`.
+
+The layout system and its properties are described in the [Designing User Interfaces Guide](../guide/designing-user-interfaces.html).
 
 ### style.x
 1. `{number} = 0`
@@ -454,7 +504,7 @@ Increase or decrease the size of the view.
 ### style.r
 1. `{number} = 0`
 
-The rotation of a view in radins.
+The rotation of a view in radians.
 
 ### style.visible
 1. `{boolean} = true`
@@ -478,46 +528,7 @@ not the entire scene graph.
 
 Background color of the view.
 
-### style.shadowColor
-1. `{string} = 'black'`
-
-Shadow color of the view.
-
 ### style.clip
 1. `{boolean} = false`
 
 If set to `true`, child views will get clipped to this view.
-
-### style.layout
-1. `{string} = 'relative'`
-
-### style.direction
-1. `{string} = 'down'`
-
-### style.flex
-1. `{number} = 0`
-
-### style.align
-1. `{string} = 'start'`
-
-### style.selfAlign
-1. `{undefined}`
-
-### style.distribute
-1. `{string} = 'start'`
-
-### style.contentWidth
-1. `{number} = 0`
-
-### style.contentHeight
-1. `{number} = 0`
-
-### style.update (style)
-1. `style {object}` ---Using the properties enumerated here.
-
-Update the view's style.
-
-### style.copy ()
-1. Return: `{object}`
-
-Returns a copy of the style object.
