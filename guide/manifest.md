@@ -13,7 +13,11 @@ format and can be edited by hand. For example, a minimal
   "appID": "abcdefghijklmnopqrstuvwxyz012345",
   "shortName": "helloWorld",
   "title": "Hello, World!",
-  "supportedOrientations": ["portrait"]
+  "supportedOrientations": ["portrait"],
+  "studio": {
+    "name": "Jolly Fun Times, Inc.",
+	"domain": "example.com"
+  }
 }
 ~~~
 
@@ -276,7 +280,23 @@ where in the stack an error is occuring.
     * `apsalarKey {string}` ---Apsalar key.
     * `apsalarSecret {string}` ---Apsalar secret key.
 
-Device specific settings for Android phones and tablets.
+Device specific settings for Android phones and tablets. In
+this section you can set Flurry, Tapjoy, and Apsalar keys
+for analytics on the Android platform. These analytics keys
+should be different from the iOS keys.
+
+~~~
+"android": {
+  "apsalarKey": "jollyfunkey1",
+  "apsalarSecret": "12345",
+  "entryPoint": "runtimeNative.launchClient",
+  "flurryKey": "4QR3QR3QR3QR3QR3QR3Q",
+  "tapjoyDaily": {},
+  "tapjoyId": "deadbeef-beef-baad-f00d-baad33c0ffee",
+  "tapjoyKey": "S3QR3QR3QR3QR3QR3QR3",
+  "versionCode": 1
+}
+~~~
 
 ### ios
 1. `{object}`
@@ -285,7 +305,25 @@ Device specific settings for Android phones and tablets.
     * `tapjoyID {string}` ---TapJoy app ID for analytics.
     * `tapjoyKey {string}` ---TapJoy app key for analytics.
 
-Device specific settings for iOS phones and tablets.
+Device specific settings for iOS phones and tablets. In this
+section you can set Flurry, Tapjoy, and Apsalar keys for
+analytics on the iOS platform. These analytics keys should
+be different from the Android keys.
+
+~~~
+"ios": {
+  "apsalarKey": "jollyfunkey2",
+  "apsalarSecret": "12345",
+  "entryPoint": "runtimeNative.launchClient",
+  "flurryKey": "3QR3QR3QR3QR3QR3QR3Q",
+  "tapjoyDaily": {},
+  "tapjoyId": "deadbeef-b0ff-baad-feed-baad33c0ffee",
+  "tapjoyKey": "R3QR3QR3QR3QR3QR3QR3",
+  "bundleID": "ggshooter",
+  "appleID": "12345678",
+  "version": "1.0.0"
+}
+~~~
 
 ### mpMetricsKey
 1. `{string}`
