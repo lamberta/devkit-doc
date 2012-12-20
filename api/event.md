@@ -161,6 +161,90 @@ emitter.setMaxListeners(20);
 Emitted when a new listener is added to the object.
 
 
+## Class: event.input.InputEvent
+
+Input events provide an object that encapsulates data about
+the input gesture that created it. For example, when the
+`'inputSelect'` event fires, a developer will want to know
+when, where, and which view the user touched. The objects
+provided to the handler functions of an event listener are
+instances of `event.input.InputEvent`.
+
+When an input event is created it is passed sequentially up
+a hierarchy of `ui.View` objects, with the top-most view being
+the root of application.
+
+Events are assigned a *target*, the view where it occurred,
+and a *root*, the root view where it's dispatched. Event
+propagation has two phases: *capturing* and *bubbling*.
+
+~~~
+import event.input.InputEvent as InputEvent;
+~~~
+
+### new InputEvent (id, type, x, y, root, target)
+1. `id {string}`
+2. `type {string}`
+3. `x {number}`
+4. `y {number}`
+5. `root {View}`
+6. `target {View}`
+
+### event.id
+1. `{number}`
+
+Each input type is identified by a unique ID, for example,
+the mouse will have the same identifier. For multi-touch
+input, there will be a distinct ID for each finger
+throughoout the drag.
+
+### event.type
+1. `{string}`
+
+Input event type.
+
+### event.srcPoint
+1. `{Point}`
+
+Object containing `x` and `y` coordinates of the event.
+
+### event.root
+1. `{View|null}`
+
+Top view where event is dispatched (the tree root).
+
+### event.target
+1. `{View|null}`
+
+Bottom view where the event occurred.
+
+### event.when
+1. `{number}`
+
+Total elapsed number of dt's accumulated since the beginning
+of the application start.
+
+### event.depth
+1. `{number} = 0`
+
+Number of levels of the tree from root to target.
+
+### event.clone ()
+1. Return: `{InputEvent}`
+
+Return a new `InputEvent` using this event's property values.
+
+### event.cancel ()
+
+Cancel an event from propagating further.
+
+### event.cancelled
+1. `{boolean} = false`
+
+Check if an event has been canceled, and therefore, will not
+propagate further.
+
+
 ## Class: event.Callback
 
 Construct and chain callbacks for asynchronous flow
@@ -304,87 +388,3 @@ Allow the callback chain to be fired again.
 ### callback.clear ()
 
 Clears all of the registered callbacks.
-
-
-## Class: event.input.InputEvent
-
-Input events provide an object that encapsulates data about
-the input gesture that created it. For example, when the
-`'inputSelect'` event fires, a developer will want to know
-when, where, and which view the user touched. The objects
-provided to the handler functions of an event listener are
-instances of `event.input.InputEvent`.
-
-When an input event is created it is passed sequentially up
-a hierarchy of `ui.View` objects, with the top-most view being
-the root of application.
-
-Events are assigned a *target*, the view where it occurred,
-and a *root*, the root view where it's dispatched. Event
-propagation has two phases: *capturing* and *bubbling*.
-
-~~~
-import event.input.InputEvent as InputEvent;
-~~~
-
-### new InputEvent (id, type, x, y, root, target)
-1. `id {string}`
-2. `type {string}`
-3. `x {number}`
-4. `y {number}`
-5. `root {View}`
-6. `target {View}`
-
-### event.id
-1. `{number}`
-
-Each input type is identified by a unique ID, for example,
-the mouse will have the same identifier. For multi-touch
-input, there will be a distinct ID for each finger
-throughoout the drag.
-
-### event.type
-1. `{string}`
-
-Input event type.
-
-### event.srcPoint
-1. `{Point}`
-
-Object containing `x` and `y` coordinates of the event.
-
-### event.root
-1. `{View|null}`
-
-Top view where event is dispatched (the tree root).
-
-### event.target
-1. `{View|null}`
-
-Bottom view where the event occurred.
-
-### event.when
-1. `{number}`
-
-Total elapsed number of dt's accumulated since the beginning
-of the application start.
-
-### event.depth
-1. `{number} = 0`
-
-Number of levels of the tree from root to target.
-
-### event.clone ()
-1. Return: `{InputEvent}`
-
-Return a new `InputEvent` using this event's property values.
-
-### event.cancel ()
-
-Cancel an event from propagating further.
-
-### event.cancelled
-1. `{boolean} = false`
-
-Check if an event has been canceled, and therefore, will not
-propagate further.
