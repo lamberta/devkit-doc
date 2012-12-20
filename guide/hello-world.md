@@ -225,3 +225,23 @@ access to game elements in the inspector and console makes
 for a very powerful development environment. But, if you
 want to persist these change in your application, you'll
 still need to edit your source file.
+
+
+## Install the Examples
+
+Now that you've seen how a basic example is created, it's
+time to look through some more complicated projects! You can
+install the *examples addon* and download a bunch of sample
+code to run and look through:
+
+~~~
+$ basil install examples
+~~~
+
+This addon installs a collection of projects that demonstrate
+some game development techniques using the Game Closure
+SDK. When you run basil you'll be able to browse and run the
+projects, and also see the annotated source for each.
+
+To see a more complete game in action, check out the
+[Game Walk-Through Guide](../guide/game-walkthrough.html).
