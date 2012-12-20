@@ -13,7 +13,7 @@ import ui.widget.ListView as ListView;
 
 ### new ListView ([options])
 1. `options {object}`
-	* `isFixedSize {boolean} = true` ---TODO: means row size is fixed??
+	* `isFixedSize {boolean} = true` ---Set to false to allow variable sizes for list items (hurts rendering performance)
 	* `isTiled {boolean} = false` ---Allow multiple items per row.
 	* `renderMargin {number} = 0` ---The vertical margin between list items.
 	* `autoSize {boolean} = false` ---Set to true to automatically set the height of the ListView based on MaxY.
