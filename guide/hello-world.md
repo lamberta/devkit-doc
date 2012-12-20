@@ -3,81 +3,118 @@
 ## Create your first project
 
 With [basil installed](../guide/getting-started.html),
-you're ready to create a new project! Switch to the
-directory where you want the new project directory to
-reside, then run:
+you're ready to create a new project! Initialize a game
+in a new project directory by running at the command-line:
 
 ~~~
 $ basil init hello-world
 ~~~
 
-Great! By default, basil generates a simple "Hello, world!"
-template for your project. Now you can switch to the new
-project's directory and serve the application:
+This creates the `./hello-world/` directory at the current
+working path, and generates a new application that inherits
+from the "empty" template. Now you can switch to the new
+project directory and serve the application:
 
 ~~~
 $ cd ./hello-world
 $ basil serve
 ~~~
 
-By default, basil starts a server on your machine at
-`http://localhost:9200`. To access the web interface for the
-project, simply direct your web browser to this address. If you'd
-like to specify a different port for your application, just
-pass it as a `-p` option:
+By default, basil starts a server on your machine at the
+address `http://localhost:9200`. To access the interface for the
+project, simply direct your web browser to this url. If you'd
+like to specify an alternative port for your application
+server, just pass it as a `-p` option:
 
 ~~~
 $ basil serve -p 8080
 ~~~
 
-In this case, you can access the interface at `http://localhost:8080`.
+So in this case, the web interface can be accessed at the
+url `http://localhost:8080`.
 
-With the application server running, in your web browser
-click the tab named 'Projects', on the left, and select your 'New
-Project' from the project list. To change the title of your
-project, edit the `manifest.json` file located in the root
-of your project directory. You can find a complete list of
-project settings in the [Manifest Options Guide](../guide/manifest.html).
+*Note*: To get the most out of debugging in the web browser, we're
+primarily supporting the [Chrome web browser](http://www.google.com/chrome).
+So for the remainder of this guide we'll assume you are using that.
+
+With the server running and loaded in your web browser,
+click the tab named **Projects** on the left, and select
+your newly created game, labeled **New Project** in the
+project list. To change the title of your project, edit the
+`manifest.json` file located in the root of your project
+directory---you can find a complete list of project settings
+in the [Manifest Options Guide](../guide/manifest.html).
 
 <img src="./assets/getting-started/hello-project.png" alt="project selector screenshot" class="screenshot">
 
-Now launch the simulator for your project by clicking the 'Simulate' button.
+With the project loaded, launch the simulator for it by
+clicking the **Simulate** button located in the upper-left corner.
 
 <img src="./assets/getting-started/hello-world.png" alt="hello, world screenshot" class="screenshot">
 
 Your first application running in the browser, pretty cool,
-right? This view gives you an idea of how it will look on a
-mobile device, but remember, we're still in a web browser
-which means we can interact with it, and debug it, using all
-the great tools we're used to for web development.
+right? This view of your game presents an approximation of
+how it will look when running on a mobile device. But, we're
+still in a web browser, which means we can interact with it,
+debug it, and use all the great web development tools we're
+used to when creating the game.
 
 *Note*: If you're working on a project that wasn't created with
-`basil init`, you'll need to register the project before it
-is available in the web interface:
+`basil init` (maybe you've downloaded it from elsewhere),
+you must register the project before it's available in your
+web interface. To do this, use the `basil register` command:
 
 ~~~
 $ cd ./anotherproject
 $ basil register
 ~~~
 
-Now if you run `basil serve` you'll see the new project in
-the web interface.
+Now, if you run `basil serve` you'll see the new project in
+the web interface. A list of registered projects is
+maintained in the `config.json` file located in the root of
+your basil install, and if need be, edited directly.
+
+### Basil Help
+
+The `basil` tool has a number of commands to help you in
+creating, building, and deploying your game. For a list of
+available commands, run `basil help` or `basil -h` in your
+terminal.
+
+In addition, each basil command may have its own options,
+you can append the `-h` flag to a command to see the help
+available for it:
+
+~~~
+$ basil init -h
+~~~
+
 
 ## Project Structure
 
+When you initialize a new game, a basil project is created
+using the following directory structure:
+
 ~~~
-project
+project/
 .
-├── manifest.json (project information)
-├── sdk/ -> /path/to/basil/sdk (symlink)
-├── build/ (auto-generated)
-├── resources/
+├── manifest.json (project settings)
+├── sdk/ -> /path/to/basil/sdk (symlink to game engine libraries)
+├── build/ (auto-generated by basil)
+├── resources/ (game assets)
 │   └── fonts/
 └── src/
     └── Application.js (project entry point)
 ~~~
 
-Application.js:
+For the most part, you'll be most interested in the files
+contained in the `src` directory, since any files you create
+for your game will be stored in here. There is one required
+file in here, `./src/Application.js`, which is the starting
+point for your game.
+
+When you create a new project using `basil init` the
+`./src/Application.js` file looks like this:
 
 ~~~
 import ui.TextView as TextView;
@@ -105,55 +142,70 @@ exports = Class(GC.Application, function() {
 });
 ~~~
 
+This file defines a class that inherits from
+[GC.Application](../api/appengine.html#class-gc.application)
+and configures the callback methods used to define the user entry
+points of the game: `initUI` and `launchUI`. The settings
+for the application are defined here, and are covered in
+more detail in [Application Settings](../api/appengine.html#application-settings).
+
+In this simple example, a `TextView` is imported into the
+file, added to the scene graph, and used to write the phrase
+"Hello, world!" to the screen. The class and module system
+the Game Closure SDK uses is detailed in the [Utilities API documentation](../api/utilities.html).
+
+
 ## Inspecting and Debugging
 
-Click on 'UI Inspector' button at the top of the window to view the scene graph hierarchy.
+To view the hierarchy of the scene graph as a tree, click on
+the **UI Inspector** button at the top of the simulator window.
 
 <img src="./assets/getting-started/hello-inspector.png" alt="ui inspector screenshot" class="screenshot">
 
-In the view inspector you can see that there is a `TextView`
-in the hierarchy named `'TextView2:Hello, world!'`
+Browse through the inspector you'll see that there is a
+`TextView` in the hierarchy named `'TextView2:Hello, world!'`.
 
-Using the [Chrome](http://www.google.com/chrome) web
-browser, open up the JavaScript debugging console by
-clicking the settings icon, then "Tools > JavaScript
-Console." In this pane you can view all of the debugging
+Using the Chrome web browser, open up the JavaScript
+debugging console by clicking the settings icon, then "Tools
+> JavaScript Console." In this pane you can view all of the debugging
 logs from the application and any JavaScript errors. You can
-set breakpoints in your application just like a regular
-JavaScript web application; for more information about using
+set breakpoints in your game code just like any other
+JavaScript web application. For more information about using
 the Chrome debugger, see the documentation for the
 [Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/docs/overview).
 
-In the bottom of the console panel, switch the context of
-the JavaScript REPL from `<top frame>` to
+At the bottom of the console panel, switch the context of
+the JavaScript console from `<top frame>` to
 `<Simulator_0>`. Now you can access the variables of your
-application directly, provide you are in the correct
-scope. For instance, entering `GC.app` will return the
+application directly, provided they are in the correct
+scope. To try it out, entering `GC.app` will return the
 instance of your application. If you add additional simulators
-(*Choose Simulator->Add Simulator...*), you can access each context 
-by switching to the appropriate frame.
+(*Choose Simulator->Add Simulator...*), you can access each
+JavaScript execution environment by switching to the appropriate frame.
 
-Let's say we wanted to change the "Hello, world!" text while
-the application is running. From looking at the UI Inspector
-we know our lone TextView is a child of the main application
-view, so we can grab a reference to it by reaching down the
-view hierarchy:
+Now, if we wanted to change the "Hello, world!" text, from
+the console, while the application is running, we can drill
+own our view hierarchy and grab a reference to the instance
+of `TextView`. We know---from looking at the **UI
+Inspector**---that the lone `TextView` is a direct child of
+the main application view, so we can reference it using the
+view accessor methods on `GC.app`:
 
 ~~~
 var textview = GC.app.view.getSubviews()[0]; //select the first child view
 ~~~
 
 As mentioned, `GC.app` is an instance of the application
-defined in our project's `src/Application.js`
-file. `GC.app.view` is the root of the scene graph, views
-attached to this view hierarchy will be rendered to the screen.
+defined in the project as the  `src/Application.js`
+file. `GC.app.view` is the root of the scene graph which
+views are attached too so they will be rendered.
 
-The `getSubviews` method returns an array containing its
-children, here we simply take the first (and only object) in
+The `getSubviews` method returns an array containing all its
+children. Here, we simply grab the first (and only object) in
 this collection.
 
-With a reference to the text object we can use its API to
-change the text to something else:
+With a reference to the `TextView`, we can use its [API](../api/ui-text.html#class-ui.textview)
+to change its text to something else:
 
 ~~~
 textview.updateOpts({fontSize: 42});
@@ -161,9 +213,15 @@ textview.setText("We did it!");
 ~~~
 
 Notice how you can see the changes instantly in your
-browser, this makes the coding-debugging feedback loop tight
+browser! This makes the coding-debugging feedback loop tight
 and developer friendly.
 
 <img src="./assets/getting-started/hello-debugger.png" alt="console debugger screenshot" class="screenshot">
 
-Of course, if you want to persist this change, you'll need to edit the file.
+Of course, you can also edit the properties of the
+`TextView` directly in the **UI Inspector** which makes
+it *really* easy to see how changes look immediately. Having
+access to game elements in the inspector and console makes
+for a very powerful development environment. But, if you
+want to persist these change in your application, you'll
+still need to edit your source file.
