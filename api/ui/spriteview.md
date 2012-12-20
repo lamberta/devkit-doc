@@ -65,7 +65,7 @@ import ui.SpriteView as SpriteView;
 ~~~
 
 ### new SpriteView ([options])
-1. `options {object}`
+1. `options {object}` 
     * `url {string}` ---Sprite image file name prefix.
 	* `defaultAnimation {string}` ---Defaults to the first animation listed in the directory
     * `groupID {string} = 'default'` ---Specify a Sprite group
@@ -86,21 +86,10 @@ var sprite = new SpriteView({
 });
 ~~~
 
-### sprite.defaults
-1. `{object}`
-    * `url {string} = null`
-    * `groupId {string} = 'default'`
-    * `frameRate {number} = 15`
-    * `emitFrameEvents {boolean} = false`
-    * `autoStart {boolean} = false`
-    * `loop {boolean} = true` ---Continously loop an animation.
-
-The default sprite settings.
-
 ### sprite.startAnimation (name [, options])
 1. `name {string}`
 2. `options {object}`
-    * `iterations {number} = 1`
+    * `iterations {number} = 1` ---Number of times to repeat the animation.
     * `callback {function} = null` ---Called at end of animation.
     * `frame {number} = 0` ---Frame to start on.
     * `randomFrame {boolean} = false` ---Start on random frame.
