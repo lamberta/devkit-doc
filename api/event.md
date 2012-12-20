@@ -1,14 +1,28 @@
 # Events
 
-Subscribing to object events follows the API as defined
-below. To see what type of events a particular component
-supports, a list is provided in that component's API
-documentation. For example, here are the [available events](./ui-view.html#events)
+The Game Closure SDK provides several mechanisms for
+handling events that allows cross-object communication. To
+see what type of events a particular class supports, a
+list is provided in that component's API documentation. For
+example, here are the [available events](./ui-view.html#events) 
 on all objects that inherit from `ui.View`.
+
 
 ## Class: event.Emitter
 
-Publish and subscribe to events dispatched on an object.
+The event emitter follows a common message passing pattern
+known as [publish-subscribe](http://en.wikipedia.org/wiki/Publish–subscribe_pattern),
+where objects communicate with each other by sending
+events. An event is labeled by a text string, and any object
+that inherits from `event.Emitter` can subscribe to this
+event and execute a callback function when it recieves the
+event. Any number of callbacks can be associated with a
+particular event, allowing multiple listeners to register
+callbacks for the event without the emitter object knowing
+anything about who the listeners are or what the callbacks
+do. Many classes in the Game Closure SDK inherit from
+`event.Emitter` which allows the developer to listen for
+certain events and run code at a given time.
 
 ~~~
 import event.Emitter as Emitter;
@@ -22,6 +36,22 @@ Create an Emitter instance.
 var emitter = new Emitter();
 ~~~
 
+Create a new class which inherits from `event.Emitter`:
+
+~~~
+var Dog = Class(Emitter, function (supr) {
+  this.init = function () {
+    super(this, 'init', arguments);
+  };
+});
+
+var monty = new Dog();
+
+monty.on('mailman', function (event) {
+  console.log("Woof-woof!");
+});
+~~~
+
 ### emitter.emit (type [, args ...])
 1. `type {string}` ---The name of the event type.
 2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
@@ -31,13 +61,16 @@ Emit an event to the object. Any of its handler functions
 subscribed to the given event type are executed. Returns
 `true` if the event was handled, otherwise `false`.
 
+### emitter.addListener (type, callback)
+
 ### emitter.on (type, callback)
 1. `type {string}` ---The name of the event type.
 2. `callback {function|string}` ---The dispatch function, or method name on an object.
 3. Return: `{this}`
 
 Add a callback function that is subscribed to a given event
-type. The function will execute when that event is emitted to the object.
+type. The function will execute when that event is emitted
+to the object. The method `addListener` is an alias for `on`.
 
 ~~~
 var emitter = new Emitter();
@@ -49,13 +82,6 @@ emitter.on('add', function (a, b) {
 
 emitter.emit('add', 3, 5);  //=> true (console prints "The sum is 8")
 ~~~
-
-### emitter.addListener (type, callback)
-1. `type {string}` ---The name of the event type.
-2. `callback {function|string}` ---The dispatch function, or method name on an object.
-3. Return: `{this}`
-
-This is an alias for `emitter.on`.
 
 ### emitter.once (type, callback)
 1. `type {string}` ---The name of the event type.
@@ -104,7 +130,9 @@ emitter.emit('myevent');               //=> false
 1. `type {string}` ---The name of the event type.
 2. Return: `{array}`
 
-Returns an emitter's listener functions for a given event type.
+Returns an array of event handler functions for a given
+event type. This is a mutable reference to the array,
+changes to it will affect the emitter.
 
 ~~~
 emitter.on('myevent', callback);
@@ -135,10 +163,36 @@ Emitted when a new listener is added to the object.
 
 ## Class: event.Callback
 
-Construct and chain callbacks.
+Construct and chain callbacks for asynchronous flow
+control. For advanced features with a more concise syntax,
+see the [ff module](https://github.com/gameclosure/ff).
 
 ~~~
 import event.Callback as Callback;
+~~~
+
+Some APIs do not care when an event has fired, or even if it
+has fired already. An example of this is preloading an
+image. You need to register a callback for when the image
+has loaded, but you don’t want to write:
+
+~~~
+if (image.isLoaded()) {
+  renderImageToBuffer();
+} else {
+  image.on('load', renderImageToBuffer);
+}
+~~~
+
+each time you care about the load event. For something like
+this, you can wrap the underlying `load` event with an
+instance of `event.Callback`. This class queues up callback
+functions to be run when an event fires. And, any callbacks
+queued up after the event has fired will be immediately
+executed. Now, the code can read:
+
+~~~
+image.doOnLoad(renderImageToBuffer); //Fires immediately if the image has already loaded
 ~~~
 
 ### new Callback ()
@@ -203,7 +257,7 @@ cb.runOrTimeout(function () {
 
 Chaining allows the loaded callback functions to run *after* another
 function is explicitly executed. Each call to `chain` returns
-a function that acts as a trigger, when every trigger is
+a function that acts as a trigger, and when every trigger is
 called, the callback functions execute.
 
 This can be used for managing the flow of asynchronous
@@ -238,7 +292,7 @@ load_images(); //=> "Resources loaded!"
 
 Fire all the registered callbacks. Any arguments passed to this will be passed into the registered callbacks.
 
-### callback.fired ()
+### callback.hasFired ()
 1.	Return: `{boolean}`
 
 Check if the callback chain has been fired.
@@ -254,13 +308,20 @@ Clears all of the registered callbacks.
 
 ## Class: event.input.InputEvent
 
+Input events provide an object that encapsulates data about
+the input gesture that created it. For example, when the
+`'inputSelect'` event fires, a developer will want to know
+when, where, and which view the user touched. The objects
+provided to the handler functions of an event listener are
+instances of `event.input.InputEvent`.
+
 When an input event is created it is passed sequentially up
-a hierarchy of View objects, with the top-most view being
-the main application.
+a hierarchy of `ui.View` objects, with the top-most view being
+the root of application.
 
 Events are assigned a *target*, the view where it occurred,
-and a *root*, the top-most view where it's dispatched. Event
-propagation has two phases: capturing and bubbling.
+and a *root*, the root view where it's dispatched. Event
+propagation has two phases: *capturing* and *bubbling*.
 
 ~~~
 import event.input.InputEvent as InputEvent;
@@ -278,8 +339,9 @@ import event.input.InputEvent as InputEvent;
 1. `{number}`
 
 Each input type is identified by a unique ID, for example,
-the mouse has the same identifier, and each finger touch
-will have the same ID throughout the start-move-end process.
+the mouse will have the same identifier. For multi-touch
+input, there will be a distinct ID for each finger
+throughoout the drag.
 
 ### event.type
 1. `{string}`
@@ -311,11 +373,6 @@ of the application start.
 1. `{number} = 0`
 
 Number of levels of the tree from root to target.
-
-### event.point
-1. `{object} = {}`
-
-Localized point coordinate, index by View UID.
 
 ### event.clone ()
 1. Return: `{InputEvent}`
