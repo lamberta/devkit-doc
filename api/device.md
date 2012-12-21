@@ -31,8 +31,8 @@ The screen height of the device.
 ### device.getDimensions (isLandscape)
 1. `isLandscape {boolean} = false` ---Return size in landscape-mode.
 2. Return: `{object}`
-	* `width {number}`
-	* `height {number}`
+	* `width {number}` ---The horizontal size of the screen
+	* `height {number}` ---The vertical size of the of the screen
 
 Returns the screen dimensions of the device. The default
 size is given in portrait-mode, but it can be returned in
@@ -40,14 +40,14 @@ landscape-mode by passing a `true` argument.
 
 ### device.screen
 1. `{event.Emitter}`
-	* `width {number}`
-	* `height {number}`
-	* `devicePixelRatio {number} = 1`
-	* `orientation {string}`
-	* `defaultOrientation {string}` ---Defaults to `'portrait'` or `'landscape'`.
-	* `isPortrait {boolean}`
-	* `isLandscape {boolean}`
-	* `browserChrome {object}`
+	* `width {number}` ---The horizontal size of the screen
+	* `height {number}` ---The vertical size of the of the screen
+	* `devicePixelRatio {number} = 1` ---The ratio between physical pixels and device-independent pixels (dips) on the device
+	* `orientation {string}` ---Value can be `'portrait'` or `'landscape'`
+	* `defaultOrientation {string}` ---Defaults to `'portrait'` or `'landscape'`
+	* `isPortrait {boolean}` ---`'true'` if in portrait mode
+	* `isLandscape {boolean}` ---`'true'` if in landscape mode
+	* `browserChrome {object}` ---Information about the size of the addess bar
 		* `portrait {object} = {top: 0, bottom: 0}`
 		* `landscape {object} = {top: 0, bottom: 0}`
 
