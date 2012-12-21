@@ -135,7 +135,6 @@ import GCDataSource;
 	* `ctor {function(data)}` ---The constructor function for datasource items given a generic data object
 	* `reverse {boolean} = false` ---Set to true to sort in reverse order.
 	* `sorter {function(item)}` ---A function that returns a cardinal value (number or string) for the current item so the javascript interpreter can use it as the sort key.
-	* `persistence {PersistenceHandler}` ---The persistence handler object for preserving datasource items.
 
 ~~~
 var datasource = new GCDataSource();
@@ -236,29 +235,6 @@ Populate the current datasource using the given key and items.
 1. Return: `{array}`
 
 Return an array of all the items in the datasource.
-
-### datasource.beginChanges ()
-
-Signal the start of a changeset to be commited to the persistence handler.
-
-### datasource.saveChanges ()
-
-Add current changes to the persistence handler.
-
-### datasource.load (callback)
-1. `callback {function}` ---The function to be invoked after loading from the persistence handler.
-
-Load datasource from the persistence handler.
-
-### datasource.save ()
-
-Save changes to the persistence handler.
-
-### datasource.compare (list, callback)
-1. `list {object|array}` ---A list of items to compare to the current datasource.
-2. `callback {function}` ---The function to invoke for each comparison.
-
-Compare a list to the current datasource.
 
 ### datasource.keepOnly (list)
 1. `list {object|array}` ---The list of items we wish to keep.
