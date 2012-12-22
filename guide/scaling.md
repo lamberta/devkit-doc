@@ -1,20 +1,35 @@
 # Scaling the Game to Fit the Device
 
+In this guide you'll see how to scale your game in a way
+that fits multiple device aspect ratios. This example is
+part of the *examples* add-on, which can be installed in to
+basil with the following at your command line:
+
+~~~
+$ basil install examples
+~~~
+
+In the basil web interface, navigate to **Projects >
+Examples > Layout: Scale Region** to run the example in the simulator.
+
 ## Aspect Ratio
 
 The aspect ratio of a screen describes the proportional
 relationship between its width and its height.
 
-Here's how the 4:3 and 3:2 aspect ratios fit within a 16:9
-ratio, leaving empty horizontal space:
+Here's how the aspect ratios of 4:3 (green box) and 3:2 (red
+box) can be fit within a 16:9 aspect ratio (blue box) while
+preserving their aspect ratios and without stretching. Notice the
+extra padding on the right and left margins of the green and
+red boxes.
 
-<img src="./assets/basic/scaling/aspect-ratio-1.png" alt="aspect ratio 1" class="screenshot">
+<img src="../assets/guide/scaling/aspect-ratio-1.png" alt="aspect ratio 1" class="screenshot">
 
 And here's how the 16:9 and 3:2 aspect ratios are confined
-within a 4:3 ratio; now there is vertical space at the top
+within a 4:3 ratio; now there is vertical padding at the top
 and bottom:
 
-<img src="./assets/basic/scaling/aspect-ratio-2.png" alt="aspect ratio 2" class="screenshot">
+<img src="../assets/guide/scaling/aspect-ratio-2.png" alt="aspect ratio 2" class="screenshot">
 
 In these diagrams the different ratios are centered within
 the constraining view. If desired, the constrained ratio
@@ -43,45 +58,54 @@ Popular dimensions of different aspect ratios:
      * 427 × 320
      * 320 × 240
 
-## Art Deliverables
-
-Art assets should be delivered at the dimensions 576 x 1024
-because, on most phones, the maximum width of a texture can
-be 1024 pixels. This allows game developers to target
-devices supporting a resolution of 720 x 1280---the most
-extreme resolution on popular phones---by scaling up the
-texture by 25 percent (576 * 1.25 = 720, 1024 * 1.25 = 1280).
-
 
 ## Calculate Scaling
 
-Define the maximum displayable region for the visible portion of the game. Everything within this rectangle will be displayed on the phone, regardless of the device dimensions. Any art assets should be delivered relative to these dimensions.
+We're going to define the maximum displayable region for the
+game as **576 x 1024 pixels**. This is because, on most
+phones, the maximum width a texture can be is 1024
+pixels. Game developers should work within this 576 x 1024
+coordinate space, that way their in-game positions can be
+consistent across all different aspect ratios by scaling
+this space. We use these pixel coordinates because,
+currently, the most extreme resolution on a popular phone is
+720 x 1280, and we can easily scale our working dimensions up
+by 25 percent to reach this: 576 * 1.25 = 720, 1024 * 1.25 = 1280.
+
+Everything within this 576 x 1024 rectangle will be
+displayed on the phone, regardless of the device
+dimensions. Any art assets should be delivered relative to
+these dimensions.
+
+So, in our example code listed below, we'll define the
+maximum displayable region for the visible portion of the game:
 
 ~~~
-var bounds_width = 576,
-    bounds_height = 1024;
+var boundsWidth = 576;
+var boundsHeight = 1024;
 ~~~
 
-Here, we’ve defined this region as 576 by 1024 pixels, and
-as you’ll see below, these are the dimensions used for the
+Here, we've defined this region as 576 by 1024 pixels, and
+as you'll see below, these are the dimensions used for the
 background image in this example. This is a 16:9 aspect
 ratio in portrait mode, the widest available on the more
 popular phones as shown above.
 
-We’ll use these values to calculate the base dimensions and
+We'll use these values to calculate the base dimensions and
 scale used for the top-level views. This gives us a 576 x
-864 rectangle that we’ll use as the base of our game. Any
-screen coordinates should be given relative to these
-dimensions. We’ll then scale these coordinates to fit the
-device.
+864 rectangle that we'll use as the base of our game and any
+screen coordinates for the in-game positions should be given
+in these dimensions. In the the code below, we'll calculate
+the scaling to apply to these coordinates that will fit it
+to the device.
 
-For portrait mode, here’s how to calculate our base
+For portrait mode, here's how to calculate our base
 rectangle dimensions and scale:
 
 ~~~
-var base_width = bounds_width, //576
-    base_height =  device.screen.height * (bounds_width / device.screen.width), //864
-    scale = device.screen.width / base_width; //1
+var baseWidth = bounds_width; //576
+var baseHeight =  device.screen.height * (boundsWidth / device.screen.width); //864
+var scale = device.screen.width / baseWidth; //1
 ~~~
 
 Replacing the variables for calculating height we get: 480 * (576 / 320) = 864.
@@ -89,41 +113,39 @@ Replacing the variables for calculating height we get: 480 * (576 / 320) = 864.
 And in landscape mode, we can simply reverse these calculations:
 
 ~~~
-var base_width = device.screen.width * (bounds_height / device.screen.height), //864
-    base_height = bounds_height, //576
-    scale = device.screen.height / base_height; //1
+var baseWidth = device.screen.width * (boundsHeight / device.screen.height); //864
+var baseHeight = boundsHeight; //576
+var scale = device.screen.height / baseHeight; //1
 ~~~
 
 ### Scale the Top-Level View
 
 Scaling a view ensures that all its child views are also
 scaled. To center the game views on a screen, set the size
-and scale of the root view in the scene graph, which is
-`GC.app.view`:
+and scale of the root view in the scene graph, which is `GC.app.view`:
 
 ~~~
-GC.app.view.style.width = base_width;
-GC.app.view.style.height = base_height;
 GC.app.view.style.scale = scale;
 ~~~
 
 You can also position the overflow in a particular direction
 by offsetting these positions.
 
+
 ### Positioning Game Assets
 
 With the base rectangle set, we can dynamically position
 game assets on the screen so that they maintain their
-relative position regardless of the device’s aspect
-ratio. For example, to center a sprite on the background
-image, simply set it’s x and y position to half of the base
-region’s width and height:
+relative position regardless of the device's aspect
+ratio. For example, to position a sprite in the middle the
+background image, simply set it's x and y position to half
+of the base region's width and height:
 
 ~~~
 var sprite = new SpriteView({
   superview: background,
-  x: base_width / 2,
-  y: base_height / 2,
+  x: baseWidth / 2,
+  y: baseHeight / 2,
   width: 300,
   height: 300,
   url: "resources/images/sdkBot/sdkBot",
@@ -132,18 +154,29 @@ var sprite = new SpriteView({
 });
 ~~~
 
+
+### Art Deliverables
+
+Since we've established the displayable region of our game
+to the screen coordinates of 576 x 1024 pixels, this should
+be the dimensions that art assets get delivered. 1024
+pixels is the maximum width of a texture on many devices,
+and we can then scale it up or down to fit the dimensions of
+other devices.
+
+
 ### Example: Scale a Background Image and Game Asset to Fill Screen
 
 In this example we'll create a scene that fits multiple
 devices. First, here's how it looks on the iPhone simulator:
 
-<img src="./assets/basic/scaling/scale-iphone.png" alt="scaling iphone screenshot" class="screenshot">
+<img src="../assets/guide/scaling/scale-iphone.png" alt="scaling iphone screenshot" class="screenshot">
 
 By switching the device simulator to a larger device---like
 the Galaxy Nexus tablet---we can see how this scene is
 displayed to fill the entire screen:
 
-<img src="./assets/basic/scaling/scale-tablet.png" alt="scaling tablet screenshot" class="screenshot">
+<img src="../assets/guide/scaling/scale-tablet.png" alt="scaling tablet screenshot" class="screenshot">
 
 And here's the code to set up the background `ImageView` and
 our sprite that walks along the lunar surface:
@@ -153,14 +186,14 @@ import device;
 import ui.ImageView as ImageView;
 import ui.SpriteView as SpriteView;
 
-var bounds_width = 576,
-    bounds_height = 1024,
-    base_width = bounds_width,
-    base_height = device.screen.height * (bounds_width / device.screen.width), //864
-    scale = device.screen.width / base_width,
-    right_boundary = base_width, //right boundary for screen wrapping
-    left_boundary = 0,
-    vx = 0;
+var boundsWidth = 576;
+var boundsHeight = 1024;
+var baseWidth = bounds_width;
+var baseHeight = device.screen.height * (boundsWidth / device.screen.width); //864
+var scale = device.screen.width / baseWidth;
+var rightBoundary = baseWidth; //right boundary for screen wrapping
+var leftBoundary = 0;
+var vx = 0;
 
 exports = Class(GC.Application, function () {
   this._settings = {
@@ -170,24 +203,22 @@ exports = Class(GC.Application, function () {
   this.initUI = function () {
     
     //scale the root view
-    this.view.style.width = base_width;
-    this.view.style.height = base_height;
     this.view.style.scale = scale;
     
     var background = new ImageView({
       superview: this.view,
       x: 0,
       y: 0,
-      width: base_width,
-      height: base_height,
+      width: baseWidth,
+      height: baseHeight,
       image: "resources/images/background.jpg", //576x1024
       zIndex: 0
     });
 
     var sprite = new SpriteView({
       superview: background,
-      x: base_width/2,
-      y: base_height - 400,
+      x: baseWidth/2,
+      y: baseHeight - 400,
       width: 300,
       height: 300,
       url: "resources/images/sdkBot/sdkBot",
@@ -229,10 +260,10 @@ exports = Class(GC.Application, function () {
       sprite.style.x += vx;
 
       //screen wrapping
-      if (sprite.style.x > right_boundary) {
-        sprite.style.x = left_boundary - sprite.style.width;
-      } else if (sprite.style.x + sprite.style.width < left_boundary) {
-        sprite.style.x = right_boundary;
+      if (sprite.style.x > rightBoundary) {
+        sprite.style.x = leftBoundary - sprite.style.width;
+      } else if (sprite.style.x + sprite.style.width < leftBoundary) {
+        sprite.style.x = rightBoundary;
       }
     });
   };
