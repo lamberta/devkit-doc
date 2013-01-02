@@ -62,7 +62,7 @@ imageview.setImage(image);
 1. `callback {function}`
 1. Return: `{this}`
 
-Registers a callback to be run once the image has fully loaded (uses [event.Callback](/api/event.html#class-event.callback)). Callback is executed with the `ImageView` instance as the context.
+Registers a callback to be run once the image has fully loaded (uses [event.Callback](./event.html#class-event.callback)). Callback is executed with the `ImageView` instance as the context.
 
 ### imageview.autoSize ()
 
@@ -93,8 +93,8 @@ import ui.ImageScaleView as ImageScaleView;
 
 ### new ImageScaleView ([options])
 1. `options {object}`
-	* `image {string|ui.resource.Image} = false` ---Source image. Just like ImageView, you may specify a path as a String or an instance of `ui.resource.Image`.
-	* `autoSize {boolean} = false` ------Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `image {string|ui.resource.Image} = false` ---Source image. Just like `ImageView`, you may specify a path as a String or an instance of `ui.resource.Image`.
+	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = 'stretch'` ---Valid options are `'none'`, `'stretch'`, `'cover'`, and `'9slice'`.
 	* `debug {boolean} = false` ---Display 9-slice scaling measurements.
 	* `sourceSlices {object}` ---9-slice source slices.
@@ -229,4 +229,4 @@ Sets the properties of the internal `ImageMap` object.
 1. `callback {function}`
 1. Return: `{this}`
 
-Registers a callback to be run once the image has fully loaded (done with [event.Callback](/api/event.html#class-event.callback)).
+Registers a callback to be run once the image has fully loaded (done with [event.Callback](./event.html#class-event.callback)).
