@@ -1,4 +1,4 @@
-# Getting Started
+# Quick Start
 
 This guide with get you up and running with the Game Closure
 SDK. First, you'll download and install the SDK, then get introduced
