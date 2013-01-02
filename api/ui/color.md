@@ -1,5 +1,8 @@
 # Color
 
+The `Color` class is provided as a convenience for parsing and
+storing color values from a number of different formats.
+
 ## Class: ui.Color
 
 Usage:
@@ -16,7 +19,7 @@ import ui.Color as Color;
     * `a {number} = 1` ---The alpha value of the color, from 0 to 1.
 
 ~~~
-var rgba = new Color({r: 23, g: 234, b: 0, a: 1});
+var rgba = new Color({r: 23, g: 234, b: 0, a: 0.8});
 ~~~
 
 ### new Color ([r, g, b, a])
@@ -25,13 +28,22 @@ var rgba = new Color({r: 23, g: 234, b: 0, a: 1});
 3. `b {number} = 0` ---The blue value of the color, from 0 to 255.
 4. `a {number} = 1` ---The alpha value of the color, from 0 to 1.
 
-Color compoent options can be passed as invidual parameters
+Color component options can be passed as individual parameters
 to the constructor.
 
-### new Color ([rgba])
-1. `rgba {string}` ---A color string formatted in CSS-style.
+~~~
+var rgba = new Color(23, 234, 0, 0.8);
+~~~
 
-A string in the CSS-style format: `'rgba(r, g, b, a)'`.
+### new Color ([rgba])
+1. `rgba {string}` ---A color string in hexadecimal or CSS-style format.
+
+A string in the CSS-style format: `'rgba(R, G, B, A)'`, or
+hexadecimal format: `'#RRGGBB'`.
+
+~~~
+var rgba = new Color('rgba(23,234,0,0.8)');
+~~~
 
 ### rgba.r
 1. `{number} = 0` ---A number between 0 and 255.
@@ -62,6 +74,10 @@ The alpha component of the color.
 
 Set the component values of a color.
 
+~~~
+rgba.set({r: 87, g: 24, b: 220, a: 0.7});
+~~~
+
 ### rgba.get ()
 1. Return: `color {object}`
 	* `r {number}` ---Red component, a number between 0 and 255.
@@ -72,9 +88,15 @@ Set the component values of a color.
 Return a new object containing the component values of this color.
 
 ### rgba.parse (color)
-1. `color {string}`
+1. `color {string}` ---Color string in hexadecimal or CSS-style format.
 
-Parse a color string and store the component values.
+Parse a color string and set the red-green-blue-alpha component values.
+
+~~~
+rgba.parse('#ff00ff'); //Hexadecimal format
+
+rgba.parse('rgba(255,0,255,0.5)'); //CSS-style RGBA format
+~~~
 
 ### rgba.toString ()
 1. Return: `{string}`
