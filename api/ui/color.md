@@ -18,6 +18,9 @@ import ui.Color as Color;
     * `b {number} = 0` ---The blue value of the color, from 0 to 255.
     * `a {number} = 1` ---The alpha value of the color, from 0 to 1.
 
+Color component values can be passed as object properties to
+the constructor:
+
 ~~~
 var rgba = new Color({r: 23, g: 234, b: 0, a: 0.8});
 ~~~
@@ -28,8 +31,7 @@ var rgba = new Color({r: 23, g: 234, b: 0, a: 0.8});
 3. `b {number} = 0` ---The blue value of the color, from 0 to 255.
 4. `a {number} = 1` ---The alpha value of the color, from 0 to 1.
 
-Color component options can be passed as individual parameters
-to the constructor.
+Component values can also be passed as individual parameters to the constructor:
 
 ~~~
 var rgba = new Color(23, 234, 0, 0.8);
@@ -38,7 +40,7 @@ var rgba = new Color(23, 234, 0, 0.8);
 ### new Color ([rgba])
 1. `rgba {string}` ---A color string in hexadecimal or CSS-style format.
 
-A string in the CSS-style format: `'rgba(R, G, B, A)'`, or
+A color can also be defined as a string in CSS-style format: `'rgba(R, G, B, A)'`, or
 hexadecimal format: `'#RRGGBB'`.
 
 ~~~
