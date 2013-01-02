@@ -12,9 +12,8 @@ import ui.ImageView as ImageView;
 
 ### new ImageView ([options])
 1. `options {object}`
-	* `image {string|ui.resource.Image} = false` ---Image to render.
+	* `image {string|ui.resource.Image} = false` ---Image to render. You may specify a path in your resources directory or instance of an Image resource.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
-	* `scaleMethod {string} = false`
 
 Create an ImageView.
 
@@ -32,16 +31,14 @@ var imageview = new ImageView({
 ### imageview.getImage ()
 1. Return: `{ui.resource.Image}`
 
-Returns the internal Image.
+Returns the internal Image resource instance to be rendered.
 
 ### imageview.setImage (url [, options])
 1. `url {string}`
 2. `options {object}` ---Optional.
-	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
-	* `scaleMethod {string} = false`
 
-Set the image for the ImageView.
+Set the image for the ImageView based on a path to the resources directory. This will create a new Image instance upon every call to `setImage`. Doing this frequently may cause garbage collection issues so consider using Image instances over Strings. 
 
 ~~~
 imageview.setImage('resources/images/example2.png');
@@ -50,11 +47,9 @@ imageview.setImage('resources/images/example2.png');
 ### imageview.setImage (img [, options])
 1. `img {ui.resource.Image}`
 2. `options {object}` ---Optional.
-	* `image {string|ui.resource.Image} = false` ---Image to render.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
-	* `scaleMethod {string} = false`
 
-Sets the image for the ImageView.
+Sets the image for the ImageView using an instance of `ui.resource.Image`.
 
 ~~~
 import ui.resource.Image as Image;
@@ -63,29 +58,30 @@ var image = new Image({url: 'resources/images/example2.png'};
 imageview.setImage(image);
 ~~~
 
-### Handler: imageview.doOnLoad (callback, [args ...])
+### Handler: imageview.doOnLoad (callback)
 1. `callback {function}`
-2. `args {...*}`
 1. Return: `{this}`
 
-Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
+Registers a callback to be run once the image has fully loaded (uses [event.Callback](/api/event.html#class-event.callback)). Callback is executed with the `ImageView` instance as the context.
 
 ### imageview.autoSize ()
 
-Automatically resize the view to the size of the image.
+Resize the views width and height to the actual dimensions of the image. If `fixedAspectRatio` is set, it will constrain the dimensions to the ratio.
 
 ### imageview.getOrigWidth ()
 1. Return `{number}`
 
-Returns the image width.
+Returns the source image width.
 
 ### imageview.getOrigHeight ()
 1. Return: `{number}`
 
-Returns the image height.
+Returns the source image height.
 
 
 ## Class: ui.ImageScaleView
+
+A specialised ImageView for advanced scaling techniques including 9-Slice.
 
 Inherits from:
 :    1. [ui.widget.View](./ui-view.html)
@@ -97,11 +93,9 @@ import ui.ImageScaleView as ImageScaleView;
 
 ### new ImageScaleView ([options])
 1. `options {object}`
-	* `image {string|ui.resource.Image} = false`
-	* `autoSize {boolean} = false`
+	* `image {string|ui.resource.Image} = false` ---Source image. Just like ImageView, you may specify a path as a String or an instance of `ui.resource.Image`.
+	* `autoSize {boolean} = false` ------Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = 'stretch'` ---Valid options are `'none'`, `'stretch'`, `'cover'`, and `'9slice'`.
-	* `renderCenter {boolean} = true`
-	* `clip {boolean} = true`
 	* `debug {boolean} = false` ---Display 9-slice scaling measurements.
 	* `sourceSlices {object}` ---9-slice source slices.
 		* `horizontal {object}`
@@ -133,18 +127,18 @@ import ui.resource.Image as Image;
 
 ### new Image ([options])
 1. `options {object}`
-	* `scale {boolean}`
-	* `sourceWidth {number} = -1`
-	* `sourceHeight {number} = -1`
-	* `sourceX {number} = 0`
-	* `sourceY {number} = 0`
+	* `scale {boolean} = false` ---If `true`, will scale the width and height according to the original ratio.
+	* `sourceWidth {number} = -1` ---Source width of the desired area on the image. 
+	* `sourceHeight {number} = -1` ---Source height of the desired area on the source image.
+	* `sourceX {number} = 0` ---Source X position of the desired area on the source image.
+	* `sourceY {number} = 0` ---Source Y position of the desired area on the source image.
 	* `marginTop {number} = 0`
 	* `marginBottom {number} = 0`
 	* `marginRight {number} = 0`
 	* `marginLeft {number} = 0`
-	* `sourceScale {number} = 1`
+	* `sourceScale {number} = 1` ---Scale of the source area.
 	* `url {string}` ---A URL or a base64 encoded image string.
-	* `srcImage {Image}`
+	* `srcImage {Image}` ---Using an instance of the native DOM Image object.
 
 Creates an Image.
 
@@ -183,15 +177,10 @@ Returns the image URL.
 
 Sets the image URL.
 
-### image.setImageData (data)
-1. `data {ImageData}`
-
-Not implemented.
-
 ### image.getImageData ()
 1. Return: `{ImageData}`
 
-Returns the image data object from a canvas.
+Returns the image data object from a canvas. Only available in browsers.
 
 ### image.getWidth ()
 1. Return: `{number}`
@@ -221,7 +210,7 @@ Returns the raw (HTML) image.
 ### image.getMap ()
 1. Return: `{object}`
 
-Returns the internal `ImageMap` object.
+Returns the internal `ImageMap` object. This class models the region of a larger image that this "Image" references.
 
 ### image.setMap (x, y, w, h, marginTop, marginRight, marginBottom, marginLeft)
 1. `x {number}`
@@ -236,9 +225,8 @@ Returns the internal `ImageMap` object.
 Sets the properties of the internal `ImageMap` object.
 
 
-### Handler: image.doOnLoad (callback, [args ...])
+### Handler: image.doOnLoad (callback)
 1. `callback {function}`
-2. `args {...*}`
 1. Return: `{this}`
 
-Registers a callback to be run once the image has fully loaded, optionally with args (done with event.Callback).
+Registers a callback to be run once the image has fully loaded (done with [event.Callback](/api/event.html#class-event.callback)).
