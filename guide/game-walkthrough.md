@@ -1,6 +1,6 @@
 # Game Walk-Through
 
-*Whack That Mole!* is a basic, non-trivial game built using
+*Whack That Mole!* is a basic, non-trivial, game built using
 the Game Closure SDK. The [source code](https://github.com/gameclosure/whack-that-mole)
 is available and in this guide we'll step through it
 to see how the components of the Game Closure SDK fit together.
@@ -42,7 +42,7 @@ and you're greeted with the following screen:
 
 <img src="./assets/game-walkthrough/basil-start.png" alt="basil start screenshot" class="screenshot">
 
-We need to first select our project, click on the
+First, we need to select our project: click on the
 **Projects** link in the left nav and select the **Whack-that-Mole!** game:
 
 <img src="./assets/game-walkthrough/basil-projects.png" alt="basil project select screenshot" class="screenshot">
@@ -69,8 +69,8 @@ it's easy to get up and running, and easy to see how the
 code in your game works. With your game running in the
 browser, not only do you get access to all the great
 development tools provided by the browser, but your speed of
-development increases because your feedback loop time has
-decreased. You get to see how your game changes immediately
+development increases because your feedback loop is
+quicker. You get to see how your game changes immediately
 in the browser, instead of spending valuable development
 time waiting to compile and upload code to a mobile device.
 
@@ -84,7 +84,7 @@ tree, or by simply hovering over a view in the
 simulator. You can then inspect the properties of the selected view,
 and even alter these properties right in the inspector. Since these effects will
 be instantly seen in the game, you can make user interface
-and game play adjustments instantaneously rather than waiting
+and game play adjustments instantaneously, rather than waiting
 through a lengthy feedback loop of reloading the entire
 browser page.
 
@@ -92,7 +92,7 @@ browser page.
 
 ### Browser Debugging Tools
 
-One of the great things about working with JavaScript is the 
+One of the great things about working with JavaScript is the
 great debugging tools that modern web browsers have
 built-in. In the Chrome browser, you can access the
 developer tools by clinking the control settings icon in the
@@ -127,7 +127,7 @@ implementation details are available in the documentation.
 
 ## Project Structure
 
-A game created for the Game Closure SDK has this basic file structure:
+A game created with the Game Closure SDK has this basic file structure:
 
 ~~~
 .
@@ -138,10 +138,10 @@ A game created for the Game Closure SDK has this basic file structure:
 	└── Application.js
 ~~~
 
-In the project directory there is the `manifest.json` file
-which contains our project's configuration options, the
-`src` directory containing our application code, and the
-`resources` directory where the game assets are stored.
+There is the `manifest.json` file located in the project
+directory which contains our project's configuration
+options, the `src` directory containing our application
+code, and the `resources` directory where the game assets are stored.
 
 The game's manifest can contain any number of project
 specific configuration options in JSON format. A typical,
@@ -250,8 +250,8 @@ the `./src` directory, which we'll look at now.
 
 Once the Game Closure SDK environment is initialized, the
 game picks up in your project's `./src/Application.js`
-file. In *Whack-that-Mole!*, this file is rather short. It's
-purpose is to initialize the title and game screen and
+file. In *Whack-that-Mole!*, this file is rather short, and its
+purpose is to initialize the title screen and game screen and
 handle events for directing the game flow.
 
 ~~~
@@ -316,7 +316,7 @@ accessed anywhere in your game code. Since you are only
 going to have one application in your game, you can just
 think of this as a singleton. Within the application's class
 definition function, you can refer to it using the `this`
-object. A bare-bones, working `Application.js` file can
+object. A working---bare-bones---`Application.js` file can
 look like this:
 
 ~~~
@@ -328,7 +328,7 @@ exports = Class(GC.Application, function () {
 
 The `GC.Application` class is special in that it has two
 callback functions, `initUI` and `launchUI`, that it checks
-for and runs when ready. This is where we'll hook in our
+for and runs when ready---this is where we'll hook in our
 main game code. The `initUI` function is run after the Game
 Closure engine is created and the scene graph is
 ready. When the `launchUI` function is called, the splash/loading
@@ -338,8 +338,8 @@ screen is removed if one is defined.
 #### Creating the Screens
 
 After our game screen classes have been imported at the top
-of our file, we instantiate them in the `initUI` function, which
-is when our game engine is ready.
+of our file, we instantiate them in the `initUI`
+function. This is when our game engine is ready.
 
 ~~~
 titlescreen = new TitleScreen();
@@ -361,7 +361,7 @@ and transitioning between them.
 
 You can also see that there is some simple sound code in here,
 but we'll look at that towards the end of this guide. The
-`soundcontroller` module returns a `Sound` object singleton,
+`soundcontroller` module returns a `AudioManager` singleton,
 which we use to play the level music when we transition to
 the game screen.
 
@@ -464,19 +464,23 @@ attached to the game's scene graph, which is a hierarchy
 of view nodes. Views have style properties which control
 how they are rendered to the screen, they can emit and subscribe
 to events, and they have methods for adding and removing their
-subviews and supervies. The details of the `ui.View` properties and methods can be found [in the documentation](../api/ui-view.html), with examples uses.
+subviews and superviews. The details of the `ui.View`
+properties and methods can be found
+[in the documentation](../api/ui-view.html), with examples uses.
 
 `ui.ImageView` is a subclass of `ui.View`. Along with
-the properties it inherits from the base View, `ImageView` has additional methods for setting an image to be used in a view. Check
-[the API](../api/ui-imageview.html) for more details.
+the properties it inherits from the base View, `ImageView`
+has additional methods for setting an image to be used
+within a view. Check [the API](../api/ui-imageview.html) for more details.
 
-The `device` module contains information about the
-physical device running the application. We can use this to obtain information
-about the browser window, or even a native mobile application depending on
-where your game is running.
+The `device` module contains information about the physical
+device running the application. We can use this to obtain
+information about the browser window, or even a native
+mobile application depending on where your game is running.
 
-Now that we have imported our dependencies, we can define our `TitleScreen` class. Here we use the Class function to define our screen module as a sub-class
-of the `ui.ImageView` type:
+Now that we have imported our dependencies, we can define
+our `TitleScreen` class. Here we use the `Class` function to
+define our screen module as a sub-class of the `ui.ImageView` type:
 
 ~~~
 exports = Class(ui.ImageView, function (supr) {
@@ -498,12 +502,14 @@ Each class defined by the
 [Class function](../api/utilities.html#class-name-superconstructor-constructor)
 has an `init` method which is executed when a new object is
 instantiated, or in this case when `new TitleScreen` is
-called. Within this initialization example, the [`merge`](../api/utilities.html#merge-obj1-obj2-obj3)
+called. Within this initialization example, the `merge`
 utility function is used to consolidate the default options
-set in the class with the options properties passed to the constructor. Then
-we initialize the underlying superclass by
-calling the `init` method of this superclass and passing it the merged options
-object. Here's the complete `init` function:
+set in the class with the options properties passed to the
+constructor, you can see how this function works in the
+[Utilities API](../api/utilities.html#merge-obj1-obj2-obj3). Then
+we initialize the underlying superclass by calling the
+`init` method of this superclass and passing it the merged
+options object. Here's the complete `init` function:
 
 ~~~
 this.init = function (opts) {
@@ -534,16 +540,17 @@ and an array of arguments to apply to this function. Since
 before passing it to `supr`.
 
 
-#### The play button
+#### The Play Button
 
 Each class that inherits from `ui.View` also contains a
-`buildView` method. This function is invoke by the SDK immediately before the
-the view is first rendered to the screen. Consequently this
-is a good place to define child views since it defers
-memory allocation until you actually need the view, and here you can
-be sure all parent views have already been initialized. This is important
-if, for instance, you need to reference a parent view's position and dimensions 
-when creating your subview.
+`buildView` method. This function is executed by the SDK
+immediately before the the view is first rendered to the
+screen. Consequently, this is the preferred place to define
+child views since it defers memory allocation until you
+actually need the view. By defining them here, you can be
+sure all parent views have already been initialized. This is
+important if, for instance, you need to reference a parent
+view's position and dimensions when creating your subview.
 
 ~~~
 this.buildView = function () {
@@ -566,11 +573,13 @@ and position it exactly over the correct portion of the
 background image. The view is attached as a child to the
 instance of the `TitleScreen` by passing `this` as the
 `superview` option. Then we attach an `InputSelect` listener
-to capture user clicks and taps. Here we emit a title screen start event, which we listen for in this view's parent, the
-`Application.js` file. For more info on input events, 
-see [the input Event Docs](../api/ui-view.html#events).
+to capture user clicks and taps. Here we emit a title screen
+start event, which we listen for in this view's parent, the
+`Application.js` file. For more info on input events, see
+[the input Event Docs](../api/ui-view.html#events).
 
-#### Event flow
+
+#### Event Flow
 
 You just saw how the start button captures user input and
 propagates this to the main application. Here's an overview
@@ -585,7 +594,10 @@ set up, the player enters at the title screen. Upon clicking
 the start button, the `'titlescreen:start'` event is emitted
 and captured at the top-level of the application. From
 there, the game play screen is added, the user plays the
-game, and then the `'gamescreen:end'` event is emitted back to the application. Here the application removes the game screen, and the player is dropped back to the title screen right where they began.
+game, and then the `'gamescreen:end'` event is emitted back
+to the application. Here the application removes the game
+screen, and the player is dropped back to the title screen
+right where they began.
 
 
 ### The Game Begins: GameScreen.js
@@ -594,10 +606,11 @@ The `GameScreen` class is defined in the
 `./src/GameScreen.js` file and is the longest of the
 project. Fortunately, much of that code is for building its
 child view hierarchy, a process that we already looked at
-in detail in the previous section. Beyond setting up child views and
-game assets, there are functions for defining the
-flow for the player starting and playing the game, and then the end game sequence that displays the score. You can view the file in it's entirety
-[on GitHub](https://github.com/gameclosure/whack-that-mole/blob/master/src/GameScreen.js),
+in detail in the previous section. Beyond setting up child
+views and game assets, there are functions for defining the
+flow for the player starting and playing the game, and then
+the end game sequence that displays the score. You can view
+the file in it's entirety [on GitHub](https://github.com/gameclosure/whack-that-mole/blob/master/src/GameScreen.js),
 but we'll look at the important sections here.
 
 #### Set up the screen
@@ -626,9 +639,11 @@ a full list of `TextView` properties, check out [the API](../api/ui-text.html).
 
 `animate` is [a module](../api/animate.html) used for
 animating views, objects, and style properties. This is a
-"tweening engine" used to interpolate between screen positions. Most importantly, since it can be optimized for native devices, you should
-favor this module over manual calculations within the game
-loop. We'll look its usage and syntax in more detail as we come across it.
+"tweening engine" used to interpolate between screen
+positions. Most importantly, since it can be optimized for
+native devices, you should favor this module over manual
+calculations within the game loop. We'll look its usage and
+syntax in more detail as we come across it.
 
 The final import statement in this file is a little more interesting:
 
@@ -938,7 +953,7 @@ of the mole hill, the mole, and the front of the mole
 hill. By animating the mole up and down on the y-axis and giving it a
 clipping rectangle to mask it out beyond certain dimensions,
 the mole will appear like it's "jumping" out of the
-ground ready to be whacked!
+ground, and ready to be whacked!
 
 ~~~
 this.buildView = function () {
@@ -1030,7 +1045,7 @@ to create a new `Animator` instance for each animation.
 
 Three animation sequences are defined on the `MoleHill`
 class: the mole popping up out of its hole, the mole
-lowering back into its hole, and an ending animation which
+lowering back in to its hole, and an ending animation which
 raises the mole up slowly and makes him laugh at you. These
 are defined in the following methods using the `Animator`
 object we just created:
@@ -1090,7 +1105,7 @@ since most likely these are the properties you'll want to
 animate.
 
 For an example, let's step through the animation sequence of
-popping up a mole out if its hole. The following is from the
+popping a mole out if its hole. The following is from the
 `showMole` method:
 
 ~~~
@@ -1104,14 +1119,17 @@ this._animator.now({y: mole_up}, 500, animate.EASE_IN)
 ~~~
 
 The first step here is the animator's call to `.now({y: mole_up}, 500, animate.EASE_IN)`,
-which immediately operates on the `y` property on the animator object,
-and is defined as the `this._moleview` view. Because the
-subject of the animation is an instance of a `View` class, we're actually
-operating on its `style.y` property, or the vertical
-position of the mole image on the screen. The `mole_up`
-variable, set to 5 at the top of the file, is the offset relative to its parent view `this._inputview`.
-The first part of this animation will take half a second, or 500
-milliseconds, and ease in to the final position. When this completes, the mole will be peeking his head out of the hole.
+which immediately operates on the `y` property on the
+animator object, and is defined as the `this._moleview`
+view. Because the subject of the animation is an instance of
+a `View` class, we're actually operating on its `style.y`
+property, or the vertical position of the mole image on the
+screen. The `mole_up` variable, set to 5 at the top of the
+file, is the offset relative to its parent view
+`this._inputview`. The first part of this animation will
+take half a second, or 500 milliseconds, and ease in to the
+final position. When this completes, the mole will be
+peeking his head out of the hole.
 
 At this point, the second phase of the animation is run
 `.wait(1000)`. This pauses the animation sequence
@@ -1148,13 +1166,13 @@ The sound is added to our game using a singleton
 controller located in the file `./src/soundcontroller.js`:
 
 ~~~
-import Sound;
+import AudioManager;
 
 exports.sound = null;
 
 exports.getSound = function () {
   if (!exports.sound) {
-    exports.sound = new Sound({
+    exports.sound = new AudioManager({
 	  path: 'resources/sounds',
 	  files: {
 	    levelmusic: {
@@ -1174,7 +1192,7 @@ exports.getSound = function () {
 };
 ~~~
 
-Here we create a single `Sound`
+Here we create a single `AudioManager`
 object when the application is launched and return this object
 whenever `getSound` is called throughout the game. The details of
 loading and playing sounds can be found in [the API](../api/sound.html).
@@ -1203,11 +1221,13 @@ this.initUI = function () {
 };
 ~~~
 
-After the start button has been pressed, the `titlescreen:start` event is captured and the handler plays the background music for the level. The audio
-file will continue playing throughout the duration of the
-game play, and will loop if the clip runs to the end if
-specified in the loading options for `levelmusic`, `loop: true`.
-This is all set up when we create our sounds with `new Sound( ... )`
+After the start button has been pressed, the
+`titlescreen:start` event is captured and the handler plays
+the background music for the level. The audio file will
+continue playing throughout the duration of the game play,
+and will loop if the clip runs to the end if specified in
+the loading options for `levelmusic`, `loop: true`. This is
+all set up when we create our sounds with `new AudioManager(...)` 
 in `./src/soundcontroller.js`.
 
 
@@ -1217,16 +1237,17 @@ in `./src/soundcontroller.js`.
 example of a complete, working game. Sometimes the easiest
 way to learn an API is to see how the components fit
 together. In this tutorial we've explored the overall flow
-of multiple game screens, managed the
-events that indicate our progress through these screen, set
-up image and sound assets, and implemented the game play
-dynamics. These are the types of things you'll need to do in any game.
+of multiple game screens, managed the events that indicate
+our progress through these screen, set up image and sound
+assets, and implemented the game play dynamics. These are
+the types of things you'll need to do in any game.
 
 From here you might want to start experimenting with
-changing the assets or their properties in the game by
-using the UI Inspector in the browser simulator, or just by
-changing values in the project code and re-freshing. Alternately you 
-could create some simple game screens and manage the flow between them by
-capturing and hendling events. With this skeleton in place you can
-flesh out any game flow, and even use this as the
-foundation to build a game entirely your own!
+changing the assets or their properties in the game by using
+the UI Inspector in the browser simulator, or just by
+changing values in the project code and
+re-freshing. Alternately you could create some simple game
+screens and manage the flow between them by capturing and
+hendling events. With this skeleton in place you can flesh
+out any game flow, and even use this as the foundation to
+build a game entirely your own!
