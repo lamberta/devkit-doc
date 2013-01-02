@@ -15,7 +15,7 @@ directory/spriteName-animationName-08.png
 ~~~
 
 The sprite system infers three things from the file names:
-the *name* of the sprite, the *name* of each animation for
+the name of the *sprite*, the name of each *animation* for
 the sprite, and the *amount*  of frames required for an
 animation.
 
@@ -37,20 +37,20 @@ project
 ~~~
 
 There is one sprite, *carl*, with two animations, *idle*
-and *run*, and the *idle* animation contains four frames,
-the run animation three.
+and *walk*. The *idle* animation contains four frames and
+the *walk* animation contains three frames.
 
 During the build stage, these images are automatically
-turned in to an optimized sprite-sheet based on this
-information, and in some cases, they are converted in to
-multiple sprite-sheets. These are saved in the
-`build/resources` directory of your project.
+turned in to an optimized sprite-sheet for each directory. 
+These are then saved in the
+`build/.../spritesheets` directory of your project, depending
+on the target of the build (e.g. simulating iPhone will create
+`build/debug/native-ios/spritesheets`).
 
 Developers should not need to touch the generated
 sprite-sheets, however, if you have changed an animation and
 are still seeing the old images, you can delete the
-`build/resources` directory to remove the cache and it will
-be re-generated on the next build.
+`build/` directory to ensure it is re-generated on the next build.
 
 
 ## Class: ui.SpriteView
@@ -65,14 +65,14 @@ import ui.SpriteView as SpriteView;
 ~~~
 
 ### new SpriteView ([options])
-1. `options {object}`
+1. `options {object}` 
     * `url {string}` ---Sprite image file name prefix.
 	* `defaultAnimation {string}` ---Defaults to the first animation listed in the directory
-    * `groupID {string} = 'default'`
-    * `frameRate {number} = 15`
-    * `emitFrameEvents {boolean} = false`
-    * `autoStart {boolean} = false`
-    * `loop {boolean} = true`
+    * `groupID {string} = 'default'` ---Specify a Sprite group
+    * `frameRate {number} = 15` ---Rate at which the animation will play each frame.
+    * `emitFrameEvents {boolean} = false` ---Will publish events for an animation and it's frame number (`myAnim_40`).
+    * `autoStart {boolean} = false` ---Animation will start as soon as initialised.
+    * `loop {boolean} = true` ---Animation will continue to play forever.
 
 ~~~
 var sprite = new SpriteView({
@@ -86,21 +86,10 @@ var sprite = new SpriteView({
 });
 ~~~
 
-### sprite.defaults
-1. `{object}`
-    * `url {string} = null`
-    * `groupId {string} = 'default'`
-    * `frameRate {number} = 15`
-    * `emitFrameEvents {boolean} = false`
-    * `autoStart {boolean} = false`
-    * `loop {boolean} = true` ---Continously loop an animation.
-
-The default sprite settings.
-
 ### sprite.startAnimation (name [, options])
 1. `name {string}`
 2. `options {object}`
-    * `iterations {number} = 1`
+    * `iterations {number} = 1` ---Number of times to repeat the animation.
     * `callback {function} = null` ---Called at end of animation.
     * `frame {number} = 0` ---Frame to start on.
     * `randomFrame {boolean} = false` ---Start on random frame.
