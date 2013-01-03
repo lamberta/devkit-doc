@@ -6,7 +6,7 @@ project. This file is auto-generated when a project is
 initialized and controls the build process for your
 game. These options are stored in [JSON](http://www.json.org)
 format and can be edited by hand. For example, a minimal
-`manifest.json` configuration would look something like this:
+`manifest.json` configuration might look something like this:
 
 ~~~
 {
@@ -23,18 +23,20 @@ format and can be edited by hand. For example, a minimal
 
 Manifest options are per game, they affect not only how the
 game appears in the Basil development environment, but also
-where to find images, fonts, stores third-party service
-keys, and sets up the environment for building for native devices.
+where to find image and font resources, store third-party service
+keys, and configures the environment to build for native devices.
 
 
 ## Supported Configuration Settings
 
-JSON files have a particular format and if you're getting
-parse errors, run your manifest through a tool like [JSONLint](http://jsonlint.com).
+**Note:** If you're getting parse errors from your
+`manifest.json` file, make sure to run it through a tool
+such as [JSONLint](http://jsonlint.com), the JSON file
+format can be a bit fickle at times.
 
 
 ### appID
-1. `{string}` ---Auto-generated when a project is created.
+1. `{string}` ---Auto-generated ID.
 
 This is a unique identifier for your game used by basil and
 is auto-generated when a new project is created. The `appID`
@@ -43,11 +45,11 @@ is a string containing only alpha-numeric characters.
 ### shortName
 1. `{string}` ---Defaults to the directory name of a new project.
 
-An internal code used to reference the game by the basil
-tools. This is a alpha-numeric string---which *does not*
-start with a number---and should be unique to your game
-studio. The `shortName` is used for links to your project
-and to name output files during the build process.
+The `shortName` is an internal code name used for links to
+your project by the basil tools and to name output files
+during the build process. This is a alpha-numeric
+string---which *does not* start with a number---and should
+be unique to your game studio. 
 
 ### title
 1. `{string}`
@@ -73,7 +75,7 @@ Information about the studio publishing the game.
 
 The version number or string for your game, for example:
 `'v0.1-beta'`. This is provided as a convenience for game
-developers so you can use whatever convention you wish.
+developers, so use whatever convention you wish.
 
 ### sdkVersion
 1. `{string}`
@@ -83,18 +85,18 @@ project. This value is automatically filled in when the game
 is run by basil.
 
 ### group
-1. `{string}` ---Optional.
+1. `{string}`
 
 If a group name is present, the project will be displayed in
 a separate tab in the Basil Web Interface. All games that
 contain the same group name will appear in a list together.
 
 ### doc
-1. `{string}`
+1. `{string}` ---URL.
 
 This is a URL link pointing to documentation for the
 project. This is used for the examples to display the
-annotated source code.
+annotated source code and displayed in the basil project list.
 
 ### supportedOrientations
 1. `{array} = ["portrait"]` ---Options are `"portrait"`, `"landscape"`, or both.
@@ -123,16 +125,15 @@ array, for example:
         * `med {string}` ---Path to medium-priority push notification image, 48x48px.
         * `low {string}` ---Path to low-priority push notification image, 48x48px.
 
-Icons are displayed in the simulator and are also used for
+Icons are displayed in the simulator and are used for
 your game on a mobile device. All icons are PNG image
-files, using 8-bit 3/4 channel RGBA. iOS icons should look
-somewhat flat since as the "glossy" effect is added during
-the build process. Android icons should have the gloss
-effect prerendered in the image file if desired.
+files, using 8-bit 3/4 channel RGBA. iOS icons should be
+rendered somewhat flat since as the "glossy" effect is added
+during the build process. Android icons should have the
+gloss effect prerendered in the image file, if desired.
 
 The icons used for push notification alerts can be
-specified, and different alert icons can be specified by
-message priority (high, medium, low).
+specified with different alert icons for message priority (high, medium, low).
 
 The icon files should be kept outside of the `resources`
 directory (for example `./preload/icons/`) so that the
@@ -177,13 +178,13 @@ In the `manifest.json` file, include the icon images like this:
 
 The preload section is used to specify splash screen images
 for Android and iPhone/iPad devices. All splash screens
-should be 8-bit 3-channel RGB PNG image files.
+should be PNG image files at 8-bit 3-channel RGB color.
 
 The `img` path is the location to your splash screen image. For
 games that run primarily in portrait mode (longer side
-up/down), it should be a 480 x 864 pixel image, oriented
-top-side-up.  For games that run in landscape mode (longer
-side left/right), it should be a 864 x 480 pixel image, also
+up/down), it should be a 480x864 pixel image, oriented
+top-side-up. For games that run in landscape mode (longer
+side left/right), it should be a 864x480 pixel image, also
 oriented top side facing upward.
 
 The `scaleMethod` selects how the splash screen image should
@@ -203,7 +204,7 @@ scale for different sized screens:
 
 Setting the `autoHide` property to `true` causes the
 splash screen to be automatically removed after loading
-completes. If `autoHide` is `false`, the default, the
+completes. If `autoHide` is `false`---the default---the
 developer can manually remove the splash screen by calling `GC.hidePreloader()`.
 
 For the iPhone and iPad platforms, additional images are
@@ -253,7 +254,7 @@ Mobile browser flag for setting device DPI or low DPI.
 ### unlockViewport
 1. `{boolean} = false`
 
-If `unlockViewport` is set to `true`, it allows scrolling to see the address bar in a mobile web browser
+If this is set to `true`, scrolling in a mobile web browser will display the address bar.
 
 ### nativeURLScheme
 1. `{string} = "tealeaf"`
@@ -265,10 +266,10 @@ in the browser.
 ### disableNativeViews
 1. `{boolean} = false`
 
-Use a view system written in JavaScript instead of the
-implemented in native code. This can be used for debugging
-purposes when testing a game on a native device to pinpoint
-where in the stack an error is occuring.
+Use a scene graph system written in entirely in JavaScript
+instead of the one implemented in native code. This can be
+used for debugging purposes when testing a game on a native
+device to pinpoint where in the stack an error is occurring.
 
 ### android
 1. `{object}`
@@ -282,8 +283,8 @@ where in the stack an error is occuring.
 
 Device specific settings for Android phones and tablets. In
 this section you can set Flurry, Tapjoy, and Apsalar keys
-for analytics on the Android platform. These analytics keys
-should be different from the iOS keys.
+for analytics on the Android platform. These keys should be
+different from the iOS keys.
 
 ~~~
 "android": {
@@ -328,7 +329,7 @@ be different from the Android keys.
 ### mpMetricsKey
 1. `{string}`
 
-MixPanel metrics key.
+The MixPanel metrics key.
 
 ### fonts
 1. `{array}`
