@@ -197,8 +197,8 @@ Returns the key for the datasource.
 
 Returns an item from the list with the given key.
 
-### datasource.getItemForIndex (i)
-1. `i {number}` ---The index of the item to return.
+### datasource.getItemForIndex (index)
+1. `index {number}` ---The index of the item to return.
 2. Return: `{object}`
 
 Return the item with the given index based on the current sort order.
