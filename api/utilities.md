@@ -1,12 +1,18 @@
 # Utilities
 
+The Game Closure SDK provides a few tools to make it
+easier to work with classes, modules, and multiple
+files---things that are traditionally a challenge when
+building larger projects using JavaScript.
+
+
 ### import
 
-The system for referring to an external module, as defined in
-a separate file, and including it in this file. Modules may
-be arranged in a namespace hierarchy to indicate a usage
-category. Additionally, modules may be aliased using the `as`
-keyword for easier reference.
+The `import` statement is used to refer to external modules,
+as defined in a separate file, and include them in this
+file. Modules may be arranged in a namespace hierarchy to
+indicate a usage category. Additionally, modules may be
+aliased using the `as` keyword for easier reference.
 
 ~~~
 import device;
@@ -28,9 +34,9 @@ import path of `Module` refers to the file located at
 
 ### Class ([name, superConstructor,] constructor)
 1. `name {string}` ---An optional name to assign to the class for debugging purposes.
-2. `superConstructor {function}` ---The optional superclass which this class inherits from.
+2. `superConstructor {function}` ---Optional superclass which this class inherits from.
 3. `constructor {function(supr)}` ---The function that will define this class.
-4. Return: `{function}` ---The class constructor.
+4. Return: `{function}` ---Class constructor.
 
 Our class system for simplifying JavaScript object
 inheritance. Objects of a class-type inherit the properties and methods
@@ -43,9 +49,9 @@ If an `init` method exists on the constructor definition, it
 is automatically called when an object is instantiated.
 
 The constructor function is passed a `supr` argument---an
-accessor function which calls a given method name on the
-superclass. Typically, this is used to initialize all the
-objects in a class hierarchy.
+accessor function which is used to call a given method name
+on the superclass. Typically, this is used to initialize all
+the objects in a class hierarchy.
 
 ~~~
 var MySuperClass = Class(function () {
@@ -78,7 +84,7 @@ b.say(); //=> "Hello, Billy!"
 3. `args {...*}`
 4. Return: `{function}`
 
-Binds the first parameter as `this` in the callback
+Binds the first parameter as the `this` object in the callback
 function. Additional arguments are curried to the given function.
 
 ~~~
@@ -94,8 +100,8 @@ var add_to_y = bind(pt, add_to_point, 23);
 add_to_y(56); //=> {x: 123, y: 456}
 ~~~
 
-This function is provided for readability over the
-traditonal JavaScript `.bind` method:
+This convenience function is provided for readability over the
+traditional JavaScript [`.bind`](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind) method:
 
 ~~~
 view.on('InputSelect', bind(this, function (evt) {
@@ -108,17 +114,9 @@ view.on('InputSelect', (function (evt) {
 ~~~
 
 In the first example, it's clear that a new context is
-assigned for `this` in the callback function at the
+assigned to `this` in the callback function at the
 beginning, where in the second example, the new binding of
-`this` doesn't happen until the end of the function declaration.
-
-Of course, the regular JavaScript `.bind` can still be used
-when it makes sense, as in assigning a bound function name
-to a new variable:
-
-~~~
-var my_bound_fn = my_function.bind(this);
-~~~
+`this` doesn't occur until the end of the function declaration.
 
 
 ### merge (obj1, obj2 [, obj3 ...])
@@ -126,9 +124,10 @@ var my_bound_fn = my_function.bind(this);
 2. `props {...object}`
 3. Return: `{object}`
 
-Combine the properties of multiple objects. All properties
-are collected on the object passed as the first argument,
-and if a property already exists, subsequent values are ignored.
+Combine the properties of multiple objects in to a single
+object. All properties are collected on the object passed as
+the first argument, and if a property already exists,
+subsequent values are ignored.
 
 ~~~
 var obj1 = {a: 1, b: 2},
@@ -143,9 +142,9 @@ This function is particularly useful for combining objects
 that contain options that are passed up a class
 initialization hierarchy. However, there is a caveat for
 this common usage, since an options object may not exist,
-the properties can not be merged on an `undefined` value. To
-account for this, set the `options` parameter to the return
-value of `merge` as illustrated here:
+the properties can not be merged to an `undefined` value. To
+account for this, make sure to use the returned value of
+`merge`, as illustrated here:
 
 ~~~
 function not_merged (options) {
