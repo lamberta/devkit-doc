@@ -218,7 +218,7 @@ datasource.forEach(function (item) {
 ~~~
 
 ### datasource.getFilteredDataSource (callback)
-1. `callback {function(item)}` ---Function to test on each item in the dat source.
+1. `callback {function(item)}` ---Function to test on each item in the datasource.
 2. Return: `{GCDataSource}`
 
 Return a datasource with all the items that return `true`
