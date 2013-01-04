@@ -78,6 +78,28 @@ $(function () {
     window.prettyPrint();
   }
 
+
+  /* Listen for keyboard shortcuts
+   */
+  $(document).keypress(function (evt) {
+    switch (String.fromCharCode(evt.keyCode)) {
+    case '?':
+      $('#help-modal').modal('show');
+      break;
+    case '/':
+      $('.navbar-search input').focus();
+      break;
+    case 'E':
+      if (href_page === 'index.html' || href_page === '') {
+        $('#main .nav-tabs a[href="#examples"]').tab('show');
+        window.location.hash = "examples";
+      } else {
+        window.location = "../index.html#examples";
+      }
+      break;
+    }
+  });
+
   
   /* search for keywords in the navbar
    */
@@ -107,6 +129,9 @@ $(function () {
 /* Keywords for the search box and the urls they resolve to.
  */
 var keyword_index = {
+  "Guides": "index.html",
+  "Examples": "index.html#examples",
+  //API
   "GC.Application": "api/appengine.html",
   "GC.app": "api/appengine.html#singleton-gc.app",
   "ui.Engine": "api/appengine.html#class-ui.engine",
