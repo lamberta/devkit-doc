@@ -93,7 +93,7 @@ $(function () {
       //this should be stream-lined
       if (href_page === 'index.html' || href_page === '') {
         if (window.location.href.match('/example/')) {
-           window.location = "../index.html#examples";
+           window.location = "../../index.html#examples";
         } else {
           $('#main .nav-tabs a[href="#examples"]').tab('show');
           window.location.hash = "examples";
