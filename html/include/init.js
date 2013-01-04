@@ -78,33 +78,43 @@ $(function () {
     window.prettyPrint();
   }
 
-
+  
   /* Listen for keyboard shortcuts
    */
   $(document).keypress(function (evt) {
-    switch (String.fromCharCode(evt.keyCode)) {
-    case '?':
-      $('#help-modal').modal('show');
-      break;
-    case '/':
-      $('.navbar-search input').focus();
-      break;
-    case 'E':
-      //this should be stream-lined
-      if (href_page === 'index.html' || href_page === '') {
-        if (window.location.href.match('/example/')) {
-           window.location = "../../index.html#examples";
+    //ignore shortcuts if in search bar
+    if (!$(document.activeElement).hasClass('search-query')) {
+      switch (String.fromCharCode(evt.keyCode)) {
+      case '?':
+        $('#help-modal').modal('show');
+        break;
+      case '/':
+        evt.preventDefault();
+        $('.search-query').focus().focus(); //this is strange
+        break;
+      case 'E':
+        //this should be stream-lined
+        if (href_page === 'index.html' || href_page === '') {
+          if (window.location.href.match('/example/')) {
+            window.location = "../../index.html#examples";
+          } else {
+            $('#main .nav-tabs a[href="#examples"]').tab('show');
+            window.location.hash = "examples";
+          }
         } else {
-          $('#main .nav-tabs a[href="#examples"]').tab('show');
-          window.location.hash = "examples";
+          window.location = "../index.html#examples";
         }
-      } else {
-        window.location = "../index.html#examples";
+        break;
       }
-      break;
     }
   });
 
+  $('.search-query').keyup(function (evt) {
+    if (evt.keyCode === 27/*ESC*/) {
+      $(this).blur();
+    }
+  });
+  
   
   /* search for keywords in the navbar
    */
