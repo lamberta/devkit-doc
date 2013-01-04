@@ -17,7 +17,7 @@ import ui.widget.ListView as ListView;
 	* `isTiled {boolean} = false` ---Allow multiple items per row.
 	* `renderMargin {number} = 0` ---The vertical margin between list items.
 	* `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to its `maxY` value.
-	* `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` given an item from the list.
+	* `getCell {function(listItem, itemResource)}` ---A function that returns an instance of `CellView` or a subclass thereoff given an item from the list.
 		* `listItem {object}` ---An object representing the current list item.
 		* `itemResource {object}` ---The resource object for the current list item.
 	* `sorter {function(listItem)}` ---A function that returns a cardinal value (number or string) for the current item to use as the sort key.
@@ -197,8 +197,8 @@ Returns the key for the datasource.
 
 Returns an item from the list with the given key.
 
-### datasource.getItemForIndex (i)
-1. `i {number}` ---The index of the item to return.
+### datasource.getItemForIndex (index)
+1. `index {number}` ---The index of the item to return.
 2. Return: `{object}`
 
 Return the item with the given index based on the current sort order.
@@ -218,7 +218,7 @@ datasource.forEach(function (item) {
 ~~~
 
 ### datasource.getFilteredDataSource (callback)
-1. `callback {function(item)}` ---Function to test on each item in the dat source.
+1. `callback {function(item)}` ---Function to test on each item in the datasource.
 2. Return: `{GCDataSource}`
 
 Return a datasource with all the items that return `true`
