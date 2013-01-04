@@ -8,17 +8,17 @@ body {
 }
 
 .sidebar-nav h2 {
-	font-size: 1.2em;
-	font-weight: 200;
-	color: #999;
-	margin: 0;
+  font-size: 1.2em;
+  font-weight: 200;
+  color: #999;
+  margin: 0;
 }
 
 .navbar-fixed-top .nav li a {
-	font-size: 0.9em;
-	font-weight: 400;
-	padding-right: 10px;
-	padding-left: 10px;
+  font-size: 0.9em;
+  font-weight: 400;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .logo {
@@ -37,13 +37,13 @@ footer {
 }
 
 .navbar-search .search-query {
-	width: 120px;
+  width: 120px;
 }
 
 #toc-well {
-	max-height: 640px;
-	overflow-y: scroll;
-	position: fixed;
+  max-height: 640px;
+  overflow-y: scroll;
+  position: fixed;
 }
 
 /*should inherit from bootstrap 'nav nav-list'*/
@@ -85,58 +85,62 @@ footer {
 }
 
 .toc-section-header {
-	color: #999;
-	font-weight: bold;
+  color: #999;
+  font-weight: bold;
 }
 
 /*docco reset for code*/
 td.code pre, th.code pre{
-	background-color: transparent;
-	border-style: none;
+  background-color: transparent;
+  border-style: none;
 }
 
 /*links in docco*/
 td.docs p a {
-	color: #08c;
+  color: #08c;
 }
 
-#main h1 a, #main h2 {
-	font-weight: 200;
+#main h1 a, #main h2, #main h3 {
+  font-weight: 200;
 }
 
 #main h3 a {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 #main h2 a {
-	color: #d14;
+  color: #d14;
 }
 
+.hero-unit {
+  padding: 40px;
+  margin-bottom: 15px;
+}
 
 /* adjust navbar spacing to avoid double-line */
 @media (max-width: 1040px) {
-	.navbar-fixed-top .nav li a {
-		padding-right: 5px;
-		padding-left: 5px;
-	}
+  .navbar-fixed-top .nav li a {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
 }
 
 /* medium */
 @media (max-width: 979px) {
-	body {
-		padding-top: 0px;
-	}
-	
-	.navbar-fixed-top .nav li a {
-		font-size: 0.9em;
-		font-weight: 400;
-		padding-right: 10px;
-		padding-left: 10px;	
-	}
-	
-	#toc-well {
-		max-height: none;
-		overflow-y: visible;
-		position: static;
-	}
+  body {
+    padding-top: 0px;
+  }
+  
+  .navbar-fixed-top .nav li a {
+    font-size: 0.9em;
+    font-weight: 400;
+    padding-right: 10px;
+    padding-left: 10px; 
+  }
+  
+  #toc-well {
+    max-height: none;
+    overflow-y: visible;
+    position: static;
+  }
 }

@@ -1,4 +1,4 @@
-# Events
+# Event Model
 
 The Game Closure SDK provides several mechanisms for
 handling events that allows cross-object communication. To
