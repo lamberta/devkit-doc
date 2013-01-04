@@ -90,9 +90,14 @@ $(function () {
       $('.navbar-search input').focus();
       break;
     case 'E':
+      //this should be stream-lined
       if (href_page === 'index.html' || href_page === '') {
-        $('#main .nav-tabs a[href="#examples"]').tab('show');
-        window.location.hash = "examples";
+        if (window.location.href.match('/example/')) {
+           window.location = "../index.html#examples";
+        } else {
+          $('#main .nav-tabs a[href="#examples"]').tab('show');
+          window.location.hash = "examples";
+        }
       } else {
         window.location = "../index.html#examples";
       }
