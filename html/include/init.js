@@ -27,33 +27,33 @@ $(function () {
 
   /* tab handling on the homepage
    */
-  if (href_page === 'index.html' || href_page !== '') {
-		//check page url, switch to hash tab if we got it
-		var hash_tab = $("#main .nav-tabs a[href='" + document.location.hash + "']");
-		if (hash_tab) {
-			hash_tab.tab('show');
-		}
-		
-		//manually set hash in url since bootstrap won't
-		$('#main .nav-tabs a').click(function (e) {
-			window.location.hash = this.href.split('#').pop();
-		});
+  if (href_page === 'index.html' || href_page === '') {
+    //check page url, switch to hash tab if we got it
+    var hash_tab = $("#main .nav-tabs a[href='" + document.location.hash + "']");
+    if (hash_tab) {
+      hash_tab.tab('show');
+    }
+    
+    //manually set hash in url since bootstrap won't
+    $('#main .nav-tabs a').click(function (e) {
+      window.location.hash = this.href.split('#').pop();
+    });
 
-		//dropdown nav should switch tabs
-		$('.nav .dropdown-menu a[href="#"]').click(function (e) {
+    //dropdown nav should switch tabs
+    $('.nav .dropdown-menu a[href="#"]').click(function (e) {
       e.preventDefault();
       $('#main .nav-tabs a[href="#guides"]').tab('show');
-			window.location.hash = "guides";
+      window.location.hash = "guides";
     });
-		//dropdown nav should switch tabs
+    //dropdown nav should switch tabs
     $('.nav .dropdown-menu a[href="#examples"]').click(function (e) {
       e.preventDefault();
       $('#main .nav-tabs a[href="#examples"]').tab('show');
-			window.location.hash = "examples";
+      window.location.hash = "examples";
     });
   }
 
-	
+  
   /* highlight section headers in sidebar
    */
   $('nav li a').filter(function () {
@@ -69,7 +69,7 @@ $(function () {
       $(this).parent('li').addClass('active');
     }
   });
-	
+  
 
   /* color highlight code snippets, from prettify.js
    */
