@@ -1,5 +1,9 @@
 # Hello, World!
 
+This example is automatically installed when you run
+`basil install examples` from the command line. The
+annotated file can also be [viewed online](../example/basics-helloworld/).
+
 ## Create your first project
 
 With [basil installed](../guide/getting-started.html),
