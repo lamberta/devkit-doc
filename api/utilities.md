@@ -1,81 +1,11 @@
 # Utilities
 
-The Game Closure SDK provides a few tools to make it
-easier to work with classes, modules, and multiple
-files---things that are traditionally a challenge when
-building larger projects using JavaScript.
 
+### GLOBAL
+1. `{object}`
 
-### import
-
-The `import` statement is used to refer to external modules,
-as defined in a separate file, and include them in this
-file. Modules may be arranged in a namespace hierarchy to
-indicate a usage category. Additionally, modules may be
-aliased using the `as` keyword for easier reference.
-
-~~~
-import device;
-import ui.View;
-import src.path.to.Module as Module;
-
-var view = new ui.View(),
-    mod = new Module();
-
-console.log(device.defaultFontFamily); //=> 'Helvetica'
-console.log(typeof ui);                //=> 'object'
-~~~
-
-The path of a user defined module is relative to the
-project's root directory. So, in the above example, the
-import path of `Module` refers to the file located at
-`{project}/src/path/to/Module.js`.
-
-
-### Class ([name, superConstructor,] constructor)
-1. `name {string}` ---An optional name to assign to the class for debugging purposes.
-2. `superConstructor {function}` ---Optional superclass which this class inherits from.
-3. `constructor {function(supr)}` ---The function that will define this class.
-4. Return: `{function}` ---Class constructor.
-
-Our class system for simplifying JavaScript object
-inheritance. Objects of a class-type inherit the properties and methods
-defined on that class. A sub-class inherits the attributes of its super-class.
-
-Properties and methods defined on the `this` object within
-the constructor function are considered public.
-
-If an `init` method exists on the constructor definition, it
-is automatically called when an object is instantiated.
-
-The constructor function is passed a `supr` argument---an
-accessor function which is used to call a given method name
-on the superclass. Typically, this is used to initialize all
-the objects in a class hierarchy.
-
-~~~
-var MySuperClass = Class(function () {
-  this.init = function (name) {
-    this.name = name;
-  };
-});
-
-var MyClass = Class(MySuperClass, function (supr) {
-  this.init = function (name) {
-    //Call the init of the super class with the arguments passed to this class.
-    supr(this, 'init', arguments);  
-  };
-  this.say = function () {
-    console.log("Hello, " + this.name + "!");
-  };
-});
-
-var a = new MyClass('Arjun'),
-    b = new MyClass('Billy');
-
-a.say(); //=> "Hello, Arjun!"
-b.say(); //=> "Hello, Billy!"
-~~~
+The global object. Properties assigned to this object are
+available in the global scope, within any class or module.
 
 
 ### bind (thisArg, callback [, args ...])
@@ -164,8 +94,82 @@ merged();      //=> {x: 1}
 This way you can be assured that the options object contains
 all the properties you intend for it to have.
 
-### GLOBAL
-1. `{object}`
 
-The global object. Properties assigned to this object are
-available in the global scope, within any class or module.
+## Modules
+
+The Game Closure SDK provides a few tools to make it
+easier to work with classes, modules, and multiple
+files---things that are traditionally a challenge when
+building larger projects using JavaScript.
+
+
+### import
+
+The `import` statement is used to refer to external modules,
+as defined in a separate file, and include them in this
+file. Modules may be arranged in a namespace hierarchy to
+indicate a usage category. Additionally, modules may be
+aliased using the `as` keyword for easier reference.
+
+~~~
+import device;
+import ui.View;
+import src.path.to.Module as Module;
+
+var view = new ui.View(),
+    mod = new Module();
+
+console.log(device.defaultFontFamily); //=> 'Helvetica'
+console.log(typeof ui);                //=> 'object'
+~~~
+
+The path of a user defined module is relative to the
+project's root directory. So, in the above example, the
+import path of `Module` refers to the file located at
+`{project}/src/path/to/Module.js`.
+
+
+### Class ([name, superConstructor,] constructor)
+1. `name {string}` ---An optional name to assign to the class for debugging purposes.
+2. `superConstructor {function}` ---Optional superclass which this class inherits from.
+3. `constructor {function(supr)}` ---The function that will define this class.
+4. Return: `{function}` ---Class constructor.
+
+Our class system for simplifying JavaScript object
+inheritance. Objects of a class-type inherit the properties and methods
+defined on that class. A sub-class inherits the attributes of its super-class.
+
+Properties and methods defined on the `this` object within
+the constructor function are considered public.
+
+If an `init` method exists on the constructor definition, it
+is automatically called when an object is instantiated.
+
+The constructor function is passed a `supr` argument---an
+accessor function which is used to call a given method name
+on the superclass. Typically, this is used to initialize all
+the objects in a class hierarchy.
+
+~~~
+var MySuperClass = Class(function () {
+  this.init = function (name) {
+    this.name = name;
+  };
+});
+
+var MyClass = Class(MySuperClass, function (supr) {
+  this.init = function (name) {
+    //Call the init of the super class with the arguments passed to this class.
+    supr(this, 'init', arguments);  
+  };
+  this.say = function () {
+    console.log("Hello, " + this.name + "!");
+  };
+});
+
+var a = new MyClass('Arjun'),
+    b = new MyClass('Billy');
+
+a.say(); //=> "Hello, Arjun!"
+b.say(); //=> "Hello, Billy!"
+~~~

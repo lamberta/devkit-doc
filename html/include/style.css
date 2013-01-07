@@ -40,6 +40,15 @@ footer {
   width: 120px;
 }
 
+.navbar ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.dropdown-menu li li {
+	padding-left: 5px;
+}
+
 #toc-well {
   max-height: 640px;
   overflow-y: scroll;

@@ -49,21 +49,35 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Components<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="./api/ui-view.html">ui.View</a></li>
-                  <li><a href="./api/ui-spriteview.html">ui.SpriteView</a></li>
-                  <li><a href="./api/ui-stackview.html">ui.StackView</a></li>
-                  <li><a href="./api/ui-scrollview.html">ui.ScrollView</a></li>
-                  <li><a href="./api/ui-color.html">ui.Color</a></li>
-                  <li class="divider"></li>
+                  <li>
+                    <a href="./api/ui-view.html">ui.View</a>
+                    <ul>
+                      <li><a href="./api/ui-view.html#styles">↪ Styles</a></li>
+                      <li><a href="./api/ui-view.html#events">↪ Events</a></li>
+                    </ul>
+                  </li>
                   <li><a href="./api/ui-text.html">Text</a></li>
                   <li><a href="./api/ui-text.html#class-ui.textview">ui.TextView</a></li>
-                  <li><a href="./api/ui-text.html#class-ui.textpromptview">ui.TextPromptView</a></li>
+                  <li>
+                    <a href="./api/ui-text.html#class-ui.textpromptview">ui.TextPromptView</a>
+                    <ul>
+                      <li><a href="./api/ui-text.html#events">↪ Events</a></li>
+                    </ul>
+                  </li>
                   <li><a href="./api/ui-text.html#class-ui.textinputview">ui.TextInputView</a></li>
-                  <li class="divider"></li>
+                  <li><a href="./api/ui-text.html#class-ui.resource.font">ui.resource.Font</a></li>
                   <li><a href="./api/ui-images.html">Images</a></li>
                   <li><a href="./api/ui-images.html#class-ui.imageview">ui.ImageView</a></li>
                   <li><a href="./api/ui-images.html#class-ui.imagescaleview">ui.ImageScaleView</a></li>
+                  <li><a href="./api/ui-images.html#class-ui.resource.image">ui.resource.Image</a></li>
+                  <li>
+                    <a href="./api/ui-spriteview.html">ui.SpriteView</a>
+                    <ul>
+                      <li><a href="./api/ui-spriteview.html#class-sprite-groups">↪ Sprite Groups</a></li>
+                    </ul>
+                  </li>
                   <li class="divider"></li>
+                  <li><a href="./api/ui-color.html">ui.Color</a></li>
                   <li><a href="./api/ui-filter.html">Filters</a></li>
                   <li><a href="./api/ui-filter.html#class-ui.filter.filter">ui.filter.Filter</a></li>
                   <li><a href="./api/ui-filter.html#class-ui.filter.linearaddfilter">ui.filter.LinearAddFilter</a></li>
@@ -76,9 +90,32 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Widgets<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="./api/ui-widget-buttonview.html">ui.widget.ButtonView</a></li>
-                  <li><a href="./api/ui-widget-listview.html#class-ui.widget.cellview">ui.widget.CellView</a></li>
-                  <li><a href="./api/ui-widget-listview.html">ui.widget.ListView</a></li>
+                  <li>
+                    <a href="./api/ui-stackview.html">ui.StackView</a>
+                    <ul>
+                      <li><a href="./api/ui-stackview.html#events">↪ Events</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="./api/ui-scrollview.html">ui.ScrollView</a>
+                    <ul>
+                      <li><a href="./api/ui-scrollview.html#events">↪ Events</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="./api/ui-widget-buttonview.html">ui.widget.ButtonView</a>
+                    <ul>
+                      <li><a href="./api/ui-widget-buttonview.html#events">↪ Events</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="./api/ui-widget-listview.html">ui.widget.ListView</a>
+                    <ul>
+                      <li><a href="./api/ui-widget-listview.html#class-ui.widget.cellview">↪ ui.widget.CellView</a></li>
+                      <li><a href="./api/ui-widget-listview.html#class-gcdatasource">↪ GCDataSource</a></li>
+                    </ul>
+                  </li>
                   <li><a href="./api/ui-widget-spinner.html">ui.widget.Spinner</a></li>
                 </ul>
               </li>
@@ -97,10 +134,18 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="./api/utilities.html">Utilities</a></li>
-                  <li><a href="./api/utilities.html#import">import</a></li>
-                  <li><a href="./api/utilities.html#class-name-superconstructor-constructor">Class</a></li>
-                  <li><a href="./api/utilities.html#global">GLOBAL</a></li>
+                  <li><a href="./api/utilities.html">Utilities</a>
+                    <ul>
+                      <li><a href="./api/utilities.html#global">↪ GLOBAL</a></li>
+                      <li><a href="./api/utilities.html#bind-thisarg-callback-args">↪ bind</a></li>
+                      <li><a href="./api/utilities.html#merge-obj1-obj2-obj3">↪ merge</a></li>
+                    </ul>
+                  <li><a href="./api/utilities.html#modules">Modules</a>
+                    <ul>
+                      <li><a href="./api/utilities.html#import">↪ import</a></li>
+                      <li><a href="./api/utilities.html#class-name-superconstructor-constructor">↪ Class</a></li>
+                    </ul>
+                  </li>
                   <li class="divider"></li>
                   <li><a href="./api/math.html">Math</a></li>
                   <li><a href="./api/math.html#module-math.util">math.util</a></li>
