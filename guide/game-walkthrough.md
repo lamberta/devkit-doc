@@ -95,7 +95,7 @@ browser page.
 One of the great things about working with JavaScript is the
 great debugging tools that modern web browsers have
 built-in. In the Chrome browser, you can access the
-developer tools by clinking the control settings icon in the
+developer tools by clicking the control settings icon in the
 upper right corner, then **Tools** > **JavaScript Console**.
 This will open up a console where you can type in JavaScript
 commands to your game:
@@ -104,7 +104,7 @@ commands to your game:
 
 To access the JavaScript variables in your game's context
 you'll need to switch from the `<top frame>` console frame 
-to the game's frame, this option is select-able on the bottom
+to the game's frame `Simulator_0`, this option is selectable on the bottom
 of the console window.
 
 Once you're in the proper context, at the console type:
@@ -168,7 +168,7 @@ in the documentation.
 There is also an `sdk` directory which is actually a symlink to
 the SDK installed with basil. This is provided as a
 convenience for navigating the SDK JavaScript code to
-see what's going on "under the hood."
+see what's going on "under the hood".
 
 The `resources` directory provides a place to store game
 assets, like images and sound files.
@@ -292,9 +292,8 @@ exports = Class(GC.Application, function () {
 ~~~
 
 At the top of this file, we import three additional source
-files in our project's root directory using the `import`
-command which is [defined](../api/utilities.html#import) in
-the Game Closure SDK:
+files in our project's root directory using the 
+[`import`](../api/utilities.html#import) statement provided by the SDK:
 
 ~~~
 import src.TitleScreen as TitleScreen;
@@ -361,7 +360,7 @@ and transitioning between them.
 
 You can also see that there is some simple sound code in here,
 but we'll look at that towards the end of this guide. The
-`soundcontroller` module returns a `AudioManager` singleton,
+`soundcontroller` module returns a [`AudioManager`](../api/audio.html) singleton,
 which we use to play the level music when we transition to
 the game screen.
 
@@ -393,9 +392,9 @@ application. By default, pushing another view to the
 can be turned off. We'll look at the details of the game's
 event flow in a moment as we step through the title screen.
 
-
+ 
 ### The Game Awaits: TitleScreen.js
-
+ 
 With our application framework in place, let's see how
 the title screen is constructed. The screen is an instance
 of the `TitleScreen` class, defined in the
@@ -404,7 +403,7 @@ of the `TitleScreen` class, defined in the
 remains throughout the lifetime of the application.
 
 #### Anatomy of a View
-
+ 
 The view hierarchy structure of the `TitleScreen` class is
 relatively simple. There is a singe background image that
 fits the screen, and an "invisible" child view
@@ -460,8 +459,8 @@ import ui.ImageView;
 
 `ui.View` is a class used as the basic display object for
 rendering elements to the screen. To do this, a view must be
-attached to the game's scene graph, which is a hierarchy
-of view nodes. Views have style properties which control
+attached to the game's scene graph (a hierarchy
+of view nodes). Views have style properties which control
 how they are rendered to the screen, they can emit and subscribe
 to events, and they have methods for adding and removing their
 subviews and superviews. The details of the `ui.View`
@@ -544,7 +543,7 @@ before passing it to `supr`.
 
 Each class that inherits from `ui.View` also contains a
 `buildView` method. This function is executed by the SDK
-immediately before the the view is first rendered to the
+immediately before the view is first rendered to the
 screen. Consequently, this is the preferred place to define
 child views since it defers memory allocation until you
 actually need the view. By defining them here, you can be
@@ -686,7 +685,7 @@ this.init = function (opts) {
 
   supr(this, 'init', [opts]);
 
-  this.on('app:start', start_game_flow.bind(this));
+  this.on('app:start', bind(this, start_game_flow));
 
   this._scoreboard = new ui.TextView({
     superview: this,
@@ -735,9 +734,11 @@ this.buildView = function () {
 				[1, 0, 1]];
 
   this._molehills = [];
-		
+	
+	//loop over the layout grid, row then column	
   for (var row = 0, len = layout.length; row < len; row++) {
     for (var col = 0; col < len; col++) {
+		//if there was a 1 in the grid, create a mole
 	  if (layout[row][col] !== 0) {
 	    var molehill = new MoleHill();
 		molehill.style.x = x_offset + col * molehill.style.width;
@@ -834,14 +835,15 @@ the game:
 
 ~~~
 function play_game () {
-  var i = setInterval(tick.bind(this), mole_interval),
-	  j = setInterval(update_countdown.bind(this), 1000);
+  var i = setInterval(bind(this, tick), mole_interval),
+	  j = setInterval(bind(this, update_countdown), 1000);
 
+	//when the game is up reset all timers, flags and countdown
   setTimeout(bind(this, function () {
     game_on = false;
 	clearInterval(i);
 	clearInterval(j);
-	setTimeout(end_game_flow.bind(this), mole_interval * 2);
+	setTimeout(bind(this, end_game_flow), mole_interval * 2);
 	this._countdown.setText(":00");
   }), game_length);
 
@@ -858,9 +860,11 @@ function play_game () {
 }
 
 function tick () {
+	//choose a mole by random
   var len = this._molehills.length,
 	  molehill = this._molehills[Math.random() * len | 0];
 
+	//choose another if it's already active
   while (molehill.activeMole) {
     molehill = this._molehills[Math.random() * len | 0];
   }
@@ -912,7 +916,7 @@ function end_game_flow () {
 
   this._scoreboard.setText(end_msg);
   //slight delay before allowing a tap reset
-  setTimeout(emit_endgame_event.bind(this), 2000);
+  setTimeout(bind(this, emit_endgame_event), 2000);
 }
 ~~~
 
@@ -1248,6 +1252,6 @@ the UI Inspector in the browser simulator, or just by
 changing values in the project code and
 re-freshing. Alternately you could create some simple game
 screens and manage the flow between them by capturing and
-hendling events. With this skeleton in place you can flesh
+handling events. With this skeleton in place you can flesh
 out any game flow, and even use this as the foundation to
 build a game entirely your own!
