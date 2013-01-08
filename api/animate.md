@@ -1,5 +1,13 @@
 # Animation
 
+Examples:
+
+* [Basic Animation](../example/animation-basic/)
+* [Continuous Animation](../example/animation-continuous/)
+* [Pause an Animation](../example/animation-pause/)
+* [Create a Trail Animation](../example/animation-trail/)
+* [Multiple Animations](../example/animation-multibox/)
+
 ## Module: animate
 
 Is a function to animate Views or objects. It interpolates
