@@ -3,6 +3,10 @@ body {
   padding-bottom: 40px;
 }
 
+img.icon {
+	width: 24px;
+}
+
 .sidebar-nav {
   padding: 9px 0;
 }
