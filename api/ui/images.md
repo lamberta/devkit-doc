@@ -152,6 +152,18 @@ destination option are set to 0 then the result is a three slice image with a sl
 If the `center` and `right` values of the `horizontal` source options and the `right` value of the `horizontal`
 destination option are set to 0 then the result is a three slice image with a slice top, middle and bottom.
 
+#### Using 2 horizontal slices
+
+If the `middle` and `bottom` values of the `vertical` source options, the `center` of the `horizontal` 
+source options and the `bottom` value of the `vertical` destination option are set to 0 then the result 
+is a two slice image with a slice left and right.
+
+#### Using 2 vertical slices
+
+If the `center` and `right` values of the `horizontal` source options, the `middle` of the `vertical`
+source options and the `right` value of the `horizontal` destination option are set to 0 then the result 
+is a two slice image with a slice top and bottom.
+
 ## Class: ui.resource.Image
 
 Model an Image for rendering. Supports taking a subset of
