@@ -30,7 +30,7 @@ import ui.ScrollView as ScrollView;
 		* `maxX {number}` ---maximum X position.
 		* `maxY {number}` ---maximum Y position.
 	* `snapPixels {number} = 1` ---Snap to certain pixel increments.
-	* `useLayoutBounds {boolean} = true` ---TODO!
+	* `useLayoutBounds {boolean} = true` ---Automatically set scroll bounds when using linear layout
 
 ~~~
 var scrollview = new ScrollView();
