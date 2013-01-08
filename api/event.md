@@ -176,7 +176,11 @@ the root of application.
 
 Events are assigned a *target*, the view where it occurred,
 and a *root*, the root view where it's dispatched. Event
-propagation has two phases: *capturing* and *bubbling*.
+propagation has two phases: *capturing* and *bubbling*. Capturing
+occurs when the event starts at the root node and follows the
+view heirarchy down to the target, whereas bubbling starts at the target node and
+follows the view heirarchy up to the root. You may attach a callback
+during the capturing phase by appending `'Capture'` after the event name.
 
 ~~~
 import event.input.InputEvent as InputEvent;
@@ -249,7 +253,7 @@ propagate further.
 
 Construct and chain callbacks for asynchronous flow
 control. For advanced features with a more concise syntax,
-see the [ff module](https://github.com/gameclosure/ff).
+see the [ff Node.js module](https://github.com/gameclosure/ff).
 
 ~~~
 import event.Callback as Callback;
@@ -271,7 +275,7 @@ if (image.isLoaded()) {
 each time you care about the load event. For something like
 this, you can wrap the underlying `load` event with an
 instance of `event.Callback`. This class queues up callback
-functions to be run when an event fires. And, any callbacks
+functions to be run when an event fires. Any callbacks
 queued up after the event has fired will be immediately
 executed. Now, the code can read:
 
@@ -387,4 +391,4 @@ Allow the callback chain to be fired again.
 
 ### callback.clear ()
 
-Clears all of the registered callbacks.
+Clears all of the registered callbacks and executes `callback.reset ()`.
