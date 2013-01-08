@@ -114,6 +114,18 @@ import ui.ImageScaleView as ImageScaleView;
 			* `top {number}`
 			* `bottom {number}`
 
+#### 9-slice options
+
+The sum of the source `left`, `center` and `right` options is treated as 100% of the image.
+For example, if an image with a width of 80 pixels is used and the `left` and `right` values 
+are 20 and the `center` value is 60 then there will be 80 * 20 / (20 + 60 + 20) pixels used for the sides
+and 80 * 60 / (20 + 60 + 20) will be used to fill the center.
+
+If the quality of the image needs to be increased and the ratios of the sides on the source image
+don't change then the 9-slice settings don't have to be adjusted. For example, the image is sized to a 
+width of 120 pixels then there will be 120 * 20 / (20 + 60 + 20) pixels used for the sides and
+120 * 60 / (20 + 60 + 20) will be used to fill the center.
+
 ## Class: ui.resource.Image
 
 Model an Image for rendering. Supports taking a subset of
