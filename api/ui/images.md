@@ -133,6 +133,25 @@ For example: A view has a `width` of 40 pixels and the `left` and `right` values
 be applied and the `left` and `right` values will be scaled back to the maximum available size of 20 pixels for 
 each side.
 
+#### Using 6 slices
+
+By setting the `center` value of `horizontal` or the `middle` value of `vertical` to 0 you can create horizontal
+or vertical six slice images.
+
+#### Using 4 slices
+
+When both the `center` and `middle` value are set to 0 then the resulting image will be four slice.
+
+#### Using 3 horizontal slices
+
+If the `middle` and `bottom` values of the `vertical` source options and the `bottom` value of the `vertical` 
+destination option are set to 0 then the result is a three slice image with a slice left, center and right.
+
+#### Using 3 vertical slices
+
+If the `center` and `right` values of the `horizontal` source options and the `right` value of the `horizontal`
+destination option are set to 0 then the result is a three slice image with a slice top, middle and bottom.
+
 ## Class: ui.resource.Image
 
 Model an Image for rendering. Supports taking a subset of
