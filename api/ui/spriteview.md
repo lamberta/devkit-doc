@@ -86,6 +86,8 @@ var sprite = new SpriteView({
 });
 ~~~
 
+A [complete example](../example/ui-spriteviewbasic/) is available in the `addon-examples` package.
+
 ### sprite.startAnimation (name [, options])
 1. `name {string}`
 2. `options {object}`

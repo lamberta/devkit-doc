@@ -28,6 +28,8 @@ var imageview = new ImageView({
 });
 ~~~
 
+A [complete example](../example/images-basic/) is available in the `addon-examples` package.
+
 ### imageview.getImage ()
 1. Return: `{ui.resource.Image}`
 
@@ -113,6 +115,8 @@ import ui.ImageScaleView as ImageScaleView;
 		* `vertical {object}`
 			* `top {number}`
 			* `bottom {number}`
+
+A [complete example](../example/images-nineslice/) is available in the `addon-examples` package.
 
 ## Class: ui.resource.Image
 

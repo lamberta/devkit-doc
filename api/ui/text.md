@@ -45,6 +45,8 @@ var text = new TextView({
 });
 ~~~
 
+A [complete example](../example/text-randomtextviews/) is available in the `addon-examples` package.
+
 ### text.setText (text)
 1. `text {string}`
 

@@ -65,6 +65,8 @@ var worldmap = new ui.ImageView({
 scrollview.addSubview(worldmap); //add the big image to the scrollview
 ~~~
 
+A [complete example](../example/ui-scrollviewbasic/) is available in the `addon-examples` package.
+
 ### scrollview.addFixedView (view)
 1. `view {View}` ---The view to add as a fixed child of this view.
 2. Return: `{View}` ---Returns the view that was passed to this method.

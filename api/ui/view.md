@@ -52,6 +52,8 @@ var view = new View({
 });
 ~~~
 
+A [complete example](../example/views-basic/) is available in the `addon-examples` package.
+
 ### view.updateOpts ([options])
 1. `options {object}` ---The options object is the same as defined for the constructor.
 2. Return: `{object}` ---Returns the options object.
@@ -70,6 +72,8 @@ var view = new View({visible: true}); //now you see me
 
 view.style.visible = false;           //now you don't
 ~~~
+
+A [complete example](../example/views-style/) is available in the `addon-examples` package.
 
 ### Handler: view.buildView ()
 
@@ -139,6 +143,8 @@ Return a child subview at the given array index.
 
 Add a view as a child subview.
 
+A [complete example](../example/views-nested/) is available in the `addon-examples` package.
+
 ### view.removeSubview (view)
 1. `view {View}`
 
@@ -151,6 +157,8 @@ Removes all child subviews from this view.
 ### view.removeFromSuperview ()
 
 Removes this view from its parent superview.
+
+A [complete example](../example/views-addremove/) is available in the `addon-examples` package.
 
 ### view.needsRepaint ()
 
@@ -323,7 +331,9 @@ GC.app.engine.on('Tick', function (dt) {
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Select a view by click or touch. `point` is a point relative to the top-left corner of the view.
+Select a view by click or touch. `point` is a point relative
+to the top-left corner of the view. The capture-phase event
+is available by subscribing to `'InputSelectCapture'`.
 
 ~~~
 view.on('InputSelect', function (evt, pt) {
@@ -331,7 +341,7 @@ view.on('InputSelect', function (evt, pt) {
 });
 ~~~
 
-Subscribe to the capture-phase event with `'InputSelectCapture'`.
+A [complete example](../example/events-input-click/) is available in the `addon-examples` package.
 
 #### \'InputOver\', callback (over, overCount, atTarget)
 1. `over`
@@ -346,6 +356,8 @@ The event is fired when input is moved over a view.
 3. `atTarget`
 
 The event is fired when input is moved off a view.
+
+A [complete example](../example/events-input-out/) is available in the `addon-examples` package.
 
 #### \'InputStart\', callback (event, point)
 1. `event {InputEvent}`
@@ -362,6 +374,8 @@ Subscribe to the capture-phase event with `'InputStartCapture'`.
 2. `point {Point}`
 
 Fired after an `'InputStart'` event, when the input is moving on the device.
+
+A [complete example](../example/events-input-move/) is available in the `addon-examples` package.
 
 #### \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
@@ -402,6 +416,8 @@ A view can be styled by modifying the properties of its `view.style` object.
 ~~~
 var style = view.style;
 ~~~
+
+A [complete example](../example/views-style/) is available in the `addon-examples` package.
 
 ### style.update (style)
 1. `style {object}` ---Using the properties enumerated here.

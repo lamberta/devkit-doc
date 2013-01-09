@@ -28,6 +28,8 @@ var stackview = new StackView({
 });
 ~~~
 
+A [complete example](../example/ui-stackviewbasic/) is available in the `addon-examples` package.
+
 ### stackview.getStack ()
 1. Return: `{array}` --Return an array of views contained in this stack.
 

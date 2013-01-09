@@ -61,8 +61,6 @@ Emit an event to the object. Any of its handler functions
 subscribed to the given event type are executed. Returns
 `true` if the event was handled, otherwise `false`.
 
-### emitter.addListener (type, callback)
-
 ### emitter.on (type, callback)
 1. `type {string}` ---The name of the event type.
 2. `callback {function|string}` ---The dispatch function, or method name on an object.
@@ -83,6 +81,12 @@ emitter.on('add', function (a, b) {
 emitter.emit('add', 3, 5);  //=> true (console prints "The sum is 8")
 ~~~
 
+A [complete example](../example/events-on/) is available in the `addon-examples` package.
+
+### emitter.addListener (type, callback)
+
+An alias for `emitter.on`.
+
 ### emitter.once (type, callback)
 1. `type {string}` ---The name of the event type.
 2. `callback {function|string}` ---The dispatch function, or method name on an object.
@@ -96,6 +100,8 @@ emitter.once('one-time', callback);
 emitter.emit('one-time'); //=> true
 emitter.emit('one-time'); //=> false
 ~~~
+
+A [complete example](../example/events-once/) is available in the `addon-examples` package.
 
 ### emitter.removeListener (type, callback)
 1. `type {string}` ---The name of the event type.

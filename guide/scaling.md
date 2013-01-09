@@ -12,6 +12,9 @@ $ basil install examples
 In the basil web interface, navigate to **Projects >
 Examples > Layout: Scale Region** to run the example in the simulator.
 
+It can also be [viewed online](../example/basics-scalescreen/)
+along with the other examples. 
+
 ## Aspect Ratio
 
 The aspect ratio of a screen describes the proportional
