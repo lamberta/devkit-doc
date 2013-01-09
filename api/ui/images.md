@@ -216,6 +216,9 @@ For horizontal slices you have to pass the following properties:
 	* `horizontal {object}`
 		* `left {number}`
 		* `right {number}`
+* `destSlices {object}` ---Optional, if omitted then the `sourceSlices` will be used
+	* `horizontal {object}`
+		* `left {number}`
 
 For vertical slices you have to pass the following properties:
 
@@ -223,6 +226,9 @@ For vertical slices you have to pass the following properties:
 	* `vertical {object}`
 		* `top {number}`
 		* `bottom {number}`
+* `destSlices {object}` ---Optional, if omitted then the `sourceSlices` will be used
+	* `vertical {object}`
+		* `top {number}`
 
 ## Class: ui.resource.Image
 
