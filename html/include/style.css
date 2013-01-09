@@ -125,9 +125,20 @@ td.docs p a {
   color: #d14;
 }
 
+/*front-page*/
+
 .hero-unit {
-  padding: 40px;
+  padding: 20px 40px 10px 40px;
   margin-bottom: 15px;
+}
+
+#feature-list dt {
+	font-size: 1em;
+}
+
+#feature-list dl {
+	font-size: 0.8em;
+	line-height: 1.5em;
 }
 
 /* adjust navbar spacing to avoid double-line */
