@@ -95,7 +95,7 @@ import ui.ImageScaleView as ImageScaleView;
 1. `options {object}`
 	* `image {string|ui.resource.Image} = false` ---Source image. Just like `ImageView`, you may specify a path as a String or an instance of `ui.resource.Image`.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
-	* `scaleMethod {string} = 'stretch'` ---Valid options are `'none'`, `'stretch'`, `'cover'`, and `'9slice'`.
+	* `scaleMethod {string} = 'stretch'` ---Valid options are `'none'`, `'stretch'`, `'cover'`, `'9slice'`, `'6slice'`, `'3slice'` and `'2slice'`.
 	* `debug {boolean} = false` ---Display 9-slice scaling measurements.
 	* `sourceSlices {object}` ---9-slice source slices.
 		* `horizontal {object}`
@@ -116,6 +116,8 @@ import ui.ImageScaleView as ImageScaleView;
 
 #### 9-slice options
 
+The `destSlices` option can be omitted, if so the values of `sourceSlices` will be used as destination slices.
+
 The sum of the source `left`, `center` and `right` options is treated as 100% of the image.
 For example: If an image with a width of 80 pixels is used and the `left` and `right` values 
 are 20 and the `center` value is 60 then there will be 80 * 20 / (20 + 60 + 20) pixels used for the sides
@@ -135,34 +137,92 @@ each side.
 
 #### Using 6 slices
 
-By setting the `center` value of `horizontal` or the `middle` value of `vertical` to 0 you can create horizontal
-or vertical six slice images.
+If the `scaleMethod` is set to `'6slice'` then you can control the direction of the slices through the source slice
+properties.
 
-#### Using 4 slices
+For horizontal slices you have to pass the following properties:
 
-When both the `center` and `middle` value are set to 0 then the resulting image will be four slice.
+* `sourceSlices {object}`
+	* `horizontal {object}`
+		* `left {number}`
+		* `center {number}`
+		* `right {number}`
+	* `vertical {object}`
+		* `top {number}`
+		* `bottom {number}`
+* `destSlices {object}` ---Optional, if omitted then the `sourceSlices` will be used
+	* `horizontal {object}`
+		* `left {number}`
+		* `right {number}`
+	* `vertical {object}`
+		* `top {number}`
+		* `bottom {number}`
 
-#### Using 3 horizontal slices
+For vertical slices you have to pass the following properties:
 
-If the `middle` and `bottom` values of the `vertical` source options and the `bottom` value of the `vertical` 
-destination option are set to 0 then the result is a three slice image with a slice left, center and right.
+* `sourceSlices {object}`
+	* `horizontal {object}`
+		* `left {number}`
+		* `right {number}`
+	* `vertical {object}`
+		* `top {number}`
+		* `middle {number}`
+		* `bottom {number}`
+* `destSlices {object}` ---Optional, if omitted then the `sourceSlices` will be used
+	* `horizontal {object}`
+		* `left {number}`
+		* `right {number}`
+	* `vertical {object}`
+		* `top {number}`
+		* `bottom {number}`
 
-#### Using 3 vertical slices
+#### Using 3 slices
 
-If the `center` and `right` values of the `horizontal` source options and the `right` value of the `horizontal`
-destination option are set to 0 then the result is a three slice image with a slice top, middle and bottom.
+If the `scaleMethod` is set to `'3slice'` then you can control the direction of the slices through the source slice
+properties.
 
-#### Using 2 horizontal slices
+For horizontal slices you have to pass the following properties:
 
-If the `middle` and `bottom` values of the `vertical` source options, the `center` of the `horizontal` 
-source options and the `bottom` value of the `vertical` destination option are set to 0 then the result 
-is a two slice image with a slice left and right.
+* `sourceSlices {object}`
+	* `horizontal {object}`
+		* `left {number}`
+		* `center {number}`
+		* `right {number}`
+* `destSlices {object}` ---Optional, if omitted then the `sourceSlices` will be used
+	* `horizontal {object}`
+		* `left {number}`
+		* `right {number}`
 
-#### Using 2 vertical slices
+For vertical slices you have to pass the following properties:
 
-If the `center` and `right` values of the `horizontal` source options, the `middle` of the `vertical`
-source options and the `right` value of the `horizontal` destination option are set to 0 then the result 
-is a two slice image with a slice top and bottom.
+* `sourceSlices {object}`
+	* `vertical {object}`
+		* `top {number}`
+		* `middle {number}`
+		* `bottom {number}`
+* `destSlices {object}` ---Optional, if omitted then the `sourceSlices` will be used
+	* `vertical {object}`
+		* `top {number}`
+		* `bottom {number}`
+
+#### Using 2 slices
+
+If the `scaleMethod` is set to `'2slice'` then you can control the direction of the slices through the source slice
+properties.
+
+For horizontal slices you have to pass the following properties:
+
+* `sourceSlices {object}`
+	* `horizontal {object}`
+		* `left {number}`
+		* `right {number}`
+
+For vertical slices you have to pass the following properties:
+
+* `sourceSlices {object}`
+	* `vertical {object}`
+		* `top {number}`
+		* `bottom {number}`
 
 ## Class: ui.resource.Image
 
