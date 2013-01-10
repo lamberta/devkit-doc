@@ -70,10 +70,25 @@ listview.updateOpts({
 
 Add a `CellView` to display in the list.
 
+### listview.setMaxX (maxX)
+1. `maxX {number}` ---The maximum width of the list to set.
+
+If the `autoSize` property passed to the constructor is true then calling `setMaxX` sets the
+height of the list to the given value. The x values for the scroll bounds (`minX` and `maxX`)
+are updated to allow the content to scroll within the given width.
+
+If the `autoSize` property is false then the boundary values (`minX` and `maxX`) are updated
+which changes the distance which the list can scroll.
+
 ### listview.setMaxY (maxY)
 1. `maxY {number}` ---The maximum height of the list to set.
 
-Set the maximum height of the `ListView`.
+If the `autoSize` property passed to the constructor is true then calling `setMaxY` sets the
+height of the list to the given value. The y values for the scroll bounds (`minY` and `maxY`)
+are updated to allow the content to scroll within the given height.
+
+If the `autoSize` property is false then the boundary values (`minY` and `maxY`) are updated
+which changes the distance which the list can scroll.
 
 ### listview.getSelections ()
 1. Return: `{GCDataSource}` ---A data source with just the selected list items.
