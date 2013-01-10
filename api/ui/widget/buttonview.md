@@ -3,7 +3,7 @@
 ## Class: ui.widget.ButtonView
 
 Inherits from:
-:    1. [ui.ImageView](./ui-images.html#class-ui.imageview)
+:    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
 
@@ -13,21 +13,33 @@ import ui.widget.ButtonView as ButtonView;
 
 ### new ButtonView([options])
 1. `options {object}`
-	* `onClick {function}`
-	* `clickOnce {boolean} = false`
-	* `pressedOffsetX {number} = 0`
-	* `pressedOffsetY {number} = 0`
-	* `image {Image}`
-	* `imagePressed = {Image}`
-	* `soundOnStart {function}`
-	* `soundOnEnd {function}`
+	* `onClick {function}` ---Shortcut way of assigning a callback to a click.
+	* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
+	* `toggleSelected {boolean} = false` ---When true, button will toggle inbetween `SELECTED` and `UNSELECT` state on every click.
+	* `images {Object}` ---Change the image to the specified image upon entering a state. The key referes to the state and the value is either `Image` or a `string` image path.
+	* `sounds {Object}` ---Run a sound when the button enters a state.
 
-### buttonview.pressed
-1. `{boolean} = false`
+Change images and play a sound when the button toggles selected state.
+~~~
+import ui.widget.ButtonView as ButtonView;
 
-### buttonview.hasBeenClicked
-1. `{boolean} = false`
+new ButtonView({
+	superview: parent,
+	width: 200,
+	height: 100,
+	x: 0,
+	y: 0,
 
+	images: {
+		"selected": "resources/selected.png",
+		"unselect": "resources/unselect.png"
+	},
+
+	sounds: {
+		"down": "resources/ting.mp3"
+	}
+});
+~~~
 
 ### Events
 
@@ -51,3 +63,23 @@ button. Also emitted on `'InputSelect'`.
 
 Emitted when the input is pressed and is moved off of the
 button. Also emitted on `'InputSelect'`.
+
+#### \'up\', callback ()
+
+Emitted when the button state is `up`.
+
+#### \'down\', callback ()
+
+Emitted when the button state is `down`.
+
+#### \'disabled\', callback ()
+
+Emitted when the button state becomes `disabled`.
+
+#### \'selected\', callback ()
+
+Emitted when the button selected state becomes `selected`.
+
+#### \'unselect\', callback ()
+
+Emitted when the button selected state becomes `unselect`.
