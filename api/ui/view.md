@@ -27,13 +27,13 @@ import ui.View as View;
 
 ### new View ([options])
 1. `options {object}` ---Optional.
-    * `superview {View}`
-    * `id {string}`
-    * `tag {string}`
-    * `filters {Filter}`
-    * `circle {boolean} = false`
-    * `infinite {boolean} = false`
-    * `canHandleEvents {boolean} = true`
+    * `superview {View}` ---Parent or Super view to place this view.
+    * `id {string}` ---Unique identifier.
+    * `tag {string}` ---Human readable tag for the UI Inspector.
+    * `filters {Filter}` ---Filter object.
+    * `circle {boolean} = false` ---Whether the view is a circle.
+    * `infinite {boolean} = false` ---Infinite width and height generally for maps or backgrounds.
+    * `canHandleEvents {boolean} = true` ---Input events can pass through if `false`.
 
 The constructor used to create an instance of a `ui.View`
 object. In addition to the options listed here,
@@ -193,12 +193,16 @@ If an input event is over a view, return `true`, otherwise `false`.
     * `inputStartEvent {InputEvent} = 'START'`
     * `radius {number} = 0`
 
-Respond to an input event by dragging the view.
+Respond to an input event by dragging the view. This will
+fire drag events so you can make a view follow the drag events.
+
+For example, to listen for a drag on a view and update its
+position to follow:
 
 ~~~
-view.on('InputStart', function (evt, pt) {
-  //will emit a 'drag' event if moved further than 15 pixels in any direction
-  this.startDrag({radius: 15});
+view.on('Drag', function (startEvt, dragEvt, delta) {
+  this.style.x = dragEvt.pt['1'].x;
+  this.style.y = dragEvt.pt['1'].y;
 });
 ~~~
 
@@ -331,8 +335,8 @@ GC.app.engine.on('Tick', function (dt) {
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Select a view by click or touch. `point` is a point relative
-to the top-left corner of the view. The capture-phase event
+Fired on mouseup/touchend. `point` is a point relative to
+the top-left corner of the view. The capture-phase event
 is available by subscribing to `'InputSelectCapture'`.
 
 ~~~
@@ -547,4 +551,4 @@ Background color of the view.
 ### style.clip
 1. `{boolean} = false`
 
-If set to `true`, child views will get clipped to this view.
+If set to `true`, child views will get clipped to this view's s boundaries.
