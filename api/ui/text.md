@@ -2,27 +2,7 @@
 
 ## Class: ui.TextView
 
-Use this View to display text.
-
-The TextView supports several ways to handle the sizing of either the view or the text. 
-The properties to control this are `'autoSize'`, `'autoFontSize'` or `'wrap'`.
-
-* autoFontSize is on, wrap is on, autoSize is on:<br>
-	Wrap words until the text fits horizontally or the line is reduced to a single word. If the most wide word does not fit then decrease the font size. If the resulting number of lines exceeds the height of the widget the increase the height of the widget.
-* autoFontSize is on, wrap is off, autoSize is on:<br>
-	Measure the maximum line width and the height of the lines and increase the size of the widget is necessary.
-* autoFontSize is on, wrap is on, autoSize is off:<br>
-	Wrap words until the text fits horizontally or the line is reduced to a single word. If the largest word doesn’t fit then reduce the font size. If the resulting number of lines exceeds the widget height then reduce the font size.
-* autoFontSize is on, wrap is off, autoSize is off:<br>
-	Measure the maximum line width and the height of the lines and decrease the size of the font is necessary.
-* autoFontSize is off, wrap is on, autoSize is on:<br>
-	Wrap words until the text fits horizontally or the line is reduced to a single word. If the most wide word does not fit then increase the width of the widget. If the resulting number of lines exceeds the height of the widget the increase the height of the widget.
-* autoFontSize is off, wrap is off, autoSize is on:<br>
-	Measure the maximum line width and the height of the lines and increase the size of the widget is necessary.
-* autoFontSize is off, wrap is on, autoSize is off:<br>
-	Wrap words until the text fits horizontally or the line is reduced to a single word. If the text does not fit then is will either overflow or be clipped depending on the clip setting of the widget. Whether the overflow is top, bottom, left or right depends on the alignment settings.
-* autoFontSize is off, wrap is off, autoSize is off:<br>
-	If the text does not fit then is will either overflow or be clipped depending on the clip setting of the widget. Whether the overflow is top, bottom, left or right depends on the alignment settings.
+Display text on a screen within a `View`.
 
 Inherits from:
 :    1. [ui.View](./ui-view.html)
@@ -34,23 +14,23 @@ import ui.TextView as TextView;
 
 ### new TextView ([options])
 1. `options {object}` ---`TextView` specific options, also accepts [`View` options](./ui-view.html#new-view-options).
-	* `text {string}`
-	* `wrap {boolean} = true`
-	* `autoSize {boolean} true`
-	* `autoFontSize {boolean} true`
-	* `verticalPadding {number|array} = 0`
-	* `horizontalPadding {number|array} = 0`
-	* `lineHeight {number} - 1.2`
-	* `color {string} = "#000000"`
-	* `fontFamily {string} = device.defaultFontFamily`
-	* `fontWeight {string} = ""`
-	* `size {number} = 12`
+	* `text {string}` ---The text to display.
+	* `size {number} = 12` ---The default font size of the text.
+	* `lineHeight {number} = 1.2`
 	* `lineWidth {number} = 2`
+	* `fontFamily {string} = device.defaultFontFamily`
+	* `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
+	* `color {string} = "#000000"` ---The color of the text.
+	* `backgroundColor {string} = null` ---The background color of the text.
 	* `outlineColor {string} = null`
 	* `shadowColor {string} = null`
+	* `verticalPadding {number|array} = 0`
+	* `horizontalPadding {number|array} = 0`
 	* `verticalAlign: "middle"` ---Options: `'top'`, `'bottom'`, `'middle'`.
 	* `horizontalAlign: "center"` ---Options: `'left'`, `'right'`, `'center'`, `'justify'`.
-	* `backgroundColor: null`
+	* `wrap {boolean} = true` ---Wrap the text to the following line (details below).
+	* `autoSize {boolean} = true` ---Fit view to text (details below).
+	* `autoFontSize {boolean} = true` ---Fit text to view (details below).
 
 ~~~
 var text = new TextView({
@@ -64,6 +44,50 @@ var text = new TextView({
   shadowColor: '#999999'
 });
 ~~~
+
+A [complete example](../example/text-randomtextviews/) is available in the `addon-examples` package.
+
+The `TextView` supports several options for handling how a
+text is sized within the view. You can control these options
+through the properties `'autoSize'`, `'autoFontSize'` or `'wrap'`.
+
+* `autoFontSize = true`, `wrap = true`, `autoSize = true`:
+  Wrap words until the text fits horizontally or the line is
+  reduced to a single word. If the widest word does not
+  fit, decrease the font size. If the resulting lines exceed
+  the height of the widget, then increase the height of the widget.
+* `autoFontSize = true`, `wrap = false`, `autoSize = true`:
+  Measure the maximum line width and the height of the
+  lines, then increase the size of the widget if necessary.
+* `autoFontSize = true`, `wrap = true`, `autoSize = false`: Wrap
+  words until the text fits horizontally or the line is
+  reduced to a single word. If the largest word doesn’t fit,
+  then reduce the font size. If the resulting number of
+  lines exceeds the widget height then reduce the font size.
+* `autoFontSize = true`, `wrap = false`, `autoSize = false`:
+  Measure the maximum line width and the height of the lines
+  and decrease the size of the font is necessary.
+* `autoFontSize = false`, `wrap = true`, `autoSize = true`: Wrap
+  words until the text fits horizontally or the line is
+  reduced to a single word. If the most wide word does not
+  fit then increase the width of the widget. If the
+  resulting number of lines exceeds the height of the widget
+  the increase the height of the widget.
+* `autoFontSize = false`, `wrap = false`, `autoSize = true`:
+  Measure the maximum line width and the height of the lines
+  and increase the size of the widget if necessary.
+* `autoFontSize = false`, `wrap = true`, `autoSize = false`:
+  Wrap words until the text fits horizontally or the line is
+  reduced to a single word. If the text does not fit then is
+  will either overflow or be clipped depending on the clip
+  setting of the widget. Whether the overflow is top,
+  bottom, left or right depends on the alignment settings.
+* `autoFontSize = false`, `wrap = false`, `autoSize = false`:
+  If the text does not fit then is will either overflow or
+  be clipped depending on the clip setting of the
+  widget. Whether the overflow is top, bottom, left or right
+  depends on the alignment settings.
+
 
 ### text.setText (text)
 1. `text {string}`
