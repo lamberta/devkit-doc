@@ -2,6 +2,8 @@
 
 ## Class: ui.ImageView
 
+Display an image within a `View`.
+
 Inherits from:
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
@@ -12,8 +14,8 @@ import ui.ImageView as ImageView;
 
 ### new ImageView ([options])
 1. `options {object}`
-	* `image {string|ui.resource.Image} = false` ---Image to render. You may specify a path in your resources directory or instance of an Image resource.
-	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `image {string|ui.resource.Image} = false` ---Image to render. A path in the resources directory or `Image` instance.
+	* `autoSize {boolean} = false` ---If `false`, stretch the image to the dimensions of the view. Use the image dimensions if `true`.
 
 Create an ImageView.
 
@@ -31,14 +33,17 @@ var imageview = new ImageView({
 ### imageview.getImage ()
 1. Return: `{ui.resource.Image}`
 
-Returns the internal Image resource instance to be rendered.
+Returns the internal `ui.resource.Image` instance to be rendered.
 
 ### imageview.setImage (url [, options])
 1. `url {string}`
 2. `options {object}` ---Optional.
 	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
 
-Set the image for the ImageView based on a path to the resources directory. This will create a new Image instance upon every call to `setImage`. Doing this frequently may cause garbage collection issues so consider using Image instances over Strings. 
+Set the image from its path in the resources directory. This
+will create a new `Image` instance on each call to
+`setImage`. Doing this frequently may cause garbage
+collection issues so consider using `Image` instead of path strings.
 
 ~~~
 imageview.setImage('resources/images/example2.png');
@@ -46,10 +51,10 @@ imageview.setImage('resources/images/example2.png');
 
 ### imageview.setImage (img [, options])
 1. `img {ui.resource.Image}`
-2. `options {object}` ---Optional.
-	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+2. `options {object}`
+	* `autoSize {boolean} = false` ---Stretch the image to the view dimensions if `false`. Use the image dimensions if `true`.
 
-Sets the image for the ImageView using an instance of `ui.resource.Image`.
+Sets the image for the `ImageView` using an instance of `ui.resource.Image`.
 
 ~~~
 import ui.resource.Image as Image;
@@ -62,11 +67,15 @@ imageview.setImage(image);
 1. `callback {function}`
 1. Return: `{this}`
 
-Registers a callback to be run once the image has fully loaded (uses [event.Callback](./event.html#class-event.callback)). Callback is executed with the `ImageView` instance as the context.
+Registers a callback to be run once the image has fully
+loaded (uses [event.Callback](./event.html#class-event.callback)). Callback
+is executed with the `ImageView` instance as the context.
 
 ### imageview.autoSize ()
 
-Resize the views width and height to the actual dimensions of the image. If `fixedAspectRatio` is set, it will constrain the dimensions to the ratio.
+Resize the views width and height to the actual dimensions
+of the image. If `fixedAspectRatio` is set, it will
+constrain the dimensions to the ratio.
 
 ### imageview.getOrigWidth ()
 1. Return `{number}`
@@ -81,7 +90,7 @@ Returns the source image height.
 
 ## Class: ui.ImageScaleView
 
-A specialised ImageView for advanced scaling techniques including 9-Slice.
+A specialized `ImageView` for advanced scaling techniques, including 9-Slice.
 
 Inherits from:
 :    1. [ui.widget.View](./ui-view.html)
@@ -93,11 +102,11 @@ import ui.ImageScaleView as ImageScaleView;
 
 ### new ImageScaleView ([options])
 1. `options {object}`
-	* `image {string|ui.resource.Image} = false` ---Source image. Just like `ImageView`, you may specify a path as a String or an instance of `ui.resource.Image`.
-	* `autoSize {boolean} = false` ---Stretch the image to the View dimensions if `false`. Use the image dimensions if `true`.
+	* `image {string|ui.resource.Image} = false` ---Source image. Just like `ImageView`, specify a string path or an instance of `ui.resource.Image`.
+	* `autoSize {boolean} = false` ---Stretch the image to the view dimensions if `false`. Use the image dimensions if `true`.
 	* `scaleMethod {string} = 'stretch'` ---Valid options are `'none'`, `'stretch'`, `'cover'`, `'9slice'`, `'6slice'`, `'3slice'` and `'2slice'`.
 	* `debug {boolean} = false` ---Display 9-slice scaling measurements.
-	* `sourceSlices {object}` ---9-slice source slices.
+	* `sourceSlices {object}` ---9-slice source slices. See below for details.
 		* `horizontal {object}`
 			* `left {number}`
 			* `center {number}`
@@ -106,7 +115,7 @@ import ui.ImageScaleView as ImageScaleView;
 			* `top {number}`
 			* `middle {number}`
 			* `bottom {number}`
-	* `destSlices {object}` ---9-slice destination slices. Setting the below values to 0 can create 3- and 6-slice scaling.
+	* `destSlices {object}` ---9-slice destination slices. Setting these values to 0 can create 3- and 6-slice scaling.
 		* `horizontal {object}`
 			* `left {number}`
 			* `right {number}`
@@ -114,28 +123,36 @@ import ui.ImageScaleView as ImageScaleView;
 			* `top {number}`
 			* `bottom {number}`
 
-#### 9-slice options
+#### 9-Slice Options
 
-The `destSlices` option can be omitted, if so the values of `sourceSlices` will be used as destination slices.
+The `destSlices` option can be omitted, if so the values of
+`sourceSlices` will be used as destination slices.
 
-The sum of the source `left`, `center` and `right` options is treated as 100% of the image.
-For example: If an image with a width of 80 pixels is used and the `left` and `right` values 
-are 20 and the `center` value is 60 then there will be 80 * 20 / (20 + 60 + 20) pixels used for the sides
-and 80 * 60 / (20 + 60 + 20) will be used to fill the center.
+The sum of the source `left`, `center` and `right` options
+is treated as 100% of the image. For example: If an image
+with a width of 80 pixels is used and the `left` and `right`
+values are 20 and the `center` value is 60 then there will
+be 80 * 20 / (20 + 60 + 20) pixels used for the sides and 80
+* 60 / (20 + 60 + 20) will be used to fill the center.
 
-If the quality of the image needs to be increased and the ratios of the sides on the source image
-don't change then the 9-slice settings don't have to be adjusted. For example: The image is sized to a 
-width of 120 pixels then there will be 120 * 20 / (20 + 60 + 20) pixels used for the sides and
+If the quality of the image needs to be increased and the
+ratios of the sides on the source image don't change then
+the 9-slice settings don't have to be adjusted. For example:
+The image is sized to a width of 120 pixels then there will
+be 120 * 20 / (20 + 60 + 20) pixels used for the sides and
 120 * 60 / (20 + 60 + 20) will be used to fill the center.
 
-#### Overlapping sides
+#### Overlapping Sides
 
-If the sum of the destination values exceeds the width or the height of the view then the sides will be scaled back.
-For example: A view has a `width` of 40 pixels and the `left` and `right` values are 25 then the `center` will not
-be applied and the `left` and `right` values will be scaled back to the maximum available size of 20 pixels for 
-each side.
+If the sum of the destination values exceeds the width or
+the height of the view then the sides will be scaled
+back. For example: A view has a `width` of 40 pixels and the
+`left` and `right` values are 25 then the `center` will not
+be applied and the `left` and `right` values will be scaled
+back to the maximum available size of 20 pixels for each
+side.
 
-#### Using 6 slices
+#### Using 6-Slice
 
 If the `scaleMethod` is set to `'6slice'` then you can control the direction of the slices through the source slice
 properties.
@@ -176,9 +193,10 @@ For vertical slices you have to pass the following properties:
 		* `top {number}`
 		* `bottom {number}`
 
-#### Using 3 slices
+#### Using 3-Slice
 
-If the `scaleMethod` is set to `'3slice'` then you can control the direction of the slices through the source slice
+If the `scaleMethod` is set to `'3slice'` then you can
+control the direction of the slices through the source slice
 properties.
 
 For horizontal slices you have to pass the following properties:
@@ -205,9 +223,10 @@ For vertical slices you have to pass the following properties:
 		* `top {number}`
 		* `bottom {number}`
 
-#### Using 2 slices
+#### Using 2-Slice
 
-If the `scaleMethod` is set to `'2slice'` then you can control the direction of the slices through the source slice
+If the `scaleMethod` is set to `'2slice'` then you can
+control the direction of the slices through the source slice
 properties.
 
 For horizontal slices you have to pass the following properties:
@@ -345,4 +364,5 @@ Sets the properties of the internal `ImageMap` object.
 1. `callback {function}`
 1. Return: `{this}`
 
-Registers a callback to be run once the image has fully loaded (done with [event.Callback](./event.html#class-event.callback)).
+Registers a callback to be run once the image has fully
+loaded (done with [event.Callback](./event.html#class-event.callback)).
