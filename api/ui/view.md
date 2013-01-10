@@ -75,28 +75,6 @@ view.style.visible = false;           //now you don't
 
 A [complete example](../example/views-style/) is available in the `addon-examples` package.
 
-### Handler: view.buildView ()
-
-This function on a view is run immediately before the
-view is first rendered to the screen. Consequently, since
-the view is guaranteed to be part of scene graph when this
-function called, any subview creation should be placed here
-since the child dimensions are dependent upon their parent.
-
-~~~
-var MyView = Class(ui.View, function (supr) {
-
-  this.buildView = function () {
-    var mysubview = new ui.View({
-      superview: this,
-      x: 0,
-      y: 0,
-      width: this.style.width,
-      height: this.style.width
-    });
-  };
-});
-~~~
 
 ### view.getApp ()
 1. Return: `{ui.Engine}`
