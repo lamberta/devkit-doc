@@ -18,8 +18,9 @@ an instance of a cell.
 The `ListView` has a feature which allows it to keep performing excellent even with a large number of items: the 
 number of subviews in the list -instances or subclasses of `Cell`- is limited to the visible area of the view.
 
-When a cell scrolls out of the bounary of the list it is recycled and used for a cell which scroll into the boundary
-of the list. This limits the number of subviews of the list.
+When a cell scrolls out of the boundary of the list it is recycled and used for a cell which scrolls into the boundary
+of the list. This limits the number of subviews of the list. Right before the cell becomes visible the `setData` 
+function of the cell is called with the data to show in the cell as a parameter.
 
 ~~~
 import ui.widget.ListView as ListView;
@@ -29,6 +30,8 @@ import ui.widget.ListView as ListView;
 1. `options {object}`
 	* `isFixedSize {boolean} = true` ---If set to `false`, allow variable sizes for list items (hurts rendering performance).
 	* `isTiled {boolean} = false` ---Allow multiple items per row.
+	* `scrollX {boolean}` ---Optional, set to true if you want horizontal scrolling.
+	* `scrollY {boolean}` ---Optional, set to true is you want vertical scrolling.
 	* `renderMargin {number} = 0` ---The vertical margin between list items.
 	* `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to its `maxY` value.
 	* `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` instance given an item from the list.
