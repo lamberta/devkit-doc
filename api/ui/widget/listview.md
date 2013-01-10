@@ -8,8 +8,8 @@ Inherits from:
      3. [event.Emitter](./event.html#class-event.emitter)
 
 If items have to be presented in a list then the `ListView` is the class to use. The `ListView` subclasses `ScrollView` 
-which allows it to scroll vertical or horizontal. The cells in the `ListView` must be populated by cells of the 
-type `Cell` or a subclass of `Cell`.
+which allows it to scroll vertical or horizontal. The `ListView` must be populated by cells of the type `Cell` or a 
+subclass of `Cell`.
 
 Cells are created by the list based on data from a `DataSource`. When the list can display a cell it calls the `getCell`
 function which has to be provided as an opts property to the `ListView` constructor. The `getCell` function returns
