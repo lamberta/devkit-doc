@@ -139,7 +139,7 @@ Called when the text value changes.
 Called when the `TextPromptView` is selected.
 
 
-
+<!--
 ## Class: ui.TextInputView
 
 Enter text input inline. *This is not working.*
@@ -155,7 +155,7 @@ import ui.TextInputView as TextInputView;
 ### new TextInputView ([options])
 1. `options {object`
 
-
+-->
 
 ## Class: ui.resource.Font
 
