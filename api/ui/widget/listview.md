@@ -29,9 +29,6 @@ import ui.widget.ListView as ListView;
 ### new ListView ([options])
 1. `options {object}`
 	* `isFixedSize {boolean} = true` ---If set to `false`, allow variable sizes for list items (hurts rendering performance).
-	* `isTiled {boolean} = false` ---Allow multiple items per row.
-	* `scrollX {boolean}` ---Optional, set to true if you want horizontal scrolling.
-	* `scrollY {boolean}` ---Optional, set to true is you want vertical scrolling.
 	* `renderMargin {number} = 0` ---The vertical margin between list items.
 	* `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to its `maxY` value.
 	* `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` instance given an item from the list.
