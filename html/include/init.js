@@ -29,10 +29,7 @@ $(function () {
    */
   if (href_page === 'index.html' || href_page === '') {
     //check page url, switch to hash tab if we got it
-    var hash_tab = $("#main .nav-tabs a[href='" + document.location.hash + "']");
-    if (hash_tab) {
-      hash_tab.tab('show');
-    }
+		switch_to_tab(document.location.hash);
     
     //manually set hash in url since bootstrap won't
     $('#main .nav-tabs a').click(function (e) {
@@ -40,19 +37,19 @@ $(function () {
     });
 
     //dropdown nav should switch tabs
-    $('.nav .dropdown-menu a[href="#"]').click(function (e) {
-      e.preventDefault();
-      $('#main .nav-tabs a[href="#guides"]').tab('show');
-      window.location.hash = "guides";
-    });
-    //dropdown nav should switch tabs
-    $('.nav .dropdown-menu a[href="#examples"]').click(function (e) {
-      e.preventDefault();
-      $('#main .nav-tabs a[href="#examples"]').tab('show');
-      window.location.hash = "examples";
-    });
+		$('.nav .dropdown-menu a[href^="#"]').click(function (e) {
+			e.preventDefault();
+			switch_to_tab(e.target.hash);
+			window.location.hash = e.target.hash;
+		});
   }
 
+	function switch_to_tab (hash) {
+		var hash_tab = $("#main .nav-tabs a[href='" + hash + "']");
+		if (hash_tab) {
+      hash_tab.tab('show');
+    }
+	}
   
   /* highlight section headers in sidebar
    */
