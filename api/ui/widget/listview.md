@@ -44,7 +44,7 @@ import ui.widget.ListView as ListView;
 	* `dataSource` ---The [GCDataSource](#class-gcdatasource) for the list.
 
 ~~~
-var listview = new ListView({
+var listView = new ListView({
   getCell: function(listItem) {
     return new CellView(listItem);
   },
@@ -56,16 +56,16 @@ var listview = new ListView({
 
 A [complete example](../example/ui-listbasic/) is available in the `addon-examples` package.
 
-### listview.updateOpts (options)
+### listView.updateOpts (options)
 1. `options {object}`
 
 ~~~
-listview.updateOpts({
+listView.updateOpts({
   dataSource: contacts.toDataSource()
 });
 ~~~
 
-### listview.setMaxX (maxX)
+### listView.setMaxX (maxX)
 1. `maxX {number}` ---The maximum width of the list to set.
 
 If the `autoSize` property passed to the constructor is true then calling `setMaxX` sets the
@@ -75,7 +75,7 @@ are updated to allow the content to scroll within the given width.
 If the `autoSize` property is false then the boundary values (`minX` and `maxX`) are updated
 which changes the distance which the list can scroll.
 
-### listview.setMaxY (maxY)
+### listView.setMaxY (maxY)
 1. `maxY {number}` ---The maximum height of the list to set.
 
 If the `autoSize` property passed to the constructor is true then calling `setMaxY` sets the
@@ -85,16 +85,20 @@ are updated to allow the content to scroll within the given height.
 If the `autoSize` property is false then the boundary values (`minY` and `maxY`) are updated
 which changes the distance which the list can scroll.
 
-### listview.getSelections ()
-1. Return: `{GCDataSource}` ---A data source with just the selected list items.
+### listView.getSelection ()
+1. Return: `{Object}` ---Get the selected items, each key represents a selected item.
 
 Return the selected items.
 
-### listview.getSelectionCount ()
+### listView.getSelectionCount ()
 1. Return `{number}` ---The number of selected items.
 
 Return the number of selected items.
 
+### listView.getCells ()
+1. Return `{array}` ---Get a list of cell instances contained in the list.
+
+Return the number of selected items.
 
 ## Class: ui.widget.CellView
 
@@ -104,6 +108,31 @@ Inherits from:
 
 The `CellView` is the basic class for displaying items in a list. The `CellView` class has functions for
 selecting, deselecting and keeping track of selecting items. 
+
+When a cell becomes visible then the `setData` function is called. The reference to data should be stored
+in the cell for later use.
+
+~~~
+this.setData = function (data) {
+	this._data = data; // Store the reference to the data
+	this._title.setText(data.title); // Apply the data to the cell...
+};
+~~~
+
+### Selecting items
+
+If you want to change how the item is displayed when the item is selected you can implement the `onInputSelect`
+function. Make sure to call the super function!
+
+~~~
+this.onInputSelect = function () {
+	supr(this, "onInputSelect", arguments);
+	// You can update the item here, you probably need the previously stored data here!
+};
+~~~
+
+Constructing a cell, the constructor should be called in the `getCell` function in the `ListView`,
+the new instance should be returned from this function.
 
 ~~~
 import ui.widget.CellView as CellView;
