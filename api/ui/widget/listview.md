@@ -98,8 +98,6 @@ Return the number of selected items.
 ### listView.getCells ()
 1. Return `{array}` ---Get a list of cell instances contained in the list.
 
-Return the number of selected items.
-
 ## Class: ui.widget.CellView
 
 Inherits from:
