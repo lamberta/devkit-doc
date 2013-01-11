@@ -27,10 +27,10 @@ import ui.ScrollView as ScrollView;
 	* `inertia {boolean} = true` ---Inertia effect when scrolling.
 	* `dragRadius {number} = 10` ---Radius between dragging start and move.
 	* `scrollBounds {object}` ---Boundary of scroll.
-		* `minX {number}` ---minimum X position.
-		* `minY {number}` ---minimum Y position.
-		* `maxX {number}` ---maximum X position.
-		* `maxY {number}` ---maximum Y position.
+		* `minX {number}` ---Minimum X position.
+		* `minY {number}` ---Minimum Y position.
+		* `maxX {number}` ---Maximum X position.
+		* `maxY {number}` ---Maximum Y position.
 	* `snapPixels {number} = 1` ---Snap to certain pixel increments. This value will represent the grid size to snap to.
 	* `useLayoutBounds {boolean} = true` ---Automatically set scroll bounds when using linear layout.
 
@@ -65,7 +65,7 @@ scrollview.addSubview(worldmap); //add the big image to the scrollview
 
 <span class='examples'>A [complete example](../example/ui-scrollviewbasic/) is available in the `addon-examples` package.</span>
 
-ScrollView will create a subview called `contentView`. This is where all
+`ScrollView` will create a subview called `contentView`. This is where all
 the subviews will be placed and the `contentView` will be positioned
 to imitate scrolling.
 
@@ -83,7 +83,7 @@ Remove a non-scrolling child subview.
 
 ### scrollview.getStyleBounds ()
 1. Return: `{object}`
-	* `minX {number}` ---The minumum horizontal boundary.
+	* `minX {number}` ---The minimum horizontal boundary.
 	* `maxX {number}` ---The maximum horizontal boundary.
 	* `minY {number}` ---The minimum vertical boundary.
 	* `maxY {number}` ---The maximum vertical boundary.
@@ -95,7 +95,7 @@ Return the style boundary object.
 	* `x {number}` ---The current horizontal offset.
 	* `y {number}` ---The current vertical offset.
 
-Returns an instace of Point containing the scroll offset.
+Returns an instance of Point containing the scroll offset.
 
 ### scrollview.setOffset (x, y)
 1. `x {number}` ---The horizontal offset to set.
@@ -111,7 +111,7 @@ Return `true` if the ScrollView is scrolling.
 
 ### scrollview.stopScrolling ()
 
-Stop View during it's scrolling animation.
+Stop `View` movement during its scrolling animation.
 
 ### scrollview.setScrollBounds (bounds)
 1. `bounds {object}`
@@ -141,11 +141,11 @@ but without animation.
 ### scrollview.getContentView ()
 1. Return: `{View}`
 
-Return the `contentView` that is created to wrap all the ScrollView subviews.
+Return the `contentView` that is created to wrap all the `ScrollView` subviews.
 
 ### scrollview.onInputScroll (scrollEvent)
 1. `scrollEvent {ScrollEvent}`
-	* `scrollAxis {number}` ---Enum, input.VERTICAL_AXIS, input.HORIZONTAL_AXIS.
+	* `scrollAxis {number}` ---Enum, `input.VERTICAL_AXIS`, `input.HORIZONTAL_AXIS`.
 	* `scrollDelta {number}` ---The scroll delta.
 
 This is called in the desktop browser upon using the scroll wheel or a multi-touch scroll action.
