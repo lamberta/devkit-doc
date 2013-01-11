@@ -121,7 +121,7 @@ this.setData = function (data) {
 
 ### Selecting items
 
-If you want to change how the item is displayed when the item is selected you can implement the `onInputSelect`
+If you want to change how the item is displayed when the cell is selected you can implement the `onInputSelect`
 function. Make sure to call the super function!
 
 ~~~
@@ -150,11 +150,6 @@ var cellview = new CellView();
 
 This callback is executed when a `CellView` is set.
 
-### cellview.remove (list)
-1. `list {ui.widget.ListView}` ---List to remove the cell from.
-
-Remove the cell from a given `ListView`.
-
 ### cellview.setPosition (position)
 1. `position {object}`
 	* `x {number}` ---Vertical position of the cell to set.
@@ -182,7 +177,6 @@ Select the current cell item.
 ### cellview.deselect ()
 
 Deselect the current cell item.
-
 
 ## Class: GCDataSource
 
