@@ -117,7 +117,7 @@ this.setData = function (data) {
 };
 ~~~
 
-### Cell selection
+#### Cell selection
 
 The `CellView` handles all select functions, there are however two functions which have to be implemented
 to update the view when the cell is selected or deselected, these are `_onSelect` and `_onDeselect`.
@@ -132,8 +132,10 @@ this._onDeselect = function () {
 };
 ~~~
 
-Constructing a cell, the constructor should be called in the `getCell` function in the `ListView`,
-the new instance should be returned from this function.
+#### Creating cells
+
+Cell should only be created in the `getCell` function in the `ListView`. When the `ListView` needs a new 
+cell then this function is called. Adding and removing cells not using `getCell` will lead to strange behavior!
 
 ~~~
 import ui.widget.CellView as CellView;
@@ -143,34 +145,45 @@ import ui.widget.CellView as CellView;
 1. `options {object}`
 
 ~~~
-var cellview = new CellView();
+var cellView = new CellView();
 ~~~
 
-### Handler: cellview.setData (data)
+### Handler: cellView.setData (data)
 1. `data {object}` ---Data representing the cell item to set.
 
-This callback is executed when a `CellView` is set.
+When an item in the list scrolls into view then the item data is passed to a cell which can create an
+up to date representation of the item. It's important to save the reference to the data for later use.
+When the properties are applied to the cell and it's subviews the `isSelected` function can be used 
+to display the selection state.
 
-### cellview.getWidth ()
+~~~
+this.setData = function (data) {
+	this._data = data; // Save data
+	// Do something with the data like settings the text in a `TextView` or displaying an image...
+	// You can call `this.isSelected()` to show the selection state of the cell.
+};
+~~~
+
+### cellView.getWidth ()
 1. Return: `{number}`
 
 Return the width of the `CellView`.
 
-### cellview.getHeight ()
+### cellView.getHeight ()
 1. Return: `{number}`
 
 Return the height of the `CellView`.
 
-### cellview.isSelected ()
+### cellView.isSelected ()
 1. Return: `{boolean}`
 
 Return `true` if the current cell item has been selected.
 
-### cellview.select ()
+### cellView.select ()
 
 Select the current cell item.
 
-### cellview.deselect ()
+### cellView.deselect ()
 
 Deselect the current cell item.
 
