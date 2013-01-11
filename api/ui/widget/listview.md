@@ -65,11 +65,6 @@ listview.updateOpts({
 });
 ~~~
 
-### listview.addCell (cell)
-1. `cell {ui.widget.CellView}` ---The cell to add to the list.
-
-Add a `CellView` to display in the list.
-
 ### listview.setMaxX (maxX)
 1. `maxX {number}` ---The maximum width of the list to set.
 
