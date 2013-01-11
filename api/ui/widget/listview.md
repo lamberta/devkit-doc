@@ -113,19 +113,22 @@ in the cell for later use.
 ~~~
 this.setData = function (data) {
 	this._data = data; // Store the reference to the data
-	this._title.setText(data.title); // Apply the data to the cell...
+	// Apply the data to the cell by updating a color, text, etc....
 };
 ~~~
 
-### Selecting items
+### Cell selection
 
-If you want to change how the item is displayed when the cell is selected you can implement the `onInputSelect`
-function. Make sure to call the super function!
+The `CellView` handles all select functions, there are however two functions which have to be implemented
+to update the view when the cell is selected or deselected, these are `_onSelect` and `_onDeselect`.
 
 ~~~
-this.onInputSelect = function () {
-	supr(this, "onInputSelect", arguments);
-	// You can update the item here, you probably need the previously stored data here!
+this._onSelect = function () { // Called when the cell is selected
+	// Change something in the cell like the color, text, etc...
+};
+
+this._onDeselect = function () {
+	// Change something in the cell like the color, text, etc...
 };
 ~~~
 
@@ -147,11 +150,6 @@ var cellview = new CellView();
 1. `data {object}` ---Data representing the cell item to set.
 
 This callback is executed when a `CellView` is set.
-
-### cellview.setPosition (position)
-1. `position {object}`
-	* `x {number}` ---Vertical position of the cell to set.
-	* `y {number}` ---Horizontal position of the cell to set.
 
 ### cellview.getWidth ()
 1. Return: `{number}`
