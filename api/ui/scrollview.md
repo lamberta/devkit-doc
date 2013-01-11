@@ -1,7 +1,9 @@
 # ui.ScrollView
 
 View to scroll itself and subviews. Supports
-drag through user input.
+drag through user input. Useful for implementing
+2D cameras, viewports or interfaces that are too
+large for a phone screen and require scrolling.
 
 ## Class: ui.ScrollView
 
@@ -17,24 +19,20 @@ import ui.ScrollView as ScrollView;
 1. `options {object}`
 	* `offsetX {number} = 0` ---Offset the child's X position relative to the scrollview.
 	* `offsetY {number} = 0` ---Offset the child's Y position relative to the scrollview.
-	* `scrollX {boolean} = true` ---Scroll along the X axis.
-	* `scrollY {boolean} = true` ---Scroll along the Y axis.
-	* `clip {boolean} = true` ---Hide anything that is outside of the view boundary.
-	* `bounce {boolean} = true` ---Bounce effect when scrolling.
+	* `scrollX {boolean} = true` ---Allow scrolling along the X axis.
+	* `scrollY {boolean} = true` ---Allow scrolling along the Y axis.
+	* `clip {boolean} = true` ---Hide any subview content that is outside of the view boundary.
+	* `bounce {boolean} = true` ---Bounce effect when scrolling past the scroll bounds.
 	* `drag {boolean} = true` ---Allow the user to drag the view around.
-	* `inertia {boolean} = true` ---Inertia scrolling.
+	* `inertia {boolean} = true` ---Inertia effect when scrolling.
 	* `dragRadius {number} = 10` ---Radius between dragging start and move.
 	* `scrollBounds {object}` ---Boundary of scroll.
 		* `minX {number}` ---minimum X position.
 		* `minY {number}` ---minimum Y position.
 		* `maxX {number}` ---maximum X position.
 		* `maxY {number}` ---maximum Y position.
-	* `snapPixels {number} = 1` ---Snap to certain pixel increments.
-	* `useLayoutBounds {boolean} = true` ---Automatically set scroll bounds when using linear layout
-
-~~~
-var scrollview = new ScrollView();
-~~~
+	* `snapPixels {number} = 1` ---Snap to certain pixel increments. This value will represent the grid size to snap to.
+	* `useLayoutBounds {boolean} = true` ---Automatically set scroll bounds when using linear layout.
 
 ~~~
 //scroll around an image
@@ -45,7 +43,7 @@ var scrollview = new ui.ScrollView({
   width: 480,    //the scrollview is smaller than the image
   height: 320,
   offsetX: -100, //offset the image within the scrollview
-  offset: -100,
+  offsetY: -100, //by 100 pixels
   scrollBounds: {
     minX: 0,
     maxX: 1000,  //can scroll 1000 px to the right
@@ -65,7 +63,11 @@ var worldmap = new ui.ImageView({
 scrollview.addSubview(worldmap); //add the big image to the scrollview
 ~~~
 
-A [complete example](../example/ui-scrollviewbasic/) is available in the `addon-examples` package.
+<span class='examples'>A [complete example](../example/ui-scrollviewbasic/) is available in the `addon-examples` package.</span>
+
+ScrollView will create a subview called `contentView`. This is where all
+the subviews will be placed and the `contentView` will be positioned
+to imitate scrolling.
 
 ### scrollview.addFixedView (view)
 1. `view {View}` ---The view to add as a fixed child of this view.
@@ -93,13 +95,14 @@ Return the style boundary object.
 	* `x {number}` ---The current horizontal offset.
 	* `y {number}` ---The current vertical offset.
 
-Returns a point of the Scroll offset.
+Returns an instace of Point containing the scroll offset.
 
 ### scrollview.setOffset (x, y)
 1. `x {number}` ---The horizontal offset to set.
 2. `y {number}` ---The vertical offset to set.
 
-Set the offset to manually scroll views.
+Set the offset to manually scroll views. Similar to `scrollTo` but
+without animation.
 
 ### scrollview.isScrolling ()
 1. Return `{boolean}`
@@ -108,7 +111,7 @@ Return `true` if the ScrollView is scrolling.
 
 ### scrollview.stopScrolling ()
 
-Stop View from scrolling.
+Stop View during it's scrolling animation.
 
 ### scrollview.setScrollBounds (bounds)
 1. `bounds {object}`
@@ -132,12 +135,13 @@ Return the scroll boundary object.
 1. `x {number}` ---The horizontal offset to add.
 2. `y {number}` ---The vertical offset to add.
 
-Add the values to the current offset.
+Add the values to the current offset. Similar to `scrollTo`
+but without animation.
 
 ### scrollview.getContentView ()
 1. Return: `{View}`
 
-Return the generated View that becomes the container View.
+Return the `contentView` that is created to wrap all the ScrollView subviews.
 
 ### scrollview.onInputScroll (scrollEvent)
 1. `scrollEvent {ScrollEvent}`
