@@ -63,7 +63,7 @@ var worldmap = new ui.ImageView({
 scrollview.addSubview(worldmap); //add the big image to the scrollview
 ~~~
 
-<span class='examples'>A [complete example](../example/ui-scrollviewbasic/) is available in the `addon-examples` package.</span>
+<span class='examples'>A [complete example](../example/ui-scrollview-basic/) is available in the `addon-examples` package.</span>
 
 `ScrollView` will create a subview called `contentView`. This is where all
 the subviews will be placed and the `contentView` will be positioned

@@ -41,7 +41,7 @@ and *walk*. The *idle* animation contains four frames and
 the *walk* animation contains three frames.
 
 During the build stage, these images are automatically
-turned in to an optimized sprite-sheet for each directory. 
+turned in to an optimized sprite-sheet for each directory.
 These are then saved in the
 `build/.../spritesheets` directory of your project, depending
 on the target of the build (e.g. simulating iPhone will create
@@ -65,7 +65,7 @@ import ui.SpriteView as SpriteView;
 ~~~
 
 ### new SpriteView ([options])
-1. `options {object}` 
+1. `options {object}`
     * `url {string}` ---Sprite image file name prefix.
 	* `defaultAnimation {string}` ---Defaults to the first animation listed in the directory
     * `groupID {string} = 'default'` ---Specify a Sprite group
@@ -86,7 +86,7 @@ var sprite = new SpriteView({
 });
 ~~~
 
-A [complete example](../example/ui-spriteviewbasic/) is available in the `addon-examples` package.
+A [complete example](../example/ui-spriteview-basic/) is available in the `addon-examples` package.
 
 ### sprite.startAnimation (name [, options])
 1. `name {string}`

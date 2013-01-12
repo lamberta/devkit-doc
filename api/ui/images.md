@@ -102,7 +102,7 @@ Inherits from:
 import ui.ImageScaleView as ImageScaleView;
 ~~~
 
-[complete example](../example/images-nineslice/) is available in the `addon-examples` package.
+[complete example](../example/images-nine-slice/) is available in the `addon-examples` package.
 
 ### new ImageScaleView ([options])
 1. `options {object}`
@@ -268,7 +268,7 @@ import ui.resource.Image as Image;
 ### new Image ([options])
 1. `options {object}`
 	* `scale {boolean} = false` ---If `true`, will scale the width and height according to the original ratio.
-	* `sourceWidth {number} = -1` ---Source width of the desired area on the image. 
+	* `sourceWidth {number} = -1` ---Source width of the desired area on the image.
 	* `sourceHeight {number} = -1` ---Source height of the desired area on the source image.
 	* `sourceX {number} = 0` ---Source X position of the desired area on the source image.
 	* `sourceY {number} = 0` ---Source Y position of the desired area on the source image.
