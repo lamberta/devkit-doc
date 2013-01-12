@@ -37,7 +37,7 @@ var listview = new ListView({
 });
 ~~~
 
-A [complete example](../example/ui-listbasic/) is available in the `addon-examples` package.
+A [complete example](../example/ui-list-basic/) is available in the `addon-examples` package.
 
 ### listview.updateOpts (options)
 1. `options {object}`
