@@ -1,5 +1,13 @@
 # Animation
 
+`animate` is a module used primarily for
+animating [ui views](../api/ui-view.html). It is a
+"tweening engine" that interpolates between screen
+positions, opacity, or any other numeric javascript property. 
+Most importantly, since it can be optimized for native 
+devices you should favor this module over manual
+calculations within the game loop.
+
 Examples:
 
 * [Basic Animation](../example/animation-basic/)
@@ -10,52 +18,44 @@ Examples:
 
 ## Module: animate
 
-Is a function to animate Views or objects. It interpolates
-number properties over a given duration and with easing
-functions.
+Usage:
 
 ~~~
 import animate;
 ~~~
 
 ### animate (obj, groupId)
-1. `obj {View|object}`
-2. `groupID {number}`
-3. Return: `{Animator}`
+1. `obj {View|object}` ---The view or object to animate.
+2. `groupID {number}` ---The group identifier for this animation, [see below](#class-group)
+3. Return: `{Animator}` ---Returns the animator object so the function call can be chained.
 
-Create an Animator for a View or object. Passing a plain object allows you to perform arbitrary tweening.
+Create an Animator for a View or generic javascript object. Note that when passing in a View object, the animation engine will tween based on the object's `style` property. But when passing in a generic object, the animation engine will tween based on the object's top level properties instead.
 
 ~~~
-animate(myView);
+var myAnimator = animate(myView);
 
 // typical usage is via method chaining
 animate(myView).now({x: 100}).then({y: 100}); //moves a view 100px to the right, then 100px downwards.
 ~~~
 
-### animate.setViewAnimator (animator)
-1. `animator {Animator}`
-
-Overrides the standard View animator with a custom one.
-
 ### animate.getGroup (id)
-1. `id {number}`
+1. `id {number}` ---The group identifier of the group to fetch.
 2. Return: `{Group}`
 
-Returns a Group.
-
+Returns a Group. [See below](#class-group) for more information on groups.
 
 ## Class: animate.Animator
 
-The main force of animate.
+The animation engine.
 
 Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### new Animator (subject, group)
-1. `subject {object}`
-2. `group {Group}`
+1. `subject {object}` ---The view or object to animate.
+2. `group {Group}` ---The group object for this animation, [see below](#class-group)
 
-Creates a new Animator with an object with properties to animate, and a Group to add them to. (For internal or extending use only.)
+Creates a new Animator with an object with properties to animate and a Group to add them to. Note: the preferred method for creating an animator object is not to use the `new` keyword, but instead to invoke the animate function:
 
 ~~~
 var animator = animate(object);
@@ -64,7 +64,7 @@ var animator = animate(object);
 ### animator.clear ()
 1. Return: `{this}`
 
-Clears the animations currently scheduled. This will stop the animation immediately, without completing the animation.
+Clears the animation frames currently scheduled. This will stop the animation immediately, without completing the animation.
 
 ~~~
 var myAnimation = animate(view).now({
@@ -85,12 +85,11 @@ Pauses the animation.
 Returns whether the animation is paused.
 
 ### animator.resume ()
-1. Return: `{boolean}`
 
 Resumes the animation if paused.
 
 ### animator.hasFrames ()
-1. Return: `{boolean}`
+1. Return: `{boolean}` ---Duration of the wait in milliseconds.
 
 Returns whether there are any frames left to animate.
 
@@ -113,7 +112,7 @@ animate(view).wait(500).then(function () {
 4. `onTick {function}` ---A callback to control the speed of the transition.
 5. Return: `{this}`
 
-Starts an animation immediately.
+Add an animation frame to the queue, and start the animation immediately.
 
 An animation transition can be one of the following:
 
