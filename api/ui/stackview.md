@@ -2,7 +2,7 @@
 
 ## Class: ui.StackView
 
-A view that contains multiple child views. The view at the
+A view that contains a list child views. The view at the
 top of the stack is displayed.
 
 Inherits from:
@@ -14,7 +14,7 @@ import ui.StackView as StackView;
 ~~~
 
 ### new StackView ([options])
-1. `options {object}` ---Pptions parameters are inherited from the `ui.View` class.
+1. `options {object}` ---Options parameters are inherited from the `ui.View` class.
 
 ~~~
 var stackview = new StackView({
