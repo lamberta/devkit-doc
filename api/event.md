@@ -61,6 +61,14 @@ Emit an event to the object. Any of its handler functions
 subscribed to the given event type are executed. Returns
 `true` if the event was handled, otherwise `false`.
 
+Using the previously defined `Dog` (which inherits from
+`Emitter`), its listener callback can be triggered by
+publishing an event it's subscribed to:
+
+~~~
+monty.emit('mailman'); //=> console prints "Woof-woof!"
+~~~
+
 ### emitter.on (type, callback)
 1. `type {string}` ---The name of the event type.
 2. `callback {function|string}` ---The dispatch function, or method name on an object.
