@@ -48,10 +48,10 @@ Return the current visible view at the top of the stack.
 
 Return `true` if the given view is contained in this stack.
 
-### stackview.push (view [, dontAnimate, backward])
+### stackview.push (view [, dontAnimate, reverse])
 1. `view {View}`
 2. `dontAnimate {boolean} = false` ---If `true`, do not animate the view when displaying.
-3. `backward {boolean} = false` ---By default, wipe in from the right. If `true`, wipe in from the left.
+3. `reverse {boolean} = false` ---By default, wipe in from the right. If `true`, wipe in from the left.
 4. Return: `{View}` ---Same as the provided view object.
 
 Add a view to the top of the StackView, which makes it
@@ -63,7 +63,7 @@ dimensions of the stack view.
 By default, when a view is pushed to the top of a
 `StackView`, it will animate in from right to left. When
 `dontAnimate` is set to `true`, the view will not animate
-in, and will simply appear on top. If `backwards` is set to
+in, and will simply appear on top. If `reverse` is set to
 `true`, the view will animate in from the left to right.
 
 ~~~
@@ -77,9 +77,9 @@ var view = new ui.View({
 stackview.push(view);
 ~~~
 
-### stackview.pop ([dontAnimate, animateBackward])
+### stackview.pop ([dontAnimate, reverse])
 1. `dontAnimate {boolean} = false` ---If `true`, do *not* animate in the new top view.
-2. `animateBackward {boolean} = true` ---By default, the view is animated from right to left. If `false`, animate the wipe from left to right.
+2. `reverse {boolean} = true` ---By default, the view is animated from right to left. If `false`, animate the wipe from left to right.
 3. Return: `{View}`
 
 Remove a view from the top of the `StackView`. Unless
