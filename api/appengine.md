@@ -9,44 +9,6 @@ created and the scene graph is drawn to the screen.
 Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
-### Application Settings
-
-Application options are configured in the `_settings` object within an
-instance of the user's `GC.Application`. Options must be set before the
-`initUI` and `launchUI` methods are called.
-
-* `logsEnabled {boolean}` ---Print the logging output to the browser console.
-* `showFPS {boolean}` ---Display the running speed of the animation in frames per second.
-* `alwaysRepaint {boolean} = false` ---Redraw the screen every animation tick. If the display requires continuous updates, you should set this to `true`.
-* `repaintOnEvent {boolean}` ---Redraw the screen when a user event occurs, such as touch or click.
-* `clearEachFrame {boolean} = true` ---Clear the screen on each animation frame. If set to `false`, the image will be drawn on top of the previous one.
-* `continuousInputCheck {boolean} = true|false` ---Continually triggers the most recent `input:move` event on each
-  tick. This allows for more responsive input. On a browser this defaults to `true`, and `false` on a mobile device.
-* `keyListenerEnabled {boolean} = true` ---Enable the listener to detect keyboard events.
-* `mergeMoveEvents {boolean}` ---Multiple move events in an animation frame are merged together by taking the last event.
-* `view {View}` ---The root view of the application.
-* `width {number}` ---The width of application view.
-* `height {number}` ---The height of application view.
-* `dtFixed {number} = 0` ---Fixed delta time.
-* `dtMinimum {number} = 0` ---The minimum delta time to use between ticks in the game loop.
-* `preload {array}` ---Preload resource groups.
-
-For example, the settings in the `src/Application.js`
-file of an empty project can be changed:
-
-~~~
-exports = Class(GC.Application, function () {
-  this._settings = {
-    logsEnabled: true,
-    showFPS: true,
-    alwaysRepaint: true
-  };
-
-  this.initUI = function () {};
-  this.launchUI = function () {};
-});
-~~~
-
 ### Handler: initUI ()
 
 A user defined function that is executed when the game
@@ -148,18 +110,6 @@ the view hierarchy, and rendering the scene graph. A single
 1. `options {object}`
 
 Update the options of of the instantiated `ui.Engine`.
-
-### GC.app.engine.supports (option)
-1. `option {string}` ---Key used to return a setting value for the application.
-2. Return: `{*}` ---If the setting does not exist, return `undefined`.
-
-Returns the value for an options declared in the
-application's `this._settings` object. If the option does
-not exist, return `undefined`.
-
-~~~
-GC.app.engine.supports('alwaysRepaint'); //=> true
-~~~
 
 ### GC.app.engine.getEvents ()
 1. Return: `{Array}`
