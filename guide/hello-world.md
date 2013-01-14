@@ -125,14 +125,6 @@ import ui.TextView as TextView;
 
 exports = Class(GC.Application, function() {
 
-  this._settings = {
-    logsEnabled: window.DEV_MODE,
-    showFPS: window.DEV_MODE,
-    clearEachFrame: true,
-    alwaysRepaint: true,
-    preload: []
-  };
-
   this.initUI = function() {
     var textview = new TextView({
       superview: this.view,
@@ -149,9 +141,7 @@ exports = Class(GC.Application, function() {
 This file defines a class that inherits from
 [GC.Application](../api/appengine.html#class-gc.application)
 and configures the callback methods used to define the user entry
-points of the game: `initUI` and `launchUI`. The settings
-for the application are defined here, and are covered in
-more detail in [Application Settings](../api/appengine.html#application-settings).
+points of the game: `initUI` and `launchUI`.
 
 In this simple example, a `TextView` is imported into the
 file, added to the scene graph, and used to write the phrase

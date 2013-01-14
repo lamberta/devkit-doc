@@ -199,9 +199,6 @@ var leftBoundary = 0;
 var vx = 0;
 
 exports = Class(GC.Application, function () {
-  this._settings = {
-    alwaysRepaint: true
-  };
 
   this.initUI = function () {
     
