@@ -131,7 +131,7 @@ this._onDeselect = function () {
 
 #### Creating cells
 
-Cell should only be created in the `getCell` function in the `ListView`. When the `ListView` needs a new 
+Cells should only be created in the `getCell` function in the `ListView`. When the `ListView` needs a new 
 cell then this function is called. Adding and removing cells not using `getCell` will lead to strange behavior!
 
 ~~~
