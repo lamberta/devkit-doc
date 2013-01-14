@@ -48,6 +48,37 @@ new ButtonView({
 });
 ~~~
 
+### buttonview.updateOpts({options})
+
+1. `options {object}`
+
+Replaces the current options (including `images`, `sounds` and `on`) with the
+`options` object passed to this function. This replaces, and does not merge, the
+current options. This is similar to `TextView.updateOpts`. This means that you may want to `util.merge` the object you pass
+in with the current options, like in the example below.
+
+~~~
+var buttonView = new ButtonView({
+	superview: parent,
+	width: 200,
+	height: 100,
+	x: 0,
+	y: 0,
+	sounds: {
+		"down": "resources/ting.mp3"
+	}
+});
+
+//now, to change the "down" sound, we must use updateOpts
+//however, we wish to keep the other options, so we shall `merge` the objects
+
+buttonView.updateOpts(util.merge(buttonView.opts, {
+	sounds: {
+		"down": "resources/bang.mp3"
+	}
+}));
+~~~
+
 ### Events
 
 #### \'InputSelect\', callback (event, srcPoint)
