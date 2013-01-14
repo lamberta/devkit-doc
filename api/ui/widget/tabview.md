@@ -12,7 +12,7 @@ import ui.widget.TabView as TabView;
 
 ### new TabView ([options])
 1. `options {object}`
-	* `buttonOpts {Object}` ---Optional button settings, [see below](#).
+	* `buttonOpts {Object}` ---Optional button settings, [see below](#tabbutton-options).
 	* `contentOpts {Object}` ---Options passed to the constructor of the internal content view.
 	* `tabPosition {TabView.tabPosition}` ---Options: `'TOP'`, `'RIGHT'`, `'BOTTOM'` or `'LEFT'` ---Optional
 
@@ -186,64 +186,95 @@ tabs.addPane(tabbutton, new TextView({
 }));
 ~~~
 
-#### buttonOpts.tabSize
-
-Set the size of the tab buttons.
-1. TabPaneView.tabSize.AUTO The tabs have the width of the title and the padding.
-2. TabPaneView.tabSize.FIXED The tabs are sized to the given `'fixedWidth'` size.
-3. TabPaneView.tabSize.FLEX The tabs are spread to use the available size of the widget.
-
-#### buttonOpts.padding
-
-Set the padding of the text on the tab buttons.
-The padding can be a number or an array, if it's an array then the first element is the left and the second is the right padding.
-
-#### buttonOpts.fixedWidth
-
-The fixed width value is used when the tabSize is set to `'FIXED'`.
-
-#### buttonOpts.image
-
-This option can be a path to an image or an instance of `'ui.resource.Image'` and is applied to the background of the button.
-
-#### buttonOpts.activeImage
-
-This option can be a path to an image or an instance of `'ui.resource.Image'` and is applied to the background of the selected button.
-
-#### buttonOpts.scaleMethod, buttonOpts.sourceSlices, buttonOpts.destSlices
-
-If there is a background image used then these options can be used to change the way the background is applied
-[ui.images](./ui-images.html).
-
-#### buttonOpts.color
-
-The color of the text of the tab button.
-
-#### buttonOpts.activeColor
-
-The color of the text of the selected tab button.
-
-#### buttonOpts.backgroundColor
-
-The background color of the tab buttons, this color is used when there's no background image selected.
-
-#### buttonOpts.activeBackgroundColor
-
-The background color of the selected tab button, this color
-is used when there's no active background image selected.
-
-#### buttonOpts.horizontalAlign
-
-Set the horizontal alignment of the text on the tab buttons,
-valid values are: `'left'`, `'right'`, `'center'` or `'justify'`.
-
-#### buttonOpts.verticalAlign
-
-Set the vertical alignment of the text on the tab buttons,
-valid values are: `'top'`, `'middle'` or `'bottom'`.
-
-
 ### tabbutton.setTitle (title)
 1. `title {string}`
 
 Change the title.
+
+### TabButton Options
+
+The options for a `TabButton` can be set through its
+constructor, or by using the `updateButtonOpts` method on
+the `TabView` class:
+
+~~~
+tabview.updateButtonOpts(options);
+
+var tabbutton = new TabButton(options);
+~~~
+
+#### options.tabSize
+1. `{string} = TabView.tabSize.AUTO`
+
+Set the size of the tab buttons, this property can be one of
+the following:
+
+* `TabView.tabSize.AUTO` ---The tabs have the width of the title and the padding.
+* `TabView.tabSize.FIXED` ---The tabs are sized to the given `'fixedWidth'` size.
+* `TabView.tabSize.FLEX` ---The tabs are spread to use the available size of the widget.
+
+#### options.padding
+1. `{number|array} = 10`
+
+Set the padding of the text on the tab buttons. If the
+padding is an array of numbers, the padding is applied using
+[CSS-style rules](https://developer.mozilla.org/en-US/docs/CSS/padding#Values) for assignment.
+
+#### options.fixedWidth
+1. `{number} = 50`
+
+The fixed width value is used when the tabSize is set to `'FIXED'`.
+
+#### options.image
+1. `{Image}` ---Optional url or `Image` element.
+
+This option can be a path to an image or an instance of
+`'ui.resource.Image'` and is applied to the background of
+the button.
+
+#### options.activeImage
+1. `{Image}` ---Optional url or `Image` element.
+
+This option can be a path to an image or an instance of
+`'ui.resource.Image'` and is applied to the background of
+the selected button.
+
+#### options.scaleMethod, options.sourceSlices, options.destSlices
+1. `{*}` ---Options from [ui.ImageScaleView](./ui-images.html#new-imagescaleview-options).
+
+If a background image is used, these options change the way
+the slices are applied.
+
+#### options.color
+1. `{string} = '#b0b0b0'`
+
+The color of the text of the tab button.
+
+#### options.activeColor
+1. `{string} = '#000000'`
+
+The color of the text of the selected tab button.
+
+#### options.backgroundColor
+1. `{string} = '#e0e0e0'`
+
+The background color of the tab buttons, this color is used
+when there's no background image selected.
+
+#### options.activeBackgroundColor
+1. `{string} = '#d0d0d0'`
+
+The background color of the selected tab button, this color
+is used when there's no active background image selected.
+
+#### options.horizontalAlign
+1. `{string}`
+
+Set the horizontal alignment of the text on the tab buttons,
+valid values are: `'left'`, `'right'`, `'center'` or `'justify'`.
+
+#### options.verticalAlign
+1. `{string}`
+
+Set the vertical alignment of the text on the tab buttons,
+valid values are: `'top'`, `'middle'` or `'bottom'`.
