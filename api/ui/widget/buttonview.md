@@ -20,6 +20,7 @@ import ui.widget.ButtonView as ButtonView;
 	* `sounds {Object}` ---Run a sound when the button enters a state.
 
 Change images and play a sound when the button toggles selected state.
+
 ~~~
 import ui.widget.ButtonView as ButtonView;
 
@@ -29,14 +30,20 @@ new ButtonView({
 	height: 100,
 	x: 0,
 	y: 0,
-
 	images: {
 		"selected": "resources/selected.png",
 		"unselect": "resources/unselect.png"
 	},
-
 	sounds: {
 		"down": "resources/ting.mp3"
+	},
+	on: {
+		"down": function () {
+			console.log("This function is called when the button transitions to down!");
+		},
+		"up": function () {
+			console.log("This function is called when the button transitions to up!");
+		}
 	}
 });
 ~~~
