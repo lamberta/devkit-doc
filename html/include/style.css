@@ -61,6 +61,19 @@ footer {
   position: fixed;
 }
 
+/*force scrollbar on webkit*/
+#toc-well::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 11px;
+  height: 11px;
+}
+
+#toc-well::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
 /*should inherit from bootstrap 'nav nav-list'*/
 #toc ul {
   padding-left: 15px;
