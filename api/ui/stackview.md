@@ -1,9 +1,17 @@
 # ui.StackView
 
+A handy way to organize a collection of game screens, tabs,
+or other views that need to be displayed one at a time. The
+`StackView` provides a convenient means to navigate through
+game screens and be assured the user will not get stuck
+without a way out---views can always get popped off the
+stack until you get to the root view.
+
 ## Class: ui.StackView
 
-A view that contains multiple child views. The view at the
-top of the stack is displayed.
+A view that contains a collection of child views. Views are
+pushed onto the stack and popped off the stack; the view at
+the top position of the stack is rendered to the screen.
 
 Inherits from:
 :    1. [ui.View](./ui-view.html)
@@ -14,7 +22,7 @@ import ui.StackView as StackView;
 ~~~
 
 ### new StackView ([options])
-1. `options {object}` ---Pptions parameters are inherited from the `ui.View` class.
+1. `options {object}` ---Options parameters are inherited from the `ui.View` class.
 
 ~~~
 var stackview = new StackView({
@@ -48,21 +56,21 @@ Return the current visible view at the top of the stack.
 
 Return `true` if the given view is contained in this stack.
 
-### stackview.push (view [, dontAnimate, reverse])
+### stackview.push (view [, noAnimate, reverse])
 1. `view {View}`
-2. `dontAnimate {boolean} = false` ---If `true`, do not animate the view when displaying.
+2. `noAnimate {boolean} = false` ---If `true`, do not animate the view when displaying.
 3. `reverse {boolean} = false` ---By default, wipe in from the right. If `true`, wipe in from the left.
 4. Return: `{View}` ---Same as the provided view object.
 
-Add a view to the top of the StackView, which makes it
-visible. The added view's x,y coordinates will be relative
-to the top-left corner of the stack view. And the
-height,width of the added view will be scaled up to fit the
-dimensions of the stack view.
+Add a view to the `StackView` collection, since it is now on
+top of the stack it will be visible. The x and y coordinates
+of the added view will be relative to the top-left corner of
+the `StackView`. The `height` and `width` of the added view
+will be scaled up to fit the dimensions of the stack view.
 
 By default, when a view is pushed to the top of a
 `StackView`, it will animate in from right to left. When
-`dontAnimate` is set to `true`, the view will not animate
+`noAnimate` is set to `true`, the view will not animate
 in, and will simply appear on top. If `reverse` is set to
 `true`, the view will animate in from the left to right.
 
@@ -77,17 +85,17 @@ var view = new ui.View({
 stackview.push(view);
 ~~~
 
-### stackview.pop ([dontAnimate, reverse])
-1. `dontAnimate {boolean} = false` ---If `true`, do *not* animate in the new top view.
+### stackview.pop ([noAnimate, reverse])
+1. `noAnimate {boolean} = false` ---If `true`, do *not* animate in the new top view.
 2. `reverse {boolean} = true` ---By default, the view is animated from right to left. If `false`, animate the wipe from left to right.
 3. Return: `{View}`
 
 Remove a view from the top of the `StackView`. Unless
-`dontAnimate` is true, this animates the view to the right,
+`noAnimate` is true, this animates the view to the right,
 makes it invisible, then removes it as a subview.
 
-### stackview.popAll ([dontAnimate])
-1. `dontAnimate {boolean} = false` ---If `true`, do *not* animate out the child views.
+### stackview.popAll ([noAnimate])
+1. `noAnimate {boolean} = false` ---If `true`, do *not* animate out the child views.
 
 Removes all child views from the `StackView`, allowing it to
 be re-used. Note that this should be used instead of
@@ -97,7 +105,7 @@ be re-used. Note that this should be used instead of
 1. `view {View}`
 
 Removes a child view from the stack. Will not animate out
-reguardless of position.
+regardless of position.
 
 
 ### Events
