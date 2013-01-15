@@ -1,5 +1,15 @@
 # Animation
 
+`animate` is a module used for programmatically
+moving, changing, and animating properties, especially
+[ui.View](../api/ui-view.html) properties. It is a
+"tweening engine" that interpolates between screen
+positions, opacity, or any other numeric JavaScript
+property. It's most important feature is that it's optimized
+for mobile devices using native code, so you should favor
+this module instead of manual position calculations within
+your game loop.
+
 Examples:
 
 * [Basic Animation](../example/animation-basic/)
@@ -10,66 +20,75 @@ Examples:
 
 ## Module: animate
 
-Is a function to animate Views or objects. It interpolates
-number properties over a given duration and with easing
-functions.
+Usage:
 
 ~~~
 import animate;
 ~~~
 
-### animate (obj, groupId)
-1. `obj {View|object}`
-2. `groupID {number}`
-3. Return: `{Animator}`
+### animate (obj, groupID)
+1. `obj {ui.View|object}` ---The view or object to animate.
+2. `groupID {number}` ---The group identifier for this animation, [see below](#class-group)
+3. Return: `{Animator}` ---Returns the animator object so the function call can be chained.
 
-Create an Animator for a View or object. Passing a plain object allows you to perform arbitrary tweening.
+Create an Animator for a [View](../api/ui-view.html) or
+generic JavaScript object. Note that when animating a
+[View](../api/ui-view.html) object, the animation engine
+will tween based on the object's `style` property. But when
+passing in a generic object, the animation engine will tween
+based on the object's top level properties instead.
 
 ~~~
-animate(myView);
+var animator = animate(myView);
 
 // typical usage is via method chaining
 animate(myView).now({x: 100}).then({y: 100}); //moves a view 100px to the right, then 100px downwards.
 ~~~
 
-### animate.setViewAnimator (animator)
-1. `animator {Animator}`
-
-Overrides the standard View animator with a custom one.
-
 ### animate.getGroup (id)
-1. `id {number}`
+1. `id {number}` ---The group identifier of the group to fetch.
 2. Return: `{Group}`
 
-Returns a Group.
-
+Returns the Group with the specified
+identifier. [See below](#class-group) for more information
+on groups.
 
 ## Class: animate.Animator
 
-The main force of animate.
+The animation engine.
 
 Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### new Animator (subject, group)
-1. `subject {object}`
-2. `group {Group}`
+1. `subject {object}` ---The view or object to animate.
+2. `group {Group}` ---The group object for this animation, [see below](#class-group)
 
-Creates a new Animator with an object with properties to animate, and a Group to add them to. (For internal or extending use only.)
+Creates a new Animator with a [View](../api/ui-view.html) or
+object to animate, with an optional Group to add them
+to. Note: the preferred method for creating an animator
+object is not to use the `new` keyword, but instead to
+invoke the animate function:
 
 ~~~
+// do not use:
+// var animator = new animate.Animator(object);
+// instead use this:
 var animator = animate(object);
 ~~~
 
 ### animator.clear ()
 1. Return: `{this}`
 
-Clears the animations currently scheduled. This will stop the animation immediately, without completing the animation.
+Clears any animation frames currently scheduled. This will
+stop the animation immediately without completing any
+additional frames.
 
 ~~~
 var myAnimation = animate(view).now({
   x: 100
 }, 5000);
+
 setTimeout( function() {
   myAnimation.clear(); //view.x has stopped in its tracks, without reaching the target value.
 }, 1500);
@@ -85,20 +104,22 @@ Pauses the animation.
 Returns whether the animation is paused.
 
 ### animator.resume ()
-1. Return: `{boolean}`
 
 Resumes the animation if paused.
 
 ### animator.hasFrames ()
 1. Return: `{boolean}`
 
-Returns whether there are any frames left to animate.
+Returns whether there are any frames left in the animation queue.
 
 ### animator.wait (duration)
-1. `duration {number}`
+1. `duration {number}` ---Duration of the wait in milliseconds.
 2. Return: `{this}`
 
-Queues a delay (in milliseconds). These can also be used in lieu of `setTimeout` functions when used in conjunction with `animator.then(callback)`, which affords greater control than `setTimeout`.
+Adds a delay (in milliseconds) to the animation queue. This
+function can be invoked instead of `setTimeout`, and when
+used in conjunction with `animator.then(callback)` affords
+greater timing control than `setTimeout`.
 
 ~~~
 animate(view).wait(500).then(function () {
@@ -109,11 +130,13 @@ animate(view).wait(500).then(function () {
 ### animator.now (target, duration, transition, onTick)
 1. `target {View|object}` ---Will interpolate the appropriate number values of the provided object.
 2. `duration {number}` ---Duration of the animation in milliseconds.
-3. `transition {number}` ---Type of animation transition. See [`animate` properties](#properties).
+3. `transition {number}` ---Type of animation transition. See below for transition types.
 4. `onTick {function}` ---A callback to control the speed of the transition.
 5. Return: `{this}`
 
-Starts an animation immediately.
+Starts an animation frame immediately. An animation frame is
+defined by the duration, transition type, and properties
+that are being "tweened" by the animation engine.
 
 An animation transition can be one of the following:
 
@@ -122,16 +145,16 @@ An animation transition can be one of the following:
 * `animate.easeOut` ---Animation has a slow end.
 * `animate.easeInOut` ---Animation has both slow start and slow end.
 
-### animator.now (callback)
-1. `callback {function}`
-2. Return: `{this}`
-
-Trigger a callback.
-
 ### animator.then (target, duration, transition, onTick)
-1. Return: `{this}`
+1. `target {View|object}` ---Will interpolate the appropriate number values of the provided object.
+2. `duration {number}` ---Duration of the animation in milliseconds.
+3. `transition {number}` ---Type of animation transition. See above for transition types.
+4. `onTick {function}` ---A callback to control the speed of the transition.
+5. Return: `{this}`
 
-Same as `.now()`, but adds to the queue.
+Similar to `.now()`, but adds the animation frame to the
+object's animation queue rather than animating the frame
+immediately.
 
 ~~~
 animate(view).then({
@@ -139,7 +162,7 @@ animate(view).then({
   y: 500
 }, 1000);
 
-//these can be chained
+// these can be chained
 animate(view).now({x: 10}, 300).then({
   x: 500,
   y: 500
@@ -153,31 +176,37 @@ animate(view).now({x: 10}, 300).then({
 ~~~
 
 ### animator.then (callback)
-1. `callback {function}`
+1. `callback {function}` ---The callback function to be invoked at the appropriate point in the queue.
 2. Return: `{this}`
 
-Same as `.now()`, but adds the callback to the queue.
+Adds a callback function to the queue. Useful for running
+code after an animation frame completes.
 
 ~~~
-animate.then(function(){
-  console.log('calling back.')
+animate(view).now({x: 10}).then(function(){
+  console.log('view has been moved to x = 10.');
 });
 ~~~
 
 ### animator.debug ()
 1. Return: `{this}`
 
-Turns debug logging on.
+Turns debug logging on. This will log information about the
+current animation frame like duration, transition, and what
+properties are being animated.
 
 ### animator.commit ()
 1. Return: `{this}`
 
-Finishes the animation immediately, moving all values to their end position. Unlike `clear`, this runs `onAnimationFinish()` for the animation's group.
+Finishes the animation immediately, moving all values to the
+position specified by the final frame in the animation
+queue.
 
 ~~~
 var myAnimation = animate(view).now({
   x: 100
 }, 5000);
+
 setTimeout( function() {
   myAnimation.commit(); //view.x is now at 100 and the animation is complete.
 }, 1500);
@@ -186,15 +215,17 @@ setTimeout( function() {
 
 ## Class: Group
 
-A group of animations. Typically used to track a complex animation involving multiple views.
+A group of animations. Groups are typically used to track a
+complex animation involving multiple view animations.
 
 ~~~
 animate(firstView, 'complexAnimation1').now({ //the second argument is the group id 
   x: 100
-});
+}, 100);
+
 animate(secondView, 'complexAnimation1').now({
   x: 100
-});
+}, 200);
 
 animate.getGroup('complexAnimation1').on('Finish', function(){
   console.log('The complex animation is finished!');
@@ -205,13 +236,13 @@ Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ### group.get (id)
-1. `id {number}`
+1. `id {string}` ---The identifier of the animation to fetch from the group.
 2. Return: `{Animator}`
 
-Returns an animation in the group.
+Returns an animation from the group.
 
 ### group.add (id, animation)
-1. `id {number}`
+1. `id {string}` ---The identifier of the animation to add to the group.
 2. `animation {Animator}`
 3. Return: `{Animator}`
 
@@ -220,14 +251,19 @@ Adds an animation to the group and returns it.
 ### group.isActive ()
 1. Return: `{boolean}`
 
-Returns whether there are any running animations in the group.
+Returns true if any animations in the group have frames in
+their animation queue.
 
 ### group.onAnimationFinish (animation)
+1. `animation {Animator}` ---The animation object to signal as being finished.
 
-Deletes the animation and publishes a `'Finish'` event.
+Removes an animation from the group. If none of the
+remaining animations in the group have frames left in their
+queue, the `finish` event will be published.
 
 ### Events
 
 #### \'Finish\'
 
-Published when the group animation finishes.
+Published when all animations in the group have completed
+all the frames in their respective animation queues.
