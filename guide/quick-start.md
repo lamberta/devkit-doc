@@ -12,9 +12,10 @@ to create your first application.
 
 Install the following software before installing the Game Closure SDK:
 
-* [Git](http://git-scm.com) (> 1.7.10)
+* [Git](http://git-scm.com) (> 1.7.2)
 * [Node.js](http://nodejs.org) (> 0.8)
-* [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ---Will auto-install.
+*
+  [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ---Will auto-install on OSX.
 * [Chrome](www.google.com/chrome)
 
 The easiest way to install these packages is through their
@@ -28,16 +29,12 @@ The Chrome web browser is the preferred development
 environment because of its superior debugging tools. This is
 the browser we use to develop the Game Closure SDK and test against.
 
-*NOTE*: OSX ships with an older version of `git` installed
-than we need to install `basil`. To see what version you're
-using, at the command line, type:
-
-~~~
-$ git --version
-~~~
-
-If you've installed a more recent version than you see here,
-you'll need to edit your `$PATH` environmental variable.
+If you installed the Xcode command-line tools, you may have
+a version of git that is less than 1.7.2. In this case,
+install a newer version---either by the git installer or a
+system package manager---and edit your `$PATH` variable so
+that the location of newer git is referenced before the
+older version.
 
 
 ## Install the SDK
@@ -60,7 +57,7 @@ $ cd sdk
 This downloads the SDK in to the `./sdk` directory located
 in your current working path. We then switch to that directory.
 
-Will everything up-to-date, we can now install `basil`:
+With everything up-to-date, we can now install `basil`:
 
 ~~~
 $ ./install.sh
@@ -74,13 +71,6 @@ simply run it in your terminal without any arguments:
 $ basil
 ~~~
 
-If you're getting permission errors when installing to the
-`/usr/local` directory, try running this command:
-
-~~~
-$ sudo chown -R $(whoami) /usr/local
-~~~
-
 This prints out a list of basil commands. You can get
 help for a particular command  by appending an `-h` option,
 for example:
@@ -89,6 +79,12 @@ for example:
 $ basil init -h
 ~~~
 
+If you're getting permission errors when installing to the
+`/usr/local` directory, try running this command:
+
+~~~
+$ sudo chown -R $(whoami) /usr/local
+~~~
 
 ## Update the SDK
 

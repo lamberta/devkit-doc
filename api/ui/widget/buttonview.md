@@ -15,8 +15,8 @@ import ui.widget.ButtonView as ButtonView;
 1. `options {object}`
 	* `onClick {function}` ---Shortcut way of assigning a callback to a click.
 	* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
-	* `toggleSelected {boolean} = false` ---When true, button will toggle inbetween `SELECTED` and `UNSELECT` state on every click.
-	* `images {Object}` ---Change the image to the specified image upon entering a state. The key referes to the state and the value is either `Image` or a `string` image path.
+	* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
+	* `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
 	* `sounds {Object}` ---Run a sound when the button enters a state.
 
 Change images and play a sound when the button toggles selected state.
@@ -24,27 +24,27 @@ Change images and play a sound when the button toggles selected state.
 ~~~
 import ui.widget.ButtonView as ButtonView;
 
-new ButtonView({
-	superview: parent,
-	width: 200,
-	height: 100,
-	x: 0,
-	y: 0,
-	images: {
-		"selected": "resources/selected.png",
-		"unselect": "resources/unselect.png"
-	},
-	sounds: {
-		"down": "resources/ting.mp3"
-	},
-	on: {
-		"down": function () {
-			console.log("This function is called when the button transitions to down!");
-		},
-		"up": function () {
-			console.log("This function is called when the button transitions to up!");
-		}
-	}
+var buttonview = new ButtonView({
+  superview: parent,
+  width: 200,
+  height: 100,
+  x: 0,
+  y: 0,
+  images: {
+  "selected": "resources/selected.png",
+  "unselect": "resources/unselect.png"
+  },
+  sounds: {
+    "down": "resources/ting.mp3"
+  },
+  on: {
+    "down": function () {
+      console.log("This function is called when the button transitions to down!");
+    },
+    "up": function () {
+      console.log("This function is called when the button transitions to up!");
+    }
+  }
 });
 ~~~
 
@@ -52,13 +52,15 @@ new ButtonView({
 
 1. `options {object}`
 
-Replaces the current options (including `images`, `sounds` and `on`) with the
-`options` object passed to this function. This replaces, and does not merge, the
-current options. This is similar to `TextView.updateOpts`. This means that you may want to `util.merge` the object you pass
+Replaces the current options (including `images`, `sounds`
+and `on`) with the `options` object passed to this
+function. This replaces, and does not merge, the current
+options. This is similar to `TextView.updateOpts`. This
+means that you may want to `util.merge` the object you pass
 in with the current options, like in the example below.
 
 ~~~
-var buttonView = new ButtonView({
+var buttonview = new ButtonView({
 	superview: parent,
 	width: 200,
 	height: 100,
