@@ -7,20 +7,13 @@ Inherits from:
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
 
-If items have to be presented in a list then the `ListView` is the class to use. The `ListView` subclasses `ScrollView` 
-which allows it to scroll vertical or horizontal. The `ListView` must be populated by cells of the type `Cell` or a 
-subclass of `Cell`.
+If you need to display a scrollable list that contains a large number of items, then `ListView` is the class for you. `ListView` is a subclass of [ScrollView](./ui-scrollview.html), which allows list items to be scrolled either vertically or horizontally. The `ListView` is populated by items of the type [Cell](#class-ui.widget.cellview), and is optimized to scroll smoothly even when the list contains a large number of items.
 
-Cells are created by the list based on data from a `DataSource`. When the list can display a cell it calls the `getCell`
-function which has to be provided as an opts property to the `ListView` constructor. The `getCell` function returns
-an instance of a cell.
+[Cells](#class-ui.widget.cellview) are created by the list based on data from a [DataSource](#class-gcdatasource). When the list first attempts to render a cell to the screen, it will invoke the `getCell` function, which you must provide as an opts property to the `ListView` constructor. Your `getCell` function must return a instance or subclass of the [Cell](#class-ui.widget.cellview) type.
 
-The `ListView` has a feature which allows it to keep performing excellent even with a large number of items: the 
-number of subviews in the list -instances or subclasses of `Cell`- is limited to the visible area of the view.
+`ListView` works by limiting the amount of subviews it has at any given time to the amount that fits into its visible area. When an item scrolls out of the visible boundary of the list, the [Cell](#class-ui.widget.cellview) instance is recycled and re-used for a cell which scrolls into its visible boundary. Right before a cell becomes visible, the `setData` function of the cell is invoked with the item's data as a parameter. By overriding this function, you can populate the contents of the cell with the current item's data.
 
-When a cell scrolls out of the boundary of the list it is recycled and used for a cell which scrolls into the boundary
-of the list. This limits the number of subviews of the list. Right before the cell becomes visible the `setData` 
-function of the cell is called with the data to show in the cell as a parameter.
+To see the ListView in action, check out [the example](../example/ui-listbasic/).
 
 ~~~
 import ui.widget.ListView as ListView;
@@ -65,7 +58,7 @@ listView.updateOpts({
 ### listView.setMaxX (maxX)
 1. `maxX {number}` ---The maximum width of the list to set.
 
-If the `autoSize` property passed to the constructor is true then calling `setMaxX` sets the
+If the `autoSize` property passed to the constructor is true, then calling `setMaxX` sets the
 height of the list to the given value. The x values for the scroll bounds (`minX` and `maxX`)
 are updated to allow the content to scroll within the given width.
 
