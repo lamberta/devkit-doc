@@ -1,6 +1,8 @@
 body {
   padding-top: 60px;
   padding-bottom: 40px;
+	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 400;
 }
 
 img.icon {
@@ -13,7 +15,7 @@ img.icon {
 
 .sidebar-nav h2 {
   font-size: 1.2em;
-  font-weight: 200;
+  font-weight: 300;
   color: #999;
   margin: 0;
 }
@@ -114,7 +116,7 @@ td.docs p a {
 }
 
 #main h1 a, #main h2, #main h3 {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 #main h3 a {
@@ -126,18 +128,17 @@ td.docs p a {
 }
 
 /*front-page*/
-
-.hero-unit {
-  padding: 20px 40px 10px 40px;
-  margin-bottom: 15px;
+#feature-list {
+	margin-top: 50px;
 }
 
 #feature-list dt {
-	font-size: 1em;
+	font-size: 1.5em;
+	font-weight: 300;
 }
 
 #feature-list dl {
-	font-size: 0.8em;
+	font-size: 1em;
 	line-height: 1.5em;
 }
 
