@@ -14,34 +14,64 @@ import math.util as util;
 3. `t {number}`
 4. Return: `{number}`
 
-Interpolate between values `a` and `b` at point `t` in the interval.
+Linearly interpolate between values `a` and `b` by the amount `t`.  Usually, `t` is a decimal value that ranges between 0 and 1. The result of the interpolation is `a` when `t = 0` and `b` when `t = 1`.  
 
+**Examples**  
+
+~~~
+util.interpolate(0,10,0) => 0 
+util.interpolate(0,10,0.5) => 5  
+util.interpolate(0,10,1) => 10  
+~~~
 ### util.random (a, b [, seed])
 1. `a {number}`
 2. `b {number}`
-3. `seed {number} = Math.random()` ---Optional.
+3. `seed {number} = Math.random()`
 4. Return: `{number}`
 
-Generate and return a random number from `a` to `b` (excluding `b`). Optionally, a random seed can be given.
- 
+Generate and return a random integer between `a` to `b` (excluding `b`). Note that `a` and `b` should be integer values. Optionally, a random seed can be given.
+
+**Examples**  
+
+~~~
+util.random(0,2) => 0 
+util.random(0,2) => 1  
+util.random(1,10) => 3
+~~~
+
 ### util.clip (n, min, max)
 1. `n {number}`
 2. `min {number}`
 3. `max {number}`
 3. Return: `{number}`
 
-Return a value `min` <= `n` <= `max`.
+Clips the value `n` to be within the range `min` to `max`. If `n` is larger than `max`, then `max` is returned. If `n` is smaller than `min`, then `min` is returned. Otherwise, `n` is returned.
+
+**Examples**  
+
+~~~
+util.clip(10,0,20) => 10 
+util.clip(-3,0,20) => 0  
+util.clip(55,0,20) => 20  
+~~~
 
 ### util.sign (n)
 1. `n {number}`
 2. Return: `{number}` ---Possible values are `1`, `-1`, or `0`.
 
-Returns `1` if the value for `n` is positive, or `-1` if it is negative. If `n` is zero, return `0`.
+Returns `1` if the value for `n` is positive, and `-1` if it is negative. If `n` is zero, return `0`.
 
+**Examples**  
+
+~~~
+util.sign(40) => 1
+util.sign(-30) => -1  
+util.sign(0) => 0  
+~~~
 
 ## Module: math.array
 
-Basic functions for operating on one or more arrays.
+Basic functions for operating on one or more arrays. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/array.js)
 
 ~~~
 import math.array as array;
@@ -49,10 +79,17 @@ import math.array as array;
 
 ### array.average (array [,count])
 1. `array {array}`
-2. `count {number} = arr.length`
+2. `count {number} = array.length`
 3. Return: `{number}`
 
-Compute the average of an array.
+Compute the average of an array. `count` is an optional parameter which specifies the number of elements to average. By default, the entire array is averaged.
+
+**Examples**  
+
+~~~
+array.average([5,4,2,3,1]) => 3  
+array.average([5,4,2,3,1],2) => 4.5 
+~~~
 
 ### array.weightedAverage (array, weight [, count])
 1. `array {array}`
@@ -60,122 +97,274 @@ Compute the average of an array.
 3. `count {number} = array.length`
 4. Return: `{number}`
 
-Compute the weighted average of an array.
+Compute the average of an array and weighs the result by `weight`. `count` is an optional parameter which specifies the number of elements to average. By default, the entire array is averaged.
+
+**Examples**
+
+~~~
+array.weightedAverage([5,4,2,3,1],0.5) => 1.5
+array.weightedAverage([5,4,2,3,1],4,2) => 18
+~~~
 
 ### array.subtract (array1, array2)
 1. `array1 {array}`
 2. `array2 {array}`
 3. Return: `{array}` ---Returns `b - a`.
 
-Subtract `array2` from `array1`.
+Subtracts the elements in `array2` from the elements in `array1` and returns a new array containing the differences. The length of `array1` should not be longer than the length of `array2`.
+
+**Examples**  
+
+~~~
+array.subtract([5,4],[3,2]) => [2,2]  
+array.subtract([3,1],[0.5,2.1]) => [2.5,-1.1] 
+~~~
 
 ### array.stddev (array [, count])
 1. `array {array}`
 2. `count {number} = arr.length`
 3. Return: `{number}`
 
-Compute the standard deviation of an array.
+Compute the sample standard deviation of the values in `array`. Count is an optional parameter which specifies the number of elements to use in the calculation. By default, the entire array is used.
+
+**Examples**  
+
+~~~
+array.stddev([1,2,3,4,5]) => 1.5811388300841898 
+array.stddev([1,2,3,4,5],2) => 0.7071067811865476 
+~~~
 
 ### array.shuffle (array [, seed])
 1. `array {array}`
 2. `seed {number} = null`
-3. Return: `{array}` ---Returns the original, shuffled array.
+3. Return: `{array}` ---Returns the original array shuffled.
 
-Shuffle an array in-place.
+Shuffles an array in-place, which means that `array` is modified. The shuffled array is also returned for convenience.
+
+**Examples**  
+
+~~~
+array.shuffle([2,3,1,5]) => [5,3,1,2]  
+array.shuffle([2,3,1,5]) => [3,5,2,1]  
+~~~
 
 ### array.rotate (array, count)
 1. `array {array}`
-2. `count {number}` ---Positive numbers rotate left, negative numbers rotate right.
+2. `count {number}`
 3. Return: `{array}`
 
-Rotates an array's elements left. Returns a new array.
+Rotates `array`'s elements left by the amount specified by `count`. If `count` is negative, then the elements are rotated to the right. The rotated array is returned as a new array.
 
+**Examples**  
+
+~~~
+array.rotate([1,2,3,4,5],1) => [2,3,4,5,1] 
+array.rotate([1,2,3,4,5],2) => [3,4,5,1,2]  
+array.rotate([1,2,3,4,5],-1) => [5,1,2,3,4]  
+~~~
 
 ## Module: math.geom
 
-Math functions for 2D manipulation.
+Math functions for 2D manipulation. 
 
 ## Class: math.geom.Point
 
 An object with `x` and `y` numeric properties, typically
 representing coordinates on a Cartesian plane. In many cases
 it refers to a location on a device's screen, where the
-position `{x: 0, y: 0}` is the top-left corner.
+position `{x: 0, y: 0}` is the top-left corner. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/geom/Point.js)
 
 ~~~
 import math.geom.Point as Point;
 ~~~
 
-### new Point (x, y)
+### new Point ([x, y])
 1. `x {number} = 0`
 2. `y {number} = 0`
+
+Creates a point with the given `x` and `y` values. Both values are optional and default to 0.
 
 ### new Point (pt)
 1. `pt {object}`
 	* `x {number} = 0`
 	* `y {number} = 0`
 
-Creates a Point.
+Creates a new Point with `x` and `y` values equal to those in `pt`.
 
 ### point.rotate (radians)
 1. `radians {number}`
 2. Return: `{this}`
 
-Rotates this point around the origin by a value in radians.
+Rotates `point` around the origin by a value in radians given by `radians`.
+
+**Examples**  
+
+~~~
+var point = new Point(0,1)
+point.rotate(3.14159) => {x:0, y:-1} 
+point.rotate(1.57079) => {x:-1, y:0}
+~~~
 
 ### point.translate (x, y)
-1. `x {number} = 0`
-2. `y {number} = 0`
+1. `x {number}`
+2. `y {number}`
 3. Return `{this}`
+
+Translates `point` by the given `x` and `y` values. `x` indicates how much the point should move in the x direction and `y` indicates how much it should move in the y direction.
+
+**Examples**
+
+~~~
+var point = new Point(1,3)
+point.translate(3,5) => {x:4, y:8}
+point.translate(0,2) => {x:1, y:5}
+~~~
+
+### point.translate (pt)
+1. `pt {object}`
+2. Return `{this}`
+
+Translates `point` by the given point `pt`. `pt.x` indicates how much the point should move in the x direction and `pt.y` indicates how much it should move in the y direction.
+
+**Examples**
+
+~~~
+var point = new Point(1,3)
+point.translate(new Point(3,5)) => {x:4, y:8}
+point.translate(new Point(0,2)) => {x:1, y:5}
+~~~
 
 ### point.add (x, y)
+### point.add (pt)
 
-Alias for `point.translate`.
+Aliases for `point.translate`.
+
+**Examples**
+
+~~~
+var point = new Point(5,2)
+point.add(2,1) => {x:7, y:3}
+point.add(1,1) => {x:6, y:3}
+~~~
 
 ### point.subtract (x, y)
-1. `x {number} = 0`
-2. `y {number} = 0`
+1. `x {number}`
+2. `y {number}`
 3. Return `{this}`
 
-Subtract this point by two scalars or by another point.
+Subtract `x` and `y` from the x and y values of `point`.
+
+**Examples**
+
+~~~
+var point = new Point()
+point.subtract(4,3) => {x: -4, y: -3}
+point.subtract(9,0) => {x: -9, y: 0}
+~~~
+
+### point.subtract (pt)
+1. `pt {object}`
+2. Return `{this}`
+
+Subtract the point `pt` from `point`.`pt.x` is subtracted from from the x value of `point` and `pt.y` is subtracted from the y value of `point`.
+
+**Examples**
+
+~~~
+var point = new Point(1,2)
+point.subtract(new Point(3,4)) => {x: -2, y: -2}
+point.subtract(new Point(1,5)) => {x: 0, y: -3}
+~~~
 
 ### point.scale (factor)
 1. `factor {number}`
 2. Return: `{this}`
 
-Scale point by the given factor.
+Scale x and y values of point by the given factor.
+
+**Examples**
+
+~~~
+var point = new Point(3,6)
+point.scale(3) => {x: 9, y: 18}
+point.scale(1.5) => {x: 4.5, y: 9}
+point.scale(0) => {x: 0, y: 0}
+~~~
 
 ### point.normalize ()
 1. Return: `{number}`
 
-Normalize this point to the unit circle.
+Sets the magnitude of `point` to one, while keeping its direction constant.  
+Magnitude can be thought of as the distance from the point to the origin.
+
+**Examples**
+
+~~~
+(new Point(2,2)).normalize() => {x: 0.7071, y: 0.7071}
+(new Point(3,5)).normalize() => {x: 0.51449, y: 0.85749}
+(new Point(0,-5)).normalize() => {x: 0, y: -1}
+~~~
 
 ### point.setMagnitude (mag)
 1. `mag {number}`
 2. Return `{this}`
 
-Set the magnitude of this point at a constant angle.
+Set the magnitude of this point, while keeping its direction/angle constant.  
+Magnitude can be thought of as the distance from the point to the origin.
+
+~~~
+(new Point(1,2)).setMagnitude(4) => {x: 1.78885, y: 3.57770}
+(new Point(3,5)).setMagnitude(2) => {x: 1.02899, y: 1.71498}
+(new Point(0,-5)).setMagnitude(0.5) => {x: 0, y: -0.5}
+~~~
 
 ### point.addMagnitude (mag)
 1. `mag {number}`
 2. Return `{this}`
 
-Add a magnitude to a point.
+Add a magnitude to `point`, while keeping its direction/angle constant
+
+~~~
+(new Point(1,2)).addMagnitude(4) => {x: 2.78885, y: 5.57770}
+(new Point(3,5)).addMagnitude(2) => {x: 4.028991, y: 6.714985}
+(new Point(0,-5)).addMagnitude(0.5) => {x: 0, y: -4.5}
+~~~
 
 ### point.getMagnitude ()
 1. Return: `{number}`
 
-Return the magnitude of a point.
+Returns the magnitude of `point`.  
+Magnitude can be thought of as the distance from the point to the origin.
+
+~~~
+(new Point(1.78885,3.57770)).getMagnitude() => 4
+(new Point(1.02899,1.71498)).getMagnitude() => 2
+(new Point(0,-0.5)).getMagnitude() => 0.5
+~~~
 
 ### point.getSquaredMagnitude ()
 1. Return: `{number}`
 
-Return the magnitude of a point ... squared!
+Return the magnitude of `point` squared.  
+Magnitude can be thought of as the distance from the point to the origin.
+
+~~~
+(new Point(1.78885,3.57770)).getSquaredMagnitude() => 16
+(new Point(1.02899,1.71498)).getSquaredMagnitude() => 4
+(new Point(0,-0.5)).getSquaredMagnitude() => 0.25
+~~~
 
 ### point.getAngle ()
 1. Return: `{number}`
 
-Return the angle of a point by using `Math.atan2`.
+Return the angle of a point in radians. The angle is measured counter-clockwise from the positive x axis. If the `point.y` is greater than or equal to 0, the angle measurement is positive and ranges from 0 to 3.14159. If the `point.y` is less than 0, the angle measurement is negative and ranges from 0 to -3.14159.
+
+~~~
+(new Point(1,0)).getAngle() => 0
+(new Point(-1,0)).getAngle() => 3.14159
+(new Point(0,1)).getAngle() => 1.57079
+(new Point(0,-1)).getAngle() => -1.57079
+~~~
 
 ### point.getDirection ()
 1. Return: `{number}`
@@ -185,30 +374,75 @@ Alias for `point.getAngle`.
 
 ## Class: math.geom.Line
 
+A class for representing a line in a 2D plane. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/geom/Line.js)
+
 ~~~
 import math.geom.Line as Line;
 ~~~
 
-### new Line ([x1, y1, x2, y2])
+### new Line (x1, y1, x2, y2)
 1. `x1 {number}`
 2. `y1 {number}`
 3. `x2 {number}`
 4. `y2 {number}`
 
-### new Line ([point, point])
-1. `point {Point}`
-2. `point {Point}`
+Creates a new line that starts from the point at (`x1`, `y1`) and ends at (`x2`, `y2`).
+
+**Examples**
+
+~~~
+new Line(0,0,3,4) => {start: {x: 0, y: 0}, end: {x: 3, y: 4}}
+new Line(2,1,0,5) => {start: {x: 2, y: 1}, end: {x: 0, y: 5}}
+~~~
+
+### new Line (point, point)
+1. `point1 {Point}`
+2. `point2 {Point}`
+
+Creates a new line that starts from the point at `point1` and ends at `point2`.
+
+**Examples**
+
+~~~
+new Line(new Point(3,5),new Point(2,1)) => {start: {x: 3, y: 5}, end: {x: 2, y: 1}}
+new Line(new Point(0,1),new Point(9,4)) => {start: {x: 0, y: 1}, end: {x: 9, y: 4}}
+~~~
 
 ### line.start
 1. `{Point}`
 
+Returns the start point of the line
+
+**Examples**
+
+~~~
+var line = new Line(0,0,2,3)
+line.start => {x: 0, y: 0}
+~~~
+
 ### line.end
 1. `{Point}`
+
+Returns the start point of the line
+
+**Examples**
+
+~~~
+var line = new Line(0,0,2,3)
+line.end => {x: 2, y: 3}
+~~~
 
 ### line.getLength ()
 1. Return: `{number}`
 
-Return the length of a line.
+Returns the length of a line.
+
+**Examples**
+
+~~~
+var line = new Line(0,0,2,3)
+line.getLength() => 3.60555
+~~~
 
 ### line.getMagnitude ()
 
@@ -217,7 +451,7 @@ Alias for `line.getLength`.
 
 ## Class: math.geom.Circle
 
-Circles!
+Class used for representing circles. Functions are provided to scale and make copies of the object. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/geom/Circle.js)
 
 Inherits from:
 :    1. [math.geom.Point](#class-math.geom.point)
@@ -231,55 +465,165 @@ import math.geom.Circle as Circle;
 2. `y {number} = 0`
 3. `radius {number} = 0`
 
-### new Circle ([circle])
+Creates a circle centered at the point (`x`,`y`) with radius `radius`.
+
+**Examples**
+
+~~~
+new Circle(0,0,10) => {x: 0, y: 0, radius: 10}
+~~~
+
+### new Circle (circle)
 1. `circle {object}`
 	* `x {number} = 0`
 	* `y {number} = 0`
 	* `radius {number} = 0`
 
-Creates a Circle.
+Creates a copy of the input circle.
+
+**Examples**
+
+~~~
+var circle1 = new Circle(1,3,5)
+new Circle(circle1) => {x: 1, y: 3, radius: 5}
+~~~
 
 ### circle.scale (factor)
 1. `factor {number}`
 2. Return: `{this}`
 
-Scales the position and radius of the circle by a factor (where 1 = 100%).
+Scales **both** the position and radius of `circle` by a factor.
+
+**Examples**
+
+~~~
+var circle1 = new Circle(1,3,5)
+circle1.scale(3) => {x: 3, y: 9, radius: 15}
+~~~
 
 
 ## Class: math.geom.Rect
+
+Class used to represent rectangles. Functions are provided to perform unions and other tasks. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/geom/Rect.js)
 
 ~~~
 import math.geom.Rect as Rect;
 ~~~
 
-### new Rect ([x, y, width, height])
+### new Rect ()
+
+Creates a new rectangle with its top left point at (0,0) with 0 width and height.
+
+**Examples**
+
+~~~
+new Rect() => {x: 0, y: 0, width: 0, height: 0}
+~~~
+
+### new Rect (x, y, width, height)
 1. `x {number}`
 2. `y {number}`
 3. `width {number}`
 4. `height {number}`
 
-Creates a rect instance.
+Creates a new rectangle with its top left point at (`x`,`y`) with width set to `width` and height set to `height`.
+
+**Examples**
+
+~~~
+new Rect(1,3,5,10) => {x: 1, y: 3, width: 5, height: 10}
+new Rect(3,0,5,2) => {x: 3, y: 0, width: 5, height: 2}
+~~~
+
+### new Rect (pnt, width, height)
+1. `pnt {object}`
+2. `width {number}`
+3. `height {number}`
+
+Creates a new rectangle with its top left point at `pnt` with width set to `width` and height set to `height`.
+
+**Examples**
+
+~~~
+new Rect(new Point(6, 8), 5, 10) => {x: 6, y: 8, width: 5, height: 10}
+~~~
+
+### new Rect (pnt, pnt2)
+1. `pnt {object}`
+2. `pnt {object}`
+
+Creates a new rectangle with its top left point at `pnt` with width set to `pnt2.x` and height set to `pt2.y`.
+
+**Examples**
+
+~~~
+new Rect(new Point(2, 3),new Point(4, 7)) => {x: 2, y: 3, width: 4, height: 7}
+~~~
+
+### new Rect (rect)
+1. `rect {object}`
+
+Creates a copy of the input rectangle `rect`.
+
+**Examples**
+
+~~~
+var rect = new Rect(2, 3, 4, 7)
+new Rect(rect) => {x: 2, y: 3, width: 4, height: 7}
+~~~
 
 ### rect.normalize ()
 1. Return: `{this}`
 
-Normalize negative dimensions so that the rectange (x, y) is based on the upper left corner.
+Normalize negative dimensions so that the rectange is based on the upper left corner with positive dimensions.
 
-### rect.unionRect (rect)
-1. `rect {Rect}`
+**Examples**
 
-Resizes this rectangle to its union with another rectangle.
+~~~
+var rect = new Rect(5, 3, -4, 7)
+rect.normalize() => {x: 1, y: 3, width: 4, height: 7}
+~~~
+
+### rect.unionRect (rect2)
+1. `rect2 {Rect}`
+
+Sets `rect` to be the union with itself another rectangle `rect2`.
+
+**Examples**
+
+~~~
+var rect1 = new Rect(0, 0, 10, 5)
+var rect2 = new Rect(5, 2, 6, 2)
+rect1.unionRect(rect2) => {x: 5, y: 2, width: 5, height: 2}
+~~~
 
 ### rect.getCenter ()
 1. Return: `{Point}`
 
-Returns the center point of this circle.
+Returns the center point of the rectangle `rect`.
+
+**Examples**
+
+~~~
+var rect1 = new Rect(0, 0, 10, 5)
+rect1.getCenter() => {x: 5, y: 2.5}
+~~~
 
 ### rect.getCorner (corner)
 1. `corner {Rect.CORNER}`
 2. Return: `{Point}`
 
-Returns a point corresponding to the specified corner of the rectangle, found below.
+Returns a point corresponding to the specified corner of the rectangle. Valid options for the corner object is shown in the section below.
+
+**Examples**
+
+~~~
+var rect1 = new Rect(0, 2, 10, 5)
+rect1.getCorner(Rect.CORNER.TOP_LEFT) => {x: 0, y: 2}
+rect1.getCorner(Rect.CORNER.TOP_RIGHT) => {x: 10, y: 2}
+rect1.getCorner(Rect.CORNER.BOTTOM_LEFT) => {x: 0, y: 7}
+rect1.getCorner(Rect.CORNER.BOTTOM_RIGHT) => {x: 10, y: 7}
+~~~
 
 ### Class property: Rect.CORNER
 * `TOP_LEFT`
@@ -287,11 +631,24 @@ Returns a point corresponding to the specified corner of the rectangle, found be
 * `BOTTOM_LEFT`
 * `BOTTOM_RIGHT`
 
+
+Enum's used to represent the four corners of the rectangle object.
+
 ### rect.getSide (side)
 1. `side {Rect.SIDE}`
 2. Return: `{Line}`
 
-Returns a line corresponding to the specified side of the rectangle, found below.
+Returns a line corresponding to the specified side of the rectangle. The possible values for side can be found in the section below.
+
+**Examples**
+
+~~~
+var rect1 = new Rect(0, 2, 10, 5)
+rect1.getSide(Rect.SIDE.TOP)    => {start: {x: 0, y: 2}, end: {x: 10, y:2}}
+rect1.getSide(Rect.SIDE.RIGHT)  => {start: {x: 10, y: 2}, end: {x: 10, y:7}}
+rect1.getSide(Rect.SIDE.BOTTOM) => {start: {x: 10, y: 7}, end: {x: 0, y:7}}
+rect1.getSide(Rect.SIDE.LEFT)   => {start: {x: 0, y: 7}, end: {x: 0, y:2}}
+~~~
 
 ### Class property: Rect.SIDE
 * `TOP`
@@ -299,10 +656,11 @@ Returns a line corresponding to the specified side of the rectangle, found below
 * `BOTTOM`
 * `LEFT`
 
+Enum's used to represent the four sides of the rectangle object.
 
 ## Class: math.geom.Vec2D
 
-Model a vector in two-dimensional space.
+Model a vector in two-dimensional space. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/geom/Vec2D.js)
 
 ~~~
 import math.geom.Vec2D as Vec2D;
@@ -373,6 +731,7 @@ Returns this vector multiplied by a scalar.
 
 
 ## Module: math.geom.angle
+Class containing functions for working with angles. [Source code](https://github.com/gameclosure/js.io/blob/master/packages/math/geom/angle.js)
 
 ~~~
 import math.geom.angle as angle;
@@ -384,7 +743,13 @@ import math.geom.angle as angle;
 3. `weight {number} = 0.5` ---Float between 0.0 and 1.0
 4. Return: `{number}`
 
-Returns a weighted angle between two angles.
+Returns the weighted average of `angle1` and `angle2`. When `weight` is 0 then the result is `angle1`. When `weight` is 1.0 then the result is `angle2`.
+
+~~~
+angle.average(2.0,-2.5)   => 
+angle.average(2.0,-2.5,0) =>
+angle.average(2.0,-2.5,1) =>
+~~~
 
 ### angle.normalize (angle)
 1. `angle {number}`
