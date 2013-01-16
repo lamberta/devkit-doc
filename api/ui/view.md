@@ -148,8 +148,8 @@ using a DOM rendering backend.
 
 Notifies the `ui.Engine` that the view needs its position updated.
 
-### view.canHandleEvents (handleEvents [, ignoreSubviews])
-1. `handleEvents {boolean}`
+### view.setHandleEvents (handleEvents [, ignoreSubviews])
+1. `handleEvents {boolean} = true` ---Configure the view to handle or not handle input events.
 2. `ignoreSubviews {boolean} = false` ---Optionally block input events on all subviews.
 
 A view that can not handle events will pass them through to
