@@ -174,7 +174,7 @@ the input gesture that created it. For example, when the
 `'inputSelect'` event fires, a developer will want to know
 when, where, and which view the user touched. The objects
 provided to the handler functions of an event listener are
-instances of `event.input.InputEvent`.
+instances of `event.input.InputEvent`
 
 When an input event is created it is passed sequentially up
 a hierarchy of `ui.View` objects, with the top-most view being
@@ -186,19 +186,32 @@ propagation has two phases: *capturing* and *bubbling*. Capturing
 occurs when the event starts at the root node and follows the
 view heirarchy down to the target, whereas bubbling starts at the target node and
 follows the view heirarchy up to the root. You may attach a callback
-during the capturing phase by appending `'Capture'` after the event name.
+during the capturing phase by appending `'Capture'` after the event name.  
+  
+Usage of an input handler would look like:  
+
+~~~
+view.on('InputSelect', function (evt, pt) {
+  ...
+});
+~~~  
+
+More information on the types of input events which can occur can be found in:  
+  
+[ui.View](ui/view)  
+[ui.widget.ButtonView](ui/widget/buttonview) 
 
 ~~~
 import event.input.InputEvent as InputEvent;
 ~~~
 
 ### new InputEvent (id, type, x, y, root, target)
-1. `id {string}`
-2. `type {string}`
-3. `x {number}`
-4. `y {number}`
-5. `root {View}`
-6. `target {View}`
+1. `id {string}` --- unique ID representing the input, useful for multi-touch input events.
+2. `type {enum}` --- represents the type of event which occurred ('input:start', 'input:select', etc as described below).
+3. `x {number}` --- x - coordinate of the input event.
+4. `y {number}` --- y - coordinate of the input event.
+5. `root {View}` --- root view which the input event bubbled up to.
+6. `target {View}` --- the view which the input event occurred on.
 
 ### event.id
 1. `{number}`
@@ -206,33 +219,42 @@ import event.input.InputEvent as InputEvent;
 Each input type is identified by a unique ID, for example,
 the mouse will have the same identifier. For multi-touch
 input, there will be a distinct ID for each finger
-throughoout the drag.
+throughout a complete input event cycle (such as moving several 
+fingers across a device at the same time).  This way you can effectively
+manage multi-touch events which occur (for actions such as
+multi-touch gestures, ie. pinching, multi-finger swiping, etc).
 
 ### event.type
-1. `{string}`
+1. `{enum}`
 
-Input event type.
+An enum representing the type of event this is (0 - 4) represented by:  
+`'START', 'MOVE', 'SELECT', 'SCROLL', 'CLEAR'`  
+
+### event.point
+1. `{Point}`
+
+Needs Explanation
 
 ### event.srcPoint
 1. `{Point}`
 
-Object containing `x` and `y` coordinates of the event.
+Needs Explanation
 
 ### event.root
 1. `{View|null}`
 
-Top view where event is dispatched (the tree root).
+Top view where event is dispatched (the tree root).  When the input event is bubbled up, this is where the bubbling ends.
 
 ### event.target
 1. `{View|null}`
 
-Bottom view where the event occurred.
+Bottom view where the event occurred.  This should be the view which the
+handler is being registered on.
 
 ### event.when
 1. `{number}`
 
-Total elapsed number of dt's accumulated since the beginning
-of the application start.
+Elapsed time (in milliseconds) from when the app started.
 
 ### event.depth
 1. `{number} = 0`
