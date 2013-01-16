@@ -23,7 +23,6 @@ import ui.TextView as TextView;
 	* `color {string} = "#000000"` --- The color of the text.
 	* `backgroundColor {string} = null` --- The background color of the text view.
 	* `outlineColor {string} = null` --- Color of the outline surrounding the text.  A value of `null` means that an outline will not be present.
-	* `shadow {boolean} = false` --- 
 	* `shadowColor {string} = null` --- Color of the drop shadow behind the text. A value of `null` means that a shadow will not be present.
 	* `verticalPadding {number|array} = 0` --- The amount of vertical padding the text exhibits within the text view.
 	* `horizontalPadding {number|array} = 0` --- The amount of horizontal padding the text exhibits within the text view.
@@ -45,8 +44,7 @@ var text = new TextView({
 });
 ~~~
 
-A [complete example](../example/text-randomtextviews/) is available in the `addon-examples` package.  
-[Example usage of TextView options](../example/text-randomtextviews/) is also available in the `addon-examples` package.
+A [complete example](../example/text-textviewsclock/) is available in the `addon-examples` package.  
 
 The `TextView` supports several options for handling how a
 text is sized within the view. You can control these options
