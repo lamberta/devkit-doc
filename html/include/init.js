@@ -57,6 +57,16 @@ $(function () {
     return this.innerText.match(/^Module:|^Class:|^Singleton:|^Events|^Styles/);
   }).addClass('toc-section-header');
 
+	/* auto offset toc nav links to move out from top navbar
+	 */
+	$('nav li a').click(function (evt) {
+		evt.preventDefault();
+		//get link target element, remove '#'
+		var target = $("[id='"+ $(this).attr('href').slice(1) +"']")[0];
+		//scroll and offset
+		target.scrollIntoView(true);
+		window.scrollBy(0, -50); //offset amount
+	});
   
   /* mark navbar links as active if on the same page
    */
