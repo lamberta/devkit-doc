@@ -16,21 +16,21 @@ import ui.TextView as TextView;
 1. `options {object}` ---`TextView` specific options, also accepts [`View` options](./ui-view.html#new-view-options).
 	* `text {string}` ---The text to display.
 	* `size {number} = 12` ---The default font size of the text.
-	* `lineHeight {number} = 1.2`
-	* `lineWidth {number} = 2`
-	* `fontFamily {string} = device.defaultFontFamily`
+	* `lineHeight {number} = 1.2` ---How tall each line should be when wrap is turned on.
+	* `lineWidth {number} = 2` ---How wide each line should be in a wrap is turned on.
+	* `fontFamily {string} = device.defaultFontFamily` ---Font family to be used by the text in the text view (ex: "Helvetica")
 	* `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
 	* `color {string} = "#000000"` ---The color of the text.
-	* `backgroundColor {string} = null` ---The background color of the text.
-	* `outlineColor {string} = null`
-	* `shadowColor {string} = null`
-	* `verticalPadding {number|array} = 0`
-	* `horizontalPadding {number|array} = 0`
-	* `verticalAlign: "middle"` ---Options: `'top'`, `'bottom'`, `'middle'`.
-	* `horizontalAlign: "center"` ---Options: `'left'`, `'right'`, `'center'`, `'justify'`.
-	* `wrap {boolean} = true` ---Wrap the text to the following line (details below).
-	* `autoSize {boolean} = true` ---Fit view to text (details below).
-	* `autoFontSize {boolean} = true` ---Fit text to view (details below).
+	* `backgroundColor {string} = null` ---The background color of the text view.
+	* `outlineColor {string} = null` ---Color of the outline surrounding the text.  A value of `null` means that an outline will not be present.
+	* `shadowColor {string} = null` ---Color of the drop shadow behind the text. A value of `null` means that a shadow will not be present.
+	* `verticalPadding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
+	* `horizontalPadding {number|array} = 0` ---The amount of horizontal padding the text exhibits within the text view.
+	* `verticalAlign: "middle"` ---How the text should be aligned vertically within the text view. Options: `'top'`, `'bottom'`, `'middle'`.
+	* `horizontalAlign: "center"` ---How the text should be aligned horizontall within the text view. Options: `'left'`, `'right'`, `'center'`, `'justify'`.
+	* `wrap {boolean} = true` ---Whether or not the text should wrap. A description of the rules of wrapping when wrap is turned on can be found below.
+	* `autoSize {boolean} = true` ---Fit the text view to text (details below).
+	* `autoFontSize {boolean} = true` ---Fit text to the text view (details below).
 
 ~~~
 var text = new TextView({
@@ -39,13 +39,12 @@ var text = new TextView({
   y: 100,
   width: 400,
   text: "Hello, world!",
-  fontSize: 24,
-  shadow: true,
+  size: 24,
   shadowColor: '#999999'
 });
 ~~~
 
-A [complete example](../example/text-randomtextviews/) is available in the `addon-examples` package.
+A [complete example](../example/text-textviewsclock/) is available in the `addon-examples` package.  
 
 The `TextView` supports several options for handling how a
 text is sized within the view. You can control these options
@@ -92,7 +91,8 @@ through the properties `'autoSize'`, `'autoFontSize'` or `'wrap'`.
 ### text.setText (text)
 1. `text {string}`
 
-Set the display text.
+Set the display text. The text view will readjust itself
+with the current options using the given text.
 
 ### text.getText ()
 1. Return: `{string}`
