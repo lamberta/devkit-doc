@@ -30,16 +30,35 @@ img.icon {
 .logo {
   font-family: 'Puritan', 'Gill Sans', sans-serif;
   font-weight: 400;
-  font-size: 1.4em;
+  font-size: 1.7em;
   letter-spacing: -1px;
 }
 
 footer {
   margin: 0 auto;
-  font-size: 0.8em;
+  font-size: 0.6em;
   text-align: center;
   letter-spacing: 2px;
   color: #AAA;
+}
+
+.navbar-inner, .btn-primary {
+  background-color: #45aeea;
+	background-image: -webkit-linear-gradient(top, #54b4eb, #2fa4e7);
+  background-repeat: no-repeat;
+	border: 1px solid #1990d5;
+	border-width: 0 0 1px;
+  filter: none;
+}
+
+.navbar .nav > li > a {
+  color: white;
+  text-decoration: none;
+	text-shadow: 0 0 0 transparent;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle {
+	background-color: #0088cc;
 }
 
 .navbar-search .search-query {
@@ -154,6 +173,7 @@ td.docs p a {
 	font-size: 1em;
 	line-height: 1.5em;
 }
+
 
 /* adjust navbar spacing to avoid double-line */
 @media (max-width: 1040px) {
