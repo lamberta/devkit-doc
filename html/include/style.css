@@ -110,7 +110,7 @@ footer {
 }
 
 #toc > ul {
-  margin-left: -15px;
+  margin-left: 0;
   margin-right: 0;
 }
 
@@ -120,8 +120,32 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   color: #08C;
-	margin-left: 10px;
 }
+
+/** heirarchy styles */
+#toc > ul > li { /* level 1 */
+  font-size: 1.2em;
+}
+
+#toc ul li ul li a { /* level 2 */
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #d14;
+}
+
+#toc ul li ul li ul li a { /* level 3 */
+  font-size: 0.8em;
+  color: #0088cc;
+}
+
+#toc ul li ul li ul li a.toc-section-header {
+  font-weight: bold;
+}
+
+#toc ul li ul li ul li ul li a { /* level 3 */
+  font-style: italic;
+}
+
 
 #toc ul li a {
   margin-left: -15px;
