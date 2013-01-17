@@ -10,12 +10,17 @@ to create your first application.
 
 ## Prerequisites
 
+We're only supporting OSX at this time, but we've have some
+success running on Linux and Windows. If using an
+unsupported platform, make sure the following prerequisites
+are installed and the symlinks all work, and you may have
+some luck.
+
 Install the following software before installing the Game Closure SDK:
 
-* [Git](http://git-scm.com) (> 1.7.2)
+* [Git](http://git-scm.com) (> 1.7.10)
 * [Node.js](http://nodejs.org) (> 0.8)
-*
-  [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ---Will auto-install on OSX.
+* [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ---Will auto-install on OSX.
 * [Chrome](www.google.com/chrome)
 
 The easiest way to install these packages is through their
@@ -29,12 +34,10 @@ The Chrome web browser is the preferred development
 environment because of its superior debugging tools. This is
 the browser we use to develop the Game Closure SDK and test against.
 
-If you installed the Xcode command-line tools, you may have
-a version of git that is less than 1.7.2. In this case,
-install a newer version---either by the git installer or a
-system package manager---and edit your `$PATH` variable so
-that the location of newer git is referenced before the
-older version.
+If using OSX and building for native devices, you'll need to install the following:
+
+* [Xcode](https://developer.apple.com/xcode/)
+* Xcode Command Line tools
 
 
 ## Install the SDK
@@ -50,14 +53,13 @@ To download the Game Closure SDK, issue the following
 commands at the terminal:
 
 ~~~
-$ git clone git@github.com:gameclosure/sdk.git
+$ git clone https://github.com/gameclosure/sdk.git
 $ cd sdk
 ~~~
 
 This downloads the SDK in to the `./sdk` directory located
-in your current working path. We then switch to that directory.
-
-With everything up-to-date, we can now install `basil`:
+in your current working path. Switch to that directory and
+run the install script:
 
 ~~~
 $ ./install.sh
