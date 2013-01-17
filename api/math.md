@@ -25,6 +25,7 @@ util.interpolate(0,10,0)   => 0
 util.interpolate(0,10,0.5) => 5  
 util.interpolate(0,10,1)   => 10  
 ~~~
+
 ### util.random (a, b [, seed])
 1. `a {number}`
 2. `b {number}`
