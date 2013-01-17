@@ -122,19 +122,19 @@ footer {
   color: #08C;
 }
 
-/** heirarchy styles */
-#toc > ul > li { /* level 1 */
-  font-size: 1.2em;
+/*toc hierarchy styles*/
+#toc > ul > li { /*level 1*/
+  font-size: 1.1em;
 }
 
-#toc ul li ul li a { /* level 2 */
-  font-size: 0.9em;
+#toc ul li ul li a { /*level 2*/
+  font-size: 1.0em;
   font-weight: normal;
   color: #d14;
 }
 
-#toc ul li ul li ul li a { /* level 3 */
-  font-size: 0.8em;
+#toc ul li ul li ul li a { /*level 3*/
+  font-size: 0.9em;
   color: #0088cc;
 }
 
@@ -142,7 +142,7 @@ footer {
   font-weight: bold;
 }
 
-#toc ul li ul li ul li ul li a { /* level 3 */
+#toc ul li ul li ul li ul li a { /*level 3*/
   font-style: italic;
 }
 
