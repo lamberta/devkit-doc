@@ -308,22 +308,70 @@ GC.app.engine.on('Tick', function (dt) {
 ~~~
 
 ### Events
+  
+There are several input events which can be subscribed to 
+on a view.  Subscribing to these events allows you to do 
+things such as click or drag a view, or react to these 
+events within their respectives callbacks from the event
+handler.  
+  
+Input Events which can currently be subscribed to include:  
+
+- InputStart
+- InputSelect
+- InputMove  
+- InputOver
+- InputOut
+- InputScroll
+- DragStart
+- Drag  
+  
+and are described below.  
+  
+#### \'InputStart\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+Fired on a mousedown / touch occurrence. `event` represents the InputEvent which occurred from InputStart occurring. `point` is a point relative to the top-left corner of the view.
+
+Subscribe to the capture-phase event with `'InputStartCapture'`.  
+
+~~~
+view.on('InputStart', function (event, point) {
+  console.log("This view had touch begin on it at: " + point.x + "," + point.y);
+});
+~~~
 
 #### \'InputSelect\', callback (event, point)
 1. `event {InputEvent}`
 2. `point {Point}`
 
-Fired on mouseup/touchend. `point` is a point relative to
+Fired on a mouseup / touchend occurence. `event` represents the InputEvent which occurred from InputSelect occurring. `point` is a point relative to
 the top-left corner of the view. The capture-phase event
 is available by subscribing to `'InputSelectCapture'`.
 
 ~~~
-view.on('InputSelect', function (evt, pt) {
-  console.log("View clicked at position: " + pt.x + "," + pt.y);
+view.on('InputSelect', function (event, point) {
+  console.log("View clicked at position: " + point.x + "," + point.y);
+});
+~~~
+  
+  
+A [complete example](../example/events-input-click/) is available in the `addon-examples` package.
+ 
+#### \'InputMove\', callback (event, point)
+1. `event {InputEvent}`
+2. `point {Point}`
+
+Fired after an `'InputStart'` event, when the input is moving on the view.  
+
+~~~
+view.on('InputMove', function (event, point) {
+  console.log("This view had touch begin on it at: " + point.x + "," + point.y);
 });
 ~~~
 
-A [complete example](../example/events-input-click/) is available in the `addon-examples` package.
+A [complete example](../example/events-input-move/) is available in the `addon-examples` package.
 
 #### \'InputOver\', callback (over, overCount, atTarget)
 1. `over`
@@ -331,45 +379,46 @@ A [complete example](../example/events-input-click/) is available in the `addon-
 3. `atTarget`
 
 The event is fired when input is moved over a view.
-
+  
+~~~
+view.on('InputOver', function (over, overCount, atTarget) {
+  ...
+});
+~~~
 #### \'InputOut\', callback (over, overCount, atTarget)
 1. `over`
 2. `overCount {number}`
 3. `atTarget`
 
-The event is fired when input is moved off a view.
+The event is fired when input is moved off a view.  
+
+~~~
+view.on('InputOut', function (over, overCount, atTarget) {
+  ...
+});
+~~~
 
 A [complete example](../example/events-input-out/) is available in the `addon-examples` package.
 
-#### \'InputStart\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
-
-Fired on mousedown/touch. `point` is a point relative to the top-left corner of the view.
-
-Subscribe to the capture-phase event with `'InputStartCapture'`.
-
 #### \'InputScroll\', callback ()
-
-#### \'InputMove\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
-
-Fired after an `'InputStart'` event, when the input is moving on the device.
-
-A [complete example](../example/events-input-move/) is available in the `addon-examples` package.
 
 #### \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
 
-Fired when dragging starts.
+Fired when dragging starts.  `dragEvent` represents the event from which dragging started.
+
+~~~
+view.on('DragStart', function (dragEvent, selectEvent) {
+  console.log("Drag started at " + dragEvt.srcPoint);
+});
+~~~
 
 #### \'Drag\', callback (dragEvent, moveEvent, delta)
 1. `dragEvent {InputEvent}`
 2. `moveEvent {InputEvent}`
 3. `delta {number}`
 
-Fired during dragging.
+Fired during dragging. `dragEvent` represents the event from which dragging started. `moveEvent` represents the event occuring from movement on the view. `delta` represents the difference between the last `moveEvent` and this one.
 
 ~~~
 view.on('Drag', function (dragEvent, moveEvent, delta) {
@@ -383,7 +432,7 @@ view.on('Drag', function (dragEvent, moveEvent, delta) {
 1. `dragEvent {InputEvent}`
 2. `selectEvent {InputEvent}`
 
-Fired when dragging is stopped.
+Fired when dragging is stopped.  `dragEvent` represents the event from which dragging started.  `selectEvent` represents the event which occurs when the dragging has stopped.
 
 ~~~
 view.on('DragStop', function (dragEvent, selectEvent) {
