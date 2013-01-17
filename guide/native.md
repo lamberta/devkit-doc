@@ -10,8 +10,6 @@ local machine. If you are using the
 [Homebrew](http://mxcl.github.com/homebrew/) package
 manager, run:
 
-test
-
 ~~~
 $ brew install android
 ~~~
