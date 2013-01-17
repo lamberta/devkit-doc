@@ -51,6 +51,11 @@ footer {
   filter: none;
 }
 
+/*override weird hover animation from bootstrap*/
+.btn:hover {
+	background-position: 0 0 !important;
+}
+
 .navbar .nav > li > a {
   color: white;
   text-decoration: none;
