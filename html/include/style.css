@@ -110,7 +110,7 @@ footer {
 }
 
 #toc > ul {
-  margin-left: 0;
+  margin-left: -15px;
   margin-right: 0;
 }
 
@@ -120,6 +120,7 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   color: #08C;
+	margin-left: 10px;
 }
 
 #toc ul li a {
@@ -130,9 +131,6 @@ footer {
 }
 
 #toc ul li > a:hover {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
   text-decoration: none;
 }
 
