@@ -15,7 +15,7 @@ known as [publish-subscribe](http://en.wikipedia.org/wiki/Publish–subscribe_pa
 where objects communicate with each other by sending
 events. An event is labeled by a text string, and any object
 that inherits from `event.Emitter` can subscribe to this
-event and execute a callback function when it recieves the
+event and execute a callback function when it receives the
 event. Any number of callbacks can be associated with a
 particular event, allowing multiple listeners to register
 callbacks for the event without the emitter object knowing
@@ -171,7 +171,7 @@ Emitted when a new listener is added to the object.
 
 Input events provide an object that encapsulates data about
 the input gesture that created it. For example, when the
-`'inputSelect'` event fires, a developer will want to know
+`'InputSelect'` event fires, a developer will want to know
 when, where, and which view the user touched. The objects
 provided to the handler functions of an event listener are
 instances of `event.input.InputEvent`
@@ -184,8 +184,8 @@ Events are assigned a *target*, the view where it occurred,
 and a *root*, the root view where it's dispatched. Event
 propagation has two phases: *capturing* and *bubbling*. Capturing
 occurs when the event starts at the root node and follows the
-view heirarchy down to the target, whereas bubbling starts at the target node and
-follows the view heirarchy up to the root. You may attach a callback
+view hierarchy down to the target, whereas bubbling starts at the target node and
+follows the view hierarchy up to the root. You may attach a callback
 during the capturing phase by appending `'Capture'` after the event name.  
   
 Usage of an input handler would look like:  
@@ -206,12 +206,12 @@ import event.input.InputEvent as InputEvent;
 ~~~
 
 ### new InputEvent (id, type, x, y, root, target)
-1. `id {string}` --- unique ID representing the input, useful for multi-touch input events.
-2. `type {enum}` --- represents the type of event which occurred ('input:start', 'input:select', etc as described below).
-3. `x {number}` --- x - coordinate of the input event.
-4. `y {number}` --- y - coordinate of the input event.
-5. `root {View}` --- root view which the input event bubbled up to.
-6. `target {View}` --- the view which the input event occurred on.
+1. `id {string}` ---Unique ID representing the input, useful for multi-touch input events.
+2. `type {number}` ---Represents the type of event which occurred.
+3. `x {number}` ---The x-coordinate position of the input event.
+4. `y {number}` ---The y-coordinate position of the input event.
+5. `root {View}` ---Root view which the input event bubbled up to.
+6. `target {View}` ---The view which the input event occurred on.
 
 ### event.id
 1. `{number}`
@@ -222,23 +222,28 @@ input, there will be a distinct ID for each finger
 throughout a complete input event cycle (such as moving several 
 fingers across a device at the same time).  This way you can effectively
 manage multi-touch events which occur (for actions such as
-multi-touch gestures, ie. pinching, multi-finger swiping, etc).
+multi-touch gestures, i.e. pinching, multi-finger swiping, etc).
 
 ### event.type
-1. `{enum}`
+1. `{number}` ---A integer value 0-4 representing an event type.
 
-An enum representing the type of event this is (0 - 4) represented by:  
-`'START', 'MOVE', 'SELECT', 'SCROLL', 'CLEAR'`  
+An event type can be one of the following enumerable values:
 
-### event.point
-1. `{Point}`
+~~~
+from event.input.dispatch import eventTypes;
+~~~
 
-Needs Explanation
+* `eventTypes.START {number} = 0` ---Event input has started.
+* `eventTypes.MOVE {number} = 1` ---Event input has moved.
+* `eventTypes.SELECT {number} = 2` ---A view has been selected by input.
+* `eventTypes.SCROLL {number} = 3` ---A view has been scrolled.
+* `eventTypes.CLEAR {number} = 4` ---An event is no longer over the active input.
 
 ### event.srcPoint
 1. `{Point}`
 
-Needs Explanation
+Object containing `x` and `y` coordinate position where the
+event was dispatched.
 
 ### event.root
 1. `{View|null}`
