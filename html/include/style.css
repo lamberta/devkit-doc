@@ -110,7 +110,7 @@ footer {
 }
 
 #toc > ul {
-  margin-left: -15px;
+  margin-left: 0;
   margin-right: 0;
 }
 
@@ -120,7 +120,6 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   color: #08C;
-	margin-left: 10px;
 }
 
 #toc ul li a {
