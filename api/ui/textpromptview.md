@@ -35,3 +35,15 @@ A [complete example](../example/text-prompt/) is available in the `addon-example
 ### textPromptView.showPrompt()
 
 Show the input dialog.
+
+### Events
+
+#### \'Change\', callback(value)
+
+* `value {string}` --- the new value
+
+The `Change` event is published when the text in the dialog is changed and ok is pressed.
+
+#### \'Cancel\', callback()
+
+The `Cancel` event is published when the cancel button in the dialog is pressed.
