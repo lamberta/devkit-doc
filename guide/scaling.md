@@ -26,13 +26,13 @@ preserving their aspect ratios and without stretching. Notice the
 extra padding on the right and left margins of the green and
 red boxes.
 
-<img src="../assets/guide/scaling/aspect-ratio-1.png" alt="aspect ratio 1" class="screenshot">
+<img src="./assets/scaling/aspect-ratio-1.png" alt="aspect ratio 1" class="screenshot">
 
 And here's how the 16:9 and 3:2 aspect ratios are confined
 within a 4:3 ratio; now there is vertical padding at the top
 and bottom:
 
-<img src="../assets/guide/scaling/aspect-ratio-2.png" alt="aspect ratio 2" class="screenshot">
+<img src="./assets/scaling/aspect-ratio-2.png" alt="aspect ratio 2" class="screenshot">
 
 In these diagrams the different ratios are centered within
 the constraining view. If desired, the constrained ratio
@@ -173,13 +173,13 @@ other devices.
 In this example we'll create a scene that fits multiple
 devices. First, here's how it looks on the iPhone simulator:
 
-<img src="../assets/guide/scaling/scale-iphone.png" alt="scaling iphone screenshot" class="screenshot">
+<img src="./assets/scaling/scale-iphone.png" alt="scaling iphone screenshot" class="screenshot">
 
 By switching the device simulator to a larger device---like
 the Galaxy Nexus tablet---we can see how this scene is
 displayed to fill the entire screen:
 
-<img src="../assets/guide/scaling/scale-tablet.png" alt="scaling tablet screenshot" class="screenshot">
+<img src="./assets/scaling/scale-tablet.png" alt="scaling tablet screenshot" class="screenshot">
 
 And here's the code to set up the background `ImageView` and
 our sprite that walks along the lunar surface:
