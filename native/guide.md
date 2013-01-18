@@ -1,6 +1,12 @@
-# Build for Native Devices
+# Deploying on Mobile Devices
+
+## Overview
+
+The Game Closure SDK supports Android and iOS targets.
 
 ## Android
+
+Introducing [./android/]().
 
 ### Install the Android SDK
 
@@ -12,9 +18,7 @@ manager, run:
 
 test
 
-~~~
-$ brew install android
-~~~
+`$ brew install android`
 
 Running `android` at the command-line brings up a GUI
 front-end that will install the latest target. Install the
@@ -27,6 +31,7 @@ Clone the Game Closure
 to this directory and make sure everything is up-to-date:
 
 ~~~
+$ git clone git@github.com:gameclosure/android.git
 $ cd ./android
 $ git submodule update --init
 ~~~

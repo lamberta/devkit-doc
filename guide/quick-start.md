@@ -34,11 +34,10 @@ The Chrome web browser is the preferred development
 environment because of its superior debugging tools. This is
 the browser we use to develop the Game Closure SDK and test against.
 
-If using OSX and building for native devices, you'll need to install the following:
+If using OSX and building for native devices, you'll need to install the following from the [Apple Developer Site](https://developer.apple.com/downloads/).  You may need to advance to the second page of downloads to find each of these items:
 
-* [Xcode](https://developer.apple.com/xcode/)
-* Xcode Command Line tools
-
+* XCode Command Line tools (November 2012 or newer)
+* XCode (4.4 or newer)
 
 ## Install the SDK
 
