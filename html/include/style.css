@@ -186,6 +186,10 @@ td.docs p a {
   color: #d14;
 }
 
+#main ol {
+	list-style-type: square;
+}
+
 /*front-page*/
 #feature-list {
 	margin-top: 50px;
