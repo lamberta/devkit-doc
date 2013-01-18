@@ -201,6 +201,25 @@ td.docs p a {
 	line-height: 1.5em;
 }
 
+.figure-wrapper {
+	text-align: center;
+}
+
+figure {
+	margin: 15px auto;
+	text-align: center;
+	display: inline-block;
+}
+
+figcaption {
+	font-weight: 700;
+	font-size: 0.9em;
+	margin-top: 10px;
+}
+
+figcaption:before {
+	content: "Figure: ";
+}
 
 /* adjust navbar spacing to avoid double-line */
 @media (max-width: 1040px) {

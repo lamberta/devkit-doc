@@ -20,10 +20,8 @@ import ui.ImageView as ImageView;
 
 ### new ImageView ([options])
 1. `options {object}`
-	* `image {string|ui.resource.Image} = false` ---Image to render. A path in the resources directory or `Image` instance.
+	* `image {string|ui.resource.Image} = false` ---Image to render. A path in the resources directory or [`Image`](#class-ui.resource.image) instance.
 	* `autoSize {boolean} = false` ---If `false`, stretch the image to the dimensions of the view. Use the image dimensions if `true`.
-
-Create an ImageView.
 
 ~~~
 var imageview = new ImageView({
@@ -49,7 +47,7 @@ Returns the internal `ui.resource.Image` instance to be rendered.
 Set the image from its path in the resources directory. This
 will create a new `Image` instance on each call to
 `setImage`. Doing this frequently may cause garbage
-collection issues so consider using `Image` instead of path strings.
+collection issues so consider using `Image` instead of path strings *(see definition below)*.
 
 ~~~
 imageview.setImage('resources/images/example2.png');
@@ -131,22 +129,27 @@ import ui.ImageScaleView as ImageScaleView;
 
 #### 9-Slice Options
 
-The `destSlices` option can be omitted, if so the values of
-`sourceSlices` will be used as destination slices.
+The `sourceSlices` is an object that specifies where the slices 
+start and end. For 9-slice you need to specify the sizes of the 
+3 columns and 3 rows. `horizontal` refers to the columns and `vertical` 
+refers to the rows if you were to visualise it as a grid. 
 
-The sum of the source `left`, `center` and `right` options
-is treated as 100% of the image. For example: If an image
-with a width of 80 pixels is used and the `left` and `right`
-values are 20 and the `center` value is 60 then there will
-be 80 * 20 / (20 + 60 + 20) pixels used for the sides and 80
-* 60 / (20 + 60 + 20) will be used to fill the center.
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/9slice.png" class="diagram" />
+<figcaption>Demonstrates how the `sourceSlices` object determines slice sizes and the
+effects after resizing the view.</figcaption>
+</figure>
+</div>
 
-If the quality of the image needs to be increased and the
-ratios of the sides on the source image don't change then
-the 9-slice settings don't have to be adjusted. For example:
-The image is sized to a width of 120 pixels then there will
-be 120 * 20 / (20 + 60 + 20) pixels used for the sides and
-120 * 60 / (20 + 60 + 20) will be used to fill the center.
+The above diagram demonstrates how the numbers in `sourceSlices` represent the width
+of the horizontal slices and heights of the vertical slices. It also
+shows how resizing will retain the sizes of the corner slices
+while only stretching the edge and center slice.
+
+The `destSlices` option is an advanced option to change the size of
+the slices when it's rendered. By default it will retain it's original
+size (by using the values in `sourceSlices`).
 
 #### Overlapping Sides
 
@@ -160,10 +163,7 @@ side.
 
 #### Using 6-Slice
 
-If the `scaleMethod` is set to `'6slice'` then you can control the direction of the slices through the source slice
-properties.
-
-For horizontal slices you have to pass the following properties:
+For horizontal slices you must pass the following properties:
 
 * `sourceSlices {object}`
 	* `horizontal {object}`
@@ -181,7 +181,14 @@ For horizontal slices you have to pass the following properties:
 		* `top {number}`
 		* `bottom {number}`
 
-For vertical slices you have to pass the following properties:
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/6slice-h.png" class="diagram" />
+<figcaption>Horizontal 6-slice.</figcaption>
+</figure>
+</div>
+
+For vertical slices you must pass the following properties:
 
 * `sourceSlices {object}`
 	* `horizontal {object}`
@@ -198,14 +205,17 @@ For vertical slices you have to pass the following properties:
 	* `vertical {object}`
 		* `top {number}`
 		* `bottom {number}`
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/6slice-v.png" class="diagram" />
+<figcaption>Vertical 6-slice.</figcaption>
+</figure>
+</div>
 
 #### Using 3-Slice
 
-If the `scaleMethod` is set to `'3slice'` then you can
-control the direction of the slices through the source slice
-properties.
-
-For horizontal slices you have to pass the following properties:
+For horizontal slices you must pass the following properties:
 
 * `sourceSlices {object}`
 	* `horizontal {object}`
@@ -217,7 +227,14 @@ For horizontal slices you have to pass the following properties:
 		* `left {number}`
 		* `right {number}`
 
-For vertical slices you have to pass the following properties:
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/3slice-h.png" class="diagram" />
+<figcaption>Horizontal 3-slice.</figcaption>
+</figure>
+</div>
+
+For vertical slices you must pass the following properties:
 
 * `sourceSlices {object}`
 	* `vertical {object}`
@@ -228,6 +245,13 @@ For vertical slices you have to pass the following properties:
 	* `vertical {object}`
 		* `top {number}`
 		* `bottom {number}`
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/3slice-v.png" class="diagram" />
+<figcaption>Vertical 3-slice.</figcaption>
+</figure>
+</div>
 
 #### Using 2-Slice
 
@@ -235,7 +259,7 @@ If the `scaleMethod` is set to `'2slice'` then you can
 control the direction of the slices through the source slice
 properties.
 
-For horizontal slices you have to pass the following properties:
+For horizontal slices you must pass the following properties:
 
 * `sourceSlices {object}`
 	* `horizontal {object}`
@@ -245,7 +269,14 @@ For horizontal slices you have to pass the following properties:
 	* `horizontal {object}`
 		* `left {number}`
 
-For vertical slices you have to pass the following properties:
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/2slice-h.png" class="diagram" />
+<figcaption>Horizontal 2-slice.</figcaption>
+</figure>
+</div>
+
+For vertical slices you must pass the following properties:
 
 * `sourceSlices {object}`
 	* `vertical {object}`
@@ -255,10 +286,19 @@ For vertical slices you have to pass the following properties:
 	* `vertical {object}`
 		* `top {number}`
 
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ui-imageview/2slice-v.png" class="diagram" />
+<figcaption>Vertical 2-slice.</figcaption>
+</figure>
+</div>
 
 ## Class: ui.resource.Image
 
-Model an Image for rendering. Supports taking a subset of
+This class represents an Image resource. It is not
+renderable without a `View`. A view will use this resource
+as the source and can therefore do advanced rendering with the
+resource. Supports taking a subset of
 images, to support extracting from compacted sprite
 sheets. Also supports applying filters to an image, usually
 by the View class.
