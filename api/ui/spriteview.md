@@ -1,5 +1,10 @@
 # ui.SpriteView
 
+Examples:
+
+* [A Basic SpriteView](../example/ui-spriteview-basic/)
+
+
 A *Sprite* consists of multiple *animations* (walk, run,
 etc.) which themselves are made of multiple *frames*.
 
@@ -86,7 +91,7 @@ var sprite = new SpriteView({
 });
 ~~~
 
-A [complete example](../example/ui-spriteview-basic/) is available in the `addon-examples` package.
+
 
 ### sprite.startAnimation (name [, options])
 1. `name {string}`

@@ -1,5 +1,10 @@
 # ui.widget.ListView
 
+Examples:
+
+* [Basic ListView](../example/ui-list-basic/).
+
+
 ## Class: ui.widget.ListView
 
 Inherits from:
@@ -36,8 +41,6 @@ data as a parameter. By overriding this function, you can
 populate the contents of the cell with the current item's
 data.
 
-To see the `ListView` in action, check out [the example](../example/ui-listbasic/).
-
 ~~~
 import ui.widget.ListView as ListView;
 ~~~
@@ -66,8 +69,6 @@ var listview = new ListView({
   }
 });
 ~~~
-
-A [complete example](../example/ui-list-basic/) is available in the `addon-examples` package.
 
 ### listview.updateOpts (options)
 1. `options {object}`
@@ -225,8 +226,6 @@ re-render the entire collection any time the collection is
 modified in some way. Instead of re-rendering the entire
 list, you can simply update individual UI items based on the
 events the datasource publishes.
-
-For more information, check out the [Listview example](../example/ui-listbasic/).
 
 ~~~
 import GCDataSource;

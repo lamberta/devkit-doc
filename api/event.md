@@ -7,6 +7,10 @@ list is provided in that component's API documentation. For
 example, here are the [available events](./ui-view.html#events) 
 on all objects that inherit from `ui.View`.
 
+Examples:
+
+* [Subscribe to an event](../example/events-on/)
+* [Subscribe to an event once](../example/events-once/)
 
 ## Class: event.Emitter
 
@@ -89,7 +93,7 @@ emitter.on('add', function (a, b) {
 emitter.emit('add', 3, 5);  //=> true (console prints "The sum is 8")
 ~~~
 
-A [complete example](../example/events-on/) is available in the `addon-examples` package.
+
 
 ### emitter.addListener (type, callback)
 
@@ -109,7 +113,7 @@ emitter.emit('one-time'); //=> true
 emitter.emit('one-time'); //=> false
 ~~~
 
-A [complete example](../example/events-once/) is available in the `addon-examples` package.
+
 
 ### emitter.removeListener (type, callback)
 1. `type {string}` ---The name of the event type.

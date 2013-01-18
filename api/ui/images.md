@@ -1,5 +1,11 @@
 # Images
 
+Examples:
+
+* [A Basic Image](../example/images-basic/)
+* [9-Slice Scaling](../example/images-nine-slice/)
+
+
 ## Class: ui.ImageView
 
 Display an image within a `View`.
@@ -29,8 +35,6 @@ var imageview = new ImageView({
   y: 0
 });
 ~~~
-
-A [complete example](../example/images-basic/) is available in the `addon-examples` package.
 
 ### imageview.getImage ()
 1. Return: `{ui.resource.Image}`
@@ -101,8 +105,6 @@ Inherits from:
 ~~~
 import ui.ImageScaleView as ImageScaleView;
 ~~~
-
-[complete example](../example/images-nine-slice/) is available in the `addon-examples` package.
 
 ### new ImageScaleView ([options])
 1. `options {object}`

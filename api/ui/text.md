@@ -1,5 +1,10 @@
 # Text
 
+Examples:
+
+* [TextView Clock](../example/text-textviewsclock/)
+
+
 ## Class: ui.TextView
 
 Display text on a screen within a `View`.
@@ -43,8 +48,6 @@ var text = new TextView({
   shadowColor: '#999999'
 });
 ~~~
-
-A [complete example](../example/text-textviewsclock/) is available in the `addon-examples` package.  
 
 The `TextView` supports several options for handling how a
 text is sized within the view. You can control these options

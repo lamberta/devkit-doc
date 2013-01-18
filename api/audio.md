@@ -71,7 +71,7 @@ var audiomanager = new AudioManager({
 Add a sound to the sound group.
 
 ~~~
-audiomanager.addSound ('pop', {
+audiomanager.addSound('pop', {
   path: 'effect',
   background: false
 });

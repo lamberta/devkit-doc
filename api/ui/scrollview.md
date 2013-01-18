@@ -5,6 +5,11 @@ drag through user input. Useful for implementing
 2D cameras, viewports or interfaces that are too
 large for a phone screen and require scrolling.
 
+Examples:
+
+[A Basic ScrollView](../example/ui-scrollview-basic/)
+
+
 ## Class: ui.ScrollView
 
 Inherits from:
@@ -63,7 +68,7 @@ var worldmap = new ui.ImageView({
 scrollview.addSubview(worldmap); //add the big image to the scrollview
 ~~~
 
-<span class='examples'>A [complete example](../example/ui-scrollview-basic/) is available in the `addon-examples` package.</span>
+
 
 `ScrollView` will create a subview called `contentView`. This is where all
 the subviews will be placed and the `contentView` will be positioned

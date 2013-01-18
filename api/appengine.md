@@ -1,4 +1,4 @@
-# Application and Scene Graph
+# Game Application and Scene Graph
 
 This document contains information on the classes and
 instances that are initialized when the game engine is

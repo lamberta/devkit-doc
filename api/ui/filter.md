@@ -28,9 +28,7 @@ var filteredView = new ImageView({
 	viewFilter: new LinearAddFilter({r: 255, g: 0, b: 0, a: 1.0})
 });	
 
-filteredView.style.viewFilter = new MultiplyFilter({r: 255, g: 150, b: 0, a: 0.5})
-
-
+filteredView.style.viewFilter = new MultiplyFilter({r: 255, g: 150, b: 0, a: 0.5});
 ~~~
 
 ## Class: ui.filter.LinearAddFilter

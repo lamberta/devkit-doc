@@ -6,8 +6,13 @@ tiles. The width of each tile is equal to the width of the
 of each tile is equal to the height of the `GridView`
 divided by the number of rows.
 
-<span class='example'>A [complete example](../example/ui-grid-basic/) is available in the `addon-examples` package.</span>
+Examples:
 
+* [Basic GridView](../example/ui-grid-basic/)
+* [Move a Cell](../example/ui-grid-movecell/)
+* [Grid Span Column](../example/ui-grid-span/)
+
+  
 ## Class: ui.widget.GridView
 
 Inherits from:
@@ -66,8 +71,6 @@ of the top row:
 └─┴─┴─┘
 ~~~
 
-<span class='example'>A [complete example](../example/ui-grid-movecell/) is available in the `addon-examples` package.</span>
-
 A subview of `GridView` can span multiple rows or columns by
 setting a `rowspan` or `colspan` option. A cell 
 
@@ -98,8 +101,6 @@ positioned relative to the top-left corner of the tile:
 If the `colspan` or `rowspan` property of the subview is
 changed, and the `autoCellSize` property of the `GridView` is
 `true`, then the size of the subview is updated.
-
-<span class='example'>A [complete example](../example/ui-grid-span/) is available in the `addon-examples` package.</span>
 
 The margin properties add space around the cells. The gutter
 properties add space only between the columns and rows, but not

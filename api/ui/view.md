@@ -14,6 +14,17 @@ subviews (parents and children), can set handler functions
 for events, and contain properties for styling how the view
 is displayed on the screen.
 
+Examples:
+
+* [A Basic View](../example/views-basic/)
+* [Changing the View Style](../example/views-style/)
+* [Nested Views](../example/views-nested/)
+* [Add and Remove Views](../example/views-addremove/)
+* [Input Click Event](../example/events-input-click/)
+* [Input Move Event](../example/events-input-move/)
+* [Input Out Event](../example/events-input-out/)
+* [Modifying a View's Style](../example/views-style/)
+
 ## Class: ui.View
 
 Inherits from:
@@ -52,8 +63,6 @@ var view = new View({
 });
 ~~~
 
-A [complete example](../example/views-basic/) is available in the `addon-examples` package.
-
 ### view.updateOpts ([options])
 1. `options {object}` ---The options object is the same as defined for the constructor.
 2. Return: `{object}` ---Returns the options object.
@@ -72,9 +81,6 @@ var view = new View({visible: true}); //now you see me
 
 view.style.visible = false;           //now you don't
 ~~~
-
-A [complete example](../example/views-style/) is available in the `addon-examples` package.
-
 
 ### view.getApp ()
 1. Return: `{ui.Engine}`
@@ -121,8 +127,6 @@ Return a child subview at the given array index.
 
 Add a view as a child subview.
 
-A [complete example](../example/views-nested/) is available in the `addon-examples` package.
-
 ### view.removeSubview (view)
 1. `view {View}`
 
@@ -135,8 +139,6 @@ Removes all child subviews from this view.
 ### view.removeFromSuperview ()
 
 Removes this view from its parent superview.
-
-A [complete example](../example/views-addremove/) is available in the `addon-examples` package.
 
 ### view.needsRepaint ()
 
@@ -355,9 +357,6 @@ view.on('InputSelect', function (event, point) {
   console.log("View clicked at position: " + point.x + "," + point.y);
 });
 ~~~
-  
-  
-A [complete example](../example/events-input-click/) is available in the `addon-examples` package.
  
 #### \'InputMove\', callback (event, point)
 1. `event {InputEvent}`
@@ -370,8 +369,6 @@ view.on('InputMove', function (event, point) {
   console.log("This view had touch begin on it at: " + point.x + "," + point.y);
 });
 ~~~
-
-A [complete example](../example/events-input-move/) is available in the `addon-examples` package.
 
 #### \'InputOver\', callback (over, overCount, atTarget)
 1. `over`
@@ -398,14 +395,10 @@ view.on('InputOut', function (over, overCount, atTarget) {
 });
 ~~~
 
-A [complete example](../example/events-input-out/) is available in the `addon-examples` package.
-
-#### \'InputScroll\', callback ()
-
 #### \'DragStart\', callback (dragEvent)
 1. `dragEvent {InputEvent}`
 
-Fired when dragging starts.  `dragEvent` represents the event from which dragging started.
+Fired when dragging starts. `dragEvent` represents the event from which dragging started.
 
 ~~~
 view.on('DragStart', function (dragEvent, selectEvent) {
@@ -447,8 +440,6 @@ A view can be styled by modifying the properties of its `view.style` object.
 ~~~
 var style = view.style;
 ~~~
-
-A [complete example](../example/views-style/) is available in the `addon-examples` package.
 
 ### style.update (style)
 1. `style {object}` ---Using the properties enumerated here.
