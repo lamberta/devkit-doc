@@ -1,5 +1,8 @@
 # ui.widget.ButtonView
 
+This class provides a quick and easy way to create Buttons or any other 
+widget with button-like states (such as checkboxes, switches or radiobuttons).
+
 ## Class: ui.widget.ButtonView
 
 Inherits from:
