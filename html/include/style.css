@@ -190,6 +190,13 @@ td.docs p a {
 	list-style-type: square;
 }
 
+/*params*/
+#main dt {
+	font-size: 0.9em;
+	font-weight: 700;
+}
+
+
 /*front-page*/
 #feature-list {
 	margin-top: 50px;

@@ -14,7 +14,7 @@ subviews (parents and children), can set handler functions
 for events, and contain properties for styling how the view
 is displayed on the screen.
 
-Examples:
+## Examples
 
 * [A Basic View](../example/views-basic/)
 * [Changing the View Style](../example/views-style/)
@@ -29,12 +29,6 @@ Examples:
 
 Inherits from:
 :    1. [event.Emitter](./event.html#class-event.emitter)
-
-Usage:
-
-~~~
-import ui.View as View;
-~~~
 
 ### new View ([options])
 1. `options {object}` ---Optional.
@@ -52,6 +46,8 @@ object. In addition to the options listed here,
 passed in this object.
 
 ~~~
+import ui.View as View;
+
 var view = new View({
   id: 'MyCrazyView',
   superview: parent,
@@ -64,8 +60,12 @@ var view = new View({
 ~~~
 
 ### view.updateOpts ([options])
-1. `options {object}` ---The options object is the same as defined for the constructor.
-2. Return: `{object}` ---Returns the options object.
+
+Parmeters
+:    1. `options {object}` ---The options object is the same as defined for the constructor.
+
+Returns
+:    1. `{object}` ---Returns the options object.
 
 Update the properties and styles of a view.
 
@@ -83,24 +83,30 @@ view.style.visible = false;           //now you don't
 ~~~
 
 ### view.getApp ()
-1. Return: `{ui.Engine}`
+
+Returns
+:    1. `{ui.Engine}`
 
 Returns the root application for the view, [GC.app.engine](./appengine.html#singleton-gc.app.engine).
 This is the top-level node of the scene graph, a [ui.Engine](./appengine.html#class-ui.engine) singleton automatically instantiated by the game engine.
 
 ### view.getSuperview ()
-1. Return: `{View}`
 
-Return the view's parent in the scene graph hierarchy.
+Returns
+:    1. `{View}` ---Return the view's parent in the scene graph hierarchy.
 
 ### view.getParents ()
-1. Return: `{array}` ---A collection of `View` elements.
+
+Returns
+:    1. `{array}` ---A collection of `View` elements.
 
 Returns an array of all parent ancestors of the current view
 to the root of the scene graph.
 
 ### view.getSubviews ()
-1. Return: `{array}` ---A collection of `View` elements.
+
+Returns
+:    1. `{array}` ---A collection of `View` elements.
 
 Returns an array containing a reference to all of the view's
 children. Since this function has an execution time of *O(n)*,
@@ -116,19 +122,27 @@ for (var i = 0, children = view.getSubviews(), len = children.length; i < len; i
 ~~~
 
 ### view.getSubview (i)
-1. `i {number}` ---Array index position.
-2. Return: `{View}`
 
-Return a child subview at the given array index.
+Parameters
+:    1. `i {number}` ---Array index position.
+
+Returns
+:    1. `{View}` ---Return a child subview at the given array index.
 
 ### view.addSubview (view)
-1. `view {View}` ---The view to add as a child of this view.
-2. Return: `{View}` ---Returns the view that was passed to this method.
+
+Parameters
+:    1. `view {View}` ---The view to add as a child of this view.
+
+Returns
+:    2. `{View}` ---Returns the view that was passed to this method.
 
 Add a view as a child subview.
 
 ### view.removeSubview (view)
-1. `view {View}`
+
+Parameters
+:    1. `view {View}`
 
 Removes a child subview from this view.
 
@@ -151,8 +165,10 @@ using a DOM rendering backend.
 Notifies the `ui.Engine` that the view needs its position updated.
 
 ### view.setHandleEvents (handleEvents [, ignoreSubviews])
-1. `handleEvents {boolean} = true` ---Configure the view to handle or not handle input events.
-2. `ignoreSubviews {boolean} = false` ---Optionally block input events on all subviews.
+
+Parameters
+:    1. `handleEvents {boolean} = true` ---Configure the view to handle or not handle input events.
+     2. `ignoreSubviews {boolean} = false` ---Optionally block input events on all subviews.
 
 A view that can not handle events will pass them through to
 other views positioned beneath them on the screen. By
@@ -164,14 +180,18 @@ If the `ignoreSubviews` option is set to `true`, all events
 on the view's children are also ignored.
 
 ### view.isInputOver ()
-1. Return `{boolean}`
+
+Returns
+:    1. `{boolean}`
 
 If an input event is over a view, return `true`, otherwise `false`.
 
 ### view.startDrag ([options])
-1. `options {object}`
-    * `inputStartEvent {InputEvent} = 'START'`
-    * `radius {number} = 0`
+
+Parameters
+:    1. `options {object}`
+         * `inputStartEvent {InputEvent} = 'START'`
+         * `radius {number} = 0`
 
 Respond to an input event by dragging the view. This will
 fire drag events so you can make a view follow the drag events.
@@ -187,66 +207,94 @@ view.on('Drag', function (startEvt, dragEvt, delta) {
 ~~~
 
 ### view.isDragging ()
-1. Return: `{boolean}`
+
+Returns
+:    1. `{boolean}`
 
 Test if the view is being dragged.
 
 ### view.localizePoint (point)
-1. `point {Point}`
-2. Return `{Point}` ---Returns the given point, with updated values.
+
+Parameters
+:    1. `point {Point}`
+
+Returns
+:    1. `{Point}` ---Returns the given point, with updated values.
 
 Convert a point to a local position relative to this view.
 
 ### view.getPosition ([relativeTo])
-1. `relativeTo {View}` ---Optional.
-2. Return: `{object}`
-    * `x {number}`
-    * `y {number}`
-    * `rotation {number}`
-    * `width {number}`
-    * `height {number}`
-    * `scale {number}`
+
+Parameters
+:    1. `relativeTo {View}` ---Optional.
+
+Returns
+:    1. `{object}`
+         * `x {number}`
+         * `y {number}`
+         * `rotation {number}`
+         * `width {number}`
+         * `height {number}`
+         * `scale {number}`
 
 Get position of a view relative to a superview. If
 `relativeTo` is not provided, get the position relative to
 the top-most superview (the root of the scene graph.).
 
 ### view.containsLocalPoint (point)
-1. `point {Point}` ---A point being an object with `x` and `y` numeric properties.
-2. Return: `{boolean}`
+
+Parameters
+:    1. `point {Point}` ---A point being an object with `x` and `y` numeric properties.
+
+Returns
+:    1. `{boolean}`
 
 Determine if the given point is contained by the view.
 
 ### view.getBoundingShape ()
-1. Return: `{Rect}` or `{Circle}`, the shape defined when the view was created.
+
+Returns
+:    1. `{Rect}` or `{Circle}`, the shape defined when the view was created.
 
 Return the bounding shape for a view, this is a rectangle or circle.
 
 ### view.getRelativeRegion (region, parent)
-1. `region {Rect}`
-2. `parent {View}`
-3. Return `{Rect}`
+
+Parameters
+:    1. `region {Rect}`
+     2. `parent {View}`
+
+Returns
+:    1. Return `{Rect}`
 
 Return the location of a rectangle region in a parent's coordinate space.
 
 ### view.getFilters ()
-1. Return: `{array}`
+
+Returns
+:    1. `{array}`
 
 Return an array of filters attached to a view.
 
 ### view.addFilter (filter)
-1. `filter {Filter}`
+
+Parameters
+:    1. `filter {Filter}`
 
 Adds a filter to this view. Only one filter of each type can
 exist on a view.
 
 ### view.removeFilter (type)
-1. `type {string}`
+
+Parameters
+:    1. `type {string}`
 
 Remove a named filter from this view.
 
 ### view.getTag ()
-1. Return: `{string}`
+
+Returns
+:    1. `{string}`
 
 Return the human-readable name for a view.
 
@@ -259,15 +307,40 @@ Make the view invisible.
 Make the view visible.
 
 ### view.focus ()
-1. Return: `{this}`
+
+Returns
+:    1. `{this}`
 
 Indicate to the focus manager this view has focus.
 
 ### view.blur ()
-1. Return: `{this}`
+
+Returns
+:    1. `{this}`
 
 Indicate to the focus manager this element has been blurred.
 
+
+## Events
+  
+There are several input events which can be subscribed to 
+on a view.  Subscribing to these events allows you to do 
+things such as click or drag a view, or react to these 
+events within their respectives callbacks from the event
+handler.  
+  
+Input Events which can currently be subscribed to include:  
+
+- InputStart
+- InputSelect
+- InputMove  
+- InputOver
+- InputOut
+- InputScroll
+- DragStart
+- Drag  
+  
+and are described below.  
 
 ### Handler: view.onFocus ()
 
@@ -290,7 +363,9 @@ view.onBlur = function () {
 ~~~
 
 ### Handler: view.tick (dt)
-1. `dt {number}`
+
+Parameters
+:    1. `dt {number}`
 
 This callback function is executed on every tick of the game engine.
 
@@ -309,32 +384,16 @@ GC.app.engine.on('Tick', function (dt) {
 });
 ~~~
 
-### Events
-  
-There are several input events which can be subscribed to 
-on a view.  Subscribing to these events allows you to do 
-things such as click or drag a view, or react to these 
-events within their respectives callbacks from the event
-handler.  
-  
-Input Events which can currently be subscribed to include:  
+### \'InputStart\', callback (event, point)
 
-- InputStart
-- InputSelect
-- InputMove  
-- InputOver
-- InputOut
-- InputScroll
-- DragStart
-- Drag  
-  
-and are described below.  
-  
-#### \'InputStart\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
+Parameters
+:    1. `event {InputEvent}`
+     2. `point {Point}`
 
-Fired on a mousedown / touch occurrence. `event` represents the InputEvent which occurred from InputStart occurring. `point` is a point relative to the top-left corner of the view.
+Fired on a mousedown / touch occurrence. `event` represents
+the InputEvent which occurred from InputStart
+occurring. `point` is a point relative to the top-left
+corner of the view.
 
 Subscribe to the capture-phase event with `'InputStartCapture'`.  
 
@@ -344,13 +403,17 @@ view.on('InputStart', function (event, point) {
 });
 ~~~
 
-#### \'InputSelect\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
+### \'InputSelect\', callback (event, point)
 
-Fired on a mouseup / touchend occurence. `event` represents the InputEvent which occurred from InputSelect occurring. `point` is a point relative to
-the top-left corner of the view. The capture-phase event
-is available by subscribing to `'InputSelectCapture'`.
+Parameters
+:    1. `event {InputEvent}`
+     2. `point {Point}`
+
+Fired on a mouseup / touchend occurence. `event` represents
+the InputEvent which occurred from InputSelect
+occurring. `point` is a point relative to the top-left
+corner of the view. The capture-phase event is available by
+subscribing to `'InputSelectCapture'`.
 
 ~~~
 view.on('InputSelect', function (event, point) {
@@ -358,9 +421,11 @@ view.on('InputSelect', function (event, point) {
 });
 ~~~
  
-#### \'InputMove\', callback (event, point)
-1. `event {InputEvent}`
-2. `point {Point}`
+### \'InputMove\', callback (event, point)
+
+Parameters
+:    1. `event {InputEvent}`
+     2. `point {Point}`
 
 Fired after an `'InputStart'` event, when the input is moving on the view.  
 
@@ -370,10 +435,12 @@ view.on('InputMove', function (event, point) {
 });
 ~~~
 
-#### \'InputOver\', callback (over, overCount, atTarget)
-1. `over`
-2. `overCount {number}`
-3. `atTarget`
+### \'InputOver\', callback (over, overCount, atTarget)
+
+Parameters
+:    1. `over`
+     2. `overCount {number}`
+     3. `atTarget`
 
 The event is fired when input is moved over a view.
   
@@ -382,10 +449,13 @@ view.on('InputOver', function (over, overCount, atTarget) {
   ...
 });
 ~~~
-#### \'InputOut\', callback (over, overCount, atTarget)
-1. `over`
-2. `overCount {number}`
-3. `atTarget`
+
+### \'InputOut\', callback (over, overCount, atTarget)
+
+Parameters
+:    1. `over`
+     2. `overCount {number}`
+     3. `atTarget`
 
 The event is fired when input is moved off a view.  
 
@@ -395,8 +465,10 @@ view.on('InputOut', function (over, overCount, atTarget) {
 });
 ~~~
 
-#### \'DragStart\', callback (dragEvent)
-1. `dragEvent {InputEvent}`
+### \'DragStart\', callback (dragEvent)
+
+Parameters
+:    1. `dragEvent {InputEvent}`
 
 Fired when dragging starts. `dragEvent` represents the event from which dragging started.
 
@@ -406,12 +478,17 @@ view.on('DragStart', function (dragEvent, selectEvent) {
 });
 ~~~
 
-#### \'Drag\', callback (dragEvent, moveEvent, delta)
-1. `dragEvent {InputEvent}`
-2. `moveEvent {InputEvent}`
-3. `delta {number}`
+### \'Drag\', callback (dragEvent, moveEvent, delta)
 
-Fired during dragging. `dragEvent` represents the event from which dragging started. `moveEvent` represents the event occuring from movement on the view. `delta` represents the difference between the last `moveEvent` and this one.
+Parameters
+:    1. `dragEvent {InputEvent}`
+     2. `moveEvent {InputEvent}`
+     3. `delta {number}`
+
+Fired during dragging. `dragEvent` represents the event from
+which dragging started. `moveEvent` represents the event
+occuring from movement on the view. `delta` represents the
+difference between the last `moveEvent` and this one.
 
 ~~~
 view.on('Drag', function (dragEvent, moveEvent, delta) {
@@ -421,17 +498,22 @@ view.on('Drag', function (dragEvent, moveEvent, delta) {
 });
 ~~~
 
-#### \'DragStop\', callback (dragEvent, selectEvent)
-1. `dragEvent {InputEvent}`
-2. `selectEvent {InputEvent}`
+### \'DragStop\', callback (dragEvent, selectEvent)
 
-Fired when dragging is stopped.  `dragEvent` represents the event from which dragging started.  `selectEvent` represents the event which occurs when the dragging has stopped.
+Parameters:
+    1. `dragEvent {InputEvent}`
+    2. `selectEvent {InputEvent}`
+
+Fired when dragging is stopped.  `dragEvent` represents the
+event from which dragging started.  `selectEvent` represents
+the event which occurs when the dragging has stopped.
 
 ~~~
 view.on('DragStop', function (dragEvent, selectEvent) {
   console.log("Drag started at " + dragEvt.srcPoint + " and ended at " + selectEvent.srcPoint);
 });
 ~~~
+
 
 ## Styles
 
@@ -442,8 +524,12 @@ var style = view.style;
 ~~~
 
 ### style.update (style)
-1. `style {object}` ---Using the properties enumerated here.
-2. Return: `{this}` ---Returns this view.
+
+Parameters
+:    1. `style {object}` ---Using the properties enumerated here.
+
+Returns
+:    1. `{this}` ---Returns this view.
 
 Update the view's style.
 
@@ -456,7 +542,9 @@ view.style.update({
 ~~~
 
 ### style.copy ()
-1. Return: `{object}`
+
+Returns
+:    1. `{object}`
 
 Returns a shallow copy of the view's style object. You can
 use this object to update another view's style.
