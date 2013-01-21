@@ -1,4 +1,7 @@
-# ui.View
+# Class: ui.View
+
+Inherits from
+:    1. [event.Emitter](./event.html#class-event.emitter)
 
 A view is the base display object for rendering regions to
 the screen. Each view has a size and position, and can be nested
@@ -25,20 +28,20 @@ is displayed on the screen.
 * [Input Out Event](../example/events-input-out/)
 * [Modifying a View's Style](../example/views-style/)
 
-## Class: ui.View
 
-Inherits from:
-:    1. [event.Emitter](./event.html#class-event.emitter)
+## Methods
 
 ### new View ([options])
-1. `options {object}` ---Optional.
-    * `superview {View}` ---Parent or Super view to place this view.
-    * `id {string}` ---Unique identifier.
-    * `tag {string}` ---Human readable tag for the UI Inspector.
-    * `filters {Filter}` ---Filter object.
-    * `circle {boolean} = false` ---Whether the view is a circle.
-    * `infinite {boolean} = false` ---Infinite width and height generally for maps or backgrounds.
-    * `canHandleEvents {boolean} = true` ---Input events can pass through if `false`.
+
+Parameters
+:    1. `options {object}` ---Optional.
+	     * `superview {View}` ---Parent or Super view to place this view.
+		 * `id {string}` ---Unique identifier.
+		 * `tag {string}` ---Human readable tag for the UI Inspector.
+		 * `filters {Filter}` ---Filter object.
+		 * `circle {boolean} = false` ---Whether the view is a circle.
+		 * `infinite {boolean} = false` ---Infinite width and height generally for maps or backgrounds.
+		 * `canHandleEvents {boolean} = true` ---Input events can pass through if `false`.
 
 The constructor used to create an instance of a `ui.View`
 object. In addition to the options listed here,
@@ -59,9 +62,9 @@ var view = new View({
 });
 ~~~
 
-### view.updateOpts ([options])
+### updateOpts ([options])
 
-Parmeters
+Parameters
 :    1. `options {object}` ---The options object is the same as defined for the constructor.
 
 Returns
@@ -69,20 +72,7 @@ Returns
 
 Update the properties and styles of a view.
 
-### view.style
-1. `{object}` ---Contains the [style definitions](#styles) of a view, as enumerated below.
-
-The properties on this object determine the look and style
-of a view. If not passed as options to a view constructor,
-the style properties can be set on this object.
-
-~~~
-var view = new View({visible: true}); //now you see me
-
-view.style.visible = false;           //now you don't
-~~~
-
-### view.getApp ()
+### getApp ()
 
 Returns
 :    1. `{ui.Engine}`
@@ -90,12 +80,12 @@ Returns
 Returns the root application for the view, [GC.app.engine](./appengine.html#singleton-gc.app.engine).
 This is the top-level node of the scene graph, a [ui.Engine](./appengine.html#class-ui.engine) singleton automatically instantiated by the game engine.
 
-### view.getSuperview ()
+### getSuperview ()
 
 Returns
 :    1. `{View}` ---Return the view's parent in the scene graph hierarchy.
 
-### view.getParents ()
+### getParents ()
 
 Returns
 :    1. `{array}` ---A collection of `View` elements.
@@ -103,7 +93,7 @@ Returns
 Returns an array of all parent ancestors of the current view
 to the root of the scene graph.
 
-### view.getSubviews ()
+### getSubviews ()
 
 Returns
 :    1. `{array}` ---A collection of `View` elements.
@@ -121,7 +111,7 @@ for (var i = 0, children = view.getSubviews(), len = children.length; i < len; i
 }
 ~~~
 
-### view.getSubview (i)
+### getSubview (i)
 
 Parameters
 :    1. `i {number}` ---Array index position.
@@ -129,7 +119,7 @@ Parameters
 Returns
 :    1. `{View}` ---Return a child subview at the given array index.
 
-### view.addSubview (view)
+### addSubview (view)
 
 Parameters
 :    1. `view {View}` ---The view to add as a child of this view.
@@ -139,32 +129,32 @@ Returns
 
 Add a view as a child subview.
 
-### view.removeSubview (view)
+### removeSubview (view)
 
 Parameters
 :    1. `view {View}`
 
 Removes a child subview from this view.
 
-### view.removeAllSubviews ()
+### removeAllSubviews ()
 
 Removes all child subviews from this view.
 
-### view.removeFromSuperview ()
+### removeFromSuperview ()
 
 Removes this view from its parent superview.
 
-### view.needsRepaint ()
+### needsRepaint ()
 
 Notifies the renderer that the view needs to be redrawn on
 next animation frame. This function is only needed if you're
 using a DOM rendering backend.
 
-### view.needsReflow ()
+### needsReflow ()
 
 Notifies the `ui.Engine` that the view needs its position updated.
 
-### view.setHandleEvents (handleEvents [, ignoreSubviews])
+### setHandleEvents (handleEvents [, ignoreSubviews])
 
 Parameters
 :    1. `handleEvents {boolean} = true` ---Configure the view to handle or not handle input events.
@@ -179,14 +169,14 @@ cursor by hovering over an element and using *control-click*.
 If the `ignoreSubviews` option is set to `true`, all events
 on the view's children are also ignored.
 
-### view.isInputOver ()
+### isInputOver ()
 
 Returns
 :    1. `{boolean}`
 
 If an input event is over a view, return `true`, otherwise `false`.
 
-### view.startDrag ([options])
+### startDrag ([options])
 
 Parameters
 :    1. `options {object}`
@@ -206,14 +196,14 @@ view.on('Drag', function (startEvt, dragEvt, delta) {
 });
 ~~~
 
-### view.isDragging ()
+### isDragging ()
 
 Returns
 :    1. `{boolean}`
 
 Test if the view is being dragged.
 
-### view.localizePoint (point)
+### localizePoint (point)
 
 Parameters
 :    1. `point {Point}`
@@ -223,7 +213,7 @@ Returns
 
 Convert a point to a local position relative to this view.
 
-### view.getPosition ([relativeTo])
+### getPosition ([relativeTo])
 
 Parameters
 :    1. `relativeTo {View}` ---Optional.
@@ -241,7 +231,7 @@ Get position of a view relative to a superview. If
 `relativeTo` is not provided, get the position relative to
 the top-most superview (the root of the scene graph.).
 
-### view.containsLocalPoint (point)
+### containsLocalPoint (point)
 
 Parameters
 :    1. `point {Point}` ---A point being an object with `x` and `y` numeric properties.
@@ -251,14 +241,14 @@ Returns
 
 Determine if the given point is contained by the view.
 
-### view.getBoundingShape ()
+### getBoundingShape ()
 
 Returns
 :    1. `{Rect}` or `{Circle}`, the shape defined when the view was created.
 
 Return the bounding shape for a view, this is a rectangle or circle.
 
-### view.getRelativeRegion (region, parent)
+### getRelativeRegion (region, parent)
 
 Parameters
 :    1. `region {Rect}`
@@ -269,14 +259,14 @@ Returns
 
 Return the location of a rectangle region in a parent's coordinate space.
 
-### view.getFilters ()
+### getFilters ()
 
 Returns
 :    1. `{array}`
 
 Return an array of filters attached to a view.
 
-### view.addFilter (filter)
+### addFilter (filter)
 
 Parameters
 :    1. `filter {Filter}`
@@ -284,41 +274,113 @@ Parameters
 Adds a filter to this view. Only one filter of each type can
 exist on a view.
 
-### view.removeFilter (type)
+### removeFilter (type)
 
 Parameters
 :    1. `type {string}`
 
 Remove a named filter from this view.
 
-### view.getTag ()
+### getTag ()
 
 Returns
 :    1. `{string}`
 
 Return the human-readable name for a view.
 
-### view.hide ()
+### hide ()
 
 Make the view invisible.
 
-### view.show ()
+### show ()
 
 Make the view visible.
 
-### view.focus ()
+### focus ()
 
 Returns
 :    1. `{this}`
 
 Indicate to the focus manager this view has focus.
 
-### view.blur ()
+### blur ()
 
 Returns
 :    1. `{this}`
 
 Indicate to the focus manager this element has been blurred.
+
+
+## Properties
+
+### style `{object}`
+
+The properties of a view's `style` object determine the look
+and style of a view. If not passed as options to a view
+constructor, the style properties can be set on this object.
+
+~~~
+var view = new View({visible: true}); //now you see me
+
+view.style.visible = false;           //now you don't
+~~~
+
+The `style` object contains the following properties:
+
+* `layout {string} = false` ---Options are `'box'` or `'linear'`. For details, see the [Designing User Interfaces Guide](../guide/designing-user-interfaces.html).
+* `x {number} = 0` ---The position of the top-left corner of a view on the x-axis relative to its parent.
+* `y {number} = 0` ---The position of the top-left corner of a view on the y-axis relative to its parent.
+* `offsetX {number} = 0` ---The x position of the anchor point for translation, relative to the top-left corner of the view.
+* `offsetY {number} = 0` ---The y position of the anchor point for translation, relative to the top-left corner of the view.
+* `anchorX {number} = 0` ---The x position of the anchor point for rotation and scaling, relative to the top-left corner of the view.
+* `anchorY {number} = 0` ---The y position of the anchor point for rotation and scaling, relative to the top-left corner of the view.
+* `flipX {boolean} = false` ---If `true`, flips the view in-place on the x-axis.
+* `flipY {boolean} = false` ---If `true`, flips the view in-place on the y-axis.
+* `width {number}` ---The width of a view, defaults to the width of the view's parent.
+* `height {number}` ---The height of a view, defaults to the height of the view's parent.
+* `widthPercentage {number}`
+* `heightPercentage {number}`
+* `scale {number} = 1` ---Increase or decrease the size of the view.
+* `r {number} = 0` ---The rotation of a view in radians.
+* `visible {boolean} = true` ---If the view is shown or hidden. The view will not accept input events while hidden.
+* `opacity {number} = 1` ---The transparency of a view from 0.0 to 1.0. The view accepts input events even when fully transparent.
+* `zIndex {number} = 0` ---The larger the value, the closer to the front the view appears. This is relative to a view's siblings, not the entire scene graph.
+* `backgroundColor {string}` ---Background color of the view.
+* `clip {boolean} = false` ---If `true`, child views get clipped to the boundaries of this view.
+
+The `style` object contains the following methods:
+
+#### style.update (style)
+
+Parameters
+:    1. `style {object}` ---Using the properties enumerated here.
+
+Returns
+:    1. `{this}` ---Returns this view.
+
+Update the view's style.
+
+~~~
+view.style.update({
+  x: 100,
+  y: 200,
+  backgroundColor: 'red'
+});
+~~~
+
+#### style.copy ()
+
+Returns
+:    1. `{object}`
+
+Returns a shallow copy of the view's style object. You can
+use this object to update another view's style.
+
+~~~
+var old_style = view1.style.copy();
+
+view2.style.update(old_style);
+~~~
 
 
 ## Events
@@ -327,22 +389,9 @@ There are several input events which can be subscribed to
 on a view.  Subscribing to these events allows you to do 
 things such as click or drag a view, or react to these 
 events within their respectives callbacks from the event
-handler.  
-  
-Input Events which can currently be subscribed to include:  
+handler.
 
-- InputStart
-- InputSelect
-- InputMove  
-- InputOver
-- InputOut
-- InputScroll
-- DragStart
-- Drag  
-  
-and are described below.  
-
-### Handler: view.onFocus ()
+### onFocus ()
 
 The callback function is triggered when focus is given to this view.
 
@@ -352,7 +401,7 @@ view.onFocus = function () {
 };
 ~~~
 
-### Handler: view.onBlur ()
+### onBlur ()
 
 The callback function is triggered when this view loses focus.
 
@@ -362,7 +411,7 @@ view.onBlur = function () {
 };
 ~~~
 
-### Handler: view.tick (dt)
+### tick (dt)
 
 Parameters
 :    1. `dt {number}`
@@ -513,148 +562,3 @@ view.on('DragStop', function (dragEvent, selectEvent) {
   console.log("Drag started at " + dragEvt.srcPoint + " and ended at " + selectEvent.srcPoint);
 });
 ~~~
-
-
-## Styles
-
-A view can be styled by modifying the properties of its `view.style` object.
-
-~~~
-var style = view.style;
-~~~
-
-### style.update (style)
-
-Parameters
-:    1. `style {object}` ---Using the properties enumerated here.
-
-Returns
-:    1. `{this}` ---Returns this view.
-
-Update the view's style.
-
-~~~
-view.style.update({
-  x: 100,
-  y: 200,
-  backgroundColor: 'red'
-});
-~~~
-
-### style.copy ()
-
-Returns
-:    1. `{object}`
-
-Returns a shallow copy of the view's style object. You can
-use this object to update another view's style.
-
-~~~
-var old_style = view1.style.copy();
-
-view2.style.update(old_style);
-~~~
-
-### style.layout
-1. `{string} = false` ---Options are `'box'` or `'linear'`.
-
-The layout system and its properties are described in the [Designing User Interfaces Guide](../guide/designing-user-interfaces.html).
-
-### style.x
-1. `{number} = 0`
-
-The position of the top-left corner of a view on the x-axis
-relative to its parent.
-
-### style.y
-1. `{number} = 0`
-
-The position of the top-left corner of a view on the y-axis
-relative to its parent.
-
-### style.offsetX
-1. `{number} = 0`
-
-The x position of the anchor point for translation. This is
-relative to the top-left corner of the view.
-
-### style.offsetY
-1. `{number} = 0`
-
-The y position of the anchor point for translation. This is
-relative to the top-left corner of the view.
-
-### style.anchorX
-1. `{number} = 0`
-
-The x position of the anchor point for rotation and
-scaling. This is relative to the top-left corner of the view.
-
-### style.anchorY
-1. `{number} = 0`
-
-The y position of the anchor point for rotation and
-scaling. This is relative to the top-left corner of the view.
-
-### style.flipX
-1. `{boolean} = false`
-
-If set to `true`, flips the view in-place on the x-axis.
-
-### style.flipY
-1. `{boolean} = false`
-
-If set to `true`, flips the view in-place on the y-axis.
-
-### style.width
-1. `{number}`
-
-The width of a view, defaults to the width of the view's parent.
-
-### style.height
-1. `{number}`
-
-The height of a view, defaults to the height of the view's parent.
-
-### style.widthPercentage
-1. `{number}`
-
-### style.heightPercentage
-1. `{number}`
-
-### style.scale
-1. `{number} = 1`
-
-Increase or decrease the size of the view.
-
-### style.r
-1. `{number} = 0`
-
-The rotation of a view in radians.
-
-### style.visible
-1. `{boolean} = true`
-
-If the view is shown or hidden. The view will not accept input events while hidden.
-
-### style.opacity
-1. `{number} = 1`
-
-The transparency of a view. The view will always accept input events even if it is fully transparent.
-
-### style.zIndex
-1. `{number} = 0`
-
-The higher this number, the closer to the front the view
-appears. This value is only relative to a view's siblings,
-not the entire scene graph.
-
-### style.backgroundColor
-1. `{string}`
-
-Background color of the view.
-
-### style.clip
-1. `{boolean} = false`
-
-If set to `true`, child views will get clipped to this view's s boundaries.

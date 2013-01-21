@@ -142,11 +142,6 @@ footer {
   font-weight: bold;
 }
 
-#toc ul li ul li ul li ul li a { /*level 3*/
-  font-style: italic;
-}
-
-
 #toc ul li a {
   margin-left: -15px;
   margin-right: -15px;
@@ -174,28 +169,43 @@ td.docs p a {
   color: #08c;
 }
 
-#main h1 a, #main h2, #main h3 {
+/*doc content*/
+#main h1, #main h2 {
   font-weight: 300;
 }
 
-#main h3 a {
-  font-weight: 500;
+#main h2 {
+	margin: 20px 0;
+	color: #d14;
 }
 
-#main h2 a {
-  color: #d14;
+#main h3, #main h4, #main h5 {
+	font-size: 1.4em;
+	font-weight: 400;
 }
 
 #main ol {
-	list-style-type: square;
+	list-style-type: none;
 }
 
 /*params*/
-#main dt {
-	font-size: 0.9em;
-	font-weight: 700;
+#main dl {
+	margin: -5px 0 5px 0;
 }
 
+#main dt { /*definition term*/
+	font-size: 0.9em;
+	font-weight: 700;
+	color: #777;
+}
+
+#main dd {
+	margin: 0;
+}
+
+#main dd ol {
+	margin-left: 10px;
+}
 
 /*front-page*/
 #feature-list {

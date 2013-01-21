@@ -57,6 +57,19 @@ $(function () {
     return this.innerText.match(/^Module:|^Class:|^Singleton:|^Events|^Styles/);
   }).addClass('toc-section-header');
 
+	/* auto-shorten toc link text
+	 */
+	var regex_title = /\S+/;
+	$('nav ul li ul li a').each(function (i, elem) {
+		var a = $(elem),
+				title = a.text().match(regex_title)[0];
+
+		//set title if non-empty and not a constructor
+		if (title.length > 0 && title !== 'new') {
+			a.text(title);
+		}
+	});
+	
 	/* auto offset toc nav links to move out from top navbar
 	 */
 	$('nav li a').click(function (evt) {
@@ -76,7 +89,10 @@ $(function () {
       $(this).parent('li').addClass('active');
     }
   });
-  
+
+  /* remove auto-generated nav links for section headers
+	 */
+	$('#main :header a').contents().unwrap();
 
   /* color highlight code snippets, from prettify.js
    */
