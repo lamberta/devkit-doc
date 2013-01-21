@@ -48,7 +48,7 @@ sound groups can be created using:
 
 ~~~
 var audiomanager = new AudioManager({
-  path: 'resources/audiomanagers',
+  path: 'resources/sounds',
   files: {
     levelmusic: {
       path: 'music',
