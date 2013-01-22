@@ -14,16 +14,26 @@ Basic info
 ### new SliderView ([options])
 
 Parameters
-:    1. `options {object}` ---Optional.
-       * `superview {View}` ---Parent or Super view to place this view.
-		 * `id {string}` ---Unique identifier.
-		 * `tag {string}` ---Human readable tag for the UI Inspector.
-		 * `filters {Filter}` ---Filter object.
-		 * `circle {boolean} = false` ---Whether the view is a circle.
-		 * `infinite {boolean} = false` ---Infinite width and height generally for maps or backgrounds.
-		 * `canHandleEvents {boolean} = true` ---Input events can pass through if `false`.
+:    1. `options {object}`
+       * `minValue {number} = 0` ---The minimum value.
+       * `maxValue {number} = 100` ---The maximum value.
+       * `thumbSize {number} = "auto"` ---The size of the thumb, if `auto` then it will be based on the size of the view.
+       * `active {boolean} = true` ---Is the view active?
+       * `increment {number} = false` ---If increment is a value then an integer diviseble by the increment will be returned.
+       * `track {Object}` ---Information about the styling of the track.
+		 * `active {string|Image}` ---The active background image or an URL to an active background image.
+		 * `inactive {string|Image}` ---The inactive background image or an URL to an inactive background image.
+		 * `activeColor {string}` ---The color of the track.
+		 * `inactiveColor {string}` ---The color of the track if the view is not active.
+       * `thumb {Object}` ---Information about the styling of the thumb.
+		 * `active {string|Image}` ---The active background image or an URL to an active background image.
+		 * `pressed {string|Image}` ---The pressed background image or an URL to an pressed background image.
+		 * `inactive {string|Image}` ---The inactive background image or an URL to an inactive background image.
+		 * `activeColor {string}` ---The color of the track.
+		 * `pressedColor {string}` ---The color of the track when pressed.
+		 * `inactiveColor {string}` ---The color of the track if the view is not active.
 
-The constructor used to create an instance of a `ui.View`
+The constructor used to create an instance of a `ui.widget.SliderView`
 object. In addition to the options listed here,
 [style definition properties](#styles) can also be
 passed in this object.
@@ -31,7 +41,7 @@ passed in this object.
 ~~~
 import ui.widget.SliderView as SliderView;
 
-var view = new View({
+var sliderView = new SliderView({
   id: 'MyCrazyView',
   superview: parent,
   x: 50,
