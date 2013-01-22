@@ -36,10 +36,14 @@ import path of `Module` refers to the file located at
 
 
 ### Class ([name, superConstructor,] constructor)
-1. `name {string}` ---An optional name to assign to the class for debugging purposes.
-2. `superConstructor {function}` ---Optional superclass which this class inherits from.
-3. `constructor {function(supr)}` ---The function that will define this class.
-4. Return: `{function}` ---Class constructor.
+
+Parameters
+:    1. `name {string}` ---An optional name to assign to the class for debugging purposes.
+	 2. `superConstructor {function}` ---Optional superclass which this class inherits from.
+	 3. `constructor {function(supr)}` ---The function that will define this class.
+
+Returns
+:    1. `{function}` ---Class constructor.
 
 Our class system for simplifying JavaScript object
 inheritance. Objects of a class-type inherit the properties and methods
@@ -81,8 +85,7 @@ b.say(); //=> "Hello, Billy!"
 ~~~
 
 
-## GLOBAL
-1. `{object}`
+## GLOBAL `{object}`
 
 The global object. Properties assigned to this object are
 available in the global scope, within any class or
@@ -97,10 +100,14 @@ GLOBAL.myprop = "This is available throughout your code."
 ~~~
 
 ### bind (thisArg, callback [, args ...])
-1. `thisArg {object}`
-2. `callback {function}`
-3. `args {...*}`
-4. Return: `{function}`
+
+Parameters
+:    1. `thisArg {object}`
+     2. `callback {function}`
+     3. `args {...*}`
+
+Returns
+:    1. `{function}`
 
 Binds the first parameter as the `this` object in the callback
 function. Additional arguments are curried to the given function.
@@ -138,9 +145,13 @@ beginning, where in the second example, the new binding of
 
 
 ### merge (obj1, obj2 [, obj3 ...])
-1. `base {object}`
-2. `props {...object}`
-3. Return: `{object}`
+
+Parameters
+:    1. `base {object}`
+     2. `props {...object}`
+
+Returns
+:    1. `{object}`
 
 Combine the properties of multiple objects in to a single
 object. All properties are collected on the object passed as
