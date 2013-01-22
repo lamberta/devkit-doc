@@ -1,28 +1,27 @@
-# ui.widget.ButtonView
+# Class: ui.widget.ButtonView
 
 This class provides a quick and easy way to create Buttons or any other 
 widget with button-like states (such as checkboxes, switches or radiobuttons).
 You can listen for state changes, automatically swap an image or play a sound
 for entering a state.
 
-## Class: ui.widget.ButtonView
-
-Inherits from:
+Inherits from
 :    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
 
-~~~
-import ui.widget.ButtonView as ButtonView;
-~~~
+
+## Methods
 
 ### new ButtonView([options])
-1. `options {object}`
-	* `onClick {function}` ---Shortcut way of assigning a callback to a click.
-	* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
-	* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
-	* `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
-	* `sounds {Object}` ---Run a sound when the button enters a state.
+
+Parameters
+:    1. `options {object}`
+	     * `onClick {function}` ---Shortcut way of assigning a callback to a click.
+		 * `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
+		 * `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
+		 * `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
+		 * `sounds {Object}` ---Run a sound when the button enters a state.
 
 Change images and play a sound when the button toggles selected state.
 
@@ -53,9 +52,10 @@ var buttonview = new ButtonView({
 });
 ~~~
 
-### buttonview.updateOpts({options})
+### updateOpts({options})
 
-1. `options {object}`
+Parameters
+:    1. `options {object}`
 
 Replaces the current options (including `images`, `sounds`
 and `on`) with the `options` object passed to this
@@ -86,45 +86,52 @@ buttonView.updateOpts(util.merge(buttonView.opts, {
 }));
 ~~~
 
-### Events
 
-#### \'InputSelect\', callback (event, srcPoint)
-1. `event {InputEvent}`
-2. `srcPoint {Point}`
+## Events
+
+### \'InputSelect\', callback (event, srcPoint)
+
+Parameters
+:    1. `event {InputEvent}`
+	 2. `srcPoint {Point}`
 
 Emitted when the button is pressed.
 
-#### \'InputOver\', callback (over, overCount, atTarget)
-1. `over {object}`
-2. `overCount {number}`
-3. `atTarget {boolean}`
+### \'InputOver\', callback (over, overCount, atTarget)
+
+Parameters
+:    1. `over {object}`
+	 2. `overCount {number}`
+	 3. `atTarget {boolean}`
 
 Emitted when the input is pressed and is moved over the
 button. Also emitted on `'InputSelect'`.
 
-#### \'InputOut\', callback (over, overCount)
-1. `over {object}`
-2. `overCount {number}`
+### \'InputOut\', callback (over, overCount)
+
+Parameters
+:    1. `over {object}`
+	 2. `overCount {number}`
 
 Emitted when the input is pressed and is moved off of the
 button. Also emitted on `'InputSelect'`.
 
-#### \'up\', callback ()
+### \'up\', callback ()
 
 Emitted when the button state is `up`.
 
-#### \'down\', callback ()
+### \'down\', callback ()
 
 Emitted when the button state is `down`.
 
-#### \'disabled\', callback ()
+### \'disabled\', callback ()
 
 Emitted when the button state becomes `disabled`.
 
-#### \'selected\', callback ()
+### \'selected\', callback ()
 
 Emitted when the button selected state becomes `selected`.
 
-#### \'unselect\', callback ()
+### \'unselect\', callback ()
 
 Emitted when the button selected state becomes `unselect`.

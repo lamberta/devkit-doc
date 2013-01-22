@@ -1,13 +1,6 @@
-# ui.widget.ListView
+# Class: ui.widget.ListView
 
-Examples:
-
-* [Basic ListView](../example/ui-list-basic/).
-
-
-## Class: ui.widget.ListView
-
-Inherits from:
+Inherits from
 :    1. [ui.ScrollView](./ui-scrollview.html)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
@@ -41,25 +34,32 @@ data as a parameter. By overriding this function, you can
 populate the contents of the cell with the current item's
 data.
 
-~~~
-import ui.widget.ListView as ListView;
-~~~
+## Examples
+
+* [Basic ListView](../example/ui-list-basic/).
+
+
+## Methods
 
 ### new ListView ([options])
-1. `options {object}`
-	* `isFixedSize {boolean} = true` ---If set to `false`, allow variable sizes for list items (hurts rendering performance).
-	* `renderMargin {number} = 0` ---The vertical margin between list items.
-	* `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to its `maxY` value.
-	* `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` instance given an item from the list.
-		* `listItem {object}` ---An object representing the current list item.
-		* `itemResource {object}` ---The resource object for the current list item.
-	* `sorter {function(listItem)}` ---A function that returns a cardinal value (number or string) for the current item to use as the sort key.
-	* `recycle {boolean} = true` ---Reuse `CellView` objects when scrolling rather than calling `getCell` for each item.
-	* `selectable {boolean} = false` ---If `true`, make items selectable (toggled).
-	* `maxSelections {number} = 1` ---The maximum number of selectable items at a time.
-	* `dataSource` ---The [GCDataSource](#class-gcdatasource) for the list.
+
+Parameters
+:    1. `options {object}`
+	     * `isFixedSize {boolean} = true` ---If set to `false`, allow variable sizes for list items (hurts rendering performance).
+		 * `renderMargin {number} = 0` ---The vertical margin between list items.
+		 * `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to its `maxY` value.
+		 * `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` instance given an item from the list.
+		 * `listItem {object}` ---An object representing the current list item.
+		 * `itemResource {object}` ---The resource object for the current list item.
+		 * `sorter {function(listItem)}` ---A function that returns a cardinal value (number or string) for the current item to use as the sort key.
+		 * `recycle {boolean} = true` ---Reuse `CellView` objects when scrolling rather than calling `getCell` for each item.
+		 * `selectable {boolean} = false` ---If `true`, make items selectable (toggled).
+		 * `maxSelections {number} = 1` ---The maximum number of selectable items at a time.
+		 * `dataSource` ---The [GCDataSource](#class-gcdatasource) for the list.
 
 ~~~
+import ui.widget.ListView as ListView;
+
 var listview = new ListView({
   getCell: function(listItem) {
     return new CellView(listItem);
@@ -70,8 +70,10 @@ var listview = new ListView({
 });
 ~~~
 
-### listview.updateOpts (options)
-1. `options {object}`
+### updateOpts (options)
+
+Parameters
+:    1. `options {object}`
 
 ~~~
 listview.updateOpts({
@@ -79,41 +81,52 @@ listview.updateOpts({
 });
 ~~~
 
-### listview.setMaxX (maxX)
-1. `maxX {number}` ---The maximum width of the list to set.
+### setMaxX (maxX)
+
+Parameters
+:    1. `maxX {number}` ---The maximum width of the list to set.
 
 Sets the maximum horizontal distance which the list is able
 to scroll. Also, if the `autoSize` property passed to the
 constructor is true, then this also sets the absolute width
 of the list.
 
-### listview.setMaxY (maxY)
-1. `maxY {number}` ---The maximum height of the list to set.
+### setMaxY (maxY)
+
+Parameters
+:    1. `maxY {number}` ---The maximum height of the list to set.
 
 Sets the maximum vertical distance which the list is able to
 scroll. Also, if the `autoSize` property passed to the
 constructor is true, then this also sets the absolute height
 of the list.
 
-### listview.getSelection ()
-1. Return: `{Object}`
+### getSelection ()
+
+Returns
+:    1. `{Object}`
 
 Gets the selected items from the list. Return data is in the
 form of an object, with the keys being the selected items.
 
-### listview.getSelectionCount ()
-1. Return `{number}`
+### getSelectionCount ()
+
+Returns
+:    1. `{number}`
 
 Returns the number of selected items.
 
-### listview.getCells ()
-1. Return `{array}`
+### getCells ()
+
+Returns
+:    1. `{array}`
 
 Gets an array of cell instances which are contained in the list.
 
-## Class: ui.widget.CellView
 
-Inherits from:
+# Class: ui.widget.CellView
+
+Inherits from
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
@@ -132,7 +145,7 @@ this.setData = function (data) {
 };
 ~~~
 
-#### Cell selection
+## Cell Selection
 
 The `CellView` handles most selection logic
 internally. There are however two functions which have to be
@@ -151,26 +164,61 @@ this._onDeselect = function () {
 };
 ~~~
 
-#### Creating cells
+## Creating Cells
 
 Cells should only be created in the `getCell` function,
 which is invoked by `ListView` whenever it needs a new
 cell. Adding and removing cells from the list manually will
 lead to strange behavior!
 
-~~~
-import ui.widget.CellView as CellView;
-~~~
+
+## Methods
 
 ### new CellView ([options])
 1. `options {object}`
 
 ~~~
+import ui.widget.CellView as CellView;
+
 var cellview = new CellView();
 ~~~
 
-### Handler: cellview.setData (data)
-1. `data {object}` ---Data representing the cell item to set.
+### getWidth ()
+
+Returns
+:    1. `{number}`
+
+Return the width of the `CellView`.
+
+### getHeight ()
+
+Returns
+:    1. `{number}`
+
+Return the height of the `CellView`.
+
+### isSelected ()
+
+Returns
+:    1. `{boolean}`
+
+Return `true` if the current cell item has been selected.
+
+### select ()
+
+Select the current cell item.
+
+### deselect ()
+
+Deselect the current cell item.
+
+
+## Events
+
+### setData (data)
+
+Parameters
+:    1. `data {object}` ---Data representing the cell item to set.
 
 When a list item scrolls into the list's visible area, the
 cell instance must be updated with the item's data so that
@@ -188,34 +236,11 @@ this.setData = function (data) {
 };
 ~~~
 
-### cellview.getWidth ()
-1. Return: `{number}`
 
-Return the width of the `CellView`.
-
-### cellview.getHeight ()
-1. Return: `{number}`
-
-Return the height of the `CellView`.
-
-### cellview.isSelected ()
-1. Return: `{boolean}`
-
-Return `true` if the current cell item has been selected.
-
-### cellview.select ()
-
-Select the current cell item.
-
-### cellview.deselect ()
-
-Deselect the current cell item.
-
-## Class: GCDataSource
+# Class: GCDataSource
 
 A `GCDataSource` is a collection of items that adheres to
-the
-[observable pattern](http://en.wikipedia.org/wiki/Observer_pattern). This
+the [observable pattern](http://en.wikipedia.org/wiki/Observer_pattern). This
 means that any time items are added, removed, or updated,
 the datasource will publish an appropriate event for the
 item(s) in question ([See below](#events) for a list of
@@ -227,9 +252,7 @@ modified in some way. Instead of re-rendering the entire
 list, you can simply update individual UI items based on the
 events the datasource publishes.
 
-~~~
-import GCDataSource;
-~~~
+## Methods
 
 ### new GCDataSource ([options])
 1. `options {object}`
@@ -251,6 +274,8 @@ cardinal value. The sort order of the sorting functionality
 may be specified using the `reverse` flag.
 
 ~~~
+import GCDataSource;
+
 var datasource = new GCDataSource({
 	key: 'id',
 	ctor: function (data) {
@@ -263,8 +288,10 @@ var datasource = new GCDataSource({
 });
 ~~~
 
-### datasource.setSorter (sortFunction)
-1. `sortFunction {function(item)}` 
+### setSorter (sortFunction)
+
+Parameters
+:    1. `sortFunction {function(item)}` 
 
 Sets the `sorter` function, which must return a cardinal
 value (number or string) for the current item, and will be
@@ -280,62 +307,87 @@ datasource.setSorter(function (item) {
 });
 ~~~
 
-### datasource.add (item)
-1. `item {array|object}` ---Add an item to the data source. Multiple items can be added by combining them in an `array`.
-2. Return: `{array|object}`
+### add (item)
+
+Parameters
+:    1. `item {array|object}` ---Add an item to the data source. Multiple items can be added by combining them in an `array`.
+
+Returns
+:    1. `{array|object}`
 
 Adds or updates an item in the datasource. Add multiple
 items to a datasource by passing them in an array:
 `datasource.add([item1, item2, item3])`. Returns the item(s)
 you passed in.
 
-### datasource.remove (key)
-1. `key {string}` ---The key value of the item to be removed.
-2. Return: `{object}`
+### remove (key)
+
+Parameters
+:    1. `key {string}` ---The key value of the item to be removed.
+
+Returns
+:    1. `{object}`
 
 Removes and returns an item from the data source by its key value.
 
-### datasource.clear ()
+### clear ()
 
 Remove all items from the datasource. Note that this will
 cause the "Remove" event to be published for all the items
 currently in the list.
 
-### datasource.getCount ()
-1. Return: `{number}`
+### getCount ()
+
+Returns
+:    1. `{number}`
 
 Return the number of items in the datasource.
 
-### datasource.contains (key)
-1. `key {string}` ---The key value of the item to search for in the datasource.
-2. Return: `{boolean}`
+### contains (key)
+
+Parameters
+:    1. `key {string}` ---The key value of the item to search for in the datasource.
+
+Returns
+:    1. `{boolean}`
 
 Return `true` if an item with the given key is contained within the datasource.
 
-### datasource.getKey ()
-1. Return: `{string}`
+### getKey ()
+
+Returns
+:    1. `{string}`
 
 Returns the key for the datasource.
 
-### datasource.get (key)
-1. `key {string}` ---The key value of the item to return.
-2. Return: `{object}`
+### get (key)
+
+Parameters
+:    1. `key {string}` ---The key value of the item to return.
+
+Returns
+:    1. `{object}`
 
 Returns the item from the list with the given key if one exists.
 
-### datasource.getItemForIndex (index)
-1. `index {number}` ---The index of the item to return.
-2. Return: `{object}`
+### getItemForIndex (index)
+
+Parameters
+:    1. `index {number}` ---The index of the item to return.
+
+Returns
+:    1. Return: `{object}`
 
 Return the item with the given index based on the current sort order.
 
-### datasource.forEach (callback, thisArg)
-1. `callback {function(item, index)}` ---Function invoked for each item in the datasource
-2. `thisArg {object} = undefined` ---Object to use as `this` when executing `callback`.
+### forEach (callback, thisArg)
 
-Iterator used to execute a function on each item in the datasource.
+Parameters
+:    1. `callback {function(item, index)}` ---Function invoked for each item in the datasource
+     2. `thisArg {object} = undefined` ---Object to use as `this` when executing `callback`.
 
-For example, to log out the name of each item using it's `getItem` method:
+Iterator used to execute a function on each item in the
+datasource. For example, to log out the name of each item using it's `getItem` method:
 
 ~~~
 datasource.forEach(function (item) {
@@ -343,9 +395,13 @@ datasource.forEach(function (item) {
 });
 ~~~
 
-### datasource.getFilteredDataSource (callback)
-1. `callback {function(item)}` ---Function to test on each item in the datasource.
-2. Return: `{GCDataSource}`
+### getFilteredDataSource (callback)
+
+Parameters
+:    1. `callback {function(item)}` ---Function to test on each item in the datasource.
+
+Returns
+:    1. `{GCDataSource}`
 
 Returns a new datasource with all the items that return `true`
 for the callback function.
@@ -356,9 +412,13 @@ var evenItems = datasource.getFilteredDataSource(function (item) {
 });
 ~~~
 
-### datasource.filter (items)
-1. `items {array}` ---Array of items to exclude from this data source.
-2. Return: `{DataSource}`
+### filter (items)
+
+Parameters
+:    1. `items {array}` ---Array of items to exclude from this data source.
+
+Returns
+:    1. `{DataSource}`
 
 Return a copy of this datasource with the items in the
 filter array removed from it. Note that the difference
@@ -376,10 +436,13 @@ var filtered = datasource.filter([item2, item3]);
 filtered.toArray(); //=> [item1, item4]
 ~~~
 
-### datasource.keepOnly (list)
-1. `list {array}` ---Array of items to include from this data source.
+### keepOnly (list)
 
-Remove items from the current datasource not in the given list. This is essential the opposite of `datasource.filter`
+Parameters
+:    1. `list {array}` ---Array of items to include from this data source.
+
+Remove items from the current datasource not in the given
+list. This is essential the opposite of `datasource.filter`
 
 ~~~
 datasource.add([item1, item2, item3, item4]);
@@ -389,40 +452,50 @@ datasource.keepOnly([item2, item3]);
 datasource.toArray(); //=> [item2, item3]
 ~~~
 
-### datasource.sort ()
+### sort ()
 
 Sorts the array based on the current sorter function.
 
-### datasource.toArray ()
-1. Return: `{array}`
+### toArray ()
+
+Returns
+:    1. `{array}`
 
 Returns an array of all the items in the datasource.
 
-### datasource.toJSON ()
-1. Return: `{object}`
-	* `key {string}` ---The key of the datasource.
-	* `items {array}` ---An array representing all items in the datasource.
+### toJSON ()
+
+Returns
+:    1. `{object}`
+	     * `key {string}` ---The key of the datasource.
+		 * `items {array}` ---An array representing all items in the datasource.
 
 Returns a JSON object representing the current datasource.
 
-### datasource.fromJSON (data)
-1. `data {object}`
-	* `key {string}` ---The key of the datasource.
-	* `items {array}` ---An array representing all items in the datasource.
+### fromJSON (data)
+
+Parameters
+:    1. `data {object}`
+	     * `key {string}` ---The key of the datasource.
+		 * `items {array}` ---An array representing all items in the datasource.
 
 Populates the current datasource using the given key and items.
 
 
-### Events
+## Events
 
-#### \'Update\', callback (key, item)
-1. `key {string}` ---The key value of the item being updated or added.
-2. `item {object}` ---The item being updated or added.
+### \'Update\', callback (key, item)
+
+Parameters
+:    1. `key {string}` ---The key value of the item being updated or added.
+	 2. `item {object}` ---The item being updated or added.
 
 The `Update` event is published when an item in the datasource has been added or updated.
 
-#### \'Remove\', callback (key, item)
-1. `key {string}` ---The key value of the item being removed.
-2. `item {object}` ---The item being removed.
+### \'Remove\', callback (key, item)
+
+Parameters
+:    1. `key {string}` ---The key value of the item being removed.
+	 2. `item {object}` ---The item being removed.
 
 The `Remove` event is published when an item has been removed from the data source.
