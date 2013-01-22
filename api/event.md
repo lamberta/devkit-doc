@@ -1,4 +1,4 @@
-# Event Model
+# Class: event.Emitter
 
 The Game Closure SDK provides several mechanisms for
 handling events that allows cross-object communication. To
@@ -6,13 +6,6 @@ see what type of events a particular class supports, a
 list is provided in that component's API documentation. For
 example, here are the [available events](./ui-view.html#events) 
 on all objects that inherit from `ui.View`.
-
-Examples:
-
-* [Subscribe to an event](../example/events-on/)
-* [Subscribe to an event once](../example/events-once/)
-
-## Class: event.Emitter
 
 The event emitter follows a common message passing pattern
 known as [publish-subscribe](http://en.wikipedia.org/wiki/Publish–subscribe_pattern),
@@ -28,15 +21,21 @@ do. Many classes in the Game Closure SDK inherit from
 `event.Emitter` which allows the developer to listen for
 certain events and run code at a given time.
 
-~~~
-import event.Emitter as Emitter;
-~~~
+## Examples
+
+* [Subscribe to an event](../example/events-on/)
+* [Subscribe to an event once](../example/events-once/)
+
+
+## Methods
 
 ### new Emitter ()
 
 Create an Emitter instance.
 
 ~~~
+import event.Emitter as Emitter;
+
 var emitter = new Emitter();
 ~~~
 
@@ -56,10 +55,14 @@ monty.on('mailman', function (event) {
 });
 ~~~
 
-### emitter.emit (type [, args ...])
-1. `type {string}` ---The name of the event type.
-2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
-3. Return: `{boolean}`
+### emit (type [, args ...])
+
+Parameters
+:    1. `type {string}` ---The name of the event type.
+     2. `args {...*}` ---Optional arguments to pass to the subscriber's handler function.
+
+Returns
+:    1. `{boolean}`
 
 Emit an event to the object. Any of its handler functions
 subscribed to the given event type are executed. Returns
@@ -73,10 +76,16 @@ publishing an event it's subscribed to:
 monty.emit('mailman'); //=> console prints "Woof-woof!"
 ~~~
 
-### emitter.on (type, callback)
-1. `type {string}` ---The name of the event type.
-2. `callback {function|string}` ---The dispatch function, or method name on an object.
-3. Return: `{this}`
+### on (type, callback)
+
+*Alias: `addListener`*
+
+Parameters
+:    1. `type {string}` ---The name of the event type.
+	 2. `callback {function|string}` ---The dispatch function, or method name on an object.
+
+Returns
+:    1. Return: `{this}`
 
 Add a callback function that is subscribed to a given event
 type. The function will execute when that event is emitted
@@ -93,16 +102,14 @@ emitter.on('add', function (a, b) {
 emitter.emit('add', 3, 5);  //=> true (console prints "The sum is 8")
 ~~~
 
+### once (type, callback)
 
+Parameters
+:    1. `type {string}` ---The name of the event type.
+     2. `callback {function|string}` ---The dispatch function, or method name on an object.
 
-### emitter.addListener (type, callback)
-
-An alias for `emitter.on`.
-
-### emitter.once (type, callback)
-1. `type {string}` ---The name of the event type.
-2. `callback {function|string}` ---The dispatch function, or method name on an object.
-3. Return `{this}`
+Returns
+:    1. `{this}`
 
 Subscribe to an event, and remove the listener after it is received once.
 
@@ -113,12 +120,14 @@ emitter.emit('one-time'); //=> true
 emitter.emit('one-time'); //=> false
 ~~~
 
+### removeListener (type, callback)
 
+Parameters
+:    1. `type {string}` ---The name of the event type.
+	 2. `callback {function|string}` ---The dispatch function, or method name on an object.
 
-### emitter.removeListener (type, callback)
-1. `type {string}` ---The name of the event type.
-2. `callback {function|string}` ---The dispatch function, or method name on an object.
-3. Return `{this}`
+Returns
+:    1. `{this}`
 
 Unsubscribe a listener. This function will no longer execute
 when its event type is emitted to the object.
@@ -130,9 +139,13 @@ emitter.removeListener('myevent', callback);
 emitter.emit('myevent');                     //=> false
 ~~~
 
-### emitter.removeAllListeners (type)
-1. `type {string}` ---The name of the event type.
-2. Return `{this}`
+### removeAllListeners (type)
+
+Parameters
+:    1. `type {string}` ---The name of the event type.
+
+Returns
+:    1. `{this}`
 
 Unsubscribe all listeners for a given event type.
 
@@ -144,9 +157,13 @@ emitter.removeAllListeners('myevent');
 emitter.emit('myevent');               //=> false
 ~~~
 
-### emitter.listeners (type)
-1. `type {string}` ---The name of the event type.
-2. Return: `{array}`
+### listeners (type)
+
+Parameters:
+:    1. `type {string}` ---The name of the event type.
+
+Returns
+:    1. `{array}`
 
 Returns an array of event handler functions for a given
 event type. This is a mutable reference to the array,
@@ -158,8 +175,10 @@ emitter.on('myevent', callback);
 emitter.listeners('myevent');  //=> [callback]
 ~~~
 
-### emitter.setMaxListeners (n)
-1. `n {number}`
+### setMaxListeners (n)
+
+Parameters:
+:    1. `n {number}`
 
 By default, a warning message will display in the console if
 more than 10 listeners are added to an object, which may
@@ -170,16 +189,16 @@ increase this limit.
 emitter.setMaxListeners(20);
 ~~~
 
-### Events
+## Events
 
-#### \'newListener\', callback (type, handler)
+### \'newListener\', callback (type, handler)
 1. `type {string}`
 2. `handler {function}`
 
 Emitted when a new listener is added to the object.
 
 
-## Class: event.input.InputEvent
+# Class: event.input.InputEvent
 
 Input events provide an object that encapsulates data about
 the input gesture that created it. For example, when the
@@ -208,25 +227,42 @@ view.on('InputSelect', function (evt, pt) {
 });
 ~~~  
 
-More information on the types of input events which can occur can be found in:  
-  
-[ui.View](ui/view)  
-[ui.widget.ButtonView](ui/widget/buttonview) 
+More information on the types of input events which can
+occur can be found in [ui.View](./ui-view.html) and
+[ui.widget.ButtonView](./ui-widget-buttonview.html).
 
 ~~~
 import event.input.InputEvent as InputEvent;
 ~~~
 
-### new InputEvent (id, type, x, y, root, target)
-1. `id {string}` ---Unique ID representing the input, useful for multi-touch input events.
-2. `type {number}` ---Represents the type of event which occurred.
-3. `x {number}` ---The x-coordinate position of the input event.
-4. `y {number}` ---The y-coordinate position of the input event.
-5. `root {View}` ---Root view which the input event bubbled up to.
-6. `target {View}` ---The view which the input event occurred on.
 
-### event.id
-1. `{number}`
+## Methods
+
+### new InputEvent (id, type, x, y, root, target)
+
+Parameters
+:    1. `id {string}` ---Unique ID representing the input, useful for multi-touch input events.
+	 2. `type {number}` ---Represents the type of event which occurred.
+	 3. `x {number}` ---The x-coordinate position of the input event.
+	 4. `y {number}` ---The y-coordinate position of the input event.
+	 5. `root {View}` ---Root view which the input event bubbled up to.
+	 6. `target {View}` ---The view which the input event occurred on.
+
+### clone ()
+
+Returns
+:    1. `{InputEvent}`
+
+Return a new `InputEvent` using this event's property values.
+
+### cancel ()
+
+Cancel an event from propagating further.
+
+
+## Properties
+
+### id `{number}`
 
 Each input type is identified by a unique ID, for example,
 the mouse will have the same identifier. For multi-touch
@@ -236,10 +272,10 @@ fingers across a device at the same time).  This way you can effectively
 manage multi-touch events which occur (for actions such as
 multi-touch gestures, i.e. pinching, multi-finger swiping, etc).
 
-### event.type
-1. `{number}` ---A integer value 0-4 representing an event type.
+### type `{number}`
 
-An event type can be one of the following enumerable values:
+A integer value 0-4 representing an event type. An event
+type can be one of the following enumerable values:
 
 ~~~
 from event.input.dispatch import eventTypes;
@@ -251,58 +287,39 @@ from event.input.dispatch import eventTypes;
 * `eventTypes.SCROLL {number} = 3` ---A view has been scrolled.
 * `eventTypes.CLEAR {number} = 4` ---An event is no longer over the active input.
 
-### event.srcPoint
-1. `{Point}`
+### srcPoint `{Point}`
 
 Object containing `x` and `y` coordinate position where the
 event was dispatched.
 
-### event.root
-1. `{View|null}`
+### root `{View|null}`
 
 Top view where event is dispatched (the tree root).  When the input event is bubbled up, this is where the bubbling ends.
 
-### event.target
-1. `{View|null}`
+### target `{View|null}`
 
 Bottom view where the event occurred.  This should be the view which the
 handler is being registered on.
 
-### event.when
-1. `{number}`
+### when `{number}`
 
 Elapsed time (in milliseconds) from when the app started.
 
-### event.depth
-1. `{number} = 0`
+### depth `{number} = 0`
 
 Number of levels of the tree from root to target.
 
-### event.clone ()
-1. Return: `{InputEvent}`
-
-Return a new `InputEvent` using this event's property values.
-
-### event.cancel ()
-
-Cancel an event from propagating further.
-
-### event.cancelled
-1. `{boolean} = false`
+### cancelled `{boolean} = false`
 
 Check if an event has been canceled, and therefore, will not
 propagate further.
 
 
-## Class: event.Callback
+# Class: event.Callback
 
 Construct and chain callbacks for asynchronous flow
 control. For advanced features with a more concise syntax,
 see the [ff Node.js module](https://github.com/gameclosure/ff).
-
-~~~
-import event.Callback as Callback;
-~~~
 
 Some APIs do not care when an event has fired, or even if it
 has fired already. An example of this is preloading an
@@ -328,16 +345,25 @@ executed. Now, the code can read:
 image.doOnLoad(renderImageToBuffer); //Fires immediately if the image has already loaded
 ~~~
 
+## Methods
+
 ### new Callback ()
 
 ~~~
+import event.Callback as Callback;
+
 var callback = new Callback();
 ~~~
 
-### callback.run ([thisArg,] callback)
-1. `thisArg {object}` ---Optional object to use as `this`. Defaults to the callback itself.
-2. `callback {function}`
-3. Return: `{this}`
+### run ([thisArg,] callback [, args ...])
+
+Parameters
+:    1. `thisArg {object}` ---Optional object to use as `this` in the callback function, defaults to the callback itself.
+	 2. `callback {function}`
+	 3. `args {...*}` ---Arguments to pass to the callback function.
+
+Returns
+:    1. `{this}`
 
 Add a callback to the callback chain by specifying the
 object and the method to call within that object. If
@@ -351,12 +377,6 @@ cb.fire("Louis"); //=> "Hi, Louis"
 cb.run(function () { console.log("Runs immediately!"); }); //=> "Runs immediately!"
 ~~~
 
-### callback.run (thisArg, callback [, args ...])
-1. `thisArg {object}` ---Object to use as `this` in the callback function.
-2. `callback {function}`
-3. `args {...*}` ---Arguments to pass to the callback function.
-4. Return: `{this}`
-
 If arguments are curried to the function then the `thisArg`
 object is required.
 
@@ -369,12 +389,15 @@ cb.run(null, meet_and_greet, "Carl");
 cb.fire("Tim"); //=> "Carl say hi to Tim"
 ~~~
 
-### callback.runOrTimeout (onFire, onTimeout, duration)
-1. `onFire {function}` ---Run if the callback is fired before the timeout.
-2. `onTimeout {function}` ---Executed if the timeout occurs before the callback is fired.
-3. `duration {number}` ---Amount of milliseconds before a timeout occurs.
+### runOrTimeout (onFire, onTimeout, duration)
 
-Run two separate callbacks depending on whether the specified timeout occurs or the callback is triggered.
+Parameters
+:    1. `onFire {function}` ---Run if the callback is fired before the timeout.
+     2. `onTimeout {function}` ---Executed if the timeout occurs before the callback is fired.
+	 3. `duration {number}` ---Amount of milliseconds before a timeout occurs.
+
+Run two separate callbacks depending on whether the
+specified timeout occurs or the callback is triggered.
 
 ~~~
 var cb = new Callback();
@@ -385,8 +408,10 @@ cb.runOrTimeout(function () {
 }, 5000);
 ~~~
 
-### callback.chain ()
-1. Return: `{function}`
+### chain ()
+
+Returns
+:    1. `{function}`
 
 Chaining allows the loaded callback functions to run *after* another
 function is explicitly executed. Each call to `chain` returns
@@ -420,20 +445,25 @@ load_sounds();
 load_images(); //=> "Resources loaded!"
 ~~~
 
-### callback.fire ([args ...])
-1. `args {...*}`
+### fire ([args ...])
 
-Fire all the registered callbacks. Any arguments passed to this will be passed into the registered callbacks.
+Parameters
+:    1. `args {...*}`
 
-### callback.hasFired ()
-1.	Return: `{boolean}`
+Fire all the registered callbacks. Any arguments passed to
+this will be passed into the registered callbacks.
+
+### hasFired ()
+
+Returns
+:    1.	`{boolean}`
 
 Check if the callback chain has been fired.
 
-### callback.reset ()
+### reset ()
 
 Allow the callback chain to be fired again.
 
-### callback.clear ()
+### clear ()
 
 Clears all of the registered callbacks and executes `callback.reset ()`.
