@@ -20,12 +20,13 @@ Parameters
        * `thumbSize {number} = "auto"` ---The size of the thumb, if `auto` then it will be based on the size of the view.
        * `active {boolean} = true` ---Is the view active?
        * `increment {number} = false` ---If increment is a value then an integer diviseble by the increment will be returned.
-       * `track {Object}` ---Information about the styling of the track.
+       * `track {Object}` ---Information about the styling of the track, equal to `ImageScaleView` options.
 		 * `active {string|Image}` ---The active background image or an URL to an active background image.
 		 * `inactive {string|Image}` ---The inactive background image or an URL to an inactive background image.
 		 * `activeColor {string}` ---The color of the track.
 		 * `inactiveColor {string}` ---The color of the track if the view is not active.
-       * `thumb {Object}` ---Information about the styling of the thumb.
+       * `thumb {Object}` ---Information about the styling of the thumb, equalt to `ImageScaleView` options.
+		 ----
 		 * `active {string|Image}` ---The active background image or an URL to an active background image.
 		 * `pressed {string|Image}` ---The pressed background image or an URL to an pressed background image.
 		 * `inactive {string|Image}` ---The inactive background image or an URL to an inactive background image.
@@ -42,13 +43,20 @@ passed in this object.
 import ui.widget.SliderView as SliderView;
 
 var sliderView = new SliderView({
-  id: 'MyCrazyView',
   superview: parent,
   x: 50,
   y: 50,
   width: 100,
-  height: 100,
-  backgroundColor: '#0000ff'
+  height: 30,
+  track: {
+    activeColor: '#008800',
+    inactiveColor: '#E0E0E0'
+  },
+  thumb: {
+    activeColor: '#00AA00',
+    pressedColor: '#990000',
+    inactiveColor: '#008800'
+  }
 });
 ~~~
 
@@ -62,47 +70,56 @@ Returns
 
 Update the properties and styles of a view.
 
-### getApp ()
+### getValue ()
 
 Returns
-:    1. `{ui.Engine}`
+:    1. `{number}` ---Return the value
 
-Returns the root application for the view, [GC.app.engine](./appengine.html#singleton-gc.app.engine).
-This is the top-level node of the scene graph, a [ui.Engine](./appengine.html#class-ui.engine) singleton automatically instantiated by the game engine.
+Get the value, if the increment is `false` then the value can be a floating point value else 
+it's an integer diviseble by the increment.
 
-### getSuperview ()
+### setIncrement (increment)
 
-Returns
-:    1. `{View}` ---Return the view's parent in the scene graph hierarchy.
+Parameters
+:    1. `increment {number}`
 
-### getParents ()
+Set the increment, if the increment is `false` then no increment value is applied.
 
-Returns
-:    1. `{array}` ---A collection of `View` elements.
+### setMinValue (minValue)
 
-Returns an array of all parent ancestors of the current view
-to the root of the scene graph.
+Parameters
+:    1. `minValue {number}`
 
-### getSubviews ()
+Set the minimum value, this value should be lower than the maximum value.
 
-Returns
-:    1. `{array}` ---A collection of `View` elements.
+### setMaxValue (maxValue)
 
-Returns an array containing a reference to all of the view's
-children. Since this function has an execution time of *O(n)*,
-you should store a reference to the array and then iterate:
+Parameters
+:    1. `maxValue {number}`
+
+Set the maximum value, this value should be higher than the minimum value.
+
+### setThumbSize (thumbSize)
+
+Parameters
+:    1. `thumbSize {number}`
+
+Set the thumb size, the default is based on the size of the view.
+
+### setValue (value)
+
+Parameters
+:    1. `value {number}`
+
+Set the value, the value is clamped on the set minimum and maximum value.
 
 ### \'Change\', callback (value)
 
 Parameters
 :    1. `value {Number}`
 
-Fired on a mousedown / touch occurrence. `event` represents
-the InputEvent which occurred from InputStart
-occurring. `point` is a point relative to the top-left
-corner of the view.
-
-Subscribe to the capture-phase event with `'InputStartCapture'`.  
+Fired when the slider is dragged, the minimum or maximum value changed or the increment changed.
+When the increment is set then the value is an integer diviseble by the increment.
 
 ~~~
 view.on('InputStart', function (event, point) {
