@@ -214,7 +214,13 @@ td.docs p a {
 
 /*front-page*/
 #feature-list {
-	margin-top: 50px;
+	margin-top: 40px;
+}
+
+#feature-list dl {
+	margin: 15px 0 20px 0;
+	font-size: 1em;
+	line-height: 1.5em;
 }
 
 #feature-list dt {
@@ -222,9 +228,8 @@ td.docs p a {
 	font-weight: 300;
 }
 
-#feature-list dl {
-	font-size: 1em;
-	line-height: 1.5em;
+#main .tab-pane h2 {
+	color: #000;
 }
 
 .figure-wrapper {
