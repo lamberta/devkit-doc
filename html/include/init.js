@@ -60,7 +60,7 @@ $(function () {
 	/* auto-shorten toc link text
 	 */
 	var regex_title = /\S+/;
-	$('nav ul li ul li a').each(function (i, elem) {
+	$('nav ul li ul li li a').each(function (i, elem) {
 		var a = $(elem),
 				title = a.text().match(regex_title)[0];
 
