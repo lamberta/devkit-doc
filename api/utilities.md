@@ -4,10 +4,10 @@ A variety of helper functions for working and managing JavaScript code.
 
 ## Modules
 
-The Game Closure SDK provides a few tools to make it
-easier to work with classes, modules, and multiple
-files---things that are traditionally a challenge when
-building larger projects using JavaScript.
+The Game Closure SDK provides a framework to make
+development easier in JavaScript. This includes a class
+system to help structure your code and an import system so
+you can work in different source files.
 
 ### import
 
@@ -16,6 +16,8 @@ as defined in a separate file, and include them in this
 file. Modules may be arranged in a namespace hierarchy to
 indicate a usage category. Additionally, modules may be
 aliased using the `as` keyword for easier reference.
+
+*Note: the `import` keyword is specific to the Game Closure SDK and not standard JavaScript.*
 
 ~~~
 import device;
@@ -34,6 +36,15 @@ project's root directory. So, in the above example, the
 import path of `Module` refers to the file located at
 `{project}/src/path/to/Module.js`.
 
+Files may be imported realtive to the current source
+directory by prepending the path with a dot (`.`). To
+reference a file up a directory, use two dots.
+
+~~~
+import .MyModule; //=> ./MyModule.js (In this directory)
+import ..foo;     //=> ../foo.js     (In parent directory)
+import ...foo;    //=> ../../foo.js  (In grandparent directory)
+~~~
 
 ### Class ([name, superConstructor,] constructor)
 
@@ -72,6 +83,7 @@ var MyClass = Class(MySuperClass, function (supr) {
     //Call the init of the super class with the arguments passed to this class.
     supr(this, 'init', arguments);  
   };
+
   this.say = function () {
     console.log("Hello, " + this.name + "!");
   };

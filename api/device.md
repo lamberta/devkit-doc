@@ -1,6 +1,9 @@
 # Module: device
 
-Information and settings about the device running the application.
+Information and settings about the device running the
+application. Due to the many platforms the Game Closure SDK
+runs on, it is useful to be able to run code based on the
+environment.
 
 ~~~
 import device;
@@ -115,6 +118,6 @@ Check if the current rendering backend is using the DOM.
 * `move {string} = 'touchmove'|'mousemove'`
 * `end {string} = 'touchend'|'mouseup'`
 
-A collection events supported by the device. Since it may be
-run in a web browser or touch device, this provides a
-convenient mapping of both types if input.
+A collection of events supported by the device. Since it may
+be run in a web browser or touch device, this provides a
+convenient mapping of both types of input.

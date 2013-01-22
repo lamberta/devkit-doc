@@ -7,6 +7,11 @@ This document contains information on the classes and
 instances that are initialized when the game engine is
 created and the scene graph is drawn to the screen.
 
+If you are just getting started with the SDK, you should
+first read our guides, in particular
+[Hello World](../guide/hello-world.html) and the more
+advanced [Game Walk-Through](../guide/game-walkthrough.html).
+
 ## Events
 
 ### initUI ()
