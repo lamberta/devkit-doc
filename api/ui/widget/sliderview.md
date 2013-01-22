@@ -3,13 +3,16 @@
 Inherits from
 :    1. [ui.ImageScaleView](./)
 
-The slider is an input element the select a value. The orientation of the silder can be horizontal or vertical.
+The slider is an input element to select a value. The orientation of the silder can be horizontal or vertical.
 If the option `horizontal` is set then this value is used independent of the size of the view, if not then 
 the slide direction is based on the relation between the width and the height. If the width is larger than the
 height then the direction is horizontal else the direction is vertical.
 
 When the `track` option contains the `activeColor` property then a color is applied to the background else
 the background is styled based on image properties (which should be passed as and option).
+
+The format of the `track` and `thumb` parameters to apply background images is the same as the `ImageScaleView` 
+which means you can use 3-slice, 6-slice or 9-slice images for the background.
 
 ## Examples
 
@@ -21,6 +24,7 @@ the background is styled based on image properties (which should be passed as an
 
 Parameters
 :    1. `options {object}`
+       * `horizontal {boolean}` ---Optional, if not passed then the direction is based on the relation between the width and the height.
        * `minValue {number} = 0` ---The minimum value.
        * `maxValue {number} = 100` ---The maximum value.
        * `thumbSize {number} = "auto"` ---The size of the thumb, if `auto` then it will be based on the size of the view.
