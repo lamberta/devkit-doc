@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-01-15 19:20:47 +0000</string>
+	<string>2013-01-17 23:35:31 +0000</string>
 	<key>Modifier</key>
 	<string>Derek Burch</string>
 	<key>NotesVisible</key>
@@ -113,7 +113,7 @@
 			<key>ColumnSpacing</key>
 			<real>36</real>
 			<key>DisplayScale</key>
-			<string>1 0/72 in = 1 0/72 in</string>
+			<string>1 0/72 in = 1.0000 in</string>
 			<key>GraphicsList</key>
 			<array>
 				<dict>
@@ -202,8 +202,8 @@
 					<integer>14</integer>
 					<key>Points</key>
 					<array>
-						<string>{241.49999860113061, 340.24115894338115}</string>
-						<string>{339.50000670953648, 340.00843943904181}</string>
+						<string>{241.49999988613936, 340.43291033765797}</string>
+						<string>{339.5000004576334, 340.37259119128441}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -276,8 +276,8 @@
 					<integer>12</integer>
 					<key>Points</key>
 					<array>
-						<string>{241.49999996243309, 131.54777595563144}</string>
-						<string>{339.50000022871956, 131.59073048467926}</string>
+						<string>{241.49999999999903, 131.51238316989483}</string>
+						<string>{339.49999999980929, 131.52351666209384}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -344,8 +344,8 @@
 					<integer>9</integer>
 					<key>Points</key>
 					<array>
-						<string>{436.8583631522261, 470.02953778187788}</string>
-						<string>{435.7653951097422, 409.9999171444984}</string>
+						<string>{436.85583484664721, 470.02953808445881}</string>
+						<string>{435.76403853144672, 409.99991733600103}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -416,8 +416,8 @@
 					<integer>7</integer>
 					<key>Points</key>
 					<array>
-						<string>{435.76539510993439, 409.99991715505507}</string>
-						<string>{437.17645189704007, 487.50008215095789}</string>
+						<string>{435.76403853086384, 409.99991730395146}</string>
+						<string>{437.17358258147743, 487.50008249826595}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -682,8 +682,8 @@
 					<integer>26</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.4976255743104, 623.77677593271937}</string>
-						<string>{354.00000116892443, 623.68571323080869}</string>
+						<string>{255.49762576140995, 623.85109939149731}</string>
+						<string>{354.00000006855794, 623.82894133985519}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -816,8 +816,8 @@ git: basil}</string>
 					<integer>21</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.49762579975146, 502.5110579348148}</string>
-						<string>{354.00000003097631, 502.52130965248023}</string>
+						<string>{255.49762579955788, 502.50269117205255}</string>
+						<string>{353.99999999263378, 502.50518613485741}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -950,8 +950,8 @@ git: tealeaf-core}</string>
 					<integer>17</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.49762580052055, 245.00005198524269}</string>
-						<string>{342.49999999167028, 245.00009455361976}</string>
+						<string>{255.49762580052058, 245.0000151763995}</string>
+						<string>{342.49999999167005, 245.00002760367045}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1542,8 +1542,8 @@ NativeShim.cpp}</string>
 					<integer>46</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.03495158826735, 191.72339248657227}</string>
-						<string>{419.04505762294093, 258.87500381469727}</string>
+						<string>{419.0352066265188, 191.72339248657227}</string>
+						<string>{419.04599771037363, 258.87500381469727}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1629,10 +1629,14 @@ NativeShim.cpp}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Interface between JS Code and Native code\
+\f0\fs24 \cf0 Provides an interface between JS Code and Native code\
 \
-git: addon-native\
-Directory: addon-native/lib/runtimeNative/}</string>
+
+\b git
+\b0 : js-api\
+
+\b Directory
+\b0 : native}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -1651,11 +1655,11 @@ Directory: addon-native/lib/runtimeNative/}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.911396</string>
+								<string>0.944925</string>
 								<key>g</key>
-								<string>0.496009</string>
+								<string>0.409636</string>
 								<key>r</key>
-								<string>0.960619</string>
+								<string>0.734437</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1667,7 +1671,7 @@ Directory: addon-native/lib/runtimeNative/}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Addon Native}</string>
+\f0\fs24 \cf0 js-api}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -1684,7 +1688,7 @@ Directory: addon-native/lib/runtimeNative/}</string>
 					<array>
 						<string>{445.63600884082416, 308.71636747797032}</string>
 						<string>{540, 396.8883056640625}</string>
-						<string>{515.29188571822863, 492.75667066315856}</string>
+						<string>{515.09288245155665, 495.75599754661863}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1720,7 +1724,7 @@ Directory: addon-native/lib/runtimeNative/}</string>
 					<array>
 						<string>{391.82345338698178, 308.71197457466377}</string>
 						<string>{299, 393.3883056640625}</string>
-						<string>{326.24406500116038, 492.7586242263921}</string>
+						<string>{326.45030632249967, 495.75789069969113}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1748,53 +1752,14 @@ Directory: addon-native/lib/runtimeNative/}</string>
 					<key>Head</key>
 					<dict>
 						<key>ID</key>
-						<integer>36</integer>
-					</dict>
-					<key>ID</key>
-					<integer>40</integer>
-					<key>Points</key>
-					<array>
-						<string>{400.59930419921875, 650.61131603482261}</string>
-						<string>{441.5, 650.61130601916511}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>GapRatio</key>
-							<real>0.5</real>
-							<key>HeadArrow</key>
-							<string>0</string>
-							<key>Legacy</key>
-							<true/>
-							<key>LineType</key>
-							<integer>1</integer>
-							<key>TailArrow</key>
-							<string>0</string>
-							<key>Width</key>
-							<real>4</real>
-						</dict>
-					</dict>
-					<key>Tail</key>
-					<dict>
-						<key>ID</key>
-						<integer>9</integer>
-					</dict>
-				</dict>
-				<dict>
-					<key>Class</key>
-					<string>LineGraphic</string>
-					<key>Head</key>
-					<dict>
-						<key>ID</key>
 						<integer>34</integer>
 					</dict>
 					<key>ID</key>
 					<integer>39</integer>
 					<key>Points</key>
 					<array>
-						<string>{400.59930419921875, 527.06214650935692}</string>
-						<string>{441.5, 527.06214650935692}</string>
+						<string>{400.59930419921875, 530.06214650935692}</string>
+						<string>{441.5, 530.06214650935692}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1826,84 +1791,14 @@ Directory: addon-native/lib/runtimeNative/}</string>
 					<key>Head</key>
 					<dict>
 						<key>ID</key>
-						<integer>36</integer>
-					</dict>
-					<key>ID</key>
-					<integer>37</integer>
-					<key>Points</key>
-					<array>
-						<string>{506.55039167075279, 561.38345507565225}</string>
-						<string>{506.71043972887526, 616.28999999651796}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>HeadArrow</key>
-							<string>FilledArrow</string>
-							<key>Legacy</key>
-							<true/>
-							<key>LineType</key>
-							<integer>1</integer>
-							<key>TailArrow</key>
-							<string>FilledArrow</string>
-						</dict>
-					</dict>
-					<key>Tail</key>
-					<dict>
-						<key>ID</key>
-						<integer>34</integer>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{442, 616.78998565673828}, {128.90069580078125, 67.642608642578125}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>36</integer>
-					<key>Shape</key>
-					<string>Rectangle</string>
-					<key>Style</key>
-					<dict>
-						<key>fill</key>
-						<dict>
-							<key>Color</key>
-							<dict>
-								<key>b</key>
-								<string>0.172677</string>
-								<key>g</key>
-								<string>0.487537</string>
-								<key>r</key>
-								<string>0.805047</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
-
-\f0\fs24 \cf0 iOS}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Class</key>
-					<string>LineGraphic</string>
-					<key>Head</key>
-					<dict>
-						<key>ID</key>
 						<integer>34</integer>
 					</dict>
 					<key>ID</key>
 					<integer>35</integer>
 					<key>Points</key>
 					<array>
-						<string>{449.04376140422642, 446.80811365427093}</string>
-						<string>{482.00651899696447, 492.8339543424101}</string>
+						<string>{448.35854829212752, 446.81127045525085}</string>
+						<string>{482.66084477563851, 495.83026111371544}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1927,7 +1822,7 @@ Directory: addon-native/lib/runtimeNative/}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{442, 493.24084854125977}, {128.90069580078125, 67.642608642578125}}</string>
+					<string>{{442, 496.24084854125977}, {128.90069580078125, 67.642608642578125}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -1941,11 +1836,11 @@ Directory: addon-native/lib/runtimeNative/}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.136949</string>
+								<string>0</string>
 								<key>g</key>
-								<string>0.490377</string>
+								<string>0.466688</string>
 								<key>r</key>
-								<string>0.815204</string>
+								<string>0.952552</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1957,7 +1852,8 @@ Directory: addon-native/lib/runtimeNative/}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Platform Code}</string>
+\f0\fs24 \cf0 iOS \
+Platform Code}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -1972,8 +1868,8 @@ Directory: addon-native/lib/runtimeNative/}</string>
 					<integer>32</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.04591501589692, 308.87500381469727}</string>
-						<string>{419.03684918669103, 362.901611328125}</string>
+						<string>{419.04616197080026, 308.87500381469727}</string>
+						<string>{419.03762982701988, 362.901611328125}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2061,7 +1957,12 @@ Directory: addon-native/lib/runtimeNative/}</string>
 
 \f0\fs24 \cf0 Game Engine and Game Code\
 \
-git: basil}</string>
+
+\b git
+\b0 : basil\
+
+\b Directory
+\b0 : sdk}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2115,11 +2016,11 @@ git: basil}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.911396</string>
-								<key>g</key>
-								<string>0.496009</string>
-								<key>r</key>
 								<string>0.960619</string>
+								<key>g</key>
+								<string>0.390149</string>
+								<key>r</key>
+								<string>0.737986</string>
 							</dict>
 						</dict>
 					</dict>
@@ -2147,7 +2048,7 @@ git: basil}</string>
 					<key>Points</key>
 					<array>
 						<string>{211.99762602696566, 283.87500977796196}</string>
-						<string>{332.05011008594499, 283.87500977796196}</string>
+						<string>{332.05011008594494, 283.87500977796196}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2200,7 +2101,9 @@ git: basil}</string>
 
 \f0\fs24 \cf0 c/c++ code used to interpret the running javascript code. V8 is used for Android and Spidermonkey for iOS.\
 \
-git: android and ios}</string>
+
+\b git
+\b0 : android and ios}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2221,9 +2124,9 @@ git: android and ios}</string>
 								<key>b</key>
 								<string>0.815204</string>
 								<key>g</key>
-								<string>0.408867</string>
+								<string>0.513543</string>
 								<key>r</key>
-								<string>0.402245</string>
+								<string>0.339365</string>
 							</dict>
 						</dict>
 					</dict>
@@ -2250,8 +2153,8 @@ git: android and ios}</string>
 					<integer>27</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97870513283243, 650.61143689941707}</string>
-						<string>{270.69860838807102, 650.61146328554162}</string>
+						<string>{211.97867147083764, 654.37539314689536}</string>
+						<string>{270.69862663055204, 655.05665228543467}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2279,7 +2182,7 @@ git: android and ios}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{0, 600.73638916015625}, {211.47870512247255, 99.75}}</string>
+					<string>{{0, 600.73638916015625}, {211.47870512247255, 104.8128662109375}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -2304,9 +2207,13 @@ git: android and ios}</string>
 
 \f0\fs24 \cf0 Holds all code that interacts directly with the device.\
 \
-git: android and iOS\
-Directory: Tealeaf\
-tealeaf}</string>
+
+\b git
+\b0 : android\
+
+\b Directories
+\b0 : \
+android: Tealeaf}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2321,8 +2228,8 @@ tealeaf}</string>
 					<integer>25</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.99762563342114, 527.19414207731029}</string>
-						<string>{270.69861087262439, 527.26707481310825}</string>
+						<string>{211.99762602124866, 529.58177429626869}</string>
+						<string>{270.69862245992744, 529.57525904918964}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2350,7 +2257,7 @@ tealeaf}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{0, 477.1871337890625}, {211.49762602091005, 99.75}}</string>
+					<string>{{0, 474.1871337890625}, {211.49762602091005, 110.8128662109375}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -2375,9 +2282,14 @@ tealeaf}</string>
 
 \f0\fs24 \cf0 Native code for interfacing with the device specific code\
 \
-git: android and iOS\
-Directory: Tealeaf/jni/platform\
-tealeaf/js}</string>
+
+\b git
+\b0 : android and iOS\
+
+\b Directories
+\b0 : \
+android: Tealeaf/jni/platform\
+iOS: tealeaf and tealeaf/platform}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2392,8 +2304,8 @@ tealeaf/js}</string>
 					<integer>23</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97870501075928, 404.82771798459794}</string>
-						<string>{338.03118996984114, 404.74004388494689}</string>
+						<string>{211.97870512745939, 404.88839041779312}</string>
+						<string>{338.03118898965675, 404.87270387089694}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2446,7 +2358,9 @@ tealeaf/js}</string>
 
 \f0\fs24 \cf0 Native code that runs the main game engine. Manages state that is required in all native platforms.\
 \
-git: tealeaf-core}</string>
+
+\b git
+\b0 : tealeaf-core}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2461,8 +2375,8 @@ git: tealeaf-core}</string>
 					<integer>11</integer>
 					<key>Points</key>
 					<array>
-						<string>{335.74985034601065, 561.38343593566901}</string>
-						<string>{335.91125884098176, 616.29004221852597}</string>
+						<string>{335.64897188469308, 564.38343811035156}</string>
+						<string>{335.64897188469308, 621.2900276184082}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2486,7 +2400,7 @@ git: tealeaf-core}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{271.1986083984375, 616.7900276184082}, {128.90069580078125, 67.642608642578125}}</string>
+					<string>{{271.1986083984375, 621.7900276184082}, {128.90069580078125, 67.642608642578125}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -2500,11 +2414,11 @@ git: tealeaf-core}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.514304</string>
+								<string>0.375661</string>
 								<key>g</key>
-								<string>1</string>
+								<string>0.659541</string>
 								<key>r</key>
-								<string>0.641519</string>
+								<string>0.437564</string>
 							</dict>
 						</dict>
 					</dict>
@@ -2531,8 +2445,8 @@ git: tealeaf-core}</string>
 					<integer>8</integer>
 					<key>Points</key>
 					<array>
-						<string>{390.4001950546072, 446.81447706102244}</string>
-						<string>{358.96829142785396, 492.827590003164}</string>
+						<string>{391.0539545666868, 446.81748383671396}</string>
+						<string>{358.34393908721029, 495.82407323291358}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2556,7 +2470,7 @@ git: tealeaf-core}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{271.1986083984375, 493.24082946777344}, {128.90069580078125, 67.642608642578125}}</string>
+					<string>{{271.1986083984375, 496.24082946777344}, {128.90069580078125, 67.642608642578125}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -2570,11 +2484,11 @@ git: tealeaf-core}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.815204</string>
+								<string>0.796513</string>
 								<key>g</key>
-								<string>0.408867</string>
+								<string>0.521737</string>
 								<key>r</key>
-								<string>0.402245</string>
+								<string>0.352996</string>
 							</dict>
 						</dict>
 					</dict>
@@ -2586,7 +2500,8 @@ git: tealeaf-core}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Platform Code}</string>
+\f0\fs24 \cf0 Android\
+Platform Code}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2605,11 +2520,11 @@ git: tealeaf-core}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.829324</string>
+								<string>0.805861</string>
 								<key>g</key>
-								<string>0.399356</string>
+								<string>0.516882</string>
 								<key>r</key>
-								<string>0.398113</string>
+								<string>0.345469</string>
 							</dict>
 						</dict>
 					</dict>
@@ -2693,7 +2608,7 @@ git: tealeaf-core}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{60, -5}, {980, 774}}</string>
+		<string>{{60, 4}, {980, 774}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
