@@ -1,14 +1,11 @@
-# Game Application and Scene Graph
-
-This document contains information on the classes and
-instances that are initialized when the game engine is
-created and the scene graph is drawn to the screen.
-
-
 # Class: GC.Application
 
 Inherits from
 :    1. [event.Emitter](./event.html#class-event.emitter)
+
+This document contains information on the classes and
+instances that are initialized when the game engine is
+created and the scene graph is drawn to the screen.
 
 ## Events
 
