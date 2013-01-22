@@ -11,8 +11,8 @@ height then the direction is horizontal else the direction is vertical.
 When the `track` option contains the `activeColor` property then a color is applied to the background else
 the background is styled based on image properties (which should be passed as and option).
 
-The format of the `track` and `thumb` parameters to apply background images is the same as the `ImageScaleView` 
-which means you can use 3-slice, 6-slice or 9-slice images for the background.
+The format of the `track` and `thumb` options to apply background images is the same as the `ImageScaleView` 
+options which means you can use 3-slice, 6-slice or 9-slice images for the background.
 
 ## Examples
 
@@ -24,6 +24,7 @@ which means you can use 3-slice, 6-slice or 9-slice images for the background.
 
 Parameters
 :    1. `options {object}`
+       * `active {boolean} = true` ---Optional, if not passed then the view is active.
        * `horizontal {boolean}` ---Optional, if not passed then the direction is based on the relation between the width and the height.
        * `minValue {number} = 0` ---The minimum value.
        * `maxValue {number} = 100` ---The maximum value.
