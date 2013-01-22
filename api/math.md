@@ -1135,6 +1135,15 @@ Returns
 
 Returns true if `circle` and `line` overlap and false otherwise.
 
+
+# Module: math.geom.intersect.util
+
+~~~
+import math.geom.intersect.util as util;
+~~~
+
+## Methods
+
 ### util.pointToLine (point, line)
 
 Parameters
