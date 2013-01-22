@@ -1,28 +1,30 @@
-# ui.StackView
+# Class: ui.StackView
 
-A handy way to organize a collection of game screens, tabs,
+Inherits from:
+:    1. [ui.View](./ui-view.html)
+     2. [event.Emitter](./event.html#class-event.emitter)
+
+A view that contains a collection of child views. Views are
+pushed onto the stack and popped off the stack; the view at
+the top position of the stack is rendered to the screen.
+
+This is a handy way to organize a collection of game screens, tabs,
 or other views that need to be displayed one at a time. The
 `StackView` provides a convenient means to navigate through
 game screens and be assured the user will not get stuck
 without a way out---views can always get popped off the
 stack until you get to the root view.
 
-## Class: ui.StackView
+## Examples
 
-A view that contains a collection of child views. Views are
-pushed onto the stack and popped off the stack; the view at
-the top position of the stack is rendered to the screen.
+* [Basic StackView](../example/ui-stackview-basic/)
 
-Inherits from:
-:    1. [ui.View](./ui-view.html)
-     2. [event.Emitter](./event.html#class-event.emitter)
-
-~~~
-import ui.StackView as StackView;
-~~~
+## Methods
 
 ### new StackView ([options])
-1. `options {object}` ---Options parameters are inherited from the `ui.View` class.
+
+Parameters
+:    1. `options {object}` ---Options parameters are inherited from the `ui.View` class.
 
 ~~~
 var stackview = new StackView({
@@ -36,31 +38,39 @@ var stackview = new StackView({
 });
 ~~~
 
-A [complete example](../example/ui-stackview-basic/) is available in the `addon-examples` package.
+### getStack ()
 
-### stackview.getStack ()
-1. Return: `{array}` --Return an array of views contained in this stack.
+Returns
+:    1. `{array}` ---Return an array of views contained in this stack.
 
 The bottom view is indexed at 0, and the current view is at
 the end of the returned array. Avoid modifying the returned
 stack directly, instead use the helper functions below.
 
-### stackview.getCurrentView ()
-1. Return: `{View}`
+### getCurrentView ()
+
+Returns
+:    1. `{View}`
 
 Return the current visible view at the top of the stack.
 
-### stackview.hasView (view)
-1. `view {View}`
-2. Return: `{boolean}`
+### hasView (view)
 
-Return `true` if the given view is contained in this stack.
+Parameters
+:    1. `view {View}`
 
-### stackview.push (view [, noAnimate, reverse])
-1. `view {View}`
-2. `noAnimate {boolean} = false` ---If `true`, do not animate the view when displaying.
-3. `reverse {boolean} = false` ---By default, wipe in from the right. If `true`, wipe in from the left.
-4. Return: `{View}` ---Same as the provided view object.
+Returns
+:    2. `{boolean}` ---Return `true` if the given view is contained in this stack.
+
+### push (view [, noAnimate, reverse])
+
+Parameters
+:    1. `view {View}`
+	 2. `noAnimate {boolean} = false` ---If `true`, do not animate the view when displaying.
+	 3. `reverse {boolean} = false` ---By default, wipe in from the right. If `true`, wipe in from the left.
+
+Returns
+:    1. `{View}` ---Same as the provided view object.
 
 Add a view to the `StackView` collection, since it is now on
 top of the stack it will be visible. The x and y coordinates
@@ -85,30 +95,38 @@ var view = new ui.View({
 stackview.push(view);
 ~~~
 
-### stackview.pop ([noAnimate, reverse])
-1. `noAnimate {boolean} = false` ---If `true`, do *not* animate in the new top view.
-2. `reverse {boolean} = true` ---By default, the view is animated from right to left. If `false`, animate the wipe from left to right.
-3. Return: `{View}`
+### pop ([noAnimate, reverse])
+
+Parameters
+:    1. `noAnimate {boolean} = false` ---If `true`, do *not* animate in the new top view.
+	 2. `reverse {boolean} = true` ---By default, the view is animated from right to left. If `false`, animate the wipe from left to right.
+
+Returns
+:    1. Return: `{View}`
 
 Remove a view from the top of the `StackView`. Unless
 `noAnimate` is true, this animates the view to the right,
 makes it invisible, then removes it as a subview.
 
-### stackview.popAll ([noAnimate])
-1. `noAnimate {boolean} = false` ---If `true`, do *not* animate out the child views.
+### popAll ([noAnimate])
+
+Parameters
+:    1. `noAnimate {boolean} = false` ---If `true`, do *not* animate out the child views.
 
 Removes all child views from the `StackView`, allowing it to
 be re-used. Note that this should be used instead of
 `removeAllSubviews` as it clears the inner stack.
 
-### stackview.remove (view)
-1. `view {View}`
+### remove (view)
+
+Parameters
+:    1. `view {View}`
 
 Removes a child view from the stack. Will not animate out
 regardless of position.
 
 
-### Events
+## Events
 
 #### \'ViewWillAppear\', callback ()
 
