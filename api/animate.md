@@ -88,7 +88,7 @@ invoke the animate function:
 var animator = animate(object);
 ~~~
 
-### animator.clear ()
+### clear ()
 
 Returns
 :    1. `{this}`
@@ -105,29 +105,29 @@ setTimeout( function() {
 }, 1500);
 ~~~
 
-### animator.pause ()
+### pause ()
 
 Pauses the animation.
 
-### animator.isPaused ()
+### isPaused ()
 
 Returns
 :    1. `{boolean}`
 
 Returns whether the animation is paused.
 
-### animator.resume ()
+### resume ()
 
 Resumes the animation if paused.
 
-### animator.hasFrames ()
+### hasFrames ()
 
 Returns
 :    1. `{boolean}`
 
 Returns whether there are any frames left in the animation queue.
 
-### animator.wait (duration)
+### wait (duration)
 
 Parameters
 :    1. `duration {number}` ---Duration of the wait in milliseconds.
@@ -146,7 +146,7 @@ animate(view).wait(500).then(function () {
 });
 ~~~
 
-### animator.now (target, duration, transition, onTick)
+### now (target, duration, transition, onTick)
 
 Parameters
 :    1. `target {View|object}` ---Will interpolate the appropriate number values of the provided object.
@@ -168,7 +168,7 @@ An animation transition can be one of the following:
 * `animate.easeOut` ---Animation has a slow end.
 * `animate.easeInOut` ---Animation has both slow start and slow end.
 
-### animator.then (target, duration, transition, onTick)
+### then (target, duration, transition, onTick)
 
 Parameters
 :    1. `target {View|object}` ---Will interpolate the appropriate number values of the provided object.
@@ -199,7 +199,7 @@ animate(view).now({x: 10}, 300).then({
 }, 1000);
 ~~~
 
-### animator.then (callback)
+### then (callback)
 
 Parameters
 :    1. `callback {function}` ---The callback function to be invoked at the appropriate point in the queue.
@@ -216,7 +216,7 @@ animate(view).now({x: 10}).then(function(){
 });
 ~~~
 
-### animator.debug ()
+### debug ()
 
 Returns
 :    1. `{this}`
@@ -225,7 +225,7 @@ Turns debug logging on. This will log information about the
 current animation frame like duration, transition, and what
 properties are being animated.
 
-### animator.commit ()
+### commit ()
 
 Returns
 :    1. `{this}`
@@ -270,7 +270,7 @@ animate.getGroup('complexAnimation1').on('Finish', function(){
 
 ## Methods
 
-### group.get (id)
+### get (id)
 
 Parameters
 :    1. `id {string}` ---The identifier of the animation to fetch from the group.
@@ -280,7 +280,13 @@ Returns
 
 Returns an animation from the group.
 
-### group.add (id, animation)
+~~~
+var animGroup = animate.getGroup('complexAnimation1');
+
+var anim = animGroup.get('loopDeLoops');
+~~~
+
+### add (id, animation)
 
 Parameters
 :    1. `id {string}` ---The identifier of the animation to add to the group.
@@ -291,7 +297,7 @@ Returns
 
 Adds an animation to the group and returns it.
 
-### group.isActive ()
+### isActive ()
 
 Returns
 :    1. `{boolean}`
@@ -299,7 +305,7 @@ Returns
 Returns true if any animations in the group have frames in
 their animation queue.
 
-### group.onAnimationFinish (animation)
+### onAnimationFinish (animation)
 
 Parameters
 :     1. `animation {Animator}` ---The animation object to signal as being finished.
