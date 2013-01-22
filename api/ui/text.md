@@ -1,43 +1,44 @@
-# Text
+# Class: ui.TextView
 
-Examples:
-
-* [TextView Clock](../example/text-textviewsclock/)
-
-
-## Class: ui.TextView
-
-Display text on a screen within a `View`.
-
-Inherits from:
+Inherits from
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
-~~~
-import ui.TextView as TextView;
-~~~
+Display text on a screen within a `View`.
+
+## Examples
+
+* [TextViews Options](../example/text-textviews/)
+* [Lots of TextViews](../example/text-textviews-random/)
+* [TextView Clock](../example/text-textviewsclock/)
+
+## Methods
 
 ### new TextView ([options])
-1. `options {object}` ---`TextView` specific options, also accepts [`View` options](./ui-view.html#new-view-options).
-	* `text {string}` ---The text to display.
-	* `size {number} = 12` ---The default font size of the text.
-	* `lineHeight {number} = 1.2` ---How tall each line should be when wrap is turned on.
-	* `lineWidth {number} = 2` ---How wide each line should be in a wrap is turned on.
-	* `fontFamily {string} = device.defaultFontFamily` ---Font family to be used by the text in the text view (ex: "Helvetica")
-	* `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
-	* `color {string} = "#000000"` ---The color of the text.
-	* `backgroundColor {string} = null` ---The background color of the text view.
-	* `outlineColor {string} = null` ---Color of the outline surrounding the text.  A value of `null` means that an outline will not be present.
-	* `shadowColor {string} = null` ---Color of the drop shadow behind the text. A value of `null` means that a shadow will not be present.
-	* `verticalPadding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
-	* `horizontalPadding {number|array} = 0` ---The amount of horizontal padding the text exhibits within the text view.
-	* `verticalAlign: "middle"` ---How the text should be aligned vertically within the text view. Options: `'top'`, `'bottom'`, `'middle'`.
-	* `horizontalAlign: "center"` ---How the text should be aligned horizontall within the text view. Options: `'left'`, `'right'`, `'center'`, `'justify'`.
-	* `wrap {boolean} = true` ---Whether or not the text should wrap. A description of the rules of wrapping when wrap is turned on can be found below.
-	* `autoSize {boolean} = true` ---Fit the text view to text (details below).
-	* `autoFontSize {boolean} = true` ---Fit text to the text view (details below).
+
+Parameters
+:    1. `options {object}` ---`TextView` specific options, also accepts [`View` options](./ui-view.html#new-view-options).
+	     * `text {string}` ---The text to display.
+		 * `size {number} = 12` ---The default font size of the text.
+		 * `lineHeight {number} = 1.2` ---How tall each line should be when wrap is turned on.
+		 * `lineWidth {number} = 2` ---How wide each line should be in a wrap is turned on.
+		 * `fontFamily {string} = device.defaultFontFamily` ---Font family to be used by the text in the text view (ex: "Helvetica")
+		 * `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
+		 * `color {string} = "#000000"` ---The color of the text.
+		 * `backgroundColor {string} = null` ---The background color of the text view.
+		 * `outlineColor {string} = null` ---Color of the outline surrounding the text.  A value of `null` means that an outline will not be present.
+		 * `shadowColor {string} = null` ---Color of the drop shadow behind the text. A value of `null` means that a shadow will not be present.
+		 * `verticalPadding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
+		 * `horizontalPadding {number|array} = 0` ---The amount of horizontal padding the text exhibits within the text view.
+		 * `verticalAlign: "middle"` ---How the text should be aligned vertically within the text view. Options: `'top'`, `'bottom'`, `'middle'`.
+		 * `horizontalAlign: "center"` ---How the text should be aligned horizontall within the text view. Options: `'left'`, `'right'`, `'center'`, `'justify'`.
+		 * `wrap {boolean} = true` ---Whether or not the text should wrap. A description of the rules of wrapping when wrap is turned on can be found below.
+		 * `autoSize {boolean} = true` ---Fit the text view to text (details below).
+		 * `autoFontSize {boolean} = true` ---Fit text to the text view (details below).
 
 ~~~
+import ui.TextView as TextView;
+
 var text = new TextView({
   superview: parent,
   x: 25,
@@ -48,6 +49,8 @@ var text = new TextView({
   shadowColor: '#999999'
 });
 ~~~
+
+## Sizing
 
 The `TextView` supports several options for handling how a
 text is sized within the view. You can control these options
@@ -91,119 +94,147 @@ through the properties `'autoSize'`, `'autoFontSize'` or `'wrap'`.
   depends on the alignment settings.
 
 
-### text.setText (text)
-1. `text {string}`
+### setText (text)
+
+Parameters
+:    1. `text {string}`
 
 Set the display text. The text view will readjust itself
 with the current options using the given text.
 
-### text.getText ()
-1. Return: `{string}`
+### getText ()
+
+Returns
+:    1. `{string}`
 
 Return the display text.
 
-### text.updateOpts (options)
-1. `options {object}`
+### updateOpts (options)
+
+Parameters
+:    1. `options {object}`
 
 Update text options.
 
 
-## Class: ui.TextPromptView
+# Class: ui.TextPromptView
 
-Present the user a prompt for entering text input.
-
-Inherits from:
+Inherits from
 :    1. [ui.TextView](./ui-text.html#class-ui.textview)
      2. [ui.View](./ui-view.html)
 	 3. [event.Emitter](./event.html#class-event.emitter)
 
-~~~
-import ui.TextPromptView as TextPromptView;
-~~~
+Present the user a prompt for entering text input.
+
+## Methods
 
 ### new TextPromptView ([options])
-1. `options {object}`
-	* `prompt {text} = ''`
-	* `autoShowKeyboard {boolean} = false`
+
+Parameters
+:    1. `options {object}`
+	     * `prompt {text} = ''`
+		 * `autoShowKeyboard {boolean} = false`
 
 ~~~
+import ui.TextPromptView as TextPromptView;
+
 var textprompt = new TextPromptView();
 ~~~
 
-### Events
+## Events
 
-#### \'Change\', callback (text)
-1. `text {string}`
+### \'Change\', callback (text)
+
+Parameters
+:    1. `text {string}`
 
 Called when the text value changes.
 
-#### \'InputSelect\', callback ()
+### \'InputSelect\', callback ()
 
 Called when the `TextPromptView` is selected.
 
 
 <!--
-## Class: ui.TextInputView
+# Class: ui.TextInputView
+
+Inherits from
+:    1. [ui.View](./ui-view.html)
+	 2. [event.Emitter](./event.html#class-event.emitter)
 
 Enter text input inline. *This is not working.*
 
-Inherits from:
-:    1. [ui.View](./ui-view.html)
-	 2. [event.Emitter](./event.html#class-event.emitter)
+## Methods
+
+### new TextInputView ([options])
+
+Parameters
+:    1. `options {object`
 
 ~~~
 import ui.TextInputView as TextInputView;
 ~~~
-
-### new TextInputView ([options])
-1. `options {object`
-
 -->
 
-## Class: ui.resource.Font
+
+# Class: ui.resource.Font
 
 Basic font representation class.
 
-~~~
-import ui.resource.Font as Font;
-~~~
+## Methods
 
 ### new Font (font)
-1. `font {string}`
+
+Parameters
+:    1. `font {string}`
 
 Creates a font from a standard CSS font string.
 
 ### new Font ([options])
-1. `options {object}`
-	* `name {string} = device.defaultFamilyName`
-	* `size {number} = 20`
-	* `unit {string} = 'px'`
-	* `style {string}`
-	* `weight {string}`
+
+Parameters
+:    1. `options {object}`
+	     * `name {string} = device.defaultFamilyName`
+		 * `size {number} = 20`
+		 * `unit {string} = 'px'`
+		 * `style {string}`
+		 * `weight {string}`
 
 Creates a font from options.
 
 ~~~
+import ui.resource.Font as Font;
+
 var font = new Font("16px Helvetica");
 ~~~
 
-### font.getName ()
-1. Return: `{string}`
+### getName ()
+
+Returns
+:    1. `{string}`
 
 Returns the font family.
 
-### font.getSize ()
-1. Return: `{number}`
+### getSize ()
+
+Returns
+:    1. `{number}`
 
 Returns the font size in pixels.
 
-### font.getWeight ()
-1. Reurn: `{string}`
+### getWeight ()
 
-Returns the font weight.
+Returns
+:    1. `{string}` ----Returns the font weight.
 
-### Class method: Font.parse (font)
-1. `font {string}`
-2. `Return: {Font}`
+## Class Methods
+
+### Font.parse (font)
+
+Parameters
+:    1. `font {string}`
+
+Returns
+:    1. `{Font}`
 
 Creates a Font from a font string.
