@@ -118,7 +118,7 @@ Set the maximum value, this value should be higher than the minimum value.
 Parameters
 :    1. `thumbSize {number}`
 
-Set the thumb size, the default is based on the size of the view.
+Set the thumb size in pixels, the default is based on the size of the view.
 
 ### setValue (value)
 
