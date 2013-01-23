@@ -43,20 +43,20 @@ function convert_api_source {
 		done < <(find "$API_ROOT" -type f -name '*.md' | grep -v -i 'readme')
 }
 
-# ignore readme and markdown files in the 'drafts' directory
+# ignore readme files
 function convert_guide_source {
 		while read path; do
 				local name=$(basename "$path" '.md' | tr '[:upper:]' '[:lower]' | tr ' ' '-')
 				convert_file "$path" "guide/$name.html" "$DOC_TEMPLATE" "$name"
-		done < <(find "$GUIDE_ROOT" -type f -name '*.md' | grep -v -i 'readme' | grep -v 'drafts')
+		done < <(find "$GUIDE_ROOT" -type f -name '*.md' | grep -v -i 'readme')
 }
 
-# ignore readme and markdown files in the 'drafts' directory
+# ignore readme files
 function convert_native_source {
 		while read path; do
 				local name=$(basename "$path" '.md' | tr '[:upper:]' '[:lower]' | tr ' ' '-')
 				convert_file "$path" "native/$name.html" "$DOC_TEMPLATE" "$name"
-		done < <(find "$NATIVE_ROOT" -type f -name '*.md' | grep -v -i 'readme' | grep -v 'drafts')
+		done < <(find "$NATIVE_ROOT" -type f -name '*.md' | grep -v -i 'readme')
 }
 
 # main
@@ -87,30 +87,28 @@ if [ -d "$OUT_ROOT/api" ]; then
 		rm -rf "$OUT_ROOT/api"
 fi
 
-if [ -d "$OUT_ROOT/native" ]; then
-		rm -rf "$OUT_ROOT/native"
-fi
-
 if [ -d "$OUT_ROOT/guide" ]; then
 		rm -rf "$OUT_ROOT/guide"
+fi
+
+if [ -d "$OUT_ROOT/native" ]; then
+		rm -rf "$OUT_ROOT/native"
 fi
 
 mkdir -p "$OUT_ROOT/api"
 mkdir -p "$OUT_ROOT/guide"
 mkdir -p "$OUT_ROOT/native"
 
-if [ -d "$ASSETS_ROOT" ]; then
-		cp -a "$ASSETS_ROOT/api" "$OUT_ROOT/api/assets"
-		cp -a "$ASSETS_ROOT/guide" "$OUT_ROOT/guide/assets"
-		cp -a "$NATIVE_ROOT/assets" "$OUT_ROOT/native/assets"
-fi
+# copy assets
+cp -a "$API_ROOT/assets" "$OUT_ROOT/api/assets"
+cp -a "$GUIDE_ROOT/assets" "$OUT_ROOT/guide/assets"
+cp -a "$NATIVE_ROOT/assets" "$OUT_ROOT/native/assets"
 
 # and off we go ...
 
-echo "  Generating API docs ..."
+echo "  Generating api docs ..."
 convert_api_source
 echo "  Generating guide docs ..."
 convert_guide_source
 echo "  Generating native docs ..."
 convert_native_source
-
