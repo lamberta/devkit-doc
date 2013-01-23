@@ -8,6 +8,13 @@ You may force the slider to have an orientation of `horizontal` or `vertical` by
 to `true` or `false`. If you do not specify this option it will be `horizontal` if the `width` is greater than the 
 `height` and `vertical` if the `height` is `greater` than the width.
 
+<div class="figure-wrapper">
+	<figure>
+		<img src="./assets/ui-widget-sliderview/slider.png"/>
+		<figcaption>A slider, with a green `track` and a red `thumb`.</figcaption>
+	</figure>
+</div>
+
 There are two states: active and inactive, each state has associated style properties.
 When the view is not active then the slider does not respond to input events.
 
