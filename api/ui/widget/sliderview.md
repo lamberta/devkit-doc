@@ -125,7 +125,13 @@ Set the maximum value, this value should be higher than the minimum value.
 Parameters
 :    1. `thumbSize {number}`
 
-Set the thumb size in pixels, the default is based on the size of the view.
+Set the thumb size in pixels. If the value is set to `false` -which is the default- then the size will be determined
+based on the size of the view: when the direction is horizontal then the thumb size is set to the height minus the 
+vertical padding, when the direction is horizontal then the size is set to the width minus the horizontal padding.
+
+Setting the thumb size only affects the size in the slide direction, if the direction is horizontal then the height
+will be determined as described above, when the direction is vertical then the width will be determined as described 
+above.
 
 ### setValue (value)
 
