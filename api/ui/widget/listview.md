@@ -5,38 +5,82 @@ Inherits from
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
 
-If you need to display a scrollable list that contains a
-large number of items, then `ListView` is the class for
-you. `ListView` is a subclass of
-[ScrollView](./ui-scrollview.html), which allows list items
-to be scrolled either vertically or horizontally. The
-`ListView` is populated by items of the type
-[Cell](#class-ui.widget.cellview), and is optimized to
-scroll smoothly even when the list contains a large number
-of items.
+`ListView` renders a list of items using a number of
+optimizations. If you need to display a scrollable list
+containing a large number of items, consider using
+`ListView`. `ListView` is a subclass of
+[ScrollView ](./ui-scrollview.html), which allows list items
+to be scrolled vertically.
 
-[Cells](#class-ui.widget.cellview) are created by the list
-based on data from a [DataSource](#class-gcdatasource). When
-the list first attempts to render a cell to the screen, it
-will invoke the `getCell` function, which you must provide
-as an opts property to the `ListView` constructor. Your
-`getCell` function must return a instance or subclass of the
-[Cell](#class-ui.widget.cellview) type.
-
-`ListView` works by limiting the amount of subviews it has
-at any given time to the amount that fits into its visible
-area. When an item scrolls out of the visible boundary of
-the list, the [Cell](#class-ui.widget.cellview) instance is
-recycled and re-used for a cell which scrolls into its
-visible boundary. Right before a cell becomes visible, the
-`setData` function of the cell is invoked with the item's
-data as a parameter. By overriding this function, you can
-populate the contents of the cell with the current item's
-data.
+`ListView` is visually similar to a `ScrollView` with a
+[linear layout](./ui-view.html#style.layout). Both can
+accomplish the same structure, positioning views in a
+top-to-bottom layout. However, rendering the `ScrollView`
+requires creating and positioning each subview. When the
+layout contains subviews for dozens of items, this becomes
+very expensive. `ListView` targets the case when these
+subviews all have the same height, implementing several
+optimizations that make this scenario performant.
 
 ## Examples
 
 * [Basic ListView](../example/ui-list-basic/).
+
+## Features
+
+* **Viewport optimization**: Only the items within the
+    visible region of the `ScrollView` are created,
+    positioned, and rendered.
+
+* **Subview recycling**: `ListView` manages the creation and
+	deletion of its subviews. Each subview is an instance
+	of a [CellView](#class- ui.widget.cellview). When a new
+	item scrolls onto the screen, rather than initializing
+	a new `CellView` instance, the `ListView` will reuse an
+	existing, off-screen `CellView`.
+
+* **Efficient updating**: Each `ListView` is backed by a
+	[DataSource](#class-datasource), which is a collection
+	of data items. Each item is a JavaScript object that contains
+	all the data necessary to render a single item in the
+	list. When items are added or removed from the data
+	model, the `ListView` automatically adds or removes
+	`CellView` to the view hierarchy if those `CellViews`
+	are on the screen.
+
+## Usage Notes
+
+When a `ListView` first attempts to render a cell to the screen, it will
+invoke the `getCell` function, which you provide as an `opts` property to the
+`ListView` constructor. Your `getCell` function must return an instance or
+subclass of the [CellView](#class-ui.widget.cellview) type. If all the cells
+will be of the same type, you can provide the constructor to the `ListView`
+instead using the `cellCtor` property of the constructor `opts`.
+
+Because subviews are recycled, `CellView` instances must be able to render an
+arbitrary data item. When an item scrolls out of the visible boundary of the
+list and the [CellView](#class-ui.widget.cellview) instance is recycled, the
+`ListView` calls the `setData` function of the cell with the new data item. By
+overriding this function, you can update the contents of the `CellView` to
+reflect the new item.
+
+The height of the `ListView` may be fixed externally, causing the `ListView`
+to scroll if necessary. Alternatively, if `autoSize` is set to `true`, the
+`ListView` sets its own height to the size of its cells, disabling scrolling.
+This setting does not affect the rendering optimizations.
+
+## Performance Notes
+
+By only rendering `CellView` on the screen, the `ListView` achieves constant-
+time layout and rendering (assuming a relatively small number of items can be
+seen on the screen). By reusing cells, the `ListView` avoids garbage
+collection and excessive object allocation during scrolling, creating at most
+2x the maximum number of visible views.
+
+A `ListView` may also be used with dynamically sized cells by setting
+`isFixedSize` to false. However, this disables all relevant rendering
+optimizations. This can still be useful for rendering a `DataSource` that has
+frequent item modifications.
 
 
 ## Methods
@@ -45,35 +89,35 @@ data.
 
 Parameters
 :    1. `options {object}`
-	     * `isFixedSize {boolean} = true` ---If set to `false`, allow variable sizes for list items (hurts rendering performance).
-		 * `renderMargin {number} = 0` ---The vertical margin between list items.
-		 * `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to its `maxY` value.
+	     * `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to the sum of its cell heights, disabling scrolling.
+		 * `dataSource {DataSource}` ---The data model. The [DataSource](#class-datasource) provides the data for each item in the list, tracking adds, removes, and updates.
 		 * `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` instance given an item from the list.
 		 * `listItem {object}` ---An object representing the current list item.
 		 * `itemResource {object}` ---The resource object for the current list item.
-		 * `sorter {function(listItem)}` ---A function that returns a cardinal value (number or string) for the current item to use as the sort key.
-		 * `recycle {boolean} = true` ---Reuse `CellView` objects when scrolling rather than calling `getCell` for each item.
+		 * `isFixedSize {boolean} = true` ---If `true`, enable optimizations based on the assumption that all cells have the same size. Set to `false` to allow variable sizes for list cells (hurts rendering performance).
+		 * `maxSelections {number} = 1` ---Maximum number of selectable items at a time.
+		 * `recycle {boolean} = true` ---If `true`, reuses `CellView` objects when scrolling rather than creating a new `CellView` for each item in the list. Has no affect if `isFixedSize` is `false`. (optimization flag)
+		 * `renderMargin {number} = 0` ---The vertical margin between list items.
 		 * `selectable {boolean} = false` ---If `true`, make items selectable (toggled).
-		 * `maxSelections {number} = 1` ---The maximum number of selectable items at a time.
-		 * `dataSource` ---The [GCDataSource](#class-gcdatasource) for the list.
+		 * `sorter {function(listItem)}` ---A function that returns a cardinal value (number or string) for the current item to use as the sort key.
 
 ~~~
 import ui.widget.ListView as ListView;
 
 var listview = new ListView({
-  getCell: function(listItem) {
+  getCell: function (listItem) {
     return new CellView(listItem);
   },
-  sorter: function(listItem) {
+  sorter: function (listItem) {
     return listItem.getName();
   }
 });
 ~~~
 
-### updateOpts (options)
+### updateOpts (opts)
 
 Parameters
-:    1. `options {object}`
+:    1. `opts {object}` ---Allows updating constructor `opts` after the `ListView` has been created.
 
 ~~~
 listview.updateOpts({
@@ -81,47 +125,23 @@ listview.updateOpts({
 });
 ~~~
 
-### setMaxX (maxX)
-
-Parameters
-:    1. `maxX {number}` ---The maximum width of the list to set.
-
-Sets the maximum horizontal distance which the list is able
-to scroll. Also, if the `autoSize` property passed to the
-constructor is true, then this also sets the absolute width
-of the list.
-
-### setMaxY (maxY)
-
-Parameters
-:    1. `maxY {number}` ---The maximum height of the list to set.
-
-Sets the maximum vertical distance which the list is able to
-scroll. Also, if the `autoSize` property passed to the
-constructor is true, then this also sets the absolute height
-of the list.
-
 ### getSelection ()
 
 Returns
 :    1. `{Object}`
 
-Gets the selected items from the list. Return data is in the
-form of an object, with the keys being the selected items.
+Gets the selected items from the list. Returns an object
+with the keys being the selected items unique ids.
 
 ### getSelectionCount ()
 
 Returns
-:    1. `{number}`
-
-Returns the number of selected items.
+:    1. `{number}` ---Returns the number of selected items.
 
 ### getCells ()
 
 Returns
-:    1. `{array}`
-
-Gets an array of cell instances which are contained in the list.
+:    1. `{array}` ---Cell instances which are contained in the list.
 
 
 # Class: ui.widget.CellView
@@ -130,18 +150,19 @@ Inherits from
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
+
 The `CellView` is the basic class for displaying items in a
 list. The `CellView` class has functions for selecting,
 deselecting and keeping track of selecting items.
 
-When a cell becomes visible in a list, then the `setData`
-function is called. The reference to data should be stored
-in the cell for later use.
+When a cell becomes visible in a list, the `setData`
+function is called. The reference to data can be stored in
+the cell for later use.
 
 ~~~
 this.setData = function (data) {
-	this._data = data; // Store the reference to the data
-	// Apply the data to the cell by updating a color, text, etc....
+  this._data = data; // Store the reference to the data
+  // Apply the data to the cell by updating a color, text, etc....
 };
 ~~~
 
@@ -150,7 +171,7 @@ this.setData = function (data) {
 The `CellView` handles most selection logic
 internally. There are however two functions which have to be
 implemented to update the view when the cell is selected or
-deselected; `_onSelect` and `_onDeselect`.
+deselected: `_onSelect` and `_onDeselect`.
 
 ~~~
 this._onSelect = function () {
@@ -175,7 +196,9 @@ lead to strange behavior!
 ## Methods
 
 ### new CellView ([options])
-1. `options {object}`
+
+Parameters
+:    1. `options {object}`
 
 ~~~
 import ui.widget.CellView as CellView;
@@ -186,32 +209,25 @@ var cellview = new CellView();
 ### getWidth ()
 
 Returns
-:    1. `{number}`
-
-Return the width of the `CellView`.
+:    1. `{number}` ---Returns `{number}` the width of the `CellView`.
 
 ### getHeight ()
 
 Returns
-:    1. `{number}`
+:    1. `{number}` ---Returns `{number}` the height of the `CellView`.
 
-Return the height of the `CellView`.
-
-### isSelected ()
+### isSelected()
 
 Returns
-:    1. `{boolean}`
+:    1. `{boolean}` ---Returns `{boolean}` if the current cell item has been selected.
 
-Return `true` if the current cell item has been selected.
-
-### select ()
+### select()
 
 Select the current cell item.
 
-### deselect ()
+### deselect()
 
 Deselect the current cell item.
-
 
 ## Events
 
@@ -220,63 +236,60 @@ Deselect the current cell item.
 Parameters
 :    1. `data {object}` ---Data representing the cell item to set.
 
-When a list item scrolls into the list's visible area, the
-cell instance must be updated with the item's data so that
-it displays the correct information. The `setData` function
-is the mechanism by which this happens. Moreover, if the
-list items are selectable, it's important to also update the
-cell state based on its selected state. The `isSelected`
-function is the appropriated way to check selected state.
+When a list item scrolls into the list's visible area, the cell instance must
+be updated with the item's data so that it displays the correct information.
+The `setData` callback function is the mechanism by which this happens. Moreover, if
+the list items are selectable, it's important to also update the cell state
+based on its selected state. The `isSelected` function is the appropriated way
+to check selected state.
 
 ~~~
 this.setData = function (data) {
-	this._data = data; // Save data
-	// Do something with the data like settings the text in a `TextView` or displaying an image...
-	// You can call `this.isSelected()` to show the selection state of the cell.
+  this._data = data; // Save data
+
+  // Update the view, e.g. set the text in a `TextView`
+  // You can call `this.isSelected()` to get the selected state
 };
 ~~~
 
 
-# Class: GCDataSource
+# Class: DataSource
 
-A `GCDataSource` is a collection of items that adheres to
-the [observable pattern](http://en.wikipedia.org/wiki/Observer_pattern). This
-means that any time items are added, removed, or updated,
-the datasource will publish an appropriate event for the
-item(s) in question ([See below](#events) for a list of
-available events). `GCDataSources` are useful, for instance,
-when you have a UI element (like a `ListView`) that is
-displaying a collection of items, but you don't want to
-re-render the entire collection any time the collection is
-modified in some way. Instead of re-rendering the entire
-list, you can simply update individual UI items based on the
-events the datasource publishes.
+A `DataSource` is a collection of items that adheres to the [observable
+pattern](http://en.wikipedia.org/wiki/Observer_pattern). This means that any
+time items are added, removed, or updated, the `DataSource` will publish an
+appropriate event for the item(s) in question (see [below](#events) for a list
+of available events). `DataSources` abstract the connection between UI and
+data model changes. For example, when you have a UI element (like a
+`ListView`) displaying a collection of items, tying the UI to the `DataSource`
+lets you update individual data items and have those changes automatically
+propagate to the UI without re-rendering the entire collection. If you
+implement a UI backed by a `DataSource`, you can update individual UI items
+based on the events the `DataSource` publishes.
 
 ## Methods
 
-### new GCDataSource ([options])
-1. `options {object}`
-	* `key {string} = 'id'` ---A unique key in the data object in an item.
-	* `ctor {function(data)}` ---The constructor function for items given a generic data object
-	* `reverse {boolean} = false` ---If `true`, sort data source in reverse order.
-	* `sorter {function(item)}` ---A function that returns a cardinal value (number or string) for the current item to use as the sort key.
+### new DataSource ([options])
 
-Creates a `GCDataSource` object. The most important argument
-is the `key` parameter, which specifies what property on
-each item is unique. If you do not specify a key, the
-datasource will default to the "id" property of the
-item. You may also specify a constructor function (`ctor`),
-which will be used to create item objects when the
-[`datasource.add(data)`](#datasource.add-item) method is
-invoked. You may also specify a sorter function which, when
-given an item from the datasource, returns the item's
-cardinal value. The sort order of the sorting functionality
-may be specified using the `reverse` flag.
+Parameters
+:    1. `options {object}`
+	     * `key {string} = 'id'` ---Key of an item that provides a unique identifier for that item.
+		 * `ctor {function(data)}` ---Optional constructor function for casting added items to the same type
+		 * `reverse {boolean} = false` ---If `true`, sort data source in reverse order.
+		 * `sorter {function(item)}` ---Function that returns a cardinal value (number or string) for the current item to use as the sort key.
+
+Creates a `DataSource` object. The most important argument is the `key`
+parameter, which specifies what property on each item is unique. If you do not
+specify a key, the `DataSource` will default to the `id` property of the item.
+
+You may also specify a sorter function which, when given an item from the
+`DataSource`, returns the item's cardinal value. The sort order of the sorting
+functionality may be specified using the `reverse` flag.
 
 ~~~
-import GCDataSource;
+import DataSource;
 
-var datasource = new GCDataSource({
+var dataSource = new DataSource({
 	key: 'id',
 	ctor: function (data) {
 		this.id = data.id;
@@ -288,21 +301,39 @@ var datasource = new GCDataSource({
 });
 ~~~
 
+In advanced use cases, it is sometimes useful to provide a constructor
+function (`ctor`), which will be used to 'box' items added using
+[`dataSource.add(items)`](#datasource.add-item) when an added item is not
+already an instance of the `ctor`. In these cases, the 'unboxed' item will be
+passed as the first argument, effectively. Both the unboxed and boxed item
+must be identifiable with the same uid for their key. Consider the following
+psuedocode:
+
+~~~
+dataSource.add:
+    uid = item[dataSource.key]
+    if dataSource does not already contain uid then:
+		if item is not instanceof ctor then:
+    		item = new ctor(item)
+            assert(item[dataSource.key] == uid)
+        add item
+~~~
+
 ### setSorter (sortFunction)
 
 Parameters
-:    1. `sortFunction {function(item)}` 
+:    1. `sortFunction {function(item)}`
 
 Sets the `sorter` function, which must return a cardinal
 value (number or string) for the current item, and will be
 used in the sorting logic.
 
 For example, to set the sorting order to be based on an
-item's name propery, you might set the sorter function as
+item's name property, you might set the sorter function as
 follows:
 
 ~~~
-datasource.setSorter(function (item) {
+dataSource.setSorter(function (item) {
   return item.getName();
 });
 ~~~
@@ -315,10 +346,12 @@ Parameters
 Returns
 :    1. `{array|object}`
 
-Adds or updates an item in the datasource. Add multiple
-items to a datasource by passing them in an array:
-`datasource.add([item1, item2, item3])`. Returns the item(s)
-you passed in.
+Adds or updates an item in the dataSource. Add multiple
+items to a dataSource by passing them in an array:
+`dataSource.add([item1, item2, item3])`.
+
+Returns `{array|object}` the item you passed in. Particular
+useful if using the `ctor` option.
 
 ### remove (key)
 
@@ -332,16 +365,9 @@ Removes and returns an item from the data source by its key value.
 
 ### clear ()
 
-Remove all items from the datasource. Note that this will
-cause the "Remove" event to be published for all the items
+Remove all items from the dataSource. Note that this will
+cause the `'Remove'` event to be published for all the items
 currently in the list.
-
-### getCount ()
-
-Returns
-:    1. `{number}`
-
-Return the number of items in the datasource.
 
 ### contains (key)
 
@@ -353,22 +379,20 @@ Returns
 
 Return `true` if an item with the given key is contained within the datasource.
 
-### getKey ()
 
-Returns
-:    1. `{string}`
-
-Returns the key for the datasource.
-
-### get (key)
+### get (uid)
 
 Parameters
-:    1. `key {string}` ---The key value of the item to return.
+:    1. `uid {string}` ---The unique id of the item to return.
 
 Returns
-:    1. `{object}`
+:    1. `{object}` ---Returns the item from the list with the given uid if one exists.
 
-Returns the item from the list with the given key if one exists.
+~~~
+var item = dataSource.get(uid);
+
+assert(item[dataSource.getKey()] === uid);
+~~~
 
 ### getItemForIndex (index)
 
@@ -380,60 +404,89 @@ Returns
 
 Return the item with the given index based on the current sort order.
 
-### forEach (callback, thisArg)
+### forEach (callback [, thisArg])
 
 Parameters
-:    1. `callback {function(item, index)}` ---Function invoked for each item in the datasource
+:    1. `callback {function (item, index)}` ---Function invoked for each item in the dataSource
      2. `thisArg {object} = undefined` ---Object to use as `this` when executing `callback`.
 
 Iterator used to execute a function on each item in the
-datasource. For example, to log out the name of each item using it's `getItem` method:
+dataSource. For example, to log out the name of each item
+using it's `getItem` method:
 
 ~~~
-datasource.forEach(function (item) {
+dataSource.forEach(function (item) {
   console.log("Item name: " + item.getName());
 });
 ~~~
 
-### getFilteredDataSource (callback)
+### getFilteredDataSource (filter)
 
 Parameters
-:    1. `callback {function(item)}` ---Function to test on each item in the datasource.
+:    1. `filter {function (item)}` ---Function that tests each item in the dataSource for membership in the filtered `DataSource`.
 
-Returns
-:    1. `{GCDataSource}`
-
-Returns a new datasource with all the items that return `true`
-for the callback function.
+Returns `{DataSource}` --- a new filtered dataSource with all the items from
+the original dataSource that the callback function returns `true` for. The
+filtered `DataSource` is _live_, meaning that adding or updating items in the
+original `DataSource` at any time will execute the `filter` function to check
+to see if the new or updated item should be in the filtered `DataSource`.
+Similarly, if items are removed from the original `DataSource`, they are
+removed from the filtered `DataSource`.
 
 ~~~
-var evenItems = datasource.getFilteredDataSource(function (item) {
-  return (item.getValue() % 2) === 0;
+var Value = Class(function () {
+  this.init = function (opts) {
+    this.value = opts.value;
+  }
 });
+
+var set = new DataSource({
+  key: 'value',
+  ctor: Value
+});
+
+var evenSet = set.getFilteredDataSource(function (item) {
+  return item.value % 2 == 0;
+});
+
+set.add([
+  {value: 1},
+  {value: 2},
+  {value: 3},
+  {value: 4}
+]);
+
+evenSet.toArray().map(function (item) { return item.value; });
+// => 2, 4, 6, 8, 10
+
 ~~~
 
-### filter (items)
+### filter (filter)
 
 Parameters
-:    1. `items {array}` ---Array of items to exclude from this data source.
+:    1. `filter {object}` ---Object of strings.
 
 Returns
-:    1. `{DataSource}`
+:    1. `{DataSource}` ---All items that match the filter.
 
-Return a copy of this datasource with the items in the
-filter array removed from it. Note that the difference
-between `datasource.filter` and
-`datasource.getFilteredDataSource` is that filter removes
-items based on the filter once, whereas the
-`getFilteredDataSource` function prevents items that fail
-the filter function from ever being added in the future.
+Performs a basic string filter on the items in a `DataSource`, useful for text
+searching. The returned `DataSource` is _not live_. For each key in the
+`filter`, if the item contains the key and the corresponding value is a
+`{string}`, the value must contain the corresponding filter string.
 
 ~~~
-datasource.add([item1, item2, item3, item4]);
+dataSource.add([
+  {id: 1, color: 'orange'},
+  {id: 2, color: 'magenta'},
+  {id: 3, color: 'purple'},
+  {id: 4, shape: 'circle'},
+  {id: 5, shape: 'rectangle'}
+]);
 
-var filtered = datasource.filter([item2, item3]);
+// only matches items with ids 3, 4, and 5
+var filtered = dataSource.filter({color: 'le', shape: 'rect'});
 
-filtered.toArray(); //=> [item1, item4]
+filtered.toArray(); //=> [{id: 3, ...}, {id: 4, ...}, {id: 5, ...}]
 ~~~
 
 ### keepOnly (list)
@@ -480,6 +533,21 @@ Parameters
 		 * `items {array}` ---An array representing all items in the datasource.
 
 Populates the current datasource using the given key and items.
+
+
+## Properties
+
+### key `{string}`
+
+*Alias: `getKey()`*
+
+The key used to retrieve a unique id for each item
+
+### length `{number}`
+
+*Alias: `getCount()`*
+
+Return the number of items in the datasource.
 
 
 ## Events
