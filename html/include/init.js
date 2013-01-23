@@ -94,6 +94,25 @@ $(function () {
 	 */
 	$('#main :header a').contents().unwrap();
 
+	/* add indention to class inheritance list
+	 */
+	$('#main dl').each(function () {
+		if ($(this).find('dt').text() === "Inherits from") {
+			$(this).find('dd li').each(function (i) {
+				var li = $(this),
+						pad = '';
+
+				for (var j = 0; j < i; j++) {
+					pad += '&nbsp; &nbsp;';
+				}
+				if (i !== 0) {
+					pad +=  '↪ ';
+				}
+				li.html(pad + li.html());
+			});
+		}
+	});
+	
   /* color highlight code snippets, from prettify.js
    */
   $('pre').addClass('prettyprint');
