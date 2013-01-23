@@ -1,12 +1,17 @@
 # Class: ui.widget.SliderView
 
 Inherits from
-:    1. [ui.ImageScaleView](./)
+:    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
+     2. [ui.View](./ui-view.html)
+	 3. [event.Emitter](./event.html#class-event.emitter)
 
-The slider is an input element to select a value. The orientation of the slider can be horizontal or vertical.
-You may force the slider to have an orientation of `horizontal` or `vertical` by setting the `horizontal` property 
-to `true` or `false`. If you do not specify this option it will be `horizontal` if the `width` is greater than the 
-`height` and `vertical` if the `height` is `greater` than the width.
+The slider is an input element to select a value. The
+orientation of the slider can be horizontal or vertical. You
+may force the slider to have an orientation of `horizontal`
+or `vertical` by setting the `horizontal` property  to
+`true` or `false`. If you do not specify this option it will
+be `horizontal` if the `width` is greater than the  `height`
+and `vertical` if the `height` is `greater` than the width.
 
 <div class="figure-wrapper">
 	<figure>
@@ -15,14 +20,19 @@ to `true` or `false`. If you do not specify this option it will be `horizontal` 
 	</figure>
 </div>
 
-There are two states: active and inactive, each state has associated style properties.
-When the view is not active then the slider does not respond to input events.
+There are two states: active and inactive, each state has
+associated style properties. When the view is not active
+then the slider does not respond to input events.
 
-When the `track` option contains the `activeColor` property then a color is applied to the background else
-the background is styled based on image properties (which should be passed as and option).
+When the `track` option contains the `activeColor` property
+then a color is applied to the background else the
+background is styled based on image properties (which should
+be passed as and option).
 
-The format of the `track` and `thumb` options to apply background images is the same as the `ImageScaleView` 
-options which means you can use 3-slice, 6-slice or 9-slice images for the background.
+The format of the `track` and `thumb` options to apply
+background images is the same as the `ImageScaleView`
+options which means you can use 3-slice, 6-slice or 9-slice
+images for the background.
 
 ## Examples
 
@@ -96,8 +106,9 @@ Update the properties and styles of a view.
 Returns
 :    1. `{number}` ---Return the value
 
-Get the value, if the increment is `false` then the value can be a floating point value else 
-it's an integer diviseble by the increment.
+Get the value, if the increment is `false` then the value
+can be a floating point value else  it's an integer
+diviseble by the increment.
 
 ### setIncrement (increment)
 
@@ -125,12 +136,17 @@ Set the maximum value, this value should be higher than the minimum value.
 Parameters
 :    1. `thumbSize {number}`
 
-Set the thumb size in pixels. If the value is set to `false` -which is the default- then the size will be determined
-based on the size of the view: when the direction is horizontal then the thumb size is set to the height minus the 
-vertical padding, when the direction is horizontal then the size is set to the width minus the horizontal padding.
+Set the thumb size in pixels. If the value is set to `false`
+-which is the default- then the size will be determined
+based on the size of the view: when the direction is
+horizontal then the thumb size is set to the height minus
+the  vertical padding, when the direction is horizontal then
+the size is set to the width minus the horizontal padding.
 
-Setting the thumb size only affects the size in the slide direction, if the direction is horizontal then the height
-will be determined as described above, when the direction is vertical then the width will be determined as described 
+Setting the thumb size only affects the size in the slide
+direction, if the direction is horizontal then the height
+will be determined as described above, when the direction is
+vertical then the width will be determined as described
 above.
 
 ### setValue (value)
@@ -140,16 +156,20 @@ Parameters
 
 Set the value, the value is clamped on the set minimum and maximum value.
 
+## Events
+
 ### \'Change\', callback (value)
 
 Parameters
 :    1. `value {Number}`
 
-Fired when the slider is dragged, the minimum or maximum value changed or the increment changed.
-When the increment is set then the value is an integer diviseble by the increment.
+Fired when the slider is dragged, the minimum or maximum
+value changed or the increment changed. When the increment
+is set then the value is an integer diviseble by the
+increment.
 
 ~~~
-view.on('InputStart', function (event, point) {
+view.on('InputStart', function (evt, point) {
   console.log("This view had touch begin on it at: " + point.x + "," + point.y);
 });
 ~~~
