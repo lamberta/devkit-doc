@@ -25,6 +25,7 @@ Clone the Game Closure
 to this directory and make sure everything is up-to-date:
 
 ~~~
+$ git clone git@github.com:gameclosure/android.git
 $ cd ./android
 $ git submodule update --init
 ~~~
