@@ -78,7 +78,7 @@ Manages a view hierarchy by rendering its scene graph and
 controlling the animation loop. It has native, Canvas, and
 DOM rendering backends.
 
-Inherits from:
+Inherits from
 :    1. [event.Emitter](./event.html#class-event.emitter)
 
 ~~~

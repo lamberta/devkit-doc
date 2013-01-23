@@ -53,7 +53,7 @@ from ui.filter import LinearAddFilter;
 
 # Class: ui.filter.TintFilter
 
-Inherits from:
+Inherits from
 :    1. [ui.filter.Filter](#class-ui.filter.filter)
 
 Tint Filter will turn the given view into a solid color of
