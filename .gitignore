@@ -4,6 +4,7 @@
 html/api/
 html/guide/
 html/example/
+html/native/
 example/*/*/build/
 example/*/*/sdk
 examples/out/
