@@ -4,9 +4,9 @@ Inherits from
 :    1. [ui.ImageScaleView](./)
 
 The slider is an input element to select a value. The orientation of the slider can be horizontal or vertical.
-If the option `horizontal` is set then this value is used independent of the size of the view, if not then 
-the slide direction is based on the relation between the width and the height. If the width is larger than the
-height then the direction is horizontal else the direction is vertical.
+You may force the slider to have an orientation of `horizontal` or `vertical` by setting the `horizontal` property 
+to `true` or `false`. If you do not specify this option it will be `horizontal` if the `width` is greater than the 
+`height` and `vertical` if the `height` is `greater` than the width.
 
 There are two states: active and inactive, each state has associated style properties.
 When the view is not active then the slider does not respond to input events.
