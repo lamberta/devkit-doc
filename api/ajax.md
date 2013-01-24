@@ -21,7 +21,7 @@ Examples:
 import util.ajax as ajax;
 ~~~
 
-Sending a get request
+### Sending a get request
 
 The following code fragement shows how to get data from the Facebook search API.
 The url parameter has the location of search API. The header is set to `text-plain` which
@@ -32,6 +32,7 @@ to search for and `type` which is where to search (in posts). If the get functio
 as demonstrated here then the values of `data` will be url encoded and appended to the url.
 
 When the result is downloaded it will be parsed as JSON because the type was set to `json`.
+
 ~~~
 ajax.get(
   {
@@ -56,3 +57,26 @@ ajax.get(
        * `headers {object}` ---Optional, a list of http headers
     
 2. `cb {function}` ---Optional, The callback which is called when the data is downloaded
+
+### Sending a post request
+
+The following demo posts data to the Facebook search API.
+Because the type value is not in the options the response will be a string.
+
+The data will be posted and won't be appended to the url as a query string.
+
+~~~
+ajax.post(
+  {
+     url: 'http://graph.facebook.com/search',
+     data: {q: 'closure', type: 'post'}
+  },
+  function (err, response) {
+     if (err) {
+        console.error('someting went wrong');
+     } else {
+        console.log(response);
+     }
+  }
+~~~
+ 
