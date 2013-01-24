@@ -57,18 +57,20 @@ $(function () {
     return this.innerText.match(/^Module:|^Class:|^Singleton:|^Events|^Styles/);
   }).addClass('toc-section-header');
 
-	/* auto-shorten toc link text
+	/* auto-shorten api toc link text
 	 */
-	var regex_title = /\S+/;
-	$('nav ul li ul li li a').each(function (i, elem) {
-		var a = $(elem),
-				title = a.text().match(regex_title)[0];
-
-		//set title if non-empty and not a constructor
-		if (title.length > 0 && title !== 'new') {
-			a.text(title);
-		}
-	});
+	if (document.location.href.match('/api/')) {
+		var regex_title = /\S+/;
+		$('nav ul li ul li li a').each(function (i, elem) {
+			var a = $(elem),
+					title = a.text().match(regex_title)[0];
+			
+			//set title if non-empty and not a constructor
+			if (title.length > 0 && title !== 'new') {
+				a.text(title);
+			}
+		});
+	}
 	
 	/* auto offset toc nav links to move out from top navbar
 	 */
