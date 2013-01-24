@@ -3,7 +3,7 @@
 Inherits from
 :    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
      2. [ui.View](./ui-view.html)
-	 3. [event.Emitter](./event.html#class-event.emitter)
+     3. [event.Emitter](./event.html#class-event.emitter)
 
 The slider is an input element to select a value. The
 orientation of the slider can be horizontal or vertical. You
