@@ -64,3 +64,7 @@ $ ./build/make-doc
 ~~~
 
 This will output the generated documentation in the `html` directory.
+
+## License
+
+This documentation is licensed under the [Creative Commons Attribution-ShareAlike](http://creativecommons.org/licenses/by-nc-sa/3.0/) license.
