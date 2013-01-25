@@ -90,19 +90,23 @@ Issue commands to a specific emulator/device:
 $ adb -s <serialnumber> <command>
 ~~~
 
-
-
 Install an application to a device:
 
-`$ adb install -r <path-to-apk>`
+~~~
+$ adb install -r <path-to-apk>
+~~~
 
 Print logging information to the console:
 
-`$ adb logcat <option> <optional-filter-spec>`
+~~~
+$ adb logcat <option> <optional-filter-spec>
+~~~
 
 Stop the server if something is hanging:
 
-`$ adb kill-server`
+~~~
+$ adb kill-server
+~~~
 
 Also attempt to reboot the mobile device if it still hangs.
 
