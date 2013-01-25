@@ -34,6 +34,12 @@ img.icon {
   letter-spacing: -1px;
 }
 
+.logo-brace {
+	color: #0088cc;
+	font-weight: 700;
+	letter-spacing: -6px;
+}
+
 footer {
   margin: 50px auto 0 auto;
   font-size: 0.8em;
@@ -258,7 +264,7 @@ td.docs p a {
 
 #splash-download p {
 	font-size: 1.4em;
-	color: #0088cc;
+	color: #000;
 }
 
 #feature-list {
