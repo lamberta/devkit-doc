@@ -1,50 +1,32 @@
-# Build for Native Devices
+# iOS Building
 
-## Android
+## Overview
 
-### Install the Android SDK
+Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
 
-Download and install the
-[Android SDK](http://developer.android.com/sdk/) to your
-local machine. If you are using the
-[Homebrew](http://mxcl.github.com/homebrew/) package
-manager, run:
+Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  Some assembly is required.
 
-test
+## Setup
 
-`$ brew install android`
+### Prerequisites
 
-Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
++ Mac OS X 10.6 (or newer)
++ Xcode 4.4 (or newer)
++ Xcode command-line tools
 
-### Install the native Android component from the Game Closure SDK
+### How to install Xcode Prerequisites
 
-Clone the Game Closure
-[Android repository](https://github.com/gameclosure/android). Switch
-to this directory and make sure everything is up-to-date:
+In order to develop for iOS, Xcode is required.  Xcode can be downloaded from the [iTunes App store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
-~~~
-$ git clone git@github.com:gameclosure/android.git
-$ cd ./android
-$ git submodule update --init
-~~~
+Additionally, the Xcode command-line tools **are required**.  To download these, open Xcode and go to the *preferences* menu under the *Xcode* menu.  Next, go to the *Downloads* tab and install the command-line tools.  It is recommended to also install the simulator at this tab so that you may test your games on your computer rather than on a physical device.
 
-To let basil know where to find the android repository,
-update the `config.json` file located in the root of the
-basil install:
+### Install the Native iOS Addon
+
+At a command-line enter the command:
 
 ~~~
-{
-  "android": {
-    "root": "path/to/android"
-  }
-}
+$ basil install ios
 ~~~
-
-And make sure all the required sub-modules are updated:
-
-`$ basil update`
 
 ### Build the apk
 
