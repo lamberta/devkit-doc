@@ -30,11 +30,11 @@ The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used t
 
 ### 3. Building
 
-Use the command-line tools from the Game Closure SDK to build your application into an XCode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
+Use the command-line tools from the Game Closure SDK to [build your game code](./ios-build.html) into an XCode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
 
 <img src="./assets/ios/ios-build-console.png"></img>
 
-[Install](./build.html) your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+Build your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
 
 <img src="./assets/ios/ios-build-xcode.png"></img>
 
