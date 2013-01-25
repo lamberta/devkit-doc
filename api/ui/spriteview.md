@@ -74,9 +74,10 @@ Parameters
 		 * `defaultAnimation {string}` ---Defaults to the first animation listed in the directory
 		 * `groupID {string} = 'default'` ---Specify a Sprite group
 		 * `frameRate {number} = 15` ---Rate at which the animation will play each frame.
-		 * `emitFrameEvents {boolean} = false` ---Will publish events for an animation and it's frame number (`myAnim_40`).
+		 * `emitFrameEvents {boolean} = false` ---Will publish events for an animation and its frame number (`myAnim_40`).
 		 * `autoStart {boolean} = false` ---Animation will start as soon as initialised.
 		 * `loop {boolean} = true` ---Animation will continue to play forever.
+		 * `delay {number} = 0` ---Delay in milliseconds between animation loop iterations.
 
 ~~~
 import ui.SpriteView as SpriteView;
@@ -102,6 +103,7 @@ Parameters
 		 * `frame {number} = 0` ---Frame to start on.
 		 * `randomFrame {boolean} = false` ---Start on random frame.
 		 * `loop {boolean} = false` ---Continously loop an animation.
+		 * `delay {number} = 0` ---Delay in milliseconds between animation loop iterations.
 
 Start an animation. After the specified number of
 `iterations`, the sprite returns to its `defaultAnimation`.

@@ -16,7 +16,7 @@ Test your code, art, and sound assets entirely in a web browser simulating a mob
 
 Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
 
-<img src="./assets/web_dev.png"></img>
+<img src="./assets/web-dev.png"></img>
 
 For more information see the [basic SDK guides](../guide/quick-start.html).
 
@@ -26,17 +26,17 @@ Test your game code live on the device with the [Game Closure Test App](./test_a
 
 Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
 
-The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
 
 ### 3. Building
 
-Use the command-line tools from the Game Closure SDK to build your application into an XCode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
+Use the command-line tools from the Game Closure SDK to [build your game code](./ios-build.html) into an XCode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
 
-<img src="./assets/ios/ios_build_console.png"></img>
+<img src="./assets/ios/ios-build-console.png"></img>
 
-[Install](./build.html) your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+Build your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
 
-<img src="./assets/ios/ios_build_xcode.png"></img>
+<img src="./assets/ios/ios-build-xcode.png"></img>
 
 At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
 
