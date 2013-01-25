@@ -259,7 +259,7 @@ td.docs p a {
 	font-weight: 800;
 	line-height: 1em;
 	margin-top: -5px;
-	
+	color: #000;
 }
 
 #splash-download p {
@@ -287,8 +287,21 @@ td.docs p a {
 	font-weight: 300;
 }
 
-#main .tab-pane h2 {
+/* guides */
+
+#guides a, #native a {
 	color: #000;
+	text-decoration: none;
+}
+
+
+#guides h2, #native h2 {
+	color: #0088cc;
+	text-decoration: none;
+}
+
+#guides a:hover h2, #native a:hover h2 {
+	color: #d14;
 }
 
 .figure-wrapper {
