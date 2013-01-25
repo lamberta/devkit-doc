@@ -213,15 +213,33 @@ td.docs p a {
 }
 
 /*front-page*/
-#splash-logo {
-	//margin-left: 30px;
-	//width: 90%;
-	//margin-left: auto;
 
+#splash {
+	margin: 0 auto;
+	width: 80%;
+	height: 100px;
 }
 
-#splash-logo img {
+#splash img {
 	float: left;
+	display: block;
+}
+
+#splash h1, #splash h2, #splash p {
+	display: block;
+}
+
+#splash-download {
+	margin-top: 20px;
+	float: right;
+	display: block;
+}
+
+#splash-logo {
+	float: left;
+	display: block;
+	margin-top: 15px;
+	margin-left: 10px;
 }
 
 #splash-logo h1 {
@@ -234,16 +252,12 @@ td.docs p a {
 	font-size: 8em;
 	font-weight: 800;
 	line-height: 1em;
+	margin-top: -5px;
 	
 }
 
-#splash-copy {
-	margin-top: 50px;
-}
-
-#splash-copy p {
+#splash-download p {
 	font-size: 1.4em;
-	//color: #0f2d44;
 	color: #0088cc;
 }
 
