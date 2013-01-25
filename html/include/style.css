@@ -35,8 +35,8 @@ img.icon {
 }
 
 footer {
-  margin: 0 auto;
-  font-size: 0.6em;
+  margin: 50px auto 0 auto;
+  font-size: 0.8em;
   text-align: center;
   letter-spacing: 2px;
   color: #AAA;
