@@ -213,6 +213,40 @@ td.docs p a {
 }
 
 /*front-page*/
+#splash-logo {
+	//margin-left: 30px;
+	//width: 90%;
+	//margin-left: auto;
+
+}
+
+#splash-logo img {
+	float: left;
+}
+
+#splash-logo h1 {
+	margin: 0px;
+	font-size: 4em;
+	white-space: nowrap;
+}
+
+#splash-logo h2 {
+	font-size: 8em;
+	font-weight: 800;
+	line-height: 1em;
+	
+}
+
+#splash-copy {
+	margin-top: 50px;
+}
+
+#splash-copy p {
+	font-size: 1.4em;
+	//color: #0f2d44;
+	color: #0088cc;
+}
+
 #feature-list {
 	margin-top: 40px;
 }
