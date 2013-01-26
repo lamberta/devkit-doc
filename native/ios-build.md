@@ -13,6 +13,18 @@ You will need some tools to do iOS development:
 + iPhone/iPad sync cable
 + Xcode 4.4 (or newer) and command-line tools
 
+### Supported Mobile Devices
+
+The iOS devices supported are:
+
+_iPhone_: iPhone 3GS (2009), iPhone 4, iPhone 4S, iPhone 5.
+
+_iPad_: All devices.
+
+_iPod_: Touch 3rd Gen (2009), Touch 4rth Gen, Touch 5th Gen.
+
+Other devices **may** work but are not explicitly supported.
+
 ## How to install Xcode Prerequisites
 
 In order to develop for iOS, Xcode is required.  Xcode can be downloaded from the [iTunes App store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
