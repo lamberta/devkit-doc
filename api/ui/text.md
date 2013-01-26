@@ -124,7 +124,16 @@ Inherits from
      2. [ui.View](./ui-view.html)
 	 3. [event.Emitter](./event.html#class-event.emitter)
 
-Present the user a prompt for entering text input.
+This class presents the user a prompt for entering text
+input. The `TextPromptView` consists of two elements, the
+view part which is visible and a dialog. When the view is
+clicked a prompt dialog is shown. If the user enters or
+changes text and presses ok then the text of the view will
+be updated.
+
+## Examples
+
+* [Using a Text Prompt](../example/text-prompt/)
 
 ## Methods
 
@@ -132,27 +141,42 @@ Present the user a prompt for entering text input.
 
 Parameters
 :    1. `options {object}`
-	     * `prompt {text} = ''`
-		 * `autoShowKeyboard {boolean} = false`
+	     * `prompt {text} = ''` ---The text message shown on the dialog.
+		 * `autoShowKeyboard {boolean} = false` ---Show the keyboard when the dailog is shown on native.
 
 ~~~
 import ui.TextPromptView as TextPromptView;
 
-var textprompt = new TextPromptView();
+var textprompt = new TextPromptView({
+  prompt: "Please enter your name"
+});
 ~~~
+
+### setPrompt (prompt)
+
+Parameters
+:    1. `prompt {string}` ---Set the text to display in the prompt dialog.
+
+### showPrompt ()
+
+Present the input dialog to the user.
+
 
 ## Events
 
-### \'Change\', callback (text)
+### \'Change\', callback (value)
 
 Parameters
-:    1. `text {string}`
+:    1. `value {string}` ---The updated value of the `TextPromptView`.
 
-Called when the text value changes.
 
-### \'InputSelect\', callback ()
+The `Change` event is published when the text in the dialog
+is changed and ok is pressed.
 
-Called when the `TextPromptView` is selected.
+### \'Cancel\', callback ()
+
+The `Cancel` event is published when the cancel button in
+the dialog is pressed.
 
 
 <!--
