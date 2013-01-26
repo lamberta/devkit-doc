@@ -260,10 +260,10 @@ td.docs p a {
 }
 
 #splash-logo h2 {
-	font-size: 8em;
+	font-size: 5em;
 	font-weight: 800;
 	line-height: 1em;
-	margin-top: -5px;
+	margin-top: 5px;
 	color: #000;
 }
 
@@ -331,7 +331,7 @@ figcaption:before {
 }
 
 /* adjust navbar spacing to avoid double-line */
-@media (max-width: 1040px) {
+@media (max-width: 1050px) {
   .navbar-fixed-top .nav li a {
     padding-right: 5px;
     padding-left: 5px;
@@ -356,4 +356,39 @@ figcaption:before {
     overflow-y: visible;
     position: static;
   }
+}
+
+@media (max-width: 480px) {
+	#splash {
+		width: 100%;
+	}
+	
+	#splash img {
+		width: 75px;
+	}
+
+	#splash-logo {
+		margin-top: 0;
+	}
+	
+	#splash-logo h1 {
+		font-size: 2em;
+	}
+	
+	#splash-logo h2 {
+		margin-top: -5px;
+		font-size: 3em;
+	}
+
+	#splash-download {
+		float: left;
+	}
+	
+	#splash-download p {
+		font-size: 1em;
+	}
+
+	#feature-list img {
+		width: 100px;
+	}
 }
