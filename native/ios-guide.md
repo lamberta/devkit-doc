@@ -20,7 +20,7 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 ### 2. On-device development
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  This requires an Apple Developer account.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.
+Test your game code live on the device with the [Game Closure Test App](./ios-test-app.html).  This requires an Apple Developer account.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.
 
 Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
 
@@ -28,7 +28,7 @@ The same Chrome Web Inspector interface may be used to investigate coding errors
 
 ### 3. Initial On-device testing
 
-[Build and install](./build.html) your game to a device connected via USB.  This requires an Apple Developer account.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+[Build and install](./ios-build.html) your game to a device connected via USB.  This requires an Apple Developer account.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
 
 At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
 
