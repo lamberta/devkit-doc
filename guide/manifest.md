@@ -273,9 +273,8 @@ device to pinpoint where in the stack an error is occurring.
 
 ### android
 1. `{object}`
-    * `entryPoint {string} = "runtimeNative.launchClient"`
     * `flurryKey {string}` ---Flurry app key for analytics.
-    * `tapjoyDaily {string}` ---TapJoy daily key for analytics.
+    * `tapjoyDaily {object}` ---TapJoy daily key for analytics.
     * `tapjoyID {string}` ---TapJoy app ID for analytics.
     * `tapjoyKey {string}` ---TapJoy app key for analytics.
     * `apsalarKey {string}` ---Apsalar key.
@@ -290,7 +289,6 @@ different from the iOS keys.
 "android": {
   "apsalarKey": "jollyfunkey1",
   "apsalarSecret": "12345",
-  "entryPoint": "runtimeNative.launchClient",
   "flurryKey": "4QR3QR3QR3QR3QR3QR3Q",
   "tapjoyDaily": {},
   "tapjoyId": "deadbeef-beef-baad-f00d-baad33c0ffee",
@@ -301,10 +299,12 @@ different from the iOS keys.
 
 ### ios
 1. `{object}`
-    * `entryPoint {string} = "runtimeNative.launchClient"`
     * `flurryKey {string}` ---Flurry app key for analytics.
+    * `tapjoyDaily {object}` ---TapJoy daily key for analytics.
     * `tapjoyID {string}` ---TapJoy app ID for analytics.
     * `tapjoyKey {string}` ---TapJoy app key for analytics.
+    * `apsalarKey {string}` ---Apsalar key.
+    * `apsalarSecret {string}` ---Apsalar secret key.
 
 Device specific settings for iOS phones and tablets. In this
 section you can set Flurry, Tapjoy, and Apsalar keys for
@@ -315,7 +315,6 @@ be different from the Android keys.
 "ios": {
   "apsalarKey": "jollyfunkey2",
   "apsalarSecret": "12345",
-  "entryPoint": "runtimeNative.launchClient",
   "flurryKey": "3QR3QR3QR3QR3QR3QR3Q",
   "tapjoyDaily": {},
   "tapjoyId": "deadbeef-b0ff-baad-feed-baad33c0ffee",

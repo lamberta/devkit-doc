@@ -1,4 +1,4 @@
-# iOS Building
+# Building for iOS
 
 ## Overview
 
@@ -6,21 +6,51 @@ Running your game on an iPhone or iPad for the first time is that "I made it!" m
 
 Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  Some assembly is required.
 
-## Setup
+## Prerequisites
+You will need some tools to do iOS development:
 
-### Prerequisites
++ Mac OS X 10.6 (or newer) computer
++ iPhone/iPad sync cable
++ Xcode 4.4 (or newer) and command-line tools
 
-+ Mac OS X 10.6 (or newer)
-+ Xcode 4.4 (or newer)
-+ Xcode command-line tools
+### Supported Mobile Devices
 
-### How to install Xcode Prerequisites
+The iOS devices supported are:
+
+_iPhone_: iPhone 3GS (2009), iPhone 4, iPhone 4S, iPhone 5.
+
+_iPad_: All devices.
+
+_iPod_: Touch 3rd Gen (2009), Touch 4rth Gen, Touch 5th Gen.
+
+Other devices **may** work but are not explicitly supported.
+
+## How to install Xcode Prerequisites
 
 In order to develop for iOS, Xcode is required.  Xcode can be downloaded from the [iTunes App store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
-Additionally, the Xcode command-line tools **are required**.  To download these, open Xcode and go to the *preferences* menu under the *Xcode* menu.  Next, go to the *Downloads* tab and install the command-line tools.  It is recommended to also install the simulator at this tab so that you may test your games on your computer rather than on a physical device.
+Additionally, the Xcode command-line tools **are required**.  To download these, open Xcode and go to the *preferences* menu under the *Xcode* menu.  Next, go to the *Downloads* tab and install the command-line tools.  It is recommended to also install the simulator from this tab so that you may test your games on your computer rather than on a physical device.
 
-### Install the Native iOS Addon
+## Apple Developer Account
+
+To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
+
+To get started with iOS development, you will need to log in to the Apple Developer website and 
+
+developer.apple.com
+Member Center
+Enter Apple ID and Password.
+Select your Team.
+
+iOS Provisioning Portal
+
+Certificates tab
+
+Follow the instructions to request, download, and install your Development Certificate.
+
+Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left tab.  In the lower-right corner hit Refresh.
+
+## Install iOS Plugin for Basil
 
 At a command-line enter the command:
 
@@ -28,128 +58,164 @@ At a command-line enter the command:
 $ basil install ios
 ~~~
 
-### Build the apk
+This downloads and installs the iOS plugin for basil.
 
-In the top-level of your project, run:
-`$ basil build native-android`
+## Setting Up Your Game Manifest
 
-This creates an apk file located at `path/to/project/build/myapp.apk`.
+The splash screen and icons for your game should be added before building for iOS devices.  If you are using any custom TrueType fonts be sure to include those in the manifest file.  For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
 
-To create a debugging version, just add the appropriate flag:
+In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
 
-`$ basil build native-android --debug --clean --no-compress`
+The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
-Install the application to your device:
+~~~
+{
+	"icons": {
+		"57": "preload/icons/icon57.png",
+		"72": "preload/icons/icon72.png",
+		"114": "preload/icons/icon114.png",
+		"144": "preload/icons/icon144.png",
+		"512": "preload/icons/icon512.png",
+	},
+~~~
 
-`$ adb install -r path/to/project/build/myapp.apk`
+Choose an orientation for your game, either portrait or landscape.
 
-Run the game on your device by clicking its icon in the
-Application menu!
+~~~
+	"supportedOrientations": [
+		"landscape"
+	],
+~~~
 
+Under the ios section, set up any analytics tools you are using.  It is not necessary to embed any extra JavaScript to support these analytics tools; they are already integrated into the Game Closure SDK.
 
-### Configure the device
+If you are not using ApSalar, Flurry, nor TapJoy, just remove those lines.
 
-To set up your Android device for development, enable *USB
-Debugging*. (This option is located in `Settings > Applications > Development`.)
+In this section also set up bundleID, appleID, and version for in-app purchases.  Copy these three fields from your iTunes Connect account game information.
 
-#### Using adb, the Android Development Bridge
+~~~
+	"ios": {
+		"apsalarKey": "jollyfunkey2",
+		"apsalarSecret": "12345",
+		"flurryKey": "3QR3QR3QR3QR3QR3QR3Q",
+		"tapjoyDaily": {},
+		"tapjoyId": "deadbeef-b0ff-baad-feed-baad33c0ffee",
+		"tapjoyKey": "R3QR3QR3QR3QR3QR3QR3",
+		"bundleID": "ggshooter",
+		"appleID": "12345678",
+		"version": "1.0.0"
+	},
+~~~
 
-List the connected devices in the form: 'serialnumber device':
+Add a list of TrueType font files to the manifest if you are using them:
 
-`$ adb devices`
+~~~
+	"ttf": [
+		"resources/fonts/Arial Black.ttf",
+		"resources/fonts/Gill Sans Bold.ttf"
+	],
+~~~
 
-Issue commands to a specific emulator/device:
+Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
-`$ adb -s <serialnumber> <command>`
+~~~
+	"preload": {
+		"autoHide": true,
+		"img": "preload/splash.png",
+		"iphone": {
+			"launch": "preload/iphone/Default.png",
+			"launchRetina": "preload/iphone/Default@2x.png",
+			"launchRetina4": "preload/iphone/Default-568h@2x.png"
+		},
+		"ipad": {
+			"portrait": "preload/ipad/Default-Portrait~ipad.png",
+			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
+			"landscape": "preload/ipad/Default-Landscape~ipad.png",
+			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
+		}
+	}
+}
+~~~
 
-Install an application to a device:
+Once your game is configured properly for mobile, you're ready to install it!
 
-`$ adb install -r <path-to-apk>`
+## Setting Up a New Mobile Device
 
-Print logging information to the console:
+In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.
 
-`$ adb logcat <option> <optional-filter-spec>`
+## Installing to a Connected Device
 
-Stop the server if something is hanging:
+To build your game project enter:
 
-`$ adb kill-server`
+~~~
+$ basil build native-ios
+~~~
 
-Also attempt to reboot the mobile device if it still hangs.
+An Xcode project window will pop up.  Select your mobile device from the list at the top and hit the Play button to install.
 
-Reference:
-* [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
-* [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
+You will be able to see JavaScript logs scrolling in Xcode while running the device connected.
 
+## Building for TestFlight or iTunes Connect
 
-## Performance Best Practices
+Once you are satisfied with how your game looks, it's time to bring in testers.  [TestFlight](http://testflightapp.com/) is a great tool that we recommend for distributing test versions of your game to a large number of testers.
 
-### Start with performant JavaScript code
+When testing is complete you can use the same built image of your game to upload to the [iTunes Connect](http://itunesconnect.apple.com) website to apply for entry into the iTunes Store.
 
-Any code that *can* be taken out of a loop, *should* be
-taken out. Function calls carry some additional
-overhead. Generally, modern JavaScript engines optimize for
-most use cases, but using a tool like
-[jsPerf](http://jsperf.com) to test snippets can be very
-insightful (even though it run tests in your browser, the
-lessons can still apply).
+### Generate an App ID
 
-Also, get comfortable with debugging JavaScript using the
-Chrome Developer Tools, especially the
-[Profiles Panel](https://developers.google.com/chrome-developer-tools/docs/profiles),
-with particular attention to the **CPU profiler** and the
-**Heap profiler**.
+To build for TestFlight or iTunes, browse to the [Apple Developer website](http://developer.apple.com).  Log in with your Apple Developer account and navigate to the iOS Provisioning Portal.
 
-### Allocate fewer objects
+Select the App IDs tab on the left.  Create a [New App ID] with the button on the right.  This is where you choose a bundle identifier.  This can be a simple string like "beards.on.boards" that should be globally unique.
 
-The more objects that are created, the greater the
-performance lag when the JavaScript engine needs to garbage
-collect them, and if there are any references to an object,
-its memory won't be de-allocated. It's better to reuse
-existing objects than create new ones, so for example:
+Once your App ID appears in the App IDs list, you can use the Configure action on your App ID to enable In-App Purchases.
 
-* Use `Date.now()` instead of `+new Date()`.
-* Clear an old array with `arr.length = 0` instead of creating a new one.
-* Likewise, recycle objects rather than creating new ones.
+### Generate a Mobile PRovisioning Profile
 
-There are some symptoms for bad garbage collection:
+Select the Provisioning tab on the left.  Create a [New Profile], selecting team members who can make builds for your App ID.  Select the App ID you created.  And select the devices that can install the App.
 
-* Logs about garbage collection from V8 in `adb logcat`.
-* Irregular glitches in framerate when you're not doing anything notable in JavaScript.
-* Smooth framerates followed by brief lag spikes.
+After your App ID provisioning profile is added to the list of Development Provisioning Profiles, use the [Download] action to download the .mobileprovision file and take note of where it exists on your computer.
 
-#### Use View pools
+### Build an .IPA
 
-Since you take a performance hit when creating objects, it
-can be beneficial to create "pools" of `View` objects ahead
-of time, and then when your ready to use them, acquire them
-from the already allocated pool. When you are done with the
-view, release it back to the pool so it can be used again later.
+Run the build command with the `--ipa` flag to create an .IPA file for your game:
 
-### Native code is faster than JavaScript
+~~~
+$ basil build native-ios --ipa --provision /Users/bboy/Desktop/BeardsOnBoards.mobileprovision --name="Billy Baxter"
+~~~
 
-JavaScript is fast, but it's even faster to let the native
-runtime do the work. Calls to JavaScript are have more
-overhead than native code. The more code you can offload to
-the native side, the faster your game will run.
+### Manual Install of iOS Plugin for Basil
 
-### Use the animation engine
+You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
 
-This is related to the previous tip. Using our
-[animation engine](../api/animate.html) is faster than
-calculating in a game loop because we can optimize it for
-native execution. The less calculations in JavaScript, the better!
+~~~
+$ git clone git@github.com:gameclosure/ios
+$ cd ios
+$ git checkout master
+$ git submodule update --init
+~~~
 
-### Schedule tasks over multiple frames
+Edit the basil configuration file **config.json** located in the root of the basil install to point to the install location of the iOS plugin:
 
-Game calculations can be expensive, especially when done on
-each frame. Many times, effects such as physics collisions
-and AI and be run every other frame (or even less) without a
-loss in visual quality. It's important to schedule these
-tasks across animation frames for a consistent, and better
-performing game.
+~~~
+{
+  "ios": {
+    "root": "path/to/ios"
+  }
+}
+~~~
 
-### Preload resources
+### Build Options
 
-Resource loading can be hard on a game's framerate. Make
-sure to preload any assets before you need them to prevent
-noticeable in-game lags.
+The complete set of build options:
+
+~~~
+ $ basil build native-ios --help
+Options:
+  --help, -h       Display this help menu                                                 
+  --debug, -d      Create debug build [default: true]
+  --clean, -c      Clean build before compilation [default: true]
+  --ipa, -i        Generate appName.ipa file as output for TestFlight [default: false]
+  --provision, -p  (required for --ipa) Path to .mobileprovision profile file
+  --name, -n       (required for --ipa) Name of developer                 
+  --open, -o       (ignored when --ipa is specified) Open the XCode project after building [default: true]
+~~~
