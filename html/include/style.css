@@ -57,6 +57,11 @@ footer {
   filter: none;
 }
 
+.btn-primary {
+	width: 150px;
+	font-size: 2em;
+}
+
 /*override weird hover animation from bootstrap*/
 .btn:hover {
 	background-position: 0 0 !important;
@@ -274,6 +279,7 @@ td.docs p a {
 #feature-list img {
 	display: block;
 	margin: 0 auto 10px auto;
+	width: 150px;
 }
 
 #feature-list dl {
