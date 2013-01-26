@@ -204,3 +204,86 @@ merged();      //=> {x: 1}
 
 This way you can be assured that the options object contains
 all the properties you intend for it to have.
+
+
+# Module: util.ajax
+
+The Game Closure SDK provides functions which make it easy to
+download data from remote locations. These functions can be found
+in the `ajax` package and wrap the `XMLHttpRequest` object.
+
+Examples:
+
+* [Subscribe to an event](../example/ui-list-ajax/)
+
+## Methods
+
+### get (opts [, callback])
+
+Parameters
+:    1. `opts {object}` ---Options
+	     * `url {string}` ---The URL.
+		 * `type {string}` ---Optional, can be unset or `json`.
+		 * `data {object}` ---Optional data to send.
+		 * `headers {object}` ---Optional list of http headers.
+	 2. `callback {function}` ---Optional callback which is executed when the data is downloaded.
+
+The following code fragement shows how to get data from the
+Facebook search API. The url parameter has the location of
+search API. The header is set to `text-plain` which is
+actually the default value.
+
+The data option has two fields which are specific to this
+API, they are `q` which is the text to search for and `type`
+which is where to search (in posts). If the get function is
+invoked as demonstrated here then the values of `data` will
+be url encoded and appended to the url.
+
+When the result is downloaded it will be parsed as JSON
+because the type was set to `json`.
+
+~~~
+import util.ajax as ajax;
+
+ajax.get({
+  url: 'http://graph.facebook.com/search',
+  headers: {'Content-Type': 'text/plain'},
+  data: {q: 'game', type: 'post'},
+  type: 'json'
+}, function (err, response) {
+  if (err) {
+    console.error('someting went wrong');
+  } else {
+    console.log(response);
+  }
+});
+~~~
+
+### post (opts [, callback])
+
+Parameters
+:    1. `opts {object}` ---Options
+	     * `url {string}` ---The URL.
+		 * `type {string}` ---Optional, can be unset or `json`.
+		 * `headers {object}` ---Optional list of http headers.
+	 2. `callback {function}` ---Optional callback which is executed when the data is downloaded.
+
+The following demo posts data to the Facebook search
+API. Because the type value is not in the options the
+response will be a string.
+
+The data will be posted and won't be appended to the url as
+a query string.
+
+~~~
+ajax.post({
+  url: 'http://graph.facebook.com/search',
+  data: {q: 'closure', type: 'post'}
+}, function (err, response) {
+  if (err) {
+    console.error('someting went wrong');
+  } else {
+    console.log(response);
+  }
+});
+~~~
