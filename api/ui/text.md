@@ -21,13 +21,13 @@ Parameters
 	     * `text {string}` ---The text to display.
 		 * `size {number} = 12` ---The default font size of the text.
 		 * `lineHeight {number} = 1.2` ---How tall each line should be when wrap is turned on.
-		 * `lineWidth {number} = 2` ---How wide each line should be in a wrap is turned on.
 		 * `fontFamily {string} = device.defaultFontFamily` ---Font family to be used by the text in the text view (ex: "Helvetica")
 		 * `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
 		 * `color {string} = "blue"` ---The color of the text.  See below for color string format.
 		 * `backgroundColor {string} = "blue"` ---The background color of the text view.  See below for color string format.
 		 * `outlineColor {string} = "blue"` ---Color of the outline surrounding the text.  See below for color string format.
 		 * `shadowColor {string} = "blue"` ---Color of the drop shadow behind the text.  See below for color string format.
+		 * `strokeWidth {number} = 2` ---Width of text stroke (outline or shadow).
 		 * `verticalPadding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
 		 * `horizontalPadding {number|array} = 0` ---The amount of horizontal padding the text exhibits within the text view.
 		 * `verticalAlign: "middle"` ---How the text should be aligned vertically within the text view. Options: `'top'`, `'bottom'`, `'middle'`.
