@@ -1,6 +1,6 @@
 # iOS Test App
 
-Test your game code live on the device with the Game Closure Test App.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using Xcode.
+Test your game code live on a device with the Game Closure Test App.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using Xcode.
 
 Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by restarting the game with a circular gesture (See Restarting below).
 
