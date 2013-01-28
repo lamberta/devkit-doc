@@ -24,10 +24,10 @@ Parameters
 		 * `lineWidth {number} = 2` ---How wide each line should be in a wrap is turned on.
 		 * `fontFamily {string} = device.defaultFontFamily` ---Font family to be used by the text in the text view (ex: "Helvetica")
 		 * `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
-		 * `color {string} = "#000000"` ---The color of the text.
-		 * `backgroundColor {string} = null` ---The background color of the text view.
-		 * `outlineColor {string} = null` ---Color of the outline surrounding the text.  A value of `null` means that an outline will not be present.
-		 * `shadowColor {string} = null` ---Color of the drop shadow behind the text. A value of `null` means that a shadow will not be present.
+		 * `color {string} = "blue"` ---The color of the text.  See below for color string format.
+		 * `backgroundColor {string} = "blue"` ---The background color of the text view.  See below for color string format.
+		 * `outlineColor {string} = "blue"` ---Color of the outline surrounding the text.  See below for color string format.
+		 * `shadowColor {string} = "blue"` ---Color of the drop shadow behind the text.  See below for color string format.
 		 * `verticalPadding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
 		 * `horizontalPadding {number|array} = 0` ---The amount of horizontal padding the text exhibits within the text view.
 		 * `verticalAlign: "middle"` ---How the text should be aligned vertically within the text view. Options: `'top'`, `'bottom'`, `'middle'`.
@@ -35,6 +35,13 @@ Parameters
 		 * `wrap {boolean} = true` ---Whether or not the text should wrap. A description of the rules of wrapping when wrap is turned on can be found below.
 		 * `autoSize {boolean} = true` ---Fit the text view to text (details below).
 		 * `autoFontSize {boolean} = true` ---Fit text to the text view (details below).
+
+Colors can be one of the following values:
+		 * `null` or `undefined` : No color (transparent).
+		 * "blue" : Standard CSS color names.  See [this website]() for a complete list.
+		 * "#330033" : Standard HTML Hexadecimal RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+		 * "rgb(255,0,0)" : Standard HTML RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+		 * "rgb(255,0,0,0.8)" : Standard HTML RGB code with alpha value between 0 and 1 in the final parameter.
 
 ~~~
 import ui.TextView as TextView;
