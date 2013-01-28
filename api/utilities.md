@@ -212,9 +212,23 @@ The Game Closure SDK provides functions which make it easy to
 download data from remote locations. These functions can be found
 in the `ajax` package and wrap the `XMLHttpRequest` object.
 
-Examples:
+## Examples
 
 * [Subscribe to an event](../example/ui-list-ajax/)
+
+## Queuing
+
+When there are too many requests made within a short period
+of time, the requests are placed in a queue. The maximum
+number of requests which can be handled simultaneously is 4.
+
+## Error Handling
+
+The Ajax routines handle all errors and the first parameter of
+the callback is the error status. On success, the value is
+`null`, and on failure this parameter will give information
+about the error.
+
 
 ## Methods
 
