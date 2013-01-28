@@ -61,5 +61,5 @@ Options:
   --ipa, -i        Generate appName.ipa file as output for TestFlight [default: false]
   --provision, -p  (required for --ipa) Path to .mobileprovision profile file
   --name, -n       (required for --ipa) Name of developer                 
-  --open, -o       (ignored when --ipa is specified) Open the XCode project after building [default: true]
+  --open, -o       (ignored when --ipa is specified) Open the Xcode project after building [default: true]
 ~~~

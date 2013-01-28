@@ -22,7 +22,7 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.
+Test your game code live on the device with the [Game Closure Test App](./test_app.html).  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using Xcode.
 
 Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
 
@@ -30,13 +30,13 @@ The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used t
 
 ### 3. Building
 
-Use the command-line tools from the Game Closure SDK to [build your game code](./ios-build.html) into an XCode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
+Use the command-line tools from the Game Closure SDK to [build your game code](./ios-build.html) into an Xcode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
 
 <img src="./assets/ios/ios-build-console.png"></img>
 
-Build your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+Build your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an Xcode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in Xcode while it is running.
 
-<img src="./assets/ios/ios-build-xcode.png"></img>
+<img src="./assets/ios/ios-build-Xcode.png"></img>
 
 At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
 

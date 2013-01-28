@@ -1,4 +1,4 @@
-# Setup for iOS
+# iOS Setup Guide
 
 ## Overview
 
