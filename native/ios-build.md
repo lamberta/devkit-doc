@@ -35,20 +35,9 @@ Additionally, the Xcode command-line tools **are required**.  To download these,
 
 To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
 
-To get started with iOS development, you will need to log in to the Apple Developer website and 
+To get started with iOS development, you will need to access the Member Center on the  [Apple Developer website](developer.apple.com).  Enter your Apple ID and Password.  Select your team.  Enter the iOS Provisioning Portal.  Select the Certificates tab.  Follow the instructions to request, download, and install your Development Certificate.
 
-developer.apple.com
-Member Center
-Enter Apple ID and Password.
-Select your Team.
-
-iOS Provisioning Portal
-
-Certificates tab
-
-Follow the instructions to request, download, and install your Development Certificate.
-
-Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left tab.  In the lower-right corner hit Refresh.
+Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left tab.  In the lower-right corner hit Refresh.  This should download and install the new certificate on your computer.  At this point you should be able to install to devices that have been added to your developer portal (see below).
 
 ## Install iOS Plugin for Basil
 
@@ -141,7 +130,7 @@ Once your game is configured properly for mobile, you're ready to install it!
 
 ## Setting Up a New Mobile Device
 
-In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.
+In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.  This adds the device to your developer portal.
 
 ## Installing to a Connected Device
 
