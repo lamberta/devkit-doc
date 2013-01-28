@@ -2,13 +2,13 @@
 
 ## Overview
 
-Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
+Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game.
 
-Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  Some assembly is required.  See the [iOS Setup Guide](./ios-setup.html) for steps to get prerequisites, supported mobile devices, and steps to get started.
+Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  See the [iOS Setup Guide](./ios-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
 
 ## Installing to a Connected Device
 
-To build your game project enter:
+To build your game enter:
 
 ~~~
 $ basil build native-ios --no-compress
@@ -18,11 +18,11 @@ By specifying the --no-compress option, basil will not try to compress JavaScrip
 
 An Xcode project window will pop up.  Select your mobile device from the list at the top and hit the Play button to install.
 
-You will be able to see JavaScript logs scrolling in Xcode while running the device connected.
+You will be able to see JavaScript logs scrolling in Xcode while running the game on the connected device.
 
 ## Building for TestFlight or iTunes Connect
 
-Once you are satisfied with how your game looks, it's time to bring in testers.  [TestFlight](http://testflightapp.com/) is a great tool that we recommend for distributing test versions of your game to a large number of testers.
+Once you are satisfied with how your game looks, and if you'd like to distribute test builds of your game, [TestFlight](http://testflightapp.com/) is a great tool that we recommend for distributing your game to testers.
 
 When testing is complete you can use the same built image of your game to upload to the [iTunes Connect](http://itunesconnect.apple.com) website to apply for entry into the iTunes Store.
 
