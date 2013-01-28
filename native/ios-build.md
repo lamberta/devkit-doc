@@ -2,162 +2,27 @@
 
 ## Overview
 
-Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
+Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game.
 
-Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  Some assembly is required.
-
-## Prerequisites
-You will need some tools to do iOS development:
-
-+ Mac OS X 10.6 (or newer) computer
-+ iPhone/iPad sync cable
-+ Xcode 4.4 (or newer) and command-line tools
-
-### Supported Mobile Devices
-
-The iOS devices supported are:
-
-_iPhone_: iPhone 3GS (2009), iPhone 4, iPhone 4S, iPhone 5.
-
-_iPad_: All devices.
-
-_iPod_: Touch 3rd Gen (2009), Touch 4rth Gen, Touch 5th Gen.
-
-Other devices **may** work but are not explicitly supported.
-
-## How to install Xcode Prerequisites
-
-In order to develop for iOS, Xcode is required.  Xcode can be downloaded from the [iTunes App store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-
-Additionally, the Xcode command-line tools **are required**.  To download these, open Xcode and go to the *preferences* menu under the *Xcode* menu.  Next, go to the *Downloads* tab and install the command-line tools.  It is recommended to also install the simulator from this tab so that you may test your games on your computer rather than on a physical device.
-
-## Apple Developer Account
-
-To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
-
-To get started with iOS development, you will need to log in to the Apple Developer website and 
-
-developer.apple.com
-Member Center
-Enter Apple ID and Password.
-Select your Team.
-
-iOS Provisioning Portal
-
-Certificates tab
-
-Follow the instructions to request, download, and install your Development Certificate.
-
-Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left tab.  In the lower-right corner hit Refresh.
-
-## Install iOS Plugin for Basil
-
-At a command-line enter the command:
-
-~~~
-$ basil install ios
-~~~
-
-This downloads and installs the iOS plugin for basil.
-
-## Setting Up Your Game Manifest
-
-The splash screen and icons for your game should be added before building for iOS devices.  If you are using any custom TrueType fonts be sure to include those in the manifest file.  For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
-
-In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
-
-The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
-
-~~~
-{
-	"icons": {
-		"57": "preload/icons/icon57.png",
-		"72": "preload/icons/icon72.png",
-		"114": "preload/icons/icon114.png",
-		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png",
-	},
-~~~
-
-Choose an orientation for your game, either portrait or landscape.
-
-~~~
-	"supportedOrientations": [
-		"landscape"
-	],
-~~~
-
-Under the ios section, set up any analytics tools you are using.  It is not necessary to embed any extra JavaScript to support these analytics tools; they are already integrated into the Game Closure SDK.
-
-If you are not using ApSalar, Flurry, nor TapJoy, just remove those lines.
-
-In this section also set up bundleID, appleID, and version for in-app purchases.  Copy these three fields from your iTunes Connect account game information.
-
-~~~
-	"ios": {
-		"apsalarKey": "jollyfunkey2",
-		"apsalarSecret": "12345",
-		"flurryKey": "3QR3QR3QR3QR3QR3QR3Q",
-		"tapjoyDaily": {},
-		"tapjoyId": "deadbeef-b0ff-baad-feed-baad33c0ffee",
-		"tapjoyKey": "R3QR3QR3QR3QR3QR3QR3",
-		"bundleID": "ggshooter",
-		"appleID": "12345678",
-		"version": "1.0.0"
-	},
-~~~
-
-Add a list of TrueType font files to the manifest if you are using them:
-
-~~~
-	"ttf": [
-		"resources/fonts/Arial Black.ttf",
-		"resources/fonts/Gill Sans Bold.ttf"
-	],
-~~~
-
-Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
-
-~~~
-	"preload": {
-		"autoHide": true,
-		"img": "preload/splash.png",
-		"iphone": {
-			"launch": "preload/iphone/Default.png",
-			"launchRetina": "preload/iphone/Default@2x.png",
-			"launchRetina4": "preload/iphone/Default-568h@2x.png"
-		},
-		"ipad": {
-			"portrait": "preload/ipad/Default-Portrait~ipad.png",
-			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
-			"landscape": "preload/ipad/Default-Landscape~ipad.png",
-			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
-		}
-	}
-}
-~~~
-
-Once your game is configured properly for mobile, you're ready to install it!
-
-## Setting Up a New Mobile Device
-
-In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.
+Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  See the [iOS Setup Guide](./ios-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
 
 ## Installing to a Connected Device
 
-To build your game project enter:
+To build your game enter:
 
 ~~~
-$ basil build native-ios
+$ basil build native-ios --no-compress
 ~~~
+
+By specifying the --no-compress option, basil will not try to compress JavaScript files.  This speeds up the build process and is recommended for most pre-release builds.
 
 An Xcode project window will pop up.  Select your mobile device from the list at the top and hit the Play button to install.
 
-You will be able to see JavaScript logs scrolling in Xcode while running the device connected.
+You will be able to see JavaScript logs scrolling in Xcode while running the game on the connected device.
 
 ## Building for TestFlight or iTunes Connect
 
-Once you are satisfied with how your game looks, it's time to bring in testers.  [TestFlight](http://testflightapp.com/) is a great tool that we recommend for distributing test versions of your game to a large number of testers.
+Once you are satisfied with how your game looks, and if you'd like to distribute test builds of your game, [TestFlight](http://testflightapp.com/) is a great tool that we recommend for distributing your game to testers.
 
 When testing is complete you can use the same built image of your game to upload to the [iTunes Connect](http://itunesconnect.apple.com) website to apply for entry into the iTunes Store.
 
@@ -169,7 +34,7 @@ Select the App IDs tab on the left.  Create a [New App ID] with the button on th
 
 Once your App ID appears in the App IDs list, you can use the Configure action on your App ID to enable In-App Purchases.
 
-### Generate a Mobile PRovisioning Profile
+### Generate a Mobile Provisioning Profile
 
 Select the Provisioning tab on the left.  Create a [New Profile], selecting team members who can make builds for your App ID.  Select the App ID you created.  And select the devices that can install the App.
 
@@ -180,42 +45,53 @@ After your App ID provisioning profile is added to the list of Development Provi
 Run the build command with the `--ipa` flag to create an .IPA file for your game:
 
 ~~~
-$ basil build native-ios --ipa --provision /Users/bboy/Desktop/BeardsOnBoards.mobileprovision --name="Billy Baxter"
-~~~
-
-### Manual Install of iOS Plugin for Basil
-
-You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
-
-~~~
-$ git clone git@github.com:gameclosure/ios
-$ cd ios
-$ git checkout master
-$ git submodule update --init
-~~~
-
-Edit the basil configuration file **config.json** located in the root of the basil install to point to the install location of the iOS plugin:
-
-~~~
-{
-  "ios": {
-    "root": "path/to/ios"
-  }
-}
+$ basil build native-ios --ipa --provision /Users/bboy/Desktop/BeardsOnBoards.mobileprovision --name="Bob Baxter"
 ~~~
 
 ### Build Options
 
-The complete set of build options:
+General build options:
+
++ `--help` / `-h` : Display this help menu
++ `--debug` / `-d` : Create a debug build (Default)
++ `--release` / `-r` : Create a release build
++ `--clean` / `-c` : Clean build before compilation (Default)
++ `--no-clean` : Do not clean before compile
++ `--open` / `-o` : Open the Xcode project after building (Default)
++ `--no-open` : Do not open the Xcode project after building
++ `--compress` : Compress JavaScript during build (Default)
++ `--no-compress` : Do not compress JavaScript during build
+
+IPA generation options:
+
++ `--ipa` / `-i` : Generate appName.ipa file as output
++ `--provision` / `-p` : Path to the .mobileprovision profile file
++ `--name` / `-n` : Name of iPhone Developer key on Keychain Access list
+
+When --ipa is specified, Xcode will not pop up after the build.
+
+#### Example Usage
+
+**For a fast debug build:**
 
 ~~~
- $ basil build native-ios --help
-Options:
-  --help, -h       Display this help menu                                                 
-  --debug, -d      Create debug build [default: true]
-  --clean, -c      Clean build before compilation [default: true]
-  --ipa, -i        Generate appName.ipa file as output for TestFlight [default: false]
-  --provision, -p  (required for --ipa) Path to .mobileprovision profile file
-  --name, -n       (required for --ipa) Name of developer                 
-  --open, -o       (ignored when --ipa is specified) Open the XCode project after building [default: true]
+$ basil build native-ios --no-compress
 ~~~
+
+This specifies a debug build, cleans before building, does not compress JavaScript, and will open Xcode after build completes.
+
+**For a thorough release build:**
+
+~~~
+$ basil build native-ios --release
+~~~
+
+This specifies a release build, cleans before building, compresses JavaScript, and will open Xcode after build completes.
+
+**For an IPA release build:**
+
+~~~
+$ basil build native-ios --release --ipa --provision "/Users/bboy/Desktop/BeardsOnBoards.mobileprovision" --name="Bob Baxter"
+~~~
+
+This specifies a release build, cleans before building, compresses JavaScript, signs an IPA file with the given mobile provision for Bob Baxter, and does not open Xcode.
