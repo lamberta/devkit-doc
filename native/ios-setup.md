@@ -4,14 +4,14 @@
 
 Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
 
-Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  Some assembly is required.
+Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  
 
 ## Prerequisites
-You will need some tools to do iOS development:
+You will need some tools for iOS development:
 
 + Mac OS X 10.6 (or newer) computer
 + iPhone/iPad sync cable
-+ Xcode 4.4 (or newer) and command-line tools
++ Xcode 4.4 (or newer) and Xcode command-line tools
 
 ### Supported Mobile Devices
 
@@ -72,10 +72,15 @@ Edit the basil configuration file **config.json** located in the root of the bas
 
 ## Setting Up Your Game Manifest
 
-The splash screen and icons for your game should be added before building for iOS devices.  If you are using any custom TrueType fonts be sure to include those in the manifest file.  For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
+Every game includes and must have a manifest.json file with configuration information and more for each game. Several fields are required for a properly configured game for iOS.  
+  
+- The splash screen and icons for your game should be added before building for iOS devices.  
+- If you are using any custom TrueType fonts be sure to include those in the manifest file.  
+- For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
 
 In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
-
+  
+#####Icons
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
 ~~~
@@ -88,8 +93,9 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 		"512": "preload/icons/icon512.png",
 	},
 ~~~
-
-Choose an orientation for your game, either portrait or landscape.
+  
+#####Orientation
+Choose an orientation for your game, either portrait or landscape. 
 
 ~~~
 	"supportedOrientations": [
@@ -97,26 +103,7 @@ Choose an orientation for your game, either portrait or landscape.
 	],
 ~~~
 
-Under the ios section, set up any analytics tools you are using.  It is not necessary to embed any extra JavaScript to support these analytics tools; they are already integrated into the Game Closure SDK.
-
-If you are not using ApSalar, Flurry, nor TapJoy, just remove those lines.
-
-In this section also set up bundleID, appleID, and version for in-app purchases.  Copy these three fields from your iTunes Connect account game information.
-
-~~~
-	"ios": {
-		"apsalarKey": "jollyfunkey2",
-		"apsalarSecret": "12345",
-		"flurryKey": "3QR3QR3QR3QR3QR3QR3Q",
-		"tapjoyDaily": {},
-		"tapjoyId": "deadbeef-b0ff-baad-feed-baad33c0ffee",
-		"tapjoyKey": "R3QR3QR3QR3QR3QR3QR3",
-		"bundleID": "ggshooter",
-		"appleID": "12345678",
-		"version": "1.0.0"
-	},
-~~~
-
+#####TrueType Fonts
 Add a list of TrueType font files to the manifest if you are using them:
 
 ~~~
@@ -125,7 +112,8 @@ Add a list of TrueType font files to the manifest if you are using them:
 		"resources/fonts/Gill Sans Bold.ttf"
 	],
 ~~~
-
+  
+#####Splash Screen
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
 ~~~
@@ -147,10 +135,10 @@ Define splash screen images for your game.  For the complete list of image sizes
 }
 ~~~
 
-Once your game is configured properly for mobile, you're ready to install it!
+Once your game is configured properly for iOS, you're ready to install it!
 
 ## Setting Up a New Mobile Device
 
 In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.  This will add the device to your developer portal.
 
-At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app.
+At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app for expedited development and testing.
