@@ -4,7 +4,7 @@
 
 The iPhone and iPad mobile platform is immensely popular, and you can use the Game Closure SDK to target your HTML5 games to run smoothly on these mobile devices.  This is a high-level view of the progression for iOS game development using the Game Closure SDK.
 
-For iOS development you will need to get an Apple Developer account, which Apple sells for $99/year.  This gives you access to Apple's Developer web portal, which allows you to manage provisioning profiles.  For more detail, follow the links below.
+For iOS development you will need to get an Apple Developer account, which Apple  $99/year.  This gives you access to Apple's Developer web portal, which allows you to manage provisioning profiles.  For more detail, follow the links below.
 
 * Based on what stage of development your game is in, you may consider different types of builds:
 
@@ -22,9 +22,7 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using Xcode.
-
-Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
+Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change. Simply connect your device to the GC SDK server hosted on your computer, and begin testing your game as seemlessly as testing with the Game Closure web interface on your computer.  Again, for more information on how to get started with the Game Closure Test App, [look here](./test_app.html).
 
 The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
 
@@ -44,8 +42,8 @@ At this stage the mobile device no longer needs to be tethered to your computer 
 
 ### 4. Group Testing
 
-Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com).  Testers signed up with TestFlight can use your app all over the world on their mobile Apple devices.
+Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com) if you so choose.  Testers signed up with TestFlight can use your app all over the world on their mobile Apple devices.
 
 ### 5. Deployment
 
-The same IPA file use for group testing will be uploaded to the Apple Store for release.
+The same IPA file use for group testing will be uploaded to the Apple Store for release.  Please see our [iOS build guide](./ios-build.html) on how to create a .IPA file for release (or for testing).
