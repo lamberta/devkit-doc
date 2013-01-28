@@ -50,16 +50,48 @@ $ basil build native-ios --ipa --provision /Users/bboy/Desktop/BeardsOnBoards.mo
 
 ### Build Options
 
-The complete set of build options:
+General build options:
+
++ `--help` / `-h` : Display this help menu
++ `--debug` / `-d` : Create a debug build (Default)
++ `--release` / `-r` : Create a release build
++ `--clean` / `-c` : Clean build before compilation (Default)
++ `--no-clean` : Do not clean before compile
++ `--open` / `-o` : Open the Xcode project after building (Default)
++ `--no-open` : Do not open the Xcode project after building
++ `--compress` : Compress JavaScript during build (Default)
++ `--no-compress` : Do not compress JavaScript during build
+
+IPA generation options:
+
++ `--ipa` / `-i` : Generate appName.ipa file as output
++ `--provision` / `-p` : Path to the .mobileprovision profile file
++ `--name` / `-n` : Name of iPhone Developer key on Keychain Access list
+
+When --ipa is specified, Xcode will not pop up after the build.
+
+#### Example Usage
+
+**For a fast debug build:**
 
 ~~~
- $ basil build native-ios --help
-Options:
-  --help, -h       Display this help menu                                                 
-  --debug, -d      Create debug build [default: true]
-  --clean, -c      Clean build before compilation [default: true]
-  --ipa, -i        Generate appName.ipa file as output for TestFlight [default: false]
-  --provision, -p  (required for --ipa) Path to .mobileprovision profile file
-  --name, -n       (required for --ipa) Name of developer                 
-  --open, -o       (ignored when --ipa is specified) Open the Xcode project after building [default: true]
+$ basil build native-ios --no-compress
 ~~~
+
+This specifies a debug build, cleans before building, does not compress JavaScript, and will open Xcode after build completes.
+
+**For a thorough release build:**
+
+~~~
+$ basil build native-ios --release
+~~~
+
+This specifies a release build, cleans before building, compresses JavaScript, and will open Xcode after build completes.
+
+**For an IPA release build:**
+
+~~~
+$ basil build native-ios --release --ipa --provision "/Users/bboy/Desktop/BeardsOnBoards.mobileprovision" --name="Bob Baxter"
+~~~
+
+This specifies a release build, cleans before building, compresses JavaScript, signs an IPA file with the given mobile provision for Bob Baxter, and does not open Xcode.
