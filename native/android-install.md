@@ -21,6 +21,13 @@ Android API 15.
 
 ## Install the Game Closure SDK Android Component
 
+Simply run `basil install android`. This will automatically
+clone the [Android repository](https://github.com/gameclosure/android)
+and setup the path in your `config.json`.
+
+If at any point this process fails. You can do the same thing
+manually by following these steps:
+
 Clone the Game Closure
 [Android repository](https://github.com/gameclosure/android). Switch
 to this directory and make sure everything is up-to-date:
