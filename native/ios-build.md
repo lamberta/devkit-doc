@@ -137,8 +137,10 @@ In Xcode, open the Organizer.  On the devices tab on the left, select the name o
 To build your game project enter:
 
 ~~~
-$ basil build native-ios
+$ basil build native-ios --no-compress
 ~~~
+
+By specifying the --no-compress option, basil will not try to compress JavaScript files.  This speeds up the build process and is recommended for most pre-release builds.
 
 An Xcode project window will pop up.  Select your mobile device from the list at the top and hit the Play button to install.
 
@@ -158,7 +160,7 @@ Select the App IDs tab on the left.  Create a [New App ID] with the button on th
 
 Once your App ID appears in the App IDs list, you can use the Configure action on your App ID to enable In-App Purchases.
 
-### Generate a Mobile PRovisioning Profile
+### Generate a Mobile Provisioning Profile
 
 Select the Provisioning tab on the left.  Create a [New Profile], selecting team members who can make builds for your App ID.  Select the App ID you created.  And select the devices that can install the App.
 
