@@ -21,7 +21,7 @@ _iPhone_: iPhone 3GS (2009), iPhone 4, iPhone 4S, iPhone 5.
 
 _iPad_: All devices.
 
-_iPod_: Touch 3rd Gen (2009), Touch 4rth Gen, Touch 5th Gen.
+_iPod_: Touch 3rd Gen (2009), Touch 4th Gen, Touch 5th Gen.
 
 Other devices **may** work but are not explicitly supported.
 
