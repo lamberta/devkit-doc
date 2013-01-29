@@ -26,7 +26,8 @@ Parameters
 :    1. `options {object}`
 		* `onClick {function}` ---Shortcut way of assigning a callback to a click.
 		* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
-		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
+		* `state {ButtonView.states}` ---Optional, the initial state of the button, the default is `ButtonView.states.UP`
+		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTEDED` and `UNSELECT` state on every click.
 		* `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
 			* `up {string}` ---Optional, The filename or instance of `Image` to show on the `up` state
 			* `down {string}` ---Optional, The filename or instance of `Image` to show on the `down` state
@@ -83,55 +84,45 @@ in with the current options, like in the example below.
 
 ~~~
 var buttonview = new ButtonView({
-	superview: parent,
-	width: 200,
-	height: 100,
-	x: 0,
-	y: 0,
-	sounds: {
-		"down": "resources/ting.mp3"
-	}
+  superview: parent,
+  width: 200,
+  height: 100,
+  x: 0,
+  y: 0,
+  sounds: {
+    "down": "resources/ting.mp3"
+  }
 });
 
 //now, to change the "down" sound, we must use updateOpts
 //however, we wish to keep the other options, so we shall `merge` the objects
 
 buttonView.updateOpts(util.merge(buttonView.opts, {
-	sounds: {
-		"down": "resources/bang.mp3"
-	}
+  sounds: {
+    "down": "resources/bang.mp3"
+  }
 }));
 ~~~
 
+## States
+
+The button can have several states, when the `toggleSelected` option is set to `true` then the state switches
+between `ButtonView.states.SELECTED` and `ButtonView.states.UNSELECTED` and vice versa.
+The `toggleSelected` option also works in concert with the `ButtonView.states.UP` and `ButtonView.states.DOWN` 
+states.
+
+If the `toggleSelected` state is `false` then the images and sounds associated with the 
+`ButtonView.states.SELECTED` and `ButtonView.states.UNSELECTED` states -which are `images.selected`, `images.unselected`,
+`sounds.selected` and `sounds.unselected`- will never be used.
+
+The states are defined in an enum, `ButtonView.states`:
+:    1. `UP`
+	 2. `DOWN`
+	 3. `DISABLED`
+	 4. `SELECTED`
+	 5. `UNSELECTED`
 
 ## Events
-
-### \'InputSelect\', callback (event, srcPoint)
-
-Parameters
-:    1. `event {InputEvent}`
-	 2. `srcPoint {Point}`
-
-Emitted when the button is pressed.
-
-### \'InputOver\', callback (over, overCount, atTarget)
-
-Parameters
-:    1. `over {object}`
-	 2. `overCount {number}`
-	 3. `atTarget {boolean}`
-
-Emitted when the input is pressed and is moved over the
-button. Also emitted on `'InputSelect'`.
-
-### \'InputOut\', callback (over, overCount)
-
-Parameters
-:    1. `over {object}`
-	 2. `overCount {number}`
-
-Emitted when the input is pressed and is moved off of the
-button. Also emitted on `'InputSelect'`.
 
 ### \'up\', callback ()
 
