@@ -4,7 +4,16 @@ Inherits from
 :    1. [ui.View](./ui-view.html)
      2. [event.Emitter](./event.html#class-event.emitter)
 
-Display text on a screen within a `View`.
+Display text on a screen within a `View`. The `TextView` class offers different options to handle the size of the
+text related to the size of the view. Setting `autoSize` lets the view increase in size when the text does not
+fit, setting `autoFontSize` scales the text until it fits in the view.
+
+## Minimum and maximum size
+
+The minimum and maximum size can be controlled with the `style.minWidth`, `style.minHeight`, `style.maxWidth`
+and `style.maxHeight` properties. If both `autoSize` and `autoFontSize` are set to true and the view is smaller
+then the given maximum size then the view will grow to fit the text (if necessary) and if the maximum size
+is reached and the text still does not fit then the font will be scaled.
 
 ## Examples
 
@@ -21,20 +30,27 @@ Parameters
 	     * `text {string}` ---The text to display.
 		 * `size {number} = 12` ---The default font size of the text.
 		 * `lineHeight {number} = 1.2` ---How tall each line should be when wrap is turned on.
-		 * `lineWidth {number} = 2` ---How wide each line should be in a wrap is turned on.
 		 * `fontFamily {string} = device.defaultFontFamily` ---Font family to be used by the text in the text view (ex: "Helvetica")
 		 * `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
-		 * `color {string} = "#000000"` ---The color of the text.
-		 * `backgroundColor {string} = null` ---The background color of the text view.
-		 * `outlineColor {string} = null` ---Color of the outline surrounding the text.  A value of `null` means that an outline will not be present.
-		 * `shadowColor {string} = null` ---Color of the drop shadow behind the text. A value of `null` means that a shadow will not be present.
-		 * `verticalPadding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
-		 * `horizontalPadding {number|array} = 0` ---The amount of horizontal padding the text exhibits within the text view.
+		 * `color {string} = "blue"` ---The color of the text.  See below for color string format.
+		 * `backgroundColor {string} = "blue"` ---The background color of the text view.  See below for color string format.
+		 * `outlineColor {string} = "blue"` ---Color of the outline surrounding the text.  See below for color string format.
+		 * `shadowColor {string} = "blue"` ---Color of the drop shadow behind the text.  See below for color string format.
+		 * `strokeWidth {number} = 2` ---Width of text stroke (outline or shadow).
+		 * `strokeColor {string} = undefined` ---The color of the stroke.
+		 * `padding {number|array} = 0` ---The amount of vertical padding the text exhibits within the text view.
 		 * `verticalAlign: "middle"` ---How the text should be aligned vertically within the text view. Options: `'top'`, `'bottom'`, `'middle'`.
 		 * `horizontalAlign: "center"` ---How the text should be aligned horizontall within the text view. Options: `'left'`, `'right'`, `'center'`, `'justify'`.
 		 * `wrap {boolean} = true` ---Whether or not the text should wrap. A description of the rules of wrapping when wrap is turned on can be found below.
 		 * `autoSize {boolean} = true` ---Fit the text view to text (details below).
 		 * `autoFontSize {boolean} = true` ---Fit text to the text view (details below).
+
+Colors can be one of the following values:
+		 * `null` or `undefined` : No color (transparent).
+		 * "blue" : Standard CSS color names.  See [this website](http://www.w3schools.com/cssref/css_colornames.asp) for a complete list.
+		 * "#330033" : Standard HTML Hexadecimal RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+		 * "rgb(255,0,0)" : Standard HTML RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+		 * "rgb(255,0,0,0.8)" : Standard HTML RGB code with alpha value between 0 and 1 in the final parameter.
 
 ~~~
 import ui.TextView as TextView;
@@ -92,7 +108,6 @@ through the properties `'autoSize'`, `'autoFontSize'` or `'wrap'`.
   be clipped depending on the clip setting of the
   widget. Whether the overflow is top, bottom, left or right
   depends on the alignment settings.
-
 
 ### setText (text)
 

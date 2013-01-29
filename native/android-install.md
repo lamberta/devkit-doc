@@ -16,10 +16,37 @@ $ brew install android
 ~~~
 
 Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
+front-end that will allow you to install various android 
+api targets. Install the SDK Platform under Android 4.0.3 
+(API 15), Android Support Library in the Extras sections 
+at the bottom of the list, and the Android SDK Platform-tools 
+in the tools section at the top.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/packages.png" />
+<figcaption>All the checked items are required for android installation.</figcaption>
+</figure>
+</div>
+
+You will then be prompted with an Accept window. Check `Accept All`
+and patiently wait for the download and installation to finish.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/accept-all.png" />
+<figcaption>Accept installation of the required packages.</figcaption>
+</figure>
+</div>
 
 ## Install the Game Closure SDK Android Component
+
+Simply run `basil install android`. This will automatically
+clone the [Android repository](https://github.com/gameclosure/android)
+and setup the path in your `config.json`.
+
+If at any point this process fails. You can do the same thing
+manually by following these steps:
 
 Clone the Game Closure
 [Android repository](https://github.com/gameclosure/android). Switch

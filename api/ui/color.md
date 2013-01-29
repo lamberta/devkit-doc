@@ -40,8 +40,11 @@ var rgba = new Color(23, 234, 0, 0.8);
 Parameters
 :    1. `rgba {string}` ---A color string in hexadecimal or CSS-style format.
 
-A color can also be defined as a string in CSS-style format: `'rgba(R, G, B, A)'`, or
-hexadecimal format: `'#RRGGBB'`.
+Colors can be one of the following values:
+		 * "blue" : Standard CSS color names.  See [this website](http://www.w3schools.com/cssref/css_colornames.asp) for a complete list.
+		 * "#330033" : Standard HTML Hexadecimal RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+		 * "rgb(255,0,0)" : Standard HTML RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+		 * "rgb(255,0,0,0.8)" : Standard HTML RGB code with alpha value between 0 and 1 in the final parameter.
 
 ~~~
 var rgba = new Color('rgba(23,234,0,0.8)');
