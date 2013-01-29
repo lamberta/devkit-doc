@@ -121,6 +121,41 @@ buttonView.updateOpts(util.merge(buttonView.opts, {
 }));
 ~~~
 
+### getText ()
+
+Returns
+:    1. `{TextView}`
+
+Get the `TextView` instance which contains the title text.
+
+### setTitle (title)
+
+Parameters
+:    1. `title {string}`
+
+Set the title, updates the `text` property in the `TextView` child.
+
+### getIcon ()
+
+Returns
+:    1. `{ImageView}`
+
+Get the `ImageView` instance which contains the icon image.
+
+### setIcon (icon)
+
+Parameters
+:    1. `icon {string|Image}`
+
+Set the icon image, the parameter can be a string with the path to the image or an instance of `Image`.
+
+### setState (state)
+
+Parameters
+:    1. `state {ButtonView.state}`
+
+Set the state of the image. When the state is selected the background image will also be updated.
+
 ## States
 
 The button can have several states, when the `toggleSelected` option is set to `true` then the state switches
