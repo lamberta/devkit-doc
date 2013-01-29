@@ -35,6 +35,8 @@ Additionally, the Xcode command-line tools **are required**.  To download these,
 
 To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
 
+Note that you can run your game on the iOS Simulator, which is packaged with Xcode, without an Apple Developer account.
+
 To get started with iOS development, you will need to access the Member Center on the  [Apple Developer website](developer.apple.com).  Enter your Apple ID and Password.  Select your team.  Enter the iOS Provisioning Portal.  Select the Certificates tab.  Follow the instructions to request, download, and install your Development Certificate.
 
 Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left tab.  In the lower-right corner hit Refresh.  This should download and install the new certificate on your computer.  At this point you should be able to install to devices that have been added to your developer portal (see below).
@@ -48,27 +50,6 @@ $ basil install ios
 ~~~
 
 This downloads and installs the iOS plugin for basil.
-
-### Manual Install of iOS Plugin for Basil
-
-You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
-
-~~~
-$ git clone git@github.com:gameclosure/ios
-$ cd ios
-$ git checkout master
-$ git submodule update --init
-~~~
-
-Edit the basil configuration file **config.json** located in the root of the basil install to point to the install location of the iOS plugin:
-
-~~~
-{
-  "ios": {
-    "root": "path/to/ios"
-  }
-}
-~~~
 
 ## Setting Up Your Game Manifest
 
@@ -95,11 +76,23 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 ~~~
   
 #####Orientation
-Choose an orientation for your game, either portrait or landscape. 
+Choose an orientation for your game, a combination of portrait and landscape. 
 
 ~~~
 	"supportedOrientations": [
 		"landscape"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"portrait"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"landscape", "portait"
 	],
 ~~~
 
@@ -142,3 +135,24 @@ Once your game is configured properly for iOS, you're ready to install it!
 In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.  This will add the device to your developer portal.
 
 At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app for expedited development and testing.
+
+## Appendix: Manual Install of iOS Plugin for Basil
+
+You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
+
+~~~
+$ git clone git@github.com:gameclosure/ios
+$ cd ios
+$ git checkout master
+$ git submodule update --init
+~~~
+
+Edit the basil configuration file **config.json** located in the root of the basil install to point to the install location of the iOS plugin:
+
+~~~
+{
+  "ios": {
+    "root": "path/to/ios"
+  }
+}
+~~~
