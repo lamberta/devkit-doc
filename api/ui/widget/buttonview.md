@@ -45,13 +45,19 @@ Parameters
 		* `title {string}` ---Optional, The title of the button
 		* `text {object}` ---These options are applied to the title text which is an instance of `TextView`
 		* `icon` ---These options are applied to the icon image which is an instance of `ImageView`
-		* `images {object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
+		* `on {object}` ---Callbacks for each state
+			* `up {string}` ---Optional, The callback which will be called when the button changes to the `up` state
+			* `down {string}` ---Optional, The callback which will be called when the button changes to the `down` state
+			* `disabled {string}` ---Optional, The callback which will be called when the button changes to the `disabled` state
+			* `selected {string}` ---Optional, The callback which will be called when the button changes to the `selected` state
+			* `unselected {string}` ---Optional, The callback which will be called when the button changes to the `unselected` state
+		* `images {object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path
 			* `up {string}` ---Optional, The filename or instance of `Image` to show on the `up` state
 			* `down {string}` ---Optional, The filename or instance of `Image` to show on the `down` state
 			* `disabled {string}` ---Optional, The filename or instance of `Image` to show on the `disabled` state
 			* `selected {string}` ---Optional, The filename or instance of `Image` to show on the `selected` state
 			* `unselected {string}` ---Optional, The filename or instance of `Image` to show on the `unselected` state
-		* `sounds {object}` ---Run a sound when the button enters a state.
+		* `sounds {object}` ---Run a sound when the button enters a state
 			* `up {string}` ---Optional, The name of the sound effect to play on up
 			* `down {string}` ---Optional, The name of the sound effect to play on down
 			* `disabled {string}` ---Optional, The name of the sound effect to play on `disabled`
@@ -70,17 +76,17 @@ var buttonview = new ButtonView({
   x: 0,
   y: 0,
   images: {
-  "selected": "resources/selected.png",
-  "unselect": "resources/unselect.png"
+    down: "resources/images/selected.png",
+    up: "resources/images/unselect.png"
   },
   sounds: {
-    "down": "resources/ting.mp3"
+    down: "resources/ting.mp3"
   },
   on: {
-    "down": function () {
+    down: function () {
       console.log("This function is called when the button transitions to down!");
     },
-    "up": function () {
+    up: function () {
       console.log("This function is called when the button transitions to up!");
     }
   }
@@ -178,20 +184,25 @@ The states are defined in an enum, `ButtonView.states`:
 
 ### \'up\', callback ()
 
+This callback is set with the `on.up` option.
 Emitted when the button state is `up`.
 
 ### \'down\', callback ()
 
+This callback is set with the `on.down` option.
 Emitted when the button state is `down`.
 
 ### \'disabled\', callback ()
 
+This callback is set with the `on.disabled` option.
 Emitted when the button state becomes `disabled`.
 
 ### \'selected\', callback ()
 
+This callback is set with the `on.selected` option.
 Emitted when the button selected state becomes `selected`.
 
-### \'unselect\', callback ()
+### \'unselected\', callback ()
 
-Emitted when the button selected state becomes `unselect`.
+This callback is set with the `on.unselected` option.
+Emitted when the button selected state becomes `unselected`.
