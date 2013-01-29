@@ -9,6 +9,11 @@ Because this class is a subclass of `ImageScaleView` you can use several options
 of applying background images, see [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview) 
 for more details.
 
+## Examples
+
+* [Button: Basic demo](../example/ui-button/)
+* [Button: Toggle demo](../example/ui-button-toggle/)
+
 ## Title
 
 The `ButtonView` has a title which is a `TextView` child, the settings for the title can be
