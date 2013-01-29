@@ -21,7 +21,7 @@ Install the following software before installing the Game Closure SDK:
 * [Git](http://git-scm.com) (> 1.7.10)
 * [Node.js](http://nodejs.org) (> 0.8)
 * [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ---Will auto-install on OSX.
-* [Chrome](www.google.com/chrome)
+* [Chrome](http://www.google.com/chrome)
 
 The easiest way to install these packages is through their
 respective installers. Alternatively, you can use a package
