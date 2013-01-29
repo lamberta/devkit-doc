@@ -35,6 +35,8 @@ Additionally, the Xcode command-line tools **are required**.  To download these,
 
 To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
 
+Note that you can run your game on the iOS Simulator, which is packaged with Xcode, without an Apple Developer account.
+
 To get started with iOS development, you will need to access the Member Center on the  [Apple Developer website](developer.apple.com).  Enter your Apple ID and Password.  Select your team.  Enter the iOS Provisioning Portal.  Select the Certificates tab.  Follow the instructions to request, download, and install your Development Certificate.
 
 Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left tab.  In the lower-right corner hit Refresh.  This should download and install the new certificate on your computer.  At this point you should be able to install to devices that have been added to your developer portal (see below).
@@ -74,11 +76,23 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 ~~~
   
 #####Orientation
-Choose an orientation for your game, either portrait or landscape. 
+Choose an orientation for your game, a combination of portrait and landscape. 
 
 ~~~
 	"supportedOrientations": [
 		"landscape"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"portrait"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"landscape", "portait"
 	],
 ~~~
 
