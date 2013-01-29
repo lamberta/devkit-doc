@@ -9,9 +9,23 @@ Because this class is a subclass of `ImageScaleView` you can use several options
 of applying background images, see [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview) 
 for more details.
 
+## Title
+
+The `ButtonView` has a title which is a `TextView` child, the settings for the title can be
+applied by passing a `text` object in the constructor options. See [ui.TextView](./ui-text.html#class-ui.textview) 
+for information about the format of the options.
+
+## Icon
+
+The `ButtonView` has an icon which is a `ImageView` child, the settings for the icon can be
+applied by passing an `icon` object in the constructor options. See [ui.ImageScale](./ui-images.html#class-ui.imageview) 
+for information about the format of the options.
+
 ## Toggle option
 
-The `ButtonView` class can also function as an interface element to select or deselect an option.
+The `ButtonView` class can also function as an interface element to select or deselect an option like a checkbox.
+When using the `ButtonView` as a checkbox then only the `images.selected` and `images.unselected` have to be
+assigned, the `images.up` and `images.down` properties are optional. 
 
 Inherits from
 :    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
@@ -28,13 +42,16 @@ Parameters
 		* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
 		* `state {ButtonView.states}` ---Optional, the initial state of the button, the default is `ButtonView.states.UP`
 		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTEDED` and `UNSELECT` state on every click.
-		* `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
+		* `title {string}` ---Optional, The title of the button
+		* `text {object}` ---These options are applied to the title text which is an instance of `TextView`
+		* `icon` ---These options are applied to the icon image which is an instance of `ImageView`
+		* `images {object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
 			* `up {string}` ---Optional, The filename or instance of `Image` to show on the `up` state
 			* `down {string}` ---Optional, The filename or instance of `Image` to show on the `down` state
 			* `disabled {string}` ---Optional, The filename or instance of `Image` to show on the `disabled` state
 			* `selected {string}` ---Optional, The filename or instance of `Image` to show on the `selected` state
 			* `unselected {string}` ---Optional, The filename or instance of `Image` to show on the `unselected` state
-		* `sounds {Object}` ---Run a sound when the button enters a state.
+		* `sounds {object}` ---Run a sound when the button enters a state.
 			* `up {string}` ---Optional, The name of the sound effect to play on up
 			* `down {string}` ---Optional, The name of the sound effect to play on down
 			* `disabled {string}` ---Optional, The name of the sound effect to play on `disabled`
