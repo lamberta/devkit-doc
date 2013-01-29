@@ -1,6 +1,6 @@
 # Quick Start
 
-This guide with get you up and running with the Game Closure
+This guide will get you up and running with the Game Closure
 SDK. First, you'll download and install the SDK, then get introduced
 to `basil`, our command-line tool for creating new projects
 and development. Once everything is installed and ready
