@@ -5,11 +5,18 @@ widget with button-like states (such as checkboxes, switches or radiobuttons).
 You can listen for state changes, automatically swap an image or play a sound
 for entering a state.
 
+Because this class is a subclass of `ImageScaleView` you can use several options
+of applying background images, see [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview) 
+for more details.
+
+## Toggle option
+
+The `ButtonView` class can also function as an interface element to select or deselect an option.
+
 Inherits from
 :    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
-
 
 ## Methods
 
@@ -17,11 +24,21 @@ Inherits from
 
 Parameters
 :    1. `options {object}`
-	     * `onClick {function}` ---Shortcut way of assigning a callback to a click.
-		 * `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
-		 * `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
-		 * `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
-		 * `sounds {Object}` ---Run a sound when the button enters a state.
+		* `onClick {function}` ---Shortcut way of assigning a callback to a click.
+		* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
+		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
+		* `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
+			* `up {string}` ---Optional, The filename or instance of `Image` to show on the `up` state
+			* `down {string}` ---Optional, The filename or instance of `Image` to show on the `down` state
+			* `disabled {string}` ---Optional, The filename or instance of `Image` to show on the `disabled` state
+			* `selected {string}` ---Optional, The filename or instance of `Image` to show on the `selected` state
+			* `unselected {string}` ---Optional, The filename or instance of `Image` to show on the `unselected` state
+		* `sounds {Object}` ---Run a sound when the button enters a state.
+			* `up {string}` ---Optional, The name of the sound effect to play on up
+			* `down {string}` ---Optional, The name of the sound effect to play on down
+			* `disabled {string}` ---Optional, The name of the sound effect to play on `disabled`
+			* `selected {string}` ---Optional, The name of the sound effect to play on `selected`
+			* `unselected {string}` ---Optional, The name of the sound effect to play on `unselected`
 
 Change images and play a sound when the button toggles selected state.
 
