@@ -49,27 +49,6 @@ $ basil install ios
 
 This downloads and installs the iOS plugin for basil.
 
-### Manual Install of iOS Plugin for Basil
-
-You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
-
-~~~
-$ git clone git@github.com:gameclosure/ios
-$ cd ios
-$ git checkout master
-$ git submodule update --init
-~~~
-
-Edit the basil configuration file **config.json** located in the root of the basil install to point to the install location of the iOS plugin:
-
-~~~
-{
-  "ios": {
-    "root": "path/to/ios"
-  }
-}
-~~~
-
 ## Setting Up Your Game Manifest
 
 Every game includes and must have a manifest.json file with configuration information and more for each game. Several fields are required for a properly configured game for iOS.  
@@ -142,3 +121,24 @@ Once your game is configured properly for iOS, you're ready to install it!
 In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.  This will add the device to your developer portal.
 
 At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app for expedited development and testing.
+
+## Appendix: Manual Install of iOS Plugin for Basil
+
+You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
+
+~~~
+$ git clone git@github.com:gameclosure/ios
+$ cd ios
+$ git checkout master
+$ git submodule update --init
+~~~
+
+Edit the basil configuration file **config.json** located in the root of the basil install to point to the install location of the iOS plugin:
+
+~~~
+{
+  "ios": {
+    "root": "path/to/ios"
+  }
+}
+~~~
