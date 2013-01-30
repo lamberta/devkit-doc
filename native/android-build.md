@@ -47,7 +47,7 @@ To uninstall a game:
 4.  Select your game from the list.
 5.  Tap [Uninstall] and tap OK.
 
-## Watching JavaScript logs
+## Watching JavaScript Logs
 
 To watch the JavaScript logs from a mobile device, connect it to your computer via a USB data cable, then use the `adb logcat` command at a terminal window.
 
