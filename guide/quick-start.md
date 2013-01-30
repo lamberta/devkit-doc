@@ -52,11 +52,11 @@ To download the Game Closure SDK, issue the following
 commands at the terminal:
 
 ~~~
-$ git clone https://github.com/gameclosure/sdk.git
-$ cd sdk
+$ git clone https://github.com/gameclosure/gcsdk.git
+$ cd gcsdk
 ~~~
 
-This downloads the SDK in to the `./sdk` directory located
+This downloads the SDK in to the `./gcsdk` directory located
 in your current working path. Switch to that directory and
 run the install script:
 
