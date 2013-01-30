@@ -244,21 +244,9 @@ It is recommended to set the USB Charge mode to "Charge Only" while connected so
 3.  Select USB Connection.
 4.  Select "Charge Only" and tap OK.
 
-### Troubleshooting
+## Troubleshooting Issues
 
-The Android Debug Bridge (ADB) may be used to help debug problems with the Android USB connection.  First off, use ADB to list the connected devices at a terminal window:
-
-`$ adb devices`
-
-If you run into problems getting your device to work, first unplug the USB cable and replug it in.  If that does not fix the problem, then try to stop the ADB server on your computer:
-
-`$ adb kill-server`
-
-Also attempt to reboot the mobile device if communication is still unsuccessful.
-
-Reference:
-* [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
-* [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
+If you run into problems, try our [Android troubleshooting guide](./android-troubleshooting.html).
 
 ### Appendix: Manual Install of the Android Plugin for Basil
 

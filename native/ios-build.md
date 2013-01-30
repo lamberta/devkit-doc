@@ -48,11 +48,11 @@ Run the build command with the `--ipa` flag to create an .IPA file for your game
 $ basil build native-ios --ipa --provision /Users/bboy/Desktop/BeardsOnBoards.mobileprovision --name="Bob Baxter"
 ~~~
 
-### Troubleshooting Issues
+## Troubleshooting Issues
 
 If you run into problems, try our [iOS troubleshooting guide](./ios-troubleshooting.html).
 
-## Appendix: Build Options
+### Appendix: Build Options
 
 General build options:
 
@@ -74,7 +74,7 @@ IPA generation options:
 
 When --ipa is specified, Xcode will not pop up after the build.
 
-## Appendix: Example Usage
+### Appendix: Example Usage
 
 **For a fast debug build:**
 

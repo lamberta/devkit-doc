@@ -39,19 +39,9 @@ Install an application to a device connected via a USB data cable using the Andr
 
 The -r flag means to attempt a reinstall.  Note that this will fail if the APK is signed differently (mixing debug and release versions) so you may need to uninstall your game from the phone to reinstall.
 
-To uninstall a game:
+## Troubleshooting Issues
 
-1.  Open the Settings app.
-2.  Select "Applications".
-3.  Select "Manage applications".
-4.  Select your game from the list.
-5.  Tap [Uninstall] and tap OK.
-
-## Watching JavaScript Logs
-
-To watch the JavaScript logs from a mobile device, connect it to your computer via a USB data cable, then use the `adb logcat` command at a terminal window.
-
-Normally you will want to pair `adb logcat` with the standard `grep` tool to cut out most of the uninteresting log messages.  For example `$ adb logcat | grep JS` will primarily display messages from your game.
+If you run into problems, try our [Android troubleshooting guide](./android-troubleshooting.html).
 
 ### Appendix: Build Options
 

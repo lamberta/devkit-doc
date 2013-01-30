@@ -154,7 +154,11 @@ In Xcode, open the Organizer.  On the devices tab on the left, select the name o
 
 At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app for expedited development and testing.
 
-## Appendix: Manual Install of iOS Plugin for Basil
+## Troubleshooting Issues
+
+If you run into problems, try our [iOS troubleshooting guide](./ios-troubleshooting.html).
+
+### Appendix: Manual Install of iOS Plugin for Basil
 
 You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
 
