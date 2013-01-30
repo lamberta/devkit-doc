@@ -255,50 +255,83 @@ purpose is to initialize the title screen and game screen and
 handle events for directing the game flow.
 
 ~~~
+/*
+ * The main application file, your game code begins here.
+ */
+import device;
+
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
+import ui.StackView as StackView;
 
+/* Your application inherits from GC.Application, which is
+ * exported and instantiated when the game is run.
+ */
 exports = Class(GC.Application, function () {
 
-  // private variables
-  var titlescreen, gamescreen, sound;
-
+ /* Run after the engine is created and the scene graph is in
+  * place, but before the resources have been loaded.
+  */
   this.initUI = function () {
-    // initialize game screens
-    titlescreen = new TitleScreen();
-    gamescreen = new GameScreen();
+    var titlescreen = new TitleScreen();
+    var gamescreen = new GameScreen();
 
-    sound = soundcontroller.getSound();
-    
-    // set up event handlers
+    this.view.style.backgroundColor = '#30B040';
+
+    //Add a new StackView to the root of the scene graph
+    var rootView = new StackView({
+      superview: this,
+      x: device.width / 2 - 160,
+      y: device.height / 2 - 240,
+      width: 320,
+      height: 480,
+      clip: true,
+      backgroundColor: '#37B34A'
+    });
+
+    rootView.push(titlescreen);
+
+    var sound = soundcontroller.getSound();
+
+   /* Listen for an event dispatched by the title screen when
+    * the start button has been pressed. Hide the title screen,
+    * show the game screen, then dispatch a custom event to the
+    * game screen to start the game.
+    */
     titlescreen.on('titlescreen:start', function () {
       sound.play('levelmusic');
-      GC.app.view.push(gamescreen);
+      rootView.push(gamescreen);
       gamescreen.emit('app:start');
     });
-    
+
+   /* When the game screen has signalled that the game is over,
+    * show the title screen so that the user may play the game again.
+    */
     gamescreen.on('gamescreen:end', function () {
       sound.stop('levelmusic');
-      GC.app.view.pop();
+      rootView.pop();
     });
   };
-  
-  this.launchUI = function () {
-    // add the title screen into our scene graph
-    this.view.push(titlescreen);
-  };
+
+ /* Executed after the asset resources have been loaded.
+  * If there is a splash screen, it's removed.
+  */
+  this.launchUI = function () {};
 });
 ~~~
 
-At the top of this file, we import three additional source
+At the top of this file, we import five additional source
 files in our project's root directory using the 
 [`import`](../api/utilities.html#import) statement provided by the SDK:
 
 ~~~
+import device;
+
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
+import ui.StackView as StackView;
 ~~~
 
 These files have been written as modules and are assigned to
@@ -318,6 +351,13 @@ definition function, you can refer to it using the `this`
 object. A working---bare-bones---`Application.js` file can
 look like this:
 
+The `device` module contains information about the physical
+device running the application. We can use this to obtain
+information about the browser window, or even a native
+mobile application depending on where your game is running.
+You can view a complete list of [device properties](../api/device.html)
+in the documentation.
+
 ~~~
 exports = Class(GC.Application, function () {
   // class definition goes here ...
@@ -332,7 +372,6 @@ main game code. The `initUI` function is run after the Game
 Closure engine is created and the scene graph is
 ready. When the `launchUI` function is called, the splash/loading
 screen is removed if one is defined.
-
 
 #### Creating the Screens
 
@@ -384,7 +423,7 @@ gamescreen.on('gamescreen:end', function () {
 ~~~
 
 When we receive the event to start the game, we *push* the
-game screen on to the root stack. There is no need to remove
+game screen on the `rootView` stack view. There is no need to remove
 the title screen already in the stack, the game screen is
 simply "on top" of it and becomes the visible view of the
 application. By default, pushing another view to the
@@ -424,8 +463,6 @@ exports = Class(ui.ImageView, function (supr) {
     opts = merge(opts, {
       x: 0,
       y: 0,
-      width: device.width,
-      height: device.height,
       image: "resources/images/title_screen.png"
     });
 
@@ -472,11 +509,6 @@ the properties it inherits from the base View, `ImageView`
 has additional methods for setting an image to be used
 within a view. Check [the API](../api/ui-imageview.html) for more details.
 
-The `device` module contains information about the physical
-device running the application. We can use this to obtain
-information about the browser window, or even a native
-mobile application depending on where your game is running.
-
 Now that we have imported our dependencies, we can define
 our `TitleScreen` class. Here we use the `Class` function to
 define our screen module as a sub-class of the `ui.ImageView` type:
@@ -515,8 +547,6 @@ this.init = function (opts) {
   opts = merge(opts, {
     x: 0,
     y: 0,
-    width: device.width,
-    height: device.height,
     image: "resources/images/title_screen.png"
   });
 
@@ -525,11 +555,7 @@ this.init = function (opts) {
 ~~~
 
 The `title_screen.png` image file is loaded as the `image` option for
-`ui.ImageView`. You can also see that we're using the
-`device.width` and `device.height` properties to set the
-dimensions of this `ImageView` to fill the screen. You can view
-a complete list of [device properties](../api/device.html)
-in the documentation.
+`ui.ImageView`. 
 
 The `supr` function is provided as an argument to the class
 definition by the `Class` function. As parameters it
@@ -678,8 +704,8 @@ this.init = function (opts) {
   opts = merge(opts, {
     x: 0,
     y: 0,
-    width: device.width,
-    height: device.height,
+    width: 320,
+    height: 480,
     backgroundColor: '#37B34A'
   });
 
@@ -726,16 +752,14 @@ in the standard `buildView` function:
 
 ~~~
 this.buildView = function () {
-  var x_offset = 5,
-	  y_offset = 160,
-	  y_pad = 25,
-	  layout = [[1, 0, 1],
-		        [0, 1, 0],
-				[1, 0, 1]];
+  var x_offset = 5;
+  var y_offset = 160;
+  var y_pad = 25;
+  var layout = [[1, 0, 1], [0, 1, 0], [1, 0, 1]];
 
   this._molehills = [];
 	
-	//loop over the layout grid, row then column	
+  //loop over the layout grid, row then column	
   for (var row = 0, len = layout.length; row < len; row++) {
     for (var col = 0; col < len; col++) {
 		//if there was a 1 in the grid, create a mole
