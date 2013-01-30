@@ -135,7 +135,7 @@ A game created with the Game Closure SDK has this basic file structure:
 ├── sdk -> /path/to/basil/sdk
 ├── resources/
 └── src
-	└── Application.js
+    └── Application.js
 ~~~
 
 There is the `manifest.json` file located in the project
@@ -258,12 +258,14 @@ handle events for directing the game flow.
 /*
  * The main application file, your game code begins here.
  */
-import device;
 
+//sdk imports
+import device;
+import ui.StackView as StackView;
+//user imports
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
-import ui.StackView as StackView;
 
 /* Your application inherits from GC.Application, which is
  * exported and instantiated when the game is run.
@@ -274,8 +276,8 @@ exports = Class(GC.Application, function () {
   * place, but before the resources have been loaded.
   */
   this.initUI = function () {
-    var titlescreen = new TitleScreen();
-    var gamescreen = new GameScreen();
+    var titlescreen = new TitleScreen(),
+        gamescreen = new GameScreen();
 
     this.view.style.backgroundColor = '#30B040';
 
@@ -321,17 +323,18 @@ exports = Class(GC.Application, function () {
 });
 ~~~
 
-At the top of this file, we import five additional source
-files in our project's root directory using the 
-[`import`](../api/utilities.html#import) statement provided by the SDK:
+At the top of this file, two modules from the SDK and three
+additional source files are imported in to our project using the 
+[`import`](../api/utilities.html#import) statement:
 
 ~~~
+//sdk imports
 import device;
-
+import ui.StackView as StackView;
+//user imports
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
-import ui.StackView as StackView;
 ~~~
 
 These files have been written as modules and are assigned to
@@ -380,8 +383,8 @@ of our file, we instantiate them in the `initUI`
 function. This is when our game engine is ready.
 
 ~~~
-titlescreen = new TitleScreen();
-gamescreen = new GameScreen();
+var titlescreen = new TitleScreen(),
+    gamescreen = new GameScreen();
 ~~~
 
 We'll look in detail about how these screens are constructed
@@ -422,14 +425,14 @@ gamescreen.on('gamescreen:end', function () {
 });
 ~~~
 
-When we receive the event to start the game, we *push* the
-game screen on the `rootView` stack view. There is no need to remove
-the title screen already in the stack, the game screen is
-simply "on top" of it and becomes the visible view of the
-application. By default, pushing another view to the
-`StackView` has a side-scrolling animation transition, this
-can be turned off. We'll look at the details of the game's
-event flow in a moment as we step through the title screen.
+When the event to start the game is received, the game
+screen is *pushed* on to the `rootView` stack view. There is
+no need to remove the title screen already in the stack, the
+game screen is simply "on top" of it and becomes the visible
+view of the application. By default, pushing another view to
+the `StackView` has a side-scrolling animation transition,
+this can be turned off. We'll look at the details of the
+game's event flow in a moment as we step through the title screen.
 
  
 ### The Game Awaits: TitleScreen.js
@@ -758,39 +761,39 @@ this.buildView = function () {
   var layout = [[1, 0, 1], [0, 1, 0], [1, 0, 1]];
 
   this._molehills = [];
-	
-  //loop over the layout grid, row then column	
+    
+  //loop over the layout grid, row then column  
   for (var row = 0, len = layout.length; row < len; row++) {
     for (var col = 0; col < len; col++) {
-		//if there was a 1 in the grid, create a mole
-	  if (layout[row][col] !== 0) {
-	    var molehill = new MoleHill();
-		molehill.style.x = x_offset + col * molehill.style.width;
-		molehill.style.y = y_offset + row * (molehill.style.height + y_pad);
-		this.addSubview(molehill);
-		this._molehills.push(molehill);
-					
-		//update score on hit event
-		molehill.on('molehill:hit', bind(this, function () {
-		  if (game_on) {
-		    score = score + hit_value;
-			this._scoreboard.setText(score.toString());
-		  }
-		}));
-	  }
-	}
+        //if there was a 1 in the grid, create a mole
+      if (layout[row][col] !== 0) {
+        var molehill = new MoleHill();
+        molehill.style.x = x_offset + col * molehill.style.width;
+        molehill.style.y = y_offset + row * (molehill.style.height + y_pad);
+        this.addSubview(molehill);
+        this._molehills.push(molehill);
+                    
+        //update score on hit event
+        molehill.on('molehill:hit', bind(this, function () {
+          if (game_on) {
+            score = score + hit_value;
+            this._scoreboard.setText(score.toString());
+          }
+        }));
+      }
+    }
   }
 
   this._countdown = new ui.TextView({
     superview: this._scoreboard,
-	visible: false,
-	x: 260,
-	y: -5,
-	width: 50,
-	height: 50,
-	fontSize: 24,
-	color: '#fff',
-	opacity: 0.7
+    visible: false,
+    x: 260,
+    y: -5,
+    width: 50,
+    height: 50,
+    fontSize: 24,
+    color: '#fff',
+    opacity: 0.7
   });
 };
 ~~~
@@ -828,15 +831,15 @@ function start_game_flow () {
 
   animate(that._scoreboard).wait(1000)
     .then(function () {
-	  that._scoreboard.setText(text.READY);
-	}).wait(1500).then(function () {
-	  that._scoreboard.setText(text.SET);
-	}).wait(1500).then(function () {
-	  that._scoreboard.setText(text.GO);
-	  //start game ...
-	  game_on = true;
-	  play_game.call(that);
-	});
+      that._scoreboard.setText(text.READY);
+    }).wait(1500).then(function () {
+      that._scoreboard.setText(text.SET);
+    }).wait(1500).then(function () {
+      that._scoreboard.setText(text.GO);
+      //start game ...
+      game_on = true;
+      play_game.call(that);
+    });
 }
 ~~~
 
@@ -860,21 +863,21 @@ the game:
 ~~~
 function play_game () {
   var i = setInterval(bind(this, tick), mole_interval),
-	  j = setInterval(bind(this, update_countdown), 1000);
+      j = setInterval(bind(this, update_countdown), 1000);
 
-	//when the game is up reset all timers, flags and countdown
+    //when the game is up reset all timers, flags and countdown
   setTimeout(bind(this, function () {
     game_on = false;
-	clearInterval(i);
-	clearInterval(j);
-	setTimeout(bind(this, end_game_flow), mole_interval * 2);
-	this._countdown.setText(":00");
+    clearInterval(i);
+    clearInterval(j);
+    setTimeout(bind(this, end_game_flow), mole_interval * 2);
+    this._countdown.setText(":00");
   }), game_length);
 
   //Make countdown timer visible, remove start message if still there.
   setTimeout(bind(this, function () {
     this._scoreboard.setText(score.toString());
-	this._countdown.style.visible = true;
+    this._countdown.style.visible = true;
   }), game_length * 0.25);
 
   //Running out of time! Set countdown timer red.
@@ -884,11 +887,11 @@ function play_game () {
 }
 
 function tick () {
-	//choose a mole by random
+    //choose a mole by random
   var len = this._molehills.length,
-	  molehill = this._molehills[Math.random() * len | 0];
+      molehill = this._molehills[Math.random() * len | 0];
 
-	//choose another if it's already active
+    //choose another if it's already active
   while (molehill.activeMole) {
     molehill = this._molehills[Math.random() * len | 0];
   }
@@ -914,28 +917,28 @@ the appearance that he is laughing at you.
 ~~~
 function end_game_flow () {
   var isHighScore = (score > high_score),
-	  end_msg = get_end_message(score, isHighScore);
+      end_msg = get_end_message(score, isHighScore);
 
   this._countdown.setText(''); //clear countdown text
   //resize scoreboard text to fit everything
   this._scoreboard.updateOpts({
     text: '',
-	x: 10,
-	fontSize: 17,
-	verticalAlign: 'top',
-	textAlign: 'left',
-	multiline: true
+    x: 10,
+    fontSize: 17,
+    verticalAlign: 'top',
+    textAlign: 'left',
+    multiline: true
   });
 
   //check for high-score and do appropriate animation
   if (isHighScore) {
     high_score = score;
-	this._molehills.forEach(function (molehill) {
-	  molehill.endAnimation();
-	});
+    this._molehills.forEach(function (molehill) {
+      molehill.endAnimation();
+    });
   } else {
     var i = (this._molehills.length-1) / 2 | 0; //just center mole
-	this._molehills[i].endAnimation(true);
+    this._molehills[i].endAnimation(true);
   }
 
   this._scoreboard.setText(end_msg);
@@ -953,7 +956,7 @@ touch the screen:
 function emit_endgame_event () {
   this.once('InputSelect', function () {
     this.emit('gamescreen:end');
-	reset_game.call(this);
+    reset_game.call(this);
   });
 }
 ~~~
@@ -987,37 +990,37 @@ ground, and ready to be whacked!
 this.buildView = function () {
   var hole_back = new ui.ImageView({
     superview: this,
-	image: hole_back_img,
-	//...
+    image: hole_back_img,
+    //...
   });
 
   this._inputview = new ui.View({
     superview: this,
-	clip: true,
-	//...
+    clip: true,
+    //...
   });
 
   this._moleview = new ui.ImageView({
     superview: this._inputview,
-	image: mole_normal_img,
-	//...
+    image: mole_normal_img,
+    //...
   });
 
   var hole_front = new ui.ImageView({
     superview: this,
-	canHandleEvents: false,
-	image: hole_front_img,
-	//...
+    canHandleEvents: false,
+    image: hole_front_img,
+    //...
   });
 
   //...
 
   this._inputview.on('InputSelect', bind(this, function () {
     if (this.activeInput) {
-	  sound.play('whack');
-	  this.emit('molehill:hit');
-	  this.hitMole();
-	}
+      sound.play('whack');
+      this.emit('molehill:hit');
+      this.hitMole();
+    }
   }));
 };
 ~~~
@@ -1082,15 +1085,15 @@ object we just created:
 this.showMole = function () {
   if (this.activeMole === false) {
     this.activeMole = true;
-	this.activeInput = true;
+    this.activeInput = true;
 
-	this._animator.now({y: mole_up}, 500, animate.EASE_IN)
-	  .wait(1000).then(bind(this, function () {
-	    this.activeInput = false;
-	  })).then({y: mole_down}, 200, animate.EASE_OUT)
-	  .then(bind(this, function () {
-	    this.activeMole = false;
-	  }));
+    this._animator.now({y: mole_up}, 500, animate.EASE_IN)
+      .wait(1000).then(bind(this, function () {
+        this.activeInput = false;
+      })).then({y: mole_down}, 200, animate.EASE_OUT)
+      .then(bind(this, function () {
+        this.activeMole = false;
+      }));
   }
 };
 
@@ -1098,17 +1101,17 @@ this.hitMole = function () {
   if (this.activeMole && this.activeInput) {
     this.activeInput = false;
 
-	this._animator.clear()
-	  .now((function () {
-	    this._moleview.setImage(mole_hit_img);
-	  }).bind(this))
-	    .then({y: mole_down}, 1500)
-		.then(bind(this, function () {
-		  this._moleview.setImage(mole_normal_img);
-		  this.activeMole = false;
-		  this.activeInput = false;
-	  }));
-	}
+    this._animator.clear()
+      .now((function () {
+        this._moleview.setImage(mole_hit_img);
+      }).bind(this))
+        .then({y: mole_down}, 1500)
+        .then(bind(this, function () {
+          this._moleview.setImage(mole_normal_img);
+          this.activeMole = false;
+          this.activeInput = false;
+      }));
+    }
 };
 
 this.endAnimation = function () {
@@ -1116,11 +1119,11 @@ this.endAnimation = function () {
   this._animator.then({y: mole_up}, 2000)
   .then(bind(this, function () {
     this._interval = setInterval(bind(this, function () {
-	  if (this._moleview.getImage() === mole_normal_img) {
-	    this._moleview.setImage(mole_hit_img);
-	  } else {
-	    this._moleview.setImage(mole_normal_img);
-	  }
+      if (this._moleview.getImage() === mole_normal_img) {
+        this._moleview.setImage(mole_hit_img);
+      } else {
+        this._moleview.setImage(mole_normal_img);
+      }
     }), 100);
   }));
 };
@@ -1142,7 +1145,7 @@ this._animator.now({y: mole_up}, 500, animate.EASE_IN)
     this.activeInput = false;
   })).then({y: mole_down}, 200, animate.EASE_OUT)
     .then(bind(this, function () {
-	  this.activeMole = false;
+      this.activeMole = false;
   }));
 ~~~
 
@@ -1201,18 +1204,18 @@ exports.sound = null;
 exports.getSound = function () {
   if (!exports.sound) {
     exports.sound = new AudioManager({
-	  path: 'resources/sounds',
-	  files: {
-	    levelmusic: {
-		  path: 'music',
-		  volume: 0.5,
-		  background: true,
-		  loop: true
-		},
-		whack: {
-		  path: 'effect',
-		  background: false
-		}
+      path: 'resources/sounds',
+      files: {
+        levelmusic: {
+          path: 'music',
+          volume: 0.5,
+          background: true,
+          loop: true
+        },
+        whack: {
+          path: 'effect',
+          background: false
+        }
       }
     });
   }
@@ -1238,13 +1241,13 @@ this.initUI = function () {
 
   titlescreen.on('titlescreen:start', function () {
     sound.play('levelmusic');
-	GC.app.view.push(gamescreen);
-	GC.app.emit('app:start');
+    GC.app.view.push(gamescreen);
+    GC.app.emit('app:start');
   });
 
   gamescreen.on('gamescreen:end', function () {
     sound.stop('levelmusic');
-	GC.app.view.pop();
+    GC.app.view.pop();
   });
 };
 ~~~
