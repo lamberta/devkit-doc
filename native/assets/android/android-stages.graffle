@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {680, 645}}</string>
+		<string>{{0, 0}, {701.08527131782944, 665}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -38,7 +38,7 @@
 	<key>CanvasOrigin</key>
 	<string>{0, 0}</string>
 	<key>CanvasSize</key>
-	<string>{680, 645}</string>
+	<string>{701.08527131782944, 665}</string>
 	<key>ColumnAlign</key>
 	<integer>1</integer>
 	<key>ColumnSpacing</key>
@@ -57,7 +57,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{367.99998897875366, 415.18140082265421}, {273.20883178710938, 55}}</string>
+			<string>{{242.744187930805, 537.11497294819458}, {273.20883178710938, 55}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -164,111 +164,7 @@ Deployment: Google Play}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{318.96588209506058, 331.64185739471492}, {322.242919921875, 55}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>FontInfo</key>
-			<dict>
-				<key>Color</key>
-				<dict>
-					<key>b</key>
-					<string>0</string>
-					<key>g</key>
-					<string>0</string>
-					<key>r</key>
-					<string>0</string>
-				</dict>
-				<key>Font</key>
-				<string>Monaco</string>
-				<key>NSKern</key>
-				<real>0.0</real>
-				<key>Size</key>
-				<real>15</real>
-			</dict>
-			<key>ID</key>
-			<integer>26</integer>
-			<key>Shape</key>
-			<string>DocumentShape</string>
-			<key>Style</key>
-			<dict>
-				<key>fill</key>
-				<dict>
-					<key>FillType</key>
-					<integer>2</integer>
-					<key>GradientAngle</key>
-					<real>90</real>
-					<key>GradientColor</key>
-					<dict>
-						<key>b</key>
-						<string>1</string>
-						<key>g</key>
-						<string>1</string>
-						<key>r</key>
-						<string>1</string>
-					</dict>
-					<key>MiddleColor</key>
-					<dict>
-						<key>b</key>
-						<string>0.35015</string>
-						<key>g</key>
-						<string>1</string>
-						<key>r</key>
-						<string>0</string>
-					</dict>
-					<key>MiddleFraction</key>
-					<real>0.81746029853820801</real>
-					<key>TrippleBlend</key>
-					<string>YES</string>
-				</dict>
-				<key>shadow</key>
-				<dict>
-					<key>Color</key>
-					<dict>
-						<key>a</key>
-						<string>0.4</string>
-						<key>b</key>
-						<string>0</string>
-						<key>g</key>
-						<string>0</string>
-						<key>r</key>
-						<string>0</string>
-					</dict>
-					<key>Fuzziness</key>
-					<real>2.1469264030456543</real>
-					<key>ShadowVector</key>
-					<string>{0, 2}</string>
-				</dict>
-				<key>stroke</key>
-				<dict>
-					<key>CornerRadius</key>
-					<real>6</real>
-					<key>Width</key>
-					<real>2</real>
-				</dict>
-			</dict>
-			<key>Text</key>
-			<dict>
-				<key>Align</key>
-				<integer>0</integer>
-				<key>Pad</key>
-				<integer>30</integer>
-				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
-{\fonttbl\f0\fnil\fcharset0 Monaco;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-
-\f0\fs30 \cf0 \expnd0\expndtw0\kerning0
-Group Testing: On-Device}</string>
-				<key>VerticalPad</key>
-				<integer>0</integer>
-			</dict>
-			<key>TextRelativeArea</key>
-			<string>{{0, 0}, {1, 1}}</string>
-		</dict>
-		<dict>
-			<key>Bounds</key>
-			<string>{{277.71159490328864, 248.10230708724427}, {363.4971923828125, 55}}</string>
+			<string>{{158.25140380859372, 450.00399780273438}, {363.4971923828125, 55}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -372,7 +268,7 @@ Building: On-Device (Demoing)}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{144.99999112634123, 131.39581931338958}, {496.20880126953125, 88.166915893554688}}</string>
+			<string>{{91.895599365234375, 325.42053985595703}, {496.20880126953125, 88.166915893554688}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -476,7 +372,7 @@ Test App Development: On-Device (Fast Iteration)}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{32.988234316774765, 48.292638193866281}, {608.22058644908827, 61.875}}</string>
+			<string>{{35.889706775455871, 227.56649780273438}, {608.22058644908827, 61.875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -595,8 +491,8 @@ Web Development: Web Browser (Fast Iteration)}</string>
 			<integer>32</integer>
 			<key>Points</key>
 			<array>
-				<string>{355.62242662582406, 111.03173659649657}</string>
-				<string>{372.53150703848928, 140.06103448827605}</string>
+				<string>{340.000017422795, 290.44149783666853}</string>
+				<string>{340.0000407690577, 333.23722987972701}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -645,8 +541,8 @@ Web Development: Web Browser (Fast Iteration)}</string>
 			<integer>33</integer>
 			<key>Points</key>
 			<array>
-				<string>{422.87742608838607, 220.39625245411116}</string>
-				<string>{444.62187465293374, 253.20093222048948}</string>
+				<string>{340.00006275671228, 414.58745575548392}</string>
+				<string>{340.00011832101097, 454.50399423239804}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -681,106 +577,6 @@ Web Development: Web Browser (Fast Iteration)}</string>
 			<dict>
 				<key>ID</key>
 				<integer>22</integer>
-			</dict>
-		</dict>
-		<dict>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>Head</key>
-			<dict>
-				<key>ID</key>
-				<integer>26</integer>
-			</dict>
-			<key>ID</key>
-			<integer>34</integer>
-			<key>Points</key>
-			<array>
-				<string>{466.49006350864397, 304.07315026291735}</string>
-				<string>{473.05746964204906, 330.67101421904181}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>Color</key>
-					<dict>
-						<key>b</key>
-						<string>0.25098</string>
-						<key>g</key>
-						<string>0</string>
-						<key>r</key>
-						<string>0.501961</string>
-					</dict>
-					<key>CornerRadius</key>
-					<real>6</real>
-					<key>HeadArrow</key>
-					<string>FilledArrow</string>
-					<key>HeadScale</key>
-					<real>0.79999995231628418</real>
-					<key>Legacy</key>
-					<true/>
-					<key>TailArrow</key>
-					<string>0</string>
-					<key>TailScale</key>
-					<real>0.79999995231628418</real>
-					<key>Width</key>
-					<real>2</real>
-				</dict>
-			</dict>
-			<key>Tail</key>
-			<dict>
-				<key>ID</key>
-				<integer>25</integer>
-			</dict>
-		</dict>
-		<dict>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>Head</key>
-			<dict>
-				<key>ID</key>
-				<integer>27</integer>
-			</dict>
-			<key>ID</key>
-			<integer>35</integer>
-			<key>Points</key>
-			<array>
-				<string>{486.51389912113638, 381.03692356031661}</string>
-				<string>{500.2900536280124, 427.97182375311689}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>Color</key>
-					<dict>
-						<key>b</key>
-						<string>0.25098</string>
-						<key>g</key>
-						<string>0</string>
-						<key>r</key>
-						<string>0.501961</string>
-					</dict>
-					<key>CornerRadius</key>
-					<real>6</real>
-					<key>HeadArrow</key>
-					<string>FilledArrow</string>
-					<key>HeadScale</key>
-					<real>0.79999995231628418</real>
-					<key>Legacy</key>
-					<true/>
-					<key>TailArrow</key>
-					<string>0</string>
-					<key>TailScale</key>
-					<real>0.79999995231628418</real>
-					<key>Width</key>
-					<real>2</real>
-				</dict>
-			</dict>
-			<key>Tail</key>
-			<dict>
-				<key>ID</key>
-				<integer>26</integer>
 			</dict>
 		</dict>
 	</array>
@@ -835,7 +631,7 @@ Web Development: Web Browser (Fast Iteration)}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-01-29 07:35:26 +0000</string>
+	<string>2013-01-30 18:39:41 +0000</string>
 	<key>Modifier</key>
 	<string>Chris Taylor</string>
 	<key>NotesVisible</key>
@@ -927,9 +723,9 @@ Web Development: Web Browser (Fast Iteration)}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{1, 1}, {678, 644}}</string>
+		<string>{{1.0323529603602981, 1.0323529603602979}, {699.93530712428208, 664.8353064720319}}</string>
 		<key>Zoom</key>
-		<real>1</real>
+		<real>0.96866095066070557</real>
 		<key>ZoomValues</key>
 		<array>
 			<array>

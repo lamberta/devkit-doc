@@ -22,6 +22,10 @@ With the [Test App](./ios-test-app.html) you can quickly iterate through changes
 
 When you are ready to start building your game, the [build guide](./ios-build.html) will make the process smooth and showcase all of the powerful options available.
 
+## [TestFlight](./ios-testflight.html)
+
+For larger scale group testing, you may consider using TestFlight for coordination.  The [TestFlight Guide](./ios-testflight.html) will get you through the set up process.
+
 ## [Troubleshooting](./ios-troubleshooting.html)
 
 There is a brief troubleshooting guide available [here](./ios-troubleshooting.html).

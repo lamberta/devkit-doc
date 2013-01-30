@@ -1,4 +1,4 @@
-# Using TestFlight
+# TestFlight Guide
 
 
 ##Team Setup
