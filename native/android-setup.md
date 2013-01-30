@@ -22,6 +22,42 @@ Nearly all Android cellphones and tablets are supported, including all devices p
 
 Android version 2.2 (API level 8) is the minimum required version.  The original Motorola Droid received an over-the-air update for this in late 2010.  According to the [Android developer site](http://developer.android.com/about/dashboards/) only about 2.6% of cellphones that access Google Play are unsupported at this time by the Game Closure SDK.  The first Android phone (the T-Mobile G1 / HTC Dream) is unsupported, as an example.
 
+## Install the Android SDK
+
+Download and install the
+[Android SDK](http://developer.android.com/sdk/) to your
+local machine. If you are using the
+[Homebrew](http://mxcl.github.com/homebrew/) package
+manager, run:
+
+~~~
+$ brew install android
+~~~
+
+Running `android` at the command-line brings up a GUI
+front-end that will allow you to install various android 
+api targets. Install the SDK Platform under Android 4.0.3 
+(API 15), Android Support Library in the Extras sections 
+at the bottom of the list, and the Android SDK Platform-tools 
+in the tools section at the top.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/packages.png" />
+<figcaption>All the checked items are required for android installation.</figcaption>
+</figure>
+</div>
+
+You will then be prompted with an Accept window. Check `Accept All`
+and patiently wait for the download and installation to finish.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/accept-all.png" />
+<figcaption>Accept installation of the required packages.</figcaption>
+</figure>
+</div>
+
 ### Install Android Plugin for Basil
 
 Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
@@ -29,11 +65,10 @@ Basil is the command-line tool you will use from the Game Closure SDK to perform
 The first step to doing Android development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
-$ basil install android
+$ basil install-android
 ~~~
 
-This downloads and installs the Android plugin for basil.
-
+This downloads and installs the Android plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
 
 ## Setting Up Your Game Manifest
 
