@@ -36,6 +36,7 @@ Normally you will want to pair `adb logcat` with the standard `grep` tool to cut
 
 You may then pipe the output to a file with `$ adb logcat | grep JS > mylog.txt`.  Hit CTRL+C to terminate the log capture, and open it with `open mylog.txt`.
 
+## Device Communication Failures
 
 The Android Debug Bridge (ADB) may be used to help debug problems with the Android USB connection.  First off, use ADB to list the connected devices at a terminal window:
 
@@ -47,6 +48,7 @@ If you run into problems getting your device to work, first unplug the USB cable
 
 Also attempt to reboot the mobile device if communication is still unsuccessful.
 
-Reference:
+Further references:
+
 * [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
 * [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
