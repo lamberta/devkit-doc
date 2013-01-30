@@ -24,7 +24,7 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change. Simply connect your device to the GC SDK server hosted on your computer, and begin testing your game as seemlessly as testing with the Game Closure web interface on your computer.  Again, for more information on how to get started with the Game Closure Test App, [look here](./test_app.html).
 
-The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.
 
 ### 3. Building
 

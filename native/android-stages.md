@@ -20,17 +20,17 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 
-Test your game code live on the device with the [Game Closure Test App](./android-test-app.html).  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.
+Test your game code live on the device with the [Game Closure Test App](./android-test-app.html).  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and install the Test App on a USB-attached Android device with `basil testapp native-android`.
 
-Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
+Tap the installed "Test App" icon on your Android device.  Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
 
-The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Simply attach your Android device via the USB cable and use the Native Tools feature to trap exceptions and view the console logs of Test App sessions.
 
 ### 3. Building
 
-[Build and install](./build.html) your game to a device connected via USB.  This requires an Apple Developer account.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+[Build and install](./android-build.html) your game to a device connected via USB.  Simply run `basil build native-android` to produce an APK, then install it with `adb install`.
 
-At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
+The Chrome Web Inspector interface may also be used to inspect and debug JavaScript game code running on the Android device.  
 
 At this stage the mobile device no longer needs to be tethered to your computer and you can show off your game!
 
