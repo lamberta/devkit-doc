@@ -2,73 +2,39 @@
 
 ## Overview
 
-Testing your game on iOS for the first time is an exhilerating affair full of nail-biting anticipation.  ("My game is finally in my hands!")  Running your game on the device.
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  (\"My game is finally in my hands!\")  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
 
-See the stages of development.
+## Prerequisites
 
-### 1. Initial development
+You will need some tools for Android development:
 
-Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure SDK web interface without doing any setup required for building on the mobile device.
++ Mac OS X 10.6 (or newer) computer
++ USB sync cable for your cellphone
++ Android SDK 15
++ Android NDK r8b (or newer)
++ Game Closure SDK (basil)
 
-Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
+For a guide on installing the Game Closure SDK [please see this documentation](../guide/quick-start.html).
 
-Swap art and font resources live using the Art Editor and Font Editor features.  Make changes to your JavaScript code, art, and sound files and refresh the browser to instantly see the new results.
+### Supported Mobile Devices
 
-For more information see the [basic SDK guides](../guide/quick-start.html).
+Nearly all Android cellphones and tablets are supported, including all devices powered by processors in the ARM9 family supporting the ARMv5TE(J) architecture.  This means all TI OMAP processors.  For example the first Motorola Droid phone was powered by a TI OMAP 3430 supporting the ARMv7 instruction set.
 
-### 2. On-device development
+Android version 2.2 (API level 8) is the minimum required version.  The original Motorola Droid received an over-the-air update for this in late 2010.  According to the [Android developer site](http://developer.android.com/about/dashboards/) only about 2.6% of cellphones that access Google Play are unsupported at this time by the Game Closure SDK.  The first Android phone (the T-Mobile G1 / HTC Dream) is unsupported, as an example.
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  This requires an Apple Developer account.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.  Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
+### Install Android Plugin for Basil
 
-The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  The first step to doing Android development with basil is to install the iOS plugin.
 
-### 3. Initial On-device testing
+At a command-line enter the command:
 
-Build and install your game to a device connected via USB.  This requires an Apple Developer account.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+~~~
+$ basil install android
+~~~
 
-At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
+This downloads and installs the Android plugin for basil.
 
-At this stage the mobile device no longer needs to be tethered to your computer and you can show off your game!
-
-### 4. Group On-device testing
-
-Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com).  Testers signed up with TestFlight can use your app all over the world.
-
-### 5. Apple Store Deployment
-
-The same IPA file use for group testing will be uploaded to the Apple Store for release.  Set up screenshots, a description, and in-app purchases.
-
-## Supported Mobile Devices
-
-The iOS devices supported are:
-
-_iPhone_: iPhone 3GS (2009), iPhone 4, iPhone 4S, iPhone 5.
-
-_iPad_: All devices.
-
-_iPod_: Touch 3rd Gen (2009), Touch 4rth Gen, Touch 5th Gen.
-
-Other devices **may** work but are not explicitly supported.
-
-## Create an iOS Developer Account
-
-## Install XCode
-
-Download and install the
-[Android SDK](http://developer.android.com/sdk/) to your
-local machine. If you are using the
-[Homebrew](http://mxcl.github.com/homebrew/) package
-manager, run:
-
-test
-
-`$ brew install android`
-
-Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
-
-### Install the native Android component from the Game Closure SDK
+### Appendix: Manual Install of the Android Plugin for Basil
 
 Clone the Game Closure
 [Android repository](https://github.com/gameclosure/android). Switch
