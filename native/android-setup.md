@@ -58,7 +58,32 @@ and patiently wait for the download and installation to finish.
 </figure>
 </div>
 
-### Install Android Plugin for Basil
+## Install the Android NDK
+
+The Android NDK is also required for Android development.  The NDK should be downloaded from the [Android Developer site](http://developer.android.com/tools/sdk/ndk/).  Currently homebrew installs an older version of the NDK (r7c), which is too far out of date.
+
+Download the Android NDK version r8d from [this link](http://dl.google.com/android/ndk/android-ndk-r8d-darwin-x86.tar.bz2) and extract it to /usr/local/android-ndk-r8d/.
+
+And then be sure to add the NDK to the path on your shell.
+
+For the default Terminal that comes with Mac OS X, add this line to the end of ~/.profile
+
+~~~
+export PATH="$PATH":/usr/local/android-ndk-r8d
+~~~
+
+For ZSH, add this line to the end of ~/.zshrc
+
+If you installed the NDK properly, then you should be able to open a new Terminal window and type `which ndk-build` and see:
+
+~~~
+$ which ndk-build
+/usr/local/android-ndk-r8b/ndk-build
+~~~
+
+If the NDK is not installed properly you will get an `[android] Error: could not build support projects.` error when you attempt to build your game.
+
+## Install Android Plugin for Basil
 
 Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
 
