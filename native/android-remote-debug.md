@@ -56,13 +56,21 @@ From left to right:
 + While execution is paused: Step out of current function scope
 + Disable or enable all breakpoints
 
+## CPU Profiler
+
+With the CPU Profiler you can identify code hotspots with ease, and instantly determine where code optimization efforts should be focused if performance needs to be improved.  Try starting and stopping the profiling to cover only critical parts of gameplay to finely focus on the functions that are most helpful to optimize for better game performance.
+
+<img src="./assets/android/android-cpu-profiler.png"></img>
+
+In the image above, a breakpoint was used to artificially inflate the time spent at Molehill.js line 52.  In practice, this may mean that code around that line should be refactored.
 
 ## Heap Profiler
 
-Using the Heap Profiler you can quickly get a feel for how much memory is being used by your game.
+By using the Heap Profiler you can quickly get a feel for how much memory is being used by different objects in your game.
 
 <img src="./assets/android/android-heap-profiler.png"></img>
 
+By taking two snapshots and enabling Comparison mode you can identify the types and number of objects that are being created or destroyed.
 
 ## Troubleshooting Issues
 
