@@ -1,173 +1,77 @@
-# Build for Native Devices
+# Android Remote JavaScript Debugging
 
-## Android
+## Overview
 
-### Install the Android SDK
+On a mobile Android device it is possible to watch console logs, inspect JavaScript objects, set breakpoints in running JavaScript code, break on exceptions, and do CPU or heap profiling with the Game Closure SDK.  This feature is called Remote JavaScript Debugging and is available in any debug-mode game built with the Game Closure SDK.
 
-Download and install the
-[Android SDK](http://developer.android.com/sdk/) to your
-local machine. If you are using the
-[Homebrew](http://mxcl.github.com/homebrew/) package
-manager, run:
+When your JavaScript code throws an exception running on the native device but not the browser, normally you would be out of luck.  A typical way to debug these issues would be to laborously sprinkle log statements throughout your code to hopefully gain enough visibility into what it is doing.
 
-test
+A more direct approach would be to break on the exception and inspect the JavaScript objects leading to the exception, or set a breakpoint on code leading up to the problem and watch it develop.  Remote JavaScript Debugging hooks you directly into the code execution and allows you to fully and transparently analyze the problem.
 
-`$ brew install android`
+## Setup
 
-Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
+Run `basil serve` and launch a Chrome web browser.  Navigate to the Game Closure SDK webapp at `http://localhost:9200` in the web browser.  Select "Native Tools" from the left-hand navigation pane.  After a moment you will see a web inspector app in the right-hand pane.
 
-### Install the native Android component from the Game Closure SDK
+Remote JavaScript debugging is only available for Android devices connected via a USB cable, running a game built with the --debug and --no-compress flags.  See the [Android build documentation](./android-build.html) for more information on the build process.
 
-Clone the Game Closure
-[Android repository](https://github.com/gameclosure/android). Switch
-to this directory and make sure everything is up-to-date:
+## Console Usage
 
-~~~
-$ git clone git@github.com:gameclosure/android.git
-$ cd ./android
-$ git submodule update --init
-~~~
+When the Test App on the mobile device loads a game, the remote debugger will connect to the mobile device.  The web inspector pane will display the console output from your game.
 
-To let basil know where to find the android repository,
-update the `config.json` file located in the root of the
-basil install:
+<img src="./assets/android/android-console.png"></img>
 
-~~~
-{
-  "android": {
-    "root": "path/to/android"
-  }
-}
-~~~
+At the console you are able to run JavaScript commands that are evaluated in the JavaScript context of the mobile device.  Furthermore, while execution is paused you may execute JavaScript in the scope of the current function.  The console will display log messages you would normally see at the Xcode console.  It will also show when scripts are loaded and other useful information for analyzing the execution of your game.
 
-And make sure all the required sub-modules are updated:
+## Sources Usage
 
-`$ basil update`
+Click over to the Sources tab to view game source code and interact with the web inspector as you would with a familiar web inspector session in the browser.  The most useful debugging features will work remotely.
 
-### Build the apk
+<img src="./assets/android/android-debugger.png"></img>
 
-In the top-level of your project, run:
-`$ basil build native-android`
+There are two tabs for scripts on the left.  The left tab contains your game source code, and the right tab entitled "Content Scripts" contains the SDK JavaScript source code.
 
-This creates an apk file located at `path/to/project/build/myapp.apk`.
+To break on exceptions, start the debugging session before the exception occurs, and click on the (") pause button in the lower left until it displays blue.  In this state, when an exception occurs in JavaScript, the remote debugger will break on the exception line.
 
-To create a debugging version, just add the appropriate flag:
+While at a breakpoint you can mouse-over or enter a variable name in the console to inspect its value.
 
-`$ basil build native-android --debug --clean --no-compress`
+### Sources Tools: Lower-Left Toolbar
 
-Install the application to your device:
+<img src="./assets/android/android-debugger-left-tools.png"></img>
 
-`$ adb install -r path/to/project/build/myapp.apk`
+From left to right:
 
-Run the game on your device by clicking its icon in the
-Application menu!
++ Console pop-up
++ Break on Exceptions: Black = Off, Blue or Purple = On
++ Prettify: Unmangle JavaScript
 
+### Sources Tools: Upper-Right Toolbar
 
-### Configure the device
+<img src="./assets/android/android-debugger-right-tools.png"></img>
 
-To set up your Android device for development, enable *USB
-Debugging*. (This option is located in `Settings > Applications > Development`.)
+From left to right:
 
-#### Using adb, the Android Development Bridge
++ Pause or resume JavaScript interpreter where it is currently executing
++ While execution is paused: Step over currently selected line
++ While execution is paused: Step into currently selected function
++ While execution is paused: Step out of current function scope
++ Disable or enable all breakpoints
 
-List the connected devices in the form: 'serialnumber device':
+## CPU Profiler
 
-`$ adb devices`
+With the CPU Profiler you can identify code hotspots with ease, and instantly determine where code optimization efforts should be focused if performance needs to be improved.  Try starting and stopping the profiling to cover only critical parts of gameplay to finely focus on the functions that are most helpful to optimize for better game performance.
 
-Issue commands to a specific emulator/device:
+<img src="./assets/android/android-cpu-profiler.png"></img>
 
-`$ adb -s <serialnumber> <command>`
+In the image above, a breakpoint was used to artificially inflate the time spent at Molehill.js line 52.  In practice, this may mean that code around that line should be refactored.
 
-Install an application to a device:
+## Heap Profiler
 
-`$ adb install -r <path-to-apk>`
+By using the Heap Profiler you can quickly get a feel for how much memory is being used by different objects in your game.
 
-Print logging information to the console:
+<img src="./assets/android/android-heap-profiler.png"></img>
 
-`$ adb logcat <option> <optional-filter-spec>`
+By taking two snapshots and enabling Comparison mode you can identify the types and number of objects that are being created or destroyed.
 
-Stop the server if something is hanging:
+## Troubleshooting Issues
 
-`$ adb kill-server`
-
-Also attempt to reboot the mobile device if it still hangs.
-
-Reference:
-* [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
-* [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
-
-
-## Performance Best Practices
-
-### Start with performant JavaScript code
-
-Any code that *can* be taken out of a loop, *should* be
-taken out. Function calls carry some additional
-overhead. Generally, modern JavaScript engines optimize for
-most use cases, but using a tool like
-[jsPerf](http://jsperf.com) to test snippets can be very
-insightful (even though it run tests in your browser, the
-lessons can still apply).
-
-Also, get comfortable with debugging JavaScript using the
-Chrome Developer Tools, especially the
-[Profiles Panel](https://developers.google.com/chrome-developer-tools/docs/profiles),
-with particular attention to the **CPU profiler** and the
-**Heap profiler**.
-
-### Allocate fewer objects
-
-The more objects that are created, the greater the
-performance lag when the JavaScript engine needs to garbage
-collect them, and if there are any references to an object,
-its memory won't be de-allocated. It's better to reuse
-existing objects than create new ones, so for example:
-
-* Use `Date.now()` instead of `+new Date()`.
-* Clear an old array with `arr.length = 0` instead of creating a new one.
-* Likewise, recycle objects rather than creating new ones.
-
-There are some symptoms for bad garbage collection:
-
-* Logs about garbage collection from V8 in `adb logcat`.
-* Irregular glitches in framerate when you're not doing anything notable in JavaScript.
-* Smooth framerates followed by brief lag spikes.
-
-#### Use View pools
-
-Since you take a performance hit when creating objects, it
-can be beneficial to create "pools" of `View` objects ahead
-of time, and then when your ready to use them, acquire them
-from the already allocated pool. When you are done with the
-view, release it back to the pool so it can be used again later.
-
-### Native code is faster than JavaScript
-
-JavaScript is fast, but it's even faster to let the native
-runtime do the work. Calls to JavaScript are have more
-overhead than native code. The more code you can offload to
-the native side, the faster your game will run.
-
-### Use the animation engine
-
-This is related to the previous tip. Using our
-[animation engine](../api/animate.html) is faster than
-calculating in a game loop because we can optimize it for
-native execution. The less calculations in JavaScript, the better!
-
-### Schedule tasks over multiple frames
-
-Game calculations can be expensive, especially when done on
-each frame. Many times, effects such as physics collisions
-and AI and be run every other frame (or even less) without a
-loss in visual quality. It's important to schedule these
-tasks across animation frames for a consistent, and better
-performing game.
-
-### Preload resources
-
-Resource loading can be hard on a game's framerate. Make
-sure to preload any assets before you need them to prevent
-noticeable in-game lags.
+If the debugger becomes unresponsive, attempt to refresh the browser window.  If that doesn't work, force-quit your game and restart it also.

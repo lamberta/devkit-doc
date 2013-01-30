@@ -1,58 +1,28 @@
-# Setup for iOS Testing
+# Android Setup Guide
 
 ## Overview
 
-Testing your game on iOS for the first time is an exhilerating affair full of nail-biting anticipation.  ("My game is finally in my hands!")  Running your game on the device.
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  (\"My game is finally in my hands!\")  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
 
-See the stages of development.
+## Prerequisites
 
-### 1. Initial development
+You will need some tools for Android development:
 
-Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure SDK web interface without doing any setup required for building on the mobile device.
++ Mac OS X 10.6 (or newer) computer
++ USB sync cable for your cellphone
++ Android SDK 15
++ Android NDK r8d
++ Game Closure SDK (basil)
 
-Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
+For a guide on installing the Game Closure SDK [please see this documentation](../guide/quick-start.html).
 
-Swap art and font resources live using the Art Editor and Font Editor features.  Make changes to your JavaScript code, art, and sound files and refresh the browser to instantly see the new results.
+### Supported Mobile Devices
 
-For more information see the [basic SDK guides](../guide/quick-start.html).
+Nearly all Android cellphones and tablets are supported, including all devices powered by processors in the ARM9 family on the ARMv5TE(J) architecture.  This means all TI OMAP processors.  For example the first Motorola Droid phone was powered by a TI OMAP 3430 built for the ARMv7 instruction set.
 
-### 2. On-device development
+Android version 2.2 (API level 8) is the minimum required version.  The original Motorola Droid received an over-the-air update for this in late 2010.  According to the [Android developer site](http://developer.android.com/about/dashboards/) only about 2.6% of cellphones that access Google Play are unsupported at this time by the Game Closure SDK.  The first Android phone (the T-Mobile G1 / HTC Dream) is unsupported, as an example.
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  This requires an Apple Developer account.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.  Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
-
-The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
-
-### 3. Initial On-device testing
-
-Build and install your game to a device connected via USB.  This requires an Apple Developer account.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
-
-At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
-
-At this stage the mobile device no longer needs to be tethered to your computer and you can show off your game!
-
-### 4. Group On-device testing
-
-Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com).  Testers signed up with TestFlight can use your app all over the world.
-
-### 5. Apple Store Deployment
-
-The same IPA file use for group testing will be uploaded to the Apple Store for release.  Set up screenshots, a description, and in-app purchases.
-
-## Supported Mobile Devices
-
-The iOS devices supported are:
-
-_iPhone_: iPhone 3GS (2009), iPhone 4, iPhone 4S, iPhone 5.
-
-_iPad_: All devices.
-
-_iPod_: Touch 3rd Gen (2009), Touch 4rth Gen, Touch 5th Gen.
-
-Other devices **may** work but are not explicitly supported.
-
-## Create an iOS Developer Account
-
-## Install XCode
+## Install the Android SDK
 
 Download and install the
 [Android SDK](http://developer.android.com/sdk/) to your
@@ -60,28 +30,228 @@ local machine. If you are using the
 [Homebrew](http://mxcl.github.com/homebrew/) package
 manager, run:
 
-test
-
-`$ brew install android`
+~~~
+$ brew update
+$ brew install android
+~~~
 
 Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
+front-end that will allow you to install various android 
+API targets. Install the SDK Platform under Android 4.0.3 
+(API 15), Android Support Library in the Extras sections 
+at the bottom of the list, and the Android SDK Platform-tools 
+in the tools section at the top.
 
-### Install the native Android component from the Game Closure SDK
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/packages.png" />
+<figcaption>All the checked items are required for android installation.</figcaption>
+</figure>
+</div>
+
+You will then be prompted with an Accept window. Check `Accept All`
+and patiently wait for the download and installation to finish.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/accept-all.png" />
+<figcaption>Accept installation of the required packages.</figcaption>
+</figure>
+</div>
+
+## Install the Android NDK
+
+The Android NDK is also required for Android development.  An easy way to install the Android NDK is to use homebrew:
+
+~~~
+$ brew update
+$ brew install android-ndk
+~~~
+
+The homebrew install script will update your .profile to include the NDK tools in your $PATH.  So, you will want to open a new terminal window that will have the new path set.
+
+## Install Android Plugin for Basil
+
+Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
+
+The first step to doing Android development with basil is to install the iOS plugin.  At a command-line enter the command:
+
+~~~
+$ basil install-android
+~~~
+
+This downloads and installs the Android plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
+
+## Generating a Keystore
+
+To digitally sign your game's binary file, you will need to generate a keystore file.  The purpose and process are described on the [Android Developer site](http://developer.android.com/tools/publishing/app-signing.html).  Most importantly, a keystore is required for Android building, so you will want to make one at this point.
+
+A quick-start example:
+
+~~~
+ $ keytool -genkey -v -keystore beards.keystore -alias "bearded bobs" -keyalg RSA -keysize 2048 -validity 10000
+Enter keystore password: fuzzyfiggin
+Re-enter new password: fuzzyfiggin
+What is your first and last name?
+  [Unknown]:  Bob Baxter
+What is the name of your organizational unit?
+  [Unknown]:  SDK
+What is the name of your organization?
+  [Unknown]:  Game Closure
+What is the name of your City or Locality?
+  [Unknown]:  Mountain View
+What is the name of your State or Province?
+  [Unknown]:  CA
+What is the two-letter country code for this unit?
+  [Unknown]:  US
+Is CN=Bob Baxter, OU=SDK, O=Game Closure, L=Mountain View, ST=CA, C=US correct?
+  [no]:  yes
+
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA1withRSA) with a validity of 10,000 days
+	for: CN=Bob Baxter, OU=SDK, O=Game Closure, L=Mountain View, ST=CA, C=US
+Enter key password for <alias_name>
+	(RETURN if same as keystore password): <RETURN>
+[Storing beards.keystore]
+~~~
+
+You will want to copy your keystore to a convenient location and then reference it in the `config.json` file in the root of your Game Closure SDK folder.
+
+An example "android" section in Basil's `config.json` file:
+
+~~~
+	"android": {
+		"root": "/Users/bbaxter/cleanroom/android",
+		"key": "bearded bobs",
+		"keystore": "/Users/bbaxter/cleanroom/basil/beards.keystore",
+		"storepass": "fuzzyfiggin",
+		"keypass": "fuzzyfiggin"
+	}
+~~~
+
+The `storepass` is the keystore password you typed initially.  And `keypass` is the key password, which will be the same as the keystore password if you opted not to enter one.
+
+## Setting Up Your Game Manifest
+
+Every game includes and must have a manifest.json file with configuration information and more for each game. Several fields are required for a properly configured game for Android.
+
+- The splash screen and icons for your game should be added before building for Android devices.
+- If you are using any custom TrueType fonts be sure to include those in the manifest file.
+- For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
+
+In addition to the normal sections in the manifest file you may have already filled in, Android requires the following sections:
+
+#####Google Play
+
+Add the app version code from Google Play here:
+
+~~~
+	"android": {
+		"versionCode": 1
+	},
+~~~
+
+#####Icons
+The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
+
+~~~
+{
+	"icons": {
+		"28": "preload/icons/icon36.png",
+		"38": "preload/icons/icon48.png",
+		"48": "preload/icons/icon48.png",
+		"56": "preload/icons/icon72.png",
+		"512": "preload/icons/icon512.png"
+	},
+~~~
+  
+#####Orientation
+Choose an orientation for your game, a combination of portrait and landscape. 
+
+~~~
+	"supportedOrientations": [
+		"landscape"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"portrait"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"landscape", "portait"
+	],
+~~~
+
+#####TrueType Fonts
+Add a list of TrueType font files to the manifest if you are using them:
+
+~~~
+	"ttf": [
+		"resources/fonts/Arial Black.ttf",
+		"resources/fonts/Gill Sans Bold.ttf"
+	],
+~~~
+
+#####Splash Screen
+Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
+
+~~~
+	"preload": {
+		"autoHide": true,
+		"img": "preload/splash.png"
+	}
+}
+~~~
+
+Once your game is configured properly for Android, you're ready to install it!
+
+## Configuring a New Android Device
+
+If you are not able to find the "Developer options" menu, you will need to perform a "magic knock" to unlock it on Android 4.2 or newer.  Following this simple procedure:
+
+1.  Open the Settings app.
+2.  Select "About phone" at the bottom of the list.
+3.  Scroll to the bottom to see the "Build number" item.
+4.  Tap on the Build number five times.
+
+To begin building for an Android device you need to enable USB Debugging on the test device.  The process to enable debugging is:
+
+1.  Open the Settings app.
+2.  Select "Applications" at the middle of the list.
+3.  Select "Development settings" aka "Developer options".
+4.  Tap the check box next to USB debugging and tap OK.
+
+It is recommended to set the USB Charge mode to "Charge Only" while connected so that the phone will not unmount its internal storage while connected via USB.  To do this:
+
+1.  Connect the phone to your computer via the USB cable.
+2.  Pull open the Android notification toaster (hold the top of the screen and swipe down).
+3.  Select USB Connection.
+4.  Select "Charge Only" and tap OK.
+
+## Troubleshooting Issues
+
+If you run into problems, try our [Android troubleshooting guide](./android-troubleshooting.html).
+
+### Appendix: Manual Install of the Android Plugin for Basil
+
+Make sure your version of basil is up to date with `basil update`.
 
 Clone the Game Closure
 [Android repository](https://github.com/gameclosure/android). Switch
 to this directory and make sure everything is up-to-date:
 
 ~~~
-$ git clone git@github.com:gameclosure/android.git
-$ cd ./android
+$ git clone git@github.com:gameclosure/android
+$ cd android
+$ git checkout master
 $ git submodule update --init
 ~~~
 
 To let basil know where to find the android repository,
-update the `config.json` file located in the root of the
+update the **config.json** file located in the root of the
 basil install:
 
 ~~~
@@ -91,133 +261,3 @@ basil install:
   }
 }
 ~~~
-
-And make sure all the required sub-modules are updated:
-
-`$ basil update`
-
-### Build the apk
-
-In the top-level of your project, run:
-`$ basil build native-android`
-
-This creates an apk file located at `path/to/project/build/myapp.apk`.
-
-To create a debugging version, just add the appropriate flag:
-
-`$ basil build native-android --debug --clean --no-compress`
-
-Install the application to your device:
-
-`$ adb install -r path/to/project/build/myapp.apk`
-
-Run the game on your device by clicking its icon in the
-Application menu!
-
-
-### Configure the device
-
-To set up your Android device for development, enable *USB
-Debugging*. (This option is located in `Settings > Applications > Development`.)
-
-#### Using adb, the Android Development Bridge
-
-List the connected devices in the form: 'serialnumber device':
-
-`$ adb devices`
-
-Issue commands to a specific emulator/device:
-
-`$ adb -s <serialnumber> <command>`
-
-Install an application to a device:
-
-`$ adb install -r <path-to-apk>`
-
-Print logging information to the console:
-
-`$ adb logcat <option> <optional-filter-spec>`
-
-Stop the server if something is hanging:
-
-`$ adb kill-server`
-
-Also attempt to reboot the mobile device if it still hangs.
-
-Reference:
-* [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
-* [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
-
-
-## Performance Best Practices
-
-### Start with performant JavaScript code
-
-Any code that *can* be taken out of a loop, *should* be
-taken out. Function calls carry some additional
-overhead. Generally, modern JavaScript engines optimize for
-most use cases, but using a tool like
-[jsPerf](http://jsperf.com) to test snippets can be very
-insightful (even though it run tests in your browser, the
-lessons can still apply).
-
-Also, get comfortable with debugging JavaScript using the
-Chrome Developer Tools, especially the
-[Profiles Panel](https://developers.google.com/chrome-developer-tools/docs/profiles),
-with particular attention to the **CPU profiler** and the
-**Heap profiler**.
-
-### Allocate fewer objects
-
-The more objects that are created, the greater the
-performance lag when the JavaScript engine needs to garbage
-collect them, and if there are any references to an object,
-its memory won't be de-allocated. It's better to reuse
-existing objects than create new ones, so for example:
-
-* Use `Date.now()` instead of `+new Date()`.
-* Clear an old array with `arr.length = 0` instead of creating a new one.
-* Likewise, recycle objects rather than creating new ones.
-
-There are some symptoms for bad garbage collection:
-
-* Logs about garbage collection from V8 in `adb logcat`.
-* Irregular glitches in framerate when you're not doing anything notable in JavaScript.
-* Smooth framerates followed by brief lag spikes.
-
-#### Use View pools
-
-Since you take a performance hit when creating objects, it
-can be beneficial to create "pools" of `View` objects ahead
-of time, and then when your ready to use them, acquire them
-from the already allocated pool. When you are done with the
-view, release it back to the pool so it can be used again later.
-
-### Native code is faster than JavaScript
-
-JavaScript is fast, but it's even faster to let the native
-runtime do the work. Calls to JavaScript are have more
-overhead than native code. The more code you can offload to
-the native side, the faster your game will run.
-
-### Use the animation engine
-
-This is related to the previous tip. Using our
-[animation engine](../api/animate.html) is faster than
-calculating in a game loop because we can optimize it for
-native execution. The less calculations in JavaScript, the better!
-
-### Schedule tasks over multiple frames
-
-Game calculations can be expensive, especially when done on
-each frame. Many times, effects such as physics collisions
-and AI and be run every other frame (or even less) without a
-loss in visual quality. It's important to schedule these
-tasks across animation frames for a consistent, and better
-performing game.
-
-### Preload resources
-
-Resource loading can be hard on a game's framerate. Make
-sure to preload any assets before you need them to prevent
-noticeable in-game lags.

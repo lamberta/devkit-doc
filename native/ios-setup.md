@@ -2,16 +2,20 @@
 
 ## Overview
 
-Running your game on an iPhone or iPad for the first time is that \"I made it!\" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
+Running your game on an iPhone or iPad for the first time is that \"I made it!\" moment when it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
 
 Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  
 
 ## Prerequisites
+
 You will need some tools for iOS development:
 
 + Mac OS X 10.6 (or newer) computer
 + iPhone/iPad sync cable
 + Xcode 4.4 (or newer) and Xcode command-line tools
++ Game Closure SDK (basil)
+
+For a guide on installing the Game Closure SDK [please see this documentation](../guide/quick-start.html).
 
 ### Supported Mobile Devices
 
@@ -43,13 +47,15 @@ Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left ta
 
 ## Install iOS Plugin for Basil
 
-At a command-line enter the command:
+Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
+
+The first step to doing iOS development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
 $ basil install ios
 ~~~
 
-This downloads and installs the iOS plugin for basil.
+This downloads and installs the iOS plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
 
 ## Setting Up Your Game Manifest
 
@@ -60,7 +66,19 @@ Every game includes and must have a manifest.json file with configuration inform
 - For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
 
 In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
-  
+
+#####Apple Store
+
+Add these fields to insure that In-App Purchases will work.
+
+~~~
+	"ios": {
+		"bundleID": "com.billy.boards",
+		"appleID": "1234567",
+		"version": "1.0.0"
+	},
+~~~
+
 #####Icons
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
@@ -71,7 +89,7 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 		"72": "preload/icons/icon72.png",
 		"114": "preload/icons/icon114.png",
 		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png",
+		"512": "preload/icons/icon512.png"
 	},
 ~~~
   
@@ -105,7 +123,7 @@ Add a list of TrueType font files to the manifest if you are using them:
 		"resources/fonts/Gill Sans Bold.ttf"
 	],
 ~~~
-  
+
 #####Splash Screen
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
@@ -136,7 +154,11 @@ In Xcode, open the Organizer.  On the devices tab on the left, select the name o
 
 At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app for expedited development and testing.
 
-## Appendix: Manual Install of iOS Plugin for Basil
+## Troubleshooting Issues
+
+If you run into problems, try our [iOS troubleshooting guide](./ios-troubleshooting.html).
+
+### Appendix: Manual Install of iOS Plugin for Basil
 
 You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
 

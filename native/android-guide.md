@@ -1,43 +1,33 @@
-# iOS Development Guide
+# Android Development Guide
 
-## Overview
+This guide takes you through the entire process of developing for Android devices with the Game Closure SDK.
 
-The iPhone and iPad mobile platform is immensely popular, and you can use the Game Closure SDK to target your HTML5 games to run smoothly on these mobile devices.
+## [Overview](./android-stages.html)
 
-The Game Closure developing and testing workflow is organized.
+The development cycle can be broken down into [four stages](./android-stages.html), leading up to deployment on Google Play.  Initially, all development is done with [web tools](../guide/quick-start.html) and emulated devices.
 
-Based on what stage of development your game is in, you may consider different types of builds:
+Then the [Test App](./android-test-app.html) is used to accelerate transition onto the mobile devices.
 
-### 1. Initial development
+Then [iOS building](./ios-build.html) is encouraged to test and demo your game, with the help of [remote debugging](./android-remote-debug.html) tools.
 
-Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure SDK web interface without doing any setup required for building on the mobile device.
+Finally your app is ready for deployment via Google Play.
 
-Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
+## [Setup](./android-setup.html)
 
-Swap art and font resources live using the Art Editor and Font Editor features.  Make changes to your JavaScript code, art, and sound files and refresh the browser to instantly see the new results.
+The [Game Closure SDK setup guides](./android-setup.html) will get you up and running as fast as possible.
 
-For more information see the [basic SDK guides](../guide/quick-start.html).
+## [Test App](./android-test-app.html)
 
-### 2. On-device development
+With the [Test App](./android-test-app.html) you can quickly iterate through changes to your game on a mobile device.
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  This requires an Apple Developer account.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using XCode.
+## [Build](./android-build.html)
 
-Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
+When you are ready to start building your game, the [build guide](./android-build.html) will make the process smooth and showcase all of the powerful options available.
 
-The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+## [Remote Debugging](./android-remote-debug.html)
 
-### 3. Initial On-device testing
+The integrated [remote JavaScript debugging](./android-remote-debug.html) allows you to isolate and annihilate *all* the bugs.
 
-[Build and install](./build.html) your game to a device connected via USB.  This requires an Apple Developer account.  Using the SDK build tools, you will create an XCode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in XCode while it is running.
+## [Troubleshooting](./android-troubleshooting.html)
 
-At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
-
-At this stage the mobile device no longer needs to be tethered to your computer and you can show off your game!
-
-### 4. Group On-device testing
-
-Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com).  Testers signed up with TestFlight can use your app all over the world.
-
-### 5. Apple Store Deployment
-
-The same IPA file use for group testing will be uploaded to the Apple Store for release.
+There is a brief troubleshooting guide available [here](./android-troubleshooting.html).

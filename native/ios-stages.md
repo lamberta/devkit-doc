@@ -22,9 +22,9 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change. Simply connect your device to the GC SDK server hosted on your computer, and begin testing your game as seemlessly as testing with the Game Closure web interface on your computer.  Again, for more information on how to get started with the Game Closure Test App, [look here](./test_app.html).
+Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and install the Test App on a USB-attached iOS device with `basil testapp native-ios`.
 
-The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.
 
 ### 3. Building
 
@@ -44,6 +44,8 @@ At this stage the mobile device no longer needs to be tethered to your computer 
 
 Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com) if you so choose.  Testers signed up with TestFlight can use your app all over the world on their mobile Apple devices.
 
+For a guide on how to use TestFlight with the Game Closure SDK, click [here](./ios-testflight.html).
+
 ### 5. Deployment
 
-The same IPA file use for group testing will be uploaded to the Apple Store for release.  Please see our [iOS build guide](./ios-build.html) on how to create a .IPA file for release (or for testing).
+The same IPA file use for group testing will be uploaded to the Apple Store for release.  Please see our [iOS build guide](./ios-build.html) on how to create an .IPA file for release (or for testing).
