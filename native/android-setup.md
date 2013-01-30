@@ -60,11 +60,23 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 ~~~
   
 #####Orientation
-Choose an orientation for your game, either portrait or landscape. 
+Choose an orientation for your game, a combination of portrait and landscape. 
 
 ~~~
 	"supportedOrientations": [
 		"landscape"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"portrait"
+	],
+~~~
+
+~~~
+	"supportedOrientations": [
+		"landscape", "portait"
 	],
 ~~~
 
@@ -78,7 +90,7 @@ Add a list of TrueType font files to the manifest if you are using them:
 	],
 ~~~
 
-#####Apple Store
+#####Google Play
 
 ~~~
 	"ios": {

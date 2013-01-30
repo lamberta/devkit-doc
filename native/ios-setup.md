@@ -66,7 +66,19 @@ Every game includes and must have a manifest.json file with configuration inform
 - For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
 
 In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
-  
+
+#####Apple Store
+
+Add these fields to insure that In-App Purchases will work.
+
+~~~
+	"ios": {
+		"bundleID": "com.billy.boards",
+		"appleID": "1234567",
+		"version": "1.0.0"
+	},
+~~~
+
 #####Icons
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
@@ -110,16 +122,6 @@ Add a list of TrueType font files to the manifest if you are using them:
 		"resources/fonts/Arial Black.ttf",
 		"resources/fonts/Gill Sans Bold.ttf"
 	],
-~~~
-
-#####Apple Store
-
-~~~
-	"ios": {
-		"bundleID": "com.billy.boards",
-		"appleID": "1234567",
-		"version": "1.0.0"
-	},
 ~~~
 
 #####Splash Screen
