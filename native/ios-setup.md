@@ -112,7 +112,17 @@ Add a list of TrueType font files to the manifest if you are using them:
 		"resources/fonts/Gill Sans Bold.ttf"
 	],
 ~~~
-  
+
+#####Apple Store
+
+~~~
+	"ios": {
+		"bundleID": "com.billy.boards",
+		"appleID": "1234567",
+		"version": "1.0.0"
+	},
+~~~
+
 #####Splash Screen
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
