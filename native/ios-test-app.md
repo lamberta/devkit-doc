@@ -28,6 +28,10 @@ $ basil testapp native-ios
 
 The iOS Test App Xcode project will open after a moment.  Select a device to install it to at the top, and hit the Play button to build and install the Test App to the device.
 
+After installation you will be able to launch the Test App from its app icon on the home screen of your iOS device:
+
+<img src="./assets/ios/ios-test-app-icon.png"></img>
+
 ### Server List
 
 When the Test App starts on the device, it will display a list of servers on the LAN.  At first this will just contain the one 
