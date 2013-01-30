@@ -16,8 +16,28 @@ $ brew install android
 ~~~
 
 Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
+front-end that will allow you to install various android 
+api targets. Install the SDK Platform under Android 4.0.3 
+(API 15), Android Support Library in the Extras sections 
+at the bottom of the list, and the Android SDK Platform-tools 
+in the tools section at the top.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/packages.png" />
+<figcaption>All the checked items are required for android installation.</figcaption>
+</figure>
+</div>
+
+You will then be prompted with an Accept window. Check `Accept All`
+and patiently wait for the download and installation to finish.
+
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/android/accept-all.png" />
+<figcaption>Accept installation of the required packages.</figcaption>
+</figure>
+</div>
 
 ## Install the Game Closure SDK Android Component
 

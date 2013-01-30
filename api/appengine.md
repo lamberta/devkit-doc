@@ -18,13 +18,18 @@ advanced [Game Walk-Through](../guide/game-walkthrough.html).
 
 A user defined function that is executed when the game
 engine is set up and the scene graph is constructed. This
-is called before the `launchUI` function.
+is called before the splash screen is removed and the
+`launchUI` function is executed. This is where you should
+put game setup code and construct the view hierarchy.
 
 ### launchUI ()
 
 A user defined function that serves as the entry point for
 applications built on the Game Closure SDK. This is executed
-after the splash screen is removed.
+after the scene graph has been constructed, the `initUI`
+function is called, and the splash screen has been
+removed. This is where your game entry point logic should be
+placed and the game loop set up.
 
 ### onPause ()
 
@@ -142,7 +147,7 @@ Returns
 
 Returns any events that haven't been dispatched by the engine yet.
 
-### getCanvas ()
+### getElement ()
 
 Returns
 :    1. `{Canvas}`

@@ -5,11 +5,37 @@ widget with button-like states (such as checkboxes, switches or radiobuttons).
 You can listen for state changes, automatically swap an image or play a sound
 for entering a state.
 
+Because this class is a subclass of `ImageScaleView` you can use several options
+of applying background images, see [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview) 
+for more details.
+
+## Examples
+
+* [Button: Basic demo](../example/ui-button/)
+* [Button: Toggle demo](../example/ui-button-toggle/)
+
+## Title
+
+The `ButtonView` has a title which is a `TextView` child, the settings for the title can be
+applied by passing a `text` object in the constructor options. See [ui.TextView](./ui-text.html#class-ui.textview) 
+for information about the format of the options.
+
+## Icon
+
+The `ButtonView` has an icon which is a `ImageView` child, the settings for the icon can be
+applied by passing an `icon` object in the constructor options. See [ui.ImageScale](./ui-images.html#class-ui.imageview) 
+for information about the format of the options.
+
+## Toggle option
+
+The `ButtonView` class can also function as an interface element to select or deselect an option like a checkbox.
+When using the `ButtonView` as a checkbox then only the `images.selected` and `images.unselected` have to be
+assigned, the `images.up` and `images.down` properties are optional. 
+
 Inherits from
 :    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
      2. [ui.View](./ui-view.html)
      3. [event.Emitter](./event.html#class-event.emitter)
-
 
 ## Methods
 
@@ -17,11 +43,31 @@ Inherits from
 
 Parameters
 :    1. `options {object}`
-	     * `onClick {function}` ---Shortcut way of assigning a callback to a click.
-		 * `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
-		 * `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECT` state on every click.
-		 * `images {Object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path.
-		 * `sounds {Object}` ---Run a sound when the button enters a state.
+		* `onClick {function}` ---Shortcut way of assigning a callback to a click.
+		* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
+		* `state {ButtonView.states}` ---Optional, the initial state of the button, the default is `ButtonView.states.UP`
+		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTEDED` and `UNSELECT` state on every click.
+		* `title {string}` ---Optional, The title of the button
+		* `text {object}` ---These options are applied to the title text which is an instance of `TextView`
+		* `icon` ---These options are applied to the icon image which is an instance of `ImageView`
+		* `on {object}` ---Callbacks for each state
+			* `up {string}` ---Optional, The callback which will be called when the button changes to the `up` state
+			* `down {string}` ---Optional, The callback which will be called when the button changes to the `down` state
+			* `disabled {string}` ---Optional, The callback which will be called when the button changes to the `disabled` state
+			* `selected {string}` ---Optional, The callback which will be called when the button changes to the `selected` state
+			* `unselected {string}` ---Optional, The callback which will be called when the button changes to the `unselected` state
+		* `images {object}` ---Change the image to the specified image upon entering a state. The key refers to the state and the value is either `Image` or a `string` image path
+			* `up {string}` ---Optional, The filename or instance of `Image` to show on the `up` state
+			* `down {string}` ---Optional, The filename or instance of `Image` to show on the `down` state
+			* `disabled {string}` ---Optional, The filename or instance of `Image` to show on the `disabled` state
+			* `selected {string}` ---Optional, The filename or instance of `Image` to show on the `selected` state
+			* `unselected {string}` ---Optional, The filename or instance of `Image` to show on the `unselected` state
+		* `sounds {object}` ---Run a sound when the button enters a state
+			* `up {string}` ---Optional, The name of the sound effect to play on up
+			* `down {string}` ---Optional, The name of the sound effect to play on down
+			* `disabled {string}` ---Optional, The name of the sound effect to play on `disabled`
+			* `selected {string}` ---Optional, The name of the sound effect to play on `selected`
+			* `unselected {string}` ---Optional, The name of the sound effect to play on `unselected`
 
 Change images and play a sound when the button toggles selected state.
 
@@ -35,17 +81,17 @@ var buttonview = new ButtonView({
   x: 0,
   y: 0,
   images: {
-  "selected": "resources/selected.png",
-  "unselect": "resources/unselect.png"
+    down: "resources/images/selected.png",
+    up: "resources/images/unselect.png"
   },
   sounds: {
-    "down": "resources/ting.mp3"
+    down: "resources/ting.mp3"
   },
   on: {
-    "down": function () {
+    down: function () {
       console.log("This function is called when the button transitions to down!");
     },
-    "up": function () {
+    up: function () {
       console.log("This function is called when the button transitions to up!");
     }
   }
@@ -66,72 +112,102 @@ in with the current options, like in the example below.
 
 ~~~
 var buttonview = new ButtonView({
-	superview: parent,
-	width: 200,
-	height: 100,
-	x: 0,
-	y: 0,
-	sounds: {
-		"down": "resources/ting.mp3"
-	}
+  superview: parent,
+  width: 200,
+  height: 100,
+  x: 0,
+  y: 0,
+  sounds: {
+    "down": "resources/ting.mp3"
+  }
 });
 
 //now, to change the "down" sound, we must use updateOpts
 //however, we wish to keep the other options, so we shall `merge` the objects
 
 buttonView.updateOpts(util.merge(buttonView.opts, {
-	sounds: {
-		"down": "resources/bang.mp3"
-	}
+  sounds: {
+    "down": "resources/bang.mp3"
+  }
 }));
 ~~~
 
+### getText ()
+
+Returns
+:    1. `{TextView}`
+
+Get the `TextView` instance which contains the title text.
+
+### setTitle (title)
+
+Parameters
+:    1. `title {string}`
+
+Set the title, updates the `text` property in the `TextView` child.
+
+### getIcon ()
+
+Returns
+:    1. `{ImageView}`
+
+Get the `ImageView` instance which contains the icon image.
+
+### setIcon (icon)
+
+Parameters
+:    1. `icon {string|Image}`
+
+Set the icon image, the parameter can be a string with the path to the image or an instance of `Image`.
+
+### setState (state)
+
+Parameters
+:    1. `state {ButtonView.state}`
+
+Set the state of the image. When the state is selected the background image will also be updated.
+
+## States
+
+The button can have several states, when the `toggleSelected` option is set to `true` then the state switches
+between `ButtonView.states.SELECTED` and `ButtonView.states.UNSELECTED` and vice versa.
+The `toggleSelected` option also works in concert with the `ButtonView.states.UP` and `ButtonView.states.DOWN` 
+states.
+
+If the `toggleSelected` state is `false` then the images and sounds associated with the 
+`ButtonView.states.SELECTED` and `ButtonView.states.UNSELECTED` states -which are `images.selected`, `images.unselected`,
+`sounds.selected` and `sounds.unselected`- will never be used.
+
+The states are defined in an enum, `ButtonView.states`:
+:    1. `UP`
+	 2. `DOWN`
+	 3. `DISABLED`
+	 4. `SELECTED`
+	 5. `UNSELECTED`
 
 ## Events
 
-### \'InputSelect\', callback (event, srcPoint)
-
-Parameters
-:    1. `event {InputEvent}`
-	 2. `srcPoint {Point}`
-
-Emitted when the button is pressed.
-
-### \'InputOver\', callback (over, overCount, atTarget)
-
-Parameters
-:    1. `over {object}`
-	 2. `overCount {number}`
-	 3. `atTarget {boolean}`
-
-Emitted when the input is pressed and is moved over the
-button. Also emitted on `'InputSelect'`.
-
-### \'InputOut\', callback (over, overCount)
-
-Parameters
-:    1. `over {object}`
-	 2. `overCount {number}`
-
-Emitted when the input is pressed and is moved off of the
-button. Also emitted on `'InputSelect'`.
-
 ### \'up\', callback ()
 
+This callback is set with the `on.up` option.
 Emitted when the button state is `up`.
 
 ### \'down\', callback ()
 
+This callback is set with the `on.down` option.
 Emitted when the button state is `down`.
 
 ### \'disabled\', callback ()
 
+This callback is set with the `on.disabled` option.
 Emitted when the button state becomes `disabled`.
 
 ### \'selected\', callback ()
 
+This callback is set with the `on.selected` option.
 Emitted when the button selected state becomes `selected`.
 
-### \'unselect\', callback ()
+### \'unselected\', callback ()
 
-Emitted when the button selected state becomes `unselect`.
+This callback is set with the `on.unselected` option.
+Emitted when the button selected state becomes `unselected`.
