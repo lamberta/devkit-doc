@@ -18,6 +18,8 @@ Remote JavaScript debugging is only available for Android devices connected via 
 
 When the Test App on the mobile device loads a game, the remote debugger will connect to the mobile device.  The web inspector pane will display the console output from your game.
 
+<img src="./assets/android/android-console.png"></img>
+
 At the console you are able to run JavaScript commands that are evaluated in the JavaScript context of the mobile device.  Furthermore, while execution is paused you may execute JavaScript in the scope of the current function.  The console will display log messages you would normally see at the Xcode console.  It will also show when scripts are loaded and other useful information for analyzing the execution of your game.
 
 ## Sources Usage
@@ -34,7 +36,7 @@ While at a breakpoint you can mouse-over or enter a variable name in the console
 
 ### Sources Tools: Lower-Left Toolbar
 
-<img src="./assets/ios/ios-debugger-left-tools.png"></img>
+<img src="./assets/android/android-debugger-left-tools.png"></img>
 
 From left to right:
 
@@ -44,7 +46,7 @@ From left to right:
 
 ### Sources Tools: Upper-Right Toolbar
 
-<img src="./assets/ios/ios-debugger-right-tools.png"></img>
+<img src="./assets/android/android-debugger-right-tools.png"></img>
 
 From left to right:
 
@@ -53,6 +55,14 @@ From left to right:
 + While execution is paused: Step into currently selected function
 + While execution is paused: Step out of current function scope
 + Disable or enable all breakpoints
+
+
+## Heap Profiler
+
+Using the Heap Profiler you can quickly get a feel for how much memory is being used by your game.
+
+<img src="./assets/android/android-heap-profiler.png"></img>
+
 
 ## Troubleshooting Issues
 

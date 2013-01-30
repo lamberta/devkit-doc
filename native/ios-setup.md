@@ -52,7 +52,7 @@ Basil is the command-line tool you will use from the Game Closure SDK to perform
 The first step to doing iOS development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
-$ basil install-ios
+$ basil install ios
 ~~~
 
 This downloads and installs the iOS plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
