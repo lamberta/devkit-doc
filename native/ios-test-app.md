@@ -1,6 +1,6 @@
 # iOS Test App
 
-Test your game code live on a device with the Game Closure Test App.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and run the Test App on your device using Xcode.
+Test your game code live on a device with the Game Closure Test App.  You will host a server on your computer, and set up your mobile device to use WiFi.  Build and run the Test App on your device using Xcode.
 
 Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by restarting the game with a circular gesture (See Restarting below).
 
@@ -12,7 +12,7 @@ Turn on WiFi and connect your mobile device to the same LAN as your computer.
 
 ## Running
 
-An instance of the SDK basil server must be running to server games for the test app.  To start a new basil server enter this command at a console:
+An instance of the SDK basil server must be running to serve games for the test app.  To start a new basil server enter this command at a console:
 
 ~~~
 $ basil serve
@@ -20,7 +20,7 @@ $ basil serve
 
 This will start hosting the Test App Server on your LAN.
 
-To run the iOS Test App on your mobile device, simply enter the following command at a console:
+To run the iOS Test App on your mobile device, connect it to your computer via a USB data cable, and enter the following command at a console:
 
 ~~~
 $ basil testapp native-ios
@@ -56,7 +56,7 @@ After loading completes, your game should start.
 
 ## Remote JavaScript Debugging
 
-The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+The [Chrome Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
 
 ### Restarting
 
