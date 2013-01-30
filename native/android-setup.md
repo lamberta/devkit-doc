@@ -1,4 +1,4 @@
-# Setup for iOS Testing
+# Android Setup Guide
 
 ## Overview
 
