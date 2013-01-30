@@ -45,6 +45,16 @@ Every game includes and must have a manifest.json file with configuration inform
 
 In addition to the normal sections in the manifest file you may have already filled in, Android requires the following sections:
 
+#####Google Play
+
+Add the app version code from Google Play here:
+
+~~~
+	"android": {
+		"versionCode": 1
+	},
+~~~
+
 #####Icons
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
@@ -90,34 +100,13 @@ Add a list of TrueType font files to the manifest if you are using them:
 	],
 ~~~
 
-#####Google Play
-
-~~~
-	"ios": {
-		"bundleID": "com.billy.boards",
-		"appleID": "1234567",
-		"version": "1.0.0"
-	},
-~~~
-
 #####Splash Screen
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
 ~~~
 	"preload": {
 		"autoHide": true,
-		"img": "preload/splash.png",
-		"iphone": {
-			"launch": "preload/iphone/Default.png",
-			"launchRetina": "preload/iphone/Default@2x.png",
-			"launchRetina4": "preload/iphone/Default-568h@2x.png"
-		},
-		"ipad": {
-			"portrait": "preload/ipad/Default-Portrait~ipad.png",
-			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
-			"landscape": "preload/ipad/Default-Landscape~ipad.png",
-			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
-		}
+		"img": "preload/splash.png"
 	}
 }
 ~~~
@@ -126,9 +115,64 @@ Once your game is configured properly for Android, you're ready to install it!
 
 ## Setting Up a New Mobile Device
 
-In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.  This will add the device to your developer portal.
+If you are not able to find the "Developer options" menu, you will need to perform a "magic knock" to unlock it on Android 4.2 or newer.  Following this simple procedure:
 
-At this point you are ready to start building for iOS!  Check out the [building guide](./ios-build.html) for information on building your game, or the [test app guide](./ios-test-app.html) for instructions on how to use the test app for expedited development and testing.
+1.  Open the Settings app.
+2.  Select "About phone" at the bottom of the list.
+3.  Scroll to the bottom to see the "Build number" item.
+4.  Tap on the Build number five times.
+
+To begin building for an Android device you need to enable USB Debugging on the test device.  The process to enable debugging is:
+
+1.  Open the Settings app.
+2.  Select "Applications" at the middle of the list.
+3.  Select "Development settings" aka "Developer options".
+4.  Tap the check box next to USB debugging and tap OK.
+
+It is recommended to set the USB Charge mode to "Charge Only" while connected so that the phone will not unmount its internal storage while connected via USB.  To do this:
+
+1.  Connect the phone to your computer via the USB cable.
+2.  Pull open the Android notification toaster (hold the top of the screen and swipe down).
+3.  Select USB Connection.
+4.  Select "Charge Only" and tap OK.
+
+## Setting Up the Android Development Bridge (ADB)
+
+List the connected devices in the form: 'serialnumber device':
+
+`$ adb devices`
+
+Issue commands to a specific emulator/device:
+
+`$ adb -s <serialnumber> <command>`
+
+Install an application to a device:
+
+`$ adb install -r <path-to-apk>`
+
+The -r flag means to attempt a reinstall.  Note that this will fail if the APK is signed differently (mixing debug and release versions) so you may need to uninstall your game from the phone to reinstall.
+
+Print logging information to the console:
+
+`$ adb logcat <option> <optional-filter-spec>`
+
+Normally you will want to pair `adb logcat` with the standard `grep` tool to cut out most of the uninteresting log messages.
+
+For example `$ adb logcat | grep JS` will primarily display messages from your game.
+
+### Troubleshooting
+
+ADB may also be used to help debug problems with the Android USB connection.  If you run into problems getting your device to work, first unplug the USB cable and replug it in.
+
+If that does not fix the problem, then try to stop the ADB server on your computer:
+
+`$ adb kill-server`
+
+Also attempt to reboot the mobile device if communication is still unsuccessful.
+
+Reference:
+* [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
+* [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
 
 ### Appendix: Manual Install of the Android Plugin for Basil
 
@@ -156,129 +200,3 @@ basil install:
   }
 }
 ~~~
-
-### Build the apk
-
-In the top-level of your project, run:
-`$ basil build native-android`
-
-This creates an apk file located at `path/to/project/build/myapp.apk`.
-
-To create a debugging version, just add the appropriate flag:
-
-`$ basil build native-android --debug --clean --no-compress`
-
-Install the application to your device:
-
-`$ adb install -r path/to/project/build/myapp.apk`
-
-Run the game on your device by clicking its icon in the
-Application menu!
-
-
-### Configure the device
-
-To set up your Android device for development, enable *USB
-Debugging*. (This option is located in `Settings > Applications > Development`.)
-
-#### Using adb, the Android Development Bridge
-
-List the connected devices in the form: 'serialnumber device':
-
-`$ adb devices`
-
-Issue commands to a specific emulator/device:
-
-`$ adb -s <serialnumber> <command>`
-
-Install an application to a device:
-
-`$ adb install -r <path-to-apk>`
-
-Print logging information to the console:
-
-`$ adb logcat <option> <optional-filter-spec>`
-
-Stop the server if something is hanging:
-
-`$ adb kill-server`
-
-Also attempt to reboot the mobile device if it still hangs.
-
-Reference:
-* [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
-* [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
-
-
-## Performance Best Practices
-
-### Start with performant JavaScript code
-
-Any code that *can* be taken out of a loop, *should* be
-taken out. Function calls carry some additional
-overhead. Generally, modern JavaScript engines optimize for
-most use cases, but using a tool like
-[jsPerf](http://jsperf.com) to test snippets can be very
-insightful (even though it run tests in your browser, the
-lessons can still apply).
-
-Also, get comfortable with debugging JavaScript using the
-Chrome Developer Tools, especially the
-[Profiles Panel](https://developers.google.com/chrome-developer-tools/docs/profiles),
-with particular attention to the **CPU profiler** and the
-**Heap profiler**.
-
-### Allocate fewer objects
-
-The more objects that are created, the greater the
-performance lag when the JavaScript engine needs to garbage
-collect them, and if there are any references to an object,
-its memory won't be de-allocated. It's better to reuse
-existing objects than create new ones, so for example:
-
-* Use `Date.now()` instead of `+new Date()`.
-* Clear an old array with `arr.length = 0` instead of creating a new one.
-* Likewise, recycle objects rather than creating new ones.
-
-There are some symptoms for bad garbage collection:
-
-* Logs about garbage collection from V8 in `adb logcat`.
-* Irregular glitches in framerate when you're not doing anything notable in JavaScript.
-* Smooth framerates followed by brief lag spikes.
-
-#### Use View pools
-
-Since you take a performance hit when creating objects, it
-can be beneficial to create "pools" of `View` objects ahead
-of time, and then when your ready to use them, acquire them
-from the already allocated pool. When you are done with the
-view, release it back to the pool so it can be used again later.
-
-### Native code is faster than JavaScript
-
-JavaScript is fast, but it's even faster to let the native
-runtime do the work. Calls to JavaScript are have more
-overhead than native code. The more code you can offload to
-the native side, the faster your game will run.
-
-### Use the animation engine
-
-This is related to the previous tip. Using our
-[animation engine](../api/animate.html) is faster than
-calculating in a game loop because we can optimize it for
-native execution. The less calculations in JavaScript, the better!
-
-### Schedule tasks over multiple frames
-
-Game calculations can be expensive, especially when done on
-each frame. Many times, effects such as physics collisions
-and AI and be run every other frame (or even less) without a
-loss in visual quality. It's important to schedule these
-tasks across animation frames for a consistent, and better
-performing game.
-
-### Preload resources
-
-Resource loading can be hard on a game's framerate. Make
-sure to preload any assets before you need them to prevent
-noticeable in-game lags.
