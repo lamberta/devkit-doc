@@ -53,3 +53,7 @@ From left to right:
 + While execution is paused: Step into currently selected function
 + While execution is paused: Step out of current function scope
 + Disable or enable all breakpoints
+
+## Troubleshooting Issues
+
+If the debugger becomes unresponsive, attempt to refresh the browser window.  If that doesn't work, force-quit your game and restart it also.

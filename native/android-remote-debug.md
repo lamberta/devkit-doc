@@ -12,7 +12,7 @@ A more direct approach would be to break on the exception and inspect the JavaSc
 
 Run `basil serve` and launch a Chrome web browser.  Navigate to the Game Closure SDK webapp at `http://localhost:9200` in the web browser.  Select "Native Tools" from the left-hand navigation pane.  After a moment you will see a web inspector app in the right-hand pane.
 
-Remote JavaScript debugging is only available for Android devices connected via a USB cable, running a game built with the --debug and --no-compress flags.  See the (Android build documentation)[./android-build.html] for more information on the build process.
+Remote JavaScript debugging is only available for Android devices connected via a USB cable, running a game built with the --debug and --no-compress flags.  See the [Android build documentation](./android-build.html) for more information on the build process.
 
 ## Console Usage
 
@@ -24,7 +24,7 @@ At the console you are able to run JavaScript commands that are evaluated in the
 
 Click over to the Sources tab to view game source code and interact with the web inspector as you would with a familiar web inspector session in the browser.  The most useful debugging features will work remotely.
 
-<img src="./assets/ios/ios-debugger.png"></img>
+<img src="./assets/android/android-debugger.png"></img>
 
 There are two tabs for scripts on the left.  The left tab contains your game source code, and the right tab entitled "Content Scripts" contains the SDK JavaScript source code.
 
@@ -53,3 +53,7 @@ From left to right:
 + While execution is paused: Step into currently selected function
 + While execution is paused: Step out of current function scope
 + Disable or enable all breakpoints
+
+## Troubleshooting Issues
+
+If the debugger becomes unresponsive, attempt to refresh the browser window.  If that doesn't work, force-quit your game and restart it also.
