@@ -45,9 +45,9 @@ Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left ta
 
 ## Install iOS Plugin for Basil
 
-Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  The first step to doing iOS development with basil is to install the iOS plugin.
+Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
 
-At a command-line enter the command:
+The first step to doing iOS development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
 $ basil install ios
@@ -56,6 +56,8 @@ $ basil install ios
 This downloads and installs the iOS plugin for basil.
 
 ### Manual Install of iOS Plugin for Basil
+
+Make sure your version of basil is up to date with `basil update`.
 
 You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
 

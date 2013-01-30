@@ -52,7 +52,7 @@ To download the Game Closure SDK, issue the following
 commands at the terminal:
 
 ~~~
-$ git clone https://github.com/gameclosure/sdk.git
+$ git clone git@github.com:gameclosure/sdk
 $ cd sdk
 ~~~
 
@@ -89,16 +89,13 @@ $ sudo chown -R $(whoami) /usr/local
 
 ## Update the SDK
 
-To update your SDK to the latest version, switch to the
-directory you installed `basil` in, and type the following
-commands in at terminal:
+To keep your copy of the SDK up to date, run the update command:
 
 ~~~
-$ git pull
-$ git submodule update --init --recursive
-$ ./install.sh
+$ basil update
 ~~~
 
+The update command is also able to check out older versions of the SDK or different channels of SDK versions.  Read the help menu with `basil update --help` for more information on this flexible tool.
 
 ## Install the Examples
 

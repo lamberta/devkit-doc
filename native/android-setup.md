@@ -24,9 +24,9 @@ Android version 2.2 (API level 8) is the minimum required version.  The original
 
 ### Install Android Plugin for Basil
 
-Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  The first step to doing Android development with basil is to install the iOS plugin.
+Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
 
-At a command-line enter the command:
+The first step to doing Android development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
 $ basil install android
@@ -36,18 +36,21 @@ This downloads and installs the Android plugin for basil.
 
 ### Appendix: Manual Install of the Android Plugin for Basil
 
+Make sure your version of basil is up to date with `basil update`.
+
 Clone the Game Closure
 [Android repository](https://github.com/gameclosure/android). Switch
 to this directory and make sure everything is up-to-date:
 
 ~~~
-$ git clone git@github.com:gameclosure/android.git
-$ cd ./android
+$ git clone git@github.com:gameclosure/android
+$ cd android
+$ git checkout master
 $ git submodule update --init
 ~~~
 
 To let basil know where to find the android repository,
-update the `config.json` file located in the root of the
+update the **config.json** file located in the root of the
 basil install:
 
 ~~~
@@ -57,10 +60,6 @@ basil install:
   }
 }
 ~~~
-
-And make sure all the required sub-modules are updated:
-
-`$ basil update`
 
 ### Build the apk
 
