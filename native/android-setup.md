@@ -37,25 +37,25 @@ This downloads and installs the Android plugin for basil.
 
 ## Setting Up Your Game Manifest
 
-Every game includes and must have a manifest.json file with configuration information and more for each game. Several fields are required for a properly configured game for iOS.  
-  
-- The splash screen and icons for your game should be added before building for iOS devices.  
-- If you are using any custom TrueType fonts be sure to include those in the manifest file.  
+Every game includes and must have a manifest.json file with configuration information and more for each game. Several fields are required for a properly configured game for Android.
+
+- The splash screen and icons for your game should be added before building for Android devices.
+- If you are using any custom TrueType fonts be sure to include those in the manifest file.
 - For a complete reference see [documentation on the manifest.json](../guide/manifest.html) file.
 
-In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
-  
+In addition to the normal sections in the manifest file you may have already filled in, Android requires the following sections:
+
 #####Icons
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
 ~~~
 {
 	"icons": {
-		"57": "preload/icons/icon57.png",
-		"72": "preload/icons/icon72.png",
-		"114": "preload/icons/icon114.png",
-		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png",
+		"28": "preload/icons/icon36.png",
+		"38": "preload/icons/icon48.png",
+		"48": "preload/icons/icon48.png",
+		"56": "preload/icons/icon72.png",
+		"512": "preload/icons/icon512.png"
 	},
 ~~~
   

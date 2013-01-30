@@ -77,7 +77,7 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 		"72": "preload/icons/icon72.png",
 		"114": "preload/icons/icon114.png",
 		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png",
+		"512": "preload/icons/icon512.png"
 	},
 ~~~
   
