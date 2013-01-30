@@ -221,7 +221,7 @@ Define splash screen images for your game.  For the complete list of image sizes
 
 Once your game is configured properly for Android, you're ready to install it!
 
-## Setting Up a New Mobile Device
+## Configuring a New Android Device
 
 If you are not able to find the "Developer options" menu, you will need to perform a "magic knock" to unlock it on Android 4.2 or newer.  Following this simple procedure:
 
