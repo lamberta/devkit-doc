@@ -6,7 +6,7 @@ A smooth framerate in your game is essential for a good user experience.  The Ga
 
 Reaching your performance goals requires keeping a few key concepts in mind while coding.  JavaScript is a garbage-collected language, meaning that periodically all of the disposed objects need to be collected and freed so the memory can be reused.  This garbage collection can cause frames to drop if a large number of objects are being created and freed by your game.
 
-Rapid development is a top priority, and you can always go back and apply the following techniques after your game is up and running to improve performance further.
+Rapid development is a top priority, and you can always go back and apply the following techniques after your game is up and running to improve performance further.  Testing your game on lower-end phones such as the iPhone 3GS will help you determine how much time needs to be spent actually working on performance issues.
 
 ## Preload resources
 
