@@ -100,7 +100,8 @@ Stop the server if something is hanging:
 
 Also attempt to reboot the mobile device if it still hangs.
 
-Reference:
+Further references:
+
 * [Using Hardware Devices](http://developer.android.com/guide/developing/device.html)
 * [Android Debug Bridge](http://developer.android.com/guide/developing/tools/adb.html)
 
