@@ -11,7 +11,7 @@ You will need some tools for Android development:
 + Mac OS X 10.6 (or newer) computer
 + USB sync cable for your cellphone
 + Android SDK 15
-+ Android NDK r8b (or newer)
++ Android NDK r8d
 + Game Closure SDK (basil)
 
 For a guide on installing the Game Closure SDK [please see this documentation](../guide/quick-start.html).
@@ -31,6 +31,7 @@ local machine. If you are using the
 manager, run:
 
 ~~~
+$ brew update
 $ brew install android
 ~~~
 
@@ -60,28 +61,14 @@ and patiently wait for the download and installation to finish.
 
 ## Install the Android NDK
 
-The Android NDK is also required for Android development.  The NDK should be downloaded from the [Android Developer site](http://developer.android.com/tools/sdk/ndk/).  Currently homebrew installs an older version of the NDK (r7c), which is too far out of date.
-
-Download the Android NDK version r8d from [this link](http://dl.google.com/android/ndk/android-ndk-r8d-darwin-x86.tar.bz2) and extract it to /usr/local/android-ndk-r8d/.
-
-And then be sure to add the NDK to the path on your shell.
-
-For the default Terminal that comes with Mac OS X, add this line to the end of ~/.profile
+The Android NDK is also required for Android development.  An easy way to install the Android NDK is to use homebrew:
 
 ~~~
-export PATH="$PATH":/usr/local/android-ndk-r8d
+$ brew update
+$ brew install android-ndk
 ~~~
 
-For ZSH, add this line to the end of ~/.zshrc
-
-If you installed the NDK properly, then you should be able to open a new Terminal window and type `which ndk-build` and see:
-
-~~~
-$ which ndk-build
-/usr/local/android-ndk-r8b/ndk-build
-~~~
-
-If the NDK is not installed properly you will get an `[android] Error: could not build support projects.` error when you attempt to build your game.
+The homebrew install script will update your .profile to include the NDK tools in your $PATH.  So, you will want to open a new terminal window that will have the new path set.
 
 ## Install Android Plugin for Basil
 
