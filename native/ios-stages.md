@@ -22,7 +22,7 @@ For more information see the [basic SDK guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change. Simply connect your device to the GC SDK server hosted on your computer, and begin testing your game as seemlessly as testing with the Game Closure web interface on your computer.  Again, for more information on how to get started with the Game Closure Test App, [look here](./test_app.html).
+Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and install the Test App on a USB-attached iOS device with `basil testapp native-ios`.
 
 The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.
 
