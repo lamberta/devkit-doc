@@ -1,50 +1,56 @@
-# Build for Native Devices
+# Building for Android
 
-## Android
+## Overview
 
-### Install the Android SDK
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  (\"My game is finally in my hands!\")  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
 
-Download and install the
-[Android SDK](http://developer.android.com/sdk/) to your
-local machine. If you are using the
-[Homebrew](http://mxcl.github.com/homebrew/) package
-manager, run:
+Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  See the [Android Setup Guide](./android-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
 
-test
+## Building an .APK
 
-`$ brew install android`
-
-Running `android` at the command-line brings up a GUI
-front-end that will install the latest target. Install the
-Android API 15.
-
-### Install the native Android component from the Game Closure SDK
-
-Clone the Game Closure
-[Android repository](https://github.com/gameclosure/android). Switch
-to this directory and make sure everything is up-to-date:
+To build your game, open a console and change directory to your game's top-level folder.
 
 ~~~
-$ git clone git@github.com:gameclosure/android.git
-$ cd ./android
-$ git submodule update --init
+$ cd whack-that-mole
+$ ls
+README.md     manifest.json resources     src
+$ basil build native-android --no-compress --debug --clean
+[build]   Building: debug/native-android
+...
 ~~~
 
-To let basil know where to find the android repository,
-update the `config.json` file located in the root of the
-basil install:
+By specifying the --no-compress option, basil will not try to compress JavaScript files.  This speeds up the build process and is recommended for most pre-release builds.
+
+When the build completes, you will see a line such as:
 
 ~~~
-{
-  "android": {
-    "root": "path/to/android"
-  }
-}
+[android]   saved to /Users/gc/sandbox/whack-that-mole/build/debug/native-android/whackthatmole.apk
 ~~~
 
-And make sure all the required sub-modules are updated:
+This indicates where the output APK file has been saved.  You can then install
 
-`$ basil update`
+### Build Options
+
+#### Example Usage
+
+## Installing to a Connected Device
+
+Install an application to a device using the Android Debug Bridge (ADB):
+
+`$ adb install -r <path-to-apk>`
+
+The -r flag means to attempt a reinstall.  Note that this will fail if the APK is signed differently (mixing debug and release versions) so you may need to uninstall your game from the phone to reinstall.
+
+Print logging information to the console:
+
+`$ adb logcat <option> <optional-filter-spec>`
+
+Normally you will want to pair `adb logcat` with the standard `grep` tool to cut out most of the uninteresting log messages.
+
+For example `$ adb logcat | grep JS` will primarily display messages from your game.
+
+
+To build your game enter:
 
 ### Build the apk
 

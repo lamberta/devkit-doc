@@ -36,7 +36,7 @@ $ brew install android
 
 Running `android` at the command-line brings up a GUI
 front-end that will allow you to install various android 
-api targets. Install the SDK Platform under Android 4.0.3 
+API targets. Install the SDK Platform under Android 4.0.3 
 (API 15), Android Support Library in the Extras sections 
 at the bottom of the list, and the Android SDK Platform-tools 
 in the tools section at the top.
@@ -94,6 +94,54 @@ $ basil install-android
 ~~~
 
 This downloads and installs the Android plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
+
+## Generating a Keystore
+
+To digitally sign your game's binary file, you will need to generate a keystore file.  The purpose and process are described on the [Android Developer site](http://developer.android.com/tools/publishing/app-signing.html).  Most importantly, a keystore is required for Android building, so you will want to make one at this point.
+
+A quick-start example:
+
+~~~
+ $ keytool -genkey -v -keystore beards.keystore -alias "bearded bobs" -keyalg RSA -keysize 2048 -validity 10000
+Enter keystore password: fuzzyfiggin
+Re-enter new password: fuzzyfiggin
+What is your first and last name?
+  [Unknown]:  Bob Baxter
+What is the name of your organizational unit?
+  [Unknown]:  SDK
+What is the name of your organization?
+  [Unknown]:  Game Closure
+What is the name of your City or Locality?
+  [Unknown]:  Mountain View
+What is the name of your State or Province?
+  [Unknown]:  CA
+What is the two-letter country code for this unit?
+  [Unknown]:  US
+Is CN=Bob Baxter, OU=SDK, O=Game Closure, L=Mountain View, ST=CA, C=US correct?
+  [no]:  yes
+
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA1withRSA) with a validity of 10,000 days
+	for: CN=Bob Baxter, OU=SDK, O=Game Closure, L=Mountain View, ST=CA, C=US
+Enter key password for <alias_name>
+	(RETURN if same as keystore password): <RETURN>
+[Storing beards.keystore]
+~~~
+
+You will want to copy your keystore to a convenient location and then reference it in the `config.json` file in the root of your Game Closure SDK folder.
+
+An example "android" section in Basil's `config.json` file:
+
+~~~
+	"android": {
+		"root": "/Users/bbaxter/cleanroom/android",
+		"key": "bearded bobs",
+		"keystore": "/Users/bbaxter/cleanroom/basil/beards.keystore",
+		"storepass": "fuzzyfiggin",
+		"keypass": "fuzzyfiggin"
+	}
+~~~
+
+The `storepass` is the keystore password you typed initially.  And `keypass` is the key password, which will be the same as the keystore password if you opted not to enter one.
 
 ## Setting Up Your Game Manifest
 
@@ -196,35 +244,13 @@ It is recommended to set the USB Charge mode to "Charge Only" while connected so
 3.  Select USB Connection.
 4.  Select "Charge Only" and tap OK.
 
-## Setting Up the Android Development Bridge (ADB)
+### Troubleshooting
 
-List the connected devices in the form: 'serialnumber device':
+The Android Debug Bridge (ADB) may be used to help debug problems with the Android USB connection.  First off, use ADB to list the connected devices at a terminal window:
 
 `$ adb devices`
 
-Issue commands to a specific emulator/device:
-
-`$ adb -s <serialnumber> <command>`
-
-Install an application to a device:
-
-`$ adb install -r <path-to-apk>`
-
-The -r flag means to attempt a reinstall.  Note that this will fail if the APK is signed differently (mixing debug and release versions) so you may need to uninstall your game from the phone to reinstall.
-
-Print logging information to the console:
-
-`$ adb logcat <option> <optional-filter-spec>`
-
-Normally you will want to pair `adb logcat` with the standard `grep` tool to cut out most of the uninteresting log messages.
-
-For example `$ adb logcat | grep JS` will primarily display messages from your game.
-
-### Troubleshooting
-
-ADB may also be used to help debug problems with the Android USB connection.  If you run into problems getting your device to work, first unplug the USB cable and replug it in.
-
-If that does not fix the problem, then try to stop the ADB server on your computer:
+If you run into problems getting your device to work, first unplug the USB cable and replug it in.  If that does not fix the problem, then try to stop the ADB server on your computer:
 
 `$ adb kill-server`
 
