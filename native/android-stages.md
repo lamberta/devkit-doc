@@ -26,18 +26,18 @@ Tap the installed "Test App" icon on your Android device.  Select your server fr
 
 The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Simply attach your Android device via the USB cable and use the Native Tools feature to trap exceptions and view the console logs of Test App sessions.
 
+You may also use `adb logcat | grep JS` to view the JavaScript logs.
+
 ### 3. Building
 
 [Build and install](./android-build.html) your game to a device connected via USB.  Simply run `basil build native-android` to produce an APK, then install it with `adb install`.
 
-The Chrome Web Inspector interface may also be used to inspect and debug JavaScript game code running on the Android device.  
+The Chrome Web Inspector interface may also be used to inspect and debug JavaScript game code running on the Android device.  Simply attach your Android device via the USB cable and use the Native Tools feature to trap exceptions and view the console logs of Test App sessions.
+
+You may also use `adb logcat | grep JS` to view the JavaScript logs.
 
 At this stage the mobile device no longer needs to be tethered to your computer and you can show off your game!
 
-### 4. Group Testing
+### 4. Deployment
 
-Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com).  Testers signed up with TestFlight can use your app all over the world on their mobile Apple devices.
-
-### 5. Deployment
-
-The same IPA file use for group testing will be uploaded to the Apple Store for release.
+The same APK that you built for testing may be uploaded to the Google Play Store.
