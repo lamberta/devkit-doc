@@ -120,10 +120,6 @@ array, for example:
     * `114 {string}` ---Path to retina game app icon for iPhone, 114x114px.
     * `144 {string}` ---Path to retina game app icon for iPad, 144x144px.
     * `512 {string}` ---Path to large game app icon, 512x512px.
-    * `alerts {object}`
-        * `high {string}` ---Path to high-priority push notification image, 48x48px.
-        * `med {string}` ---Path to medium-priority push notification image, 48x48px.
-        * `low {string}` ---Path to low-priority push notification image, 48x48px.
 
 Icons are displayed in the simulator and are used for
 your game on a mobile device. All icons are PNG image
@@ -152,12 +148,7 @@ In the `manifest.json` file, include the icon images like this:
   "72": "preload/icons/icon72.png",
   "114": "preload/icons/icon114.png",
   "144": "preload/icons/icon144.png",
-  "512": "preload/icons/icon512.png",
-  "alerts": {
-    "high": "preload/promo/PushNotification-02_48x48.png",
-    "low": "preload/promo/PushNotification-02_48x48.png",
-    "med": "preload/promo/PushNotification-02_48x48.png"
-  }
+  "512": "preload/icons/icon512.png"
 }
 ~~~
 
