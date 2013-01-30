@@ -135,7 +135,7 @@ A game created with the Game Closure SDK has this basic file structure:
 ├── sdk -> /path/to/basil/sdk
 ├── resources/
 └── src
-	└── Application.js
+    └── Application.js
 ~~~
 
 There is the `manifest.json` file located in the project
@@ -255,47 +255,83 @@ purpose is to initialize the title screen and game screen and
 handle events for directing the game flow.
 
 ~~~
+/*
+ * The main application file, your game code begins here.
+ */
+
+//sdk imports
+import device;
+import ui.StackView as StackView;
+//user imports
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
 
+/* Your application inherits from GC.Application, which is
+ * exported and instantiated when the game is run.
+ */
 exports = Class(GC.Application, function () {
 
-  // private variables
-  var titlescreen, gamescreen, sound;
-
+ /* Run after the engine is created and the scene graph is in
+  * place, but before the resources have been loaded.
+  */
   this.initUI = function () {
-    // initialize game screens
-    titlescreen = new TitleScreen();
-    gamescreen = new GameScreen();
+    var titlescreen = new TitleScreen(),
+        gamescreen = new GameScreen();
 
-    sound = soundcontroller.getSound();
-    
-    // set up event handlers
+    this.view.style.backgroundColor = '#30B040';
+
+    //Add a new StackView to the root of the scene graph
+    var rootView = new StackView({
+      superview: this,
+      x: device.width / 2 - 160,
+      y: device.height / 2 - 240,
+      width: 320,
+      height: 480,
+      clip: true,
+      backgroundColor: '#37B34A'
+    });
+
+    rootView.push(titlescreen);
+
+    var sound = soundcontroller.getSound();
+
+   /* Listen for an event dispatched by the title screen when
+    * the start button has been pressed. Hide the title screen,
+    * show the game screen, then dispatch a custom event to the
+    * game screen to start the game.
+    */
     titlescreen.on('titlescreen:start', function () {
       sound.play('levelmusic');
-      GC.app.view.push(gamescreen);
+      rootView.push(gamescreen);
       gamescreen.emit('app:start');
     });
-    
+
+   /* When the game screen has signalled that the game is over,
+    * show the title screen so that the user may play the game again.
+    */
     gamescreen.on('gamescreen:end', function () {
       sound.stop('levelmusic');
-      GC.app.view.pop();
+      rootView.pop();
     });
   };
-  
-  this.launchUI = function () {
-    // add the title screen into our scene graph
-    this.view.push(titlescreen);
-  };
+
+ /* Executed after the asset resources have been loaded.
+  * If there is a splash screen, it's removed.
+  */
+  this.launchUI = function () {};
 });
 ~~~
 
-At the top of this file, we import three additional source
-files in our project's root directory using the 
-[`import`](../api/utilities.html#import) statement provided by the SDK:
+At the top of this file, two modules from the SDK and three
+additional source files are imported in to our project using the 
+[`import`](../api/utilities.html#import) statement:
 
 ~~~
+//sdk imports
+import device;
+import ui.StackView as StackView;
+//user imports
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
@@ -318,6 +354,13 @@ definition function, you can refer to it using the `this`
 object. A working---bare-bones---`Application.js` file can
 look like this:
 
+The `device` module contains information about the physical
+device running the application. We can use this to obtain
+information about the browser window, or even a native
+mobile application depending on where your game is running.
+You can view a complete list of [device properties](../api/device.html)
+in the documentation.
+
 ~~~
 exports = Class(GC.Application, function () {
   // class definition goes here ...
@@ -333,7 +376,6 @@ Closure engine is created and the scene graph is
 ready. When the `launchUI` function is called, the splash/loading
 screen is removed if one is defined.
 
-
 #### Creating the Screens
 
 After our game screen classes have been imported at the top
@@ -341,8 +383,8 @@ of our file, we instantiate them in the `initUI`
 function. This is when our game engine is ready.
 
 ~~~
-titlescreen = new TitleScreen();
-gamescreen = new GameScreen();
+var titlescreen = new TitleScreen(),
+    gamescreen = new GameScreen();
 ~~~
 
 We'll look in detail about how these screens are constructed
@@ -383,14 +425,14 @@ gamescreen.on('gamescreen:end', function () {
 });
 ~~~
 
-When we receive the event to start the game, we *push* the
-game screen on to the root stack. There is no need to remove
-the title screen already in the stack, the game screen is
-simply "on top" of it and becomes the visible view of the
-application. By default, pushing another view to the
-`StackView` has a side-scrolling animation transition, this
-can be turned off. We'll look at the details of the game's
-event flow in a moment as we step through the title screen.
+When the event to start the game is received, the game
+screen is *pushed* on to the `rootView` stack view. There is
+no need to remove the title screen already in the stack, the
+game screen is simply "on top" of it and becomes the visible
+view of the application. By default, pushing another view to
+the `StackView` has a side-scrolling animation transition,
+this can be turned off. We'll look at the details of the
+game's event flow in a moment as we step through the title screen.
 
  
 ### The Game Awaits: TitleScreen.js
@@ -424,8 +466,6 @@ exports = Class(ui.ImageView, function (supr) {
     opts = merge(opts, {
       x: 0,
       y: 0,
-      width: device.width,
-      height: device.height,
       image: "resources/images/title_screen.png"
     });
 
@@ -472,11 +512,6 @@ the properties it inherits from the base View, `ImageView`
 has additional methods for setting an image to be used
 within a view. Check [the API](../api/ui-imageview.html) for more details.
 
-The `device` module contains information about the physical
-device running the application. We can use this to obtain
-information about the browser window, or even a native
-mobile application depending on where your game is running.
-
 Now that we have imported our dependencies, we can define
 our `TitleScreen` class. Here we use the `Class` function to
 define our screen module as a sub-class of the `ui.ImageView` type:
@@ -515,8 +550,6 @@ this.init = function (opts) {
   opts = merge(opts, {
     x: 0,
     y: 0,
-    width: device.width,
-    height: device.height,
     image: "resources/images/title_screen.png"
   });
 
@@ -525,11 +558,7 @@ this.init = function (opts) {
 ~~~
 
 The `title_screen.png` image file is loaded as the `image` option for
-`ui.ImageView`. You can also see that we're using the
-`device.width` and `device.height` properties to set the
-dimensions of this `ImageView` to fill the screen. You can view
-a complete list of [device properties](../api/device.html)
-in the documentation.
+`ui.ImageView`. 
 
 The `supr` function is provided as an argument to the class
 definition by the `Class` function. As parameters it
@@ -678,8 +707,8 @@ this.init = function (opts) {
   opts = merge(opts, {
     x: 0,
     y: 0,
-    width: device.width,
-    height: device.height,
+    width: 320,
+    height: 480,
     backgroundColor: '#37B34A'
   });
 
@@ -726,47 +755,45 @@ in the standard `buildView` function:
 
 ~~~
 this.buildView = function () {
-  var x_offset = 5,
-	  y_offset = 160,
-	  y_pad = 25,
-	  layout = [[1, 0, 1],
-		        [0, 1, 0],
-				[1, 0, 1]];
+  var x_offset = 5;
+  var y_offset = 160;
+  var y_pad = 25;
+  var layout = [[1, 0, 1], [0, 1, 0], [1, 0, 1]];
 
   this._molehills = [];
-	
-	//loop over the layout grid, row then column	
+    
+  //loop over the layout grid, row then column  
   for (var row = 0, len = layout.length; row < len; row++) {
     for (var col = 0; col < len; col++) {
-		//if there was a 1 in the grid, create a mole
-	  if (layout[row][col] !== 0) {
-	    var molehill = new MoleHill();
-		molehill.style.x = x_offset + col * molehill.style.width;
-		molehill.style.y = y_offset + row * (molehill.style.height + y_pad);
-		this.addSubview(molehill);
-		this._molehills.push(molehill);
-					
-		//update score on hit event
-		molehill.on('molehill:hit', bind(this, function () {
-		  if (game_on) {
-		    score = score + hit_value;
-			this._scoreboard.setText(score.toString());
-		  }
-		}));
-	  }
-	}
+        //if there was a 1 in the grid, create a mole
+      if (layout[row][col] !== 0) {
+        var molehill = new MoleHill();
+        molehill.style.x = x_offset + col * molehill.style.width;
+        molehill.style.y = y_offset + row * (molehill.style.height + y_pad);
+        this.addSubview(molehill);
+        this._molehills.push(molehill);
+                    
+        //update score on hit event
+        molehill.on('molehill:hit', bind(this, function () {
+          if (game_on) {
+            score = score + hit_value;
+            this._scoreboard.setText(score.toString());
+          }
+        }));
+      }
+    }
   }
 
   this._countdown = new ui.TextView({
     superview: this._scoreboard,
-	visible: false,
-	x: 260,
-	y: -5,
-	width: 50,
-	height: 50,
-	fontSize: 24,
-	color: '#fff',
-	opacity: 0.7
+    visible: false,
+    x: 260,
+    y: -5,
+    width: 50,
+    height: 50,
+    fontSize: 24,
+    color: '#fff',
+    opacity: 0.7
   });
 };
 ~~~
@@ -804,15 +831,15 @@ function start_game_flow () {
 
   animate(that._scoreboard).wait(1000)
     .then(function () {
-	  that._scoreboard.setText(text.READY);
-	}).wait(1500).then(function () {
-	  that._scoreboard.setText(text.SET);
-	}).wait(1500).then(function () {
-	  that._scoreboard.setText(text.GO);
-	  //start game ...
-	  game_on = true;
-	  play_game.call(that);
-	});
+      that._scoreboard.setText(text.READY);
+    }).wait(1500).then(function () {
+      that._scoreboard.setText(text.SET);
+    }).wait(1500).then(function () {
+      that._scoreboard.setText(text.GO);
+      //start game ...
+      game_on = true;
+      play_game.call(that);
+    });
 }
 ~~~
 
@@ -836,21 +863,21 @@ the game:
 ~~~
 function play_game () {
   var i = setInterval(bind(this, tick), mole_interval),
-	  j = setInterval(bind(this, update_countdown), 1000);
+      j = setInterval(bind(this, update_countdown), 1000);
 
-	//when the game is up reset all timers, flags and countdown
+    //when the game is up reset all timers, flags and countdown
   setTimeout(bind(this, function () {
     game_on = false;
-	clearInterval(i);
-	clearInterval(j);
-	setTimeout(bind(this, end_game_flow), mole_interval * 2);
-	this._countdown.setText(":00");
+    clearInterval(i);
+    clearInterval(j);
+    setTimeout(bind(this, end_game_flow), mole_interval * 2);
+    this._countdown.setText(":00");
   }), game_length);
 
   //Make countdown timer visible, remove start message if still there.
   setTimeout(bind(this, function () {
     this._scoreboard.setText(score.toString());
-	this._countdown.style.visible = true;
+    this._countdown.style.visible = true;
   }), game_length * 0.25);
 
   //Running out of time! Set countdown timer red.
@@ -860,11 +887,11 @@ function play_game () {
 }
 
 function tick () {
-	//choose a mole by random
+    //choose a mole by random
   var len = this._molehills.length,
-	  molehill = this._molehills[Math.random() * len | 0];
+      molehill = this._molehills[Math.random() * len | 0];
 
-	//choose another if it's already active
+    //choose another if it's already active
   while (molehill.activeMole) {
     molehill = this._molehills[Math.random() * len | 0];
   }
@@ -890,28 +917,28 @@ the appearance that he is laughing at you.
 ~~~
 function end_game_flow () {
   var isHighScore = (score > high_score),
-	  end_msg = get_end_message(score, isHighScore);
+      end_msg = get_end_message(score, isHighScore);
 
   this._countdown.setText(''); //clear countdown text
   //resize scoreboard text to fit everything
   this._scoreboard.updateOpts({
     text: '',
-	x: 10,
-	fontSize: 17,
-	verticalAlign: 'top',
-	textAlign: 'left',
-	multiline: true
+    x: 10,
+    fontSize: 17,
+    verticalAlign: 'top',
+    textAlign: 'left',
+    multiline: true
   });
 
   //check for high-score and do appropriate animation
   if (isHighScore) {
     high_score = score;
-	this._molehills.forEach(function (molehill) {
-	  molehill.endAnimation();
-	});
+    this._molehills.forEach(function (molehill) {
+      molehill.endAnimation();
+    });
   } else {
     var i = (this._molehills.length-1) / 2 | 0; //just center mole
-	this._molehills[i].endAnimation(true);
+    this._molehills[i].endAnimation(true);
   }
 
   this._scoreboard.setText(end_msg);
@@ -929,7 +956,7 @@ touch the screen:
 function emit_endgame_event () {
   this.once('InputSelect', function () {
     this.emit('gamescreen:end');
-	reset_game.call(this);
+    reset_game.call(this);
   });
 }
 ~~~
@@ -963,37 +990,37 @@ ground, and ready to be whacked!
 this.buildView = function () {
   var hole_back = new ui.ImageView({
     superview: this,
-	image: hole_back_img,
-	//...
+    image: hole_back_img,
+    //...
   });
 
   this._inputview = new ui.View({
     superview: this,
-	clip: true,
-	//...
+    clip: true,
+    //...
   });
 
   this._moleview = new ui.ImageView({
     superview: this._inputview,
-	image: mole_normal_img,
-	//...
+    image: mole_normal_img,
+    //...
   });
 
   var hole_front = new ui.ImageView({
     superview: this,
-	canHandleEvents: false,
-	image: hole_front_img,
-	//...
+    canHandleEvents: false,
+    image: hole_front_img,
+    //...
   });
 
   //...
 
   this._inputview.on('InputSelect', bind(this, function () {
     if (this.activeInput) {
-	  sound.play('whack');
-	  this.emit('molehill:hit');
-	  this.hitMole();
-	}
+      sound.play('whack');
+      this.emit('molehill:hit');
+      this.hitMole();
+    }
   }));
 };
 ~~~
@@ -1058,15 +1085,15 @@ object we just created:
 this.showMole = function () {
   if (this.activeMole === false) {
     this.activeMole = true;
-	this.activeInput = true;
+    this.activeInput = true;
 
-	this._animator.now({y: mole_up}, 500, animate.EASE_IN)
-	  .wait(1000).then(bind(this, function () {
-	    this.activeInput = false;
-	  })).then({y: mole_down}, 200, animate.EASE_OUT)
-	  .then(bind(this, function () {
-	    this.activeMole = false;
-	  }));
+    this._animator.now({y: mole_up}, 500, animate.EASE_IN)
+      .wait(1000).then(bind(this, function () {
+        this.activeInput = false;
+      })).then({y: mole_down}, 200, animate.EASE_OUT)
+      .then(bind(this, function () {
+        this.activeMole = false;
+      }));
   }
 };
 
@@ -1074,17 +1101,17 @@ this.hitMole = function () {
   if (this.activeMole && this.activeInput) {
     this.activeInput = false;
 
-	this._animator.clear()
-	  .now((function () {
-	    this._moleview.setImage(mole_hit_img);
-	  }).bind(this))
-	    .then({y: mole_down}, 1500)
-		.then(bind(this, function () {
-		  this._moleview.setImage(mole_normal_img);
-		  this.activeMole = false;
-		  this.activeInput = false;
-	  }));
-	}
+    this._animator.clear()
+      .now((function () {
+        this._moleview.setImage(mole_hit_img);
+      }).bind(this))
+        .then({y: mole_down}, 1500)
+        .then(bind(this, function () {
+          this._moleview.setImage(mole_normal_img);
+          this.activeMole = false;
+          this.activeInput = false;
+      }));
+    }
 };
 
 this.endAnimation = function () {
@@ -1092,11 +1119,11 @@ this.endAnimation = function () {
   this._animator.then({y: mole_up}, 2000)
   .then(bind(this, function () {
     this._interval = setInterval(bind(this, function () {
-	  if (this._moleview.getImage() === mole_normal_img) {
-	    this._moleview.setImage(mole_hit_img);
-	  } else {
-	    this._moleview.setImage(mole_normal_img);
-	  }
+      if (this._moleview.getImage() === mole_normal_img) {
+        this._moleview.setImage(mole_hit_img);
+      } else {
+        this._moleview.setImage(mole_normal_img);
+      }
     }), 100);
   }));
 };
@@ -1118,7 +1145,7 @@ this._animator.now({y: mole_up}, 500, animate.EASE_IN)
     this.activeInput = false;
   })).then({y: mole_down}, 200, animate.EASE_OUT)
     .then(bind(this, function () {
-	  this.activeMole = false;
+      this.activeMole = false;
   }));
 ~~~
 
@@ -1177,18 +1204,18 @@ exports.sound = null;
 exports.getSound = function () {
   if (!exports.sound) {
     exports.sound = new AudioManager({
-	  path: 'resources/sounds',
-	  files: {
-	    levelmusic: {
-		  path: 'music',
-		  volume: 0.5,
-		  background: true,
-		  loop: true
-		},
-		whack: {
-		  path: 'effect',
-		  background: false
-		}
+      path: 'resources/sounds',
+      files: {
+        levelmusic: {
+          path: 'music',
+          volume: 0.5,
+          background: true,
+          loop: true
+        },
+        whack: {
+          path: 'effect',
+          background: false
+        }
       }
     });
   }
@@ -1214,13 +1241,13 @@ this.initUI = function () {
 
   titlescreen.on('titlescreen:start', function () {
     sound.play('levelmusic');
-	GC.app.view.push(gamescreen);
-	GC.app.emit('app:start');
+    GC.app.view.push(gamescreen);
+    GC.app.emit('app:start');
   });
 
   gamescreen.on('gamescreen:end', function () {
     sound.stop('levelmusic');
-	GC.app.view.pop();
+    GC.app.view.pop();
   });
 };
 ~~~
