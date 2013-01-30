@@ -48,37 +48,9 @@ Run the build command with the `--ipa` flag to create an .IPA file for your game
 $ basil build native-ios --ipa --provision /Users/bboy/Desktop/BeardsOnBoards.mobileprovision --name="Bob Baxter"
 ~~~
 
-## Watching JavaScript Logs
+### Troubleshooting Issues
 
-## Appendix: Using iOS Devices
-
-### Uninstalling Games
-
-To uninstall a game on iOS:
-
-1. Navigate to the home screen.
-2. Tap and hold on the game icon until the icon starts to shiver.
-3. Tap the (X) that appears and tap [Delete].
-4. Press the Home button to exit the delete mode.
-
-### Force-Quitting Games
-
-To force-quit a game on an iPad:
-
-1. Tap the Home button to return to the home screen.
-2. Double-tap the Home button, revealing an icon list at the bottom.
-3. Tap and hold on the game icon in the revealed list at the bottom until the icon starts to shiver.
-4. Tap the (-) that appears to force-quit the game.
-5. Tap the Home button to exit the force-quit mode.
-6. Tap the Home button again to return to the home screen.
-
-### Troubleshooting Sound Problems
-
-On iOS you cannot play .OGG audio, so ensure that your sound files are in .MP3 format as discussed in the [audio production guide](../guides/audio-assets.html).  With the Game Closure SDK, you can easily support both .OGG for Android and .MP3 for iOS by having two copies of each sound file.  When building, `basil` will take the .OGG version when it can be used on the target platform (Android for example) and will fall back to the .MP3 extension version if needed (iOS).  Inside your game, name your sound files with a .MP3 extension rather than .OGG.
-
-On iOS devices there is a switch that can mute audio, so make sure that did not get flipped by accident.
-
-There is also a hidden audio menu that you can access by double-tapping the Home button and swiping the bottom icon ribbon that appears to the right.  Verify that the audio controls do not have sound muted there.
+If you run into problems, try our [iOS troubleshooting guide](./ios-troubleshooting.html).
 
 ## Appendix: Build Options
 
