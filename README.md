@@ -12,8 +12,6 @@ This repository is separated in to the following directories:
 
 ## Editing
 
-Please use the [Style Guide](https://github.com/gameclosure/doc/wiki/Style-Guide) when contributing changes.
-
 All documentation is written in markdown and converted to html
 using Pandoc. Subsequently, any of Pandoc's [supported syntax](http://johnmacfarlane.net/pandoc/README.html) 
 will work in these documents.
