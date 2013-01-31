@@ -4,11 +4,11 @@ This guide takes you through the entire process of developing for iOS devices wi
 
 ## [Overview](./ios-stages.html)
 
-The development cycle can be broken down into [five stages](./ios-stages.html), leading up to deployment on the Apple Store.  Initially, all development is done with [web tools](../guide/quick-start.html) and emulated devices.
+The development cycle can be broken down into [five stages](./ios-stages.html), leading up to deployment on the iTunes App Store.  Initially, all development is done with [web tools](../guide/quick-start.html) and emulated devices.
 
 Then the [Test App](./ios-test-app.html) is used to accelerate transition onto the mobile devices, with the help of [remote debugging](./ios-remote-debug.html) tools.
 
-Then [iOS building](./ios-build.html) is encouraged to test and demo your game, which graduates into group testing with TestFlight, and finally deployment via the Apple Store.
+Then [iOS building](./ios-build.html) is encouraged to test and demo your game, which graduates into group testing with TestFlight, and finally deployment via the iTunes App Store.
 
 ## [Setup](./ios-setup.html)
 

@@ -109,8 +109,8 @@ Is CN=Bob Baxter, OU=SDK, O=Game Closure, L=Mountain View, ST=CA, C=US correct?
 
 Generating 2,048 bit RSA key pair and self-signed certificate (SHA1withRSA) with a validity of 10,000 days
 	for: CN=Bob Baxter, OU=SDK, O=Game Closure, L=Mountain View, ST=CA, C=US
-Enter key password for <alias_name>
-	(RETURN if same as keystore password): <RETURN>
+Enter key password for <bearded bobs>
+	(RETURN if same as keystore password):
 [Storing beards.keystore]
 ~~~
 
@@ -212,21 +212,21 @@ Once your game is configured properly for Android, you're ready to install it!
 
 If you are not able to find the "Developer options" menu, you will need to perform a "magic knock" to unlock it on Android 4.2 or newer.  Following this simple procedure:
 
-1.  Open the Settings app.
+:1.  Open the Settings app.
 2.  Select "About phone" at the bottom of the list.
 3.  Scroll to the bottom to see the "Build number" item.
 4.  Tap on the Build number five times.
 
 To begin building for an Android device you need to enable USB Debugging on the test device.  The process to enable debugging is:
 
-1.  Open the Settings app.
+:1.  Open the Settings app.
 2.  Select "Applications" at the middle of the list.
 3.  Select "Development settings" aka "Developer options".
 4.  Tap the check box next to USB debugging and tap OK.
 
 It is recommended to set the USB Charge mode to "Charge Only" while connected so that the phone will not unmount its internal storage while connected via USB.  To do this:
 
-1.  Connect the phone to your computer via the USB cable.
+:1.  Connect the phone to your computer via the USB cable.
 2.  Pull open the Android notification toaster (hold the top of the screen and swipe down).
 3.  Select USB Connection.
 4.  Select "Charge Only" and tap OK.

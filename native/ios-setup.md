@@ -67,7 +67,7 @@ Every game includes and must have a manifest.json file with configuration inform
 
 In addition to the normal sections in the manifest file you may have already filled in, iOS requires the following sections:
 
-#####Apple Store
+#####iTunes App Store
 
 Add these fields to insure that In-App Purchases will work.
 

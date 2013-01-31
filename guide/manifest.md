@@ -26,6 +26,9 @@ game appears in the Basil development environment, but also
 where to find image and font resources, store third-party service
 keys, and configures the environment to build for native devices.
 
+From inside the JavaScript code for your game, these options are
+accessible at runtime via the CONFIG global variable.  For example: `CONFIG.title` and `CONFIG.appID`.
+
 
 ## Supported Configuration Settings
 
