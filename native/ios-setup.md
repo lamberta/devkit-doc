@@ -52,7 +52,7 @@ Basil is the command-line tool you will use from the Game Closure SDK to perform
 The first step to doing iOS development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
-$ basil install ios
+$ basil install native-ios
 ~~~
 
 This downloads and installs the iOS plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
@@ -160,12 +160,13 @@ If you run into problems, try our [iOS troubleshooting guide](./ios-troubleshoot
 
 ### Appendix: Manual Install of iOS Plugin for Basil
 
-You may attempt a manual install of the Basil iOS plugin.  At a command-line enter the commands:
+Clone the Game Closure
+[iOS GitHub repository](https://github.com/gameclosure/native-ios). Switch to this directory and make sure everything is up-to-date:
 
 ~~~
-$ git clone git@github.com:gameclosure/ios
-$ cd ios
-$ git checkout master
+$ git clone git@github.com:gameclosure/native-ios
+$ cd native-ios
+$ git checkout develop
 $ git submodule update --init
 ~~~
 
@@ -174,7 +175,7 @@ Edit the basil configuration file **config.json** located in the root of the bas
 ~~~
 {
   "ios": {
-    "root": "path/to/ios"
+    "root": "path/to/native-ios"
   }
 }
 ~~~

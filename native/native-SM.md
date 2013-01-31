@@ -14,5 +14,7 @@ We are branched off FIREFOX_AURORA_18_BASE from Nov 8 at node bb4d68b03164eb7480
 
 ## Modifications
 
++ Removes a lot of code unrelated to running on cellphones
++ +#define inline __inline__ __attribute__((always_inline))
 + Implements unicode support for International text
 + Garbage Collection improvements

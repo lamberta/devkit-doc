@@ -77,7 +77,7 @@ Basil is the command-line tool you will use from the Game Closure SDK to perform
 The first step to doing Android development with basil is to install the iOS plugin.  At a command-line enter the command:
 
 ~~~
-$ basil install-android
+$ basil install native-android
 ~~~
 
 This downloads and installs the Android plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
@@ -240,13 +240,12 @@ If you run into problems, try our [Android troubleshooting guide](./android-trou
 Make sure your version of basil is up to date with `basil update`.
 
 Clone the Game Closure
-[Android repository](https://github.com/gameclosure/android). Switch
-to this directory and make sure everything is up-to-date:
+[Android GitHub repository](https://github.com/gameclosure/native-android). Switch to this directory and make sure everything is up-to-date:
 
 ~~~
-$ git clone git@github.com:gameclosure/android
-$ cd android
-$ git checkout master
+$ git clone git@github.com:gameclosure/native-android
+$ cd native-android
+$ git checkout develop
 $ git submodule update --init
 ~~~
 
@@ -257,7 +256,7 @@ basil install:
 ~~~
 {
   "android": {
-    "root": "path/to/android"
+    "root": "path/to/native-android"
   }
 }
 ~~~
