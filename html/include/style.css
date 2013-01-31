@@ -304,14 +304,15 @@ td.docs p a {
 #guides h2, #native h2 {
 	color: #0088cc;
 	text-decoration: none;
-	font-size: 1.8em;
 }
 
 #guides a:hover h2, #native a:hover h2 {
 	color: #d14;
 }
 
-
+#native h2 {
+	font-size: 1.4em;
+}
 
 .figure-wrapper {
 	text-align: center;
