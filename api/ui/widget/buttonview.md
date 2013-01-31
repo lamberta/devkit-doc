@@ -16,13 +16,13 @@ for more details.
 
 ## Title
 
-The `ButtonView` has a title which is a `TextView` child, the settings for the title can be
+The `ButtonView` has a title which is a `TextView` child. The settings for the title can be
 applied by passing a `text` object in the constructor options. See [ui.TextView](./ui-text.html#class-ui.textview) 
 for information about the format of the options.
 
 ## Icon
 
-The `ButtonView` has an icon which is a `ImageView` child, the settings for the icon can be
+The `ButtonView` has an icon which is an `ImageView` child. The settings for the icon can be
 applied by passing an `icon` object in the constructor options. See [ui.ImageScale](./ui-images.html#class-ui.imageview) 
 for information about the format of the options.
 
@@ -31,6 +31,14 @@ for information about the format of the options.
 The `ButtonView` class can also function as an interface element to select or deselect an option like a checkbox.
 When using the `ButtonView` as a checkbox then only the `images.selected` and `images.unselected` have to be
 assigned, the `images.up` and `images.down` properties are optional. 
+
+## Sound
+
+You may have sounds play whenever the button enters a state by providing an instance
+of [`AudioManager`](./audio.html) in the option `audioManager`. A corresponding
+object option named `sounds` is required where the key is the state and the
+value is the name of the sound to play (this just calls [`AudioManager#play()`](./audio.html#play-name-options) with
+the provided value).
 
 Inherits from
 :    1. [ui.ImageScaleView](./ui-images.html#class-ui.imagescaleview)
@@ -49,7 +57,7 @@ Parameters
 		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTEDED` and `UNSELECT` state on every click.
 		* `title {string}` ---Optional, The title of the button
 		* `text {object}` ---These options are applied to the title text which is an instance of `TextView`
-		* `icon` ---These options are applied to the icon image which is an instance of `ImageView`
+		* `icon {object}` ---These options are applied to the icon image which is an instance of `ImageView`
 		* `on {object}` ---Callbacks for each state
 			* `up {string}` ---Optional, The callback which will be called when the button changes to the `up` state
 			* `down {string}` ---Optional, The callback which will be called when the button changes to the `down` state
@@ -62,7 +70,8 @@ Parameters
 			* `disabled {string}` ---Optional, The filename or instance of `Image` to show on the `disabled` state
 			* `selected {string}` ---Optional, The filename or instance of `Image` to show on the `selected` state
 			* `unselected {string}` ---Optional, The filename or instance of `Image` to show on the `unselected` state
-		* `sounds {object}` ---Run a sound when the button enters a state
+		* `audioManager {AudioManager}` ---Optional, an instance of AudioManager that contains the sounds to play. The `sounds` object will play a sound on this instance.
+    * `sounds {object}` ---Run a sound when the button enters a state
 			* `up {string}` ---Optional, The name of the sound effect to play on up
 			* `down {string}` ---Optional, The name of the sound effect to play on down
 			* `disabled {string}` ---Optional, The name of the sound effect to play on `disabled`
@@ -83,9 +92,6 @@ var buttonview = new ButtonView({
   images: {
     down: "resources/images/selected.png",
     up: "resources/images/unselect.png"
-  },
-  sounds: {
-    down: "resources/ting.mp3"
   },
   on: {
     down: function () {
@@ -125,7 +131,7 @@ var buttonview = new ButtonView({
 //now, to change the "down" sound, we must use updateOpts
 //however, we wish to keep the other options, so we shall `merge` the objects
 
-buttonView.updateOpts(util.merge(buttonView.opts, {
+buttonView.updateOpts(util.merge(buttonView._opts, {
   sounds: {
     "down": "resources/bang.mp3"
   }
