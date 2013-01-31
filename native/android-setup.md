@@ -24,6 +24,11 @@ Android version 2.2 (API level 8) is the minimum required version.  The original
 
 ## Install the Android SDK
 
+If you don't already have the Xcode Command-Line Tools installed, you'll have to download them. Unfortunately this requires you to have an Apple ID.
+If you have Xcode on your computer, you can download the tools by opening Xcode, opening Xcode preferences, navigating to Downloads, and pressing "Download" next to "Command Line Tools."
+If you don't want to install Xcode, you can go to [Apple Developer Connect](https://connect.apple.com), logging in, going to Downloads and finding the appropriate Command Line Tools for your version of Mac OS X.
+Without these tools, Homebrew will be unable to do anything!
+
 Download and install the
 [Android SDK](http://developer.android.com/sdk/) to your
 local machine. If you are using the
