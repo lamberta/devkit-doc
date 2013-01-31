@@ -6,7 +6,7 @@ Running your game on an iPhone or iPad for the first time is that "I made it!" m
 
 Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  See the [iOS Setup Guide](./ios-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
 
-## Installing to a Connected Device
+## Building for Xcode
 
 To build your game enter:
 
@@ -16,7 +16,21 @@ $ basil build native-ios --no-compress
 
 By specifying the --no-compress option, basil will not try to compress JavaScript files.  This speeds up the build process and is recommended for most pre-release builds.
 
-An Xcode project window will pop up.  Select your mobile device from the list at the top and hit the Play button to install.
+An Xcode project window will pop up.  If you installed the simulators during setup, then you can use the drop-down list at the top to select an iPad or iPhone simulator and which iOS version to simulate.
+
+It is recommended to do as much of your testing as possible with the simulator before using the physical device.  The simulator does not require an Apple Developer account, and it does not require additional configuration.
+
+## Watching JavaScript Logs
+
+JavaScript logs are generated when you use `console.log` from within your code, and the Game Closure SDK will also write out helpful messages.
+
+The logs will scroll in the Debug area at the bottom of the Xcode project window in the right-side tab.
+
+## Installing to a Connected Device
+
+Select your mobile device from the list at the top and hit the Play button to install.
+
+If your mobile device is not showing up, then insure that you have added the device to your portal and that you have a valid mobile provisioning profile installed.  You may also try hitting the Refresh button in the lower-right in the Organizer Library Provisioning Profiles view under Devices.
 
 You will be able to see JavaScript logs scrolling in Xcode while running the game on the connected device.
 

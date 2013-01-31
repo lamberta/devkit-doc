@@ -34,7 +34,7 @@ JavaScript logs are generated when you use `console.log` from within your code, 
 
 When using the Test App, you will use the Native Tools tab console window to watch the logs for your game.  This also gives you the ability to set breakpoints and inspect running JavaScript.
 
-When building with Xcode, the logs will scroll in the Debug area at the bottom of the Xcode project window in the right side tab.
+When building with Xcode, the logs will scroll in the Debug area at the bottom of the Xcode project window in the right-side tab.
 
 When the Xcode debugger is detached you can still view the logs of a connected device using the Organizer, which may be accessed from the Window menu.  Select the devices tab in the Organizer and scroll down the list of devices to select the "Console" item under the device you have connected.
 
