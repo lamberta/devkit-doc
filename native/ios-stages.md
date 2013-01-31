@@ -48,4 +48,4 @@ For a guide on how to use TestFlight with the Game Closure SDK, click [here](./i
 
 ### 5. Deployment
 
-The same IPA file use for group testing will be uploaded to the Apple Store for release.  Please see our [iOS build guide](./ios-build.html) on how to create an .IPA file for release (or for testing).
+The same IPA file use for group testing will be uploaded to the iTunes Connect website for release.  Please see our [iOS build guide](./ios-build.html) on how to create an .IPA file for release (or for testing).
