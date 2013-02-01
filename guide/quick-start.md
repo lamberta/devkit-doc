@@ -73,12 +73,14 @@ $ basil
 ~~~
 
 This prints out a list of basil commands. You can get
-help for a particular command  by appending an `-h` option,
+help for a particular command by typing `basil help [command]`,
 for example:
 
 ~~~
-$ basil init -h
+$ basil help init
 ~~~
+
+Some commands also take a `-h` argument to show help.
 
 If you're getting permission errors when installing to the
 `/usr/local` directory, try running this command:
