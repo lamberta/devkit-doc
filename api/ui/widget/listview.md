@@ -34,7 +34,7 @@ optimizations that make this scenario performant.
 
 * **Subview recycling**: `ListView` manages the creation and
 	deletion of its subviews. Each subview is an instance
-	of a [CellView](#class- ui.widget.cellview). When a new
+	of a [CellView](#class-ui.widget.cellview). When a new
 	item scrolls onto the screen, rather than initializing
 	a new `CellView` instance, the `ListView` will reuse an
 	existing, off-screen `CellView`.

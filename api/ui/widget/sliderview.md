@@ -36,7 +36,7 @@ images for the background.
 
 ## Examples
 
-* [SliderView](../example/views-basic/)
+* [SliderView](../example/ui-slider/)
 
 ## Methods
 

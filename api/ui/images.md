@@ -10,6 +10,10 @@ Display an image within a `View`.
 
 * [A Basic Image](../example/images-basic/)
 * [9-Slice Scaling](../example/images-nine-slice/)
+* [9-Slice Animation](../example/images-nine-slice-animation/)
+* [6-Slice Scaling](../example/images-six-slice/)
+* [3-Slice Scaling](../example/images-three-slice/)
+* [2-Slice Scaling](../example/images-two-slice/)
 
 ## Methods
 

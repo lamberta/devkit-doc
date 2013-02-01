@@ -19,7 +19,7 @@ is reached and the text still does not fit then the font will be scaled.
 
 * [TextViews Options](../example/text-textviews/)
 * [Lots of TextViews](../example/text-textviews-random/)
-* [TextView Clock](../example/text-textviewsclock/)
+* [TextView Clock](../example/text-textviews-clock/)
 
 ## Methods
 

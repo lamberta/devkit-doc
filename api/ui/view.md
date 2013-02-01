@@ -27,7 +27,7 @@ is displayed on the screen.
 * [Input Move Event](../example/events-input-move/)
 * [Input Out Event](../example/events-input-out/)
 * [Modifying a View's Style](../example/views-style/)
-
+* [Rotate a View](../example/views-rotate/)
 
 ## Methods
 
