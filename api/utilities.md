@@ -214,7 +214,7 @@ in the `ajax` package and wrap the `XMLHttpRequest` object.
 
 ## Examples
 
-* [Subscribe to an event](../example/ui-list-ajax/)
+* [Ajax populated list](../example/ui-list-ajax/)
 
 ## Queuing
 

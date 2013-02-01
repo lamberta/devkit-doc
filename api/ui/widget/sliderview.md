@@ -67,7 +67,7 @@ Parameters
 
 The constructor used to create an instance of a `ui.widget.SliderView`
 object. In addition to the options listed here,
-[style definition properties](#styles) can also be
+[style definition properties](./ui-view.html#style-object) can also be
 passed in this object.
 
 ~~~
