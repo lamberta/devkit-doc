@@ -28,7 +28,7 @@ $ basil testapp native-android
 
 It will build and attempt to install the Test App on your device.
 
-After installation you will be able to launch the Test App from the applications list on your phone:
+After installation you will be able to launch the Test App from the applications list on your Android device:
 
 <img src="./assets/android/android-test-app-icon.png"></img>
 
