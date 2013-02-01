@@ -223,6 +223,16 @@ td.docs p a {
 	margin: 0 0 5px 0;
 }
 
+#main hr {
+	border: 0;
+  height: 1px;
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+  background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc);
+  background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc);
+  background-image:      -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
 /*front-page*/
 
 #splash {
@@ -294,6 +304,10 @@ td.docs p a {
 }
 
 /* guides */
+
+#native ul {
+	margin-left: 0px;
+}
 
 #guides a, #native a {
 	color: #000;
