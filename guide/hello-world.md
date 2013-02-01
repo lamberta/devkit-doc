@@ -6,7 +6,7 @@ annotated file can also be [viewed online](../example/basics-helloworld/).
 
 ## Create your first project
 
-With [basil installed](../guide/getting-started.html),
+With [basil installed](../guide/quick-start.html),
 you're ready to create a new project! Initialize a game
 in a new project directory by running at the command-line:
 

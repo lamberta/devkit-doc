@@ -6,7 +6,7 @@ is available and in this guide we'll step through it
 to see how the components of the Game Closure SDK fit together.
 
 This walk-through assumes that you have the Game Closure SDK
-up and running. See the [Getting Started Guide](../guide/getting-started.html)
+up and running. See the [Quick Start Guide](../guide/quick-start.html)
 for details on how to get set up.
 
 ## Game Install
@@ -510,7 +510,7 @@ properties and methods can be found
 `ui.ImageView` is a subclass of `ui.View`. Along with
 the properties it inherits from the base View, `ImageView`
 has additional methods for setting an image to be used
-within a view. Check [the API](../api/ui-imageview.html) for more details.
+within a view. Check the [ImageView API](../api/ui-images.html) for more details.
 
 Now that we have imported our dependencies, we can define
 our `TitleScreen` class. Here we use the `Class` function to
@@ -1226,7 +1226,7 @@ exports.getSound = function () {
 Here we create a single `AudioManager`
 object when the application is launched and return this object
 whenever `getSound` is called throughout the game. The details of
-loading and playing sounds can be found in [the API](../api/sound.html).
+loading and playing sounds can be found in [the API](../api/audio.html).
 
 To see how sound is used in this game, we'll look back at
 our `./src/Application.js` file and its `initUI` function:
