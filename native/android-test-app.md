@@ -20,7 +20,7 @@ $ basil serve
 
 This will start hosting the Test App Server on your LAN.
 
-To run the Android Test App on your mobile device, connect it to your computer via a USB data cable, and enter the following command at a console:
+To run the Android Test App on your mobile device, connect it to your computer via a USB data cable, and enter the following command at a console different from the one you started `basil serve`:
 
 ~~~
 $ basil testapp native-android
@@ -28,7 +28,7 @@ $ basil testapp native-android
 
 It will build and attempt to install the Test App on your device.
 
-After installation you will be able to launch the Test App from its app icon on the home screen of your iOS device:
+After installation you will be able to launch the Test App from the applications list on your Android device:
 
 <img src="./assets/android/android-test-app-icon.png"></img>
 
@@ -60,7 +60,7 @@ The [Chrome Web Inspector interface](./android-remote-debug.html) may be used to
 
 ### Restarting
 
-To restart the game, tap the properties button on your Android device.  This brings up a quit prompt to return to the game list:
+To restart the game, tap the properties/menu button on your Android device.  This brings up a quit prompt to return to the game list:
 
 <img src="./assets/android/android-test-app-menu.png"></img>
 

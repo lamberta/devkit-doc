@@ -2,7 +2,7 @@
 
 ## Overview
 
-Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  (\"My game is finally in my hands!\")  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation. The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ in the tools section at the top.
 </div>
 
 You will then be prompted with an Accept window. Check `Accept All`
-and patiently wait for the download and installation to finish.
+and wait for the download and installation to finish.
 
 <div class="figure-wrapper">
 <figure>
@@ -68,23 +68,23 @@ $ brew update
 $ brew install android-ndk
 ~~~
 
-The homebrew install script will update your .profile to include the NDK tools in your $PATH.  So, you will want to open a new terminal window that will have the new path set.
+The homebrew install script will add the required NDK tools to your path. 
 
 ## Install Android Plugin for Basil
 
 Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
 
-The first step to doing Android development with basil is to install the iOS plugin.  At a command-line enter the command:
+The first step to doing Android development with basil is to install the Android plugin.  At a command-line enter the command:
 
 ~~~
 $ basil install native-android
 ~~~
 
-This downloads and installs the Android plugin for basil.  The download may take some time since it is a large plugin, so please be patient.
+This downloads and installs the Android plugin for basil.
 
 ## Generating a Keystore
 
-To digitally sign your game's binary file, you will need to generate a keystore file.  The purpose and process are described on the [Android Developer site](http://developer.android.com/tools/publishing/app-signing.html).  Most importantly, a keystore is required for Android building, so you will want to make one at this point.
+To digitally sign your game's binary file for release, you will need to generate a keystore file.  The purpose and process are described on the [Android Developer site](http://developer.android.com/tools/publishing/app-signing.html).  Note that the keystore is only required for release builds. You can skip this step for now if you will only be debugging your game.
 
 A quick-start example:
 
@@ -151,16 +151,14 @@ Add the app version code from Google Play here:
 ~~~
 
 #####Icons
-The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
+The icon sizes used for Android are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
 ~~~
 {
 	"icons": {
-		"28": "preload/icons/icon36.png",
-		"38": "preload/icons/icon48.png",
-		"48": "preload/icons/icon48.png",
-		"56": "preload/icons/icon72.png",
-		"512": "preload/icons/icon512.png"
+		"28": "preload/icons/icon28.png",
+		"38": "preload/icons/icon38.png",
+		"56": "preload/icons/icon56.png"
 	},
 ~~~
   
@@ -212,21 +210,21 @@ Once your game is configured properly for Android, you're ready to install it!
 
 If you are not able to find the "Developer options" menu, you will need to perform a "magic knock" to unlock it on Android 4.2 or newer.  Following this simple procedure:
 
-:1.  Open the Settings app.
+1.  Open the Settings app.
 2.  Select "About phone" at the bottom of the list.
 3.  Scroll to the bottom to see the "Build number" item.
 4.  Tap on the Build number five times.
 
 To begin building for an Android device you need to enable USB Debugging on the test device.  The process to enable debugging is:
 
-:1.  Open the Settings app.
+1.  Open the Settings app.
 2.  Select "Applications" at the middle of the list.
 3.  Select "Development settings" aka "Developer options".
 4.  Tap the check box next to USB debugging and tap OK.
 
 It is recommended to set the USB Charge mode to "Charge Only" while connected so that the phone will not unmount its internal storage while connected via USB.  To do this:
 
-:1.  Connect the phone to your computer via the USB cable.
+1.  Connect the phone to your computer via the USB cable.
 2.  Pull open the Android notification toaster (hold the top of the screen and swipe down).
 3.  Select USB Connection.
 4.  Select "Charge Only" and tap OK.
@@ -237,7 +235,7 @@ If you run into problems, try our [Android troubleshooting guide](./android-trou
 
 ### Appendix: Manual Install of the Android Plugin for Basil
 
-Make sure your version of basil is up to date with `basil update`.
+**This process should only be done as a last resort.** Make sure your version of basil is up to date with `basil update`.
 
 Clone the Game Closure
 [Android GitHub repository](https://github.com/gameclosure/native-android). Switch to this directory and make sure everything is up-to-date:
