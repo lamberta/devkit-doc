@@ -2,7 +2,7 @@
 
 ## Overview
 
-Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  *"My game is finally in my hands!"*.  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation. The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
 
 ## Prerequisites
 
