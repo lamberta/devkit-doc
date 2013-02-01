@@ -1,47 +1,60 @@
-## Class: ui.filter.Filter
+# Class: ui.filter.Filter
 
-~~~
-import ui.filter.Filter as Filter;
-~~~
+## Methods
 
 ### new Filter ([options])
-1. `options {object}`
-	* `priority {number} = 0`
-	* `r {number} = 0` ---Red component.
-	* `g {number} = 0` ---Green component.
-	* `b {number} = 0` ---Blue component.
-	* `a {number} = 0` ---Alpha component.
+
+Parameters
+:    1. `options {object}`
+         * `priority {number} = 0`
+         * `r {number} = 0` ---Red component.
+         * `g {number} = 0` ---Green component.
+         * `b {number} = 0` ---Blue component.
+         * `a {number} = 0` ---Alpha component.
 
 A generic class that specialized filters inherit from.
 
 ~~~
+import ui.filter.Filter as Filter;
+
 var filter = new Filter();
 ~~~
 
-### filter.get ()
-1. Return: `{object}`
+### get ()
+
+Returns
+:    1. `{object}`
 
 Returns the filter options.
 
-### filter.getType ()
-1. Return: `{string}`
+### getType ()
+
+Returns
+:    1. `{string}`
 
 Returns the filter type.
 
-### filter.update ([options])
-1. `options {object}`
+### update ([options])
+
+Parameters
+:    1. `options {object}`
 
 Update the filter using the values supplied in the given options.
 
-### filter.setView (view)
-1. `view {View}`
+### setView (view)
+
+Parameters
+:    1. `view {View}`
 
 Set the view for a filter.
 
-### filter.getColorString ()
-1. Return: `{string}`
+### getColorString ()
+
+Returns
+:    1. `{string}`
 
 Returns the color of a filter in the format: `"rgba(R, G, B, A)"`.
+
 
 # Class: ui.filter.LinearAddFilter
 
