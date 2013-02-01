@@ -6,9 +6,9 @@ This guide takes you through the entire process of developing for Android device
 
 The development cycle can be broken down into [four stages](./android-stages.html), leading up to deployment on Google Play.  Initially, all development is done with [web tools](../guide/quick-start.html) and emulated devices.
 
-Then the [Test App](./android-test-app.html) is used to accelerate transition onto the mobile devices.
+Then the [Test App](./android-test-app.html) is used to accelerate transition onto mobile devices.
 
-Then [iOS building](./ios-build.html) is encouraged to test and demo your game, with the help of [remote debugging](./android-remote-debug.html) tools.
+Then [Android building](./android-build.html) is encouraged to test and demo your game, with the help of [remote debugging](./android-remote-debug.html) tools.
 
 Finally your app is ready for deployment via Google Play.
 

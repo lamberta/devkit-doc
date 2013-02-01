@@ -2,13 +2,13 @@
 
 ## Overview
 
-Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  (\"My game is finally in my hands!\")  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation.  **"My game is finally in my hands!"**  The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
 
 Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  See the [Android Setup Guide](./android-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
 
 ## Building an .APK
 
-To build your game, open a console and change directory to your game's top-level folder.
+To build your game for debugging, open a console and change directory to your game's top-level folder.
 
 ~~~
 $ cd whack-that-mole
@@ -22,6 +22,18 @@ $ basil build native-android --no-compress --debug --clean
 By specifying the --no-compress option, basil will not try to compress JavaScript files.  This speeds up the build process and is recommended for most pre-release builds.
 
 Combining the --no-compress and --debug options will also allow you to do [remote JavaScript debugging](./android-remote-debug.html) from your computer.
+
+**Note:** For convenience the debug builds can also be done with command
+
+~~~
+$ basil debug native-android
+~~~
+
+If you want to build your game for the Google Play store use the command
+
+~~~
+$ basil release native-android
+~~~
 
 When the build completes, you will see a line such as:
 
@@ -42,6 +54,14 @@ The -r flag means to attempt a reinstall.  Note that this will fail if the APK i
 ## Troubleshooting Issues
 
 If you run into problems, try our [Android troubleshooting guide](./android-troubleshooting.html).
+
+### Appendix: Basil Debug
+
+`basil debug native-android` is equivalent to running `basil build native-android --debug --no-compress`
+
+### Appendix: Basil Release
+
+`basil release native-android` is equivalent to running `basil build native-android` with no arguments.
 
 ### Appendix: Build Options
 
