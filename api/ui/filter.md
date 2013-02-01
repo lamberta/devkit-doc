@@ -1,36 +1,47 @@
-# Class: ui.filter.Filter
+## Class: ui.filter.Filter
 
-## Methods
+~~~
+import ui.filter.Filter as Filter;
+~~~
 
 ### new Filter ([options])
+1. `options {object}`
+	* `priority {number} = 0`
+	* `r {number} = 0` ---Red component.
+	* `g {number} = 0` ---Green component.
+	* `b {number} = 0` ---Blue component.
+	* `a {number} = 0` ---Alpha component.
 
-Parameters
-:    1. `options {object}`
-	     * `priority {number} = 0`
-		 * `r {number} = 0` ---Red component.
-		 * `g {number} = 0` ---Green component.
-		 * `b {number} = 0` ---Blue component.
-		 * `a {number} = 0` ---Strength of the filter (interpolation value ranging from 0.0 - 1.0).
-
-A generic class that specialized filters inherit
-from. Currently filters exist on the `style` object of views
-under the `viewFilter` variable.
+A generic class that specialized filters inherit from.
 
 ~~~
-from ui.filter import LinearAddFilter;
-
-var filteredView = new ImageView({
-	parent: this,
-	x: 0,
-	y: 0,
-	width: 100, 
-	height: 100,
-	image: "resources/images/game/test.png",
-	viewFilter: new LinearAddFilter({r: 255, g: 0, b: 0, a: 1.0})
-});	
-
-filteredView.style.viewFilter = new MultiplyFilter({r: 255, g: 150, b: 0, a: 0.5});
+var filter = new Filter();
 ~~~
+
+### filter.get ()
+1. Return: `{object}`
+
+Returns the filter options.
+
+### filter.getType ()
+1. Return: `{string}`
+
+Returns the filter type.
+
+### filter.update ([options])
+1. `options {object}`
+
+Update the filter using the values supplied in the given options.
+
+### filter.setView (view)
+1. `view {View}`
+
+Set the view for a filter.
+
+### filter.getColorString ()
+1. Return: `{string}`
+
+Returns the color of a filter in the format: `"rgba(R, G, B, A)"`.
 
 # Class: ui.filter.LinearAddFilter
 
@@ -47,28 +58,7 @@ Parameters
 :    1. `options {object}`
 
 ~~~
-from ui.filter import LinearAddFilter;
-~~~
-
-
-# Class: ui.filter.TintFilter
-
-Inherits from
-:    1. [ui.filter.Filter](#class-ui.filter.filter)
-
-Tint Filter will turn the given view into a solid color of
-rgb at full strength of a = 1.0, and interpolates up to a
-solid color when a < 1.0.
-
-## Methods
-
-### new TintFilter ([options])
-
-Parameters
-:    1. `options {object}`
-
-~~~
-from ui.filter import TintFilter;
+import ui.filter.LinearAddFilter as LinearAddFilter;
 ~~~
 
 
@@ -84,7 +74,7 @@ it. (Such as using a single grayscaled image for a marble,
 and coloring it with a multiply filter so as to reduce
 assets).
 
-## Methods
+Multiply filter.
 
 ### new MultiplyFilter ([options])
 
@@ -92,7 +82,7 @@ Parameters
 :    1. `options {object}`
 
 ~~~
-from ui.filter import MultiplyFilter;
+import ui.filter.MultiplyFilter as MultiplyFilter;
 ~~~
 
 
@@ -112,7 +102,7 @@ Parameters
 	     * `image {string}` ---Image URL.
 
 ~~~
-from ui.filter import PositiveMaskFilter;
+import ui.filter.PositiveMaskFilter as PositiveMaskFilter;
 ~~~
 
 
@@ -132,5 +122,5 @@ Parameters
 	     * `image {string}` ---Image URL.
 
 ~~~
-from ui.filter import NegativeMaskFilter;
+import ui.filter.NegativeMaskFilter as NegativeMaskFilter;
 ~~~
