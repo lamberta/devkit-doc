@@ -24,7 +24,7 @@ Test your game code live on the device with the [Game Closure Test App](./androi
 
 Tap the installed "Test App" icon on your Android device.  Select your server from the on-screen list, then select which game to test.  Making code changes on your computer can be pushed quickly to the device by opening the on-screen menu and selecting the Restart option.
 
-The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Simply attach your Android device via the USB cable and use the Native Tools feature to trap exceptions and view the console logs of Test App sessions.
+The same Chrome Web Inspector interface may be used to investigate coding errors on the mobile device from the comfort of your computer.  Simply attach your Android device via the USB cable and use the Remote Debug feature to trap exceptions and view the console logs of Test App sessions.
 
 You may also use `adb logcat | grep JS` to view the JavaScript logs.
 
@@ -32,7 +32,7 @@ You may also use `adb logcat | grep JS` to view the JavaScript logs.
 
 [Build and install](./android-build.html) your game to a device connected via USB.  Simply run `basil build native-android` to produce an APK, then install it with `adb install`.
 
-The Chrome Web Inspector interface may also be used to inspect and debug JavaScript game code running on the Android device.  Simply attach your Android device via the USB cable and use the Native Tools feature to trap exceptions and view the console logs of Test App sessions.
+The Chrome Web Inspector interface may also be used to inspect and debug JavaScript game code running on the Android device.  Simply attach your Android device via the USB cable and use the Remote Debug feature to trap exceptions and view the console logs of Test App sessions.
 
 You may also use `adb logcat | grep JS` to view the JavaScript logs.
 

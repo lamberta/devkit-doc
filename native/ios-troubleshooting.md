@@ -32,7 +32,7 @@ To force-quit a game on an iPad:
 
 JavaScript logs are generated when you use `console.log` from within your code, and the Game Closure SDK will also write out helpful messages that may point you in the right direction.
 
-When using the Test App, you will use the Native Tools tab console window to watch the logs for your game.  This also gives you the ability to set breakpoints and inspect running JavaScript.
+When using the Test App, you will use the Remote Debug tab console window to watch the logs for your game.  This also gives you the ability to set breakpoints and inspect running JavaScript.
 
 When building with Xcode, the logs will scroll in the Debug area at the bottom of the Xcode project window in the right-side tab.
 

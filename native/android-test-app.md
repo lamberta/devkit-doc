@@ -56,7 +56,7 @@ After loading completes, your game should start.
 
 ## Remote JavaScript Debugging
 
-The [Chrome Web Inspector interface](./android-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Native Tools feature you can investigate coding errors and view the console logs of Test App sessions.
+The [Chrome Web Inspector interface](./android-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.  Using the Remote Debug feature you can investigate coding errors and view the console logs of Test App sessions.
 
 ### Restarting
 
