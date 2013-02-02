@@ -37,9 +37,9 @@ Additionally, the Xcode command-line tools **are required**.  To download these,
 
 ## Apple Developer Account
 
-To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
+For your initial use of the SDK there is no reason to set up an Apple Developer account.  So you may want to skip this section and come back later.  Without an account you will not be able to install your game on a mobile device.  Note that you can run your game on the iOS Simulator, which is packaged with Xcode, without an Apple Developer account.
 
-Note that you can run your game on the iOS Simulator, which is packaged with Xcode, without an Apple Developer account.
+To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
 
 To get started with iOS development, you will need to access the Member Center on the  [Apple Developer website](developer.apple.com).  Enter your Apple ID and Password.  Select your team.  Enter the iOS Provisioning Portal.  Select the Certificates tab.  Follow the instructions to request, download, and install your Development Certificate.
 
@@ -149,6 +149,8 @@ Define splash screen images for your game.  For the complete list of image sizes
 Once your game is configured properly for iOS, you're ready to install it!
 
 ## Setting Up a New Mobile Device
+
+If you have set up an Apple Developer account then you will need to add new mobile devices to your portal before using them.
 
 In Xcode, open the Organizer.  On the devices tab on the left, select the name of the new connected device.  At the bottom of the Organizer, press the (+) [Add To Portal] button.  This will add the device to your developer portal.
 
