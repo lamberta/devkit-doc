@@ -101,3 +101,18 @@ and AI and be run every other frame (or even less) without a
 loss in visual quality. It's important to schedule these
 tasks across animation frames for a consistent, and better
 performing game.
+
+## Recommended Reading
+
+Most of the references you will find online are [V8-specific](../native/native-v8.html) tips, which have an effect on the Chrome Web Browser and the Android native platforms.  However, a subset of these best practices has a positive impact on performance in [SpiderMonkey](../native/native-sm.html) also, which will help on iOS devices.
+
+[1] An excellent starting point: [http://www.html5rocks.com/en/tutorials/speed/v8/](http://www.html5rocks.com/en/tutorials/speed/v8/).
+
+[2] For a more technical overview with good examples: [http://oreilly.com/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html](http://oreilly.com/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html).
+
+[3] For a deep dive into technical information see Florian Loitsch's blog: [http://floitsch.blogspot.com/2012/03/optimizing-for-v8-introduction.html](http://floitsch.blogspot.com/2012/03/optimizing-for-v8-introduction.html).
+
+[4] In particular, we have found that using Google D8 to inspect deoptimizations is a great way to profile your JavaScript code for performance improvements that can be gained through refactoring your code.  See this blog post: [An introduction to deoptimizations](http://floitsch.blogspot.com/2012/03/optimizing-for-v8-inlining.html).
+
+[5] Finally: A 45 minute video from Google I/O 2012 on ["Breaking the JavaScript Speed Limit with V8"](http://www.youtube.com/watch?v=UJPdhx5zTaw)
+
