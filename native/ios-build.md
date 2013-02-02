@@ -11,14 +11,18 @@ Building your game to run on a mobile device is done using the Game Closure SDK 
 To build your game enter:
 
 ~~~
-$ basil build native-ios --no-compress
+$ basil debug native-ios
 ~~~
-
-By specifying the --no-compress option, basil will not try to compress JavaScript files.  This speeds up the build process and is recommended for most pre-release builds.
 
 An Xcode project window will pop up.  If you installed the simulators during setup, then you can use the drop-down list at the top to select an iPad or iPhone simulator and which iOS version to simulate.
 
 It is recommended to do as much of your testing as possible with the simulator before using the physical device.  The simulator does not require an Apple Developer account, and it does not require additional configuration.
+
+For a more thorough release-mode build enter:
+
+~~~
+$ basil release native-ios
+~~~
 
 ## Watching JavaScript Logs
 
@@ -88,7 +92,7 @@ IPA generation options:
 
 When --ipa is specified, Xcode will not pop up after the build.
 
-### Appendix: Example Usage
+### Advanced Usage: Examples
 
 **For a fast debug build:**
 
