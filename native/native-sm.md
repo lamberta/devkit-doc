@@ -1,15 +1,24 @@
 # Mozilla SpiderMonkey
 
-Mozilla SpiderMonkey is an interpreter and JIT (Just-in-Time) Compiler for JavaScript.  Apple does not allow self-modifying app code onto the App Store, so the Game Closure SDK is based on the interpreter mode of SpiderMonkey, rather than the much faster IonMonkey engine.  We compile out the IonMonkey code during our builds.  The [Mozilla Public License](http://en.wikipedia.org/wiki/Mozilla_Public_License) is permissive enough to allow us to use it in a commercial or open-source setting as long as the modified SpiderMonkey source code is provided.  You may download the source code for our branch of SpiderMonkey [here](https://github.com/gameclosure/spidermonkey-ios).
+## Overview
+
+Mozilla SpiderMonkey is an interpreter and JIT (Just-in-Time) Compiler for JavaScript.  Apple does not allow self-modifying app code onto the App Store, so the Game Closure SDK is based on the interpreter mode of SpiderMonkey, rather than the much faster IonMonkey engine.  We compile out the IonMonkey code during our builds.
+
+The [Mozilla Public License](http://en.wikipedia.org/wiki/Mozilla_Public_License) is permissive enough to allow us to use it in a commercial or open-source setting as long as the modified SpiderMonkey source code is provided.  You may download the source code for our branch of SpiderMonkey [here](https://github.com/gameclosure/spidermonkey-ios).
+
+To see how SpiderMonkey fits into the native stack on iOS, see the [Native Stack Overview](./native-stack.html).
+
+## Why SpiderMonkey?
 
 Another mature interpreter project is JavaScript Core.  Since it is licensed under the LGPL, however, it cannot be used on the iTunes App Store.  LGPL projects must be dynamically linked, which is not permitted for apps.  And several games have been regrettably pulled off the App Store as a result of using JavaScript Core.
 
+## Code Base
+
 We are branched off Mozilla FIREFOX_AURORA_18_BASE from Nov 8 at node bb4d68b03164eb7480c1a2b5a652d75c50084f18.
 
-We removed most of the code unrelated to the JavaScript engine itself.
+We removed most of the code unrelated to the JavaScript engine itself and heavily modified what remained.
 
-
-# Major improvements from Game Closure:
+## Major Improvements from Game Closure:
 
 #### Added a build script for generating optimized fat binaries for ARMv7 and i386
 

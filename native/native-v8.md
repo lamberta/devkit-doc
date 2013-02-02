@@ -6,6 +6,8 @@
 
 A lot has been written about how to develop efficient code to run on this engine.  Please see our [performance guide](../guide/performance.html) on this topic for considerations specific to the Game Closure SDK, and for the best references on general performance with this engine.
 
+To see how SpiderMonkey fits into the native stack on iOS, see the [Native Stack Overview](./native-stack.html).
+
 ## Game Closure Improvements
 
 The V8 codebase is exceptionally well-suited for use on cellphones in realtime HTML5 games.  So we have not had to make many modifications for use in the Game Closure Android engine.
