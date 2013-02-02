@@ -10,15 +10,7 @@ Be sure to read the [iOS Setup Guide](./ios-setup.html) and follow the instructi
 
 Turn on WiFi and connect your mobile device to the same LAN as your computer.
 
-## Running
-
-An instance of the SDK basil server must be running to serve games for the test app.  To start a new basil server enter this command at a console:
-
-~~~
-$ basil serve
-~~~
-
-This will start hosting the Test App Server on your LAN.
+## Installing the Test App
 
 To run the iOS Test App on your mobile device, connect it to your computer via a USB data cable, and enter the following command at a console:
 
@@ -31,6 +23,18 @@ The iOS Test App Xcode project will open after a moment.  Select a device to ins
 After installation you will be able to launch the Test App from its app icon on the home screen of your iOS device:
 
 <img src="./assets/ios/ios-test-app-icon.png"></img>
+
+This will also run the Basil Server, which is needed for the Test App to run properly.
+
+## Running the Basil Server
+
+An instance of the SDK basil server must be running to serve games for the test app.  To start a new basil server without building the Test App enter this command at a console:
+
+~~~
+$ basil serve
+~~~
+
+This will start hosting the Test App Server on your LAN.
 
 ### Server List
 
