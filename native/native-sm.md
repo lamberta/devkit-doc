@@ -11,7 +11,7 @@ We removed most of the code unrelated to the JavaScript engine itself.
 
 # Major improvements from Game Closure:
 
-## Added a build script for generating optimized fat binaries for ARMv7 and i386
+#### Added a build script for generating optimized fat binaries for ARMv7 and i386
 
 + Added ios target to configure script:
 
@@ -39,7 +39,7 @@ We removed most of the code unrelated to the JavaScript engine itself.
 `--enable-optimize=-O3 --with-thumb=yes --enable-strip --enable-install-strip`
 
 
-## Built in NSPR for multithreaded garbage collection
+#### Built in NSPR for multithreaded garbage collection
 
 + Built and linked to NSPR for multithreading
 + `JS_THREADSAFE` = 1
@@ -47,7 +47,7 @@ We removed most of the code unrelated to the JavaScript engine itself.
 + Removed PRLink, same problem
 
 
-## Optimized Garbage Collection for small intervals
+#### Optimized Garbage Collection for small intervals
 
 From our code we call `MaybeGC()` in `js_tick()` every fourth frame.
 
@@ -57,12 +57,12 @@ From our code we call `MaybeGC()` in `js_tick()` every fourth frame.
 + `MaybeGC()` modified to run incremental GC periodically
 
 
-## Changed the way ScriptDebugEpilogue works to allow for step-out JS debugger
+#### Changed the way ScriptDebugEpilogue works to allow for step-out JS debugger
 
 + Now will call an executeHook with null hookData instead of not at all
 
 
-## Optimizations
+#### Optimizations
 
 + `#define inline __inline__ __attribute__((always_inline))`
 + Removed assertions from critical paths
@@ -87,7 +87,7 @@ From our code we call `MaybeGC()` in `js_tick()` every fourth frame.
 #define JS_HAS_EXPR_CLOSURES    0       /* has function (formals) listexpr */
 ~~~
 
-## Bugfixes
+#### Bugfixes
 
 + Fixed a null exception in MarkValueRootRange
 + `JS_EncodeStringToBuffer()` now does UTF8 conversion instead of truncation,
