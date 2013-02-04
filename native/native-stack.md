@@ -1,19 +1,19 @@
 # Native Stack Overview
 
 The following document provides a brief overview of how the
-Game Closure stack interacts with native code. Several
-layers are required to have JavaScript, c, c++, and
-Java/Objective C communicate with each other. Additionally,
+Game Closure stack interacts with native code.  Several
+layers are required to have JavaScript, C, C++, Java, and
+Objective-C++ communicate with each other.  Additionally,
 the design allows for large amounts of code to be shared
 between Android and iOS.
 
-## Graphic Overview
+## Overview
 
 The following diagram shows the flow of data/function calls
 between the various components of the Game Closure SDK
 native stack. Blocks in purple use JavaScript, those in
-blue use c and c++, those in green use Java, and those in
-orange use Objective-C.
+blue use C and C++, those in green use Java, and those in
+orange use Objective-C++.
 
 <img src="./assets/stack/native-stack-diagram.png" alt="native stack">
 
@@ -86,7 +86,7 @@ games running smoothly.
 ### Platform
 
 * **git**: android, ios  
-* **language**: c++, objective c  
+* **language**: C++, Objective C++
 * **directories:**
 	- **android:Tealeaf/jni/platform**: Directory containing code to interface between Android Java code, native code, and native core.
 	- **iOS: tealeaf/platform**: Directory containing code to interface between Objective-C code and native core.
@@ -255,6 +255,4 @@ registered from with `soundLoading.js`. This function takes
 the sound event and calls the `onLoad` handler associated with
 it.
 
-While there may seem to be a lot of steps to loading a
-sound, the separation of responsibilities is important in
-allowing code reuse between platforms.
+While there may seem to be a lot of steps to loading a sound, the separation of concerns is important for maintaining a stable system that allows for code reuse.

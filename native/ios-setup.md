@@ -110,7 +110,7 @@ Choose an orientation for your game, a combination of portrait and landscape.
 
 ~~~
 	"supportedOrientations": [
-		"landscape", "portait"
+		"landscape", "portrait"
 	],
 ~~~
 

@@ -1,17 +1,26 @@
 # Mozilla SpiderMonkey
 
-Mozilla SpiderMonkey is an interpreter and JIT (Just-in-Time) Compiler for JavaScript.  Apple does not allow self-modifying app code onto the App Store, so the Game Closure SDK is based on the interpreter mode of SpiderMonkey, rather than the much faster IonMonkey engine.  We compile out the IonMonkey code during our builds.  The [Mozilla Public License](http://en.wikipedia.org/wiki/Mozilla_Public_License) is permissive enough to allow us to use it in a commercial or open-source setting as long as the modified SpiderMonkey source code is provided.  You may download the source code for our branch of SpiderMonkey [here](https://github.com/gameclosure/spidermonkey-ios).
+## Overview
+
+Mozilla SpiderMonkey is an interpreter and JIT (Just-in-Time) Compiler for JavaScript.  Apple does not allow self-modifying app code onto the App Store, so the Game Closure SDK is based on the interpreter mode of SpiderMonkey, rather than the much faster IonMonkey engine.  We compile out the IonMonkey code during our builds.
+
+The [Mozilla Public License](http://en.wikipedia.org/wiki/Mozilla_Public_License) is permissive enough to allow us to use it in a commercial or open-source setting as long as the modified SpiderMonkey source code is provided.  You may download the source code for our branch of SpiderMonkey [here](https://github.com/gameclosure/spidermonkey-ios).
+
+To see how SpiderMonkey fits into the native stack on iOS, see the [Native Stack Overview](./native-stack.html).
+
+## Why SpiderMonkey?
 
 Another mature interpreter project is JavaScript Core.  Since it is licensed under the LGPL, however, it cannot be used on the iTunes App Store.  LGPL projects must be dynamically linked, which is not permitted for apps.  And several games have been regrettably pulled off the App Store as a result of using JavaScript Core.
 
+## Code Base
+
 We are branched off Mozilla FIREFOX_AURORA_18_BASE from Nov 8 at node bb4d68b03164eb7480c1a2b5a652d75c50084f18.
 
-We removed most of the code unrelated to the JavaScript engine itself.
+We removed most of the code unrelated to the JavaScript engine itself and heavily modified what remained.
 
+## Major Improvements from Game Closure:
 
-# Major improvements from Game Closure:
-
-## Added a build script for generating optimized fat binaries for ARMv7 and i386
+#### Added a build script for generating optimized fat binaries for ARMv7 and i386
 
 + Added ios target to configure script:
 
@@ -39,7 +48,7 @@ We removed most of the code unrelated to the JavaScript engine itself.
 `--enable-optimize=-O3 --with-thumb=yes --enable-strip --enable-install-strip`
 
 
-## Built in NSPR for multithreaded garbage collection
+#### Built in NSPR for multithreaded garbage collection
 
 + Built and linked to NSPR for multithreading
 + `JS_THREADSAFE` = 1
@@ -47,7 +56,7 @@ We removed most of the code unrelated to the JavaScript engine itself.
 + Removed PRLink, same problem
 
 
-## Optimized Garbage Collection for small intervals
+#### Optimized Garbage Collection for small intervals
 
 From our code we call `MaybeGC()` in `js_tick()` every fourth frame.
 
@@ -57,12 +66,12 @@ From our code we call `MaybeGC()` in `js_tick()` every fourth frame.
 + `MaybeGC()` modified to run incremental GC periodically
 
 
-## Changed the way ScriptDebugEpilogue works to allow for step-out JS debugger
+#### Changed the way ScriptDebugEpilogue works to allow for step-out JS debugger
 
 + Now will call an executeHook with null hookData instead of not at all
 
 
-## Optimizations
+#### Optimizations
 
 + `#define inline __inline__ __attribute__((always_inline))`
 + Removed assertions from critical paths
@@ -87,7 +96,7 @@ From our code we call `MaybeGC()` in `js_tick()` every fourth frame.
 #define JS_HAS_EXPR_CLOSURES    0       /* has function (formals) listexpr */
 ~~~
 
-## Bugfixes
+#### Bugfixes
 
 + Fixed a null exception in MarkValueRootRange
 + `JS_EncodeStringToBuffer()` now does UTF8 conversion instead of truncation,
