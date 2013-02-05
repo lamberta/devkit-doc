@@ -52,6 +52,8 @@ Colors can be one of the following values:
 		 * "rgb(255,0,0)" : Standard HTML RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
 		 * "rgb(255,0,0,0.8)" : Standard HTML RGB code with alpha value between 0 and 1 in the final parameter.
 
+For fonts to work in the emulator, they must be installed system-wide.  For fonts to work on native Android or iOS, be sure to fill out the manifest.json file.  There are some additional considerations for Android and iOS.  Please see the [manifest.json documentation](../guide/manifest.html).
+
 ~~~
 import ui.TextView as TextView;
 

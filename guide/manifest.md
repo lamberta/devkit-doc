@@ -319,6 +319,20 @@ be different from the Android keys.
 }
 ~~~
 
+### TrueType Fonts (TTF)
+
+Provide a list of TrueType fonts that are used by your game.
+
+~~~
+	"ttf": [
+		"resources/fonts/Arial Black.ttf"
+	],
+~~~
+
+On Android, it is crucial that custom .TTF file names match an internal font name.
+
+On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
+
 ### mpMetricsKey
 1. `{string}`
 

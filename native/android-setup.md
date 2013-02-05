@@ -192,6 +192,8 @@ Add a list of TrueType font files to the manifest if you are using them:
 	],
 ~~~
 
+On Android, it is crucial that custom .TTF file names match an internal font name.
+
 #####Splash Screen
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
