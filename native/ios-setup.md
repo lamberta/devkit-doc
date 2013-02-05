@@ -119,10 +119,11 @@ Add a list of TrueType font files to the manifest if you are using them:
 
 ~~~
 	"ttf": [
-		"resources/fonts/Arial Black.ttf",
-		"resources/fonts/Gill Sans Bold.ttf"
+		"resources/fonts/Arial Black.ttf"
 	],
 ~~~
+
+On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
 
 #####Splash Screen
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).

@@ -267,57 +267,45 @@ device to pinpoint where in the stack an error is occurring.
 
 ### android
 1. `{object}`
-    * `flurryKey {string}` ---Flurry app key for analytics.
-    * `tapjoyDaily {object}` ---TapJoy daily key for analytics.
-    * `tapjoyID {string}` ---TapJoy app ID for analytics.
-    * `tapjoyKey {string}` ---TapJoy app key for analytics.
-    * `apsalarKey {string}` ---Apsalar key.
-    * `apsalarSecret {string}` ---Apsalar secret key.
+    * `versionCode {number}` ---Google Play version code.
 
-Device specific settings for Android phones and tablets. In
-this section you can set Flurry, Tapjoy, and Apsalar keys
-for analytics on the Android platform. These keys should be
-different from the iOS keys.
+Device specific settings for Android phones and tablets.  The Google Play store version code can be set here.
 
 ~~~
 "android": {
-  "apsalarKey": "jollyfunkey1",
-  "apsalarSecret": "12345",
-  "flurryKey": "4QR3QR3QR3QR3QR3QR3Q",
-  "tapjoyDaily": {},
-  "tapjoyId": "deadbeef-beef-baad-f00d-baad33c0ffee",
-  "tapjoyKey": "S3QR3QR3QR3QR3QR3QR3",
   "versionCode": 1
 }
 ~~~
 
 ### ios
 1. `{object}`
-    * `flurryKey {string}` ---Flurry app key for analytics.
-    * `tapjoyDaily {object}` ---TapJoy daily key for analytics.
-    * `tapjoyID {string}` ---TapJoy app ID for analytics.
-    * `tapjoyKey {string}` ---TapJoy app key for analytics.
-    * `apsalarKey {string}` ---Apsalar key.
-    * `apsalarSecret {string}` ---Apsalar secret key.
+    * `bundleID {string}` ---The game bundle ID from iTunes Connect.
+    * `appleID {string}` ---The game Apple ID from iTunes Connect.
+    * `version {string}` ---The game version from iTunes Connect.
 
-Device specific settings for iOS phones and tablets. In this
-section you can set Flurry, Tapjoy, and Apsalar keys for
-analytics on the iOS platform. These analytics keys should
-be different from the Android keys.
+Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.
 
 ~~~
 "ios": {
-  "apsalarKey": "jollyfunkey2",
-  "apsalarSecret": "12345",
-  "flurryKey": "3QR3QR3QR3QR3QR3QR3Q",
-  "tapjoyDaily": {},
-  "tapjoyId": "deadbeef-b0ff-baad-feed-baad33c0ffee",
-  "tapjoyKey": "R3QR3QR3QR3QR3QR3QR3",
   "bundleID": "ggshooter",
   "appleID": "12345678",
   "version": "1.0.0"
 }
 ~~~
+
+### TrueType Fonts (TTF)
+
+Provide a list of TrueType fonts that are used by your game.
+
+~~~
+	"ttf": [
+		"resources/fonts/Arial Black.ttf"
+	],
+~~~
+
+On Android, it is crucial that custom .TTF file names match an internal font name.
+
+On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
 
 ### mpMetricsKey
 1. `{string}`
