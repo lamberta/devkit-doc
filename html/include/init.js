@@ -61,12 +61,17 @@ $(function () {
 	 */
 	if (document.location.href.match('/api/')) {
 		var regex_title = /\S+/;
+    var regex_event = /^\s*'(.*)',\s*$/;
 		$('nav ul li ul li li a').each(function (i, elem) {
 			var a = $(elem),
 					title = a.text().match(regex_title)[0];
 			
 			//set title if non-empty and not a constructor
 			if (title.length > 0 && title !== 'new') {
+        var match = title.match(regex_event);
+        if (match) {
+          title = match[0].substring(0, match[0].length - 1);
+        }
 				a.text(title);
 			}
 		});
