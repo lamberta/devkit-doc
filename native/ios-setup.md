@@ -119,8 +119,7 @@ Add a list of TrueType font files to the manifest if you are using them:
 
 ~~~
 	"ttf": [
-		"resources/fonts/Arial Black.ttf",
-		"resources/fonts/Gill Sans Bold.ttf"
+		"resources/fonts/Arial Black.ttf"
 	],
 ~~~
 

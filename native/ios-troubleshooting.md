@@ -46,6 +46,37 @@ On iOS devices there is a switch that can mute audio, so make sure that did not 
 
 There is also a hidden audio menu that you can access by double-tapping the Home button and swiping the bottom icon ribbon that appears to the right.  Verify that the audio controls do not have sound muted there.
 
+## Custom TrueType Fonts Not Working
+
+On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
+
+Make sure that you have included the .TTF (TrueType Font) file under `./resources/fonts` in your game directory.  And that under `./manifest.json` you have a "ttf" section containing the relative path to the file, as in the following example:
+
+~~~
+	"ttf": [
+		"resources/fonts/Arial Black.ttf"
+	],
+~~~
+
+Inside your game you can reference the font by one of its internal names.  For best interoperability, the .TTF file name should match one of its internal names.  For example:
+
+~~~
+	var textview = new TextView({
+		superview: this.view,
+		layout: "box",
+		text: "Hello, world!",
+		fontFamily: "Arial Black",
+		size: 50,
+		verticalAlign: "top",
+		color: "#00ffff",
+		width: 500,
+		height: 20,
+		x: 200,
+		y: 100,
+		backgroundColor: "#ff7733"
+	});
+~~~
+
 ## Device Communication Failures
 
 Sometimes Xcode will be unable to communicate with the device.  First attempt to Stop the Xcode process and restart it.  Uninstall your game.  Then restart Xcode and try reinstalling.
