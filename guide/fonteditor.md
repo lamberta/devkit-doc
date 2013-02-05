@@ -24,11 +24,27 @@ your javascript code.
 
 ## Creating a bitmap font
 
-## Using a bitmap font
+After clicking on the `Font Editor` option in the left menu the font overview for the active project appears.
+New projects don't have any bitmap fonts.
 
 <img src="./assets/fonteditor/font-main-screen.png"></img>
+
+Click on the `Create new font` button to start making a new bitmap font.
+
 <img src="./assets/fonteditor/font-editor.png"></img>
+
+There are a couple of options which you have to select to create a font:
+
+:    1. `fonts` ---The font used to render the bitmap font
+   2. `characters` ---The characters in the bitmap, you can select single characters but you can also select a group like `Numbers`, `Symbols`, etc..
+
 <img src="./assets/fonteditor/font-settings.png"></img>
+
+
+
+
+## Using a bitmap font
+
 <img src="./assets/fonteditor/font-created.png"></img>
 <img src="./assets/fonteditor/font-menu.png"></img>
 
