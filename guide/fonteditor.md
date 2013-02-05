@@ -40,11 +40,28 @@ There are a couple of options which you have to select to create a font:
 
 <img src="./assets/fonteditor/font-settings.png"></img>
 
+The bars for the color and alpha settings allow you to add new points by clicking on them. Once you clicked on a point
+the color or alpha value is displayed on the right side and can be changed by clicking on it or entering a new value.
+A gradient point can be removed by dragging it of the bar.
 
+## Managing fonts
 
-
-## Using a bitmap font
+After a font is created and the `font manager` tab is selected again a thumbnail image of the font is displayed.
+A preview with a code fragment will be displayed if the thumbnail image is clicked.
 
 <img src="./assets/fonteditor/font-created.png"></img>
+
+The font editor uses the prefix `customFont` followed by the first unused number as a name, it's possible
+to rename bitmap fonts from the `font manager` pane.
+
+The right top of the font tile shows a small button, clicking it shows a menu with several options:
+
+:    1. `Edit customFont1` ---Open the font editor with the previously selected options for this font
+   2. `Duplicate font` ---Open the font editor with the settings of the selected font to create a new font
+   3. `Rename "customFont1"` ---Change the name of the font
+   4. `Delete font` ---Removes all settings and files which were generated for the font
+
 <img src="./assets/fonteditor/font-menu.png"></img>
+
+## Using a bitmap font
 
