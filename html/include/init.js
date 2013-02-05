@@ -6,23 +6,23 @@ $(function () {
       href_page = document.location.href.split('/').pop().split('#')[0];
 
   //index file doesn't have to deal with this nonsense
-  if (href_page !== 'index.html' && href_page !== '') {
-    function set_sidebar_height () {
-      if (win.width() < 979) {
-        sidebar.css({
-          'width': sidebar.parent().width(),
-          'max-height': 'none'
-        });
-      } else {
-        sidebar.css({
-          'width': sidebar.parent().width(),
-          'max-height': win.height() - sidebar.offset().top - 30
-        });
-      }
-    }
-    set_sidebar_height();
-    win.resize(set_sidebar_height);
-  }
+  // if (href_page !== 'index.html' && href_page !== '') {
+  //   function set_sidebar_height () {
+  //     if (win.width() < 979) {
+  //       sidebar.css({
+  //         'width': sidebar.parent().width(),
+  //         'max-height': 'none'
+  //       });
+  //     } else {
+  //       sidebar.css({
+  //         'width': sidebar.parent().width(),
+  //         'max-height': win.height() - sidebar.offset().top - 30
+  //       });
+  //     }
+  //   }
+  //   set_sidebar_height();
+  //   win.resize(set_sidebar_height);
+  // }
 
 
   /* tab handling on the homepage
