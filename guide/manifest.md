@@ -109,50 +109,16 @@ device. The simulator will default to the first entry in the
 array, for example:
 
 ~~~
-"supportedOrientations": ["landscape", "portrait"]
+"supportedOrientations": ["landscape", "portrait"],
 ~~~
 
-### icons
-1. `{object}`
-    * `28 {string}` ---Path to small game app icon for Android, 28x28px.
-    * `38 {string}` ---Path to small game app icon for Android, size: 38x38px.
-    * `48 {string}` ---Path to game app icon for Android, 48x48px.
-    * `56 {string}` ---Path to game app icon for Android, 56x56px.
-    * `57 {string}` ---Path to game app icon for iPhone, 57x57px.
-    * `72 {string}` ---Path to game app icon for iPad, 72x72px.
-    * `114 {string}` ---Path to retina game app icon for iPhone, 114x114px.
-    * `144 {string}` ---Path to retina game app icon for iPad, 144x144px.
-    * `512 {string}` ---Path to large game app icon, 512x512px.
+### icon
+1. `{string}` ---Path to app store game icon, 512x512px.
 
-Icons are displayed in the simulator and are used for
-your game on a mobile device. All icons are PNG image
-files, using 8-bit 3/4 channel RGBA. iOS icons should be
-rendered somewhat flat since as the "glossy" effect is added
-during the build process. Android icons should have the
-gloss effect prerendered in the image file, if desired.
-
-The icons used for push notification alerts can be
-specified with different alert icons for message priority (high, medium, low).
-
-The icon files should be kept outside of the `resources`
-directory (for example `./preload/icons/`) so that the
-internal spriting tool does not include them in your game
-assets and waste space.
-
-In the `manifest.json` file, include the icon images like this:
+This is the icon that will be displayed in the Game Closure SDK web interface for your game.
 
 ~~~
-"icons": {
-  "28": "preload/icons/icon36.png",
-  "38": "preload/icons/icon48.png",
-  "48": "preload/icons/icon48.png",
-  "56": "preload/icons/icon72.png",
-  "57": "preload/icons/icon57.png",
-  "72": "preload/icons/icon72.png",
-  "114": "preload/icons/icon114.png",
-  "144": "preload/icons/icon144.png",
-  "512": "preload/icons/icon512.png"
-}
+"icon": "resources/icons/icon512.png",
 ~~~
 
 ### preload
@@ -268,12 +234,35 @@ device to pinpoint where in the stack an error is occurring.
 ### android
 1. `{object}`
     * `versionCode {number}` ---Google Play version code.
+    * "icons" {object} contains:
+	    * `36 {string}` ---Path to small game app icon, size: 36x36px.
+    	* `48 {string}` ---Path to medium game app icon, size: 48x48px.
+	    * `72 {string}` ---Path to large game app icon, size: 72x72px.
+    	* `96 {string}` ---Path to extra-large game app icon, size: 96x96px.
 
-Device specific settings for Android phones and tablets.  The Google Play store version code can be set here.
+Device specific settings for Android phones and tablets.  The Google Play store version code can be set here, and app icon paths are set in this section.
+
+Icons are displayed in the simulator and are used for
+your game on a mobile device. All icons are PNG image
+files, using 8-bit 3/4 channel RGBA. Android icons should have any
+glossy effects prerendered in the image file, if desired.
+
+The icon files should be kept outside of the `resources`
+directory (in, for example `./preload/icons/`) so that the
+internal spriting tool does not include them in your game
+assets and waste space.
+
+In the `manifest.json` file, include the icon images like this:
 
 ~~~
 "android": {
   "versionCode": 1
+  "icons": {
+    "36": "preload/icons/android36.png",
+    "48": "preload/icons/android48.png",
+    "72": "preload/icons/android72.png",
+    "96": "preload/icons/android96.png"
+  }
 }
 ~~~
 
@@ -282,14 +271,38 @@ Device specific settings for Android phones and tablets.  The Google Play store 
     * `bundleID {string}` ---The game bundle ID from iTunes Connect.
     * `appleID {string}` ---The game Apple ID from iTunes Connect.
     * `version {string}` ---The game version from iTunes Connect.
+    * "icons" {object} contains:
+    	* `glossy {boolean}` ---Specify `true` to have Xcode render gloss over your icon images.
+	    * `57 {string}` ---Path to iPhone/iPod Touch game app icon, size: 57x57px.
+	    * `72 {string}` ---Path to iPad game app icon, size: 72x72px.
+	    * `114 {string}` ---Path to retina iPhone/iPod Touch game app icon, size: 114x114px.
+	    * `144 {string}` ---Path to retina iPAd game app icon, size: 144x144px.
 
-Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.
+Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.  You should also specify icon images in this section.
+
+Icons are displayed in the SDK web emulator and are used to represent your game in the app list when installed on a mobile device.  All icons are PNG image files, using 8-bit 3/4 channel RGBA.
+
+These icons can be rendered flat since as the "glossy" effect can added during the build process.  Specify `"glossy": true` to enable this feature.
+
+The icon files should be kept outside of the `resources`
+directory (in, for example `./preload/icons/`) so that the
+internal spriting tool does not include them in your game
+assets and waste space.
+
+In the `manifest.json` file, include the icon images like this:
 
 ~~~
 "ios": {
   "bundleID": "ggshooter",
   "appleID": "12345678",
   "version": "1.0.0"
+  "icons": {
+    "glossy": false,
+    "57": "preload/icons/ios57.png",
+    "72": "preload/icons/ios72.png",
+    "114": "preload/icons/ios114.png",
+    "144": "preload/icons/ios144.png"
+  }
 }
 ~~~
 
@@ -303,9 +316,9 @@ Provide a list of TrueType fonts that are used by your game.
 	],
 ~~~
 
-On Android, it is crucial that custom .TTF file names match an internal font name.
+For Android targets, it is crucial that custom .TTF file names match a name inside the font file.
 
-On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
+For iOS targets, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
 
 ### mpMetricsKey
 1. `{string}`

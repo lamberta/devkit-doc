@@ -151,19 +151,25 @@ Add the app version code from Google Play here:
 ~~~
 
 #####Icons
+
 The icon sizes used for Android are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
 ~~~
-{
-	"icons": {
-		"28": "preload/icons/icon28.png",
-		"38": "preload/icons/icon38.png",
-		"56": "preload/icons/icon56.png"
-	},
+"android": {
+  "icons": {
+    "36": "preload/icons/android36.png",
+    "48": "preload/icons/android48.png",
+    "72": "preload/icons/android72.png",
+    "96": "preload/icons/android96.png"
+  }
+}
 ~~~
   
 #####Orientation
-Choose an orientation for your game, a combination of portrait and landscape. 
+
+Choose an orientation for your game, which is a combination of portrait and/or landscape.  Landscape means that the long side of the device is horizontal, and portrait means that the long side of the device will be vertical.  Unspecified orientations will be disallowed.
+
+On tablets, both portrait and landscape orientations will allow upside-down or rightside-up rotations.  On a phone, for portrait orientation only rightside-up will be allowed.
 
 ~~~
 	"supportedOrientations": [
@@ -184,6 +190,7 @@ Choose an orientation for your game, a combination of portrait and landscape.
 ~~~
 
 #####TrueType Fonts
+
 Add a list of TrueType font files to the manifest if you are using them:
 
 ~~~
@@ -195,6 +202,7 @@ Add a list of TrueType font files to the manifest if you are using them:
 On Android, it is crucial that custom .TTF file names match an internal font name.
 
 #####Splash Screen
+
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
 ~~~

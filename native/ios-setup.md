@@ -80,21 +80,26 @@ Add these fields to insure that In-App Purchases will work.
 ~~~
 
 #####Icons
+
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
 ~~~
-{
-	"icons": {
-		"57": "preload/icons/icon57.png",
-		"72": "preload/icons/icon72.png",
-		"114": "preload/icons/icon114.png",
-		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png"
-	},
+"ios": {
+  "icons": {
+    "glossy": false,
+    "57": "preload/icons/ios57.png",
+    "72": "preload/icons/ios72.png",
+    "114": "preload/icons/ios114.png",
+    "144": "preload/icons/ios144.png"
+  }
+}
 ~~~
   
 #####Orientation
-Choose an orientation for your game, a combination of portrait and landscape. 
+
+Choose an orientation for your game, which is a combination of portrait and/or landscape.  Landscape means that the long side of the device is horizontal, and portrait means that the long side of the device will be vertical.  Unspecified orientations will be disallowed.
+
+On the iPad, both portrait and landscape orientations will allow upside-down or rightside-up rotations.  On the iPhone, for portrait orientation only rightside-up will be allowed.
 
 ~~~
 	"supportedOrientations": [
@@ -115,6 +120,7 @@ Choose an orientation for your game, a combination of portrait and landscape.
 ~~~
 
 #####TrueType Fonts
+
 Add a list of TrueType font files to the manifest if you are using them:
 
 ~~~
