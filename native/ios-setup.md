@@ -87,10 +87,10 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 "ios": {
   "icons": {
     "glossy": false,
-    "57": "preload/icons/ios57.png",
-    "72": "preload/icons/ios72.png",
-    "114": "preload/icons/ios114.png",
-    "144": "preload/icons/ios144.png"
+    "57": "resources/icons/ios57.png",
+    "72": "resources/icons/ios72.png",
+    "114": "resources/icons/ios114.png",
+    "144": "resources/icons/ios144.png"
   }
 }
 ~~~
@@ -132,26 +132,8 @@ Add a list of TrueType font files to the manifest if you are using them:
 On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
 
 #####Splash Screen
-Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
-~~~
-	"preload": {
-		"autoHide": true,
-		"img": "preload/splash.png",
-		"iphone": {
-			"launch": "preload/iphone/Default.png",
-			"launchRetina": "preload/iphone/Default@2x.png",
-			"launchRetina4": "preload/iphone/Default-568h@2x.png"
-		},
-		"ipad": {
-			"portrait": "preload/ipad/Default-Portrait~ipad.png",
-			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
-			"landscape": "preload/ipad/Default-Landscape~ipad.png",
-			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
-		}
-	}
-}
-~~~
+Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
 Once your game is configured properly for iOS, you're ready to install it!
 

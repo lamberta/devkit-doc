@@ -157,10 +157,10 @@ The icon sizes used for Android are listed below.  Be sure to include at least t
 ~~~
 "android": {
   "icons": {
-    "36": "preload/icons/android36.png",
-    "48": "preload/icons/android48.png",
-    "72": "preload/icons/android72.png",
-    "96": "preload/icons/android96.png"
+    "36": "resources/icons/android36.png",
+    "48": "resources/icons/android48.png",
+    "72": "resources/icons/android72.png",
+    "96": "resources/icons/android96.png"
   }
 }
 ~~~
@@ -204,14 +204,6 @@ On Android, it is crucial that custom .TTF file names match an internal font nam
 #####Splash Screen
 
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
-
-~~~
-	"preload": {
-		"autoHide": true,
-		"img": "preload/splash.png"
-	}
-}
-~~~
 
 Once your game is configured properly for Android, you're ready to install it!
 
