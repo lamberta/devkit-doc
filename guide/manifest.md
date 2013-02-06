@@ -167,7 +167,7 @@ Example `manifest.json` settings:
   "portrait480": "resources/splash/portrait480.png",
   "portrait960": "resources/splash/portrait960.png",
   "portrait1024": "resources/splash/portrait1024.png",
-  "portrait1136": "resources/splash/portrait1136.png"
+  "portrait1136": "resources/splash/portrait1136.png",
   "portrait2048": "resources/splash/portrait2048.png",
   "landscape768": "resources/splash/landscape768.png",
   "landscape1536": "resources/splash/landscape1536.png"
@@ -219,7 +219,7 @@ In the `manifest.json` file, include the icon images like this:
 
 ~~~
 "android": {
-  "versionCode": 1
+  "versionCode": 1,
   "icons": {
     "36": "resources/icons/android36.png",
     "48": "resources/icons/android48.png",
@@ -253,7 +253,7 @@ In the `manifest.json` file, include the icon images like this:
 "ios": {
   "bundleID": "ggshooter",
   "appleID": "12345678",
-  "version": "1.0.0"
+  "version": "1.0.0",
   "icons": {
     "renderGloss": false,
     "57": "resources/icons/ios57.png",
