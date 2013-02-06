@@ -109,77 +109,34 @@ device. The simulator will default to the first entry in the
 array, for example:
 
 ~~~
-"supportedOrientations": ["landscape", "portrait"]
+"supportedOrientations": ["landscape", "portrait"],
 ~~~
 
-### icons
+### icon
+1. `{string}` ---Path to app store game icon, 512x512px.
+
+This is the icon that will be displayed in the Game Closure SDK web interface for your game.
+
+~~~
+"icon": "resources/icons/icon512.png",
+~~~
+
+### splash
+
 1. `{object}`
-    * `28 {string}` ---Path to small game app icon for Android, 28x28px.
-    * `38 {string}` ---Path to small game app icon for Android, size: 38x38px.
-    * `48 {string}` ---Path to game app icon for Android, 48x48px.
-    * `56 {string}` ---Path to game app icon for Android, 56x56px.
-    * `57 {string}` ---Path to game app icon for iPhone, 57x57px.
-    * `72 {string}` ---Path to game app icon for iPad, 72x72px.
-    * `114 {string}` ---Path to retina game app icon for iPhone, 114x114px.
-    * `144 {string}` ---Path to retina game app icon for iPad, 144x144px.
-    * `512 {string}` ---Path to large game app icon, 512x512px.
-
-Icons are displayed in the simulator and are used for
-your game on a mobile device. All icons are PNG image
-files, using 8-bit 3/4 channel RGBA. iOS icons should be
-rendered somewhat flat since as the "glossy" effect is added
-during the build process. Android icons should have the
-gloss effect prerendered in the image file, if desired.
-
-The icons used for push notification alerts can be
-specified with different alert icons for message priority (high, medium, low).
-
-The icon files should be kept outside of the `resources`
-directory (for example `./preload/icons/`) so that the
-internal spriting tool does not include them in your game
-assets and waste space.
-
-In the `manifest.json` file, include the icon images like this:
-
-~~~
-"icons": {
-  "28": "preload/icons/icon36.png",
-  "38": "preload/icons/icon48.png",
-  "48": "preload/icons/icon48.png",
-  "56": "preload/icons/icon72.png",
-  "57": "preload/icons/icon57.png",
-  "72": "preload/icons/icon72.png",
-  "114": "preload/icons/icon114.png",
-  "144": "preload/icons/icon144.png",
-  "512": "preload/icons/icon512.png"
-}
-~~~
-
-### preload
-1. `{object}`
-    * `img {string}` ---Path to a splash screen image.
-    * `autoHide {boolean} = false` ---Automatically hide the splash image when the app starts.
-    * `scaleMethod {string} = "contain"` ---Method for scaling the splash screen image to fit. Options are `"contain"`, `"cover"`, `"stretch"`, and `"none"`.
-    * `iphone {object}`
-        * `launch {string}` ---Path to a splash screen image (320x480px), top-side-left.
-        * `launchRetina {string}` ---Path to a splash screen image for retina 3.5 inch display (640x960px), top-side-left.
-        * `launchRetina4 {string}` ---Path to a splash screen image for retina 4 inch display (640x1136px), top-side-left.
-    * `ipad {object}`
-        * `portrait {string}` ---Path to a splash screen image (768x1024px), top-side-up.
-        * `portraitRetina {string}` ---Path to a splash screen retina image (1536x2048px), top-side-up.
-        * `landscape {string}` ---Path to a splash screen image (1024x768px), top-side-up.
-        * `landscapeRetina {string}` ---Path to a splash screen retina image (2048x1536px), top-side-up.
+	* `autoHide {boolean} = false` ---Automatically hide the splash image when the app starts.
+	* `scaleMethod {string} = "contain"` ---Method for scaling the splash screen image to fit. Options are `"contain"`, `"cover"`, `"stretch"`, and `"none"`.
+	* `portrait480 {string}` ---Path to splash image, 320x480px, topside-left.
+	* `portrait960 {string}` ---Path to splash image, 640x960px, topside-left.
+	* `portrait1024 {string}` ---Path to splash image, 768x1024px, topside-up.
+	* `portrait1136 {string}` ---Path to splash image, 640x1136px, topside-left.
+	* `portrait2048 {string}` ---Path to splash image, 1536x2048px, topside-up.
+	* `landscape768 {string}` ---Path to splash image, 1024x768px, topside-up.
+	* `landscape1536 {string}` ---Path to splash image, 2048x1536px, topside-up.
 
 The preload section is used to specify splash screen images
 for Android and iPhone/iPad devices. All splash screens
 should be PNG image files at 8-bit 3-channel RGB color.
-
-The `img` path is the location to your splash screen image. For
-games that run primarily in portrait mode (longer side
-up/down), it should be a 480x864 pixel image, oriented
-top-side-up. For games that run in landscape mode (longer
-side left/right), it should be a 864x480 pixel image, also
-oriented top side facing upward.
 
 The `scaleMethod` selects how the splash screen image should
 scale for different sized screens:
@@ -201,42 +158,19 @@ splash screen to be automatically removed after loading
 completes. If `autoHide` is `false`---the default---the
 developer can manually remove the splash screen by calling `GC.hidePreloader()`.
 
-For the iPhone and iPad platforms, additional images are
-needed based on the device screen size. iPhone splash
-screens are all provided in portrait mode (long side
-up/down) so that the top side of the image is on the left side:
-
-* `iphone {object}`
-    * `launch {string}` ---320x480px, top-side-left.
-    * `launchRetina {string}` ---640x960px, top-side-left.
-    * `launchRetina4 {string}` ---640x1136px, top-side-left.
-* `ipad {object}`
-    * `portrait {string}` ---768 x 1024 px, top-side-up.
-    * `portraitRetina {string}` ---1536x2048px, top-side-up.
-    * `landscape {string}` ---1024x768px, top-side-up.
-    * `landscapeRetina {string}` ---2048x1536px, top-side-up.
-
-Again, it is recommended to place these images within a
-directory such as `./preload/` that is outside of the
-`./resources/` directory, that way these images will not get
-sprited along with the other game assets. For example:
+Example `manifest.json` settings:
 
 ~~~
-"preload": {
+"splash": {
   "autoHide": true,
-  "img": "preload/splash.png",
   "scaleMethod": "cover",
-  "iphone": {
-    "launch": "preload/iphone/Default.png",
-    "launchRetina": "preload/iphone/Default@2x.png",
-    "launchRetina4": "preload/iphone/Default-568h@2x.png"
-  },
-  "ipad": {
-    "portrait": "preload/ipad/Default-Portrait~ipad.png",
-    "portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
-    "landscape": "preload/ipad/Default-Landscape~ipad.png",
-    "landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
-  }
+  "portrait480": "resources/splash/portrait480.png",
+  "portrait960": "resources/splash/portrait960.png",
+  "portrait1024": "resources/splash/portrait1024.png",
+  "portrait1136": "resources/splash/portrait1136.png"
+  "portrait2048": "resources/splash/portrait2048.png",
+  "landscape768": "resources/splash/landscape768.png",
+  "landscape1536": "resources/splash/landscape1536.png"
 }
 ~~~
 
@@ -268,12 +202,30 @@ device to pinpoint where in the stack an error is occurring.
 ### android
 1. `{object}`
     * `versionCode {number}` ---Google Play version code.
+    * `"icons" {object}` contains:
+	    * `36 {string}` ---Path to small game app icon, size: 36x36px.
+    	* `48 {string}` ---Path to medium game app icon, size: 48x48px.
+	    * `72 {string}` ---Path to large game app icon, size: 72x72px.
+    	* `96 {string}` ---Path to extra-large game app icon, size: 96x96px.
 
-Device specific settings for Android phones and tablets.  The Google Play store version code can be set here.
+Device specific settings for Android phones and tablets.  The Google Play store version code can be set here, and app icon paths are set in this section.
+
+Icons are displayed in the simulator and are used for
+your game on a mobile device. All icons are PNG image
+files, using 8-bit 3/4 channel RGBA. Android icons should have any
+glossy effects prerendered in the image file, if desired.
+
+In the `manifest.json` file, include the icon images like this:
 
 ~~~
 "android": {
   "versionCode": 1
+  "icons": {
+    "36": "resources/icons/android36.png",
+    "48": "resources/icons/android48.png",
+    "72": "resources/icons/android72.png",
+    "96": "resources/icons/android96.png"
+  }
 }
 ~~~
 
@@ -282,14 +234,33 @@ Device specific settings for Android phones and tablets.  The Google Play store 
     * `bundleID {string}` ---The game bundle ID from iTunes Connect.
     * `appleID {string}` ---The game Apple ID from iTunes Connect.
     * `version {string}` ---The game version from iTunes Connect.
+    * `"icons" {object}` contains:
+    	* `renderGloss {boolean}` ---Specify `true` to have Xcode render gloss over your icon images.
+	    * `57 {string}` ---Path to iPhone/iPod Touch game app icon, size: 57x57px.
+	    * `72 {string}` ---Path to iPad game app icon, size: 72x72px.
+	    * `114 {string}` ---Path to retina iPhone/iPod Touch game app icon, size: 114x114px.
+	    * `144 {string}` ---Path to retina iPad game app icon, size: 144x144px.
 
-Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.
+Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.  You should also specify icon images in this section.
+
+Icons are displayed in the SDK web emulator and are used to represent your game in the app list when installed on a mobile device.  All icons are PNG image files, using 8-bit 3/4 channel RGBA.
+
+These icons can be rendered flat since as the "glossy" effect can added during the build process.  Specify `"renderGloss": true` to enable this feature.
+
+In the `manifest.json` file, include the icon images like this:
 
 ~~~
 "ios": {
   "bundleID": "ggshooter",
   "appleID": "12345678",
   "version": "1.0.0"
+  "icons": {
+    "renderGloss": false,
+    "57": "resources/icons/ios57.png",
+    "72": "resources/icons/ios72.png",
+    "114": "resources/icons/ios114.png",
+    "144": "resources/icons/ios144.png"
+  }
 }
 ~~~
 
@@ -303,9 +274,9 @@ Provide a list of TrueType fonts that are used by your game.
 	],
 ~~~
 
-On Android, it is crucial that custom .TTF file names match an internal font name.
+For Android targets, it is crucial that custom .TTF file names match a name inside the font file.
 
-On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
+For iOS targets, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
 
 ### mpMetricsKey
 1. `{string}`

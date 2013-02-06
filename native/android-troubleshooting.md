@@ -38,33 +38,33 @@ You may then pipe the output to a file with `$ adb logcat | grep JS > mylog.txt`
 
 ## Custom TrueType Fonts Not Working
 
-On Android, it is crucial that custom .TTF file names match an internal font name.
+On Android, it is crucial that custom .TTF file names match one of the names inside the font file.
 
 Make sure that you have included the .TTF (TrueType Font) file under `./resources/fonts` in your game directory.  And that under `./manifest.json` you have a "ttf" section containing the relative path to the file, as in the following example:
 
 ~~~
-	"ttf": [
-		"resources/fonts/Arial Black.ttf"
-	],
+"ttf": [
+	"resources/fonts/Arial Black.ttf"
+],
 ~~~
 
-Inside your game you can reference the font by one of its internal names.  The .TTF file name should match one of its internal names.  For example:
+Inside your game you can reference the font by one of the names inside the font file.  For best interoperability, the .TTF file name should also match one of the names inside the font file.  For example:
 
 ~~~
-	var textview = new TextView({
-		superview: this.view,
-		layout: "box",
-		text: "Hello, world!",
-		fontFamily: "Arial Black",
-		size: 50,
-		verticalAlign: "top",
-		color: "#00ffff",
-		width: 500,
-		height: 20,
-		x: 200,
-		y: 100,
-		backgroundColor: "#ff7733"
-	});
+var textview = new TextView({
+	superview: this.view,
+	layout: "box",
+	text: "Hello, world!",
+	fontFamily: "Arial Black",
+	size: 50,
+	verticalAlign: "top",
+	color: "#00ffff",
+	width: 500,
+	height: 20,
+	x: 200,
+	y: 100,
+	backgroundColor: "#ff7733"
+});
 ~~~
 
 ## Device Communication Failures

@@ -58,7 +58,7 @@ Make sure that you have included the .TTF (TrueType Font) file under `./resource
 	],
 ~~~
 
-Inside your game you can reference the font by one of its internal names.  For best interoperability, the .TTF file name should match one of its internal names.  For example:
+Inside your game you can reference the font by one of the names inside the font file.  For best interoperability, the .TTF file name should also match one of the names inside the font file.  For example:
 
 ~~~
 	var textview = new TextView({
@@ -92,4 +92,4 @@ If the native SDK code is crashing and you want to help looking into the issue, 
 + Optimization Level: `None [-O0]`
 + Unroll Loops: `No`
 
-Thanks in advance!
+Be sure to turn this off again for your release builds for maximum performance!  And thanks in advance!

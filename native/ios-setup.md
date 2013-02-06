@@ -80,21 +80,30 @@ Add these fields to insure that In-App Purchases will work.
 ~~~
 
 #####Icons
+
 The icons for iOS are listed below.  Be sure to include at least this set of icons.  [See the manifest documentation](../guide/manifest.html) for file formats and other details.
 
 ~~~
-{
-	"icons": {
-		"57": "preload/icons/icon57.png",
-		"72": "preload/icons/icon72.png",
-		"114": "preload/icons/icon114.png",
-		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png"
-	},
+"ios": {
+  "icons": {
+    "glossy": false,
+    "57": "resources/icons/ios57.png",
+    "72": "resources/icons/ios72.png",
+    "114": "resources/icons/ios114.png",
+    "144": "resources/icons/ios144.png"
+  }
+}
 ~~~
-  
+
+References:
+
+[1] Apple provides a [guide for icon images](http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/IconsImages/IconsImages.html).
+
 #####Orientation
-Choose an orientation for your game, a combination of portrait and landscape. 
+
+Choose an orientation for your game, which is a combination of portrait and/or landscape.  Landscape means that the long side of the device is horizontal, and portrait means that the long side of the device will be vertical.  Unspecified orientations will be disallowed.
+
+On the iPad, both portrait and landscape orientations will allow upside-down or rightside-up rotations.  On the iPhone, for portrait orientation only rightside-up will be allowed.
 
 ~~~
 	"supportedOrientations": [
@@ -115,6 +124,7 @@ Choose an orientation for your game, a combination of portrait and landscape.
 ~~~
 
 #####TrueType Fonts
+
 Add a list of TrueType font files to the manifest if you are using them:
 
 ~~~
@@ -126,26 +136,8 @@ Add a list of TrueType font files to the manifest if you are using them:
 On iOS, it is crucial that custom fonts do not have the same name as a default system font.  A complete list of default iOS fonts is available at [iosfonts.com](http://iosfonts.com).
 
 #####Splash Screen
-Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
-~~~
-	"preload": {
-		"autoHide": true,
-		"img": "preload/splash.png",
-		"iphone": {
-			"launch": "preload/iphone/Default.png",
-			"launchRetina": "preload/iphone/Default@2x.png",
-			"launchRetina4": "preload/iphone/Default-568h@2x.png"
-		},
-		"ipad": {
-			"portrait": "preload/ipad/Default-Portrait~ipad.png",
-			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
-			"landscape": "preload/ipad/Default-Landscape~ipad.png",
-			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
-		}
-	}
-}
-~~~
+Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
 Once your game is configured properly for iOS, you're ready to install it!
 
