@@ -272,17 +272,17 @@ In the `manifest.json` file, include the icon images like this:
     * `appleID {string}` ---The game Apple ID from iTunes Connect.
     * `version {string}` ---The game version from iTunes Connect.
     * "icons" {object} contains:
-    	* `glossy {boolean}` ---Specify `true` to have Xcode render gloss over your icon images.
+    	* `renderGloss {boolean}` ---Specify `true` to have Xcode render gloss over your icon images.
 	    * `57 {string}` ---Path to iPhone/iPod Touch game app icon, size: 57x57px.
 	    * `72 {string}` ---Path to iPad game app icon, size: 72x72px.
 	    * `114 {string}` ---Path to retina iPhone/iPod Touch game app icon, size: 114x114px.
-	    * `144 {string}` ---Path to retina iPAd game app icon, size: 144x144px.
+	    * `144 {string}` ---Path to retina iPad game app icon, size: 144x144px.
 
 Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.  You should also specify icon images in this section.
 
 Icons are displayed in the SDK web emulator and are used to represent your game in the app list when installed on a mobile device.  All icons are PNG image files, using 8-bit 3/4 channel RGBA.
 
-These icons can be rendered flat since as the "glossy" effect can added during the build process.  Specify `"glossy": true` to enable this feature.
+These icons can be rendered flat since as the "glossy" effect can added during the build process.  Specify `"renderGloss": true` to enable this feature.
 
 The icon files should be kept outside of the `resources`
 directory (in, for example `./preload/icons/`) so that the
@@ -297,7 +297,7 @@ In the `manifest.json` file, include the icon images like this:
   "appleID": "12345678",
   "version": "1.0.0"
   "icons": {
-    "glossy": false,
+    "renderGloss": false,
     "57": "preload/icons/ios57.png",
     "72": "preload/icons/ios72.png",
     "114": "preload/icons/ios114.png",
