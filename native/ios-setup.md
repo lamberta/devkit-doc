@@ -94,7 +94,11 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
   }
 }
 ~~~
-  
+
+References:
+
+[1] Apple provides a [guide for icon images](http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/IconsImages/IconsImages.html).
+
 #####Orientation
 
 Choose an orientation for your game, which is a combination of portrait and/or landscape.  Landscape means that the long side of the device is horizontal, and portrait means that the long side of the device will be vertical.  Unspecified orientations will be disallowed.
