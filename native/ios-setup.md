@@ -86,7 +86,7 @@ The icons for iOS are listed below.  Be sure to include at least this set of ico
 ~~~
 "ios": {
   "icons": {
-    "glossy": false,
+    "renderGloss": false,
     "57": "resources/icons/ios57.png",
     "72": "resources/icons/ios72.png",
     "114": "resources/icons/ios114.png",
