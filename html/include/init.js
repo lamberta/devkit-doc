@@ -6,23 +6,23 @@ $(function () {
       href_page = document.location.href.split('/').pop().split('#')[0];
 
   //index file doesn't have to deal with this nonsense
-  if (href_page !== 'index.html' && href_page !== '') {
-    function set_sidebar_height () {
-      if (win.width() < 979) {
-        sidebar.css({
-          'width': sidebar.parent().width(),
-          'max-height': 'none'
-        });
-      } else {
-        sidebar.css({
-          'width': sidebar.parent().width(),
-          'max-height': win.height() - sidebar.offset().top - 30
-        });
-      }
-    }
-    set_sidebar_height();
-    win.resize(set_sidebar_height);
-  }
+  // if (href_page !== 'index.html' && href_page !== '') {
+  //   function set_sidebar_height () {
+  //     if (win.width() < 979) {
+  //       sidebar.css({
+  //         'width': sidebar.parent().width(),
+  //         'max-height': 'none'
+  //       });
+  //     } else {
+  //       sidebar.css({
+  //         'width': sidebar.parent().width(),
+  //         'max-height': win.height() - sidebar.offset().top - 30
+  //       });
+  //     }
+  //   }
+  //   set_sidebar_height();
+  //   win.resize(set_sidebar_height);
+  // }
 
 
   /* tab handling on the homepage
@@ -61,12 +61,17 @@ $(function () {
 	 */
 	if (document.location.href.match('/api/')) {
 		var regex_title = /\S+/;
+    var regex_event = /^\s*'(.*)',\s*$/;
 		$('nav ul li ul li li a').each(function (i, elem) {
 			var a = $(elem),
 					title = a.text().match(regex_title)[0];
 			
 			//set title if non-empty and not a constructor
 			if (title.length > 0 && title !== 'new') {
+        var match = title.match(regex_event);
+        if (match) {
+          title = match[0].substring(0, match[0].length - 1);
+        }
 				a.text(title);
 			}
 		});

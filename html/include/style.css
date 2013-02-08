@@ -50,27 +50,27 @@ footer {
 
 .navbar-inner, .btn-primary {
   background-color: #45aeea;
-	background-image: -webkit-linear-gradient(top, #54b4eb, #2fa4e7);
+  background-image: -webkit-linear-gradient(top, #54b4eb, #2fa4e7);
   background-repeat: no-repeat;
-	border: 1px solid #1990d5;
-	border-width: 0 0 1px;
+  border: 1px solid #1990d5;
+  border-width: 0 0 1px;
   filter: none;
 }
 
 .btn-primary {
-	width: 150px;
-	font-size: 2em;
+  width: 150px;
+  font-size: 2em;
 }
 
 /*override weird hover animation from bootstrap*/
 .btn:hover {
-	background-position: 0 0 !important;
+  background-position: 0 0 !important;
 }
 
 .navbar .nav > li > a {
   color: white;
   text-decoration: none;
-	text-shadow: 0 0 0 transparent;
+  text-shadow: 0 0 0 transparent;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle {
@@ -91,9 +91,16 @@ footer {
 }
 
 #toc-well {
-  max-height: 640px;
   overflow-y: scroll;
   position: fixed;
+  top: 42px;
+  left: 0px;
+  bottom: 0px;
+
+  margin-bottom: 0px;
+  border: 0;
+  border-right: 1px solid #e3e3e3;
+  border-radius: 0px;
 }
 
 /*force scrollbar on webkit*/
@@ -126,7 +133,7 @@ footer {
 }
 
 #toc ul li {
-  line-height: 25px;
+  line-height: 1.35em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -135,18 +142,25 @@ footer {
 
 /*toc hierarchy styles*/
 #toc > ul > li { /*level 1*/
+  margin: 5px 0px;
   font-size: 1.1em;
 }
 
+#toc > ul > li > ul > li {
+	margin: 5px 0px 5px 0px;
+}
+
 #toc ul li ul li a { /*level 2*/
-  font-size: 1.0em;
-  font-weight: normal;
-  color: #d14;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #666;
 }
 
 #toc ul li ul li ul li a { /*level 3*/
-  font-size: 0.9em;
+  font-size: 0.85em;
+  font-weight: normal;
   color: #0088cc;
+  display: block;
 }
 
 #toc ul li ul li ul li a.toc-section-header {
@@ -158,16 +172,20 @@ footer {
   margin-right: -15px;
   padding: 3px 15px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	font-weight: 600;
+	/*font-weight: 600;*/
 }
 
 #toc ul li > a:hover {
   text-decoration: none;
 }
 
-.toc-section-header {
-  color: #999;
-  font-weight: bold;
+#toc > ul > li > .toc-section-header {
+  color: #d14;
+  font-weight: normal;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+  padding-bottom: 0px;
+  display: block;
 }
 
 /*docco reset for code*/
@@ -193,6 +211,12 @@ td.docs p a {
 #main h2 {
 	margin: 20px 0;
 	color: #d14;
+}
+
+#main > dl,
+#main > p {
+	max-width: 750px;
+	/*text-align: justify;*/
 }
 
 #main h3, #main h4, #main h5 {
@@ -369,6 +393,12 @@ figcaption:before {
     padding-left: 10px; 
   }
   
+  #toc-well {
+    top: 52px;
+  }
+}
+
+@media (max-width: 768px) {
   #toc-well {
     max-height: none;
     overflow-y: visible;
