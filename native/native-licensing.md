@@ -10,14 +10,13 @@ The following is a list of libraries used within the native components of the Ga
 ###Android C/C++
 
 - **libV8**: [New BSD](http://opensource.org/licenses/BSD-3-Clause) | [link](http://code.google.com/p/v8/)
-- **libzip**: [New BSD](http://opensource.org/licenses/BSD-3-Clause) | [link](http://www.nih.at/libzip/) 
+- **libzip**: [New BSD](http://opensourceurceurce.org/licenses/BSD-3-Clause) | [link](http://www.nih.at/libzip/) 
 - **libpng**: [Open Source](http://www.libpng.org/pub/png/src/libpng-LICENSE.txt) | [link](http://www.libpng.org/pub/png/libpng.html)
 - **libjpeg**: [Custom](http://libjpeg.cvs.sourceforge.net/viewvc/libjpeg/libjpeg/README?view=markup) | [link](http://libjpeg.sourceforge.net/)
 - **libjansson**: [MIT License](http://opensource.org/licenses/mit-license.php) | [link](http://www.digip.org/jansson/)
 
 ###Core
 
-- **simclist**: [BSD 2-Clause](http://opensource.org/licenses/bsd-license.html) | [link](http://mij.oltrelinux.com/devel/simclist/)
 - **uthash**: [BSD Revised](http://uthash.sourceforge.net/license.html) | [link](http://troydhanson.github.com/uthash/)
 - **jansson**: [MIT License](http://opensource.org/licenses/mit-license.php) | [link](http://www.digip.org/jansson/)
 - **libpng**: [Open Source](http://www.libpng.org/pub/png/src/libpng-LICENSE.txt) | [link](http://www.libpng.org/pub/png/libpng.html)
