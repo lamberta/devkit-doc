@@ -24,9 +24,9 @@ the SDK and describes some of the important directories
 within them. Additionally the git repository for each
 component is included for reference.
 
-### JavaScript SDK / Game Code
+### Game Closure SDK / Game Code
 
-* **git**: basil
+* **git**: [gcsdk](https://github.com/gameclosure/gcsdk)
 * **language**: JavaScript
 * **directories**:
 	- **src**: Contains the source of the code used to build the basil tool.
@@ -38,9 +38,9 @@ and runs the same on both web browsers and mobile
 devices. When running on a native device, this code is run
 by the V8 interpreter on Android and Spidermonkey on iOS.
 
-### JS-API
+### GC API
 
-* **git**: js-api
+* **git**: [gcapi](https://github.com/gameclosure/gcapi)
 * **language**: JavaScript
 * **directories:**
 	- **native**: This holds the js code used to communicate to and from native  
@@ -56,7 +56,7 @@ accessed directly by game code.
 
 ### JavaScript Interpreter
 
-* **git**: android, ios
+* **git**: [native-android](https://github.com/gameclosure/native-android), [native-ios](https://github.com/gameclosure/native-ios)
 * **language**: C++
 * **directories:**
 	- **android:Tealeaf/jni/js**: Directory containing the code to interface with the V8 interpreter.  
@@ -71,13 +71,13 @@ Native Core/Platform layers.
 
 ### Core
 
-* **git**: tealeaf-core
+* **git**: [native-core](https://github.com/gameclosure/native-core)
 * **language**: C/C++
 **directories:**
 	- **platform**: Contains header files that are implemented differently per native platform.  
 	- **timestep**: Directory containing code dealing specifically with the timestep game engine.
 
-Native accelerated components of the JavaScript SDK. This
+Native accelerated components of the Game Closure SDK. This
 portion of the code manages state and functions that are
 shared between all native platforms. It provides OpenGL
 rendering and other native functions to keep the JavaScript
@@ -85,7 +85,7 @@ games running smoothly.
 
 ### Platform
 
-* **git**: android, ios  
+* **git**: [native-android](https://github.com/gameclosure/native-android), [native-ios](https://github.com/gameclosure/native-ios)  
 * **language**: C++, Objective C++
 * **directories:**
 	- **android:Tealeaf/jni/platform**: Directory containing code to interface between Android Java code, native code, and native core.
@@ -97,7 +97,7 @@ iOS it is in Objective-C.
 
 ### Android/Java
 
-* **git**: android  
+* **git**: [native-android](https://github.com/gameclosure/native-android)   
 * **language**: Java  
 
 Java code used to directly communicate with the Android OS
@@ -112,15 +112,15 @@ because of the need to communicate between various
 programming languages and because they allow code reuse
 between different platforms.
 
-### JavaScript SDK to/from JS-API
+### Game CLosure SDK to/from GC API
 
-Moving from the JavaScript SDK requires calling JavaScript
+Moving from the Game Closure SDK requires calling JavaScript
 functions that live within the native folder of
-js-api. Since the JavaScript SDK makes the correct calls to
-js-api behind the scenes the user does not need to know
+gcapi. Since the Game Closure SDK makes the correct calls to
+gcapi behind the scenes the user does not need to know
 which platform their code will be running on.
 
-### JavaScript Addon-Native to/from Core or Platform through the JavaScript Interpreter
+### GC API to/from Core or Platform through the JavaScript Interpreter
 	
 From within native code several JavaScript objects are
 created and added to the single object `NATIVE`. This global
@@ -167,14 +167,14 @@ This file represents an API for playing named sounds. In our
 example it will use the `Audio.js` class in native to try
 and play the sound.
 
-3. **[js-api/src/native/Audio.js](https://github.com/gameclosure/js-api/tree/develop/src/native/Audio.js)**:
+3. **[gcapi/src/native/Audio.js](https://github.com/gameclosure/gcapi/tree/develop/src/native/Audio.js)**:
 Since the sound that is trying to be played has not yet been
 loaded it will be loaded by making a call to
 `Native.sound.loundSound`. This is a function that is
 created from native code and acts a bridge between
 JavaScript and C.
 
-4. **[android/TeaLeaf/jni/js/js_sound.cpp](https://github.com/gameclosure/android/tree/develop/TeaLeaf/jni/js/js_sound.cpp)**:
+4. **[native-android/TeaLeaf/jni/js/js_sound.cpp](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/jni/js/js_sound.cpp)**:
 This file contains the function `defLoadSound` which is ran
 when `Native.sound.loundSound` is called from
 JavaScript. This function hands the load request to
@@ -182,16 +182,16 @@ JavaScript. This function hands the load request to
 `sound_manager_load_sound` so that sound can be handled
 differently on iOS and Android.
 
-5. **[android/TeaLeaf/jni/platform/sound_manager.cpp](https://github.com/gameclosure/android/tree/develop/TeaLeaf/jni/platform/sound_manager.cpp)**:
+5. **[native-android/TeaLeaf/jni/platform/sound_manager.cpp](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/jni/platform/sound_manager.cpp)**:
 Within this file a JNI call into java is made to `loadSound`
 in `NativeShim.java`.
 
-6. **[NativeShim.java](https://github.com/gameclosure/android/tree/develop/TeaLeaf/src/com/tealeaf/NativeShim.java)**:
+6. **[NativeShim.java](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/src/com/tealeaf/NativeShim.java)**:
 Within this file the sound being requested to load is placed
 on the sound queue by calling `SoundQueue.loadSound` which
 is processed in `SoundQueue.java`.
 
-7. **[SoundQueue.java](https://github.com/gameclosure/android/tree/develop/TeaLeaf/src/com/tealeaf/SoundQueue.java)**:
+7. **[SoundQueue.java](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/src/com/tealeaf/SoundQueue.java)**:
 Within this file the `run` function is ran on its own thread
 and it continually looks for events on the sound queue to
 process and will begin processing the newly added load
@@ -199,7 +199,7 @@ event. The sound will be given to an instance of
 `SoundManager` to be loaded by calling
 `soundManager.loadSound`.
 
-8. **[SoundManager.java](https://github.com/gameclosure/android/tree/develop/TeaLeaf/src/com/tealeaf/SoundManager.java)**:
+8. **[SoundManager.java](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/src/com/tealeaf/SoundManager.java)**:
 This is the file where sounds are actually loaded from the
 app or url. Within this file another `run` function exists
 and is also ran on its own thread. The function runs
@@ -207,49 +207,49 @@ continuously and checks for new sounds to load. Once the
 sound is loaded it adds a sound loaded event to
 `EventQueue`.
 
-9. **[EventQueue.java](https://github.com/gameclosure/android/tree/develop/TeaLeaf/src/com/tealeaf/EventQueue.java)**:
+9. **[EventQueue.java](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/src/com/tealeaf/EventQueue.java)**:
 EventQueue holds a list of events that are to be sent to
 JavaScript. These events are added to the queue by calling
 `pushEvent` and are dispatched from the GLThread in Android
 in `TeaLeafGLSurfaceView.java`.
 
-10. **[TeaLeafGLSurfaceView.java](https://github.com/gameclosure/android/tree/develop/TeaLeaf/src/com/tealeaf/TeaLeafGLSurfaceView.java)**:
+10. **[TeaLeafGLSurfaceView.java](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/src/com/tealeaf/TeaLeafGLSurfaceView.java)**:
 This file contains code that needs to be run on the main GL
 thread. In our case, all of the JavaScript engine code is
 also run on this thread. Before every frame is drawn the
 `dispatchEvents` function is called on `EventQueue` to send
 all events to native code through `NativeShim`.
 
-11. **[NativeShim.java](https://github.com/gameclosure/android/tree/develop/TeaLeaf/src/com/tealeaf/NativeShim.java)**:
+11. **[NativeShim.java](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/src/com/tealeaf/NativeShim.java)**:
 `dispatchEvents` is declared in NativeShim.java and is
 called to dispatch the events to native code. The function
 is marked as native and is defined within the file
 `native_shim.cpp`.
 
-12. **[android/TeaLeaf/jni/platform/native_shim.cpp](https://github.com/gameclosure/android/tree/develop/TeaLeaf/jni/platform/native_shim.cpp)**:
+12. **[native-android/TeaLeaf/jni/platform/native_shim.cpp](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/jni/platform/native_shim.cpp)**:
 The `dispatchEvents` function from `NativeShim.java` is
 declared as `Java_com_tealeaf_NativeShim_dispatchEvents`
 within the native_shim. This c function is used to pass each
 event on the list to native core by calling
 `core_dispatch_event`.
 
-13. **[tealeaf-core/events.c](https://github.com/gameclosure/tealeaf-core/blob/develop/events.c)**:
+13. **[native-core/events.c](https://github.com/gameclosure/native-core/blob/develop/events.c)**:
 The `core_dispatch_event` function defined in `events.c`
 takes each event and makes a call to `js_dispatch_event`
 which dispatches the event to JavaScript.
 
-14. **[android/TeaLeaf/jni/js/js_events.cpp](https://github.com/gameclosure/android/tree/develop/TeaLeaf/jni/js/js_events.cpp)**:
+14. **[native-android/TeaLeaf/jni/js/js_events.cpp](https://github.com/gameclosure/native-android/tree/develop/TeaLeaf/jni/js/js_events.cpp)**:
 The `js_dispatch_event` function defined in this file makes
 calls using the V8 JavaScript Interpreter in order to get
 the events back to JavaScript. The events are dispatched
 using the `NATIVE.events.dispatchEvent` which lives on the
 `NATIVE` object in JavaScript.
 
-15. **[js-api/src/native/events.js](https://github.com/gameclosure/js-api/tree/develop/src/native/events.js)**:
+15. **[gcapi/src/native/events.js](https://github.com/gameclosure/gcapi/tree/develop/src/native/events.js)**:
 The call from native code ends up in the `events.js` file
 which eventually sends the event to `soundLoading.js`.
 
-16. **[js-api/src/native/soundLoading.js](https://github.com/gameclosure/js-api/tree/develop/src/native/soundLoading.js)**:
+16. **[gcapi/src/native/soundLoading.js](https://github.com/gameclosure/gcapi/tree/develop/src/native/soundLoading.js)**:
 Finally, the event makes it to the listener that was
 registered from with `soundLoading.js`. This function takes
 the sound event and calls the `onLoad` handler associated with
