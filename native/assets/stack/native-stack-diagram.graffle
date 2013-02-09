@@ -4,7 +4,7 @@
 <dict>
 	<key>ApplicationVersion</key>
 	<array>
-		<string>com.omnigroup.OmniGraffle</string>
+		<string>com.omnigroup.OmniGrafflePro</string>
 		<string>139.16.0.171715</string>
 	</array>
 	<key>CreationDate</key>
@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-01-17 23:35:31 +0000</string>
+	<string>2013-02-09 00:04:46 +0000</string>
 	<key>Modifier</key>
 	<string>Derek Burch</string>
 	<key>NotesVisible</key>
@@ -202,8 +202,8 @@
 					<integer>14</integer>
 					<key>Points</key>
 					<array>
-						<string>{241.49999988613936, 340.43291033765797}</string>
-						<string>{339.5000004576334, 340.37259119128441}</string>
+						<string>{241.50000000019367, 340.48261086198755}</string>
+						<string>{339.50000003814989, 340.46697659110794}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -276,8 +276,8 @@
 					<integer>12</integer>
 					<key>Points</key>
 					<array>
-						<string>{241.49999999999903, 131.51238316989483}</string>
-						<string>{339.49999999980929, 131.52351666209384}</string>
+						<string>{241.5, 131.50320962489704}</string>
+						<string>{339.5, 131.50609534269435}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -344,8 +344,8 @@
 					<integer>9</integer>
 					<key>Points</key>
 					<array>
-						<string>{436.85583484664721, 470.02953808445881}</string>
-						<string>{435.76403853144672, 409.99991733600103}</string>
+						<string>{436.85525504205032, 470.02953817209982}</string>
+						<string>{435.76372743324464, 409.99991736822551}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -416,8 +416,8 @@
 					<integer>7</integer>
 					<key>Points</key>
 					<array>
-						<string>{435.76403853086384, 409.99991730395146}</string>
-						<string>{437.17358258147743, 487.50008249826595}</string>
+						<string>{435.76372743297645, 409.99991735347442}</string>
+						<string>{437.17292457461241, 487.50008259700058}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -682,8 +682,8 @@
 					<integer>26</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.49762576140995, 623.85109939149731}</string>
-						<string>{354.00000006855794, 623.82894133985519}</string>
+						<string>{255.49762579955689, 623.86918750810582}</string>
+						<string>{353.99999999244011, 623.86379879612605}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -816,8 +816,8 @@ git: basil}</string>
 					<integer>21</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.49762579955788, 502.50269117205255}</string>
-						<string>{353.99999999263378, 502.50518613485741}</string>
+						<string>{255.49762579955785, 502.50065495114035}</string>
+						<string>{353.99999999263281, 502.50126215079246}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -951,7 +951,7 @@ git: tealeaf-core}</string>
 					<key>Points</key>
 					<array>
 						<string>{255.49762580052058, 245.0000151763995}</string>
-						<string>{342.49999999167005, 245.00002760367045}</string>
+						<string>{342.49999999167005, 245.0000151763995}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1542,8 +1542,8 @@ NativeShim.cpp}</string>
 					<integer>46</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.0352066265188, 191.72339248657227}</string>
-						<string>{419.04599771037363, 258.87500381469727}</string>
+						<string>{419.05975748360828, 191.7233924339773}</string>
+						<string>{419.08567099954359, 258.87500432782571}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1577,8 +1577,8 @@ NativeShim.cpp}</string>
 					<integer>45</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97870512852816, 166.7233769450539}</string>
-						<string>{332.03118918750744, 166.7233769450539}</string>
+						<string>{211.97870512852725, 166.7234012419195}</string>
+						<string>{332.05011008594596, 166.7234012419195}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1629,11 +1629,12 @@ NativeShim.cpp}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Provides an interface between JS Code and Native code\
+\f0\fs24 \cf0 Provides an interface between JavaScript Code and Native code\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b git
-\b0 : js-api\
+\b \cf0 git
+\b0 : gcapi\
 
 \b Directory
 \b0 : native}</string>
@@ -1641,7 +1642,7 @@ NativeShim.cpp}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{332.53118919356319, 142.22339248657227}, {173, 49}}</string>
+					<string>{{332.55011009200069, 142.22339248657227}, {173, 49}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -1671,7 +1672,7 @@ NativeShim.cpp}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 js-api}</string>
+\f0\fs24 \cf0 gcapi}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -1797,8 +1798,8 @@ NativeShim.cpp}</string>
 					<integer>35</integer>
 					<key>Points</key>
 					<array>
-						<string>{448.35854829212752, 446.81127045525085}</string>
-						<string>{482.66084477563851, 495.83026111371544}</string>
+						<string>{448.31387461717821, 446.8114762519952}</string>
+						<string>{482.56398914257005, 495.83080768998519}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1868,8 +1869,8 @@ Platform Code}</string>
 					<integer>32</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.04616197080026, 308.87500381469727}</string>
-						<string>{419.03762982701988, 362.901611328125}</string>
+						<string>{419.0461961405681, 308.87500381469727}</string>
+						<string>{419.03773783985304, 362.901611328125}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1957,9 +1958,10 @@ Platform Code}</string>
 
 \f0\fs24 \cf0 Game Engine and Game Code\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b git
-\b0 : basil\
+\b \cf0 git
+\b0 : gcsdk\
 
 \b Directory
 \b0 : sdk}</string>
@@ -1977,8 +1979,8 @@ Platform Code}</string>
 					<integer>29</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.03120325102782, 78.973388671875}</string>
-						<string>{419.03120325102782, 141.72339248657227}</string>
+						<string>{419.07620993735162, 78.973387858633743}</string>
+						<string>{419.18921260431489, 141.72340023758863}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2032,7 +2034,7 @@ Platform Code}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Javascript SDK}</string>
+\f0\fs24 \cf0 JavaScript SDK}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2099,11 +2101,12 @@ Platform Code}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 c/c++ code used to interpret the running javascript code. V8 is used for Android and Spidermonkey for iOS.\
+\f0\fs24 \cf0 c/c++ code used to interpret the running JavaScript code. V8 is used for Android and Spidermonkey for iOS.\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b git
-\b0 : android and ios}</string>
+\b \cf0 git
+\b0 : native-android and native-ios}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2138,7 +2141,7 @@ Platform Code}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Javascript Interpreter}</string>
+\f0\fs24 \cf0 JavaScript Interpreter}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2153,8 +2156,8 @@ Platform Code}</string>
 					<integer>27</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97867147083764, 654.37539314689536}</string>
-						<string>{270.69862663055204, 655.05665228543467}</string>
+						<string>{211.97867471576967, 654.31458199810822}</string>
+						<string>{270.69863335359838, 654.96222998408462}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2207,13 +2210,14 @@ Platform Code}</string>
 
 \f0\fs24 \cf0 Holds all code that interacts directly with the device.\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b git
-\b0 : android\
+\b \cf0 git
+\b0 : native-android\
 
 \b Directories
 \b0 : \
-android: Tealeaf}</string>
+Android: Tealeaf}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2228,8 +2232,8 @@ android: Tealeaf}</string>
 					<integer>25</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.99762602124866, 529.58177429626869}</string>
-						<string>{270.69862245992744, 529.57525904918964}</string>
+						<string>{211.99762557983655, 529.73285859741111}</string>
+						<string>{270.69861215748983, 529.80981531987607}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2280,15 +2284,16 @@ android: Tealeaf}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Native code for interfacing with the device specific code\
+\f0\fs24 \cf0 Native code for interfacing with device specific code\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b git
-\b0 : android and iOS\
+\b \cf0 git
+\b0 : native-android and native-iOS\
 
 \b Directories
 \b0 : \
-android: Tealeaf/jni/platform\
+Android: Tealeaf/jni/platform\
 iOS: tealeaf and tealeaf/platform}</string>
 					</dict>
 				</dict>
@@ -2304,8 +2309,8 @@ iOS: tealeaf and tealeaf/platform}</string>
 					<integer>23</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97870512745939, 404.88839041779312}</string>
-						<string>{338.03118898965675, 404.87270387089694}</string>
+						<string>{211.97870512734215, 404.89924585835678}</string>
+						<string>{338.0311889599746, 404.8964392397873}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2358,9 +2363,10 @@ iOS: tealeaf and tealeaf/platform}</string>
 
 \f0\fs24 \cf0 Native code that runs the main game engine. Manages state that is required in all native platforms.\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b git
-\b0 : tealeaf-core}</string>
+\b \cf0 git
+\b0 : native-core}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2445,8 +2451,8 @@ iOS: tealeaf and tealeaf/platform}</string>
 					<integer>8</integer>
 					<key>Points</key>
 					<array>
-						<string>{391.0539545666868, 446.81748383671396}</string>
-						<string>{358.34393908721029, 495.82407323291358}</string>
+						<string>{391.09659833222855, 446.8176797855113}</string>
+						<string>{358.43637705761466, 495.82459342833107}</string>
 					</array>
 					<key>Style</key>
 					<dict>
