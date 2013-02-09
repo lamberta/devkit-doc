@@ -17,7 +17,6 @@ The following is a list of libraries used within the native components of the Ga
 
 ###Core
 
-- **simclist**: [BSD 2-Clause](http://opensource.org/licenses/bsd-license.html) | [link](http://mij.oltrelinux.com/devel/simclist/)
 - **uthash**: [BSD Revised](http://uthash.sourceforge.net/license.html) | [link](http://troydhanson.github.com/uthash/)
 - **jansson**: [MIT License](http://opensource.org/licenses/mit-license.php) | [link](http://www.digip.org/jansson/)
 - **libpng**: [Open Source](http://www.libpng.org/pub/png/src/libpng-LICENSE.txt) | [link](http://www.libpng.org/pub/png/libpng.html)
