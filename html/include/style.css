@@ -28,10 +28,18 @@ img.icon {
 }
 
 .logo {
-  font-family: 'Puritan', 'Gill Sans', sans-serif;
+  font-family: 'Droid Sans', 'Gill Sans', sans-serif;
   font-weight: 400;
   font-size: 1.7em;
   letter-spacing: -1px;
+}
+
+.logo-left {
+  font-family: 'Droid Sans', 'Gill Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  color: white;
 }
 
 .logo-brace {
