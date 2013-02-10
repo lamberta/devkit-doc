@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./include/style.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:800,400,300">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Puritan:400,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <meta name="description" content="Documentation for the Game Closure SDK.">
   </head>
   <body>
@@ -20,26 +21,13 @@
         <div class="container-fluid">
 
           <ul class="nav pull-left">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="logo">game <span>{</span>closure<span>}</span> <strong>SDK</strong></span>
-                <b class="caret"></b>
+            <li>
+              <a href="http://doc.gameclosure.com">
+                <span class="logo-left">game <span>{</span>closure<span>}</span> <strong>SDK Docs</strong></span>
               </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#guides">Guides</a></li>
-                <li><a href="#native">Native</a></li>
-                <li><a href="#examples">Examples</a></li>
-                <li class="divider"></li>
-                <li><a href="https://twitter.com/gameclosure" target="_blank">@GameClosure</a></li>
-                <li><a href="https://groups.google.com/forum/#!forum/gameclosure" target="_blank">Mailing List</a></li>
-                <li><a href="http://support.gameclosure.com/anonymous_requests/new" target="_blank">Bug Report</a></li>
-                <li><a href="http://webchat.freenode.net/?channels=gameclosure" target="_blank">IRC: #gameclosure/freenode</a></li>
-                <li><a href="mailto:support@gameclosure.com">support@gameclosure.com</a></li>
-              </ul>
             </li>
           </ul>
-
+              
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -184,376 +172,280 @@
       </div>
     </div><!--/navbar-->
 
-    <div id="main" class="container-fluid">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-        <li><a href="#guides" data-toggle="tab">Guides</a></li>
-        <li><a href="#native" data-toggle="tab">Native</a></li>
-        <li><a href="#examples" data-toggle="tab">Examples</a></li>
-      </ul>
-
-      <div class="tab-content">
-        <div class="tab-pane fade in active" id="home">
-
-          <div class="row-fluid">
-
+    <div id="front-page-content">
+      <div id="main" class="container-fluid">
+          <div class="container-fluid" id="splash-container">
             <section id="splash">
-              <img src="./include/img/gclogo.png">
+              <!--<img src="./include/img/gclogo.png">-->
 
               <div id="splash-logo">
-                <h1 class="logo">game<span class="logo-brace">{</span>closure<span class="logo-brace">}</span></h1>
-                <h2>SDK</h2>
+                <h1 class="logo">game<span class="logo-brace">{</span>closure<span class="logo-brace">}</span><strong> SDK</strong></h1>
               </div>
 
               <div id="splash-download">
-                <p>The JavaScript, Multi-platform, 2D Game Engine!</p>
                 <a href="./guide/quick-start.html" class="btn btn-primary btn-large">Install ⬇</a>
               </div>
             </section>
           </div>
+
+          <div id="guides" class="container-fluid content-box">
+            <h1>Guides</h1><hr>
+            <div class="row-fluid">
+              <div class="span4">
+                <a href="./guide/quick-start.html">
+                  <h2>Quick Start</h2>
+                  <p>Get up and running with the Game Closure SDK.</p>
+                </a>
+              </div>
+
+              <div class="span4">
+                <a  href="./guide/hello-world.html">
+                  <h2>Hello, World!</h2>
+                  <p>Create your first game using the Game Closure SDK.</p>
+                </a>
+              </div>
+
+              <div class="span4">
+                <a href="./guide/game-walkthrough.html">
+                  <h2>Game Walkthrough</h2>
+                  <p>An in-depth look at building a real, non-trivial game.</p>
+                </a>
+              </div>
+            </div><!--/row-->
+
+            <div class="row-fluid">
+              <div class="span4">
+                <a href="./guide/designing-user-interfaces.html">
+                  <h2>Designing UI</h2>
+                  <p>Design and layout your game.</p>
+                </a>
+              </div>            
+
+              <div class="span4">
+                <a href="./guide/scaling.html">
+                  <h2>Scaling the Game</h2>
+                  <p>Scale you game for multiple dimensions on multiple devices.</p>
+                </a>
+              </div>
+
+              <div class="span4">
+                <a href="./guide/load-assets.html">
+                  <h2>Loading Assets</h2>
+                  <p>Everything you need to know about loading audio and image asssets for your game.</p>
+                </a>
+              </div>
+
+            </div><!--/row-->
+
+            <div class="row-fluid">
+
+              <div class="span4">
+                <a href="./guide/audio-assets.html">
+                  <h2>Creating Sound</h2>
+                  <p>Tips for creating and managing audio assets for your game.</p>
+                </a>
+              </div>
               
-          <div id="feature-list">
-            <div class="row-fluid">
               <div class="span4">
-                <img src="./include/img/feature-crossplatform.png">
-                <dt>Cross Platform</dt>
-                <dl>Games built on our platform can be deployed to iPhones, iPads, Android devices, desktop and mobile browsers.</dl>
+                <a href="./guide/manifest.html">
+                  <h2>Manifest Options</h2>
+                  <p>Options and settings for your game belong in the manifest file.</p>
+                </a>
               </div>
+
               <div class="span4">
-                <img src="./include/img/feature-gameengine.png">
-                <dt>Full-Featured Game Engine</dt>
-                <dl>Layouts, sprites, scene-graph, events, collision detection, scroll views, and more!</dl>
-              </div>
-              <div class="span4">
-                <img src="./include/img/feature-html5.png">
-                <dt>HTML5 Technology</dt>
-                <dl>Create, test, and debug your games using JavaScript.</dl>
+                <a href="./guide/contributors.html">
+                  <h2>Contributors Guide</h2>
+                  <p>Want to contribute to the SDK? Read this first!</p>
+                </a>
               </div>
             </div>
-            <div class="row-fluid">
+          </div><!--/guides-->
+
+          <div id="native" class="container-fluid content-box">
+            <h1>Native</h1><hr>
+            <div class="row-fluid"><!--top row-->
+              <div class="span5 offset1">
+                <h3>Android</h3>
+                <ul>
+                  <li><a href="./native/android-guide.html">Development Guide</a></li>
+                  <li><a href="./native/android-setup.html">Setup</a></li>
+                  <li><a href="./native/android-test-app.html">Testing with Test App</a></li>
+                  <li><a href="./native/android-build.html">Build your Game</a></li>
+                  <li><a href="./native/android-remote-debug.html">Remote JavaScript Debug</a></li>
+                  <li><a href="./native/android-troubleshooting.html">Troubleshooting</a></li>
+                </ul><!--/row-->
+              </div><!--/span6-->
+              
+              <div class="span5 offset1">
+                <h3>iOS</h3>
+                <ul>
+                  <li><a href="./native/ios-guide.html">Development Guide</a></li>
+                  <li><a href="./native/ios-setup.html">Setup</a></li>
+                  <li><a href="./native/ios-test-app.html">Testing with Test App</a></li>
+                  <li><a href="./native/ios-build.html">Build your Game</a></li>
+                  <li><a href="./native/ios-remote-debug.html">Remote JavaScript Debug</a></li>
+                  <li><a href="./native/ios-troubleshooting.html">Troubleshooting</a></li>
+                </ul><!--/row-->
+              </div><!--/span-->
+            </div><!--/guide-row-->
+            <div class="row-fluid"><!--native-row-->
               <div class="span4">
-                <img src="./include/img/feature-tools.png">
-                <dt>Integrated Tools</dt>
-                <dl>Easily manage the entire pipeline for game development. Code, art, build, and deploy!</dl>
+                <a href="./native/native-stack.html">
+                  <h2>Native Stack Overview</h2>
+                  <p>Top-down look at the Game Closure SDK.</p>
+                </a>
               </div>
               <div class="span4">
-                <img src="./include/img/feature-rapiddev.png">
-                <dt>Rapid Development</dt>
-                <dl>Use the web development tools you already know with the tools we provide to create professional games.</dl>
+                <a href="./native/native-sm.html">
+                  <h2>SpiderMonkey</h2>
+                  <p>Game Closure JavaScript engine for Apple platforms.</p>
+                </a>
               </div>
               <div class="span4">
-                <img src="./include/img/feature-opensource.png">
-                <dt>Open Source</dt>
-                <dl>The <a href="http://github.com/gameclosure/gcsdk">Game Closure SDK</a> is <a href="./guide/license.html">open-source</a>. Browse, fork, and contribute!</dl>
+                <a href="./native/native-v8.html">
+                  <h2>V8</h2>
+                  <p>Game Closure JavaScript engine for Android platforms.</p>
+                </a>
               </div>
-            </div>
-          </div>
-          <footer>
-            <p><a href="https://github.com/gameclosure/doc">Documentation</a> licensed under the <a href="http://doc.gameclosure.com/guide/license.html">Creative Commons</a></p>
-          </footer>
-        </div>
-
-        <div class="tab-pane fade in" id="guides">
-          <div class="row-fluid">
-            <div class="span3">
-              <a href="./guide/quick-start.html">
-                <h2>Quick Start</h2>
-                <p>Get up and running with the Game Closure SDK.</p>
-              </a>
-            </div>
-
-            <div class="span3">
-              <a  href="./guide/hello-world.html">
-                <h2>Hello, World!</h2>
-                <p>Create your first game using the Game Closure SDK.</p>
-              </a>
-            </div>
-
-            <div class="span3">
-              <a href="./guide/game-walkthrough.html">
-                <h2>Game Walkthrough</h2>
-                <p>An in-depth look at a real, non-trivial game. Set up the scene graph and navigate through the app using events.</p>
-              </a>
-            </div>
-
-            <div class="span3">
-              <a href="./guide/designing-user-interfaces.html">
-                <h2>Designing User Interfaces</h2>
-                <p>Design and layout your game.</p>
-              </a>
-            </div>            
-          </div><!--/row-->
-
-          <div class="row-fluid">
-            <div class="span3">
-              <a href="./guide/scaling.html">
-                <h2>Scaling the Game</h2>
-                <p>Scale you game for multiple dimensions on multiple devices.</p>
-              </a>
-            </div>
-
-            <div class="span3">
-              <a href="./guide/load-assets.html">
-                <h2>Loading Assets</h2>
-                <p>Everything you need to know about loading audio and image asssets for your game.</p>
-              </a>
-            </div>
-
-            <div class="span3">
-              <a href="./guide/audio-assets.html">
-                <h2>Creating Sound</h2>
-                <p>Tips for creating and managing audio assets for your game.</p>
-              </a>
-            </div>
+            </div><!--/native-row-->
             
-            <div class="span3">
-              <a href="./guide/manifest.html">
-                <h2>Manifest Options</h2>
-                <p>Options and settings for your game belong in the manifest file.</p>
-              </a>
-            </div>
-          </div><!--/row-->
+            <div class="row-fluid"><!--native-row-->
+              <div class="span4">
+                <a href="./native/native-licensing.html">
+                  <h2>Libraries Used</h2>
+                  <p>A list of the libraries used in the native components of the Game Closure SDK</p>
+                </a>
+              </div>
+              <div class="span4">
+                <a href="./native/native-remote-debug.html">
+                  <h2>Remote JavaScript Debugger</h2>
+                  <p>Tool built into the Game Closure SDK to do JavaScript debugging over the network on a live iOS or Android device</p>
+                </a>
+              </div>
+              <div class="span4">
+                <a href="./native/native-barista.html">
+                  <h2>Barista</h2>
+                  <p>Game Closure tool for generating cross-platform code.</p>
+                </a>
+              </div>
+            </div><!--/native-row-->
+          </div><!--/native-->
 
-          <div class="row-fluid">
-			  <div class="span3">
-			  	  <a href="./guide/contributors.html">
-			  	  	  <h2>Contributors Guide</h2>
-			  	  	  <p>Want to contribute to the SDK? Read this first!</p>
-			  	  </a>
-			  </div>
-          </div>
+          <div id="examples" class="container-fluid content-box">
+            <h1>Examples</h1><hr>
+            <div class="row-fluid">
+              <div class="span3">
+                <h3>Basics</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/basics-helloworld/">Hello, World!</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/basics-scalescreen/">Scale Screen Dimensions</a></li>
+                </ul>
+              </div>
 
-        </div><!--/guides tab-->
+              <div class="span3">
+                <h3>Events</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/events-on/">Subscribe</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/events-once/">Subscribe Once</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/events-input-click/">Click Input</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/events-input-move/">Move Input</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/events-input-out/">Out Input</a></li>
+                </ul>
+              </div>
 
-        <div class="tab-pane fade in" id="native">
-          <div class="row-fluid"><!--top row-->
-            <div class="span5 offset1">
-              <h1>Android</h1>
-              <ul>
-                <li>
-                  <a href="./native/android-guide.html">
-                    <h2>Development Guide</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/android-setup.html">
-                    <h2>Setup</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/android-test-app.html">
-                    <h2>Testing with Test App</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/android-build.html">
-                    <h2>Build your Game</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/android-remote-debug.html">
-                    <h2>Remote JavaScript Debug</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/android-troubleshooting.html">
-                    <h2>Troubleshooting</h2>
-                  </a>
-                </li>
-              </ul><!--/row-->
-            </div><!--/span6-->
-            
-            <div class="span5 offset1">
-              <h1>iOS</h1>
-              <ul>
-                <li>
-                  <a href="./native/ios-guide.html">
-                    <h2>Development Guide</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/ios-setup.html">
-                    <h2>Setup</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/ios-test-app.html">
-                    <h2>Testing with Test App</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/ios-build.html">
-                    <h2>Build your Game</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/ios-remote-debug.html">
-                    <h2>Remote JavaScript Debug</h2>
-                  </a>
-                </li>
-                <li>
-                  <a href="./native/ios-troubleshooting.html">
-                    <h2>Troubleshooting</h2>
-                  </a>
-                </li>
-              </ul><!--/row-->
-            </div><!--/span-->
-          </div><!--/guide-row-->
-          <hr>
-          <div class="row-fluid"><!--native-row-->
-            <div class="span4">
-              <a href="./native/native-stack.html">
-                <h2>Native Stack Overview</h2>
-                <p>Top-down look at the Game Closure SDK.</p>
-              </a>
-            </div>
-            <div class="span3">
-              <a href="./native/native-sm.html">
-                <h2>SpiderMonkey</h2>
-                <p>Game Closure JavaScript engine for Apple platforms.</p>
-              </a>
-            </div>
-            <div class="span3">
-              <a href="./native/native-v8.html">
-                <h2>V8</h2>
-                <p>Game Closure JavaScript engine for Android platforms.</p>
-              </a>
-            </div>
-            <div class="span4">
-              <a href="./native/native-licensing.html">
-                <h2>Libraries Used</h2>
-                <p>A list of the libraries used in the native components of the Game Closure SDK</p>
-              </a>
-            </div>
-            <div class="span4">
-              <a href="./native/native-remote-debug.html">
-                <h2>Remote JavaScript Debugger</h2>
-				<p>Tool built into the Game Closure SDK to do JavaScript debugging over the network on a live iOS or Android device</p>
-              </a>
-            </div>
-            <div class="span4">
-              <a href="./native/native-barista.html">
-                <h2>Barista</h2>
-                <p>Game Closure tool for generating cross-platform code.</p>
-              </a>
-            </div>
-          </div><!--/native-row-->
-        </div><!--/tab-->
+              <div class="span3">
+                <h3>Views</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/views-basic/">Basic</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/views-style/">Styles</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/views-addremove/">Add and Remove</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/views-nested/">Nested</a></li>
+                </ul>
+              </div>
 
-        <div class="tab-pane fade in" id="examples">
-          <div class="row-fluid">
-            <div class="span3">
-              <h3>Basics</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/basics-helloworld/">Hello, World!</a></li>
-                <li><a href="http://doc.gameclosure.com/example/basics-scalescreen/">Scale Screen Dimensions</a></li>
-              </ul>
-            </div>
+              <div class="span3">
+                <h3>UI Components</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/ui-stackview-basic/">StackView Example</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-scrollview-basic/">ScrollView Example</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-spriteview-basic/">SpriteView Example</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-list-basic/">ListView</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-grid-basic/">GridView: Basic</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-grid-movecell/">GridView: Move Between Cells</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-grid-span/">GridView: Span Cells</a></li>
+                  <!--<li><a href="http://doc.gameclosure.com/example/ui-tabs-basic/">TabView: Basic</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-tabs-image/">TabView: Image</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/ui-tabs-appnav/">TabView: NavBar</a></li>-->
+                </ul>
+              </div>
+            </div><!--/row-fluid-->
 
-            <div class="span3">
-              <h3>Events</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/events-on/">Subscribe</a></li>
-                <li><a href="http://doc.gameclosure.com/example/events-once/">Subscribe Once</a></li>
-                <li><a href="http://doc.gameclosure.com/example/events-input-click/">Click Input</a></li>
-                <li><a href="http://doc.gameclosure.com/example/events-input-move/">Move Input</a></li>
-                <li><a href="http://doc.gameclosure.com/example/events-input-out/">Out Input</a></li>
-              </ul>
-            </div>
+            <div class="row-fluid">
 
-            <div class="span3">
-              <h3>Views</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/views-basic/">Basic</a></li>
-                <li><a href="http://doc.gameclosure.com/example/views-style/">Styles</a></li>
-                <li><a href="http://doc.gameclosure.com/example/views-addremove/">Add and Remove</a></li>
-                <li><a href="http://doc.gameclosure.com/example/views-nested/">Nested</a></li>
-              </ul>
-            </div>
+              <div class="span3">
+                <h3>Images</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/images-basic/">Basic</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-resources/">Resources</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-spritesheet/">Sprite</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-nine-slice/">9-Slice</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-nine-slice-animation/">9-Slice Animation</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-six-slice/">6-Slice</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-three-slice/">3-Slice</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/images-two-slice/">2-Slice</a></li>
+                </ul>
+              </div>
 
-            <div class="span3">
-              <h3>UI Components</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/ui-stackview-basic/">StackView Example</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-scrollview-basic/">ScrollView Example</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-spriteview-basic/">SpriteView Example</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-list-basic/">ListView</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-grid-basic/">GridView: Basic</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-grid-movecell/">GridView: Move Between Cells</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-grid-span/">GridView: Span Cells</a></li>
-                <!--<li><a href="http://doc.gameclosure.com/example/ui-tabs-basic/">TabView: Basic</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-tabs-image/">TabView: Image</a></li>
-                <li><a href="http://doc.gameclosure.com/example/ui-tabs-appnav/">TabView: NavBar</a></li>-->
-              </ul>
-            </div>
-          </div><!--/row-fluid-->
+              <div class="span3">
+                <h3>Text</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/text-fonts-bitmapcomposite/">Bitmap Composite Fonts</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/text-fonts-bitmap/">Bitmap Fonts</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/text-fonts-ttf/">TTF Fonts</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/text-textviews-random/">Random TextViews</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/text-textviews/">TextView options</a></li>
+                </ul>
+              </div>
 
-          <div class="row-fluid">
+              <div class="span3">
+                <h3>Animation</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/animation-basic/">Basic</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/animation-continuous/">Continous</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/animation-pause/">Pause</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/animation-trail/">Trail</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/animation-multibox/">Mutiple Animations</a></li>
+                </ul>
+              </div>
 
-            <div class="span3">
-              <h3>Images</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/images-basic/">Basic</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-resources/">Resources</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-spritesheet/">Sprite</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-nine-slice/">9-Slice</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-nine-slice-animation/">9-Slice Animation</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-six-slice/">6-Slice</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-three-slice/">3-Slice</a></li>
-                <li><a href="http://doc.gameclosure.com/example/images-two-slice/">2-Slice</a></li>
-              </ul>
-            </div>
+              <div class="span3">
+                <h3>Sound</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/sound-background/">Background</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/sound-effect/">Effects</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/sound-mute/">Mute</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/sound-volume/">Adjust Volume</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/sound-background/">Adjust Background</a></li>
+                </ul>
+              </div>
+            </div><!--/row-fluid-->
 
-            <div class="span3">
-              <h3>Text</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/text-fonts-bitmapcomposite/">Bitmap Composite Fonts</a></li>
-                <li><a href="http://doc.gameclosure.com/example/text-fonts-bitmap/">Bitmap Fonts</a></li>
-                <li><a href="http://doc.gameclosure.com/example/text-fonts-ttf/">TTF Fonts</a></li>
-                <li><a href="http://doc.gameclosure.com/example/text-textviews-random/">Random TextViews</a></li>
-                <li><a href="http://doc.gameclosure.com/example/text-textviews/">TextView options</a></li>
-              </ul>
-            </div>
+            <div class="row-fluid">
 
-            <div class="span3">
-              <h3>Animation</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/animation-basic/">Basic</a></li>
-                <li><a href="http://doc.gameclosure.com/example/animation-continuous/">Continous</a></li>
-                <li><a href="http://doc.gameclosure.com/example/animation-pause/">Pause</a></li>
-                <li><a href="http://doc.gameclosure.com/example/animation-trail/">Trail</a></li>
-                <li><a href="http://doc.gameclosure.com/example/animation-multibox/">Mutiple Animations</a></li>
-              </ul>
-            </div>
+              <div class="span3">
+                <h3>Advanced Rendering</h3>
+                <ul>
+                  <li><a href="http://doc.gameclosure.com/example/advrendering-buffers/">Buffers</a></li>
+                  <li><a href="http://doc.gameclosure.com/example/advrendering-tiles/">Tiles</a></li>
+                </ul>
+              </div>
 
-            <div class="span3">
-              <h3>Sound</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/sound-background/">Background</a></li>
-                <li><a href="http://doc.gameclosure.com/example/sound-effect/">Effects</a></li>
-                <li><a href="http://doc.gameclosure.com/example/sound-mute/">Mute</a></li>
-                <li><a href="http://doc.gameclosure.com/example/sound-volume/">Adjust Volume</a></li>
-                <li><a href="http://doc.gameclosure.com/example/sound-background/">Adjust Background</a></li>
-              </ul>
-            </div>
-          </div><!--/row-fluid-->
+            </div><!--/row-fluid-->
 
-          <div class="row-fluid">
-
-            <div class="span3">
-              <h3>Advanced Rendering</h3>
-              <ul>
-                <li><a href="http://doc.gameclosure.com/example/advrendering-buffers/">Buffers</a></li>
-                <li><a href="http://doc.gameclosure.com/example/advrendering-tiles/">Tiles</a></li>
-              </ul>
-            </div>
-
-          </div><!--/row-fluid-->
-
-        </div><!--/examples tab-->
-        
-      </div><!--/tab-content-->
-    </div><!--/main-->
+          </div><!--/examples-->
+      </div><!--/main-->
+    </div><!--/frontpage-->
 
     <div id="help-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="help-modal-label" aria-hidden="true">
       <div class="modal-header">
