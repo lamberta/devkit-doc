@@ -133,6 +133,7 @@ This is the icon that will be displayed in the Game Closure SDK web interface fo
 	* `portrait2048 {string}` ---Path to splash image, 1536x2048px, topside-up.
 	* `landscape768 {string}` ---Path to splash image, 1024x768px, topside-up.
 	* `landscape1536 {string}` ---Path to splash image, 2048x1536px, topside-up.
+	* `music {string}` ---Path to music to play on startup.
 
 The preload section is used to specify splash screen images
 for Android and iPhone/iPad devices. All splash screens
