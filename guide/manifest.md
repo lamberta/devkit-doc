@@ -52,7 +52,7 @@ The `shortName` is an internal code name used for links to
 your project by the basil tools and to name output files
 during the build process. This is a alpha-numeric
 string---which *does not* start with a number---and should
-be unique to your game studio. 
+be unique to your game studio.  It may contain dots (.) or dashes (-).  It may *not* contain spaces ( ) nor underscores (_).
 
 ### title
 1. `{string}`
