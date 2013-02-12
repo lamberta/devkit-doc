@@ -75,6 +75,15 @@ footer {
   box-shadow: inset 0px -3px 6px rgba(0, 0, 0, 0.1);
 }
 
+.sub-nav > ul > li > a {
+  color: #DDD !important;
+}
+
+.sub-nav > ul > li.open > a,
+.sub-nav > ul > li > a:hover {
+  color: #FFF !important;
+}
+
 .btn-primary {
   width: 150px;
   font-size: 2em;
@@ -427,6 +436,16 @@ figcaption:before {
 	content: "Figure: ";
 }
 
+.scrollable-content {
+  position: absolute;
+  top: 85px;
+  padding-top: 20px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+}
+
 /* adjust navbar spacing to avoid double-line */
 @media (max-width: 1050px) {
   .navbar-fixed-top .nav li a {
@@ -454,6 +473,10 @@ figcaption:before {
   
   #toc-well {
     top: 52px;
+  }
+
+  .scrollable-content {
+    top: 95px;
   }
 }
 
