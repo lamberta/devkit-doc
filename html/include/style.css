@@ -1,5 +1,5 @@
 body {
-  padding-top: 60px;
+  padding-top: 100px;
   padding-bottom: 40px;
 	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	font-weight: 400;
@@ -65,6 +65,16 @@ footer {
   filter: none;
 }
 
+.sub-nav {
+  display: block;
+  min-height: 40px;
+  background-color: #888;
+  background-image: -webkit-linear-gradient(top, rgb(30, 69, 114), rgb(30, 71, 122));
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #888;
+  box-shadow: inset 0px -3px 6px rgba(0, 0, 0, 0.1);
+}
+
 .btn-primary {
   width: 150px;
   font-size: 2em;
@@ -101,7 +111,7 @@ footer {
 #toc-well {
   overflow-y: scroll;
   position: fixed;
-  top: 42px;
+  top: 84px;
   left: 0px;
   bottom: 0px;
 
@@ -274,7 +284,7 @@ td.docs p a {
 
 #front-page-content .content-box {
   background-color: #fafafa;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding-top: 0px;
   padding-bottom: 24px;
   border-radius: 10px;
@@ -357,6 +367,10 @@ td.docs p a {
 
 /* guides */
 
+#guides .row-fluid, #native .row-fluid {
+  margin-bottom: 10px;
+}
+
 #guides a, #native a {
 	color: #000;
 	text-decoration: none;
@@ -365,12 +379,16 @@ td.docs p a {
 #guides h2, #native h2 {
   color: #0088cc;
   text-decoration: none;
-  font-size: 1.4em;
-  margin-bottom: 8px;
+  font-size: 1.55em;
+  margin-bottom: 0px;
 }
 
 #guides a:hover h2, #native a:hover h2 {
   color: #d14;
+}
+
+#guides p, #native p {
+  margin-left: 3px;
 }
 /*
 #guides .span3, #guides .span4, #native .span3, #native .span4 {

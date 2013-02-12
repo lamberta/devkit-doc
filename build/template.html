@@ -7,10 +7,10 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../include/fav.png">
-    <link rel="stylesheet" href="../include/bootstrap.min.css">
-    <link rel="stylesheet" href="../include/prettify.css">
-    <link rel="stylesheet" href="../include/style.css">
+    <link rel="shortcut icon" href="/include/fav.png">
+    <link rel="stylesheet" href="/include/bootstrap.min.css">
+    <link rel="stylesheet" href="/include/prettify.css">
+    <link rel="stylesheet" href="/include/style.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Puritan:400,700">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
@@ -23,7 +23,7 @@
           
           <ul class="nav pull-left">
             <li>
-              <a href="http://doc.gameclosure.com">
+              <a href="/">
                 <span class="logo-left">game <span>{</span>closure<span>}</span> <strong>SDK Docs</strong></span>
               </a>
             </li>
@@ -34,143 +34,154 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          
+
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a href="../api/appengine.html">Game Engine</a></li>
+              <li><a href="/api/index.html">API</a></li>
+              <li><a href="/index.html#guides">Guides</a></li>
+              <li><a href="/index.html#examples">Examples</a></li>
+              <li><a href="/native.html">Native</a></li>
+              <li><a href="/guide/contributors.html">Contributors</a></li>
+              <li><a href="http://support.gameclosure.com/">Support</a></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="nav-collapse collapse sub-nav">
+            <ul class="nav pull-right">
+              <li><a href="/api/appengine.html">Game Engine</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Components<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
                   <li>
-                    <a href="../api/ui-view.html">ui.View</a>
+                    <a href="/api/ui-view.html">ui.View</a>
                     <ul>
-                      <li><a href="../api/ui-view.html#style-object">↪ Styles</a></li>
-                      <li><a href="../api/ui-view.html#events">↪ Events</a></li>
+                      <li><a href="/api/ui-view.html#style-object">↪ Styles</a></li>
+                      <li><a href="/api/ui-view.html#events">↪ Events</a></li>
                     </ul>
                   </li>
-                  <li><a href="../api/ui-text.html">Text</a></li>
-                  <li><a href="../api/ui-text.html#class-ui.textview">ui.TextView</a></li>
+                  <li><a href="/api/ui-text.html">Text</a></li>
+                  <li><a href="/api/ui-text.html#class-ui.textview">ui.TextView</a></li>
                   <li>
-                    <a href="../api/ui-text.html#class-ui.textpromptview">ui.TextPromptView</a>
+                    <a href="/api/ui-text.html#class-ui.textpromptview">ui.TextPromptView</a>
                     <ul>
-                      <li><a href="../api/ui-text.html#events">↪ Events</a></li>
+                      <li><a href="/api/ui-text.html#events">↪ Events</a></li>
                     </ul>
                   </li>
-                  <!--<li><a href="../api/ui-text.html#class-ui.textinputview">ui.TextInputView</a></li>-->
-                  <li><a href="../api/ui-text.html#class-ui.resource.font">ui.resource.Font</a></li>
-                  <li><a href="../api/ui-images.html">Images</a></li>
-                  <li><a href="../api/ui-images.html#class-ui.imageview">ui.ImageView</a></li>
-                  <li><a href="../api/ui-images.html#class-ui.imagescaleview">ui.ImageScaleView</a></li>
-                  <li><a href="../api/ui-images.html#class-ui.resource.image">ui.resource.Image</a></li>
+                  <!--<li><a href="/api/ui-text.html#class-ui.textinputview">ui.TextInputView</a></li>-->
+                  <li><a href="/api/ui-text.html#class-ui.resource.font">ui.resource.Font</a></li>
+                  <li><a href="/api/ui-images.html">Images</a></li>
+                  <li><a href="/api/ui-images.html#class-ui.imageview">ui.ImageView</a></li>
+                  <li><a href="/api/ui-images.html#class-ui.imagescaleview">ui.ImageScaleView</a></li>
+                  <li><a href="/api/ui-images.html#class-ui.resource.image">ui.resource.Image</a></li>
                   <li>
-                    <a href="../api/ui-spriteview.html">ui.SpriteView</a>
+                    <a href="/api/ui-spriteview.html">ui.SpriteView</a>
                     <ul>
-                      <li><a href="../api/ui-spriteview.html#class-sprite-groups">↪ Sprite Groups</a></li>
+                      <li><a href="/api/ui-spriteview.html#class-sprite-groups">↪ Sprite Groups</a></li>
                     </ul>
                   </li>
                   <li class="divider"></li>
-                  <li><a href="../api/ui-color.html">ui.Color</a></li>
-                  <li><a href="../api/ui-filter.html">Filters</a></li>
-                  <li><a href="../api/ui-filter.html#class-ui.filter.filter">ui.filter.Filter</a></li>
-                  <li><a href="../api/ui-filter.html#class-ui.filter.linearaddfilter">ui.filter.LinearAddFilter</a></li>
-                  <li><a href="../api/ui-filter.html#class-ui.filter.tintfilter">ui.filter.TintFilter</a></li>
-                  <li><a href="../api/ui-filter.html#class-ui.filter.multiplyfilter">ui.filter.MultiplyFilter</a></li>
-                  <li><a href="../api/ui-filter.html#class-ui.filter.positivemaskfilter">ui.filter.PositiveMaskFilter</a></li>
-                  <li><a href="../api/ui-filter.html#class-ui.filter.negativemaskfilter">ui.filter.NegativeMaskFilter</a></li>
+                  <li><a href="/api/ui-color.html">ui.Color</a></li>
+                  <li><a href="/api/ui-filter.html">Filters</a></li>
+                  <li><a href="/api/ui-filter.html#class-ui.filter.filter">ui.filter.Filter</a></li>
+                  <li><a href="/api/ui-filter.html#class-ui.filter.linearaddfilter">ui.filter.LinearAddFilter</a></li>
+                  <li><a href="/api/ui-filter.html#class-ui.filter.tintfilter">ui.filter.TintFilter</a></li>
+                  <li><a href="/api/ui-filter.html#class-ui.filter.multiplyfilter">ui.filter.MultiplyFilter</a></li>
+                  <li><a href="/api/ui-filter.html#class-ui.filter.positivemaskfilter">ui.filter.PositiveMaskFilter</a></li>
+                  <li><a href="/api/ui-filter.html#class-ui.filter.negativemaskfilter">ui.filter.NegativeMaskFilter</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI Widgets<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
                   <li>
-                    <a href="../api/ui-stackview.html">ui.StackView</a>
+                    <a href="/api/ui-stackview.html">ui.StackView</a>
                     <ul>
-                      <li><a href="../api/ui-stackview.html#events">↪ Events</a></li>
+                      <li><a href="/api/ui-stackview.html#events">↪ Events</a></li>
                     </ul>
                   </li>
                   <li>
-                    <a href="../api/ui-scrollview.html">ui.ScrollView</a>
+                    <a href="/api/ui-scrollview.html">ui.ScrollView</a>
                     <ul>
-                      <li><a href="../api/ui-scrollview.html#events">↪ Events</a></li>
+                      <li><a href="/api/ui-scrollview.html#events">↪ Events</a></li>
                     </ul>
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <a href="../api/ui-widget-listview.html">ui.widget.ListView</a>
+                    <a href="/api/ui-widget-listview.html">ui.widget.ListView</a>
                     <ul>
-                      <li><a href="../api/ui-widget-listview.html#class-ui.widget.cellview">↪ ui.widget.CellView</a></li>
-                      <li><a href="../api/ui-widget-listview.html#class-gcdatasource">↪ GCDataSource</a></li>
+                      <li><a href="/api/ui-widget-listview.html#class-ui.widget.cellview">↪ ui.widget.CellView</a></li>
+                      <li><a href="/api/ui-widget-listview.html#class-gcdatasource">↪ GCDataSource</a></li>
                     </ul>
                   </li>
-                  <li><a href="../api/ui-widget-gridview.html">ui.widget.GridView</a></li>
+                  <li><a href="/api/ui-widget-gridview.html">ui.widget.GridView</a></li>
                   <li>
-                    <a href="../api/ui-widget-buttonview.html">ui.widget.ButtonView</a>
+                    <a href="/api/ui-widget-buttonview.html">ui.widget.ButtonView</a>
                     <ul>
-                      <li><a href="../api/ui-widget-buttonview.html#events">↪ Events</a></li>
+                      <li><a href="/api/ui-widget-buttonview.html#events">↪ Events</a></li>
                     </ul>
                   </li>
                   <li>
-                    <a href="../api/ui-widget-sliderview.html">ui.widget.SliderView</a>
+                    <a href="/api/ui-widget-sliderview.html">ui.widget.SliderView</a>
                     <ul>
-                      <li><a href="../api/ui-widget-sliderview.html#events">↪ Events</a></li>
+                      <li><a href="/api/ui-widget-sliderview.html#events">↪ Events</a></li>
                     </ul>
                   </li>
-                  <!--<li><a href="../api/ui-widget-spinner.html">ui.widget.Spinner</a></li>-->
+                  <!--<li><a href="/api/ui-widget-spinner.html">ui.widget.Spinner</a></li>-->
                 </ul>
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="../api/event.html">Events</a></li>
-                  <li><a href="../api/event.html#class-event.emitter">event.Emitter</a></li>
-                  <li><a href="../api/event.html#class-event.callback">event.Callback</a></li>
-                  <li><a href="../api/event.html#class-event.input.inputevent">event.input.InputEvent</a></li>
+                  <li><a href="/api/event.html">Events</a></li>
+                  <li><a href="/api/event.html#class-event.emitter">event.Emitter</a></li>
+                  <li><a href="/api/event.html#class-event.callback">event.Callback</a></li>
+                  <li><a href="/api/event.html#class-event.input.inputevent">event.input.InputEvent</a></li>
                 </ul>
               </li>
-              <li><a href="../api/device.html">Device</a></li>
-              <li><a href="../api/animate.html">Animation</a></li>
-              <li><a href="../api/audio.html">Audio</a></li>
+              <li><a href="/api/device.html">Device</a></li>
+              <li><a href="/api/animate.html">Animation</a></li>
+              <li><a href="/api/audio.html">Audio</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="../api/utilities.html">Utilities</a></li>
-                  <li><a href="../api/utilities.html#modules">Modules</a>
+                  <li><a href="/api/utilities.html">Utilities</a></li>
+                  <li><a href="/api/utilities.html#modules">Modules</a>
                     <ul>
-                      <li><a href="../api/utilities.html#import">↪ import</a></li>
-                      <li><a href="../api/utilities.html#class-name-superconstructor-constructor">↪ Class</a></li>
+                      <li><a href="/api/utilities.html#import">↪ import</a></li>
+                      <li><a href="/api/utilities.html#class-name-superconstructor-constructor">↪ Class</a></li>
                     </ul>
                   </li>
-                  <li><a href="../api/utilities.html#global">GLOBAL</a>
+                  <li><a href="/api/utilities.html#global">GLOBAL</a>
                     <ul>
-                      <li><a href="../api/utilities.html#bind-thisarg-callback-args">↪ bind</a></li>
-                      <li><a href="../api/utilities.html#merge-obj1-obj2-obj3">↪ merge</a></li>
+                      <li><a href="/api/utilities.html#bind-thisarg-callback-args">↪ bind</a></li>
+                      <li><a href="/api/utilities.html#merge-obj1-obj2-obj3">↪ merge</a></li>
                     </ul>
                   </li>
-                  <li><a href="../api/utilities.html#module-util.ajax">util.ajax</a></li>
+                  <li><a href="/api/utilities.html#module-util.ajax">util.ajax</a></li>
                   <li class="divider"></li>
-                  <li><a href="../api/math.html">Math</a></li>
-                  <li><a href="../api/math.html#module-math.util">math.util</a></li>
-                  <li><a href="../api/math.html#module-math.array">math.array</a></li>
-                  <li><a href="../api/math.html#module-math.geom">math.geom</a></li>
-                  <li><a href="../api/math.html#class-math.geom.point">math.geom.Point</a></li>
-                  <li><a href="../api/math.html#class-math.geom.line">math.geom.Line</a></li>
-                  <li><a href="../api/math.html#class-math.geom.circle">math.geom.Circle</a></li>
-                  <li><a href="../api/math.html#class-math.geom.rect">math.geom.Rect</a></li>
-                  <li><a href="../api/math.html#class-math.geom.vec2d">math.geom.Vec2D</a></li>
-                  <li><a href="../api/math.html#module-math.geom.angle">math.geom.angle</a></li>
-                  <li><a href="../api/math.html#module-math.geom.intersect">math.geom.intersect</a></li>
+                  <li><a href="/api/math.html">Math</a></li>
+                  <li><a href="/api/math.html#module-math.util">math.util</a></li>
+                  <li><a href="/api/math.html#module-math.array">math.array</a></li>
+                  <li><a href="/api/math.html#module-math.geom">math.geom</a></li>
+                  <li><a href="/api/math.html#class-math.geom.point">math.geom.Point</a></li>
+                  <li><a href="/api/math.html#class-math.geom.line">math.geom.Line</a></li>
+                  <li><a href="/api/math.html#class-math.geom.circle">math.geom.Circle</a></li>
+                  <li><a href="/api/math.html#class-math.geom.rect">math.geom.Rect</a></li>
+                  <li><a href="/api/math.html#class-math.geom.vec2d">math.geom.Vec2D</a></li>
+                  <li><a href="/api/math.html#module-math.geom.angle">math.geom.angle</a></li>
+                  <li><a href="/api/math.html#module-math.geom.intersect">math.geom.intersect</a></li>
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <form class="navbar-search">
                   <input type="text" class="search-query" placeholder="Keyword">
                 </form>
-              </li>
+              </li> -->
             </ul>
-          </div><!--/.nav-collapse -->
-          
-        </div>
-      </div>
+          </div>
     </div><!--/navbar-->
 
     <div class="container-fluid">
@@ -231,8 +242,8 @@ $endfor$
     </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="../include/bootstrap.min.js"></script>
-    <script src="../include/prettify.js"></script>
-    <script src="../include/init.js"></script>
+    <script src="/include/bootstrap.min.js"></script>
+    <script src="/include/prettify.js"></script>
+    <script src="/include/init.js"></script>
   </body>
 </html>
