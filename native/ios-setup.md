@@ -4,7 +4,7 @@
 
 Running your game on an iPhone or iPad for the first time is that \"I made it!\" moment when it finally feels real.  This guide will help you get from developing in a browser to showing your new game off at parties.
 
-Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  
+Building your game to run on a mobile device is done using the Game Closure DevKit `basil` command-line tool.  
 
 ## Prerequisites
 
@@ -13,9 +13,9 @@ You will need some tools for iOS development:
 + Mac OS X 10.6 (or newer) computer
 + iPhone/iPad sync cable
 + Xcode 4.4 (or newer) and Xcode command-line tools
-+ Game Closure SDK (basil)
++ Game Closure DevKit (basil)
 
-For a guide on installing the Game Closure SDK [please see this documentation](../guide/quick-start.html).
+For a guide on installing the Game Closure DevKit [please see this documentation](../guide/quick-start.html).
 
 ### Supported Mobile Devices
 
@@ -37,7 +37,7 @@ Additionally, the Xcode command-line tools **are required**.  To download these,
 
 ## Apple Developer Account
 
-For your initial use of the SDK there is no reason to set up an Apple Developer account.  So you may want to skip this section and come back later.  Without an account you will not be able to install your game on a mobile device.  Note that you can run your game on the iOS Simulator, which is packaged with Xcode, without an Apple Developer account.
+For your initial use of the DevKit there is no reason to set up an Apple Developer account.  So you may want to skip this section and come back later.  Without an account you will not be able to install your game on a mobile device.  Note that you can run your game on the iOS Simulator, which is packaged with Xcode, without an Apple Developer account.
 
 To do iOS development you will need an [Apple Developer account](https://developer.apple.com/programs/register/) which costs $99.  To build and install your app on your personal cellphone this is also necessary.  By getting an Apple Developer account you will have access to the Apple Developer website and tools to generate provisioning profiles.
 
@@ -47,7 +47,7 @@ Start Xcode.  Open the Organizer.  Select "Provisioning Profiles" on the left ta
 
 ## Install iOS Plugin for Basil
 
-Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
+Basil is the command-line tool you will use from the Game Closure DevKit to perform native builds.  Make sure your version of basil is up to date with `basil update`.
 
 The first step to doing iOS development with basil is to install the iOS plugin.  At a command-line enter the command:
 

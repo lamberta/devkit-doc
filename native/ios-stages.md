@@ -2,7 +2,7 @@
 
 ## Overview
 
-The iPhone and iPad mobile platform is immensely popular, and you can use the Game Closure SDK to target your HTML5 games to run smoothly on these mobile devices.  This is a high-level view of the progression for iOS game development using the Game Closure SDK.
+The iPhone and iPad mobile platform is immensely popular, and you can use the Game Closure DevKit to target your HTML5 games to run smoothly on these mobile devices.  This is a high-level view of the progression for iOS game development using the Game Closure DevKit.
 
 For iOS development you will need to get an Apple Developer account, which Apple  $99/year.  This gives you access to Apple's Developer web portal, which allows you to manage provisioning profiles.  For more detail, follow the links below.
 
@@ -12,13 +12,13 @@ For iOS development you will need to get an Apple Developer account, which Apple
 
 ### 1. Web Development
 
-Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure SDK web interface without doing any setup required for building on the mobile device.
+Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure DevKit web interface without doing any setup required for building on the mobile device.
 
 Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
 
 <img src="./assets/web-dev.png"></img>
 
-For more information see the [basic SDK guides](../guide/quick-start.html).
+For more information see the [basic DevKit guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 
@@ -28,7 +28,7 @@ The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used t
 
 ### 3. Building
 
-Use the command-line tools from the Game Closure SDK to [build your game code](./ios-build.html) into an Xcode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
+Use the command-line tools from the Game Closure DevKit to [build your game code](./ios-build.html) into an Xcode project.  The full list of command-line arguments can be brought up by running `basil build native-ios --help`.
 
 <img src="./assets/ios/ios-build-console.png"></img>
 
@@ -44,7 +44,7 @@ At this stage the mobile device no longer needs to be tethered to your computer 
 
 Build your game to an IPA file that can be distributed using [TestFlight](http://testflightapp.com) if you so choose.  Testers signed up with TestFlight can use your app all over the world on their mobile Apple devices.
 
-For a guide on how to use TestFlight with the Game Closure SDK, click [here](./ios-testflight.html).
+For a guide on how to use TestFlight with the Game Closure DevKit, click [here](./ios-testflight.html).
 
 ### 5. Deployment
 

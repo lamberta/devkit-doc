@@ -1,12 +1,12 @@
 # License
 
-## Game Closure SDK
+## Game Closure DevKit
 
-The Game Closure SDK is licensed under the Free Software
+The Game Closure DevKit is licensed under the Free Software
 Foundation's [GPL v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
 The FSF provides a [Quick Guide](http://www.gnu.org/licenses/quick-guide-gplv3.html)
 and a list of [Frequently Asked Questions](http://www.gnu.org/licenses/gpl-faq.html)
-to help you understand how to incorporate the GC SDK in to your
+to help you understand how to incorporate the Game Closure DevKit in to your
 own software.
 
 Our intent with the license is that you may copy,
@@ -19,7 +19,7 @@ liable for damages.
 
 ## Documentation
 
-The documentation for the Game Closure SDK is licensed under
+The documentation for the Game Closure DevKit is licensed under
 the [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 and allows you to copy, distribute, transmit, and adapt
 the work. This can be done under the conditions that you

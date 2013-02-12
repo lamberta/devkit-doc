@@ -10,7 +10,7 @@ between Android and iOS.
 ## Overview
 
 The following diagram shows the flow of data/function calls
-between the various components of the Game Closure SDK
+between the various components of the Game Closure DevKit
 native stack. Blocks in purple use JavaScript, those in
 blue use C and C++, those in green use Java, and those in
 orange use Objective-C++.
@@ -20,19 +20,19 @@ orange use Objective-C++.
 ## Components
 
 This section briefly explains the focus of each component of
-the SDK and describes some of the important directories
+the DevKit and describes some of the important directories
 within them. Additionally the git repository for each
 component is included for reference.
 
-### Game Closure SDK / Game Code
+### Game Closure DevKit / Game Code
 
-* **git**: [gcsdk](https://github.com/gameclosure/gcsdk)
+* **git**: [devkit](https://github.com/gameclosure/devkit)
 * **language**: JavaScript
 * **directories**:
 	- **src**: Contains the source of the code used to build the basil tool.
-	- **lib**: Contains the source code for the Game Closure SDK components.
+	- **lib**: Contains the source code for the Game Closure DevKit components.
 
-The JavaScript code for the Game Closure SDK and running
+The JavaScript code for the Game Closure DevKit and running
 game code. The code at this level is platform independent
 and runs the same on both web browsers and mobile
 devices. When running on a native device, this code is run
@@ -46,8 +46,8 @@ by the V8 interpreter on Android and Spidermonkey on iOS.
 	- **native**: This holds the js code used to communicate to and from native  
 
 This layer provides the backend implementations for the
-JavaScript SDK layer. It provides platform specific code
-allowing the JavaScript SDK to communicate with he browser
+DevKit JavaScript layer. It provides platform-specific code
+allowing a JavaScript game to communicate with the browser
 or mobile device. When running on a native mobile phone
 this layer acts as a bridge from JavaScript to native code
 through the JavaScript interpreter. This code should be
@@ -77,7 +77,7 @@ Native Core/Platform layers.
 	- **platform**: Contains header files that are implemented differently per native platform.  
 	- **timestep**: Directory containing code dealing specifically with the timestep game engine.
 
-Native accelerated components of the Game Closure SDK. This
+Native accelerated components of the Game Closure DevKit. This
 portion of the code manages state and functions that are
 shared between all native platforms. It provides OpenGL
 rendering and other native functions to keep the JavaScript
@@ -107,16 +107,16 @@ and other device features.
 ## Moving Around the Stack
 
 The following is a brief overview on moving between the
-various regions in the SDK stack. These boundaries exist
+various regions in the DevKit stack. These boundaries exist
 because of the need to communicate between various
 programming languages and because they allow code reuse
 between different platforms.
 
-### Game Closure SDK to/from GC API
+### Game Closure DevKit to/from GC API
 
-Moving from the Game Closure SDK requires calling JavaScript
+Moving from the Game Closure DevKit requires calling JavaScript
 functions that live within the native folder of
-gcapi. Since the Game Closure SDK makes the correct calls to
+gcapi. Since the Game Closure DevKit makes the correct calls to
 gcapi behind the scenes the user does not need to know
 which platform their code will be running on.
 
@@ -150,7 +150,7 @@ and C++ to Java. Within the Android platform code the
 
 ## Example: Playing a Sound
 
-One feature that requires touching all parts of the SDK is
+One feature that requires touching all parts of the DevKit is
 sound loading. This example shows how a sound is loaded if
 the user tries to play an unloaded sound from JavaScript
 when running on a native Android device.

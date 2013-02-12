@@ -1,11 +1,11 @@
 # Game Walk-Through
 
 *Whack That Mole!* is a basic, non-trivial, game built using
-the Game Closure SDK. The [source code](https://github.com/gameclosure/whack-that-mole)
+the Game Closure DevKit. The [source code](https://github.com/gameclosure/whack-that-mole)
 is available and in this guide we'll step through it
-to see how the components of the Game Closure SDK fit together.
+to see how the components of the Game Closure DevKit fit together.
 
-This walk-through assumes that you have the Game Closure SDK
+This walk-through assumes that you have the Game Closure DevKit
 up and running. See the [Quick Start Guide](../guide/quick-start.html)
 for details on how to get set up.
 
@@ -64,7 +64,7 @@ on the screen to return back to the title screen.
 
 One of the keys to a great developer experience is great
 debugging tools. There has been a lot of effort put in to
-the developer environment of the Game Closure SDK so that
+the developer environment of the Game Closure DevKit so that
 it's easy to get up and running, and easy to see how the
 code in your game works. With your game running in the
 browser, not only do you get access to all the great
@@ -127,12 +127,12 @@ implementation details are available in the documentation.
 
 ## Project Structure
 
-A game created with the Game Closure SDK has this basic file structure:
+A game created with the Game Closure DevKit has this basic file structure:
 
 ~~~
 .
 ├── manifest.json
-├── sdk -> /path/to/basil/sdk
+├── sdk -> /path/to/devkit/sdk
 ├── resources/
 └── src
     └── Application.js
@@ -166,8 +166,8 @@ You can find a complete list of [manifest options](../guide/manifest.html)
 in the documentation.
 
 There is also an `sdk` directory which is actually a symlink to
-the SDK installed with basil. This is provided as a
-convenience for navigating the SDK JavaScript code to
+the DevKit installed with basil. This is provided as a
+convenience for navigating the DevKit JavaScript code to
 see what's going on "under the hood".
 
 The `resources` directory provides a place to store game
@@ -188,7 +188,7 @@ overview of how the game flows together.
 
 <img src="./assets/game-walkthrough/game-flow.png" alt="game flow screenshot" class="screenshot">
 
-First, the Game Closure SDK is initialized and the
+First, the Game Closure DevKit is initialized and the
 environment is set up for the user's application. The entry
 point for the game is the `./src/Application.js` file in the
 project's directory. This file initializes all of the game screens
@@ -248,7 +248,7 @@ the `./src` directory, which we'll look at now.
 
 ### The Entry Point: Application.js
 
-Once the Game Closure SDK environment is initialized, the
+Once the Game Closure DevKit environment is initialized, the
 game picks up in your project's `./src/Application.js`
 file. In *Whack-that-Mole!*, this file is rather short, and its
 purpose is to initialize the title screen and game screen and
@@ -259,10 +259,10 @@ handle events for directing the game flow.
  * The main application file, your game code begins here.
  */
 
-//sdk imports
+// devkit imports
 import device;
 import ui.StackView as StackView;
-//user imports
+// user imports
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
@@ -323,15 +323,15 @@ exports = Class(GC.Application, function () {
 });
 ~~~
 
-At the top of this file, two modules from the SDK and three
+At the top of this file, two modules from the DevKit and three
 additional source files are imported in to our project using the 
 [`import`](../api/utilities.html#import) statement:
 
 ~~~
-//sdk imports
+// devkit imports
 import device;
 import ui.StackView as StackView;
-//user imports
+// user imports
 import src.TitleScreen as TitleScreen;
 import src.GameScreen as GameScreen;
 import src.soundcontroller as soundcontroller;
@@ -571,7 +571,7 @@ before passing it to `supr`.
 #### The Play Button
 
 Each class that inherits from `ui.View` also contains a
-`buildView` method. This function is executed by the SDK
+`buildView` method. This function is executed by the DevKit
 immediately before the view is first rendered to the
 screen. Consequently, this is the preferred place to define
 child views since it defers memory allocation until you
@@ -681,7 +681,7 @@ import src.MoleHill as MoleHill;
 
 The class `src.MoleHill` is a reference to the
 `./src/MoleHill.js` class located in our project directory. Besides
-the classes and modules defined in the SDK, user defined
+the classes and modules defined in the DevKit, user defined
 classes and modules can be imported into the game. Here the
 `as` command is used to alias the `src.MoleHill` to simply
 the `MoleHill` object. You can use this for any

@@ -83,7 +83,7 @@ developers, so use whatever convention you wish.
 ### sdkVersion
 1. `{string}`
 
-The version of the Game Closure SDK used to build this
+The version of the Game Closure DevKit used to build this
 project. This value is automatically filled in when the game
 is run by basil.
 
@@ -115,7 +115,7 @@ array, for example:
 ### icon
 1. `{string}` ---Path to app store game icon, 512x512px.
 
-This is the icon that will be displayed in the Game Closure SDK web interface for your game.
+This is the icon that will be displayed in the Game Closure DevKit web interface for your game.
 
 ~~~
 "icon": "resources/icons/icon512.png",
@@ -244,7 +244,7 @@ In the `manifest.json` file, include the icon images like this:
 
 Device specific settings for iOS phones and tablets.  In this section you can copy settings from iTunes Connect to have your game hooked up properly for in-app purchases.  You should also specify icon images in this section.
 
-Icons are displayed in the SDK web emulator and are used to represent your game in the app list when installed on a mobile device.  All icons are PNG image files, using 8-bit 3/4 channel RGBA.
+Icons are displayed in the DevKit web emulator and are used to represent your game in the app list when installed on a mobile device.  All icons are PNG image files, using 8-bit 3/4 channel RGBA.
 
 These icons can be rendered flat since as the "glossy" effect can added during the build process.  Specify `"renderGloss": true` to enable this feature.
 

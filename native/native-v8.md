@@ -2,9 +2,9 @@
 
 ## Overview
 
-[Google V8](http://code.google.com/p/v8/) is a high-performance JavaScript JIT compiler and execution engine.  The Game Closure SDK leverages this powerful engine to deliver realtime games on Android cellphones.
+[Google V8](http://code.google.com/p/v8/) is a high-performance JavaScript JIT compiler and execution engine.  The Game Closure DevKit leverages this powerful engine to deliver realtime games on Android cellphones.
 
-A lot has been written about how to develop efficient code to run on this engine.  Please see our [performance guide](../guide/performance.html) on this topic for considerations specific to the Game Closure SDK, and for the best references on general performance with this engine.
+A lot has been written about how to develop efficient code to run on this engine.  Please see our [performance guide](../guide/performance.html) on this topic for considerations specific to the Game Closure DevKit, and for the best references on general performance with this engine.
 
 To see how SpiderMonkey fits into the native stack on iOS, see the [Native Stack Overview](./native-stack.html).
 

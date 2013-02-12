@@ -1,6 +1,6 @@
 # Android Development Guide
 
-This guide takes you through the entire process of developing for Android devices with the Game Closure SDK.
+This guide takes you through the entire process of developing for Android devices with the Game Closure DevKit.
 
 ## [Overview](./android-stages.html)
 
@@ -14,7 +14,7 @@ Finally your app is ready for deployment via Google Play.
 
 ## [Setup](./android-setup.html)
 
-The [Game Closure SDK setup guides](./android-setup.html) will get you up and running as fast as possible.
+The [Game Closure DevKit setup guides](./android-setup.html) will get you up and running as fast as possible.
 
 ## [Test App](./android-test-app.html)
 

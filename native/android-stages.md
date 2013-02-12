@@ -2,7 +2,7 @@
 
 ## Overview
 
-Android cellphones are a friendly and flexible platform for game development, with a wide variety of mobile devices supporting it.  Using the Game Closure SDK you may target your HTML5 games to run smoothly across all of the popular Android devices without worrying about specific hardware or OS differences between the devices.
+Android cellphones are a friendly and flexible platform for game development, with a wide variety of mobile devices supporting it.  Using the Game Closure DevKit you may target your HTML5 games to run smoothly across all of the popular Android devices without worrying about specific hardware or OS differences between the devices.
 
 Based on what stage of development your game is in, you may consider different types of builds:
 
@@ -10,13 +10,13 @@ Based on what stage of development your game is in, you may consider different t
 
 ### 1. Web Development
 
-Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure SDK web interface without doing any setup required for building on the mobile device.
+Test your code, art, and sound assets entirely in a web browser simulating a mobile device.  Quickly iterate using the Game Closure DevKit web interface without doing any setup required for building on the mobile device.
 
 Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
 
 <img src="./assets/web-dev.png"></img>
 
-For more information see the [basic SDK guides](../guide/quick-start.html).
+For more information see the [basic DevKit guides](../guide/quick-start.html).
 
 ### 2. Test App Development
 

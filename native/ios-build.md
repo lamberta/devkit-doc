@@ -4,7 +4,7 @@
 
 Running your game on an iPhone or iPad for the first time is that "I made it!" moment where it finally feels real.  This guide will help you get from developing in a browser to showing your new game.
 
-Building your game to run on a mobile device is done using the Game Closure SDK `basil` command-line tool.  See the [iOS Setup Guide](./ios-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
+Building your game to run on a mobile device is done using the Game Closure DevKit `basil` command-line tool.  See the [iOS Setup Guide](./ios-setup.html) for steps to get prerequisites, supported mobile devices, and steps on getting started.
 
 ## Building for Xcode
 
@@ -26,7 +26,7 @@ $ basil release native-ios
 
 ## Watching JavaScript Logs
 
-JavaScript logs are generated when you use `console.log` from within your code, and the Game Closure SDK will also write out helpful messages.
+JavaScript logs are generated when you use `console.log` from within your code, and the Game Closure DevKit will also write out helpful messages.
 
 The logs will scroll in the Debug area at the bottom of the Xcode project window in the right-side tab.
 

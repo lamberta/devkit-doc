@@ -30,7 +30,7 @@ To force-quit a game on an iPad:
 
 ## Watching JavaScript Logs
 
-JavaScript logs are generated when you use `console.log` from within your code, and the Game Closure SDK will also write out helpful messages that may point you in the right direction.
+JavaScript logs are generated when you use `console.log` from within your code, and the Game Closure DevKit will also write out helpful messages that may point you in the right direction.
 
 When using the Test App, you will use the Remote Debug tab console window to watch the logs for your game.  This also gives you the ability to set breakpoints and inspect running JavaScript.
 
@@ -40,7 +40,7 @@ When the Xcode debugger is detached you can still view the logs of a connected d
 
 ## Sound Problems
 
-On iOS you cannot play .OGG audio, so ensure that your sound files are in .MP3 format as discussed in the [audio production guide](../guides/audio-assets.html).  With the Game Closure SDK, you can easily support both .OGG for Android and .MP3 for iOS by having two copies of each sound file.  When building, `basil` will take the .OGG version when it can be used on the target platform (Android for example) and will fall back to the .MP3 extension version if needed (iOS).  Inside your game, name your sound files with a .MP3 extension rather than .OGG.
+On iOS you cannot play .OGG audio, so ensure that your sound files are in .MP3 format as discussed in the [audio production guide](../guides/audio-assets.html).  With the Game Closure DevKit, you can easily support both .OGG for Android and .MP3 for iOS by having two copies of each sound file.  When building, `basil` will take the .OGG version when it can be used on the target platform (Android for example) and will fall back to the .MP3 extension version if needed (iOS).  Inside your game, name your sound files with a .MP3 extension rather than .OGG.
 
 On iOS devices there is a switch that can mute audio, so make sure that did not get flipped by accident.
 
@@ -85,7 +85,7 @@ If this doesn't help, rebooting the iOS device is sometimes the only option to r
 
 ## Advanced: Debugging Native Code
 
-If the native SDK code is crashing and you want to help looking into the issue, then you will want to go into the Build Settings for the Xcode project and change some options to enable debugging:
+If the native DevKit code is crashing and you want to help looking into the issue, then you will want to go into the Build Settings for the Xcode project and change some options to enable debugging:
 
 + Generate Debug Symbols: `Yes`
 + Link-Time Optimization: `Yes`

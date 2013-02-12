@@ -26,7 +26,7 @@ following directory structure for a project:
 ~~~
 project/
 ├── manifest.json
-├── sdk -> /path/to/basil/sdk
+├── sdk -> /path/to/devkit/sdk
 ├── resources/
 │	 ├── images/
 │	 │	  └── bgimage.jpg

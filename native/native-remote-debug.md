@@ -15,9 +15,9 @@ The GameClosure [Native Inspector](http://github.com/gameclosure/NativeInspector
 
 ## How it Works
 
-NativeInspector runs a web server that hosts a modified copy of the bleeding-edge [WebKit Web Inspector code](http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/inspector/front-end/) that is part of the Chrome browser.  We fixed bugs and added features required for use with the SDK.
+NativeInspector runs a web server that hosts a modified copy of the bleeding-edge [WebKit Web Inspector code](http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/inspector/front-end/) that is part of the Chrome browser.  We fixed bugs and added features required for use with the DevKit.
 
-The general approach is inspired by Danny Coates' [node-inspector](https://github.com/dannycoates/node-inspector) project.  This is a complete cleanroom implementation with different goals.  The primary difference in motivation is that this project is supposed to integrate perfectly with the Game Closure SDK on Android and iOS.
+The general approach is inspired by Danny Coates' [node-inspector](https://github.com/dannycoates/node-inspector) project.  This is a complete cleanroom implementation with different goals.  The primary difference in motivation is that this project is supposed to integrate perfectly with the Game Closure DevKit on Android and iOS.
 
 ### Network Protocol
 
@@ -55,7 +55,7 @@ Please let me know if you experience hangs. Most often the following usage patte
 
 ## Installation
 
-This is a part of the [Game Closure SDK project](http://docs.gameclosure.com), and does not require configuration when used in conjunction with the normal SDK installation process.
+This is a part of the [Game Closure DevKit project](http://docs.gameclosure.com), and does not require configuration when used in conjunction with the normal DevKit installation process.
 
 To install the software for stand-alone use and set it up:
 
@@ -71,7 +71,7 @@ The front-end is only confirmed to work with Google Chrome so you may also want 
 
 ## Usage
 
-This is a part of the [Game Closure SDK project](http://docs.gameclosure.com), and is part of the Game Closure SDK web interface under `Remote Debug`.
+This is a part of the [Game Closure DevKit project](http://docs.gameclosure.com), and is part of the Game Closure DevKit web interface under `Remote Debug`.
 
 To manually run the software:
 

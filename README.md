@@ -1,4 +1,4 @@
-# Game Closure SDK Documentation
+# Game Closure DevKit Documentation
 
 ## Repo Structure
 

@@ -7,7 +7,7 @@ This document contains information on the classes and
 instances that are initialized when the game engine is
 created and the scene graph is drawn to the screen.
 
-If you are just getting started with the SDK, you should
+If you are just getting started with the DevKit, you should
 first read our guides, in particular
 [Hello World](../guide/hello-world.html) and the more
 advanced [Game Walk-Through](../guide/game-walkthrough.html).
@@ -25,7 +25,7 @@ put game setup code and construct the view hierarchy.
 ### launchUI ()
 
 A user defined function that serves as the entry point for
-applications built on the Game Closure SDK. This is executed
+applications built on the Game Closure DevKit. This is executed
 after the scene graph has been constructed, the `initUI`
 function is called, and the splash screen has been
 removed. This is where your game entry point logic should be

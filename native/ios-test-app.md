@@ -6,7 +6,7 @@ Select your server from the on-screen list, then select which game to test.  Mak
 
 ## Setup
 
-Be sure to read the [iOS Setup Guide](./ios-setup.html) and follow the instruction there to prepare for iOS development with the Game Closure SDK.
+Be sure to read the [iOS Setup Guide](./ios-setup.html) and follow the instruction there to prepare for iOS development with the Game Closure DevKit.
 
 Turn on WiFi and connect your mobile device to the same LAN as your computer.
 
@@ -28,7 +28,7 @@ This will also run the Basil Server, which is needed for the Test App to run pro
 
 ## Running the Basil Server
 
-An instance of the SDK basil server must be running to serve games for the test app.  To start a new basil server without building the Test App enter this command at a console:
+An instance of the DevKit basil server must be running to serve games for the test app.  To start a new basil server without building the Test App enter this command at a console:
 
 ~~~
 $ basil serve

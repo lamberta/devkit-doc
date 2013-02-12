@@ -2,7 +2,7 @@
 
 ## Overview
 
-Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation. The process of getting there for Android devices has been stream-lined for you in the Game Closure SDK.
+Testing your game on your cellphone for the first time is an exhilerating affair full of nail-biting anticipation. The process of getting there for Android devices has been stream-lined for you in the Game Closure DevKit.
 
 ## Prerequisites
 
@@ -12,15 +12,15 @@ You will need some tools for Android development:
 + USB sync cable for your cellphone
 + Android SDK 15
 + Android NDK r8d
-+ Game Closure SDK (basil)
++ Game Closure DevKit (basil)
 
-For a guide on installing the Game Closure SDK [please see this documentation](../guide/quick-start.html).
+For a guide on installing the Game Closure DevKit [please see this documentation](../guide/quick-start.html).
 
 ### Supported Mobile Devices
 
 Nearly all Android cellphones and tablets are supported, including all devices powered by processors in the ARM9 family on the ARMv5TE(J) architecture.  This means all TI OMAP processors.  For example the first Motorola Droid phone was powered by a TI OMAP 3430 built for the ARMv7 instruction set.
 
-Android version 2.2 (API level 8) is the minimum required version.  The original Motorola Droid received an over-the-air update for this in late 2010.  According to the [Android developer site](http://developer.android.com/about/dashboards/) only about 2.6% of cellphones that access Google Play are unsupported at this time by the Game Closure SDK.  The first Android phone (the T-Mobile G1 / HTC Dream) is unsupported, as an example.
+Android version 2.2 (API level 8) is the minimum required version.  The original Motorola Droid received an over-the-air update for this in late 2010.  According to the [Android developer site](http://developer.android.com/about/dashboards/) only about 2.6% of cellphones that access Google Play are unsupported at this time by the Game Closure DevKit.  The first Android phone (the T-Mobile G1 / HTC Dream) is unsupported, as an example.
 
 ## Install the Android SDK
 
@@ -72,7 +72,7 @@ The homebrew install script will add the required NDK tools to your path.
 
 ## Install Android Plugin for Basil
 
-Basil is the command-line tool you will use from the Game Closure SDK to perform native builds.  Make sure your version of basil is up to date with `basil update`.
+Basil is the command-line tool you will use from the Game Closure DevKit to perform native builds.  Make sure your version of basil is up to date with `basil update`.
 
 The first step to doing Android development with basil is to install the Android plugin.  At a command-line enter the command:
 
@@ -114,7 +114,7 @@ Enter key password for <bearded bobs>
 [Storing beards.keystore]
 ~~~
 
-You will want to copy your keystore to a convenient location and then reference it in the `config.json` file in the root of your Game Closure SDK folder.
+You will want to copy your keystore to a convenient location and then reference it in the `config.json` file in the root of your Game Closure DevKit folder.
 
 An example "android" section in Basil's `config.json` file:
 
