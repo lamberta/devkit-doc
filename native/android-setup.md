@@ -205,6 +205,10 @@ On Android, it is crucial that custom .TTF file names match an internal font nam
 
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
+If you are also releasing on iOS then all the sizes are mandatory.  However, splash screens are somewhat optional for Android.  Leaving them out completely will cause the game to display black until it is loaded.  When your game starts running, it will select the best splash image among the ones provided to match the device's screen size, and will rotate it to match the orientation.
+
+Providing fewer splash images will reduce the download time for your game, but the trade-off will be a splash image that looks worse on some devices.  The Landscape splash images can be left off entirely for Android without any ill effects and is recommended.
+
 Once your game is configured properly for Android, you're ready to install it!
 
 ## Configuring a New Android Device
