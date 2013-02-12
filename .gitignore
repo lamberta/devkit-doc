@@ -1,10 +1,12 @@
 .DS_Store
 .tealeaf_sdk
 .swp
+node_modules/
 html/api/
 html/guide/
 html/example/
 html/native/
+html/include/style.css
 example/*/*/build/
 example/*/*/sdk
 examples/out/
