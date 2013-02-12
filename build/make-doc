@@ -9,6 +9,22 @@ ASSETS_ROOT="$DOC_ROOT/build/assets"
 OUT_ROOT="$DOC_ROOT/html"
 DOC_TEMPLATE="$DOC_ROOT/build/template.html"
 
+echo "
+
+var stylus = require('stylus');
+var fs = require('fs');
+var css = fs.readFileSync('$DOC_ROOT/html/include/style.styl', 'utf8');
+
+stylus(css).render(function (err, css) {
+	if (err) {
+		console.error(err);
+	} else {
+		fs.writeFileSync('$DOC_ROOT/html/include/style.css', css);
+	}
+});
+
+" | node
+
 function print_help {
 		echo "Usage: $(basename $0) [options]"
 		echo " -o=dir   Output directory. Default: $OUT_ROOT"
