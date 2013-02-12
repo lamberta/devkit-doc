@@ -246,7 +246,7 @@ Clone the Game Closure
 [Android GitHub repository](https://github.com/gameclosure/native-android). Switch to this directory and make sure everything is up-to-date:
 
 ~~~
-$ git clone git@github.com:gameclosure/native-android
+$ git clone https://github.com/gameclosure/native-android
 $ cd native-android
 $ git checkout develop
 $ git submodule update --init

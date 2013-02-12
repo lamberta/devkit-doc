@@ -17,7 +17,7 @@ we need to download and install the game.
 First, clone the git repository of the game from your terminal:
 
 ~~~
-$ git clone git@github.com:gameclosure/whack-that-mole.git
+$ git clone https://github.com/gameclosure/whack-that-mole.git
 ~~~
 
 You then must register the project with the basil

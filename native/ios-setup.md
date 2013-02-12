@@ -161,7 +161,7 @@ Clone the Game Closure
 [iOS GitHub repository](https://github.com/gameclosure/native-ios). Switch to this directory and make sure everything is up-to-date:
 
 ~~~
-$ git clone git@github.com:gameclosure/native-ios
+$ git clone https://github.com/gameclosure/native-ios
 $ cd native-ios
 $ git checkout develop
 $ git submodule update --init

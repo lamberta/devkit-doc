@@ -52,7 +52,7 @@ To download the Game Closure DevKit, issue the following
 commands at the terminal:
 
 ~~~
-$ git clone git@github.com:gameclosure/devkit
+$ git clone https://github.com/gameclosure/devkit
 $ cd devkit
 ~~~
 

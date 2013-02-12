@@ -60,7 +60,7 @@ This is a part of the [Game Closure DevKit project](http://docs.gameclosure.com)
 To install the software for stand-alone use and set it up:
 
 ~~~
-$ git clone git@github.com/gameclosure/NativeInspector
+$ git clone https://github.com/gameclosure/NativeInspector
 $ cd NativeInspector
 $ npm install
 ~~~
