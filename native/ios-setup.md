@@ -139,6 +139,8 @@ On iOS, it is crucial that custom fonts do not have the same name as a default s
 
 Define splash screen images for your game.  For the complete list of image sizes required and other details [see the manifest documentation](../guide/manifest.html).
 
+For iPhone, the portrait splash images are used, and when your game specifies landscape mode, those images will be rotated to match the screen orientation.
+
 Once your game is configured properly for iOS, you're ready to install it!
 
 ## Setting Up a New Mobile Device
