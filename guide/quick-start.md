@@ -10,8 +10,8 @@ to create your first application.
 
 ## Prerequisites
 
-We're only supporting OSX at this time, but we've have some
-success running on Linux and Windows. If using an
+We're only supporting OSX at this time, but we have some
+success running on Linux and Windows. If you're using an
 unsupported platform, make sure the following prerequisites
 are installed and the symlinks all work, and you may have
 some luck.
@@ -25,7 +25,7 @@ Install the following software before installing the Game Closure DevKit:
 
 The easiest way to install these packages is through their
 respective installers. Alternatively, you can use a package
-manager, such as [Homebrew](http://mxcl.github.com/homebrew/) 
+manager, such as [Homebrew](http://mxcl.github.com/homebrew/)
 on OSX, to keep your system updated. Just be aware that
 you'll need to download and set up the [Xcode Command-line Tools](https://developer.apple.com/xcode/)
 to build these packages.
@@ -34,7 +34,7 @@ The Chrome web browser is the preferred development
 environment because of its superior debugging tools. This is
 the browser we use to develop the Game Closure DevKit and test against.
 
-If using OSX and building for native devices, you'll need to install the following from the [Apple Developer Site](https://developer.apple.com/downloads/).  You may need to advance to the second page of downloads to find each of these items:
+If you're using OSX and building for native devices, you'll need to install the following from the [Apple Developer Site](https://developer.apple.com/downloads/).  You may need to advance to the second page of downloads to find each of these items:
 
 * XCode Command Line tools (November 2012 or newer)
 * XCode (4.4 or newer)
