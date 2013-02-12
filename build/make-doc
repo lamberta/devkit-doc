@@ -12,10 +12,11 @@ DOC_TEMPLATE="$DOC_ROOT/build/template.html"
 echo "
 
 var stylus = require('stylus');
+var nib = require('nib');
 var fs = require('fs');
 var css = fs.readFileSync('$DOC_ROOT/html/include/style.styl', 'utf8');
 
-stylus(css).render(function (err, css) {
+stylus(css).use(nib()).set('compress', true).render(function (err, css) {
 	if (err) {
 		console.error(err);
 	} else {
