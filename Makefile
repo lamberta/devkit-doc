@@ -1,0 +1,2 @@
+all:
+	build/make-doc
