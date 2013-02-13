@@ -38,6 +38,14 @@ When building with Xcode, the logs will scroll in the Debug area at the bottom o
 
 When the Xcode debugger is detached you can still view the logs of a connected device using the Organizer, which may be accessed from the Window menu.  Select the devices tab in the Organizer and scroll down the list of devices to select the "Console" item under the device you have connected.
 
+## JavaScript Freezes
+
+If your JavaScript game freezes up, it can be due to either an Exception, or a Memory Leak.  To figure out which problem it is, follow instructions above to watch the JavaScript logs.
+
+If you see an exception trace in the log then it will contain information about which source file and line caused the error.  You may want to use the [remote JS debugger](./ios-remote-debug.html) to set a breakpoint a little before the exception line so that you may fully inspect the code state from the comfort of your desktop.  You can also turn on break-on-exception to cause the debugger to halt at the line where the exception occurs.
+
+If you see "JavaScript error out of memory" at the console then you probably have a memory leak.  The best way to debug this sort of issue is to back off to using just your browser for development.  Chrome has the best heap profiler available, and you can [use it](https://developers.google.com/chrome-developer-tools/docs/heap-profiling) to find and fix JavaScript memory leaks.
+
 ## Sound Problems
 
 On iOS you cannot play .OGG audio, so ensure that your sound files are in .MP3 format as discussed in the [audio production guide](../guides/audio-assets.html).  With the Game Closure DevKit, you can easily support both .OGG for Android and .MP3 for iOS by having two copies of each sound file.  When building, `basil` will take the .OGG version when it can be used on the target platform (Android for example) and will fall back to the .MP3 extension version if needed (iOS).  Inside your game, name your sound files with a .MP3 extension rather than .OGG.
