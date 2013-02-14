@@ -18,11 +18,11 @@ Investigate coding errors, step through running code, pause execution, and inspe
 
 <img src="./assets/web-dev.png"></img>
 
-For more information see the [basic DevKit guides](../guide/quick-start.html).
+For more information see the [basic DevKit guides](../guide/install.html).
 
 ### 2. Test App Development
 
-Test your game code live on the device with the [Game Closure Test App](./test_app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and install the Test App on a USB-attached iOS device with `basil testapp native-ios`.
+Test your game code live on the device with the [Game Closure Test App](./ios-test-app.html).  The test app will allow you to quickly test your game on a device without having to recompile and install a new application every time you make a change.  You will host a server on your computer, and setup your mobile device to use WiFi.  Build and install the Test App on a USB-attached iOS device with `basil testapp native-ios`.
 
 The same Chrome [Web Inspector interface](./ios-remote-debug.html) may be used to investigate coding errors on the mobile device from the comfort of your computer.
 
@@ -34,7 +34,7 @@ Use the command-line tools from the Game Closure DevKit to [build your game code
 
 Build your game to a device connected via an Apple USB cable.  Note that the iPhone 4 and 5 use different data cables.  Using the SDK build tools, you will create an Xcode project containing your code, art, splash screens, icons, and sound assets.  Console logs will be visible in Xcode while it is running.
 
-<img src="./assets/ios/ios-build-Xcode.png"></img>
+<img src="./assets/ios/ios-build-xcode.png"></img>
 
 At this stage you may test your in-app purchases using an Apple test account created through the Apple Developer website.
 
