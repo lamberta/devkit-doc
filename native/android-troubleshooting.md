@@ -36,6 +36,15 @@ Normally you will want to pair `adb logcat` with the standard `grep` tool to cut
 
 You may then pipe the output to a file with `$ adb logcat | grep JS > mylog.txt`.  Hit CTRL+C to terminate the log capture, and open it with `open mylog.txt`.
 
+## JavaScript Freezes
+
+If your JavaScript game freezes up, it can be due to either an Exception, or a Memory Leak.  To figure out which problem it is, follow instructions above to watch the JavaScript logs.
+
+If you see an exception trace in the log then it will contain information about which source file and line caused the error.  You may want to use the [remote JS debugger](./android-remote-debug.html) to set a breakpoint a little before the exception line so that you may fully inspect the code state from the comfort of your desktop.  You can also turn on break-on-exception to cause the debugger to halt at the line where the exception occurs.
+
+If you see "JavaScript error out of memory" at the console then you probably have a memory leak.  The best way to debug this sort of issue is to back off to using just your browser for development.  Chrome has the best heap profiler available, and you can [use it](https://developers.google.com/chrome-developer-tools/docs/heap-profiling) to find and fix JavaScript memory leaks.
+
+
 ## Custom TrueType Fonts Not Working
 
 On Android, it is crucial that custom .TTF file names match one of the names inside the font file.
