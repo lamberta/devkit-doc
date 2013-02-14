@@ -87,10 +87,6 @@ If you're getting permission errors when installing to the
 $ sudo chown -R $(whoami) /usr/local
 ~~~
 
-## Using the DevKit
-
-Once `basil` is installed you're ready to create a new game project.  Take a look at the [Hello, World! Guide](../guide/hello-world.html) to see how to get started using the Game Closure DevKit.
-
 ## Update the DevKit
 
 To keep your copy of the DevKit up to date, run the update command:
@@ -100,3 +96,8 @@ $ basil update
 ~~~
 
 The update command is also able to check out older versions of the DevKit or different channels of DevKit versions.  Read the help menu with `basil update --help` for more information on this flexible tool.
+
+## Hello, World!
+
+Once `basil` is installed you're ready to create a new game project.  Take a look at the [Hello, World! Guide](../guide/hello-world.html) to see how to get started using the Game Closure DevKit.
+
