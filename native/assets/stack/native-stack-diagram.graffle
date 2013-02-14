@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-02-09 00:04:46 +0000</string>
+	<string>2013-02-14 18:44:02 +0000</string>
 	<key>Modifier</key>
 	<string>Derek Burch</string>
 	<key>NotesVisible</key>
@@ -202,8 +202,8 @@
 					<integer>14</integer>
 					<key>Points</key>
 					<array>
-						<string>{241.50000000019367, 340.48261086198755}</string>
-						<string>{339.50000003814989, 340.46697659110794}</string>
+						<string>{241.50000000000003, 340.49549286565747}</string>
+						<string>{339.50000000000097, 340.49144057973479}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -276,8 +276,8 @@
 					<integer>12</integer>
 					<key>Points</key>
 					<array>
-						<string>{241.5, 131.50320962489704}</string>
-						<string>{339.5, 131.50609534269435}</string>
+						<string>{241.5, 131.50083191073585}</string>
+						<string>{339.5, 131.5015798671773}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -344,8 +344,8 @@
 					<integer>9</integer>
 					<key>Points</key>
 					<array>
-						<string>{436.85525504205032, 470.02953817209982}</string>
-						<string>{435.76372743324464, 409.99991736822551}</string>
+						<string>{436.85512207771325, 470.02953817234618}</string>
+						<string>{435.76365609036117, 409.99991736822761}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -416,8 +416,8 @@
 					<integer>7</integer>
 					<key>Points</key>
 					<array>
-						<string>{435.76372743297645, 409.99991735347442}</string>
-						<string>{437.17292457461241, 487.50008259700058}</string>
+						<string>{435.76365609009298, 409.99991735347646}</string>
+						<string>{437.17277367645647, 487.50008259731806}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -682,8 +682,8 @@
 					<integer>26</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.49762579955689, 623.86918750810582}</string>
-						<string>{353.99999999244011, 623.86379879612605}</string>
+						<string>{255.49762579955785, 623.87358961706218}</string>
+						<string>{353.99999999263281, 623.8722820629921}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -816,8 +816,8 @@ git: basil}</string>
 					<integer>21</integer>
 					<key>Points</key>
 					<array>
-						<string>{255.49762579955785, 502.50065495114035}</string>
-						<string>{353.99999999263281, 502.50126215079246}</string>
+						<string>{255.49762579955785, 502.50015939560456}</string>
+						<string>{353.99999999263281, 502.50030716991876}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1542,8 +1542,8 @@ NativeShim.cpp}</string>
 					<integer>46</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.05975748360828, 191.7233924339773}</string>
-						<string>{419.08567099954359, 258.87500432782571}</string>
+						<string>{419.05082013403211, 191.7233924865694}</string>
+						<string>{419.0527273526929, 258.87500381430857}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1798,8 +1798,8 @@ NativeShim.cpp}</string>
 					<integer>35</integer>
 					<key>Points</key>
 					<array>
-						<string>{448.31387461717821, 446.8114762519952}</string>
-						<string>{482.56398914257005, 495.83080768998519}</string>
+						<string>{448.30540819929786, 446.81151525636159}</string>
+						<string>{482.54563333666977, 495.83091128177381}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1869,8 +1869,8 @@ Platform Code}</string>
 					<integer>32</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.0461961405681, 308.87500381469727}</string>
-						<string>{419.03773783985304, 362.901611328125}</string>
+						<string>{419.04620086844761, 308.87500381469727}</string>
+						<string>{419.03775278498426, 362.901611328125}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1961,7 +1961,7 @@ Platform Code}</string>
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \b \cf0 git
-\b0 : gcsdk\
+\b0 : devkit\
 
 \b Directory
 \b0 : sdk}</string>
@@ -1979,8 +1979,8 @@ Platform Code}</string>
 					<integer>29</integer>
 					<key>Points</key>
 					<array>
-						<string>{419.07620993735162, 78.973387858633743}</string>
-						<string>{419.18921260431489, 141.72340023758863}</string>
+						<string>{419.03869807565553, 78.97338864190688}</string>
+						<string>{419.05754594497779, 141.72339251029919}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2156,8 +2156,8 @@ Platform Code}</string>
 					<integer>27</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97867471576967, 654.31458199810822}</string>
-						<string>{270.69863335359838, 654.96222998408462}</string>
+						<string>{211.97867576773749, 654.29401325696722}</string>
+						<string>{270.69863589294539, 654.93029262196956}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2215,9 +2215,8 @@ Platform Code}</string>
 \b \cf0 git
 \b0 : native-android\
 
-\b Directories
-\b0 : \
-Android: Tealeaf}</string>
+\b Directory: 
+\b0 TeaLeaf}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -2232,8 +2231,8 @@ Android: Tealeaf}</string>
 					<integer>25</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.99762557983655, 529.73285859741111}</string>
-						<string>{270.69861215748983, 529.80981531987607}</string>
+						<string>{211.99762520853534, 529.7839766482798}</string>
+						<string>{270.69861015625588, 529.88917537810516}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2309,8 +2308,8 @@ iOS: tealeaf and tealeaf/platform}</string>
 					<integer>23</integer>
 					<key>Points</key>
 					<array>
-						<string>{211.97870512734215, 404.89924585835678}</string>
-						<string>{338.0311889599746, 404.8964392397873}</string>
+						<string>{211.97870512734212, 404.90118810104883}</string>
+						<string>{338.03118895997414, 404.90068594414657}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2451,8 +2450,8 @@ iOS: tealeaf and tealeaf/platform}</string>
 					<integer>8</integer>
 					<key>Points</key>
 					<array>
-						<string>{391.09659833222855, 446.8176797855113}</string>
-						<string>{358.43637705761466, 495.82459342833107}</string>
+						<string>{391.10468386795634, 446.81771693631657}</string>
+						<string>{358.4539039011147, 495.82469208525845}</string>
 					</array>
 					<key>Style</key>
 					<dict>
