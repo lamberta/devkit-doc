@@ -48,11 +48,6 @@ Try the following steps in order of increasing severity:
 3. Restart tealeaf serve
 4. Close out of everything and restart.
 
-Please let me know if you experience hangs. Most often the following usage patterns may cause an app to hang:
-
-1. Disconnecting USB cable while native inspector is live. You may need to restart tealeaf to fix this one.
-2. Allowing the phone to sleep while debugging an "adb install my.apk" kind of app. I observed one case where this caused the native inspector to become unresponsive until the app was brought back into focus again. This is not normal behavior.
-
 ## Installation
 
 This is a part of the [Game Closure DevKit project](http://docs.gameclosure.com), and does not require configuration when used in conjunction with the normal DevKit installation process.
