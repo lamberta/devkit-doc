@@ -10,8 +10,8 @@ to create your first application.
 
 ## Prerequisites
 
-We're only supporting OSX at this time, but we've have some
-success running on Linux and Windows. If using an
+We're only supporting OSX at this time, but we have some
+success running on Linux and Windows. If you're using an
 unsupported platform, make sure the following prerequisites
 are installed and the symlinks all work, and you may have
 some luck.
@@ -25,7 +25,7 @@ Install the following software before installing the Game Closure DevKit:
 
 The easiest way to install these packages is through their
 respective installers. Alternatively, you can use a package
-manager, such as [Homebrew](http://mxcl.github.com/homebrew/) 
+manager, such as [Homebrew](http://mxcl.github.com/homebrew/)
 on OSX, to keep your system updated. Just be aware that
 you'll need to download and set up the [Xcode Command-line Tools](https://developer.apple.com/xcode/)
 to build these packages.
@@ -34,7 +34,7 @@ The Chrome web browser is the preferred development
 environment because of its superior debugging tools. This is
 the browser we use to develop the Game Closure DevKit and test against.
 
-If using OSX and building for native devices, you'll need to install the following from the [Apple Developer Site](https://developer.apple.com/downloads/).  You may need to advance to the second page of downloads to find each of these items:
+If you're using OSX and building for native devices, you'll need to install the following from the [Apple Developer Site](https://developer.apple.com/downloads/).  You may need to advance to the second page of downloads to find each of these items:
 
 * XCode Command Line tools (November 2012 or newer)
 * XCode (4.4 or newer)
@@ -64,7 +64,7 @@ run the install script:
 $ ./install.sh
 ~~~
 
-This installs the command-line program `basil` which is used
+This installs the command-line program `basil`, which is used to
 create and serve projects. To see a list of basil commands,
 simply run it in your terminal without any arguments:
 
@@ -114,5 +114,5 @@ $ basil install examples
 
 This addon installs a collection of projects that demonstrate
 some game development techniques using the Game Closure
-DevKit. When you run basil you'll be able to browse and run the
-projects, and also see the annotated source for each.
+DevKit. When you run basil you'll be able to browse browse,
+run, and see the annotated source for each project.

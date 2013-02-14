@@ -103,7 +103,7 @@ commands to your game:
 <img src="./assets/game-walkthrough/game-console.png" alt="browser console screenshot" class="screenshot">
 
 To access the JavaScript variables in your game's context
-you'll need to switch from the `<top frame>` console frame 
+you'll need to switch from the `<top frame>` console frame
 to the game's frame `Simulator_0`, this option is selectable on the bottom
 of the console window.
 
@@ -209,7 +209,7 @@ playing, and ending the game. This is defined in the
 When the game ends, the user's score is displayed and the
 game screen holds while we await user input to continue. Upon
 receiving that tap, the game screen is popped off
-the screen stack, revealing the title screen. The game returns to 
+the screen stack, revealing the title screen. The game returns to
 the title screen and, as before, awaits to be played again.
 
 
@@ -324,7 +324,7 @@ exports = Class(GC.Application, function () {
 ~~~
 
 At the top of this file, two modules from the DevKit and three
-additional source files are imported in to our project using the 
+additional source files are imported in to our project using the
 [`import`](../api/utilities.html#import) statement:
 
 ~~~
@@ -434,9 +434,9 @@ the `StackView` has a side-scrolling animation transition,
 this can be turned off. We'll look at the details of the
 game's event flow in a moment as we step through the title screen.
 
- 
+
 ### The Game Awaits: TitleScreen.js
- 
+
 With our application framework in place, let's see how
 the title screen is constructed. The screen is an instance
 of the `TitleScreen` class, defined in the
@@ -445,7 +445,7 @@ of the `TitleScreen` class, defined in the
 remains throughout the lifetime of the application.
 
 #### Anatomy of a View
- 
+
 The view hierarchy structure of the `TitleScreen` class is
 relatively simple. There is a singe background image that
 fits the screen, and an "invisible" child view
@@ -558,7 +558,7 @@ this.init = function (opts) {
 ~~~
 
 The `title_screen.png` image file is loaded as the `image` option for
-`ui.ImageView`. 
+`ui.ImageView`.
 
 The `supr` function is provided as an argument to the class
 definition by the `Class` function. As parameters it
@@ -734,7 +734,7 @@ this.init = function (opts) {
 
 There is something curious about this `init`
 function, we've included the creation of our score board `TextView`
-here, something usually reserved for the 
+here, something usually reserved for the
 `buildView` function. This is a consequence of *when* `buildView` is
 executed and it's child view is created (before the view
 first needs to be rendered to the screen), and *when* we
@@ -761,8 +761,8 @@ this.buildView = function () {
   var layout = [[1, 0, 1], [0, 1, 0], [1, 0, 1]];
 
   this._molehills = [];
-    
-  //loop over the layout grid, row then column  
+
+  //loop over the layout grid, row then column
   for (var row = 0, len = layout.length; row < len; row++) {
     for (var col = 0; col < len; col++) {
         //if there was a 1 in the grid, create a mole
@@ -772,7 +772,7 @@ this.buildView = function () {
         molehill.style.y = y_offset + row * (molehill.style.height + y_pad);
         this.addSubview(molehill);
         this._molehills.push(molehill);
-                    
+
         //update score on hit event
         molehill.on('molehill:hit', bind(this, function () {
           if (game_on) {
@@ -817,7 +817,7 @@ board we already created in `init`.
 #### Starting sequence
 
 With the child views set, we can now step through
-starting, playing, and ending the game. 
+starting, playing, and ending the game.
 
 Within the `init` constructor, we add listener function to
 handle the `'app:start'` event that was dispatched from the top-level
@@ -1028,7 +1028,7 @@ this.buildView = function () {
 Here, you can visualize how the component `ImageView`'s are
 stacked together to make a single mole hill:
 
-<img src="./assets/game-walkthrough/molehill_layers.png" alt="molehill layers screenshot" class="screenshot">
+<img src="./assets/game-walkthrough/molehill-layers.png" alt="molehill layers screenshot" class="screenshot">
 
 Since the body of the mole extends below the front molehill
 image, the illusion of the mole diving into the
@@ -1176,11 +1176,11 @@ which means the mole is no longer eligible to receive hits. When
 that action is completed, the animation moves on to the next
 item in the sequence.
 
-We now want the mole to dive back into its hole, 
+We now want the mole to dive back into its hole,
 so we issue the command `.then({y: mole_down}, 200, animate.EASE_OUT)`.
 As we've seen, the `.then` function can be called in a multitude of ways.
 Here we're passing it the same arguments as the previous
-`.now()` call. This lowers the mole back down on the y-axis in 
+`.now()` call. This lowers the mole back down on the y-axis in
 200 milliseconds, easing out of its
 starting position and stopping below the ground line of
 the hill.
@@ -1258,7 +1258,7 @@ the background music for the level. The audio file will
 continue playing throughout the duration of the game play,
 and will loop if the clip runs to the end if specified in
 the loading options for `levelmusic`, `loop: true`. This is
-all set up when we create our sounds with `new AudioManager(...)` 
+all set up when we create our sounds with `new AudioManager(...)`
 in `./src/soundcontroller.js`.
 
 

@@ -56,27 +56,29 @@ clicking the **Simulate** button located in the upper-left corner.
 
 <img src="./assets/getting-started/hello-world.png" alt="hello, world screenshot" class="screenshot">
 
-Your first application running in the browser, pretty cool,
-right? This view of your game presents an approximation of
-how it will look when running on a mobile device. But, we're
+Here is your first application running in the browser! Pretty cool, right?
+
+The simulator is a approximation of how your game will behave when
+running on a mobile device. But, we're
 still in a web browser, which means we can interact with it,
-debug it, and use all the great web development tools we're
-used to when creating the game.
+debug it, and use all the great web development tools we've
+used to when creating the game. Hey, guess what, we can do those on native too!
 
 *Note*: If you're working on a project that wasn't created with
 `basil init` (maybe you've downloaded it from elsewhere),
 you must register the project before it's available in your
-web interface. To do this, use the `basil register` command:
+web interface. To do this, use the `basil register` command
+in the root folder of your project:
 
 ~~~
 $ cd ./anotherproject
 $ basil register
 ~~~
 
-Now, if you run `basil serve` you'll see the new project in
-the web interface. A list of registered projects is
+After registering your project, if you run `basil serve` you'll
+see the new project in the web interface. A list of registered projects is
 maintained in the `config.json` file located in the root of
-your basil install, and if need be, edited directly.
+your basil install and can be edited directly.
 
 ### Basil Help
 
@@ -85,8 +87,8 @@ creating, building, and deploying your game. For a list of
 available commands, run `basil help` or `basil -h` in your
 terminal.
 
-In addition, each basil command may have its own options,
-you can append the `-h` flag to a command to see the help
+In addition, each basil command may have its own options.
+You can append the `-h` flag to a command to see the help
 available for it:
 
 ~~~
@@ -138,10 +140,8 @@ exports = Class(GC.Application, function() {
 });
 ~~~
 
-This file defines a class that inherits from
-[GC.Application](../api/appengine.html#class-gc.application)
-and configures the callback methods used to define the user entry
-points of the game: `initUI` and `launchUI`.
+This file defines the entry points into your game: `initUI` and `launchUI`,
+which are callback methods inherited from [GC.Application](../api/appengine.html#class-gc.application).
 
 In this simple example, a `TextView` is imported into the
 file, added to the scene graph, and used to write the phrase
@@ -151,12 +151,12 @@ the Game Closure DevKit uses is detailed in the [Utilities API documentation](..
 
 ## Inspecting and Debugging
 
-To view the hierarchy of the scene graph as a tree, click on
-the **UI Inspector** button at the top of the simulator window.
+The **UI Inspector** button at the top of the simulator window opens up a
+tree-like mapping of all active Views in your game.
 
 <img src="./assets/getting-started/hello-inspector.png" alt="ui inspector screenshot" class="screenshot">
 
-Browse through the inspector you'll see that there is a
+Browse through the inspector and you'll see that there is a
 `TextView` in the hierarchy named `'TextView2:Hello, world!'`.
 
 Using the Chrome web browser, open up the JavaScript
