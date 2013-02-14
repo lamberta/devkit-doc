@@ -64,7 +64,7 @@ run the install script:
 $ ./install.sh
 ~~~
 
-This installs the command-line program `basil` which is used
+This installs the command-line program `basil`, which is used to
 create and serve projects. To see a list of basil commands,
 simply run it in your terminal without any arguments:
 
@@ -114,5 +114,5 @@ $ basil install examples
 
 This addon installs a collection of projects that demonstrate
 some game development techniques using the Game Closure
-DevKit. When you run basil you'll be able to browse and run the
-projects, and also see the annotated source for each.
+DevKit. When you run basil you'll be able to browse browse,
+run, and see the annotated source for each project.
