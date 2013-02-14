@@ -4,7 +4,7 @@ This guide takes you through the entire process of developing for Android device
 
 ## [Overview](./android-stages.html)
 
-The development cycle can be broken down into [four stages](./android-stages.html), leading up to deployment on Google Play.  Initially, all development is done with [web tools](../guide/quick-start.html) and emulated devices.
+The development cycle can be broken down into [four stages](./android-stages.html), leading up to deployment on Google Play.  Initially, all development is done with [web tools](../guide/install.html) and emulated devices.
 
 Then the [Test App](./android-test-app.html) is used to accelerate transition onto mobile devices.
 

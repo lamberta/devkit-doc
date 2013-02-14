@@ -1,4 +1,4 @@
-# Quick Start
+# Install
 
 This guide will get you up and running with the Game Closure
 DevKit. First, you'll download and install the DevKit, then get introduced
@@ -30,9 +30,7 @@ on OSX, to keep your system updated. Just be aware that
 you'll need to download and set up the [Xcode Command-line Tools](https://developer.apple.com/xcode/)
 to build these packages.
 
-The Chrome web browser is the preferred development
-environment because of its superior debugging tools. This is
-the browser we use to develop the Game Closure DevKit and test against.
+The Chrome web browser is the preferred development environment because of its superior debugging toolset.
 
 If you're using OSX and building for native devices, you'll need to install the following from the [Apple Developer Site](https://developer.apple.com/downloads/).  You may need to advance to the second page of downloads to find each of these items:
 
@@ -46,14 +44,13 @@ Game Closure DevKit. The library and tools are open source and
 hosted in our [GitHub repository](https://github.com/gameclosure/devkit).
 We'll be using the `git` tool to keep our software updated,
 and there is [lots of help](https://help.github.com)
-available for how to use it.
+available for how to use `git`.
 
 To download the Game Closure DevKit, issue the following
 commands at the terminal:
 
 ~~~
 $ git clone https://github.com/gameclosure/devkit
-$ cd devkit
 ~~~
 
 This downloads the DevKit in to the `./devkit` directory located
@@ -61,6 +58,7 @@ in your current working path. Switch to that directory and
 run the install script:
 
 ~~~
+$ cd devkit
 $ ./install.sh
 ~~~
 
@@ -80,7 +78,7 @@ for example:
 $ basil help init
 ~~~
 
-Some commands also take a `-h` argument to show help.
+Some commands can also take a `-h` argument to show help.
 
 If you're getting permission errors when installing to the
 `/usr/local` directory, try running this command:
@@ -99,20 +97,7 @@ $ basil update
 
 The update command is also able to check out older versions of the DevKit or different channels of DevKit versions.  Read the help menu with `basil update --help` for more information on this flexible tool.
 
-## Install the Examples
+## Hello, World!
 
-Once `basil` is installed you're ready to check out a few
-example projects. First, take a look at the [Hello, World! Guide](../guide/hello-world.html)
-to see how to create a new project. After that, you should
-be ready to browse some more complicated projects. There are
-a bunch contained within the *examples addon*, you can
-install this by running:
+Once `basil` is installed you're ready to create a new game project.  Take a look at the [Hello, World! Guide](../guide/hello-world.html) to see how to get started using the Game Closure DevKit.
 
-~~~
-$ basil install examples
-~~~
-
-This addon installs a collection of projects that demonstrate
-some game development techniques using the Game Closure
-DevKit. When you run basil you'll be able to browse browse,
-run, and see the annotated source for each project.

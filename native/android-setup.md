@@ -14,7 +14,7 @@ You will need some tools for Android development:
 + Android NDK r8d
 + Game Closure DevKit (basil)
 
-For a guide on installing the Game Closure DevKit [please see this documentation](../guide/quick-start.html).
+For a guide on installing the Game Closure DevKit [please see this documentation](../guide/install.html).
 
 ### Supported Mobile Devices
 

@@ -6,7 +6,7 @@ is available and in this guide we'll step through it
 to see how the components of the Game Closure DevKit fit together.
 
 This walk-through assumes that you have the Game Closure DevKit
-up and running. See the [Quick Start Guide](../guide/quick-start.html)
+up and running. See the [Quick Start Guide](../guide/install.html)
 for details on how to get set up.
 
 ## Game Install

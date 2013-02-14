@@ -18,7 +18,7 @@ Investigate coding errors, step through running code, pause execution, and inspe
 
 <img src="./assets/web-dev.png"></img>
 
-For more information see the [basic DevKit guides](../guide/quick-start.html).
+For more information see the [basic DevKit guides](../guide/install.html).
 
 ### 2. Test App Development
 
