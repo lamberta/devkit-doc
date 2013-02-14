@@ -15,7 +15,7 @@ You will need some tools for iOS development:
 + Xcode 4.4 (or newer) and Xcode command-line tools
 + Game Closure DevKit (basil)
 
-For a guide on installing the Game Closure DevKit [please see this documentation](../guide/quick-start.html).
+For a guide on installing the Game Closure DevKit [please see this documentation](../guide/install.html).
 
 ### Supported Mobile Devices
 
