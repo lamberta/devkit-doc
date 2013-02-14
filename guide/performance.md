@@ -82,7 +82,7 @@ This means that no garbage collection needs to be done at all for these heavy ob
 ## Native code is faster than JavaScript
 
 JavaScript is fast, but it's even faster to let the native
-runtime do the work. Calls to JavaScript are have more
+runtime do the work. Calls to JavaScript have more
 overhead than native code. The more code you can offload to
 the native side, the faster your game will run.
 
@@ -90,7 +90,7 @@ the native side, the faster your game will run.
 
 This is related to the previous tip. Using our
 [animation engine](../api/animate.html) is faster than
-calculating in a game loop because we can optimize it for
+calculating in a game loop because it can be optimized for
 native execution. The less calculations in JavaScript, the better!
 
 ## Schedule tasks over multiple frames
