@@ -472,7 +472,7 @@ figcaption:before {
 
 .full-page-wrapper
   position absolute
-  top 46px
+  top 44px
   left 0px
   right 0px
   bottom 0px
@@ -486,20 +486,56 @@ figcaption:before {
   #front-page-content .content-box {
     padding-left: 6px;
   }
-  
+
   .navbar-fixed-top .nav li a {
     font-size: 0.9em;
     font-weight: 400;
     padding-right: 10px;
-    padding-left: 10px; 
+    padding-left: 10px;
   }
-  
-  .full-page-wrapper {
-    top: 56px;
+
+  .dropdown-menu a{
+    color: #ddd !important;
   }
 
   #toc-well {
-    top: 92px;
+    position: static;
+    max-height: none;
+    float: none;
+    top: auto;
+  }
+
+  .row-fluid .span2 {
+    width: 100%;
+  }
+
+  .scrollable-content {
+    position: inherit;
+  }
+
+  .sub-nav {
+    padding-right: 10px;
+    padding-left: 35px;
+    height: 20px;
+    min-height: 20px;
+  }
+
+  .sub-nav.collapse li {
+    visibility: hidden;
+  }
+
+  .sub-nav.in.collapse li{
+    visibility: visible;
+  }
+
+  .sub-nav.in.collapse {
+    min-height: 40px;
+  }
+
+  .full-page-wrapper {
+    position: static;
+    margin-top: -20px;
+    top: 0px;
   }
 
   .scrollable-content {
@@ -523,7 +559,7 @@ figcaption:before {
 	#splash {
 		width: 100%;
 	}
-	
+
 	#splash img {
 		width: 75px;
 	}
@@ -531,11 +567,11 @@ figcaption:before {
 	#splash-logo {
 		margin-top: 0;
 	}
-	
+
 	#splash-logo h1 {
 		font-size: 2em;
 	}
-	
+
 	#splash-logo h2 {
 		margin-top: -5px;
 		font-size: 3em;
@@ -544,7 +580,7 @@ figcaption:before {
 	#splash-download {
 		float: left;
 	}
-	
+
 	#splash-download p {
 		font-size: 1em;
 	}
