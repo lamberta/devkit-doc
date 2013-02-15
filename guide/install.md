@@ -54,8 +54,8 @@ $ git clone https://github.com/gameclosure/devkit
 ~~~
 
 This downloads the DevKit in to the `./devkit` directory located
-in your current working path. Switch to that directory and
-run the install script:
+in your current working path.  A good place to put it would be in your
+home directory.  Switch to that directory and run the install script:
 
 ~~~
 $ cd devkit
