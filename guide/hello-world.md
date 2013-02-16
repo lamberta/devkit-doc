@@ -1,4 +1,4 @@
-# Hello, World!
+# 2. Quick Start: Hello, World!
 
 This example is automatically installed when you run
 `basil install examples` from the command line. The

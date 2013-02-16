@@ -1,4 +1,4 @@
-# Game Walk-Through
+# 3. Quick Start: Game Walk-Through
 
 *Whack That Mole!* is a basic, non-trivial, game built using
 the Game Closure DevKit. The [source code](https://github.com/gameclosure/whack-that-mole)
