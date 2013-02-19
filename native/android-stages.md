@@ -6,7 +6,12 @@ Android cellphones are a friendly and flexible platform for game development, wi
 
 Based on what stage of development your game is in, you may consider different types of builds:
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/android/android-stages.png"></img>
+<figcaption>Android Stages of Development.</figcaption>
+</figure>
+</div>
 
 ### 1. Web Development
 
@@ -14,7 +19,12 @@ Test your code, art, and sound assets entirely in a web browser simulating a mob
 
 Investigate coding errors, step through running code, pause execution, and inspect code objects using the Chrome built-in Web Inspector as with normal HTML5 game development.  Improve performance by finding code hot-spots with the CPU Profiler to target optimization.  Hunt down memory leaks using the Heap Profiler to identify object pile-ups.
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/web-dev.png"></img>
+<figcaption>DevKit Device Emulator.</figcaption>
+</figure>
+</div>
 
 For more information see the [basic DevKit guides](../guide/install.html).
 
