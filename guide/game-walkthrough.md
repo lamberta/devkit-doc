@@ -706,7 +706,7 @@ this.init = function (opts) {
     width: device.width,
     height: 50,
     autoSize: false,
-    fontSize: 38,
+    size: 38,
     verticalAlign: 'middle',
     textAlign: 'center',
     multiline: false,
@@ -774,7 +774,7 @@ this.buildView = function () {
     y: -5,
     width: 50,
     height: 50,
-    fontSize: 24,
+    size: 24,
     color: '#fff',
     opacity: 0.7
   });
@@ -907,7 +907,7 @@ function end_game_flow () {
   this._scoreboard.updateOpts({
     text: '',
     x: 10,
-    fontSize: 17,
+    size: 17,
     verticalAlign: 'top',
     textAlign: 'left',
     multiline: true
