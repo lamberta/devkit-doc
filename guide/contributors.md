@@ -7,7 +7,7 @@ Help us make the Game Closure DevKit great! We depend on bug fixes, features, an
 ## Contributor Process
 
 1. Sign a [CLA](http://www.gameclosure.com/cla.html) electronically as a personal contributor.
-2. If you are using the DevKit as part of a company, you need to have an authorized representative sign the [CCLA](https://docs.google.com/a/gameclosure.com/document/d/1EFrRh5Ry6YCQu0no7PPAx18XzLnVuy7eOPxWie3e3c4/edit?usp=sharing) as well. Send an email with the signed copy to cla@gameclosure.com
+2. If you are using the DevKit as part of a company, you need to have an authorized representative sign the CCLA. Contact us to get a copy of the CCLA: **cla@gameclosure.com**
 3. Confirm that your name appears on the authorized contributors list, along with your company/employer.
 4. Submit any modifications to Game Closure in the form of a pull request through the official DevKit github repository. More information about git, github, and pull requests can be found on github.com. NOTE: If you sign a CLA and make any pull request, that contribution will always be governed by the CLA.
 
@@ -21,11 +21,13 @@ The [CLA](http://www.gameclosure.com/cla.html) is a structured agreement between
 
 ## Corporate Contributor License Agreement (CCLA)
 
-The [CCLA](https://docs.google.com/a/gameclosure.com/document/d/1EFrRh5Ry6YCQu0no7PPAx18XzLnVuy7eOPxWie3e3c4/edit?usp=sharing) is a structured agreement between your employer/company and Game Closure that allows us to accept contributions on behalf of that company’s employees. In any of the following cases you must have a CCLA on record: 
+The CCLA is a structured agreement between your employer/company and Game Closure that allows us to accept contributions on behalf of that company’s employees. In any of the following cases you must have a CCLA on record: 
 
 * If your company/employer uses the DevKit
 * If you ever use any of the resources owned by your company/employer while making contributions
 * Your company/employer develops or publishes games or game technology.
+
+Contact us to get a copy of the CCLA: **cla@gameclosure.com**
 
 ## Contributions in conjunction with the Game Closure Free License (GCFL)
 
