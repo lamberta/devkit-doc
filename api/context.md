@@ -1,588 +1,171 @@
-# Class: ui.View
+# Class: Context2D
 
-Inherits from
-:    1. [event.Emitter](./event.html#class-event.emitter)
+Context2D is mainly exposed through the View::render(ctx) override.
+To get an instance of a Context2D object, create a Class that derives
+from View, and then define `this.render = function(ctx) {}`.
 
-A view is the base display object for rendering regions to
-the screen. Each view has a size and position, and can be nested
-within other views to create a scene graph. This scene graph
-is a tree of views that composes the visible elements of the
-screen, organizing the game content in to a hierarchy which
-can be used to define boundaries for capturing input
-events. The game engine uses `View` objects to accelerate
-performance on mobile devices.
+Context2D supports a subset of the full [W3 HTML5 Canvas 2D Context specification](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/).  Please refer to the full documentation where this summary falls short.
 
-Views have methods for adding and removing superviews and
-subviews (parents and children), can set handler functions
-for events, and contain properties for styling how the view
-is displayed on the screen.
-
-## Examples
-
-* [A Basic View](../example/views-basic/)
-* [Changing the View Style](../example/views-style/)
-* [Nested Views](../example/views-nested/)
-* [Add and Remove Views](../example/views-addremove/)
-* [Input Click Event](../example/events-input-click/)
-* [Input Move Event](../example/events-input-move/)
-* [Input Out Event](../example/events-input-out/)
-* [Modifying a View's Style](../example/views-style/)
-* [Rotate a View](../example/views-rotate/)
 
 ## Methods
 
-### new View ([options])
+### clear ()
+
+Clears the context for the view to opaque black.
+
+### swap ()
+
+Flushes images.
+
+### save ()
+
+Pushes current context state on the stack.
+
+### restore ()
+
+Pops current context state off the stack.
+
+### clipRect (x, y, w, h)
 
 Parameters
-:    1. `options {object}` ---Optional.
-	     * `superview {View}` ---Parent or Super view to place this view.
-		 * `id {string}` ---Unique identifier.
-		 * `tag {string}` ---Human readable tag for the UI Inspector.
-		 * `filters {Filter}` ---Filter object.
-		 * `circle {boolean} = false` ---Whether the view is a circle.
-		 * `infinite {boolean} = false` ---Infinite width and height generally for maps or backgrounds.
-		 * `canHandleEvents {boolean} = true` ---Input events can pass through if `false`.
+:    1. `x {number}` ---Upper-left position of clipping rectangle.
+:    2. `y {number}` ---Upper-left position of clipping rectangle.
+:    3. `w {number}` ---Bounds of clipping rectangle.
+:    4. `h {number}` ---Bounds of clipping rectangle.
 
-The constructor used to create an instance of a `ui.View`
-object. In addition to the options listed here,
-[style definition properties](#styles) can also be
-passed in this object.
+Clips rendering outside the given region.
 
-~~~
-import ui.View as View;
-
-var view = new View({
-  id: 'MyCrazyView',
-  superview: parent,
-  x: 50,
-  y: 50,
-  width: 100,
-  height: 100,
-  backgroundColor: '#0000ff'
-});
-~~~
-
-### updateOpts ([options])
+### drawImage (img, sx, sy, sw, sh, dx, dy, dw, dh)
 
 Parameters
-:    1. `options {object}` ---The options object is the same as defined for the constructor.
+:    1. `img {string}` ---Image resource path for source of draw.
+:    2. `sx {number}` ---Upper-left position of image draw source.
+:    3. `sy {number}` ---Upper-left position of image draw source.
+:    4. `sw {number}` ---Bounds of draw rectangle from source image.
+:    5. `sh {number}` ---Bounds of draw rectangle from source image.
+:    6. `dx {number}` ---Upper-left position of draw on destination view, 0 = left edge of view.
+:    7. `dy {number}` ---Upper-left position of draw on destination view, 0 = top edge of view.
+:    8. `dw {number}` ---Bounds of draw rectangle on destination view.
+:    9. `dh {number}` ---Bounds of draw rectangle on destination view.
 
-Returns
-:    1. `{object}` ---Returns the options object.
+Draw a rectangular portion of an image scaled into a destination rectangle on the view.  Composited using the `globalCompositeOperation` property (see below).
 
-Update the properties and styles of a view.
-
-### getApp ()
-
-Returns
-:    1. `{ui.Engine}`
-
-Returns the root application for the view, [GC.app.engine](./appengine.html#singleton-gc.app.engine).
-This is the top-level node of the scene graph, a [ui.Engine](./appengine.html#class-ui.engine) singleton automatically instantiated by the game engine.
-
-### getSuperview ()
-
-Returns
-:    1. `{View}` ---Return the view's parent in the scene graph hierarchy.
-
-### getParents ()
-
-Returns
-:    1. `{array}` ---A collection of `View` elements.
-
-Returns an array of all parent ancestors of the current view
-to the root of the scene graph.
-
-### getSubviews ()
-
-Returns
-:    1. `{array}` ---A collection of `View` elements.
-
-Returns an array containing a reference to all of the view's
-children. Since this function has an execution time of *O(n)*,
-you should store a reference to the array and then iterate:
-
-~~~
-for (var i = 0, children = view.getSubviews(), len = children.length; i < len; i++) {
-  children[i].style.update({
-    x = i * 10,
-    y = i * 10
-  });
-}
-~~~
-
-### getSubview (i)
+### translate (x, y)
 
 Parameters
-:    1. `i {number}` ---Array index position.
+:    1. `x {number}` ---Offset in X direction.  Positive = right.
+:    2. `y {number}` ---Offset in Y direction.  Positive = down.
 
-Returns
-:    1. `{View}` ---Return a child subview at the given array index.
+Translate in the current coordinate system set up by previous Context2D calls.
 
-### addSubview (view)
-
-Parameters
-:    1. `view {View}` ---The view to add as a child of this view.
-
-Returns
-:    2. `{View}` ---Returns the view that was passed to this method.
-
-Add a view as a child subview.
-
-### removeSubview (view)
+### rotate (r)
 
 Parameters
-:    1. `view {View}`
+:    1. `r {number}` ---A number in radians for rotation.  Positive rotation is counter-clockwise with the screen.
 
-Removes a child subview from this view.
+Rotate in the current coordinate system set up by previous Context2D calls.
 
-### removeAllSubviews ()
-
-Removes all child subviews from this view.
-
-### removeFromSuperview ()
-
-Removes this view from its parent superview.
-
-### needsRepaint ()
-
-Notifies the renderer that the view needs to be redrawn on
-next animation frame. This function is only needed if you're
-using a DOM rendering backend.
-
-### needsReflow ()
-
-Notifies the `ui.Engine` that the view needs its position updated.
-
-### setHandleEvents (handleEvents [, ignoreSubviews])
+### scale (x, y)
 
 Parameters
-:    1. `handleEvents {boolean} = true` ---Configure the view to handle or not handle input events.
-     2. `ignoreSubviews {boolean} = false` ---Optionally block input events on all subviews.
+:    1. `x {number}` ---Scale coefficient for X axis.  1.0 = no scaling.
+:    2. `y {number}` ---Scale coefficient for Y axis.  1.0 = no scaling.
 
-A view that can not handle events will pass them through to
-other views positioned beneath them on the screen. By
-default, a view handles all input events. In the *UI Inspector*
-you can see which views are underneath the input
-cursor by hovering over an element and using *control-click*.
+Scale in the current coordinate system set up by previous Context2D calls.
 
-If the `ignoreSubviews` option is set to `true`, all events
-on the view's children are also ignored.
-
-### isInputOver ()
-
-Returns
-:    1. `{boolean}`
-
-If an input event is over a view, return `true`, otherwise `false`.
-
-### startDrag ([options])
+### setFilters (filters)
 
 Parameters
-:    1. `options {object}`
-         * `inputStartEvent {InputEvent} = 'START'`
-         * `radius {number} = 0`
+:    1. `filters {Array}` ---An array of Filter objects.
 
-Respond to an input event by dragging the view. This will
-fire drag events so you can make a view follow the drag events.
+This sets color filter(s), to modify texture colors in real time.  See the [Filter documentation](./ui-filter.html) for the format of the objects in the array.
 
-For example, to listen for a drag on a view and update its
-position to follow:
+### clearFilters ()
 
-~~~
-view.on('Drag', function (startEvt, dragEvt, delta) {
-  this.style.x = dragEvt.pt['1'].x;
-  this.style.y = dragEvt.pt['1'].y;
-});
-~~~
+Clear all active color filters.
 
-### isDragging ()
-
-Returns
-:    1. `{boolean}`
-
-Test if the view is being dragged.
-
-### localizePoint (point)
+### clearRect (x, y, width, height)
 
 Parameters
-:    1. `point {Point}`
+:    1. `x {number}` ---Rectangle upper-left corner, relative to view.
+:    2. `y {number}` ---Rectangle upper-left corner, relative to view.
+:    3. `width {number}` ---Rectangle dimensions.
+:    4. `height {number}` ---Rectangle dimensions.
 
-Returns
-:    1. `{Point}` ---Returns the given point, with updated values.
+Clear rectangular region to black.
 
-Convert a point to a local position relative to this view.
-
-### getPosition ([relativeTo])
-
-Parameters
-:    1. `relativeTo {View}` ---Optional.
-
-Returns
-:    1. `{object}`
-         * `x {number}`
-         * `y {number}`
-         * `rotation {number}`
-         * `width {number}`
-         * `height {number}`
-         * `scale {number}`
-
-Get position of a view relative to a superview. If
-`relativeTo` is not provided, get the position relative to
-the top-most superview (the root of the scene graph.).
-
-### containsLocalPoint (point)
+### fillRect (x, y, width, height)
 
 Parameters
-:    1. `point {Point}` ---A point being an object with `x` and `y` numeric properties.
+:    1. `x {number}` ---Rectangle upper-left corner, relative to view.
+:    2. `y {number}` ---Rectangle upper-left corner, relative to view.
+:    3. `width {number}` ---Rectangle dimensions.
+:    4. `height {number}` ---Rectangle dimensions.
 
-Returns
-:    1. `{boolean}`
+Fill rectangular region with color specified by `fillStyle` property (see below).  Composited using the `globalCompositeOperation` property (see below).
 
-Determine if the given point is contained by the view.
-
-### getBoundingShape ()
-
-Returns
-:    1. `{Rect}` or `{Circle}`, the shape defined when the view was created.
-
-Return the bounding shape for a view, this is a rectangle or circle.
-
-### getRelativeRegion (region, parent)
+### strokeRect (x, y, width, height)
 
 Parameters
-:    1. `region {Rect}`
-     2. `parent {View}`
+:    1. `x {number}` ---Rectangle upper-left corner, relative to view.
+:    2. `y {number}` ---Rectangle upper-left corner, relative to view.
+:    3. `width {number}` ---Rectangle dimensions.
+:    4. `height {number}` ---Rectangle dimensions.
 
-Returns
-:    1. Return `{Rect}`
+Render a rectangular outline with color specified by `strokeStyle` property and line width specified by `lineWidth` property.  Composited using the `globalCompositeOperation` property.  See below for more information about these properties.
 
-Return the location of a rectangle region in a parent's coordinate space.
+### fillText (text, x, y, maxWidth)
 
-### getFilters ()
+This method works the same way as the standard HTML5 canvas.  See [W3 documentation for fillText](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/#dom-context-2d-filltext).
 
-Returns
-:    1. `{array}`
+### strokeText (text, x, y, maxWidth)
 
-Return an array of filters attached to a view.
+This method works the same way as the standard HTML5 canvas.  See [W3 documentation for strokeText](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/#dom-context-2d-stroketext).
 
-### addFilter (filter)
+### measureText (text)
 
-Parameters
-:    1. `filter {Filter}`
-
-Adds a filter to this view. Only one filter of each type can
-exist on a view.
-
-### removeFilter (type)
-
-Parameters
-:    1. `type {string}`
-
-Remove a named filter from this view.
-
-### getTag ()
-
-Returns
-:    1. `{string}`
-
-Return the human-readable name for a view.
-
-### hide ()
-
-Make the view invisible.
-
-### show ()
-
-Make the view visible.
-
-### focus ()
-
-Returns
-:    1. `{this}`
-
-Indicate to the focus manager this view has focus.
-
-### blur ()
-
-Returns
-:    1. `{this}`
-
-Indicate to the focus manager this element has been blurred.
+This method works the same way as the standard HTML5 canvas.  See [W3 documentation for measureText](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/#dom-context-2d-measuretext).
 
 
 ## Properties
 
-### style `{object}`
+### globalAlpha `{number}`
 
-The properties of a view's `style` object determine the look
-and style of a view. If not passed as options to a view
-constructor, the style properties can be set on this object.
+Set alpha blending coefficient [0 ... 1.0] for all subsequent context render operations.  It is not recommended to use this option, instead setting the alpha per-view is much faster.
 
-~~~
-var view = new View({visible: true}); //now you see me
+### globalCompositeOperation `{string}`
 
-view.style.visible = false;           //now you don't
-~~~
+Set the composite operation from one of the following supported types:
 
-The `style` object contains the following properties:
+* `source-atop`: Display the source image wherever both images are opaque. Display the destination image wherever the destination image is opaque but the source image is transparent. Display transparency elsewhere.
+* `source-in`: Display the source image wherever both the source image and destination image are opaque. Display transparency elsewhere.
+* `source-out`: Display the source image wherever the source image is opaque and the destination image is transparent. Display transparency elsewhere.
+* `source-over`: Display the source image wherever the source image is opaque. Display the destination image elsewhere.
+* `destination-atop`: Same as source-atop but using the destination image instead of the source image and vice versa.
+* `destination-in`: Same as source-in but using the destination image instead of the source image and vice versa.
+* `destination-out`: Same as source-out but using the destination image instead of the source image and vice versa.
+* `destination-over`: Same as source-over but using the destination image instead of the source image and vice versa.
+* `lighter`: Display the sum of the source image and destination image, with color values approaching 255 (100%) as a limit.
+* `xor`: Exclusive OR of the source image and destination image.
+* `copy`: Display the source image instead of the destination image.
 
-* `layout {string} = false` ---Options are `'box'` or `'linear'`. For details, see the [Designing User Interfaces Guide](../guide/designing-user-interfaces.html).
-* `x {number} = 0` ---The position of the top-left corner of a view on the x-axis relative to its parent.
-* `y {number} = 0` ---The position of the top-left corner of a view on the y-axis relative to its parent.
-* `offsetX {number} = 0` ---The x position of the anchor point for translation, relative to the top-left corner of the view.
-* `offsetY {number} = 0` ---The y position of the anchor point for translation, relative to the top-left corner of the view.
-* `anchorX {number} = 0` ---The x position of the anchor point for rotation and scaling, relative to the top-left corner of the view.
-* `anchorY {number} = 0` ---The y position of the anchor point for rotation and scaling, relative to the top-left corner of the view.
-* `flipX {boolean} = false` ---If `true`, flips the view in-place on the x-axis.
-* `flipY {boolean} = false` ---If `true`, flips the view in-place on the y-axis.
-* `width {number}` ---The width of a view, defaults to the width of the view's parent.
-* `height {number}` ---The height of a view, defaults to the height of the view's parent.
-* `widthPercentage {number}`
-* `heightPercentage {number}`
-* `scale {number} = 1` ---Increase or decrease the size of the view.
-* `r {number} = 0` ---The rotation of a view in radians.
-* `visible {boolean} = true` ---If the view is shown or hidden. The view will not accept input events while hidden.
-* `opacity {number} = 1` ---The transparency of a view from 0.0 to 1.0. The view accepts input events even when fully transparent.
-* `zIndex {number} = 0` ---The larger the value, the closer to the front the view appears. This is relative to a view's siblings, not the entire scene graph.
-* `backgroundColor {string}` ---Background color of the view.
-* `clip {boolean} = false` ---If `true`, child views get clipped to the boundaries of this view.
+Used by `drawImage`, `fillRect`, `strokeRect`, `fill`, `stroke`, `fillText`, and `strokeText`.
 
-The `style` object contains the following methods:
+For more information see the [W3 HTML5 Canvas 2D Context Compositing specification](http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas/#compositing).
 
-#### style.update (style)
+### lineWidth `{number}`
 
-Parameters
-:    1. `style {object}` ---Using the properties enumerated here.
+Number of pixels in width of the next line-art drawing.
 
-Returns
-:    1. `{this}` ---Returns this view.
+### fillStyle `{string}`
 
-Update the view's style.
+This is one of the HTML standard color string formats:
 
-~~~
-view.style.update({
-  x: 100,
-  y: 200,
-  backgroundColor: 'red'
-});
-~~~
+* "blue" : Standard CSS color names.  See [this website](http://www.w3schools.com/cssref/css_colornames.asp) for a complete list.
+* "#330033" : Standard HTML Hexadecimal RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+* "rgb(255,0,0)" : Standard HTML RGB code.  See [this website](http://www.w3schools.com/cssref/css_colors.asp) for a detailed description of this format.
+* "rgb(255,0,0,0.8)" : Standard HTML RGB code with alpha value between 0 and 1 in the final parameter.
 
-#### style.copy ()
+### strokeStyle `{string}`
 
-Returns
-:    1. `{object}`
-
-Returns a shallow copy of the view's style object. You can
-use this object to update another view's style.
-
-~~~
-var old_style = view1.style.copy();
-
-view2.style.update(old_style);
-~~~
-
-
-## Events
-  
-There are several input events which can be subscribed to 
-on a view.  Subscribing to these events allows you to do 
-things such as click or drag a view, or react to these 
-events within their respectives callbacks from the event
-handler.
-
-### init ()
-
-If you are deriving from View, the object constructor is triggered when a new instance of the view is constructed.
-
-Example of deriving from View in MyView.js :
-
-~~~
-exports = Class(View, function(supr) {
-	this.init = function(opts) {
-		supr(this, 'init', [opts]);
-
-		// Handle class instantiation here
-	}
-
-	this.tick = function(dt) {
-		// Handle 'dt' milliseconds time passing here
-	}
-...
-~~~
-
-### render (ctx)
-
-
-
-### onFocus ()
-
-The callback function is triggered when focus is given to this view.
-
-~~~
-view.onFocus = function () {
-  console.log("View has focus!");
-};
-~~~
-
-### onBlur ()
-
-The callback function is triggered when this view loses focus.
-
-~~~
-view.onBlur = function () {
-  console.log("View has lost focus!");
-};
-~~~
-
-### tick (dt)
-
-Parameters
-:    1. `dt {number}`
-
-This callback function is executed on every tick of the game engine.
-
-~~~
-view.tick = function (dt) {
-  this.exampleMethod(dt);
-};
-~~~
-
-This is a convenience method that can be used instead of
-subscribing to the `'Tick'` event on the main game engine:
-
-~~~
-GC.app.engine.on('Tick', function (dt) {
-  view.exampleMethod(dt);
-});
-~~~
-
-### \'InputStart\', callback (event, point)
-
-Parameters
-:    1. `event {InputEvent}`
-     2. `point {Point}`
-
-Fired on a mousedown / touch occurrence. `event` represents
-the InputEvent which occurred from InputStart
-occurring. `point` is a point relative to the top-left
-corner of the view.
-
-Subscribe to the capture-phase event with `'InputStartCapture'`.  
-
-~~~
-view.on('InputStart', function (event, point) {
-  console.log("This view had touch begin on it at: " + point.x + "," + point.y);
-});
-~~~
-
-### \'InputSelect\', callback (event, point)
-
-Parameters
-:    1. `event {InputEvent}`
-     2. `point {Point}`
-
-Fired on a mouseup / touchend occurence. `event` represents
-the InputEvent which occurred from InputSelect
-occurring. `point` is a point relative to the top-left
-corner of the view. The capture-phase event is available by
-subscribing to `'InputSelectCapture'`.
-
-~~~
-view.on('InputSelect', function (event, point) {
-  console.log("View clicked at position: " + point.x + "," + point.y);
-});
-~~~
- 
-### \'InputMove\', callback (event, point)
-
-Parameters
-:    1. `event {InputEvent}`
-     2. `point {Point}`
-
-Fired after an `'InputStart'` event, when the input is moving on the view.  
-
-~~~
-view.on('InputMove', function (event, point) {
-  console.log("This view had touch begin on it at: " + point.x + "," + point.y);
-});
-~~~
-
-### \'InputOver\', callback (over, overCount, atTarget)
-
-Parameters
-:    1. `over`
-     2. `overCount {number}`
-     3. `atTarget`
-
-The event is fired when input is moved over a view.
-  
-~~~
-view.on('InputOver', function (over, overCount, atTarget) {
-  ...
-});
-~~~
-
-### \'InputOut\', callback (over, overCount, atTarget)
-
-Parameters
-:    1. `over`
-     2. `overCount {number}`
-     3. `atTarget`
-
-The event is fired when input is moved off a view.  
-
-~~~
-view.on('InputOut', function (over, overCount, atTarget) {
-  ...
-});
-~~~
-
-### \'DragStart\', callback (dragEvent)
-
-Parameters
-:    1. `dragEvent {InputEvent}`
-
-Fired when dragging starts. `dragEvent` represents the event from which dragging started.
-
-~~~
-view.on('DragStart', function (dragEvent, selectEvent) {
-  console.log("Drag started at " + dragEvt.srcPoint);
-});
-~~~
-
-### \'Drag\', callback (dragEvent, moveEvent, delta)
-
-Parameters
-:    1. `dragEvent {InputEvent}`
-     2. `moveEvent {InputEvent}`
-     3. `delta {number}`
-
-Fired during dragging. `dragEvent` represents the event from
-which dragging started. `moveEvent` represents the event
-occuring from movement on the view. `delta` represents the
-difference between the last `moveEvent` and this one.
-
-~~~
-view.on('Drag', function (dragEvent, moveEvent, delta) {
-  var dx = moveEvent.srcPoint.x - dragEvt.srcPoint.x;
-  console.log("Moved " + dx + " pixels along the x-axis from where the drag started!");
-  console.log("Moved " + delta.x + "pixels along the x-axis from where the last drag event happened!");
-});
-~~~
-
-### \'DragStop\', callback (dragEvent, selectEvent)
-
-Parameters:
-    1. `dragEvent {InputEvent}`
-    2. `selectEvent {InputEvent}`
-
-Fired when dragging is stopped.  `dragEvent` represents the
-event from which dragging started.  `selectEvent` represents
-the event which occurs when the dragging has stopped.
-
-~~~
-view.on('DragStop', function (dragEvent, selectEvent) {
-  console.log("Drag started at " + dragEvt.srcPoint + " and ended at " + selectEvent.srcPoint);
-});
-~~~
+This is also one of the HTML standard color string formats (see above).
