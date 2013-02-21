@@ -413,9 +413,7 @@ exports = Class(View, function(supr) {
 
 ### render (ctx)
 
-By overriding the render call, you are able to bypass the normal rendering of the view to access OpenGL calls on native platforms more directly.  When the view would normally be rendered to the backbuffer, this function is called and you are responsible for providing render commands.
 
-Documentation on the context is available [here](./context.html)
 
 ### onFocus ()
 
