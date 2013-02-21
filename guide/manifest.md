@@ -125,34 +125,19 @@ This is the icon that will be displayed in the Game Closure DevKit web interface
 
 1. `{object}`
 	* `autoHide {boolean} = false` ---Automatically hide the splash image when the app starts.
-	* `scaleMethod {string} = "contain"` ---Method for scaling the splash screen image to fit. Options are `"contain"`, `"cover"`, `"stretch"`, and `"none"`.
-	* `portrait480 {string}` ---Path to splash image, 320x480px, topside-left.
-	* `portrait960 {string}` ---Path to splash image, 640x960px, topside-left.
-	* `portrait1024 {string}` ---Path to splash image, 768x1024px, topside-up.
-	* `portrait1136 {string}` ---Path to splash image, 640x1136px, topside-left.
-	* `portrait2048 {string}` ---Path to splash image, 1536x2048px, topside-up.
-	* `landscape768 {string}` ---Path to splash image, 1024x768px, topside-up.
-	* `landscape1536 {string}` ---Path to splash image, 2048x1536px, topside-up.
+	* `universal {string}` ---Path to a high resoution universal splash image that will automatically be used to fill in any of the missing sizes for the splash keys below.
+	* `portrait480 {string} (optional)` ---Path to splash image, 320x480px, topside-left.
+	* `portrait960 {string} (optional)` ---Path to splash image, 640x960px, topside-left.
+	* `portrait1024 {string} (optional)` ---Path to splash image, 768x1024px, topside-up.
+	* `portrait1136 {string} (optional)` ---Path to splash image, 640x1136px, topside-left.
+	* `portrait2048 {string} (optional)` ---Path to splash image, 1536x2048px, topside-up.
+	* `landscape768 {string} (optional)` ---Path to splash image, 1024x768px, topside-up.
+	* `landscape1536 {string} (optional)` ---Path to splash image, 2048x1536px, topside-up.
 	* `music {string}` ---Path to music to play on startup.
 
-The preload section is used to specify splash screen images
+The splash section is used to specify splash screen images
 for Android and iPhone/iPad devices. All splash screens
 should be PNG image files at 8-bit 3-channel RGB color.
-
-The `scaleMethod` selects how the splash screen image should
-scale for different sized screens:
-
-* `"scaleMethod": "contain"` ---The splash screen aspect
-  ratio is maintained and is scaled up or down so the
-  shorter side fits with the screen, which may leave black
-  edges. This is the default.
-* `"scaleMethod": "cover"` ---The splash screen aspect ratio
-  is maintained and is scaled up or down until the entire
-  screen contains the image so that no black edges remain.
-* `"scaleMethod": "stretch"` ---The splash screen aspect
-  ratio is not maintained and the image will stretch to fit
-  the screen exactly, distorting as needed.  
-* `"scaleMethod": "none"` ---The splash screen is not rescaled.
 
 Setting the `autoHide` property to `true` causes the
 splash screen to be automatically removed after loading
@@ -164,7 +149,6 @@ Example `manifest.json` settings:
 ~~~
 "splash": {
   "autoHide": true,
-  "scaleMethod": "cover",
   "portrait480": "resources/splash/portrait480.png",
   "portrait960": "resources/splash/portrait960.png",
   "portrait1024": "resources/splash/portrait1024.png",
