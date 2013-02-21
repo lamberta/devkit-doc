@@ -136,10 +136,14 @@ td.docs:hover .pilcrow {
 }
 
 td.code, th.code {
-  padding: 14px 15px 16px 25px;
+  padding: 0px 15px 0px 25px;
   width: 100%;
   vertical-align: top;
   background: #f5f5ff;
+}
+
+td.code pre.prettyprint, th.code pre.prettyprint {
+  margin-bottom: 0px;
 }
 
 pre, tt, code {
