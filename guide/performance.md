@@ -27,7 +27,7 @@ loader.preload(["resources/images/tutorial", "resources/sounds"], function() {
 
 See the [asset loading guide](./load-assets.html) for more information on how to preload resources.
 
-## Start with performant JavaScript code
+## Optimize Selectively
 
 Any code that *can* be taken out of a loop, *should* be
 taken out. Function calls carry some additional
