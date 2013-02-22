@@ -334,6 +334,7 @@ The `style` object contains the following properties:
 * `offsetY {number} = 0` ---The y position of the anchor point for translation, relative to the top-left corner of the view.
 * `anchorX {number} = 0` ---The x position of the anchor point for rotation and scaling, relative to the top-left corner of the view.
 * `anchorY {number} = 0` ---The y position of the anchor point for rotation and scaling, relative to the top-left corner of the view.
+* `centerAnchor {boolean} = false` ---If `true`, centers anchorX and anchorY, recentering whenever dimensions change.
 * `flipX {boolean} = false` ---If `true`, flips the view in-place on the x-axis.
 * `flipY {boolean} = false` ---If `true`, flips the view in-place on the y-axis.
 * `width {number}` ---The width of a view, defaults to the width of the view's parent.
