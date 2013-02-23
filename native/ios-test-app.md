@@ -22,7 +22,12 @@ The iOS Test App Xcode project will open after a moment.  Select a device to ins
 
 After installation you will be able to launch the Test App from its app icon on the home screen of your iOS device:
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/ios/ios-test-app-icon.png"></img>
+<figcaption>iOS Test App Icon on Device.</figcaption>
+</figure>
+</div>
 
 This will also run the Basil Server, which is needed for the Test App to run properly.
 
@@ -40,13 +45,23 @@ This will start hosting the Test App Server on your LAN.
 
 When the Test App starts on the device, it will display a list of servers on the LAN.  At first this will just contain the one 
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/ios/ios-test-app-server-list.png"></img>
+<figcaption>iOS Test App Server List.</figcaption>
+</figure>
+</div>
 
 ### Game List
 
 After selecting a server, the game list for that server will show up.
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/ios/ios-test-app-game-list.png"></img>
+<figcaption>iOS Test App Game List.</figcaption>
+</figure>
+</div>
 
 Tap one of the games to start loading it.
 
@@ -54,7 +69,12 @@ Tap one of the games to start loading it.
 
 The loading screen will display progress of downloading game resources.  Resources are only loaded if they change, so this process should be fairly fast initially, and almost instant after the first time.
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/ios/ios-test-app-loading.png"></img>
+<figcaption>iOS Test App Loading Screen.</figcaption>
+</figure>
+</div>
 
 After loading completes, your game should start.
 
@@ -66,6 +86,11 @@ The [Chrome Web Inspector interface](./ios-remote-debug.html) may be used to inv
 
 To restart the game, make a gesture on the screen:  Swipe one finger up on the left while swiping another finger down on the left.  This brings up a quit prompt to return to the game list:
 
+<div class="figure-wrapper">
+<figure>
 <img src="./assets/ios/ios-test-app-quit.png"></img>
+<figcaption>iOS Test App Restart Menu.</figcaption>
+</figure>
+</div>
 
 Once back at the games list you can select the same or another game to run.

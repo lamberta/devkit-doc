@@ -1,4 +1,4 @@
-# Hello, World!
+# 2. Quick Start: Hello, World!
 
 This example is automatically installed when you run
 `basil install examples` from the command line. The
@@ -202,7 +202,7 @@ With a reference to the `TextView`, we can use its [API](../api/ui-text.html#cla
 to change its text to something else:
 
 ~~~
-textview.updateOpts({fontSize: 42});
+textview.updateOpts({size: 42});
 textview.setText("We did it!");
 ~~~
 

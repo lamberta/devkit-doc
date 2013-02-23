@@ -44,7 +44,7 @@ Create a new class which inherits from `event.Emitter`:
 ~~~
 var Dog = Class(Emitter, function (supr) {
   this.init = function () {
-    super(this, 'init', arguments);
+    supr(this, 'init', arguments);
   };
 });
 

@@ -24,7 +24,12 @@ At the console you are able to run JavaScript commands that are evaluated in the
 
 Click over to the Sources tab to view game source code and interact with the web inspector as you would with a familiar web inspector session in the browser.  The most useful debugging features will work remotely.
 
-<img src="./assets/ios/ios-debugger.png"></img>
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ios/ios-debugger.png" />
+<figcaption>Remote iOS Debugger.</figcaption>
+</figure>
+</div>
 
 There are two tabs for scripts on the left.  The left tab contains your game source code, and the right tab entitled "Content Scripts" contains the DevKit JavaScript source code.
 
@@ -34,7 +39,12 @@ While at a breakpoint you can mouse-over or enter a variable name in the console
 
 ### Sources Tools: Lower-Left Toolbar
 
-<img src="./assets/ios/ios-debugger-left-tools.png"></img>
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ios/ios-debugger-left-tools.png" />
+<figcaption>Debug lower-left toolbar.</figcaption>
+</figure>
+</div>
 
 From left to right:
 
@@ -44,7 +54,12 @@ From left to right:
 
 ### Sources Tools: Upper-Right Toolbar
 
-<img src="./assets/ios/ios-debugger-right-tools.png"></img>
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/ios/ios-debugger-right-tools.png" />
+<figcaption>Debug upper-right toolbar.</figcaption>
+</figure>
+</div>
 
 From left to right:
 

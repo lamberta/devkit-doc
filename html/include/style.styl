@@ -249,7 +249,8 @@ td.docs p a {
 }
 
 #main > dl,
-#main > p {
+#main > p,
+.figure-wrapper {
 	max-width: 750px;
 	/*text-align: justify;*/
 }
@@ -379,29 +380,27 @@ td.docs p a {
 
 /* guides */
 
-#guides .row-fluid, #native .row-fluid {
+#main .index-rows .row-fluid {
   margin-bottom: 10px;
 }
 
-#guides a, #native a {
+#main .index-rows a {
 	color: #000;
 	text-decoration: none;
 }
 
-#guides h2, #native h2 {
+#main .index-rows h2 {
   color: #0088cc;
   text-decoration: none;
   font-size: 1.55em;
   margin-bottom: 0px;
 }
 
-#guides a:hover h2, #native a:hover h2 {
+#main .index-rows a:hover h2 {
   color: #d14;
 }
 
-#guides p, #native p {
-  margin-left: 3px;
-}
+
 /*
 #guides .span3, #guides .span4, #native .span3, #native .span4 {
   box-shadow: inset 0 0 2px #888;
@@ -428,7 +427,19 @@ td.docs p a {
 }
 
 .figure-wrapper {
-	text-align: center;
+  text-align: center;
+}
+
+.figure-wrapper img {
+	-moz-border-radius 6px
+	-webkit-border-radius 6px
+	border-radius 6px
+	-moz-box-shadow 0px 0px 6px #000
+	-webkit-box-shadow 0px 0px 6px #000
+	box-shadow 0px 0px 6px #000
+	border none
+	padding 8px
+	filter dropshadow(color=#2e2e2e, offx=6, offy=6)
 }
 
 figure {

@@ -15,7 +15,12 @@ native stack. Blocks in purple use JavaScript, those in
 blue use C and C++, those in green use Java, and those in
 orange use Objective-C++.
 
-<img src="./assets/stack/native-stack-diagram.png" alt="native stack">
+<div class="figure-wrapper">
+<figure>
+<img src="./assets/stack/native-stack-diagram.png" alt="native stack"></img>
+<figcaption>Native Stack Diagram.</figcaption>
+</figure>
+</div>
 
 ## Components
 

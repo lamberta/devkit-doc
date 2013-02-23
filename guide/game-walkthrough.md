@@ -1,4 +1,4 @@
-# Game Walk-Through
+# 3. Quick Start: Game Walk-Through
 
 *Whack That Mole!* is a basic, non-trivial, game built using
 the Game Closure DevKit. The [source code](https://github.com/gameclosure/whack-that-mole)
@@ -11,26 +11,7 @@ for details on how to get set up.
 
 ## Game Install
 
-Before we take a close look at the implementation details,
-we need to download and install the game.
-
-First, clone the git repository of the game from your terminal:
-
-~~~
-$ git clone https://github.com/gameclosure/whack-that-mole.git
-~~~
-
-You then must register the project with the basil
-command-line utility before it will show up in the project
-browser. You should only need to run this command once:
-
-~~~
-$ cd ./whack-that-mole
-$ basil register
-~~~
-
-Now that the game is registered, you're ready to play! Just
-run the basil project server from the command-line:
+Just run the basil project server from the command-line:
 
 ~~~
 $ basil serve
@@ -41,6 +22,8 @@ This will start a server on your machine on port
 and you're greeted with the following screen:
 
 <img src="./assets/game-walkthrough/basil-start.png" alt="basil start screenshot" class="screenshot">
+
+The DevKit comes pre-loaded with a demo game, **Whack-that-Mole!**, which we'll be using for our walkthrough.
 
 First, we need to select our project: click on the
 **Projects** link in the left nav and select the **Whack-that-Mole!** game:
@@ -723,7 +706,7 @@ this.init = function (opts) {
     width: device.width,
     height: 50,
     autoSize: false,
-    fontSize: 38,
+    size: 38,
     verticalAlign: 'middle',
     textAlign: 'center',
     multiline: false,
@@ -791,7 +774,7 @@ this.buildView = function () {
     y: -5,
     width: 50,
     height: 50,
-    fontSize: 24,
+    size: 24,
     color: '#fff',
     opacity: 0.7
   });
@@ -924,7 +907,7 @@ function end_game_flow () {
   this._scoreboard.updateOpts({
     text: '',
     x: 10,
-    fontSize: 17,
+    size: 17,
     verticalAlign: 'top',
     textAlign: 'left',
     multiline: true

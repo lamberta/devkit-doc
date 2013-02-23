@@ -1,7 +1,7 @@
-# Install
+# 1. Quick Start: Installation
 
 This guide will get you up and running with the Game Closure
-DevKit. First, you'll download and install the DevKit, then get introduced
+DevKit. First, you'll download and install DevKit, then get introduced
 to `basil`, our command-line tool for creating new projects
 and development. Once everything is installed and ready
 to go, please read the [Hello, World! Guide](../guide/hello-world.html)
@@ -37,7 +37,7 @@ If you're using OSX and building for native devices, you'll need to install the 
 * XCode Command Line tools (November 2012 or newer)
 * XCode (4.4 or newer)
 
-## Install the DevKit
+## Install DevKit
 
 With the prerequisites installed, we're ready to set up the
 Game Closure DevKit. The library and tools are open source and
@@ -54,8 +54,8 @@ $ git clone https://github.com/gameclosure/devkit
 ~~~
 
 This downloads the DevKit in to the `./devkit` directory located
-in your current working path. Switch to that directory and
-run the install script:
+in your current working path.  A good place to put it would be in your
+home directory.  Switch to that directory and run the install script:
 
 ~~~
 $ cd devkit
