@@ -25,7 +25,7 @@ optimizations that make this scenario performant.
 ## Examples
 
 * [Basic ListView](../example/ui-list-basic/).
-
+ 
 ## Features
 
 * **Viewport optimization**: Only the items within the
@@ -40,7 +40,7 @@ optimizations that make this scenario performant.
 	existing, off-screen `CellView`.
 
 * **Efficient updating**: Each `ListView` is backed by a
-	[DataSource](#class-datasource), which is a collection
+	[GCDataSource](#class-gcdatasource), which is a collection
 	of data items. Each item is a JavaScript object that contains
 	all the data necessary to render a single item in the
 	list. When items are added or removed from the data
@@ -79,7 +79,7 @@ collection and excessive object allocation during scrolling, creating at most
 
 A `ListView` may also be used with dynamically sized cells by setting
 `isFixedSize` to false. However, this disables all relevant rendering
-optimizations. This can still be useful for rendering a `DataSource` that has
+optimizations. This can still be useful for rendering a `GCDataSource` that has
 frequent item modifications.
 
 
@@ -90,7 +90,7 @@ frequent item modifications.
 Parameters
 :    1. `options {object}`
 	     * `autoSize {boolean} = false` ---If `true`, automatically set the height of the `ListView` to the sum of its cell heights, disabling scrolling.
-		 * `dataSource {DataSource}` ---The data model. The [DataSource](#class-datasource) provides the data for each item in the list, tracking adds, removes, and updates.
+		 * `dataSource {GCDataSource}` ---The data model. The [GCDataSource](#class-gcdatasource) provides the data for each item in the list, tracking adds, removes, and updates.
 		 * `getCell {function(listItem, itemResource)}` ---A function that returns a `CellView` instance given an item from the list.
 		 * `listItem {object}` ---An object representing the current list item.
 		 * `itemResource {object}` ---The resource object for the current list item.
@@ -253,23 +253,23 @@ this.setData = function (data) {
 ~~~
 
 
-# Class: DataSource
+# Class: GCDataSource
 
-A `DataSource` is a collection of items that adheres to the [observable
+A `GCDataSource` is a collection of items that adheres to the [observable
 pattern](http://en.wikipedia.org/wiki/Observer_pattern). This means that any
-time items are added, removed, or updated, the `DataSource` will publish an
+time items are added, removed, or updated, the `GCDataSource` will publish an
 appropriate event for the item(s) in question (see [below](#events) for a list
-of available events). `DataSources` abstract the connection between UI and
+of available events). `GCDataSources` abstract the connection between UI and
 data model changes. For example, when you have a UI element (like a
-`ListView`) displaying a collection of items, tying the UI to the `DataSource`
+`ListView`) displaying a collection of items, tying the UI to the `GCDataSource`
 lets you update individual data items and have those changes automatically
 propagate to the UI without re-rendering the entire collection. If you
-implement a UI backed by a `DataSource`, you can update individual UI items
-based on the events the `DataSource` publishes.
+implement a UI backed by a `GCDataSource`, you can update individual UI items
+based on the events the `GCDataSource` publishes.
 
 ## Methods
 
-### new DataSource ([options])
+### new GCDataSource ([options])
 
 Parameters
 :    1. `options {object}`
@@ -278,18 +278,18 @@ Parameters
 		 * `reverse {boolean} = false` ---If `true`, sort data source in reverse order.
 		 * `sorter {function(item)}` ---Function that returns a cardinal value (number or string) for the current item to use as the sort key.
 
-Creates a `DataSource` object. The most important argument is the `key`
+Creates a `GCDataSource` object. The most important argument is the `key`
 parameter, which specifies what property on each item is unique. If you do not
-specify a key, the `DataSource` will default to the `id` property of the item.
+specify a key, the `GCDataSource` will default to the `id` property of the item.
 
 You may also specify a sorter function which, when given an item from the
-`DataSource`, returns the item's cardinal value. The sort order of the sorting
+`GCDataSource`, returns the item's cardinal value. The sort order of the sorting
 functionality may be specified using the `reverse` flag.
 
 ~~~
-import DataSource;
+import GCDataSource;
 
-var dataSource = new DataSource({
+var dataSource = new GCDataSource({
 	key: 'id',
 	ctor: function (data) {
 		this.id = data.id;
@@ -423,15 +423,15 @@ dataSource.forEach(function (item) {
 ### getFilteredDataSource (filter)
 
 Parameters
-:    1. `filter {function (item)}` ---Function that tests each item in the dataSource for membership in the filtered `DataSource`.
+:    1. `filter {function (item)}` ---Function that tests each item in the dataSource for membership in the filtered `GCDataSource`.
 
-Returns `{DataSource}` --- a new filtered dataSource with all the items from
+Returns `{GCDataSource}` --- a new filtered dataSource with all the items from
 the original dataSource that the callback function returns `true` for. The
-filtered `DataSource` is _live_, meaning that adding or updating items in the
-original `DataSource` at any time will execute the `filter` function to check
-to see if the new or updated item should be in the filtered `DataSource`.
-Similarly, if items are removed from the original `DataSource`, they are
-removed from the filtered `DataSource`.
+filtered `GCDataSource` is _live_, meaning that adding or updating items in the
+original `GCDataSource` at any time will execute the `filter` function to check
+to see if the new or updated item should be in the filtered `GCDataSource`.
+Similarly, if items are removed from the original `GCDataSource`, they are
+removed from the filtered `GCDataSource`.
 
 ~~~
 var Value = Class(function () {
@@ -440,7 +440,7 @@ var Value = Class(function () {
   }
 });
 
-var set = new DataSource({
+var set = new GCDataSource({
   key: 'value',
   ctor: Value
 });
@@ -467,10 +467,10 @@ Parameters
 :    1. `filter {object}` ---Object of strings.
 
 Returns
-:    1. `{DataSource}` ---All items that match the filter.
+:    1. `{GCDataSource}` ---All items that match the filter.
 
-Performs a basic string filter on the items in a `DataSource`, useful for text
-searching. The returned `DataSource` is _not live_. For each key in the
+Performs a basic string filter on the items in a `GCDataSource`, useful for text
+searching. The returned `GCDataSource` is _not live_. For each key in the
 `filter`, if the item contains the key and the corresponding value is a
 `{string}`, the value must contain the corresponding filter string.
 
