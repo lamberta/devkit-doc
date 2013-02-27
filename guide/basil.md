@@ -22,6 +22,14 @@ Platforms:
 basil build native-android --no-compress
 ~~~
 
+## basil clean
+
+Removes the contents from the build directory.
+To run this command you must be in the directory of a basil project.
+~~~
+basil clean
+~~~
+
 ## basil clean-register
 
 Removes all invalid projects from the basil registry.
