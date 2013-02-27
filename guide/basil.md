@@ -158,4 +158,31 @@ Run basil testapp without arguments to see a list of valid targets.
 basil testapp native-ios
 ~~~
 
+## basil update-addons
 
+Check all installed addons an make sure the version of each addon is compatible with
+the current version of basil.
+~~~
+basil update-addons
+~~~
+
+### Example usage:
+~~~
+basil update-addons
+~~~
+
+## basil unregister
+
+Removes a directory (or directories) from the basil registry.
+~~~
+basil unregister [path(s)]
+~~~
+
+This is the counterpart to basil register.
+You may not ever need to use this.
+If you see errors with the project registry, try running basil clean-register.
+
+### Example usage:
+~~~
+basil unregister ./projects/myGameProject
+~~~
