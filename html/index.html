@@ -458,5 +458,20 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/include/bootstrap.min.js"></script>
     <script src="/include/init.js"></script>
+    <script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.5/zenbox.js"></script>
+    <style type="text/css" media="screen, projection">
+      @import url(//assets.zendesk.com/external/zenbox/v2.5/zenbox.css);
+    </style>
+    <script type="text/javascript">
+      if (typeof(Zenbox) !== "undefined") {
+        Zenbox.init({
+          dropboxID:   "20148148",
+          url:         "https://gcdevkit.zendesk.com",
+          tabID:       "Comments",
+          tabColor:    "#1e4572",
+          tabPosition: "Right"
+        });
+      }
+    </script>
   </body>
 </html>
