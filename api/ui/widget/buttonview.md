@@ -54,7 +54,7 @@ Parameters
 		* `onClick {function}` ---Shortcut way of assigning a callback to a click.
 		* `clickOnce {boolean} = false` ---When true, button will enter `DISABLED` state after a click.
 		* `state {ButtonView.states}` ---Optional, the initial state of the button, the default is `ButtonView.states.UP`
-		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTEDED` and `UNSELECT` state on every click.
+		* `toggleSelected {boolean} = false` ---When true, button will toggle in between `SELECTED` and `UNSELECTED` state on every click.
 		* `title {string}` ---Optional, The title of the button
 		* `text {object}` ---These options are applied to the title text which is an instance of `TextView`
 		* `icon {object}` ---These options are applied to the icon image which is an instance of `ImageView`
@@ -71,7 +71,7 @@ Parameters
 			* `selected {string}` ---Optional, The filename or instance of `Image` to show on the `selected` state
 			* `unselected {string}` ---Optional, The filename or instance of `Image` to show on the `unselected` state
 		* `audioManager {AudioManager}` ---Optional, an instance of AudioManager that contains the sounds to play. The `sounds` object will play a sound on this instance.
-    * `sounds {object}` ---Run a sound when the button enters a state
+		* `sounds {object}` ---Run a sound when the button enters a state
 			* `up {string}` ---Optional, The name of the sound effect to play on up
 			* `down {string}` ---Optional, The name of the sound effect to play on down
 			* `disabled {string}` ---Optional, The name of the sound effect to play on `disabled`
