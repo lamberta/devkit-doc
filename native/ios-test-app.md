@@ -84,7 +84,7 @@ The [Chrome Web Inspector interface](./ios-remote-debug.html) may be used to inv
 
 ### Restarting
 
-To restart the game, make a gesture on the screen:  Swipe one finger up on the left while swiping another finger down on the left.  This brings up a quit prompt to return to the game list:
+To restart the game, make a rotation gesture on the screen:  Swipe one finger up on the left while swiping another finger down on the right.  This brings up a quit prompt to return to the game list:
 
 <div class="figure-wrapper">
 <figure>
