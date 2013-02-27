@@ -62,3 +62,50 @@ Platforms:
     3. browser-mobile
     4. browser-desktop
 
+## basil init
+
+Initialise a new project either in the current directory or in the path specified.
+~~~
+basil init [path] [-t | --template TEMPLATE]
+~~~
+
+### Example usage:
+~~~
+basil init ./projects/myNewProject
+~~~
+
+### Templates:
+:    1. empty
+    2. stackview
+
+### Further information:
+The shortName of the new game is generated from the path supplied.
+This also automatically runs basil register.
+
+## basil install
+
+Installs an addon
+~~~
+basil install [path] [--force]
+~~~
+
+### Example usage:
+~~~
+basil install native-android
+basil install myaddon.json
+basil install https://raw.github.com/gameclosure/addon-registry/master/native-ios.json
+basil install https://raw.github.com/gameclosure/addon-registry/master/native-android.json --force
+~~~
+
+### Further information:
+If an addon is registered in the Game Closure addon registry then the addon can be installed by
+using the name of the addon which is the filename in the registry without the extension.
+
+If the addon is not registered in the Game Closure addon registry then the path to the addon
+manifest can be used as a parameter, the path can be a path on the local system or a http or https
+address.
+
+The manifest will be saved in the ./addons/.custom-registry directory, if there is already a file
+in that location with the same name then basil will exit with a warning. Using the --force option
+will force basil to overwrite the existing version
+
