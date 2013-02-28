@@ -97,7 +97,7 @@ When --ipa is specified, Xcode will not pop up after the build.
 **For a fast debug build:**
 
 ~~~
-$ basil build native-ios --no-compress
+$ basil debug native-ios
 ~~~
 
 This specifies a debug build, cleans before building, does not compress JavaScript, and will open Xcode after build completes.
@@ -105,7 +105,7 @@ This specifies a debug build, cleans before building, does not compress JavaScri
 **For a thorough release build:**
 
 ~~~
-$ basil build native-ios --release
+$ basil release native-ios
 ~~~
 
 This specifies a release build, cleans before building, compresses JavaScript, and will open Xcode after build completes.
@@ -113,7 +113,7 @@ This specifies a release build, cleans before building, compresses JavaScript, a
 **For an IPA release build:**
 
 ~~~
-$ basil build native-ios --release --ipa --provision "/Users/bboy/Desktop/BeardsOnBoards.mobileprovision" --name="Bob Baxter"
+$ basil release native-ios --ipa --provision "/Users/bboy/Desktop/BeardsOnBoards.mobileprovision" --name="Bob Baxter"
 ~~~
 
 This specifies a release build, cleans before building, compresses JavaScript, signs an IPA file with the given mobile provision for Bob Baxter, and does not open Xcode.

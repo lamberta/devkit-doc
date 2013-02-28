@@ -80,7 +80,7 @@ General build options:
 **For a fast debug build:**
 
 ~~~
-$ basil build native-android --no-compress --debug
+$ basil debug native-android
 $ adb install -r build/debug/native-android/whackthatmole.apk
 ~~~
 
@@ -89,7 +89,7 @@ This specifies a debug build, cleans before building, does not compress JavaScri
 **For a thorough release build:**
 
 ~~~
-$ basil build native-ios --release --clean
+$ basil release native-android
 $ adb install -r build/release/native-android/whackthatmole.apk
 ~~~
 
