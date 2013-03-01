@@ -28,49 +28,30 @@ The filename is the same as the addon name with a `.json` extension.
 ~~~
 {
   "type": "core",
-	"versions": [
-		{
-			"version": "0.1.2",
-			"repo": "https://github.com/gameclosure/native-android.git",
-			"commit": "920801e9fe2dc01e4b7c688efe377d1b70e635de",
-			"basil": ["*"]
-		}
-	],
-	"description": "native-android is the Game Closure Android layer of DevKit which allows for the deployment of games built on the GC DevKit to android devices",
-	"maintainers": [
-		{
-			"name": "Jared Petker",
-			"email": "jared@gameclosure.com",
-			"web": "gameclosure.com"
-		},
-		{
-			"name": "Derek Burch",
-			"email": "derek@gameclosure.com",
-			"web": "gameclosure.com"
-		},
-		{
-			"name": "Chris Taylor",
-			"email": "chris@gameclosure.com",
-			"web": "gameclosure.com"
-		},
-		{
-			"name": "Tom Fairfield",
-			"email": "tom@gameclosure.com",
-			"web": "gameclosure.com"
-		},
-		{
-			"name": "Martin Hunt",
-			"email": "martin@gameclosure.com",
-			"web": "gameclosure.com"
-		}
-	],
-	"bugs": "https://github.com/gameclosure/native-android/issues",
-	"keywords": "native android"
+  "versions": [
+    {
+      "version": "0.1.2",
+      "repo": "https://github.com/gameclosure/native-android.git",
+      "commit": "920801e9fe2dc01e4b7c688efe377d1b70e635de",
+      "basil": ["*"]
+    }
+  ],
+  "description": "native-android is the Game Closure Android layer of DevKit which allows for the deployment of games built on the GC DevKit to android devices",
+  "maintainers": [
+    {
+       "name": "Tom Fairfield",
+       "email": "tom@gameclosure.com",
+       "web": "gameclosure.com"
+    }
+  ],
+  "bugs": "https://github.com/gameclosure/native-android/issues",
+  "keywords": "native android"
 }
 ~~~
 
-The `basil` field in the `versions` list contains the basil version or range with which the version
-is compatible. It can be all versions, a single version or a range of versions.
+The `basil` field in the `version` item of the `versions` list contains the basil version or range with which 
+the addon is compatible. It can represent all versions, a single version or a range of versions.
+The `versions` list is mandatory and needs to have at least one item containing a `version` and `basil` field.
 
 A version of the addon is compatible with all versions of basil:
 ~~~
@@ -87,7 +68,14 @@ A version of the addon is compatible with a range of versions of basil:
 "basil": [">= 0.1.1", "< 0.2.0"]
 ~~~
 
-### An addon manifest like found in the addon
+The `repo` field indicates the location from where the addon can be cloned or updated,
+this field is mandatory.
+
+The `commit` field is optional, if not provided master will be used. It can be a hash, branch or tag.
+
+The fields `description`, `maintainers`, `bugs` and `keywords` are optional.
+
+### An addon manifest like found in the root directory of the addon
 
 The addon itself also has a manifest with information about the version and function of the addon.
 This manifest contains the version of the addon, basil needs this to be able to compare the version
@@ -95,7 +83,7 @@ which is installed with the versions available in the registry.
 ~~~
 {
   "name": "native-android",
-	"version": "0.1.2"
+  "version": "0.1.2"
 }
 ~~~
 
@@ -113,13 +101,13 @@ values to let the SDK know how the feature sould be integrated.
 An example of an addon which adds a bitmap font rendering tool to the SDK:
 ~~~
 {
-	"name": "fonteditor",
-	"version": "0.1.0",
-	"author": "Game Closure",
-	"title": "Font Editor",
-	"scope": "tools",
-	"style": ["static/fonts.styl"],
-	"plugin": true
+  "name": "fonteditor",
+  "version": "0.1.0",
+  "author": "Game Closure",
+  "title": "Font Editor",
+  "scope": "tools",
+  "style": ["static/fonts.styl"],
+  "plugin": true
 }
 ~~~
 
