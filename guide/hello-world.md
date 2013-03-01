@@ -6,9 +6,10 @@ annotated file can also be [viewed online](../example/basics-helloworld/).
 
 ## Create your first project
 
-With [basil installed](../guide/install.html),
-you're ready to create a new project! Initialize a game
-in a new project directory by running at the command-line:
+With [basil installed](../guide/install.html), you're ready
+to create a new project! Open up a terminal and navigate to
+the projects directory inside your devkit folder. Initialize
+a game in a new project directory by running:
 
 ~~~
 $ basil init hello-world
