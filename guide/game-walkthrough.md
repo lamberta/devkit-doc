@@ -430,7 +430,7 @@ remains throughout the lifetime of the application.
 #### Anatomy of a View
 
 The view hierarchy structure of the `TitleScreen` class is
-relatively simple. There is a singe background image that
+relatively simple. There is a single background image that
 fits the screen, and an "invisible" child view
 placed over the portion of the background image designated
 as the play button. This button will detect an input event, then
@@ -453,9 +453,7 @@ exports = Class(ui.ImageView, function (supr) {
     });
 
     supr(this, 'init', [opts]);
-  };
 
-  this.buildView = function () {
     var startbutton = new ui.View({
       superview: this,
       x: 58,
@@ -508,10 +506,6 @@ exports = Class(ui.ImageView, function (supr) {
 
     supr(this, 'init', [opts]);
   };
-
-  this.buildView = function () {
-    //...
-  };
 });
 ~~~
 
@@ -537,6 +531,8 @@ this.init = function (opts) {
   });
 
   supr(this, 'init', [opts]);
+
+  this.build();
 };
 ~~~
 
@@ -553,18 +549,10 @@ before passing it to `supr`.
 
 #### The Play Button
 
-Each class that inherits from `ui.View` also contains a
-`buildView` method. This function is executed by the DevKit
-immediately before the view is first rendered to the
-screen. Consequently, this is the preferred place to define
-child views since it defers memory allocation until you
-actually need the view. By defining them here, you can be
-sure all parent views have already been initialized. This is
-important if, for instance, you need to reference a parent
-view's position and dimensions when creating your subview.
+Remember the `build` function we invoke at the end of `init`? Here's what it does:
 
 ~~~
-this.buildView = function () {
+this.build = function() {
   var startbutton = new ui.View({
     superview: this,
     x: 58,
@@ -680,11 +668,6 @@ dimensions, as well as setting a green background color that
 will serve as our grass. We initialize our superclass
 by passing in the options to the `supr` function.
 
-A listener is attached for an `'app:start'` event which will
-start the game. This is dispatched from the root of our
-application, after the start button click event was handled,
-and executes the `start_game_flow` function.
-
 ~~~
 this.init = function (opts) {
   opts = merge(opts, {
@@ -697,6 +680,10 @@ this.init = function (opts) {
 
   supr(this, 'init', [opts]);
 
+  this.build();
+};
+
+this.build = function() {
   this.on('app:start', bind(this, start_game_flow));
 
   this._scoreboard = new ui.TextView({
@@ -712,32 +699,7 @@ this.init = function (opts) {
     multiline: false,
     color: '#fff'
   });
-};
-~~~
 
-There is something curious about this `init`
-function, we've included the creation of our score board `TextView`
-here, something usually reserved for the
-`buildView` function. This is a consequence of *when* `buildView` is
-executed and it's child view is created (before the view
-first needs to be rendered to the screen), and *when* we
-first need to reference it (on the `'app:start'` event when
-`start_game_flow` is called). If the `_scoreboard` view was
-placed in `buildView`, the event would be captured
-*before* any child views would be created, so the `TextView`
-reference would not be available and the call in
-`start_game_flow` to `scoreboard.setText(...)` would
-fail. Typically, all children are safely built in
-`buildView`, but in cases like this, it's worth
-understanding the order in which views are created, just in case
-you have to handle special situations like this.
-
-Aside from constructing our score board view a little
-earlier than usual, the rest of the subview creation is done
-in the standard `buildView` function:
-
-~~~
-this.buildView = function () {
   var x_offset = 5;
   var y_offset = 160;
   var y_pad = 25;
@@ -781,10 +743,14 @@ this.buildView = function () {
 };
 ~~~
 
-It's a little longer than some of our previous `buildView`
-functions, but it's easily understood. The top of the function
-defines the position and layout of the mole hills on the
-device's screen. We then create a number of `MoleHill`
+This is a little longer than some of our previous `build`
+functions, but it's easily understood. First, a listener
+is attached for an `'app:start'` event which will start
+the game. This is dispatched from the root of our application,
+after the start button click event was handled, and executes
+the `start_game_flow` function. Under that we create a score
+board and define the position and layout of the mole hills on
+the device's screen. We then create a number of `MoleHill`
 objects (five in this example), add them as a subview to
 this `GameScreen` instance, and attach an event handler to
 each one which updates the score on registering a hit. The
@@ -795,7 +761,7 @@ hill, and their animation functions.
 
 With the mole hills in place, all that's left to do is set
 up the countdown `TextView`, this is attached to the score
-board we already created in `init`.
+board we created above.
 
 #### Starting sequence
 
@@ -970,7 +936,7 @@ the mole will appear like it's "jumping" out of the
 ground, and ready to be whacked!
 
 ~~~
-this.buildView = function () {
+this.build = function () {
   var hole_back = new ui.ImageView({
     superview: this,
     image: hole_back_img,
@@ -1039,7 +1005,7 @@ option to `false` on the `hole_front` view which covers our
 intended input view. This allows events to "pass through"
 the view so the views positioned underneath will receive the input instead.
 
-Also in the `buildView` function, an `Animator` object is
+Also in the `build` function, an `Animator` object is
 created that references the `_moleview` child, which is the
 `ImageView` of the mole's body:
 
