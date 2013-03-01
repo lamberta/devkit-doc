@@ -125,3 +125,15 @@ The following items should be in the root of the addon:
     3: plugin.js: This file adds the serve side functions to the addon to retrieve and save data
     4: static/Pane.js: A directory called static with a file called Pane.js, this is the visible client side part of the addon
 
+### Simulator addons
+
+~~~
+{
+  "name": "timemachine",
+  "version": "0.1.0",
+  "author": "Game Closure",
+  "style": ["static/timemachine.styl"],
+  "plugin": true,
+  "simulatorButton": "Time Machine"
+}
+~~~
