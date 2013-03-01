@@ -127,6 +127,20 @@ The following items should be in the root of the addon:
 
 ### Simulator addons
 
+Adding a feature to the simulator screen can be done by defining the `simulatorButton` in the manifest in the
+addon root directory. This value will be used as the title of a button added to the buttons at the top of the
+simulator screen.
+
+An addon for in the simulator has different requirements then an addon in the SDK:
+
+:    1. manifest.json: As specified above
+    2: plugin.js: This file adds the serve side functions to the addon to retrieve and save data
+    3: static/Plugins.js: A directory called static with a file called Plugin.js, this is the visible client side part of the addon
+
+The Plugin file should export a class which subclasses a squill widget and will be added to the dom in the
+simulator screen. This class should contain a `toggle` method wich will be invoked when the button for the addon
+is clicked.
+
 ~~~
 {
   "name": "timemachine",
