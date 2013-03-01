@@ -99,12 +99,41 @@ which is installed with the versions available in the registry.
 }
 ~~~
 
-## native-android and native-ios
+### native-android and native-ios
 
 Timestep is tightly inegrated with these addons and they are necessary to build native
-applications for the android or iOS platforms.
+applications for the android or iOS platforms. The type of these addons is `core`.
 
+### SDK addons
 
+It's possible to add extra pages with tools to the SDK with an addon. The addon registry 
+is similar to the example listed above but the manifest in the addon itself has some extra
+values to let the SDK know how the feature sould be integrated.
 
+An example of an addon which adds a bitmap font rendering tool to the SDK:
+~~~
+{
+	"name": "fonteditor",
+	"version": "0.1.0",
+	"author": "Game Closure",
+	"title": "Font Editor",
+	"scope": "tools",
+	"style": ["static/fonts.styl"],
+	"plugin": true
+}
+~~~
 
+There are a couple of extra fields in this manifest different from the `core` addons:
+
+:    1. title: This is the link title which will be used as a menu option on the left side in the page list
+    2. scope: In which group should the title be placed, if the groud does not exist then a new group will be added
+    3. style: A list of stylesheets which will be included
+    4. plugin: Sould be true, lets the SDK know the addon should be integrated in the menus
+
+The following items should be in the root of the addon:
+
+:    1. manifest.json: As specified above
+    2. index.js: A file which exports a load function which is invoked when the addon is loaded
+    3: plugin.js: This file adds the serve side functions to the addon to retrieve and save data
+    4: static/Pane.js: A directory called static with a file called Pane.js, this is the visible client side part of the addon
 
