@@ -440,7 +440,6 @@ at the file in its entirety here, then break down it's component
 pieces:
 
 ~~~
-import device;
 import ui.View;
 import ui.ImageView;
 
@@ -473,7 +472,6 @@ First, we need to import the classes and modules that are
 used within this class:
 
 ~~~
-import device;
 import ui.View;
 import ui.ImageView;
 ~~~
