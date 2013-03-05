@@ -7,6 +7,7 @@ html/guide/
 html/example/
 html/native/
 html/include/style.css
+html/cache.manifest
 example/*/*/build/
 example/*/*/sdk
 examples/out/
