@@ -9,6 +9,8 @@ ASSETS_ROOT="$DOC_ROOT/build/assets"
 OUT_ROOT="$DOC_ROOT/html"
 DOC_TEMPLATE="$DOC_ROOT/build/template.html"
 
+echo "DOC_ROOT=$DOC_ROOT"
+
 echo "
 
 var stylus = require('stylus');
@@ -129,3 +131,11 @@ echo "  Generating guide docs ..."
 convert_guide_source
 echo "  Generating native docs ..."
 convert_native_source
+
+echo "  Generating Cache.Manifest ..."
+echo "CACHE MANIFEST" > $OUT_ROOT/cache.manifest
+echo "# Revision `date +%s`" >> $OUT_ROOT/cache.manifest
+cd $OUT_ROOT && find . -type f -print >> ./cache.manifest  && cd $DOC_ROOT
+
+echo "Thanks for using the best build script ever written! Go forth and conquer the universe with most excellent documentation."
+
