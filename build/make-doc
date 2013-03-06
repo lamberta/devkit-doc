@@ -135,7 +135,10 @@ convert_native_source
 echo "  Generating Cache.Manifest ..."
 echo "CACHE MANIFEST" > $OUT_ROOT/cache.manifest
 echo "# Revision `date +%s`" >> $OUT_ROOT/cache.manifest
-cd $OUT_ROOT && find . -type f -print >> ./cache.manifest  && cd $DOC_ROOT
+echo "CACHE:" >> $OUT_ROOT/cache.manifest
+cd $OUT_ROOT && find . -type f \( -iname "*.htm*" -o -iname "*.js" -o -iname "*.css" \) -print >> ./cache.manifest && cd $DOC_ROOT
+echo "NETWORK:" >> $OUT_ROOT/cache.manifest
+echo "*" >> $OUT_ROOT/cache.manifest
 
 echo "Thanks for using the best build script ever written! Go forth and conquer the universe with most excellent documentation."
 
