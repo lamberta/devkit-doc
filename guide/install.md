@@ -80,13 +80,6 @@ $ basil help init
 
 Some commands can also take a `-h` argument to show help.
 
-If you're getting permission errors when installing to the
-`/usr/local` directory, try running this command:
-
-~~~
-$ sudo chown -R $(whoami) /usr/local
-~~~
-
 ## Update the DevKit
 
 To keep your copy of the DevKit up to date, run the update command:
