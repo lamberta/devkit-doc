@@ -34,7 +34,10 @@ The `files` options object has the following properties:
  * `volume {number}`
  * `path {string}` ---Add additional path information to the options path.
 
-Assets flagged as `background` loop automatically. Also, only one `background` sound can play at any given time (playing one `background` sound stops any currently-playing `background` sound).
+Assets flagged as `background` loop automatically. Also,
+only one `background` sound can play at any given time
+(playing one `background` sound stops any
+currently-playing `background` sound).
 
 For the examples on this page, we'll assume the following
 directory structure of a project:
