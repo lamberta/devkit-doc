@@ -34,9 +34,6 @@ The `files` options object has the following properties:
  * `volume {number}`
  * `path {string}` ---Add additional path information to the options path.
 
-Given the above directory structure for a project, multiple
-sound groups can be created using:
-
 For the examples on this page, we'll assume the following
 directory structure of a project:
 
