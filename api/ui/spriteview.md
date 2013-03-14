@@ -105,6 +105,8 @@ Parameters
 		 * `loop {boolean} = false` ---Continously loop an animation.
 		 * `delay {number} = 0` ---Delay in milliseconds between animation loop iterations.
 
+Either `iterations` or `loop` should be specified, but never both.  Using `loop` = `true` is the same as setting iterations = `Infinity`.  Since the animation never ends, the `callback` function is never invoked.
+
 Start an animation. After the specified number of
 `iterations`, the sprite returns to its `defaultAnimation`.
 
