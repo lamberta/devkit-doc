@@ -29,13 +29,15 @@ mapping audio files to their options.
 The `files` options object has the following properties:
 
  * `sources {}`
- * `background {boolean}` ---Set as the background music file, one per group.
+ * `background {boolean}` ---Background music
  * `loop {boolean}`
  * `volume {number}`
  * `path {string}` ---Add additional path information to the options path.
 
-Given the above directory structure for a project, multiple
-sound groups can be created using:
+Assets flagged as `background` loop automatically. Also,
+only one `background` sound can play at any given time
+(playing one `background` sound stops any
+currently-playing `background` sound).
 
 For the examples on this page, we'll assume the following
 directory structure of a project:
@@ -51,7 +53,8 @@ project
 │       ├── music/
 │       │   └── levelmusic.mp3
 │       └── effect/
-│           └── boink.mp3
+│           ├── boink.mp3
+│           └── warble.mp3
 └── src/
     └── Application.js
 ~~~
@@ -67,12 +70,14 @@ var audiomanager = new AudioManager({
     levelmusic: {
       path: 'music',
       volume: 0.5,
-      background: true,
-      loop: true
+      background: true
     },
     boink: {
+      path: 'effect'
+    },
+    warble: {
       path: 'effect',
-      background: false
+      loop: true
     }
   }
 });
