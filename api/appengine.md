@@ -55,15 +55,6 @@ Inherits from
 
 ## Methods
 
-### getCanvas ()
-
-Returns
-:    1. `{HTMLCanvasElement}`
-
-Returns the canvas element used to render graphics. If not
-running in a browser environment, return a canvas-like
-object. The HTML Canvas API is not supported completely on mobile devices.
-
 ### run ()
 
 Renders the application's scene graph and starts the animation loop.
@@ -150,11 +141,18 @@ Returns any events that haven't been dispatched by the engine yet.
 ### getElement ()
 
 Returns
+:    1. `{Canvas|div}`
+
+Returns the internal Canvas element used for rendering, or the root node if `device.useDOM` is `true`.
+
+### getCanvas ()
+
+Returns
 :    1. `{Canvas}`
 
-Returns the internal Canvas element used for rendering. If
-not in a browser, return a Canvas-like object. Not all of
-the HTML5 API is available across all devices.
+Returns the canvas element used to render graphics. If not
+running in a browser environment, returns a canvas-like
+object. The HTML5 Canvas API is not completely supported across all devices. Note: returns `null` if `device.useDOM` is `true`.
 
 ### getView ()
 
