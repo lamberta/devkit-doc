@@ -34,7 +34,6 @@ Parameters
 		 * `fontWeight {string} = 'normal'` ---How thick the characters are. Options: `'normal'`, `'bold'`, or a number weight.
 		 * `color {string} = "blue"` ---The color of the text.  See below for color string format.
 		 * `backgroundColor {string} = "blue"` ---The background color of the text view.  See below for color string format.
-		 * `outlineColor {string} = "blue"` ---Color of the outline surrounding the text.  See below for color string format.
 		 * `shadowColor {string} = "blue"` ---Color of the drop shadow behind the text.  See below for color string format.
 		 * `strokeWidth {number} = 2` ---Width of text stroke (outline or shadow).
 		 * `strokeColor {string} = undefined` ---The color of the stroke.
