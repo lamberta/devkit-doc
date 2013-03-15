@@ -453,6 +453,10 @@ exports = Class(ui.ImageView, function (supr) {
 
     supr(this, 'init', [opts]);
 
+    this.build();
+  };
+
+  this.build = function() {
     var startbutton = new ui.View({
       superview: this,
       x: 58,
@@ -503,7 +507,11 @@ exports = Class(ui.ImageView, function (supr) {
     });
 
     supr(this, 'init', [opts]);
+
+    //...
   };
+
+  //...
 });
 ~~~
 
