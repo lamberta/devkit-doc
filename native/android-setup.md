@@ -12,6 +12,7 @@ You will need some tools for Android development:
 + USB sync cable for your cellphone
 + Android SDK 15
 + Android NDK r8d
++ [Command Line Tools for Xcode](https://developer.apple.com/downloads) or [Xcode](https://itunes.apple.com/us/app/xcode/id497799835)
 + Game Closure DevKit (basil)
 
 For a guide on installing the Game Closure DevKit [please see this documentation](../guide/install.html).
@@ -21,6 +22,14 @@ For a guide on installing the Game Closure DevKit [please see this documentation
 Nearly all Android cellphones and tablets are supported, including all devices powered by processors in the ARM9 family on the ARMv5TE(J) architecture.  This means all TI OMAP processors.  For example the first Motorola Droid phone was powered by a TI OMAP 3430 built for the ARMv7 instruction set.
 
 Android version 2.2 (API level 8) is the minimum required version.  The original Motorola Droid received an over-the-air update for this in late 2010.  According to the [Android developer site](http://developer.android.com/about/dashboards/) only about 2.6% of cellphones that access Google Play are unsupported at this time by the Game Closure DevKit.  The first Android phone (the T-Mobile G1 / HTC Dream) is unsupported, as an example.
+
+## Install the Command Line Tools for Xcode
+
+The command line tools are just as good as Xcode for the GCDK and take up far less disk space, so get those unless you already have Xcode installed:
+
+[Command Line Tools for Xcode](https://developer.apple.com/downloads)
+
+Yes, you do need an Apple ID to download the packages, sorry about that. If you install Xcode from the App Store, the Command Line Tools are now an optional installation. You’ll need to enable them under Preferences > Downloads.
 
 ## Install the Android SDK
 
